@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect } from "react";
+import React, { Suspense, useState, useEffect, useMemo } from "react";
 
 // Traduction
 import { Loader } from "./ComponentTraduction";
@@ -15,14 +15,16 @@ const TypingAnimationT = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const updateTranslation = () => {
-    const newPhrases = [t("Home.developerJV"), t("Home.developerWeb")];
-    setPhrases(newPhrases);
-    setDisplayedText("");
-    setCurrentIndex(0);
-    setIsDeleting(false);
-    setCurrentPhraseIndex(0);
-  };
+  const updateTranslation = useMemo(() => {
+    return () => {
+      const newPhrases = [t("Home.developerJV"), t("Home.developerWeb")];
+      setPhrases(newPhrases);
+      setDisplayedText("");
+      setCurrentIndex(0);
+      setIsDeleting(false);
+      setCurrentPhraseIndex(0);
+    };
+  }, [t]);
 
   useEffect(() => {
     const typingInterval = setInterval(() => {
@@ -43,16 +45,26 @@ const TypingAnimationT = () => {
           );
         }
       }
+
+      if (isDeleting && currentIndex === 31) {
+        updateTranslation();
+      }
     }, 140);
 
     return () => {
       clearInterval(typingInterval);
     };
-  }, [currentIndex, isDeleting, phrases, currentPhraseIndex]);
+  }, [
+    currentIndex,
+    isDeleting,
+    phrases,
+    currentPhraseIndex,
+    updateTranslation,
+  ]);
 
   useEffect(() => {
     updateTranslation();
-  }, [i18n.language]);
+  }, [i18n.language, updateTranslation]);
 
   return (
     <div>
