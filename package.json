@@ -19,7 +19,6 @@
     "body-parser": "^1.20.2",
     "emailjs-com": "^3.2.0",
     "express": "^4.18.2",
-    "gh-pages": "^6.1.1",
     "i18next": "^22.0.2",
     "i18next-browser-languagedetector": "^6.1.8",
     "i18next-http-backend": "^1.4.4",
@@ -41,7 +40,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
@@ -66,5 +64,8 @@
   "main": "index.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
 }
