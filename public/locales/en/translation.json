@@ -1,0 +1,100 @@
+{
+  "Welcome": "Welcome",
+  "Home": {
+    "name": "Hello, I am Arthur BRU",
+    "developerJV": "Hello, I am a video game developer.",
+    "developerWeb": "Hello, I am a web developer.",
+    "role": "C++ Developer",
+    "info": "Currently, I am studying at Gaming Campus in my second year of G.Tech, and I am seeking an internship for May 2024.",
+    "discover": "Discover Me",
+    "title1": "About Me",
+    "aboutMe": "Thanks to my experiences, I have been able to refine my technical skills and collaborate effectively with other fields such as the artistic or marketing field. Outside of my studies, I am passionate about basketball!",
+    "title2": "Technologies and Tools",
+    "C": "C Language",
+    "C++": "C++ Language",
+    "PHP": "PHP",
+    "JavaScript": "JavaScript",
+    "HTML": "HTML",
+    "CSS": "CSS",
+    "MySQL": "MySQL",
+    "MySQLDescription": "I have known and practiced MySQL for 4 years, using phpMyAdmin in particular. My experience with LUA and PHP has allowed me to make significant progress in data manipulation with MySQL.<br></br> I have primarily used two interfaces to work with databases:<br></br><br></br>- phpMyAdmin: For its ease of use, management of common tasks, and security.<br></br>- DBeaver: For its advanced features and cross-platform support.",
+    "Git": "Git",
+    "GitDescription": "I started using Git in October 2023, and since then, it has become an essential tool for me. Its usefulness and speed, once the commands are mastered, make it a fantastic tool. I am comfortable with standard commands for project management.",
+    "Bootstrap": "Bootstrap 5",
+    "Python": "Python",
+    "React": "React (Front-End)",
+    "LUA": "LUA"
+  },
+  "ClassicNavBar": {
+    "Home": "Home",
+    "AboutMe": "About Me",
+    "Projects": "Projects",
+    "CV": "CV",
+    "ContactMe": "Contact Me"
+  },
+  "TypeCV": {
+    "CVJV": "Video Game CV",
+    "CVWeb": "Web CV"
+  },
+  "TypeProjects": {
+    "ProjectsJV": "Video Game projects",
+    "ProjectsWeb": "Web Projects"
+  },
+  "TopNavBarProjects": {
+    "Home": "Home",
+    "AboutMe": "About Me",
+    "Language": "Language",
+    "Projects": "Projects",
+    "CV": "CV",
+    "ContactMe": "Contact Me"
+  },
+  "BottomNavBarProjects": {
+    "Category": "Category",
+    "C": "C Language",
+    "C++": "C++ Language",
+    "Python": "Python",
+    "LUA": "LUA",
+    "PaymentPage": "Payment Page"
+  },
+  "VideoGamesProjects": {
+    "learnMore": "Learn More",
+    "helluvaRevenge": "Here is a video game created within 4 weeks; we had to handle all aspects of development and asset creation/research. The game was developed in C++ using the SFML library on a custom engine.<br></br>- Group of 6 students.",
+    "towerDefense": "Here is a Tower Defense game developed in 1 week with the theme of League of Legends.<br>- Group of 5 students.",
+    "platformer": "Here is a 2D platformer created in 2 weeks using an engine provided by the instructor.<br>- Group of 4 students.",
+    "bibliotheque": "In this project, we had to create our own libraries. We had 1 week to develop the following libraries: Vector, Container, Collision, and an initial version of GameObject. We also explored unit testing to test our libraries.<br>- Group of 3 students.",
+    "textuelGameConsole": "Here is the first project implemented in C++, it's a text-based, turn-based game based on the theme of One Piece. It was a project to transition from C to C++ to solidify the fundamentals; we had 1 week.<br>- Group of 2 students.",
+    "shootEmUp": "Here is the major project completed at the end of the first year within a span of 2 weeks. We collaborated with the Business department, which was responsible for promoting the game, while we focused on its development.<br>- Group of 6 students.",
+    "luaPart1": "Before joining the Gaming Campus, I developed in LUA on the FiveM platform for about 4 years. This experience allowed me to acquire strong knowledge in database management and creation, and I had the opportunity to work on Linux to manage various servers. Over these 4 years, I also created the ",
+    "luaPart2": ", allowing me to share my content with the community. Today, I have stopped the Polo Leaks project as I have explored all the possibilities it offered."
+  },
+  "WebProjects": {
+    "learnMore": "Learn More",
+    "Celtic": "Website for a basketball association created in 2 months. We were 100% volunteers to do it.<br></br>- Personal project, we were 2 developers.",
+    "Eko": "Eko is an online sales website that also offers subscriptions. It was completed in 2 weeks.<br></br>- Group of 4 students",
+    "BAImmobilier": "Website for the Bac, it was my first website created. The goal was to create a fictitious but realistic company.",
+    "GoudGuys": "Website for an esports association created in 1 month during an internship.<br></br>- We were 2 developers.",
+    "ShoppingSystem": "Here is a Payment page and a Cart inspired by the JD Sport website, created in 1 week.<br></br>- Personal project<br></br>- Payment API: Stripe & Paypal"
+  },
+  "ContactMe": {
+    "title": "Contact Me",
+    "name": "Last Name",
+    "prenom": "First Name",
+    "mail": "Mail",
+    "message": "Message",
+    "submit": "Submit",
+    "submitInProgress": "Submit in progress..."
+  },
+  "DropdownCV": {
+    "CVWeb": "WEB CV",
+    "CVJV": "Video Games CV"
+  },
+  "DropdownProjects": {
+    "ProjectVideoGames": "Video Games Projects",
+    "ProjectWeb": "Web Projects"
+  },
+  "DropdownLanguage": {
+    "FrenchLanguage": "French",
+    "EnglishLanguage": "English",
+    "SpanishLanguage": "Spanish"
+  }
+}
