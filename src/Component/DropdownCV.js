@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useRef, useEffect } from "react";
-import CVArthurCPP from "../Download/CV-Arthur-CPP.pdf";
+import CVArthurCPP from "../Download/CV-Arthur-JV.pdf";
 import CVArthurWEB from "../Download/CV-Arthur-WEB.pdf";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -50,7 +50,7 @@ const DropdownCVT = ({ t }) => {
           <a
             className="link-navbar dropdownSize fontsRegular"
             href={CVArthurCPP}
-            download="CV-Arthur-CPP"
+            download="CV-Arthur-JV"
             target="_blank"
             rel="noreferrer"
           >

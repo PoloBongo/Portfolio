@@ -10,6 +10,8 @@ import { withTranslation } from "react-i18next";
 
 const ContactMeT = ({ t }) => {
   const [showGif, setShowGif] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationMessage, setNotificationMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,27 +26,35 @@ const ContactMeT = ({ t }) => {
     const templateId = "react_contact_form";
     const userId = "0V7hrtVud6jFHapQ2";
 
+    setShowGif(true);
+
     emailjs
       .send(serviceId, templateId, formData, userId)
       .then((response) => {
         console.log("mail send", response);
+        setNotificationMessage("Mail envoyé avec succès!");
+        setShowNotification(true);
+        setTimeout(() => {
+          setShowGif(false);
+          setFormData({
+            from_name: "",
+            from_prenom: "",
+            reply_to: "",
+            message: "",
+          });
+          setShowNotification(false);
+        }, 7000);
       })
       .catch((error) => {
         console.error("mail failed", error);
+        setNotificationMessage("Échec de l'envoi du mail.");
+        setShowNotification(true);
+
+        setTimeout(() => {
+          setShowGif(false);
+          setShowNotification(false);
+        }, 7000);
       });
-  };
-
-  const startAnimationSubmit = (e = null) => {
-    if (e) {
-      e.preventDefault();
-    }
-
-    setShowGif(true);
-
-    setTimeout(() => {
-      handleSubmit(e);
-      setShowGif(false);
-    }, 7000);
   };
 
   const [formData, setFormData] = useState({
@@ -78,6 +88,7 @@ const ContactMeT = ({ t }) => {
                       <input
                         type="text"
                         name="from_name"
+                        id="name"
                         placeholder="Saisissez votre Nom"
                         value={formData.from_name}
                         onChange={handleChange}
@@ -93,6 +104,7 @@ const ContactMeT = ({ t }) => {
                       <input
                         type="text"
                         name="from_prenom"
+                        id="prenom"
                         placeholder="Saisissez votre Prénom"
                         onChange={handleChange}
                         value={formData.from_prenom}
@@ -110,6 +122,7 @@ const ContactMeT = ({ t }) => {
                   <input
                     type="mail"
                     name="reply_to"
+                    id="mail"
                     placeholder="Saisissez votre Mail"
                     value={formData.reply_to}
                     onChange={handleChange}
@@ -125,6 +138,7 @@ const ContactMeT = ({ t }) => {
                   <textarea
                     placeholder="Votre Message"
                     name="message"
+                    id="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
@@ -135,7 +149,7 @@ const ContactMeT = ({ t }) => {
                 <button
                   type="submit"
                   className="submitForm relativePosition"
-                  onClick={(e) => startAnimationSubmit(e)}
+                  onClick={(e) => handleSubmit(e)}
                 >
                   {showGif ? (
                     <img
@@ -156,6 +170,9 @@ const ContactMeT = ({ t }) => {
           </div>
         </div>
       </div>
+      {showNotification && (
+        <div className="notification fontsRegular">{notificationMessage}</div>
+      )}
     </div>
   );
 };
