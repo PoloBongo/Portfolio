@@ -17,7 +17,7 @@ import { Loader } from "./Component/ComponentTraduction";
 import { withTranslation } from "react-i18next";
 
 // Speed Page
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const HomeT = ({ t }) => {
   const [loading, setLoading] = useState(true);
