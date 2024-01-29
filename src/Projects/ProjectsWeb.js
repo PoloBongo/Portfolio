@@ -8,10 +8,10 @@ import backgroundProjectBAImmobilier from "../img/backgroundBAImmobilier.png";
 import pagePaiement from "../img/pagePaiement.png";
 import backgroundGoudGuys from "../img/backgroundGoudGuys.png";
 // Preview Video Projects
-import celticVideo from "../video/celticLaricheBasketPreview.mp4";
-import BAImmobilierVideo from "../video/BAImmobilierPreview.mp4";
-import ekoVideo from "../video/ekoWebsitePreview.mp4";
-import paymentPageVideo from "../video/paymentPagePreview.mp4";
+import celticVideo from "./celticLaricheBasketPreview.mp4";
+import BAImmobilierVideo from "./BAImmobilierPreview.mp4";
+import ekoVideo from "./ekoWebsitePreview.mp4";
+import paymentPageVideo from "./paymentPagePreview.mp4";
 
 import NavbarProjects from "../Component/NavbarProjects";
 

@@ -8,9 +8,9 @@ import backgroundCPPBibliotheque from "../img/backgroundCPPBibliotheque.jpg";
 import backgroundCPPJeuTextuel from "../img/backgroundCPPJeuTextuel.png";
 import backgroundProjectLUA from "../img/backgroundLUA.png";
 
-import helluvaRevengeVideo from "../video/helluvaRevengePreview.mp4";
-import towerDefenseVideo from "../video/TowerDefensePreview.mp4";
-import shootEmUpVideo from "../video/shootEmUpPreview.mp4";
+import helluvaRevengeVideo from "./helluvaRevengePreview.mp4";
+import towerDefenseVideo from "./TowerDefensePreview.mp4";
+import shootEmUpVideo from "./shootEmUpPreview.mp4";
 
 import NavbarProjects from "../Component/NavbarProjects";
 
