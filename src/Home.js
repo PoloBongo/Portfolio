@@ -16,6 +16,9 @@ import { faLinkedin, faSquareGithub } from "@fortawesome/free-brands-svg-icons";
 import { Loader } from "./Component/ComponentTraduction";
 import { withTranslation } from "react-i18next";
 
+// Speed Page
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 const HomeT = ({ t }) => {
   const [loading, setLoading] = useState(true);
   const [fade, setFade] = useState(true);
@@ -64,6 +67,7 @@ const HomeT = ({ t }) => {
 
   return (
     <div className="Home">
+      <SpeedInsights />
       {loading && sessionStorage.getItem("AntiPikachu") === null ? (
         <Load />
       ) : (
