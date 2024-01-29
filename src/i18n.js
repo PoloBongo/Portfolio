@@ -19,7 +19,7 @@ i18n
     debug: true,
     fallbackLng: "en",
     backend: {
-      loadPath: "build/locales/{{lng}}/translation.json",
+      loadPath: "locales/en/translation.json",
     },
     // keySeparator: false,
 
