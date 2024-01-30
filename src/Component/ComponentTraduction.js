@@ -1,6 +1,8 @@
 import React, { Suspense } from "react";
 import { useTranslation, withTranslation } from "react-i18next";
 
+import pikachuLoad from "../img/pikachuForm.gif";
+
 // page uses the hook
 const ComponentTraductionT = ({ t }) => {
   const { i18n } = useTranslation();
@@ -46,8 +48,8 @@ export default function ComponentTraduction() {
 }
 
 const Loader = () => (
-  <div className="App">
-    <div>loading...</div>
+  <div className="Home-header centerLoad">
+    <img src={pikachuLoad} alt="submit pikachu load" />
   </div>
 );
 export { Loader };

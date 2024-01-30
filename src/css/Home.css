@@ -1066,3 +1066,8 @@ button::placeholder {
     max-width: 90%;
   }
 }
+
+.centerLoad {
+  display: flex;
+  justify-content: center;
+}
