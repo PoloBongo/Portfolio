@@ -52,7 +52,7 @@ const LoadT = () => {
   } else if (currentLanguage === "en") {
     targetValue = 2380;
   } else {
-    targetValue = 0;
+    targetValue = 2380;
   }
   const textAnimation = useSpring({
     from: { transform: `translateX(0%) rotate(20deg) scale(1.3) scaleX(-1)` },
