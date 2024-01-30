@@ -3,14 +3,16 @@ import { useSpring, animated } from "react-spring";
 import "../css/Home.css";
 
 import pikachuWait from "../img/pikachuWait.gif";
-import bubbleSpeech from "../img/bubbleSpeech.png";
+import bubbleSpeechFR from "../img/bubbleSpeechFR.png";
+import bubbleSpeechEN from "../img/bubbleSpeechEN.png";
+import bubbleSpeechES from "../img/bubbleSpeechES.png";
 
 // Traduction
 import { Loader } from "./ComponentTraduction";
 import { withTranslation, useTranslation } from "react-i18next";
 
 const LoadT = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const currentLanguage = i18n.language;
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -34,33 +36,24 @@ const LoadT = () => {
   });
 
   const bubbleAnimation = useSpring({
-    from: { transform: `translateX(0%) rotate(20deg) scale(1.3)` },
+    from: { transform: `translateX(0%) scale(1.3)` },
     to: {
-      transform: `translateX(-${
-        windowWidth * 0.55
-      }px) rotate(20deg) scale(1.3)`,
+      transform: `translateX(-${windowWidth * 0.55}px) scale(1.3)`,
     },
     config: { duration: 3000 },
   });
 
-  let targetValue;
+  let bubbleImage;
 
   if (currentLanguage === "fr") {
-    targetValue = 2119;
+    bubbleImage = bubbleSpeechFR;
   } else if (currentLanguage === "es") {
-    targetValue = 1970;
+    bubbleImage = bubbleSpeechEN;
   } else if (currentLanguage === "en") {
-    targetValue = 2380;
+    bubbleImage = bubbleSpeechES;
   } else {
-    targetValue = 2380;
+    bubbleImage = bubbleSpeechEN;
   }
-  const textAnimation = useSpring({
-    from: { transform: `translateX(0%) rotate(20deg) scale(1.3) scaleX(-1)` },
-    to: {
-      transform: `translateX(-${targetValue}px) rotate(20deg) scale(1.3) scaleX(-1)`,
-    },
-    config: { duration: 3000 },
-  });
 
   return (
     <div>
@@ -71,14 +64,11 @@ const LoadT = () => {
           style={pikachuAnimation}
         />
         <animated.img
-          src={bubbleSpeech}
+          src={bubbleImage}
           alt="Pikachu"
           className="bubbleStyle"
           style={bubbleAnimation}
         />
-        <animated.div className="textStyle" style={textAnimation}>
-          {t("Welcome")}
-        </animated.div>
       </div>
     </div>
   );
