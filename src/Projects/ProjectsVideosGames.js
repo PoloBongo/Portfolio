@@ -11,6 +11,7 @@ import backgroundProjectLUA from "../img/backgroundLUA.png";
 import helluvaRevengeVideo from "./helluvaRevengePreview.mp4";
 import towerDefenseVideo from "./TowerDefensePreview.mp4";
 import shootEmUpVideo from "./shootEmUpPreview.mp4";
+import jeuTextuelPreview from "./jeuTextuelPreview.mp4";
 
 import NavbarProjects from "../Component/NavbarProjects";
 
@@ -245,11 +246,17 @@ const ProjectsVideosGamesT = ({ t }) => {
           </div>
           <div className="projects" id="C++">
             <div className="flexIMG">
-              <img
-                src={backgroundCPPJeuTextuel}
-                alt="Jeu Textuel en Console"
-                className="sizeProjectIMG"
-              ></img>
+              <div className="preview-div">
+                <img
+                  src={backgroundCPPJeuTextuel}
+                  alt="Jeu Textuel en Console"
+                  className="sizeProjectIMG"
+                ></img>
+                <video className="preview-video" loop muted>
+                  <source src={jeuTextuelPreview} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
             <h4 className="HelluvaRevengeTitle fontsRegular">
               Jeu Textuel - Console
