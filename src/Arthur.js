@@ -7,6 +7,9 @@ import PopupMySql from "./Component/PopupLanguage.js";
 import Load from "./Component/Load.js";
 import Fade from "./Component/Fade.js";
 
+// Balise React
+import { Helmet } from "react-helmet";
+
 // Tout les imports d'icon / logo / images
 import imgProgrammer from "./img/programmer.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -68,6 +71,13 @@ const HomeT = ({ t }) => {
   return (
     <div className="Home">
       <SpeedInsights />
+      <Helmet>
+        <title>Arthur Portfolio G.Tech</title>
+        <meta
+          name="description"
+          content="Présentation de Arthur en détail avec mes compétences, skills et passions. Gaming Campus, G.Tech"
+        />
+      </Helmet>
       {loading && sessionStorage.getItem("AntiPikachu") === null ? (
         <Load />
       ) : (

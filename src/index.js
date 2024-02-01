@@ -6,6 +6,7 @@ import ProjectsVideosGames from "./Projects/ProjectsVideosGames";
 import ContactMe from "./Projects/ContactMe";
 import "./index.css";
 import Arthur from "./Arthur";
+import Layout from "./Component/Layout";
 import reportWebVitals from "./reportWebVitals";
 
 import "./i18n";
@@ -16,7 +17,14 @@ root.render(
     <Router>
       <Routes>
         <Route path="/arthur" element={<Arthur />} />
-        <Route path="/" element={<Arthur />} />
+        <Route
+          path="/"
+          element={
+            <Layout canonicalUrl="https://www.arthur-portfolio.dev/arthur">
+              <Arthur />
+            </Layout>
+          }
+        />
         <Route path="/projectsWeb" element={<ProjectsWeb />} />
         <Route path="/projectsVideosGames" element={<ProjectsVideosGames />} />
         <Route path="/contactMe" element={<ContactMe />} />
