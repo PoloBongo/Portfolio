@@ -68,8 +68,9 @@ const ContactMeT = ({ t }) => {
   };
 
   return (
-    <div className="Home-header">
+    <div className="Home-header overflowHidden">
       <Navbar />
+      <div className="traitSeparator"></div>
       <div>
         <div className="contactMeFlex">
           <h3 className="fontsBold">{t("ContactMe.title")}</h3>

@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faSquareGithub } from "@fortawesome/free-brands-svg-icons";
 
 // Traduction
-import { Loader } from "./Component/ComponentTraduction";
+import { Loader } from "./Component/ComponentTraduction.js";
 import { withTranslation } from "react-i18next";
 
 // Speed Page
@@ -71,13 +71,14 @@ const HomeT = ({ t }) => {
       {loading && sessionStorage.getItem("AntiPikachu") === null ? (
         <Load />
       ) : (
-        <header className="Home-header">
+        <header className="Home-header overflow-x-Hidden">
           {fade ? (
             <Fade />
           ) : (
             <>
               <div className="takeSize">
                 <Navbar />
+                <div className="traitSeparator"></div>
                 <div className="aboutMe">
                   <div className="aboutMeRightPart">
                     <div className="imagePlacement">

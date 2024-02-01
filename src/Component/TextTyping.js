@@ -4,6 +4,8 @@ import React, { Suspense, useState, useEffect, useMemo } from "react";
 import { Loader } from "./ComponentTraduction";
 import { useTranslation } from "react-i18next";
 
+// ... (imports remain unchanged)
+
 const TypingAnimationT = () => {
   const { t, i18n } = useTranslation();
   const [phrases, setPhrases] = useState([
@@ -29,25 +31,25 @@ const TypingAnimationT = () => {
   useEffect(() => {
     const typingInterval = setInterval(() => {
       const currentText = phrases[currentPhraseIndex];
+
       if (currentIndex < currentText.length && !isDeleting) {
         setDisplayedText((prevText) => prevText + currentText[currentIndex]);
         setCurrentIndex((prevIndex) => prevIndex + 1);
-      } else if (currentIndex > 31 && isDeleting) {
-        if (currentText[currentIndex] === "développeur") {
-          setDisplayedText((prevText) => prevText.slice(0, -1));
-          setCurrentIndex((prevIndex) => prevIndex - 1);
-        }
+      } else if (currentIndex > 0 && isDeleting) {
+        setDisplayedText((prevText) => prevText.slice(0, -1));
+        setCurrentIndex((prevIndex) => prevIndex - 1);
       } else {
         setIsDeleting((prevDeleting) => !prevDeleting);
-        if (isDeleting) {
+
+        if (isDeleting && currentIndex === 0) {
           setCurrentPhraseIndex((prevIndex) =>
             prevIndex === phrases.length - 1 ? 0 : prevIndex + 1
           );
         }
-      }
 
-      if (isDeleting && currentIndex === 31) {
-        updateTranslation();
+        if (isDeleting && currentIndex === currentText.length) {
+          updateTranslation();
+        }
       }
     }, 140);
 

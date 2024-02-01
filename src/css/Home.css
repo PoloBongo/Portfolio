@@ -45,6 +45,14 @@
   color: white;
 }
 
+.overflowHidden {
+  overflow: hidden;
+}
+
+.overflow-x-Hidden {
+  overflow-x: hidden;
+}
+
 .Home-link {
   color: #61dafb;
 }
@@ -53,9 +61,9 @@
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
-  flex-wrap: wrap;
-  width: -webkit-fill-available;
-  margin-right: 30px;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin-right: 1vw;
 }
 
 .order-list-navbar-ul {
@@ -318,6 +326,23 @@
   padding: 0 25px 0 45px;
 }
 
+.sizeArthur {
+  font-size: larger;
+}
+
+.width {
+  width: 100%;
+}
+
+.titleName {
+  display: flex;
+  flex-wrap: wrap;
+  width: inherit;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 3vw;
+}
+
 .rectangleGlobal {
   display: flex;
   flex-wrap: wrap;
@@ -481,8 +506,7 @@
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .categoryProject {
@@ -783,7 +807,17 @@ button::placeholder {
   }
 }
 
+@media (max-width: 650px) {
+  .order-list-navbar-ul {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
 @media (max-width: 500px) {
+  .titleName {
+    justify-content: center;
+  }
   .navbarHome {
     display: none;
     max-height: 0;
@@ -792,7 +826,8 @@ button::placeholder {
     right: 0;
     margin: 1%;
     height: auto;
-    z-index: 100;
+    z-index: 1000;
+    width: auto;
   }
   .categoryProject {
     padding: 5px 20px 5px 15px;
@@ -821,6 +856,18 @@ button::placeholder {
     bottom: 0;
     right: 0;
     position: fixed;
+  }
+  .bubbleHomeNavbarBtn {
+    display: none;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border-radius: 10% 30% 50% 70%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: 10000;
   }
   .traitSeparator {
     display: none;
