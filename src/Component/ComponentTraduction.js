@@ -3,42 +3,9 @@ import { useTranslation, withTranslation } from "react-i18next";
 
 import pikachuLoad from "../img/pikachuForm.webp";
 
-const FLAG_CLASS = "pikachuForm";
-
-const preloadImage = (url) => {
-  const img = new Image();
-  img.src = url;
-};
-
 // page uses the hook
 const ComponentTraductionT = ({ t }) => {
   const { i18n } = useTranslation();
-
-  useEffect(() => {
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (
-          mutation.addedNodes &&
-          mutation.addedNodes.length > 0 &&
-          mutation.addedNodes[0].classList &&
-          mutation.addedNodes[0].classList.contains(FLAG_CLASS)
-        ) {
-          preloadImage(pikachuLoad);
-        }
-      });
-    });
-    const observerConfig = {
-      childList: true,
-      subtree: true,
-    };
-
-    const targetNode = document.body;
-
-    observer.observe(targetNode, observerConfig);
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   return (
     <div>
