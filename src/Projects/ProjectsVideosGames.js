@@ -1,12 +1,12 @@
 import React, { Suspense, useEffect, useState } from "react";
 import "../css/Home.css";
 
-import backgroundProjectHelluvaRevenge from "../img/backgroundHelluvaRevenge.png";
-import backgroundProjectLOL from "../img/backgroundTowerDefenseLOL.jpg";
-import backgroundProjectShootEmUp from "../img/shoot-em-up.png";
-import backgroundCPPBibliotheque from "../img/backgroundCPPBibliotheque.jpg";
-import backgroundCPPJeuTextuel from "../img/backgroundCPPJeuTextuel.png";
-import backgroundProjectLUA from "../img/backgroundLUA.png";
+import backgroundProjectHelluvaRevenge from "../img/backgroundHelluvaRevenge.webp";
+import backgroundProjectLOL from "../img/backgroundTowerDefenseLOL.webp";
+import backgroundProjectShootEmUp from "../img/shoot-em-up.webp";
+import backgroundCPPBibliotheque from "../img/backgroundCPPBibliotheque.webp";
+import backgroundCPPJeuTextuel from "../img/backgroundCPPJeuTextuel.webp";
+import backgroundProjectLUA from "../img/backgroundLUA.webp";
 
 import helluvaRevengeVideo from "./helluvaRevengePreview.mp4";
 import towerDefenseVideo from "./TowerDefensePreview.mp4";

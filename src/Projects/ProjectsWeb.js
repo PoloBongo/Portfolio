@@ -2,11 +2,11 @@ import React, { Suspense, useEffect, useState } from "react";
 import "../css/Home.css";
 
 // Preview Minia Projects
-import backgroundProjectCeltic from "../img/backgroundCeltic.png";
-import backgroundProjectEko from "../img/backgroundEko.png";
-import backgroundProjectBAImmobilier from "../img/backgroundBAImmobilier.png";
-import pagePaiement from "../img/pagePaiement.png";
-import backgroundGoudGuys from "../img/backgroundGoudGuys.png";
+import backgroundProjectCeltic from "../img/backgroundCeltic.webp";
+import backgroundProjectEko from "../img/backgroundEko.webp";
+import backgroundProjectBAImmobilier from "../img/backgroundBAImmobilier.webp";
+import pagePaiement from "../img/pagePaiement.webp";
+import backgroundGoudGuys from "../img/backgroundGoudGuys.webp";
 // Preview Video Projects
 import celticVideo from "./celticLaricheBasketPreview.mp4";
 import BAImmobilierVideo from "./BAImmobilierPreview.mp4";

@@ -2,10 +2,10 @@ import React, { Suspense, useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
 import "../css/Home.css";
 
-import pikachuWait from "../img/pikachuWait.gif";
-import bubbleSpeechFR from "../img/bubbleSpeechFR.png";
-import bubbleSpeechEN from "../img/bubbleSpeechEN.png";
-import bubbleSpeechES from "../img/bubbleSpeechES.png";
+import pikachuWait from "../img/pikachuWait.webp";
+import bubbleSpeechFR from "../img/bubbleSpeechFR.webp";
+import bubbleSpeechEN from "../img/bubbleSpeechEN.webp";
+import bubbleSpeechES from "../img/bubbleSpeechES.webp";
 
 // Traduction
 import { Loader } from "./ComponentTraduction";

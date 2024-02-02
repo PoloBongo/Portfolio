@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 // country flag
-import France from "../img/flag/france.png";
-import Anglais from "../img/flag/anglais.png";
-import Espagne from "../img/flag/espagne.png";
+import France from "../img/flag/france.webp";
+import Anglais from "../img/flag/anglais.webp";
+import Espagne from "../img/flag/espagne.webp";
 
 // Traduction
 import ComponentTraductionProject from "./ComponentTraduction";
@@ -49,7 +49,10 @@ const DropdownTraduction = () => {
   return (
     <div className="dropdown" ref={dropdownRef}>
       <li className="order-list-navbar-li">
-        <button className="dropbtn fontsBold displayBtn" onClick={toggleDropdown}>
+        <button
+          className="dropbtn fontsBold displayBtn"
+          onClick={toggleDropdown}
+        >
           <img src={getFlag(i18n.language)} alt="Drapeaux"></img>
         </button>
       </li>
