@@ -2,7 +2,7 @@ import React, { Suspense, useState } from "react";
 import "../css/Home.css";
 import Navbar from "../Component/Navbar";
 import emailjs from "emailjs-com";
-import pikachuForm from "../img/pikachuForm.gif";
+import pikachuForm from "../img/pikachuForm.webp";
 
 // Traduction
 import { Loader } from "../Component/ComponentTraduction";
