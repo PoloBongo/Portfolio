@@ -11,6 +11,11 @@ import bubbleSpeechES from "../img/bubbleSpeechES.webp";
 import { Loader } from "./ComponentTraduction";
 import { withTranslation, useTranslation } from "react-i18next";
 
+const preloadImage = (url) => {
+  const img = new Image();
+  img.src = url;
+};
+
 const LoadT = () => {
   const { i18n } = useTranslation();
   const currentLanguage = i18n.language;
@@ -56,11 +61,6 @@ const LoadT = () => {
   }
 
   useEffect(() => {
-    const preloadImage = (url) => {
-      const img = new Image();
-      img.src = url;
-    };
-
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (
@@ -70,6 +70,9 @@ const LoadT = () => {
           mutation.addedNodes[0].classList.contains("pikachu")
         ) {
           preloadImage(pikachuWait);
+          preloadImage(bubbleSpeechFR);
+          preloadImage(bubbleSpeechEN);
+          preloadImage(bubbleSpeechES);
         }
       });
     });

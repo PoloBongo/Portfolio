@@ -19,6 +19,13 @@ import NavbarProjects from "../Component/NavbarProjects";
 import { Loader } from "../Component/ComponentTraduction";
 import { withTranslation } from "react-i18next";
 
+const FLAG_CLASS = "backgroundVideosGames";
+
+const preloadImage = (url) => {
+  const img = new Image();
+  img.src = url;
+};
+
 const ProjectsVideosGamesT = ({ t }) => {
   useEffect(() => {
     // Preview des projects
@@ -92,6 +99,37 @@ const ProjectsVideosGamesT = ({ t }) => {
   const handleNavbarBtnClick = () => {
     setShowNavbarBool(!showNavbarBool);
   };
+
+  useEffect(() => {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.addedNodes &&
+          mutation.addedNodes.length > 0 &&
+          mutation.addedNodes[0].classList &&
+          mutation.addedNodes[0].classList.contains(FLAG_CLASS)
+        ) {
+          preloadImage(backgroundProjectHelluvaRevenge);
+          preloadImage(backgroundProjectLOL);
+          preloadImage(backgroundProjectShootEmUp);
+          preloadImage(backgroundCPPBibliotheque);
+          preloadImage(backgroundCPPJeuTextuel);
+          preloadImage(backgroundProjectLUA);
+        }
+      });
+    });
+    const observerConfig = {
+      childList: true,
+      subtree: true,
+    };
+
+    const targetNode = document.body;
+
+    observer.observe(targetNode, observerConfig);
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <div className="Home-header">

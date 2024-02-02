@@ -11,6 +11,9 @@ import ComponentTraductionProject from "./ComponentTraduction";
 
 import "../css/Home.css";
 
+const FLAG_CLASS = "flag";
+const FADE_DURATION = "2s";
+
 const getFlag = (language) => {
   switch (language) {
     case "fr":
@@ -22,6 +25,11 @@ const getFlag = (language) => {
     default:
       return France;
   }
+};
+
+const preloadImage = (url) => {
+  const img = new Image();
+  img.src = url;
 };
 
 const DropdownTraduction = () => {
@@ -46,6 +54,34 @@ const DropdownTraduction = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.addedNodes &&
+          mutation.addedNodes.length > 0 &&
+          mutation.addedNodes[0].classList &&
+          mutation.addedNodes[0].classList.contains(FLAG_CLASS)
+        ) {
+          preloadImage(France);
+          preloadImage(Anglais);
+          preloadImage(Espagne);
+        }
+      });
+    });
+    const observerConfig = {
+      childList: true,
+      subtree: true,
+    };
+
+    const targetNode = document.body;
+
+    observer.observe(targetNode, observerConfig);
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <div className="dropdown" ref={dropdownRef}>
       <li className="order-list-navbar-li">
@@ -53,7 +89,7 @@ const DropdownTraduction = () => {
           className="dropbtn fontsBold displayBtn"
           onClick={toggleDropdown}
         >
-          <img src={getFlag(i18n.language)} alt="Drapeaux"></img>
+          <img src={getFlag(i18n.language)} alt="Drapeaux" loading="lazy"></img>
         </button>
       </li>
       {showDropdown && (
@@ -61,7 +97,9 @@ const DropdownTraduction = () => {
           className="dropdown-content"
           style={{
             overflow: "hidden",
-            animation: `${showDropdown ? "fadeIn" : "fadeOut"} 2s ease`,
+            animation: `${
+              showDropdown ? "fadeIn" : "fadeOut"
+            } ${FADE_DURATION} ease`,
           }}
         >
           <ComponentTraductionProject />
