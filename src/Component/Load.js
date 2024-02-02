@@ -55,6 +55,37 @@ const LoadT = () => {
     bubbleImage = bubbleSpeechEN;
   }
 
+  useEffect(() => {
+    const preloadImage = (url) => {
+      const img = new Image();
+      img.src = url;
+    };
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.addedNodes &&
+          mutation.addedNodes.length > 0 &&
+          mutation.addedNodes[0].classList &&
+          mutation.addedNodes[0].classList.contains("pikachu")
+        ) {
+          preloadImage(pikachuWait);
+        }
+      });
+    });
+    const observerConfig = {
+      childList: true,
+      subtree: true,
+    };
+
+    const targetNode = document.body;
+
+    observer.observe(targetNode, observerConfig);
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <div>
       <div className="pikachu">
