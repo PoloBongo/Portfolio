@@ -7,13 +7,16 @@ import PopupMySql from "./Component/PopupLanguage.js";
 import Load from "./Component/Load.js";
 import Fade from "./Component/Fade.js";
 
+// Balise React
+import { Helmet } from "react-helmet";
+
 // Tout les imports d'icon / logo / images
 import imgProgrammer from "./img/programmer.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faSquareGithub } from "@fortawesome/free-brands-svg-icons";
 
 // Traduction
-import { Loader } from "./Component/ComponentTraduction";
+import { Loader } from "./Component/ComponentTraduction.js";
 import { withTranslation } from "react-i18next";
 
 // Speed Page
@@ -68,16 +71,24 @@ const HomeT = ({ t }) => {
   return (
     <div className="Home">
       <SpeedInsights />
+      <Helmet>
+        <title>Arthur Portfolio G.Tech</title>
+        <meta
+          name="description"
+          content="Présentation de Arthur en détail avec mes compétences, skills et passions. Gaming Campus, G.Tech"
+        />
+      </Helmet>
       {loading && sessionStorage.getItem("AntiPikachu") === null ? (
         <Load />
       ) : (
-        <header className="Home-header">
+        <header className="Home-header overflow-x-Hidden">
           {fade ? (
             <Fade />
           ) : (
             <>
               <div className="takeSize">
                 <Navbar />
+                <div className="traitSeparator"></div>
                 <div className="aboutMe">
                   <div className="aboutMeRightPart">
                     <div className="imagePlacement">

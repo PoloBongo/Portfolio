@@ -16,7 +16,13 @@ const NavbarT = ({ t }) => {
 
   return (
     <div className="order-list-navbar-div">
-      <button className="btnDownloadCV" onClick={handleNavbarBtnClick}>
+      <div className="titleName">
+        <h1 className="sizeArthur">Arthur BRU</h1>
+      </div>
+      <button
+        className="btnDownloadCV bubbleHomeNavbarBtn"
+        onClick={handleNavbarBtnClick}
+      >
         <div
           className="bubbleHomeNavbar"
           style={{
@@ -29,7 +35,7 @@ const NavbarT = ({ t }) => {
         ></div>
       </button>
       <div
-        className="navbarHome"
+        className="navbarHome width"
         style={{
           display: showNavbarBool ? "none" : "block",
           maxHeight: showNavbarBool ? "0" : "max-content",
@@ -39,7 +45,7 @@ const NavbarT = ({ t }) => {
       >
         <ul className="order-list-navbar-ul">
           <DropdownTraduction />
-          <a className="link-navbar" href="home">
+          <a className="link-navbar" href="arthur">
             <li className="order-list-navbar-li fontsBold">
               {t("ClassicNavBar.Home")}
             </li>
@@ -53,7 +59,6 @@ const NavbarT = ({ t }) => {
           </a>
         </ul>
       </div>
-      <div className="traitSeparator"></div>
     </div>
   );
 };

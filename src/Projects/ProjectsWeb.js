@@ -191,7 +191,7 @@ const ProjectsWebT = ({ t }) => {
                 rel="noreferrer"
               >
                 <button className="btnStyleDiscoverProject fontsBold">
-                  {t("WebProjects.learnmore")}
+                  {t("WebProjects.learnMore")}
                 </button>
               </a>
             </div>
