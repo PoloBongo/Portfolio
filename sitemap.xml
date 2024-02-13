@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://www.arthur-portfolio.dev/</loc>
+    </url>
+        <url>
+        <loc>https://www.arthur-portfolio.dev/arthur</loc>
+    </url>
+    <url>
+        <loc>https://www.arthur-portfolio.dev/ProjectsVideosGames</loc>
+    </url>
+    <url>
+        <loc>https://www.arthur-portfolio.dev/ProjectsWeb</loc>
+    </url>
+    <url>
+        <loc>https://www.arthur-portfolio.dev/contactme</loc>
+    </url>
+</urlset>
