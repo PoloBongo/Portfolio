@@ -16,6 +16,7 @@ import {
 import imgCPlusLangage from "../img/c++Icon.svg";
 import imgLuaLangage from "../img/luaIcon.svg";
 import imgCLangage from "../img/cIcon.svg";
+import imgCSharpLangage from "../img/CSharpIcon.svg";
 import imgInfoIcon from "../img/infoIcon.svg";
 
 // Traduction
@@ -102,6 +103,16 @@ const PopupMySqlT = ({ t }) => {
             alt="C++ Langage Icon"
           ></img>
           {t("Home.C++")}
+        </div>
+      </div>
+      <div className="rectangleTool" ref={noPopup[0]}>
+        <div className="sizeIconCPlus fontsRegular">
+          <img
+            src={imgCSharpLangage}
+            className="iconSpace"
+            alt="C# Langage Icon"
+          ></img>
+          {t("Home.C#")}
         </div>
       </div>
       <div className="rectangleTool" ref={noPopup[2]}>

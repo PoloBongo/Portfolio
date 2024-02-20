@@ -7,11 +7,14 @@ import backgroundProjectEko from "../img/backgroundEko.webp";
 import backgroundProjectBAImmobilier from "../img/backgroundBAImmobilier.webp";
 import pagePaiement from "../img/pagePaiement.webp";
 import backgroundGoudGuys from "../img/backgroundGoudGuys.webp";
+import backgroundReactApiMoovie from "../img/backgroundReactApiMoovie.webp";
+import backgroundReactPortfolio from "../img/backgroundReactPortfolio.webp";
 // Preview Video Projects
 import celticVideo from "./celticLaricheBasketPreview.mp4";
 import BAImmobilierVideo from "./BAImmobilierPreview.mp4";
 import ekoVideo from "./ekoWebsitePreview.mp4";
 import paymentPageVideo from "./paymentPagePreview.mp4";
+import reactAPIMoovie from "./reactAPIMoovie.mp4";
 
 import NavbarProjects from "../Component/NavbarProjects";
 
@@ -48,6 +51,7 @@ const ProjectsWebT = ({ t }) => {
     const targetHref3 = document.getElementsByClassName("noColorPaiement");
     const targetHref4 = document.getElementsByClassName("noColorGoudGuys");
     const targetHref5 = document.getElementsByClassName("noColorBAImmobilier");
+    const targetHref6 = document.getElementsByClassName("noColorReact");
 
     // Permet de récupérer ce que je veux de ce qui est visible sur la fenêtre ( ckasse / id / attribute ect...)
 
@@ -74,6 +78,10 @@ const ProjectsWebT = ({ t }) => {
             Array.from(targetHref5).forEach((element) => {
               element.style.textDecoration =
                 entry.target.id === "BAImmobilier" ? "underline" : "";
+            });
+            Array.from(targetHref6).forEach((element) => {
+              element.style.textDecoration =
+                entry.target.id === "React" ? "underline" : "";
             });
           }
         });
@@ -155,6 +163,11 @@ const ProjectsWebT = ({ t }) => {
                   className="noColorBAImmobilier fontsRegular"
                 >
                   B.A Immobilier
+                </a>
+              </ul>
+              <ul className="backgroundUnderCategory">
+                <a href="#React" className="noColorReact fontsRegular">
+                  React
                 </a>
               </ul>
             </div>
@@ -315,6 +328,66 @@ const ProjectsWebT = ({ t }) => {
             <div className="btnDiscoverProject">
               <a
                 href="https://baimmobilier.fr/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <button className="btnStyleDiscoverProject fontsBold">
+                  {t("WebProjects.learnMore")}
+                </button>
+              </a>
+            </div>
+          </div>
+          <div className="projects" id="React">
+            <div className="flexIMG">
+              <div className="preview-div">
+                <img
+                  src={backgroundReactApiMoovie}
+                  alt="Site Internet Moovie API en React"
+                  className="sizeProjectIMG"
+                ></img>{" "}
+                <video className="preview-video" loop muted>
+                  <source src={reactAPIMoovie} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+            <h4 className="HelluvaRevengeTitle fontsRegular">React API</h4>
+            <p
+              className="pDescription fontsLight"
+              dangerouslySetInnerHTML={{
+                __html: t("WebProjects.React"),
+              }}
+            ></p>
+            <div className="btnDiscoverProject">
+              <a
+                href="https://github.com/PoloBongo/React-API-Moovie"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <button className="btnStyleDiscoverProject fontsBold">
+                  {t("WebProjects.learnMore")}
+                </button>
+              </a>
+            </div>
+          </div>
+          <div className="projects" id="React">
+            <div className="flexIMG">
+              <img
+                src={backgroundReactPortfolio}
+                alt="portfolio React"
+                className="sizeProjectIMG"
+              ></img>{" "}
+            </div>
+            <h4 className="HelluvaRevengeTitle fontsRegular">Portfolio</h4>
+            <p
+              className="pDescription fontsLight"
+              dangerouslySetInnerHTML={{
+                __html: t("WebProjects.ReactPortfolio"),
+              }}
+            ></p>
+            <div className="btnDiscoverProject">
+              <a
+                href="https://github.com/PoloBongo/Portfolio"
                 target="_blank"
                 rel="noreferrer"
               >

@@ -11,6 +11,7 @@
     "aboutMe": "Gracias a mis experiencias, he podido perfeccionar mis habilidades técnicas y colaborar eficazmente con otras ramas como la rama artística o de marketing. Fuera de mis estudios, ¡soy apasionado por el baloncesto!",
     "title2": "Tecnologías y Herramientas",
     "C": "Lenguaje C",
+    "C#": "Lenguaje C#",
     "C++": "Lenguaje C++",
     "PHP": "PHP",
     "JavaScript": "JavaScript",
@@ -52,6 +53,7 @@
     "Category": "Categoría",
     "C": "Lenguaje C",
     "C++": "Lenguaje C++",
+    "CSharp": "Lenguaje C#",
     "Python": "Python",
     "LUA": "LUA",
     "PaymentPage": "Página de pago"
@@ -65,7 +67,8 @@
     "textuelGameConsole": "Aquí está el primer proyecto realizado en C++, es un juego textual por turnos basado en el tema de One Piece. Fue un proyecto para la transición entre C y C++ con el fin de adquirir bien los fundamentos; teníamos 1 semana.<br>- Grupo de 2 estudiantes.",
     "shootEmUp": "Aquí está el gran proyecto realizado al final del primer año en un lapso de 2 semanas. Colaboramos con la filial de Negocios que se encargaba de promover el juego, mientras nosotros nos ocupábamos de desarrollarlo.<br>- Grupo de 6 estudiantes.",
     "luaPart1": "Antes de unirme al Gaming Campus, desarrollé en LUA en la plataforma FiveM durante aproximadamente 4 años. Esta experiencia me permitió adquirir sólidos conocimientos en gestión y creación de bases de datos, y tuve la oportunidad de trabajar en Linux para administrar diferentes servidores. A lo largo de estos 4 años, también creé el proyecto",
-    "luaPart2": ", que me permitió compartir mi contenido con mi comunidad. Hoy, he detenido el proyecto Polo Leaks porque he explorado todas las posibilidades que ofrecía."
+    "luaPart2": ", que me permitió compartir mi contenido con mi comunidad. Hoy, he detenido el proyecto Polo Leaks porque he explorado todas las posibilidades que ofrecía.",
+    "CSharpConsole": "Juego en consola, un juego por turnos realizado en 2 semanas. Teníamos que crear un mapa en ASCII y hacerlo atractivo. Elegimos el tema de One Piece y para el sistema de combate, teníamos que crear 3 tipos de IA: Fácil, Normal y Difícil. También realizamos pruebas unitarias.<br></br>- Grupo de 4 estudiantes."
   },
   "WebProjects": {
     "learnMore": "Más información",
@@ -73,7 +76,9 @@
     "Eko": "Eko es un sitio de venta en línea que también ofrece suscripciones. Se realizó en 2 semanas.<br></br>- Grupo de 4 estudiantes",
     "BAImmobilier": "Sitio web para el Bachillerato, fue mi primer sitio realizado. El objetivo era crear una empresa ficticia pero que pareciera real.",
     "GoudGuys": "Sitio web para una asociación de deportes electrónicos realizado en 1 mes durante un período de prácticas.<br></br>- Éramos 2 desarrolladores.",
-    "ShoppingSystem": "Aquí tienes una página de pago y un carrito inspirado en el sitio JD Sport, realizado en 1 semana.<br></br>- Proyecto personal<br></br>- API de pago: Stripe y Paypal"
+    "ShoppingSystem": "Aquí tienes una página de pago y un carrito inspirado en el sitio JD Sport, realizado en 1 semana.<br></br>- Proyecto personal<br></br>- API de pago: Stripe y Paypal",
+    "React": "Sitio web realizado en primer año. El objetivo era tomar una API de películas proporcionada por el instructor y debíamos crear un primer catálogo con filtros.<br></br>- Primer proyecto en React<br></br>- Proyecto de 1 estudiante",
+    "ReactPortfolio": "Portafolio desarrollado en React JS, integrando las siguientes bibliotecas: Axios, i18next, Font Awesome y emailjs-com.<br></br>Las tecnologías utilizadas incluyen React, HTML y CSS.<br></br>Se ha prestado especial atención a la Optimización para Motores de Búsqueda (SEO) con la optimización para Google Search, el uso de un Sitemap y la implementación de etiquetas apropiadas."
   },
   "ContactMe": {
     "title": "Contáctame",

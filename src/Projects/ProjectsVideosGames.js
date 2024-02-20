@@ -7,11 +7,13 @@ import backgroundProjectShootEmUp from "../img/shoot-em-up.webp";
 import backgroundCPPBibliotheque from "../img/backgroundCPPBibliotheque.webp";
 import backgroundCPPJeuTextuel from "../img/backgroundCPPJeuTextuel.webp";
 import backgroundProjectLUA from "../img/backgroundLUA.webp";
+import backgroundCSharpConsole from "../img/backgroundCSharpConsole.webp";
 
 import helluvaRevengeVideo from "./helluvaRevengePreview.mp4";
 import towerDefenseVideo from "./TowerDefensePreview.mp4";
 import shootEmUpVideo from "./shootEmUpPreview.mp4";
 import jeuTextuelPreview from "./jeuTextuelPreview.mp4";
+import CSharpConsoleVideo from "./CSharpConsoleVideo.mp4";
 
 import NavbarProjects from "../Component/NavbarProjects";
 
@@ -47,6 +49,7 @@ const ProjectsVideosGamesT = ({ t }) => {
     const targetHref2 = document.getElementsByClassName("noColorCPlus");
     const targetHref3 = document.getElementsByClassName("noColorPython");
     const targetHref4 = document.getElementsByClassName("noColorLUA");
+    const targetHref5 = document.getElementsByClassName("noColorCSharp");
 
     // Permet de récupérer ce que je veux de ce qui est visible sur la fenêtre ( ckasse / id / attribute ect...)
     const observer = new IntersectionObserver(
@@ -60,6 +63,10 @@ const ProjectsVideosGamesT = ({ t }) => {
             Array.from(targetHref2).forEach((element) => {
               element.style.textDecoration =
                 entry.target.id === "C++" ? "underline" : "";
+            });
+            Array.from(targetHref5).forEach((element) => {
+              element.style.textDecoration =
+                entry.target.id === "C#" ? "underline" : "";
             });
             Array.from(targetHref3).forEach((element) => {
               element.style.textDecoration =
@@ -126,6 +133,11 @@ const ProjectsVideosGamesT = ({ t }) => {
               <ul className="backgroundUnderCategory">
                 <a href="#C++" className="noColorCPlus fontsRegular">
                   {t("BottomNavBarProjects.C++")}
+                </a>
+              </ul>
+              <ul className="backgroundUnderCategory">
+                <a href="#C#" className="noColorCSharp fontsRegular">
+                  {t("BottomNavBarProjects.CSharp")}
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
@@ -270,6 +282,41 @@ const ProjectsVideosGamesT = ({ t }) => {
             <div className="btnDiscoverProject">
               <a
                 href="https://github.com/PoloBongo/CPP_Jeu_Textuel_Console"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <button className="btnStyleDiscoverProject fontsBold">
+                  {t("VideoGamesProjects.learnMore")}
+                </button>
+              </a>
+            </div>
+          </div>
+          <div className="projects" id="C#">
+            <div className="flexIMG">
+              <div className="preview-div">
+                <img
+                  src={backgroundCSharpConsole}
+                  alt="Tour par tour en console"
+                  className="sizeProjectIMG"
+                ></img>
+                <video className="preview-video" loop muted>
+                  <source src={CSharpConsoleVideo} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+            <h4 className="HelluvaRevengeTitle fontsRegular">
+              Tour par tour en console
+            </h4>
+            <p
+              className="pDescription fontsLight"
+              dangerouslySetInnerHTML={{
+                __html: t("VideoGamesProjects.CSharpConsole"),
+              }}
+            ></p>
+            <div className="btnDiscoverProject">
+              <a
+                href="https://github.com/PoloBongo/Projet9---CSharp"
                 target="_blank"
                 rel="noreferrer"
               >

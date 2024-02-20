@@ -11,6 +11,7 @@
     "aboutMe": "Thanks to my experiences, I have been able to refine my technical skills and collaborate effectively with other fields such as the artistic or marketing field. Outside of my studies, I am passionate about basketball!",
     "title2": "Technologies and Tools",
     "C": "C Language",
+    "C#": "C# Language",
     "C++": "C++ Language",
     "PHP": "PHP",
     "JavaScript": "JavaScript",
@@ -52,6 +53,7 @@
     "Category": "Category",
     "C": "C Language",
     "C++": "C++ Language",
+    "CSharp": "C# Language",
     "Python": "Python",
     "LUA": "LUA",
     "PaymentPage": "Payment Page"
@@ -65,7 +67,8 @@
     "textuelGameConsole": "Here is the first project implemented in C++, it's a text-based, turn-based game based on the theme of One Piece. It was a project to transition from C to C++ to solidify the fundamentals; we had 1 week.<br>- Group of 2 students.",
     "shootEmUp": "Here is the major project completed at the end of the first year within a span of 2 weeks. We collaborated with the Business department, which was responsible for promoting the game, while we focused on its development.<br>- Group of 6 students.",
     "luaPart1": "Before joining the Gaming Campus, I developed in LUA on the FiveM platform for about 4 years. This experience allowed me to acquire strong knowledge in database management and creation, and I had the opportunity to work on Linux to manage various servers. Over these 4 years, I also created the ",
-    "luaPart2": ", allowing me to share my content with the community. Today, I have stopped the Polo Leaks project as I have explored all the possibilities it offered."
+    "luaPart2": ", allowing me to share my content with the community. Today, I have stopped the Polo Leaks project as I have explored all the possibilities it offered.",
+    "CSharpConsole": "Game in console, a turn-based game developed in 2 weeks. We had to create an ASCII map and make it attractive. We chose the theme of One Piece, and for the combat system, we had to create 3 types of AI: Easy, Normal, and Hard. We also conducted unit tests.<br></br>- Group of 4 students."
   },
   "WebProjects": {
     "learnMore": "Learn More",
@@ -73,7 +76,9 @@
     "Eko": "Eko is an online sales website that also offers subscriptions. It was completed in 2 weeks.<br></br>- Group of 4 students",
     "BAImmobilier": "Website for the Bac, it was my first website created. The goal was to create a fictitious but realistic company.",
     "GoudGuys": "Website for an esports association created in 1 month during an internship.<br></br>- We were 2 developers.",
-    "ShoppingSystem": "Here is a Payment page and a Cart inspired by the JD Sport website, created in 1 week.<br></br>- Personal project<br></br>- Payment API: Stripe & Paypal"
+    "ShoppingSystem": "Here is a Payment page and a Cart inspired by the JD Sport website, created in 1 week.<br></br>- Personal project<br></br>- Payment API: Stripe & Paypal",
+    "React": "Website created in the first year. The goal was to take a movie API provided by the instructor and we had to create an initial catalog with filters.<br></br>- First project in React<br></br>- Project by 1 student",
+    "ReactPortfolio": "Portfolio developed in React JS, integrating the following libraries: Axios, i18next, Font Awesome, and emailjs-com.<br></br>The technologies used include React, HTML, and CSS.<br></br>Special attention has been paid to Search Engine Optimization (SEO) with optimization for Google Search, the use of a Sitemap, and the implementation of appropriate tags."
   },
   "ContactMe": {
     "title": "Contact Me",
