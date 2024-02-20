@@ -114,6 +114,7 @@ const HomeT = ({ t }) => {
                           href="https://www.linkedin.com/in/arthur-bru-b71327252/"
                           target="_blank"
                           rel="noreferrer"
+                          aria-label="En savoir plus sur mon Linkedin"
                         >
                           <FontAwesomeIcon
                             icon={faLinkedin}
@@ -126,6 +127,7 @@ const HomeT = ({ t }) => {
                           href="https://github.com/PoloBongo"
                           target="_blank"
                           rel="noreferrer"
+                          aria-label="En savoir plus sur mon Github"
                         >
                           <FontAwesomeIcon
                             icon={faSquareGithub}
