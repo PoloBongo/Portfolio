@@ -68,7 +68,7 @@
     "GoudGuys": "Site web pour une association esport créé en 1 mois lors d'un stage.<br></br>- Nous étions 2 développeurs.",
     "ShoppingSystem": "Voici une page de paiement et un panier inspirés du site web JD Sport, créés en 1 semaine.<br></br>- Projet personnel<br></br>- API de paiement : Stripe & Paypal",
     "React": "Site web réalisé en première année. Le but était de prendre une API de film fourni par l'intervenant et nous devions faire un premier catalogue avec des filtres.<br></br>- Premier projet en React<br></br>- Projet d'un étudiant",
-    "ReactPortfolio": "Portfolio développé en React JS, intégrant les bibliothèques suivantes : Axios, i18next, Font Awesome et emailjs-com.<br></br>Les technologies utilisées comprennent React, HTML et CSS.<br></br>J'ai porté une attention particulière a été portée au référencement (SEO) avec l'optimisation pour Google Search, l'utilisation d'une Sitemap et l'implémentation de balises appropriées."
+    "ReactPortfolio": "Portfolio développé en React JS, intégrant les bibliothèques suivantes : Axios, i18next, Font Awesome et emailjs-com.<br></br>Les technologies utilisées comprennent React, HTML et CSS.<br></br>J'ai porté une attention particulière au référencement (SEO) avec l'optimisation pour Google Search, l'utilisation d'une Sitemap et l'implémentation de balises appropriées."
   },
   "ContactMe": {
     "title": "Me Contactez",
