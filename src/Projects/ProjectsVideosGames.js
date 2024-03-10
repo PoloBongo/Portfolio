@@ -8,6 +8,7 @@ import backgroundCPPBibliotheque from "../img/backgroundCPPBibliotheque.webp";
 import backgroundCPPJeuTextuel from "../img/backgroundCPPJeuTextuel.webp";
 import backgroundProjectLUA from "../img/backgroundLUA.webp";
 import backgroundCSharpConsole from "../img/backgroundCSharpConsole.webp";
+import backgroundUnityRL from "../img/backgroundUnityRL.webp";
 
 import helluvaRevengeVideo from "./helluvaRevengePreview.mp4";
 import towerDefenseVideo from "./TowerDefensePreview.mp4";
@@ -17,11 +18,25 @@ import CSharpConsoleVideo from "./CSharpConsoleVideo.mp4";
 
 import NavbarProjects from "../Component/NavbarProjects";
 
+import { Unity, useUnityContext } from "react-unity-webgl";
+
 // Traduction
 import { Loader } from "../Component/ComponentTraduction";
 import { withTranslation } from "react-i18next";
 
 const ProjectsVideosGamesT = ({ t }) => {
+  // Unity
+  const { unityProvider, requestFullscreen } = useUnityContext({
+    loaderUrl: "../BuildUnityRL/Build/public.loader.js",
+    dataUrl: "../BuildUnityRL/Build/public.data",
+    frameworkUrl: "../BuildUnityRL/Build/public.framework.js",
+    codeUrl: "../BuildUnityRL/Build/public.wasm",
+  });
+
+  function handleClickEnterFullscreen() {
+    requestFullscreen(true);
+  }
+
   useEffect(() => {
     // Preview des projects
     const previewContainer = document.querySelectorAll(".preview-div");
@@ -30,8 +45,15 @@ const ProjectsVideosGamesT = ({ t }) => {
       const previewVideo = previewContainers.querySelector(".preview-video");
       let savedTime = 0;
 
-      previewContainers.addEventListener("mouseenter", () => {
+      previewVideo.addEventListener("loadedmetadata", () => {
         if (previewVideo.paused) {
+          previewVideo.play();
+          previewVideo.currentTime = savedTime;
+        }
+      });
+
+      previewContainers.addEventListener("mouseenter", () => {
+        if (previewVideo.paused || previewVideo.ended) {
           previewVideo.play();
           previewVideo.currentTime = savedTime;
         }
@@ -45,7 +67,7 @@ const ProjectsVideosGamesT = ({ t }) => {
       });
     });
 
-    const targetHref1 = document.getElementsByClassName("noColorC");
+    // const targetHref1 = document.getElementsByClassName("noColorC");
     const targetHref2 = document.getElementsByClassName("noColorCPlus");
     const targetHref3 = document.getElementsByClassName("noColorPython");
     const targetHref4 = document.getElementsByClassName("noColorLUA");
@@ -56,10 +78,10 @@ const ProjectsVideosGamesT = ({ t }) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            Array.from(targetHref1).forEach((element) => {
-              element.style.textDecoration =
-                entry.target.id === "C" ? "underline" : "";
-            });
+            // Array.from(targetHref1).forEach((element) => {
+            //   element.style.textDecoration =
+            //     entry.target.id === "C" ? "underline" : "";
+            // });
             Array.from(targetHref2).forEach((element) => {
               element.style.textDecoration =
                 entry.target.id === "C++" ? "underline" : "";
@@ -98,6 +120,13 @@ const ProjectsVideosGamesT = ({ t }) => {
 
   const handleNavbarBtnClick = () => {
     setShowNavbarBool(!showNavbarBool);
+  };
+
+  // Unity WebGL
+  const [showUnityPlayBool, setSUnityPlayBool] = useState(true);
+
+  const handleNavbarBtnClickPlay = () => {
+    setSUnityPlayBool(!showUnityPlayBool);
   };
 
   return (
@@ -140,11 +169,11 @@ const ProjectsVideosGamesT = ({ t }) => {
                   {t("BottomNavBarProjects.CSharp")}
                 </a>
               </ul>
-              <ul className="backgroundUnderCategory">
+              {/* <ul className="backgroundUnderCategory">
                 <a href="#C" className="noColorC fontsRegular">
                   {t("BottomNavBarProjects.C")}
                 </a>
-              </ul>
+              </ul> */}
               <ul className="backgroundUnderCategory">
                 <a href="#Python" className="noColorPython fontsRegular">
                   {t("BottomNavBarProjects.Python")}
@@ -324,6 +353,75 @@ const ProjectsVideosGamesT = ({ t }) => {
                   {t("VideoGamesProjects.learnMore")}
                 </button>
               </a>
+            </div>
+          </div>
+          <div className="projects" id="C#">
+            <div className="flexIMG" style={{ height: "50%" }}>
+              <img
+                style={{
+                  display: showUnityPlayBool ? "block" : "none",
+                  opacity: showUnityPlayBool ? "1" : "0",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+                src={backgroundUnityRL}
+                alt="Unity jeu de balle"
+                className="sizeProjectIMG"
+              ></img>
+              <Unity
+                style={{
+                  display: showUnityPlayBool ? "none" : "block",
+                  opacity: showUnityPlayBool ? "0" : "1",
+                  width: "-webkit-fill-available",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+                unityProvider={unityProvider}
+              />
+            </div>
+            <h4 className="HelluvaRevengeTitle fontsRegular">Unity</h4>
+            <p
+              className="pDescription fontsLight"
+              dangerouslySetInnerHTML={{
+                __html: t("VideoGamesProjects.UnityRL"),
+              }}
+            ></p>
+            <div className="btnDiscoverProject">
+              <a
+                href="https://github.com/MtPoison/UnityRL"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: showUnityPlayBool ? "block" : "none",
+                  opacity: showUnityPlayBool ? "1" : "0",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+              >
+                <button className="btnStyleDiscoverProject fontsBold">
+                  {t("VideoGamesProjects.learnMore")}
+                </button>
+              </a>
+              <button
+                style={{
+                  display: showUnityPlayBool ? "none" : "block",
+                  opacity: showUnityPlayBool ? "0" : "1",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+                onClick={handleClickEnterFullscreen}
+                className="btnStyleDiscoverProject fontsBold"
+              >
+                {t("VideoGamesProjects.fullScreenGame")}
+              </button>
+              <button
+                onClick={handleNavbarBtnClickPlay}
+                className="btnStyleDiscoverProject fontsBold marge-contact-play"
+              >
+                {showUnityPlayBool
+                  ? t("VideoGamesProjects.playProjects")
+                  : t("VideoGamesProjects.stopProjects")}
+              </button>
             </div>
           </div>
           <div className="projects" id="Python">

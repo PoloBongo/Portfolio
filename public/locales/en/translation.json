@@ -10,6 +10,7 @@
     "title1": "About Me",
     "aboutMe": "Thanks to my experiences, I have been able to refine my technical skills and collaborate effectively with other fields such as the artistic or marketing field. Outside of my studies, I am passionate about basketball!",
     "title2": "Technologies and Tools",
+    "Unity": "Unity",
     "C": "C Language",
     "C#": "C# Language",
     "C++": "C++ Language",
@@ -60,6 +61,9 @@
   },
   "VideoGamesProjects": {
     "learnMore": "Learn More",
+    "playProjects": "Play",
+    "stopProjects": "Stop",
+    "fullScreenGame": "FullScreen",
     "helluvaRevenge": "Here is a video game created within 4 weeks; we had to handle all aspects of development and asset creation/research. The game was developed in C++ using the SFML library on a custom engine.<br></br>- Group of 6 students.",
     "towerDefense": "Here is a Tower Defense game developed in 1 week with the theme of League of Legends.<br>- Group of 5 students.",
     "platformer": "Here is a 2D platformer created in 2 weeks using an engine provided by the instructor.<br>- Group of 4 students.",
@@ -68,7 +72,8 @@
     "shootEmUp": "Here is the major project completed at the end of the first year within a span of 2 weeks. We collaborated with the Business department, which was responsible for promoting the game, while we focused on its development.<br>- Group of 6 students.",
     "luaPart1": "Before joining the Gaming Campus, I developed in LUA on the FiveM platform for about 4 years. This experience allowed me to acquire strong knowledge in database management and creation, and I had the opportunity to work on Linux to manage various servers. Over these 4 years, I also created the ",
     "luaPart2": ", allowing me to share my content with the community. Today, I have stopped the Polo Leaks project as I have explored all the possibilities it offered.",
-    "CSharpConsole": "Game in console, a turn-based game developed in 2 weeks. We had to create an ASCII map and make it attractive. We chose the theme of One Piece, and for the combat system, we had to create 3 types of AI: Easy, Normal, and Hard. We also conducted unit tests.<br></br>- Group of 4 students."
+    "CSharpConsole": "Game in console, a turn-based game developed in 2 weeks. We had to create an ASCII map and make it attractive. We chose the theme of One Piece, and for the combat system, we had to create 3 types of AI: Easy, Normal, and Hard. We also conducted unit tests.<br></br>- Group of 4 students.",
+    "UnityRL": "A game developed in 2 weeks using the Unity game engine with several features such as procedural generation, Animation Curve, Drone AI, Input Management, Coroutines, OpenProBuilder, and other Unity basics.<br></br>- Group of 2 students."
   },
   "WebProjects": {
     "learnMore": "Learn More",

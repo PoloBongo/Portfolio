@@ -10,6 +10,7 @@
     "title1": "A propos de moi",
     "aboutMe": "Grâce à mes expériences, j'ai pu perfectionner mes compétences techniques et collaborer efficacement avec d'autres filières telles que la filière artistique ou bien marketing. En dehors de mes études, je suis passionné par le basket !",
     "title2": "Technologies et Outils",
+    "Unity": "Unity",
     "C": "C Langage",
     "C#": "C# Langage",
     "C++": "C++ Langage",
@@ -50,6 +51,9 @@
   },
   "VideoGamesProjects": {
     "learnMore": "En savoir plus",
+    "playProjects": "Jouer",
+    "stopProjects": "Arrêter",
+    "fullScreenGame": "Plein écran",
     "helluvaRevenge": "Voici un jeu vidéo réalisé en l'espace de 4 semaines, nous devions faire toutes la partie développement et création/recherche d'assets. Le jeu a été réalisé avec la bibliothèque SFML sur un moteur custom.<br></br>- Groupe de 6 étudiants.",
     "towerDefense": "Voici un Tower Defense réalisé en 1 semaine sur le thème de League of Legends.<br>- Groupe de 5 étudiants.",
     "platformer": "Voici un platformer 2D réalisé en 2 semaines à l'aide d'un moteur fournit par l'intervenant.<br>- Groupe de 4 étudiants.",
@@ -58,7 +62,8 @@
     "shootEmUp": "Voici le grand projet réalisé en fin de première année en l'espace de 2 semaines. Nous étions en collaboration avec la filiare Business qui était chargé de premouvoir le jeu et nous de le développé.<br>- Groupe de 6 étudiants.",
     "luaPart1": "Avant d'intégrer le Gaming Campus, j'ai développé en LUA sur la plateforme FiveM pendant environ 4 ans. Cette expérience m'a permis d'acquérir de solides connaissances en gestion et création de bases de données, et j'ai eu l'occasion de travailler sur Linux pour gérer différents serveurs. Au cours de ces 4 années, j'ai également créé le projet ",
     "luaPart2": ", me permettant de partager mon contenu avec ma communauté. Aujourd'hui, j'ai arrêté le projet Polo Leaks car j'ai exploré toutes les possibilités qu'il offrait.",
-    "CSharpConsole": "Jeu en console, un jeu au tour par tour réalisé en 2 semaines. Nous devions créer une carte en ASCII et la rendre attrayante. Nous avons choisi le thème de One Piece et pour le système de combat, nous devions créer 3 types d'IA : Facile, Normal et Difficile. Nous avons également fait des Test unitaires.<br></br>- Groupe de 4 étudiants."
+    "CSharpConsole": "Jeu en console, un jeu au tour par tour réalisé en 2 semaines. Nous devions créer une carte en ASCII et la rendre attrayante. Nous avons choisi le thème de One Piece et pour le système de combat, nous devions créer 3 types d'IA : Facile, Normal et Difficile. Nous avons également fait des Test unitaires.<br></br>- Groupe de 4 étudiants.",
+    "UnityRL": "Un jeu développé en 2 semaines sur le moteur de jeu Unity avec plusieurs fonctionnalités telles que la génération procédurale, la courbe d'animation, l'IA de drones, la gestion des entrées, les coroutines, OpenProBuilder et d'autres bases de Unity.<br><br>- Groupe de 2 étudiants."
   },
   "WebProjects": {
     "learnMore": "En savoir plus",

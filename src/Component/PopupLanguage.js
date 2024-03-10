@@ -18,6 +18,7 @@ import imgLuaLangage from "../img/luaIcon.svg";
 import imgCLangage from "../img/cIcon.svg";
 import imgCSharpLangage from "../img/CSharpIcon.svg";
 import imgInfoIcon from "../img/infoIcon.svg";
+import imgUnityIcon from "../img/unityIcon.svg";
 
 // Traduction
 import { Loader } from "./ComponentTraduction";
@@ -33,30 +34,17 @@ const PopupMySqlT = ({ t }) => {
   const displayStatusGit = useRef(null);
   const GitCSS = useRef(null);
 
-  const noPopup = [
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-  ];
-
   const CSSPopup = (ref, bool) => {
     if (ref.current) {
       ref.current.style.position = bool ? "absolute" : "relative";
       ref.current.style.zIndex = bool ? "100" : "0";
-
-      noPopup.forEach((noPopupTarget) => {
-        if (noPopupTarget.current) {
-          noPopupTarget.current.style.filter = bool ? "blur(5px)" : "blur(0px)";
-        }
-      });
     }
+    const elements = document.querySelectorAll("#blur");
+    elements.forEach((element) => {
+      if (element) {
+        element.style.filter = bool ? "blur(5px)" : "blur(0px)";
+      }
+    });
   };
 
   useEffect(() => {
@@ -85,7 +73,17 @@ const PopupMySqlT = ({ t }) => {
 
   return (
     <div className="rectangleGlobal">
-      <div className="rectangleTool" ref={noPopup[0]}>
+      <div className="rectangleTool" id="blur">
+        <div className="sizeIconCPlus fontsRegular">
+          <img
+            src={imgUnityIcon}
+            className="iconSpace"
+            alt="Unity Custom Engine Icon"
+          ></img>
+          {t("Home.Unity")}
+        </div>
+      </div>
+      <div className="rectangleTool" id="blur">
         <div className="sizeIconCPlus fontsRegular">
           <img
             src={imgCLangage}
@@ -95,7 +93,7 @@ const PopupMySqlT = ({ t }) => {
           {t("Home.C")}
         </div>
       </div>
-      <div className="rectangleTool" ref={noPopup[1]}>
+      <div className="rectangleTool" id="blur">
         <div className="sizeIconCPlus fontsRegular">
           <img
             src={imgCPlusLangage}
@@ -105,7 +103,7 @@ const PopupMySqlT = ({ t }) => {
           {t("Home.C++")}
         </div>
       </div>
-      <div className="rectangleTool" ref={noPopup[0]}>
+      <div className="rectangleTool" id="blur">
         <div className="sizeIconCPlus fontsRegular">
           <img
             src={imgCSharpLangage}
@@ -115,7 +113,7 @@ const PopupMySqlT = ({ t }) => {
           {t("Home.C#")}
         </div>
       </div>
-      <div className="rectangleTool" ref={noPopup[2]}>
+      <div className="rectangleTool" id="blur">
         <div className="sizeIconCPlus fontsRegular">
           <FontAwesomeIcon
             icon={faPhp}
@@ -126,7 +124,7 @@ const PopupMySqlT = ({ t }) => {
           {t("Home.PHP")}
         </div>
       </div>
-      <div className="rectangleTool" ref={noPopup[3]}>
+      <div className="rectangleTool" id="blur">
         <div className="sizeIconCPlus fontsRegular">
           <FontAwesomeIcon
             icon={faJs}
@@ -137,7 +135,7 @@ const PopupMySqlT = ({ t }) => {
           {t("Home.JavaScript")}
         </div>
       </div>
-      <div className="rectangleTool fontsRegular" ref={noPopup[4]}>
+      <div className="rectangleTool fontsRegular" id="blur">
         <FontAwesomeIcon
           icon={faHtml5}
           color="#bc63ff"
@@ -146,7 +144,7 @@ const PopupMySqlT = ({ t }) => {
         />
         {t("Home.HTML")}
       </div>
-      <div className="rectangleTool fontsRegular" ref={noPopup[5]}>
+      <div className="rectangleTool fontsRegular" id="blur">
         <FontAwesomeIcon
           icon={faCss3Alt}
           color="#bc63ff"
@@ -233,7 +231,7 @@ const PopupMySqlT = ({ t }) => {
           </div>
         </div>
       </div>
-      <div className="rectangleTool fontsRegular" ref={noPopup[6]}>
+      <div className="rectangleTool fontsRegular" id="blur">
         <FontAwesomeIcon
           icon={faBootstrap}
           color="#bc63ff"
@@ -242,7 +240,7 @@ const PopupMySqlT = ({ t }) => {
         />
         {t("Home.Bootstrap")}
       </div>
-      <div className="rectangleTool fontsRegular" ref={noPopup[7]}>
+      <div className="rectangleTool fontsRegular" id="blur">
         <FontAwesomeIcon
           icon={faPython}
           color="#bc63ff"
@@ -251,7 +249,7 @@ const PopupMySqlT = ({ t }) => {
         />
         {t("Home.Python")}
       </div>
-      <div className="rectangleTool fontsRegular" ref={noPopup[8]}>
+      <div className="rectangleTool fontsRegular" id="blur">
         <FontAwesomeIcon
           icon={faReact}
           color="#bc63ff"
@@ -260,7 +258,7 @@ const PopupMySqlT = ({ t }) => {
         />
         {t("Home.React")}
       </div>
-      <div className="rectangleTool fontsRegular" ref={noPopup[9]}>
+      <div className="rectangleTool fontsRegular" id="blur">
         <div className="sizeIconCPlus">
           <img
             src={imgLuaLangage}

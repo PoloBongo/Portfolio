@@ -734,6 +734,10 @@
   margin-left: 30px;
 }
 
+.marge-contact-play {
+  margin-left: 30px;
+}
+
 .contactMeFlex {
   display: flex;
   justify-content: center;
@@ -813,6 +817,9 @@ button::placeholder {
   .order-list-navbar-ul {
     flex-direction: row;
     align-items: center;
+  }
+  .btnStyleDiscoverProject {
+    padding: 15px;
   }
 }
 
