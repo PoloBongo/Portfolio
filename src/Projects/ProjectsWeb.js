@@ -139,22 +139,50 @@ const ProjectsWebT = ({ t }) => {
               </h5>
               <ul className="backgroundUnderCategory">
                 <a href="#Celtic" className="noColorCeltic fontsRegular">
-                  Celtic La Riche Basket
+                  Celtic La Riche Basket&nbsp;
+                  <strong className="green">
+                    (
+                    {
+                      Array.from(document.getElementsByClassName("Celtic"))
+                        .length
+                    }
+                    )
+                  </strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
                 <a href="#Eko" className="noColorEko fontsRegular">
-                  Eko
+                  Eko&nbsp;
+                  <strong className="green">
+                    ({Array.from(document.getElementsByClassName("Eko")).length}
+                    )
+                  </strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
                 <a href="#Paiement" className="noColorPaiement fontsRegular">
-                  {t("BottomNavBarProjects.PaymentPage")}
+                  {t("BottomNavBarProjects.PaymentPage")}&nbsp;
+                  <strong className="green">
+                    (
+                    {
+                      Array.from(document.getElementsByClassName("Payment"))
+                        .length
+                    }
+                    )
+                  </strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
                 <a href="#GoudGuys" className="noColorGoudGuys fontsRegular">
-                  Goud Guys
+                  Goud Guys&nbsp;
+                  <strong className="green">
+                    (
+                    {
+                      Array.from(document.getElementsByClassName("GoudGuys"))
+                        .length
+                    }
+                    )
+                  </strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
@@ -162,19 +190,35 @@ const ProjectsWebT = ({ t }) => {
                   href="#BAImmobilier"
                   className="noColorBAImmobilier fontsRegular"
                 >
-                  B.A Immobilier
+                  B.A Immobilier&nbsp;
+                  <strong className="green">
+                    (
+                    {
+                      Array.from(document.getElementsByClassName("BAImmo"))
+                        .length
+                    }
+                    )
+                  </strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
                 <a href="#React" className="noColorReact fontsRegular">
-                  React
+                  React&nbsp;
+                  <strong className="green">
+                    (
+                    {
+                      Array.from(document.getElementsByClassName("React"))
+                        .length
+                    }
+                    )
+                  </strong>
                 </a>
               </ul>
             </div>
           </div>
         </div>
         <div className="divGlobalProjects">
-          <div className="projects" id="Celtic">
+          <div className="projects Celtic" id="Celtic">
             <div className="flexIMG">
               <div className="preview-div">
                 <img
@@ -209,7 +253,7 @@ const ProjectsWebT = ({ t }) => {
               </a>
             </div>
           </div>
-          <div className="projects" id="Eko">
+          <div className="projects Eko" id="Eko">
             <div className="flexIMG">
               <div className="preview-div">
                 <img
@@ -242,7 +286,7 @@ const ProjectsWebT = ({ t }) => {
               </a>
             </div>
           </div>
-          <div className="projects" id="Paiement">
+          <div className="projects Payment" id="Paiement">
             <div className="flexIMG">
               <div className="preview-div">
                 <img
@@ -277,7 +321,7 @@ const ProjectsWebT = ({ t }) => {
               </a>
             </div>
           </div>
-          <div className="projects" id="GoudGuys">
+          <div className="projects GoudGuys" id="GoudGuys">
             <div className="flexIMG">
               <img
                 src={backgroundGoudGuys}
@@ -304,7 +348,7 @@ const ProjectsWebT = ({ t }) => {
               </a>
             </div>
           </div>
-          <div className="projects" id="BAImmobilier">
+          <div className="projects BAImmo" id="BAImmobilier">
             <div className="flexIMG">
               <div className="preview-div">
                 <img
@@ -337,7 +381,7 @@ const ProjectsWebT = ({ t }) => {
               </a>
             </div>
           </div>
-          <div className="projects" id="React">
+          <div className="projects React" id="React">
             <div className="flexIMG">
               <div className="preview-div">
                 <img
@@ -370,7 +414,7 @@ const ProjectsWebT = ({ t }) => {
               </a>
             </div>
           </div>
-          <div className="projects" id="React">
+          <div className="projects React" id="React">
             <div className="flexIMG">
               <img
                 src={backgroundReactPortfolio}

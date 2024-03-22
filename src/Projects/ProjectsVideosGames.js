@@ -161,12 +161,19 @@ const ProjectsVideosGamesT = ({ t }) => {
               </h5>
               <ul className="backgroundUnderCategory">
                 <a href="#C++" className="noColorCPlus fontsRegular">
-                  {t("BottomNavBarProjects.C++")}
+                  {t("BottomNavBarProjects.C++")}&nbsp;
+                  <strong className="green">
+                    ({Array.from(document.getElementsByClassName("C++")).length}
+                    )
+                  </strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
                 <a href="#C#" className="noColorCSharp fontsRegular">
-                  {t("BottomNavBarProjects.CSharp")}
+                  {t("BottomNavBarProjects.CSharp")}&nbsp;
+                  <strong className="green">
+                    ({Array.from(document.getElementsByClassName("C#")).length})
+                  </strong>
                 </a>
               </ul>
               {/* <ul className="backgroundUnderCategory">
@@ -176,19 +183,31 @@ const ProjectsVideosGamesT = ({ t }) => {
               </ul> */}
               <ul className="backgroundUnderCategory">
                 <a href="#Python" className="noColorPython fontsRegular">
-                  {t("BottomNavBarProjects.Python")}
+                  {t("BottomNavBarProjects.Python")}&nbsp;
+                  <strong className="green">
+                    (
+                    {
+                      Array.from(document.getElementsByClassName("Python"))
+                        .length
+                    }
+                    )
+                  </strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
                 <a href="#LUA" className="noColorLUA fontsRegular">
-                  {t("BottomNavBarProjects.LUA")}
+                  {t("BottomNavBarProjects.LUA")}&nbsp;
+                  <strong className="green">
+                    ({Array.from(document.getElementsByClassName("LUA")).length}
+                    )
+                  </strong>
                 </a>
               </ul>
             </div>
           </div>
         </div>
         <div className="divGlobalProjects">
-          <div className="projects" id="C++">
+          <div className="projects C++" id="C++">
             <div className="flexIMG">
               <div className="preview-div">
                 <img
@@ -223,7 +242,7 @@ const ProjectsVideosGamesT = ({ t }) => {
               </a>
             </div>
           </div>
-          <div className="projects" id="C++">
+          <div className="projects C++" id="C++">
             <div className="flexIMG">
               <div className="preview-div">
                 <img
@@ -256,7 +275,7 @@ const ProjectsVideosGamesT = ({ t }) => {
               </a>
             </div>
           </div>
-          <div className="projects" id="C++">
+          <div className="projects C++" id="C++">
             <div className="flexIMG">
               <img
                 src={backgroundCPPBibliotheque}
@@ -285,7 +304,7 @@ const ProjectsVideosGamesT = ({ t }) => {
               </a>
             </div>
           </div>
-          <div className="projects" id="C++">
+          <div className="projects C++" id="C++">
             <div className="flexIMG">
               <div className="preview-div">
                 <img
@@ -320,7 +339,7 @@ const ProjectsVideosGamesT = ({ t }) => {
               </a>
             </div>
           </div>
-          <div className="projects" id="C#">
+          <div className="projects C#" id="C#">
             <div className="flexIMG">
               <div className="preview-div">
                 <img
@@ -355,7 +374,7 @@ const ProjectsVideosGamesT = ({ t }) => {
               </a>
             </div>
           </div>
-          <div className="projects" id="C#">
+          <div className="projects C#" id="C#">
             <div className="flexIMG" style={{ height: "50%" }}>
               <img
                 style={{
@@ -424,7 +443,7 @@ const ProjectsVideosGamesT = ({ t }) => {
               </button>
             </div>
           </div>
-          <div className="projects" id="Python">
+          <div className="projects Python" id="Python">
             <div className="flexIMG">
               <div className="preview-div">
                 <img
@@ -457,7 +476,7 @@ const ProjectsVideosGamesT = ({ t }) => {
               </a>
             </div>
           </div>
-          <div className="projects" id="LUA">
+          <div className="projects LUA" id="LUA">
             <div className="flexIMG">
               <img
                 src={backgroundProjectLUA}
