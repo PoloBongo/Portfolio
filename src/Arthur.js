@@ -148,12 +148,12 @@ const HomeT = ({ t }) => {
                 </div>
               </div>
               <div id="aboutme&skills" className="aboutMePartDescription">
-                <div className="aboutMeTitle">
+                {/* <div className="aboutMeTitle">
                   <h3 className="fontsRegular">{t("Home.title1")}</h3>
                 </div>
                 <p className="paragrapheAboutMe fontsLight">
                   {t("Home.aboutMe")}
-                </p>
+                </p> */}
                 <div className="aboutMeTitle">
                   <h3 className="fontsRegular">{t("Home.title2")}</h3>
                 </div>

@@ -375,7 +375,7 @@ const ProjectsVideosGamesT = ({ t }) => {
             </div>
           </div>
           <div className="projects C#" id="C#">
-            <div className="flexIMG" style={{ height: "50%" }}>
+            <div className="flexIMG">
               <img
                 style={{
                   display: showUnityPlayBool ? "block" : "none",

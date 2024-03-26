@@ -1,9 +1,9 @@
 import React, { Suspense, useState, useRef, useEffect } from "react";
-import CVArthurCPP from "../Download/CV-Arthur-JV.pdf";
+import CVArthurCPP from "../Download/CV-Arthur-JV.png";
 import CVArthurWEB from "../Download/CV-Arthur-WEB.pdf";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 // Traduction
 import { Loader } from "./ComponentTraduction";
@@ -50,22 +50,26 @@ const DropdownCVT = ({ t }) => {
           <a
             className="link-navbar dropdownSize fontsRegular"
             href={CVArthurCPP}
-            download="CV-Arthur-JV"
             target="_blank"
             rel="noreferrer"
           >
             {t("TypeCV.CVJV")}
-            <FontAwesomeIcon icon={faDownload} className="marginDownloadIcon" />
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              className="marginDownloadIcon"
+            />
           </a>
           <a
             className="link-navbar dropdownSize fontsRegular"
             href={CVArthurWEB}
-            download="CV-Arthur-WEB"
             target="_blank"
             rel="noreferrer"
           >
             {t("TypeCV.CVWeb")}
-            <FontAwesomeIcon icon={faDownload} className="marginDownloadIcon" />
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              className="marginDownloadIcon"
+            />
           </a>
         </div>
       )}

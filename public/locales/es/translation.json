@@ -1,11 +1,12 @@
 {
   "Welcome": "Bienvenido",
   "Home": {
+    "DeveloperJunior": "Desarrollador junior",
     "name": "Hola, soy Arthur BRU",
     "developerJV": "Hola, soy un desarrollador de videojuegos.",
     "developerWeb": "Hola, soy un desarrollador web.",
     "role": "Desarrollador de C++",
-    "info": "Actualmente, estoy estudiando en Gaming Campus en mi segundo año de G.Tech, y estoy buscando una pasantía para mayo de 2024.",
+    "info": "Actualmente estoy cursando un Bachillerato en Desarrollo Informático con especialización en diseño de videojuegos en Gaming Campus, en mi segundo año de G.Tech, y estoy buscando una práctica a partir del 15 de mayo.",
     "discover": "Descúbreme",
     "title1": "Acerca de mí",
     "aboutMe": "Gracias a mis experiencias, he podido perfeccionar mis habilidades técnicas y colaborar eficazmente con otras ramas como la rama artística o de marketing. Fuera de mis estudios, ¡soy apasionado por el baloncesto!",

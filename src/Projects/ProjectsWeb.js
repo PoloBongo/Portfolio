@@ -140,49 +140,25 @@ const ProjectsWebT = ({ t }) => {
               <ul className="backgroundUnderCategory">
                 <a href="#Celtic" className="noColorCeltic fontsRegular">
                   Celtic La Riche Basket&nbsp;
-                  <strong className="green">
-                    (
-                    {
-                      Array.from(document.getElementsByClassName("Celtic"))
-                        .length
-                    }
-                    )
-                  </strong>
+                  <strong className="green">(1)</strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
                 <a href="#Eko" className="noColorEko fontsRegular">
                   Eko&nbsp;
-                  <strong className="green">
-                    ({Array.from(document.getElementsByClassName("Eko")).length}
-                    )
-                  </strong>
+                  <strong className="green">(1)</strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
                 <a href="#Paiement" className="noColorPaiement fontsRegular">
                   {t("BottomNavBarProjects.PaymentPage")}&nbsp;
-                  <strong className="green">
-                    (
-                    {
-                      Array.from(document.getElementsByClassName("Payment"))
-                        .length
-                    }
-                    )
-                  </strong>
+                  <strong className="green">(1)</strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
                 <a href="#GoudGuys" className="noColorGoudGuys fontsRegular">
                   Goud Guys&nbsp;
-                  <strong className="green">
-                    (
-                    {
-                      Array.from(document.getElementsByClassName("GoudGuys"))
-                        .length
-                    }
-                    )
-                  </strong>
+                  <strong className="green">(1)</strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
@@ -191,27 +167,13 @@ const ProjectsWebT = ({ t }) => {
                   className="noColorBAImmobilier fontsRegular"
                 >
                   B.A Immobilier&nbsp;
-                  <strong className="green">
-                    (
-                    {
-                      Array.from(document.getElementsByClassName("BAImmo"))
-                        .length
-                    }
-                    )
-                  </strong>
+                  <strong className="green">(1)</strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
                 <a href="#React" className="noColorReact fontsRegular">
                   React&nbsp;
-                  <strong className="green">
-                    (
-                    {
-                      Array.from(document.getElementsByClassName("React"))
-                        .length
-                    }
-                    )
-                  </strong>
+                  <strong className="green">(1)</strong>
                 </a>
               </ul>
             </div>

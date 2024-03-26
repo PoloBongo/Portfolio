@@ -46,13 +46,13 @@ const DropdownProjectT = ({ t }) => {
             className="link-navbar dropdownSize fontsRegular"
             href="ProjectsVideosGames"
           >
-            {t("TypeProjects.ProjectsJV")}
+            {t("DropdownProjects.ProjectVideoGames")}
           </a>
           <a
             className="link-navbar dropdownSize fontsRegular"
             href="ProjectsWeb"
           >
-            {t("TypeProjects.ProjectsWeb")}
+            {t("DropdownProjects.ProjectWeb")}
           </a>
         </div>
       )}

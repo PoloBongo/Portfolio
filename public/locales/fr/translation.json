@@ -1,11 +1,12 @@
 {
   "Welcome": "Bienvenue",
   "Home": {
+    "DeveloperJunior": "Développeur junior",
     "name": "Bonjour, je suis Arthur BRU",
     "developerJV": "Bonjour, je suis un développeur de Jeu Vidéo",
     "developerWeb": "Bonjour, je suis un développeur Web",
     "role": "C++ Développeur",
-    "info": "Je suis actuellement étudiant au Gaming Campus en 2ème année de G.Tech et je recherche un Stage dès le 15 mai.",
+    "info": "Actuellement en Bachelor en développement informatique option jeu vidéo au Gaming Campus en 2ème année de G.Tech et je recherche un Stage dès le 15 mai.",
     "discover": "Me découvrir",
     "title1": "A propos de moi",
     "aboutMe": "Grâce à mes expériences, j'ai pu perfectionner mes compétences techniques et collaborer efficacement avec d'autres filières telles que la filière artistique ou bien marketing. En dehors de mes études, je suis passionné par le basket !",
@@ -30,7 +31,7 @@
     "AboutMe": "À propos de moi",
     "Projects": "Projets",
     "CV": "CV",
-    "ContactMe": "Contactez-moi"
+    "ContactMe": "Contact"
   },
   "TopNavBarProjects": {
     "Home": "Accueil",
@@ -38,7 +39,7 @@
     "Language": "Langage",
     "Projects": "Projets",
     "CV": "CV",
-    "ContactMe": "Contactez-moi"
+    "ContactMe": "Contact"
   },
   "BottomNavBarProjects": {
     "Category": "Catégorie",
@@ -76,7 +77,7 @@
     "ReactPortfolio": "Portfolio développé en React JS, intégrant les bibliothèques suivantes : Axios, i18next, Font Awesome et emailjs-com.<br></br>Les technologies utilisées comprennent React, HTML et CSS.<br></br>J'ai porté une attention particulière au référencement (SEO) avec l'optimisation pour Google Search, l'utilisation d'une Sitemap et l'implémentation de balises appropriées."
   },
   "ContactMe": {
-    "title": "Me Contactez",
+    "title": "Me Contacter",
     "name": "Nom",
     "prenom": "Prénom",
     "mail": "Mail",

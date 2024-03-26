@@ -17,7 +17,7 @@ const NavbarT = ({ t }) => {
   return (
     <div className="order-list-navbar-div">
       <div className="titleName">
-        <h1 className="sizeArthur">Arthur BRU</h1>
+        <h3 className="sizeArthur">{t("Home.DeveloperJunior")}</h3>
       </div>
       <button
         className="btnDownloadCV bubbleHomeNavbarBtn"
