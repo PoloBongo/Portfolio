@@ -334,6 +334,10 @@
   width: 100%;
 }
 
+.inherit {
+  width: inherit;
+}
+
 .titleName {
   display: flex;
   flex-wrap: wrap;
@@ -823,7 +827,7 @@ button::placeholder {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .titleName {
     justify-content: center;
   }
@@ -928,7 +932,7 @@ button::placeholder {
   }
 }
 
-@media (min-width: 500px) {
+@media (min-width: 600px) {
   .navbarHome {
     display: flex !important;
     max-height: max-content !important;
@@ -1130,4 +1134,108 @@ button::placeholder {
 
 .green {
   color: rgb(0, 255, 0);
+}
+
+/* Game Jam */
+
+.grid-gamejam {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    1fr
+  ); /* a mettre sur (3, 1fr) quand j'aurai plus de game jam à mettre */
+  grid-template-rows: repeat(
+    1,
+    1fr
+  ); /* a mettre sur (3, 1fr) quand j'aurai plus de game jam à mettre */
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  margin-bottom: 1vw;
+}
+
+@media screen and (max-width: 1000px) {
+  .grid-gamejam {
+    grid-template-columns: repeat(1, 1fr);
+    transition: all 1s;
+  }
+  .marge-contact-play {
+    margin: 0 20px;
+  }
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.modernEnvelop {
+  background: rgba(66, 73, 85, 0.5);
+  padding: 1vw;
+  text-align: center;
+  border-radius: 1vw;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.padding-1vw {
+  padding: 1vw;
+}
+
+.font-size-large {
+  font-size: large;
+}
+
+.backgroundPopupGameJam {
+  background: rgba(51, 57, 69, 0.5);
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.z-index {
+  z-index: 100;
+}
+
+#blur.sizeProjectIMG {
+  display: flex;
+  align-items: center;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.scroll-bar-navbar-projects {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #282c34;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c663ff;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

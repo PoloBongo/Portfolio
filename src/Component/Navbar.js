@@ -35,7 +35,7 @@ const NavbarT = ({ t }) => {
         ></div>
       </button>
       <div
-        className="navbarHome width"
+        className="navbarHome width iconLinkedin"
         style={{
           display: showNavbarBool ? "none" : "block",
           maxHeight: showNavbarBool ? "0" : "max-content",
@@ -48,6 +48,11 @@ const NavbarT = ({ t }) => {
           <a className="link-navbar" href="arthur">
             <li className="order-list-navbar-li fontsBold">
               {t("ClassicNavBar.Home")}
+            </li>
+          </a>
+          <a className="link-navbar" href="gamejam">
+            <li className="order-list-navbar-li fontsBold">
+              {t("ClassicNavBar.GameJam")}
             </li>
           </a>
           <DropdownProject />

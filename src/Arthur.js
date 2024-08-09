@@ -158,6 +158,9 @@ const HomeT = ({ t }) => {
                   <h3 className="fontsRegular">{t("Home.title2")}</h3>
                 </div>
                 <PopupMySql />
+                <h1 className="pDescription centerLoad inherit">
+                  © Arthur BRU
+                </h1>
               </div>
             </>
           )}

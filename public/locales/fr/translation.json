@@ -31,6 +31,7 @@
     "AboutMe": "À propos de moi",
     "Projects": "Projets",
     "CV": "CV",
+    "GameJam": "Game Jam",
     "ContactMe": "Contact"
   },
   "TopNavBarProjects": {
@@ -97,5 +98,16 @@
     "FrenchLanguage": "Français",
     "EnglishLanguage": "Anglais",
     "SpanishLanguage": "Espagnol"
+  },
+  "GameJam": {
+    "Title": "Mes jeux de Game Jam",
+    "Chocolato": {
+      "Description": "J'ai participé à une Game Jam organisé par l'école où j'étudie. Nous avions 48 heures pour réaliser un Jeu sur le thème 'Contraste Dynamique' et comme Direction Artistique 'Chocolat'. J'ai beaucoup apprécié participer à ma première Game Jam où j'ai pu apprendre et échanger au cours du concours.",
+      "LearnMore": "En savoir plus",
+      "Alert": "Pour une meilleur expérience, il vous faut une manette.",
+      "LoadingGame": "Chargement du jeu...",
+      "GameInProgress": "Jeu en cours",
+      "technologies": "Technologie utilisé : Unity"
+    }
   }
 }

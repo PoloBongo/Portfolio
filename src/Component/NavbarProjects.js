@@ -28,7 +28,7 @@ const NavbarProjectsT = ({ t }) => {
           maxHeight: showNavbarBool ? "200px" : "0",
           transition: "all 0.5s ease-in-out",
         }}
-        className="dropdown-content-NProjects overflowNavbarProjects"
+        className="dropdown-content-NProjects overflowNavbarProjects scroll-bar-navbar-projects"
       >
         <ul className="dropdownProjectPadding">
           <DropdownTraduction />
@@ -36,6 +36,11 @@ const NavbarProjectsT = ({ t }) => {
         <ul className="backgroundUnderCategory">
           <a href="/" className="noColorNavbar fontsBold">
             {t("ClassicNavBar.Home")}
+          </a>
+        </ul>
+        <ul className="backgroundUnderCategory">
+          <a className="noColorNavbar fontsBold" href="GameJam">
+            {t("ClassicNavBar.GameJam")}
           </a>
         </ul>
         <ul className="dropdownProjectPadding">

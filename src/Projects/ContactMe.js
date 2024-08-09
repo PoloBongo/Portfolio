@@ -17,7 +17,6 @@ const ContactMeT = ({ t }) => {
     e.preventDefault();
 
     if (!formData.from_name || !formData.from_prenom || !formData.reply_to) {
-      console.log("Veuillez remplir tous les champs obligatoires.");
       return;
     }
 
@@ -31,7 +30,6 @@ const ContactMeT = ({ t }) => {
     emailjs
       .send(serviceId, templateId, formData, userId)
       .then((response) => {
-        console.log("mail send", response);
         setNotificationMessage("Mail envoyé avec succès!");
         setShowNotification(true);
         setTimeout(() => {
@@ -46,7 +44,6 @@ const ContactMeT = ({ t }) => {
         }, 7000);
       })
       .catch((error) => {
-        console.error("mail failed", error);
         setNotificationMessage("Échec de l'envoi du mail.");
         setShowNotification(true);
 

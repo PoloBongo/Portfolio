@@ -33,6 +33,7 @@
     "AboutMe": "About Me",
     "Projects": "Projects",
     "CV": "CV",
+    "GameJam": "Game Jam",
     "ContactMe": "Contact Me"
   },
   "TypeCV": {
@@ -107,5 +108,16 @@
     "FrenchLanguage": "French",
     "EnglishLanguage": "English",
     "SpanishLanguage": "Spanish"
+  },
+  "GameJam": {
+    "Title": "My Game Jam games",
+    "Chocolato": {
+      "Description": "I took part in a Game Jam organized by the school where I study. We had 48 hours to create a game on the theme of 'Dynamic Contrast', with 'Chocolate' as the artistic direction. I really enjoyed taking part in my first Game Jam, where I was able to learn and exchange ideas during the competition.",
+      "LearnMore": "Learn More",
+      "Alert": "For the best experience, you need a joystick.",
+      "LoadingGame": "Game Loading...",
+      "GameInProgress": "Game in progress",
+      "technologies": "Technology used: Unity"
+    }
   }
 }

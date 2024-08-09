@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Fragment, Suspense, useEffect, useState } from "react";
 import "../css/Home.css";
 
 import backgroundProjectHelluvaRevenge from "../img/backgroundHelluvaRevenge.webp";
@@ -26,12 +26,20 @@ import { withTranslation } from "react-i18next";
 
 const ProjectsVideosGamesT = ({ t }) => {
   // Unity
-  const { unityProvider, requestFullscreen } = useUnityContext({
-    loaderUrl: "../BuildUnityRL/Build/public.loader.js",
-    dataUrl: "../BuildUnityRL/Build/public.data",
-    frameworkUrl: "../BuildUnityRL/Build/public.framework.js",
-    codeUrl: "../BuildUnityRL/Build/public.wasm",
-  });
+  // const { unityProvider, requestFullscreen } = useUnityContext({
+  //   loaderUrl: "../BuildUnityRL/Build/public.loader.js",
+  //   dataUrl: "../BuildUnityRL/Build/public.data",
+  //   frameworkUrl: "../BuildUnityRL/Build/public.framework.js",
+  //   codeUrl: "../BuildUnityRL/Build/public.wasm",
+  // });
+
+  const { unityProvider, loadingProgression, requestFullscreen } =
+    useUnityContext({
+      loaderUrl: "../BuildUnityRL/Build/public.loader.js",
+      dataUrl: "../BuildUnityRL/Build/public.data",
+      frameworkUrl: "../BuildUnityRL/Build/public.framework.js",
+      codeUrl: "../BuildUnityRL/Build/public.wasm",
+    });
 
   function handleClickEnterFullscreen() {
     requestFullscreen(true);
@@ -124,8 +132,10 @@ const ProjectsVideosGamesT = ({ t }) => {
 
   // Unity WebGL
   const [showUnityPlayBool, setSUnityPlayBool] = useState(true);
+  const [activeGameBtn, setActiveGameBtn] = useState(false);
 
-  const handleNavbarBtnClickPlay = () => {
+  const handleActiveGameBtn = () => {
+    setActiveGameBtn(!activeGameBtn);
     setSUnityPlayBool(!showUnityPlayBool);
   };
 
@@ -375,7 +385,7 @@ const ProjectsVideosGamesT = ({ t }) => {
             </div>
           </div>
           <div className="projects C#" id="C#">
-            <div className="flexIMG">
+            <div className="aboutMeTitle">
               <img
                 style={{
                   display: showUnityPlayBool ? "block" : "none",
@@ -387,7 +397,9 @@ const ProjectsVideosGamesT = ({ t }) => {
                 alt="Unity jeu de balle"
                 className="sizeProjectIMG"
               ></img>
-              <Unity
+            </div>
+            <div className="aboutMeTitle">
+              {/* <Unity
                 style={{
                   display: showUnityPlayBool ? "none" : "block",
                   opacity: showUnityPlayBool ? "0" : "1",
@@ -396,7 +408,36 @@ const ProjectsVideosGamesT = ({ t }) => {
                   transition: "all 1s ease",
                 }}
                 unityProvider={unityProvider}
-              />
+              /> */}
+              <Fragment>
+                {/* {!isLoaded && !showUnityPlayBool && (
+                  <p>
+                    Loading Application...{" "}
+                    {Math.round(loadingProgression * 100)}%
+                  </p>
+                )}
+                <div className="flexIMG">
+                  <Unity
+                    unityProvider={unityProvider}
+                    style={{
+                      visibility:
+                        isLoaded && !showUnityPlayBool ? "visible" : "hidden",
+                      height: isLoaded && !showUnityPlayBool ? "100%" : "100%",
+                    }}
+                  />
+                </div> */}
+                {activeGameBtn && (
+                  <>
+                    {loadingProgression < 1 && (
+                      <p className="width flexIMG">
+                        {t("GameJam.Chocolato.LoadingGame")}{" "}
+                        {Math.round(loadingProgression * 100)}%
+                      </p>
+                    )}
+                    <Unity unityProvider={unityProvider} className="width" />
+                  </>
+                )}
+              </Fragment>
             </div>
             <h4 className="HelluvaRevengeTitle fontsRegular">Unity</h4>
             <p
@@ -434,7 +475,7 @@ const ProjectsVideosGamesT = ({ t }) => {
                 {t("VideoGamesProjects.fullScreenGame")}
               </button>
               <button
-                onClick={handleNavbarBtnClickPlay}
+                onClick={handleActiveGameBtn}
                 className="btnStyleDiscoverProject fontsBold marge-contact-play"
               >
                 {showUnityPlayBool
