@@ -25,10 +25,17 @@ import { Loader } from "../Component/ComponentTraduction";
 import { withTranslation } from "react-i18next";
 
 const ProjectsVideosGamesT = ({ t }) => {
-  let cPlusPlus = Array.from(document.getElementsByClassName("C++")).length;
-  let lua = Array.from(document.getElementsByClassName("LUA")).length;
-  let cSharp = Array.from(document.getElementsByClassName("C#")).length;
-  let python = Array.from(document.getElementsByClassName("Python")).length;
+  const [cPlusPlusT, setCPlusPlusT] = useState(0);
+  const [luaT, setLuaT] = useState(0);
+  const [cSharpT, setCSharpT] = useState(0);
+  const [pythonT, setPythonT] = useState(0);
+
+  useEffect(() => {
+    setCPlusPlusT(Array.from(document.getElementsByClassName("C++")).length);
+    setLuaT(Array.from(document.getElementsByClassName("LUA")).length);
+    setCSharpT(Array.from(document.getElementsByClassName("C#")).length);
+    setPythonT(Array.from(document.getElementsByClassName("Python")).length);
+  }, []);
 
   // Unity
   const { unityProvider, loadingProgression, requestFullscreen } =
@@ -170,13 +177,13 @@ const ProjectsVideosGamesT = ({ t }) => {
               <ul className="backgroundUnderCategory">
                 <a href="#C++" className="noColorCPlus fontsRegular">
                   {t("BottomNavBarProjects.C++")}&nbsp;
-                  <strong className="green">({cPlusPlus})</strong>
+                  <strong className="green">({cPlusPlusT})</strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
                 <a href="#C#" className="noColorCSharp fontsRegular">
                   {t("BottomNavBarProjects.CSharp")}&nbsp;
-                  <strong className="green">({cSharp})</strong>
+                  <strong className="green">({cSharpT})</strong>
                 </a>
               </ul>
               {/* <ul className="backgroundUnderCategory">
@@ -187,13 +194,13 @@ const ProjectsVideosGamesT = ({ t }) => {
               <ul className="backgroundUnderCategory">
                 <a href="#Python" className="noColorPython fontsRegular">
                   {t("BottomNavBarProjects.Python")}&nbsp;
-                  <strong className="green">({python})</strong>
+                  <strong className="green">({pythonT})</strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
                 <a href="#LUA" className="noColorLUA fontsRegular">
                   {t("BottomNavBarProjects.LUA")}&nbsp;
-                  <strong className="green">({lua})</strong>
+                  <strong className="green">({luaT})</strong>
                 </a>
               </ul>
             </div>
