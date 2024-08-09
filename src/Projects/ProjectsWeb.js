@@ -53,7 +53,7 @@ const ProjectsWebT = ({ t }) => {
     const targetHref5 = document.getElementsByClassName("noColorBAImmobilier");
     const targetHref6 = document.getElementsByClassName("noColorReact");
 
-    // Permet de récupérer ce que je veux de ce qui est visible sur la fenêtre ( ckasse / id / attribute ect...)
+    // Permet de récupérer ce que je veux de ce qui est visible sur la fenêtre ( classe / id / attribute ect...)
 
     const observer = new IntersectionObserver(
       (entries) => {

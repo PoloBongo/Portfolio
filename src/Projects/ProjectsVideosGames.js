@@ -25,14 +25,12 @@ import { Loader } from "../Component/ComponentTraduction";
 import { withTranslation } from "react-i18next";
 
 const ProjectsVideosGamesT = ({ t }) => {
-  // Unity
-  // const { unityProvider, requestFullscreen } = useUnityContext({
-  //   loaderUrl: "../BuildUnityRL/Build/public.loader.js",
-  //   dataUrl: "../BuildUnityRL/Build/public.data",
-  //   frameworkUrl: "../BuildUnityRL/Build/public.framework.js",
-  //   codeUrl: "../BuildUnityRL/Build/public.wasm",
-  // });
+  let cPlusPlus = Array.from(document.getElementsByClassName("C++")).length;
+  let lua = Array.from(document.getElementsByClassName("LUA")).length;
+  let cSharp = Array.from(document.getElementsByClassName("C#")).length;
+  let python = Array.from(document.getElementsByClassName("Python")).length;
 
+  // Unity
   const { unityProvider, loadingProgression, requestFullscreen } =
     useUnityContext({
       loaderUrl: "../BuildUnityRL/Build/public.loader.js",
@@ -172,18 +170,13 @@ const ProjectsVideosGamesT = ({ t }) => {
               <ul className="backgroundUnderCategory">
                 <a href="#C++" className="noColorCPlus fontsRegular">
                   {t("BottomNavBarProjects.C++")}&nbsp;
-                  <strong className="green">
-                    ({Array.from(document.getElementsByClassName("C++")).length}
-                    )
-                  </strong>
+                  <strong className="green">({cPlusPlus})</strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
                 <a href="#C#" className="noColorCSharp fontsRegular">
                   {t("BottomNavBarProjects.CSharp")}&nbsp;
-                  <strong className="green">
-                    ({Array.from(document.getElementsByClassName("C#")).length})
-                  </strong>
+                  <strong className="green">({cSharp})</strong>
                 </a>
               </ul>
               {/* <ul className="backgroundUnderCategory">
@@ -194,23 +187,13 @@ const ProjectsVideosGamesT = ({ t }) => {
               <ul className="backgroundUnderCategory">
                 <a href="#Python" className="noColorPython fontsRegular">
                   {t("BottomNavBarProjects.Python")}&nbsp;
-                  <strong className="green">
-                    (
-                    {
-                      Array.from(document.getElementsByClassName("Python"))
-                        .length
-                    }
-                    )
-                  </strong>
+                  <strong className="green">({python})</strong>
                 </a>
               </ul>
               <ul className="backgroundUnderCategory">
                 <a href="#LUA" className="noColorLUA fontsRegular">
                   {t("BottomNavBarProjects.LUA")}&nbsp;
-                  <strong className="green">
-                    ({Array.from(document.getElementsByClassName("LUA")).length}
-                    )
-                  </strong>
+                  <strong className="green">({lua})</strong>
                 </a>
               </ul>
             </div>
@@ -399,33 +382,7 @@ const ProjectsVideosGamesT = ({ t }) => {
               ></img>
             </div>
             <div className="aboutMeTitle">
-              {/* <Unity
-                style={{
-                  display: showUnityPlayBool ? "none" : "block",
-                  opacity: showUnityPlayBool ? "0" : "1",
-                  width: "-webkit-fill-available",
-                  overflow: "hidden",
-                  transition: "all 1s ease",
-                }}
-                unityProvider={unityProvider}
-              /> */}
               <Fragment>
-                {/* {!isLoaded && !showUnityPlayBool && (
-                  <p>
-                    Loading Application...{" "}
-                    {Math.round(loadingProgression * 100)}%
-                  </p>
-                )}
-                <div className="flexIMG">
-                  <Unity
-                    unityProvider={unityProvider}
-                    style={{
-                      visibility:
-                        isLoaded && !showUnityPlayBool ? "visible" : "hidden",
-                      height: isLoaded && !showUnityPlayBool ? "100%" : "100%",
-                    }}
-                  />
-                </div> */}
                 {activeGameBtn && (
                   <>
                     {loadingProgression < 1 && (
