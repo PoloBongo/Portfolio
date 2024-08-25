@@ -10,11 +10,11 @@ import backgroundGoudGuys from "../img/backgroundGoudGuys.webp";
 import backgroundReactApiMoovie from "../img/backgroundReactApiMoovie.webp";
 import backgroundReactPortfolio from "../img/backgroundReactPortfolio.webp";
 // Preview Video Projects
-import celticVideo from "./celticLaricheBasketPreview.mp4";
-import BAImmobilierVideo from "./BAImmobilierPreview.mp4";
-import ekoVideo from "./ekoWebsitePreview.mp4";
-import paymentPageVideo from "./paymentPagePreview.mp4";
-import reactAPIMoovie from "./reactAPIMoovie.mp4";
+import celticVideo from "./Celticlarichebasketpreview.mp4";
+import BAImmobilierVideo from "./Baimmobilierpreview.mp4";
+import ekoVideo from "./Ekowebsitepreview.mp4";
+import paymentPageVideo from "./Paymentpagepreview.mp4";
+import reactAPIMoovie from "./Reactapimoovie.mp4";
 
 import NavbarProjects from "../Component/NavbarProjects";
 

@@ -10,11 +10,11 @@ import backgroundProjectLUA from "../img/backgroundLUA.webp";
 import backgroundCSharpConsole from "../img/backgroundCSharpConsole.webp";
 import backgroundUnityRL from "../img/backgroundUnityRL.webp";
 
-import helluvaRevengeVideo from "./helluvaRevengePreview.mp4";
-import towerDefenseVideo from "./TowerDefensePreview.mp4";
-import shootEmUpVideo from "./shootEmUpPreview.mp4";
-import jeuTextuelPreview from "./jeuTextuelPreview.mp4";
-import CSharpConsoleVideo from "./CSharpConsoleVideo.mp4";
+import helluvaRevengeVideo from "./Helluvarevengepreview.mp4";
+import towerDefenseVideo from "./Towerdefensepreview.mp4";
+import shootEmUpVideo from "./Shootemuppreview.mp4";
+import jeuTextuelPreview from "./Jeutextuelpreview.mp4";
+import CSharpConsoleVideo from "./Csharpconsolevideo.mp4";
 
 import NavbarProjects from "../Component/NavbarProjects";
 
