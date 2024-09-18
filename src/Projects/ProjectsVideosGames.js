@@ -247,10 +247,11 @@ const ProjectsVideosGamesT = ({ t }) => {
               <div className="preview-div">
                 <img
                   src={backgroundProjectLOL}
+                  loading="lazy"
                   alt="Tower Defense Thème Leagues of Legends"
                   className="sizeProjectIMG"
                 />
-                <video className="preview-video" loop muted>
+                <video loading="lazy" className="preview-video" loop muted>
                   <source src={towerDefenseVideo} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -279,6 +280,7 @@ const ProjectsVideosGamesT = ({ t }) => {
             <div className="flexIMG">
               <img
                 src={backgroundCPPBibliotheque}
+                loading="lazy"
                 alt="Bibliothèque C++"
                 className="sizeProjectIMG"
               ></img>
@@ -309,10 +311,11 @@ const ProjectsVideosGamesT = ({ t }) => {
               <div className="preview-div">
                 <img
                   src={backgroundCPPJeuTextuel}
+                  loading="lazy"
                   alt="Jeu Textuel en Console"
                   className="sizeProjectIMG"
                 ></img>
-                <video className="preview-video" loop muted>
+                <video loading="lazy" className="preview-video" loop muted>
                   <source src={jeuTextuelPreview} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -344,10 +347,11 @@ const ProjectsVideosGamesT = ({ t }) => {
               <div className="preview-div">
                 <img
                   src={backgroundCSharpConsole}
+                  loading="lazy"
                   alt="Tour par tour en console"
                   className="sizeProjectIMG"
                 ></img>
-                <video className="preview-video" loop muted>
+                <video loading="lazy" className="preview-video" loop muted>
                   <source src={CSharpConsoleVideo} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -384,6 +388,7 @@ const ProjectsVideosGamesT = ({ t }) => {
                   transition: "all 1s ease",
                 }}
                 src={backgroundUnityRL}
+                loading="lazy"
                 alt="Unity jeu de balle"
                 className="sizeProjectIMG"
               ></img>
@@ -453,10 +458,11 @@ const ProjectsVideosGamesT = ({ t }) => {
               <div className="preview-div">
                 <img
                   src={backgroundProjectShootEmUp}
+                  loading="lazy"
                   alt="Shoot-Em-Up Thème Futuriste"
                   className="sizeProjectIMG"
                 ></img>
-                <video className="preview-video" loop muted>
+                <video loading="lazy" className="preview-video" loop muted>
                   <source src={shootEmUpVideo} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -485,6 +491,7 @@ const ProjectsVideosGamesT = ({ t }) => {
             <div className="flexIMG">
               <img
                 src={backgroundProjectLUA}
+                loading="lazy"
                 alt="Shoot-Em-Up Thème Futuriste"
                 className="sizeProjectIMG"
               ></img>

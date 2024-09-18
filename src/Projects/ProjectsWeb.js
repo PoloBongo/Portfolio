@@ -220,10 +220,11 @@ const ProjectsWebT = ({ t }) => {
               <div className="preview-div">
                 <img
                   src={backgroundProjectEko}
+                  loading="lazy"
                   alt="Site Internet Eko"
                   className="sizeProjectIMG"
                 ></img>{" "}
-                <video className="preview-video" loop muted>
+                <video loading="lazy" className="preview-video" loop muted>
                   <source src={ekoVideo} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -253,10 +254,11 @@ const ProjectsWebT = ({ t }) => {
               <div className="preview-div">
                 <img
                   src={pagePaiement}
+                  loading="lazy"
                   alt="Page de Paiement"
                   className="sizeProjectIMG"
                 ></img>{" "}
-                <video className="preview-video" loop muted>
+                <video loading="lazy" className="preview-video" loop muted>
                   <source src={paymentPageVideo} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -287,6 +289,7 @@ const ProjectsWebT = ({ t }) => {
             <div className="flexIMG">
               <img
                 src={backgroundGoudGuys}
+                loading="lazy"
                 alt="Site Internet Goud Guys"
                 className="sizeProjectIMG"
               ></img>
@@ -315,10 +318,11 @@ const ProjectsWebT = ({ t }) => {
               <div className="preview-div">
                 <img
                   src={backgroundProjectBAImmobilier}
+                  loading="lazy"
                   alt="Site Internet B.A Immobilier"
                   className="sizeProjectIMG"
                 ></img>{" "}
-                <video className="preview-video" loop muted>
+                <video loading="lazy" className="preview-video" loop muted>
                   <source src={BAImmobilierVideo} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -348,10 +352,11 @@ const ProjectsWebT = ({ t }) => {
               <div className="preview-div">
                 <img
                   src={backgroundReactApiMoovie}
+                  loading="lazy"
                   alt="Site Internet Moovie API en React"
                   className="sizeProjectIMG"
                 ></img>{" "}
-                <video className="preview-video" loop muted>
+                <video loading="lazy" className="preview-video" loop muted>
                   <source src={reactAPIMoovie} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
