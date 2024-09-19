@@ -4,7 +4,7 @@
     "DeveloperJunior": "Junior developer",
     "name": "Hello, I am Arthur BRU",
     "developerJV": "Hello, I am a video game developer.",
-    "developerWeb": "Hello, I am a web developer.",
+    "developerWeb": "Hello, I am a game developer.",
     "role": "C++ Developer",
     "info": "Currently pursuing a Bachelor's degree in Computer Development with a specialization in video game design at Gaming Campus in my second year of G.Tech, and I am seeking an internship starting May 15th.",
     "discover": "Discover Me",
@@ -26,7 +26,8 @@
     "Bootstrap": "Bootstrap 5",
     "Python": "Python",
     "React": "React (Front-End)",
-    "LUA": "LUA"
+    "LUA": "LUA",
+    "TypeScript": "TypeScript"
   },
   "ClassicNavBar": {
     "Home": "Home",
@@ -34,15 +35,12 @@
     "Projects": "Projects",
     "CV": "CV",
     "GameJam": "Game Jam",
+    "Unity": "Unity",
     "ContactMe": "Contact Me"
   },
   "TypeCV": {
     "CVJV": "Video Game CV",
     "CVWeb": "Web CV"
-  },
-  "TypeProjects": {
-    "ProjectsJV": "Video Game projects",
-    "ProjectsWeb": "Web Projects"
   },
   "TopNavBarProjects": {
     "Home": "Home",
@@ -55,10 +53,12 @@
   "BottomNavBarProjects": {
     "Category": "Category",
     "C": "C Language",
+    "CustomEngine": "Custom Engine",
     "C++": "C++ Language",
     "CSharp": "C# Language",
     "Python": "Python",
     "LUA": "LUA",
+    "Unity": "Unity",
     "PaymentPage": "Payment Page"
   },
   "VideoGamesProjects": {
@@ -75,7 +75,8 @@
     "luaPart1": "Before joining the Gaming Campus, I developed in LUA on the FiveM platform for about 4 years. This experience allowed me to acquire strong knowledge in database management and creation, and I had the opportunity to work on Linux to manage various servers. Over these 4 years, I also created the ",
     "luaPart2": ", allowing me to share my content with the community. Today, I have stopped the Polo Leaks project as I have explored all the possibilities it offered.",
     "CSharpConsole": "Game in console, a turn-based game developed in 2 weeks. We had to create an ASCII map and make it attractive. We chose the theme of One Piece, and for the combat system, we had to create 3 types of AI: Easy, Normal, and Hard. We also conducted unit tests.<br></br>- Group of 4 students.",
-    "UnityRL": "A game developed in 2 weeks using the Unity game engine with several features such as procedural generation, Animation Curve, Drone AI, Input Management, Coroutines, OpenProBuilder, and other Unity basics.<br></br>- Group of 2 students."
+    "UnityRL": "A game developed in 2 weeks using the Unity game engine with several features such as procedural generation, Animation Curve, Drone AI, Input Management, Coroutines, OpenProBuilder, and other Unity basics.<br></br>- Group of 2 students.",
+    "CustomEngine": "During my 2nd year, I had the chance to make a custom engine with Vulkan in C++. I am mainly in charge of the network part, that is to say the TCP and UDP protocols and also the integration of sound via the FMOD library. The project was over 1 month.<br><br>- Group of 8 students."
   },
   "WebProjects": {
     "learnMore": "Learn More",
@@ -117,6 +118,14 @@
       "Alert": "For the best experience, you need a joystick.",
       "LoadingGame": "Game Loading...",
       "GameInProgress": "Game in progress",
+      "technologies": "Technology used: Unity"
+    }
+  },
+  "Unity": {
+    "Title": "My Unity games/projects",
+    "ShadowScholar": {
+      "Description": "To validate my second year at the Gaming Campus, I did an internship where I was responsible for imagining and developing the game 'Shadow Scholar: The Ultimate College'. I was able to perfect my knowledge in C# programming and discover / improve certain features on Unity such as the Timeline tool, Cinemachine, Json Backup, Profiler, Skeleton Animation, Animator, AI Navigation and I was also able to touch on extensions such as GeNa and Autofence Builder.<br></br>- We were 2 Developers",
+      "LearnMore": "Learn more",
       "technologies": "Technology used: Unity"
     }
   }

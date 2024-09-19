@@ -50,9 +50,14 @@ const NavbarT = ({ t }) => {
               {t("ClassicNavBar.Home")}
             </li>
           </a>
-          <a className="link-navbar" href="gamejam">
+          <a className="link-navbar" href="GameJam">
             <li className="order-list-navbar-li fontsBold">
               {t("ClassicNavBar.GameJam")}
+            </li>
+          </a>
+          <a className="link-navbar" href="Unity">
+            <li className="order-list-navbar-li fontsBold">
+              {t("ClassicNavBar.Unity")}
             </li>
           </a>
           <DropdownProject />

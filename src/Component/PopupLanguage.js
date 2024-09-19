@@ -19,6 +19,7 @@ import imgCLangage from "../img/cIcon.svg";
 import imgCSharpLangage from "../img/CSharpIcon.svg";
 import imgInfoIcon from "../img/infoIcon.svg";
 import imgUnityIcon from "../img/unityIcon.svg";
+import imgTypeScriptIcon from "../img/typescriptIcon.svg";
 
 // Traduction
 import { Loader } from "./ComponentTraduction";
@@ -266,6 +267,16 @@ const PopupMySqlT = ({ t }) => {
             alt="Lua Langage Icon"
           ></img>
           {t("Home.LUA")}
+        </div>
+      </div>
+      <div className="rectangleTool fontsRegular" id="blur">
+        <div className="sizeIconCPlus">
+          <img
+            src={imgTypeScriptIcon}
+            className="iconSpace"
+            alt="TypeScript Langage Icon"
+          ></img>
+          {t("Home.TypeScript")}
         </div>
       </div>
     </div>

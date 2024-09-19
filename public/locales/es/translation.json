@@ -4,7 +4,7 @@
     "DeveloperJunior": "Desarrollador junior",
     "name": "Hola, soy Arthur BRU",
     "developerJV": "Hola, soy un desarrollador de videojuegos.",
-    "developerWeb": "Hola, soy un desarrollador web.",
+    "developerWeb": "Hola, soy un desarrollador de videojuegos.",
     "role": "Desarrollador de C++",
     "info": "Actualmente estoy cursando un Bachillerato en Desarrollo Informático con especialización en diseño de videojuegos en Gaming Campus, en mi segundo año de G.Tech, y estoy buscando una práctica a partir del 15 de mayo.",
     "discover": "Descúbreme",
@@ -26,7 +26,8 @@
     "Bootstrap": "Bootstrap 5",
     "Python": "Python",
     "React": "React (Front-End)",
-    "LUA": "LUA"
+    "LUA": "LUA",
+    "TypeScript": "TypeScript"
   },
   "ClassicNavBar": {
     "Home": "Inicio",
@@ -34,15 +35,12 @@
     "Projects": "Proyectos",
     "CV": "CV",
     "GameJam": "Game Jam",
+    "Unity": "Unity",
     "ContactMe": "Contáctame"
   },
   "TypeCV": {
     "CVJV": "CV de Videojuegos",
     "CVWeb": "CV Web"
-  },
-  "TypeProjects": {
-    "ProjectsJV": "Proyectos de Videojuegos",
-    "ProjectsWeb": "Proyectos Web"
   },
   "TopNavBarProjects": {
     "Home": "Inicio",
@@ -55,10 +53,12 @@
   "BottomNavBarProjects": {
     "Category": "Categoría",
     "C": "Lenguaje C",
+    "CustomEngine": "Motor Personalizado",
     "C++": "Lenguaje C++",
     "CSharp": "Lenguaje C#",
     "Python": "Python",
     "LUA": "LUA",
+    "Unity": "Unity",
     "PaymentPage": "Página de pago"
   },
   "VideoGamesProjects": {
@@ -75,7 +75,8 @@
     "luaPart1": "Antes de unirme al Gaming Campus, desarrollé en LUA en la plataforma FiveM durante aproximadamente 4 años. Esta experiencia me permitió adquirir sólidos conocimientos en gestión y creación de bases de datos, y tuve la oportunidad de trabajar en Linux para administrar diferentes servidores. A lo largo de estos 4 años, también creé el proyecto",
     "luaPart2": ", que me permitió compartir mi contenido con mi comunidad. Hoy, he detenido el proyecto Polo Leaks porque he explorado todas las posibilidades que ofrecía.",
     "CSharpConsole": "Juego en consola, un juego por turnos realizado en 2 semanas. Teníamos que crear un mapa en ASCII y hacerlo atractivo. Elegimos el tema de One Piece y para el sistema de combate, teníamos que crear 3 tipos de IA: Fácil, Normal y Difícil. También realizamos pruebas unitarias.<br></br>- Grupo de 4 estudiantes.",
-    "UnityRL": "Un juego desarrollado en 2 semanas utilizando el motor de juego Unity con varias características como generación procedural, Animation Curve, IA de drones, gestión de entradas, Corrutinas, OpenProBuilder y otros fundamentos de Unity.<br></br>- Grupo de 2 estudiantes."
+    "UnityRL": "Un juego desarrollado en 2 semanas utilizando el motor de juego Unity con varias características como generación procedural, Animation Curve, IA de drones, gestión de entradas, Corrutinas, OpenProBuilder y otros fundamentos de Unity.<br></br>- Grupo de 2 estudiantes.",
+    "CustomEngine": "Durante mi segundo año, tuve la oportunidad de crear un motor personalizado con Vulkan en C++. Principalmente me ocupé de la parte de la red, es decir de los protocolos TCP y UDP y también de la integración del sonido a través de la biblioteca FMOD. El proyecto tuvo una duración de 1 mes.<br><br>- Grupo de 8 alumnos."
   },
   "WebProjects": {
     "learnMore": "Más información",
@@ -117,6 +118,14 @@
       "Alert": "Para disfrutar de la mejor experiencia, necesitas un joystick.",
       "LoadingGame": "Carga del juego...",
       "GameInProgress": "Juego en curso",
+      "technologies": "Tecnología utilizada: Unity"
+    }
+  },
+  "Unity": {
+    "Title": "Mis juegos/proyectos de Unity",
+    "ShadowScholar": {
+      "Description": "Para validar mi segundo año en Gaming Campus, realicé una pasantía donde fui responsable de imaginar y desarrollar el juego 'Shadow Scholar: The Ultimate College'. Pude perfeccionar mis conocimientos de programación en C# y descubrir/mejorar ciertas características en Unity como la herramienta Timeline, Cinemachine, Json Save, Profiler, Skeleton Animation, Animator, AI Navigation y también pude tocar extensiones como GeNa y Autofence Builder.<br></br>- Éramos 2 desarrolladores",
+      "LearnMore": "Más información",
       "technologies": "Tecnología utilizada: Unity"
     }
   }

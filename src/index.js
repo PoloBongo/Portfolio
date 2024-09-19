@@ -5,6 +5,7 @@ import ProjectsWeb from "./Projects/ProjectsWeb";
 import ProjectsVideosGames from "./Projects/ProjectsVideosGames";
 import ContactMe from "./Projects/ContactMe";
 import GameJam from "./GameJam/GameJam";
+import UnityPage from "./Unity/Unity";
 import "./index.css";
 import Arthur from "./Arthur";
 import Layout from "./Component/Layout";
@@ -26,9 +27,10 @@ root.render(
             </Layout>
           }
         />
-        <Route path="/gamejam" element={<GameJam />} />
-        <Route path="/projectsWeb" element={<ProjectsWeb />} />
-        <Route path="/projectsVideosGames" element={<ProjectsVideosGames />} />
+        <Route path="/GameJam" element={<GameJam />} />
+        <Route path="/Unity" element={<UnityPage />} />
+        <Route path="/ProjectsWeb" element={<ProjectsWeb />} />
+        <Route path="/ProjectsVideosGames" element={<ProjectsVideosGames />} />
         <Route path="/contactMe" element={<ContactMe />} />
       </Routes>
     </Router>

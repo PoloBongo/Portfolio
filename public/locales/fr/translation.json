@@ -4,9 +4,9 @@
     "DeveloperJunior": "Développeur junior",
     "name": "Bonjour, je suis Arthur BRU",
     "developerJV": "Bonjour, je suis un développeur de Jeu Vidéo",
-    "developerWeb": "Bonjour, je suis un développeur Web",
+    "developerWeb": "Bonjour, je suis un développeur de Jeu Vidéo",
     "role": "C++ Développeur",
-    "info": "Actuellement en Bachelor en développement informatique option jeu vidéo au Gaming Campus en 2ème année de G.Tech et je recherche un Stage dès le 15 mai.",
+    "info": "Actuellement en Bachelor en développement informatique option jeu vidéo au Gaming Campus en 3ème année de G.Tech et je recherche un Stage et une alternance dès le 15 mai 2025.",
     "discover": "Me découvrir",
     "title1": "A propos de moi",
     "aboutMe": "Grâce à mes expériences, j'ai pu perfectionner mes compétences techniques et collaborer efficacement avec d'autres filières telles que la filière artistique ou bien marketing. En dehors de mes études, je suis passionné par le basket !",
@@ -24,7 +24,10 @@
     "GitDescription": "J'ai commencé à utiliser Git en octobre 2023, et depuis lors, il est devenu un outil essentiel pour moi. Sa commodité et sa rapidité, une fois les commandes maîtrisées, en font un outil fantastique. Je suis à l'aise avec les commandes standard pour la gestion de projets.",
     "Bootstrap": "Bootstrap 5",
     "Python": "Python",
-    "React": "React (Front-End)"
+    "React": "React (Front-End)",
+    "LUA": "LUA",
+    "JavaScript": "JavaScript",
+    "TypeScript": "TypeScript"
   },
   "ClassicNavBar": {
     "Home": "Accueil",
@@ -32,7 +35,12 @@
     "Projects": "Projets",
     "CV": "CV",
     "GameJam": "Game Jam",
+    "Unity": "Unity",
     "ContactMe": "Contact"
+  },
+  "TypeCV": {
+    "CVJV": "CV Jeu vidéo",
+    "CVWeb": "CV Web"
   },
   "TopNavBarProjects": {
     "Home": "Accueil",
@@ -45,10 +53,12 @@
   "BottomNavBarProjects": {
     "Category": "Catégorie",
     "C": "C Langage",
+    "CustomEngine": "Moteur Custom",
     "C++": "C++ Langage",
     "CSharp": "C# Langage",
     "Python": "Python",
     "LUA": "LUA",
+    "Unity": "Unity",
     "PaymentPage": "Page de Paiement"
   },
   "VideoGamesProjects": {
@@ -65,7 +75,8 @@
     "luaPart1": "Avant d'intégrer le Gaming Campus, j'ai développé en LUA sur la plateforme FiveM pendant environ 4 ans. Cette expérience m'a permis d'acquérir de solides connaissances en gestion et création de bases de données, et j'ai eu l'occasion de travailler sur Linux pour gérer différents serveurs. Au cours de ces 4 années, j'ai également créé le projet ",
     "luaPart2": ", me permettant de partager mon contenu avec ma communauté. Aujourd'hui, j'ai arrêté le projet Polo Leaks car j'ai exploré toutes les possibilités qu'il offrait.",
     "CSharpConsole": "Jeu en console, un jeu au tour par tour réalisé en 2 semaines. Nous devions créer une carte en ASCII et la rendre attrayante. Nous avons choisi le thème de One Piece et pour le système de combat, nous devions créer 3 types d'IA : Facile, Normal et Difficile. Nous avons également fait des Test unitaires.<br></br>- Groupe de 4 étudiants.",
-    "UnityRL": "Un jeu développé en 2 semaines sur le moteur de jeu Unity avec plusieurs fonctionnalités telles que la génération procédurale, la courbe d'animation, l'IA de drones, la gestion des entrées, les coroutines, OpenProBuilder et d'autres bases de Unity.<br><br>- Groupe de 2 étudiants."
+    "UnityRL": "Un jeu développé en 2 semaines sur le moteur de jeu Unity avec plusieurs fonctionnalités telles que la génération procédurale, la courbe d'animation, l'IA de drones, la gestion des entrées, les coroutines, OpenProBuilder et d'autres bases de Unity.<br><br>- Groupe de 2 étudiants.",
+    "CustomEngine": "Durant ma 2ème année, j'ai pu avoir la chance de réaliser un moteur custom avec Vulkan en C++. Je me suis principalement occupé de la partie réseau, c'est-à-dire des protocoles TCP et UDP et également de l'intégration du son via la librairie FMOD. Le projet était sur 1 mois.<br><br>- Groupe de 8 étudiants."
   },
   "WebProjects": {
     "learnMore": "En savoir plus",
@@ -107,6 +118,14 @@
       "Alert": "Pour une meilleur expérience, il vous faut une manette.",
       "LoadingGame": "Chargement du jeu...",
       "GameInProgress": "Jeu en cours",
+      "technologies": "Technologie utilisé : Unity"
+    }
+  },
+  "Unity": {
+    "Title": "Mes jeux/projets Unity",
+    "ShadowScholar": {
+      "Description": "Pour valider ma deuxième année au sein du Gaming Campus j'ai réaliser un stage où j'étais chargé d'imaginer et de développer le jeu 'Shadow Scholar : La fac ultime'. J'ai pu perfectionner mes connaissances en programmation C# et découvrir / améliorer certaines fonctionnalités sur Unity tels que l'outil Timeline, Cinemachine, Sauvegarde Json, Profiler, Skeleton Animation, Animator, AI Navigation et j'ai également pu toucher à des extensions tels que GeNa et Autofence Builder.<br></br>- Nous étions 2 Développeurs",
+      "LearnMore": "En savoir plus",
       "technologies": "Technologie utilisé : Unity"
     }
   }
