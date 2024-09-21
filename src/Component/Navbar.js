@@ -1,4 +1,5 @@
-import React, { Suspense, useState, useEffect } from "react";
+import React, { Suspense, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import DropdownProject from "./DropdownProject.js";
 import DropdownCV from "./DropdownCV.js";
 import DropdownTraduction from "./DropdownTraduction.js";
@@ -18,9 +19,11 @@ const NavbarT = ({ t }) => {
     setShowNavbarBool(!showNavbarBool);
   };
 
-  useEffect(() => {
-    sessionStorage.setItem("ShowTitleInNavbar", "true");
-  }, []);
+  const navigate = useNavigate();
+
+  const navigateIntoPage = (string) => {
+    navigate(string);
+  };
 
   return (
     <div className="order-list-navbar-div">
@@ -53,32 +56,47 @@ const NavbarT = ({ t }) => {
       >
         <ul className="order-list-navbar-ul">
           <DropdownTraduction />
-          <a className="link-navbar" href="arthur">
+          <button
+            className="noColor fontsRegular btnNavbar submitForm navbar-font"
+            onClick={() => navigateIntoPage("/arthur")}
+          >
             <li className="order-list-navbar-li fontsBold">
               {t("ClassicNavBar.Home")}
             </li>
-          </a>
-          <a className="link-navbar" href="GameJam">
+          </button>
+          <button
+            className="noColor fontsRegular btnNavbar submitForm navbar-font"
+            onClick={() => navigateIntoPage("/Gamejam")}
+          >
             <li className="order-list-navbar-li fontsBold">
               {t("ClassicNavBar.GameJam")}
             </li>
-          </a>
-          <a className="link-navbar" href="Unity">
+          </button>
+          <button
+            className="noColor fontsRegular btnNavbar submitForm navbar-font"
+            onClick={() => navigateIntoPage("/Unity")}
+          >
             <li className="order-list-navbar-li fontsBold">
               {t("ClassicNavBar.Unity")}
             </li>
-          </a>
+          </button>
           <DropdownProject isFixed={true} />
           <DropdownCV isFixed={true} />
-          <a className="link-navbar" href="contactme">
+          <button
+            className="noColor fontsRegular btnNavbar submitForm navbar-font"
+            onClick={() => navigateIntoPage("/contactme")}
+          >
             <li className="order-list-navbar-li fontsBold">
               {t("ClassicNavBar.ContactMe")}
             </li>
-          </a>
+          </button>
         </ul>
         {sessionStorage.getItem("ShowTitleInNavbar") === "true" && (
           <ul className="order-list-navbar-ul add-no-margin-incoming">
-            <a className="link-navbar" href="Incoming">
+            <button
+              className="noColor fontsRegular btnNavbar submitForm navbar-font"
+              onClick={() => navigateIntoPage("/Incoming")}
+            >
               <li className="order-list-navbar-li fontsBold order-list-navbar-li-add-incoming">
                 <div className="width flex-end">
                   <FontAwesomeIcon
@@ -90,7 +108,7 @@ const NavbarT = ({ t }) => {
                   <h4 className="Home">{t("ClassicNavBar.Incoming")}</h4>
                 </div>
               </li>
-            </a>
+            </button>
           </ul>
         )}
       </div>
