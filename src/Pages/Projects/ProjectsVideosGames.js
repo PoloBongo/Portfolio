@@ -375,7 +375,7 @@ const ProjectsVideosGamesT = ({ t }) => {
                 <p
                   className="pDescription fontsLight"
                   dangerouslySetInnerHTML={{
-                    __html: t("VideoGamesProjects.textuelGameConsole"),
+                    __html: t("VideoGamesProjects.TextuelGameConsole"),
                   }}
                 ></p>
                 <div className="btnDiscoverProject">

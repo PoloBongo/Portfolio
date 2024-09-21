@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+/* @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap"); */
 
 @font-face {
   font-family: "pokemonFontRegular";
@@ -16,10 +16,6 @@
   font-family: "pokemonFontBold";
   src: url("../fonts/ELEGANTTYPEWRITER-Bold.woff2") format("woff2");
   font-display: swap;
-}
-
-.fontsSecours {
-  font-family: Arial, sans-serif;
 }
 
 .fontsRegular {
