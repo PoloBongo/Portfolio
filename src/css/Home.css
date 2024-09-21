@@ -22,15 +22,15 @@
   font-family: Arial, sans-serif;
 }
 
-.fontsRegular .fontsSecours {
+.fontsRegular {
   font-family: pokemonFontRegular;
 }
 
-.fontsLight .fontsSecours {
+.fontsLight {
   font-family: pokemonFontLight;
 }
 
-.fontsBold .fontsSecours {
+.fontsBold {
   font-family: pokemonFontBold;
 }
 
