@@ -1,29 +1,36 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
 
 @font-face {
-  font-family: pokemonFontRegular;
-  src: url(../fonts/ELEGANT-TYPEWRITER-Regular.ttf);
+  font-family: "pokemonFontRegular";
+  src: url("../fonts/ELEGANTTYPEWRITER.woff2") format("woff2");
+  font-display: swap;
 }
 
 @font-face {
-  font-family: pokemonFontLight;
-  src: url(../fonts/ELEGANT-TYPEWRITER-Light.ttf);
+  font-family: "pokemonFontLight";
+  src: url("../fonts/ELEGANTTYPEWRITER-Light.woff2") format("woff2");
+  font-display: swap;
 }
 
 @font-face {
-  font-family: pokemonFontBold;
-  src: url(../fonts/ELEGANT-TYPEWRITER-Bold.ttf);
+  font-family: "pokemonFontBold";
+  src: url("../fonts/ELEGANTTYPEWRITER-Bold.woff2") format("woff2");
+  font-display: swap;
 }
 
-.fontsRegular {
+.fontsSecours {
+  font-family: Arial, sans-serif;
+}
+
+.fontsRegular .fontsSecours {
   font-family: pokemonFontRegular;
 }
 
-.fontsLight {
+.fontsLight .fontsSecours {
   font-family: pokemonFontLight;
 }
 
-.fontsBold {
+.fontsBold .fontsSecours {
   font-family: pokemonFontBold;
 }
 

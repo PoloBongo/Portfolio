@@ -99,6 +99,7 @@ const HomeT = ({ t }) => {
                           className="imageSize"
                           src={imgProgrammer}
                           alt="Programmation"
+                          loading="lazy"
                         ></img>
                       </div>
                     </div>
