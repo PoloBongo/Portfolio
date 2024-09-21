@@ -6,7 +6,7 @@
     "developerJV": "Hola, soy un desarrollador de videojuegos.",
     "developerWeb": "Hola, soy un desarrollador de videojuegos.",
     "role": "Desarrollador de C++",
-    "info": "Actualmente estoy cursando un Bachillerato en Desarrollo Informático con especialización en diseño de videojuegos en Gaming Campus, en mi segundo año de G.Tech, y estoy buscando una práctica a partir del 15 de mayo.",
+    "info": "Actualmente estoy cursando un Bachillerato en Desarrollo Informático con especialización en diseño de videojuegos en Gaming Campus, en mi tercer año de G.Tech, y estoy buscando una práctica a partir del 15 de mayo.",
     "discover": "Descúbreme",
     "title1": "Acerca de mí",
     "aboutMe": "Gracias a mis experiencias, he podido perfeccionar mis habilidades técnicas y colaborar eficazmente con otras ramas como la rama artística o de marketing. Fuera de mis estudios, ¡soy apasionado por el baloncesto!",
@@ -36,7 +36,8 @@
     "CV": "CV",
     "GameJam": "Game Jam",
     "Unity": "Unity",
-    "ContactMe": "Contáctame"
+    "ContactMe": "Contáctame",
+    "Incoming": "Próximos proyectos 2024-2025"
   },
   "TypeCV": {
     "CVJV": "CV de Videojuegos",
@@ -128,5 +129,17 @@
       "LearnMore": "Más información",
       "technologies": "Tecnología utilizada: Unity"
     }
+  },
+  "Incoming": {
+    "1": "Programación avanzada - C++",
+    "2": "Encapsulación - C++",
+    "3": "Inteligencia artificial - C++",
+    "4": "Unity 3D - C#",
+    "5": "Unity Shaders",
+    "6": "Unity UI/UX",
+    "7": "Unreal BluePrint - C++",
+    "8": "Unreal C++",
+    "9": "Física irreal avanzada",
+    "10": "Gestión de producción y edición en Jeu Vidéo"
   }
 }

@@ -14,6 +14,10 @@ const NavbarProjectsT = ({ t }) => {
     setShowNavbarBool(!showNavbarBool);
   };
 
+  const handleUnityPagebtnClick = () => {
+    localStorage.setItem("ActiveBtnNavbarUnityPage", "true");
+  };
+
   return (
     <div>
       <button className="btnNavbarProjects" onClick={handleNavbarBtnClick}>
@@ -43,11 +47,21 @@ const NavbarProjectsT = ({ t }) => {
             {t("ClassicNavBar.GameJam")}
           </a>
         </ul>
-        <ul className="dropdownProjectPadding">
-          <DropdownProject />
+        <ul className="backgroundUnderCategory">
+          <button
+            className="noColor fontsRegular btnNavbarProject submitForm"
+            onClick={handleUnityPagebtnClick}
+          >
+            <a href="ProjectsVideosGames" className="noColorNavbar fontsBold">
+              {t("BottomNavBarProjects.Unity")}
+            </a>
+          </button>
         </ul>
         <ul className="dropdownProjectPadding">
-          <DropdownCV />
+          <DropdownProject isFixed={false} />
+        </ul>
+        <ul className="dropdownProjectPadding">
+          <DropdownCV isFixed={false} />
         </ul>
         <ul className="backgroundUnderCategory">
           <a href="contactme" className="noColorNavbar fontsBold">

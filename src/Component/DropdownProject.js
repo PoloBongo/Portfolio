@@ -1,4 +1,5 @@
 import React, { Suspense, useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Traduction
 import { Loader } from "./ComponentTraduction";
@@ -6,7 +7,7 @@ import { withTranslation } from "react-i18next";
 
 import "../css/Home.css";
 
-const DropdownProjectT = ({ t }) => {
+const DropdownProjectT = ({ t, isFixed = false }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -27,6 +28,18 @@ const DropdownProjectT = ({ t }) => {
     };
   }, []);
 
+  const navigate = useNavigate();
+
+  const goToProjectsVideosGames = () => {
+    navigate("/ProjectsVideosGames");
+  };
+
+  const goToProjectsWeb = () => {
+    navigate("/ProjectsWeb");
+  };
+
+  const fixedClass = isFixed ? "position-fixed" : "";
+
   return (
     <div className="dropdown" ref={dropdownRef}>
       <li className="order-list-navbar-li">
@@ -36,24 +49,24 @@ const DropdownProjectT = ({ t }) => {
       </li>
       {showDropdown && (
         <div
-          className="dropdown-content-Projects"
+          className={`dropdown-content-Projects ${fixedClass}`}
           style={{
             overflow: "hidden",
             animation: `${showDropdown ? "fadeIn" : "fadeOut"} 2s ease`,
           }}
         >
-          <a
-            className="link-navbar dropdownSize fontsRegular"
-            href="ProjectsVideosGames"
+          <button
+            className="noColor fontsRegular btnNavbarProject submitForm font-weight-100"
+            onClick={goToProjectsVideosGames}
           >
             {t("DropdownProjects.ProjectVideoGames")}
-          </a>
-          <a
-            className="link-navbar dropdownSize fontsRegular"
-            href="ProjectsWeb"
+          </button>
+          <button
+            className="noColor fontsRegular btnNavbarProject submitForm font-weight-100"
+            onClick={goToProjectsWeb}
           >
             {t("DropdownProjects.ProjectWeb")}
-          </a>
+          </button>
         </div>
       )}
     </div>
@@ -62,10 +75,10 @@ const DropdownProjectT = ({ t }) => {
 
 const TranslatedDropdownProjects = withTranslation()(DropdownProjectT);
 
-export default function DropdownProject() {
+export default function DropdownProject({ isFixed = false }) {
   return (
     <Suspense fallback={<Loader />}>
-      <TranslatedDropdownProjects />
+      <TranslatedDropdownProjects isFixed={isFixed} />
     </Suspense>
   );
 }

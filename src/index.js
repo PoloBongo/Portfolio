@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ProjectsWeb from "./Projects/ProjectsWeb";
-import ProjectsVideosGames from "./Projects/ProjectsVideosGames";
-import ContactMe from "./Projects/ContactMe";
-import GameJam from "./GameJam/GameJam";
-import UnityPage from "./Unity/Unity";
+import ProjectsWeb from "./Pages/Projects/ProjectsWeb";
+import ProjectsVideosGames from "./Pages/Projects/ProjectsVideosGames";
+import ContactMe from "./Pages/Projects/ContactMe";
+import GameJam from "./Pages/GameJam/GameJam";
+import UnityPage from "./Pages/Unity/Unity";
+import IncomingPage from "./Pages/Incoming/Incoming";
 import "./index.css";
 import Arthur from "./Arthur";
 import Layout from "./Component/Layout";
@@ -29,6 +30,7 @@ root.render(
         />
         <Route path="/GameJam" element={<GameJam />} />
         <Route path="/Unity" element={<UnityPage />} />
+        <Route path="/Incoming" element={<IncomingPage />} />
         <Route path="/ProjectsWeb" element={<ProjectsWeb />} />
         <Route path="/ProjectsVideosGames" element={<ProjectsVideosGames />} />
         <Route path="/contactMe" element={<ContactMe />} />

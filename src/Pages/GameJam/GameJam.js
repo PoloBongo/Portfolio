@@ -1,6 +1,6 @@
-import "../css/Home.css";
+import "../../css/Home.css";
 import React, { Suspense, useState, useRef, useEffect, Fragment } from "react";
-import Navbar from "../Component/Navbar.js";
+import Navbar from "../../Component/Navbar.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,22 +8,13 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons";
 import { Unity, useUnityContext } from "react-unity-webgl";
 
 // image
-import backgroundChocoBlast from "../img/backgroundChocoBlast.webp";
+import backgroundChocoBlast from "../../img/backgroundChocoBlast.webp";
 
 // Traduction
-import { Loader } from "../Component/ComponentTraduction.js";
+import { Loader } from "../../Component/ComponentTraduction.js";
 import { withTranslation } from "react-i18next";
 
 const GameJamT = ({ t }) => {
-  // Unity
-  // const { unityProvider, requestFullscreen } = useUnityContext({
-  //   loaderUrl: "../BuildChocolatoGameJam/Build/BuildChocolatoGameJam.loader.js",
-  //   dataUrl: "../BuildChocolatoGameJam/Build/BuildChocolatoGameJam.data",
-  //   frameworkUrl:
-  //     "../BuildChocolatoGameJam/Build/BuildChocolatoGameJam.framework.js",
-  //   codeUrl: "../BuildChocolatoGameJam/Build/BuildChocolatoGameJam.wasm",
-  // });
-
   function handleClickEnterFullscreen() {
     requestFullscreen(true);
   }

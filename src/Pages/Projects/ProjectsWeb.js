@@ -1,14 +1,14 @@
 import React, { Suspense, useEffect, useState } from "react";
-import "../css/Home.css";
+import "../../css/Home.css";
 
 // Preview Minia Projects
-import backgroundProjectCeltic from "../img/backgroundCeltic.webp";
-import backgroundProjectEko from "../img/backgroundEko.webp";
-import backgroundProjectBAImmobilier from "../img/backgroundBAImmobilier.webp";
-import pagePaiement from "../img/pagePaiement.webp";
-import backgroundGoudGuys from "../img/backgroundGoudGuys.webp";
-import backgroundReactApiMoovie from "../img/backgroundReactApiMoovie.webp";
-import backgroundReactPortfolio from "../img/backgroundReactPortfolio.webp";
+import backgroundProjectCeltic from "../../img/backgroundCeltic.webp";
+import backgroundProjectEko from "../../img/backgroundEko.webp";
+import backgroundProjectBAImmobilier from "../../img/backgroundBAImmobilier.webp";
+import pagePaiement from "../../img/pagePaiement.webp";
+import backgroundGoudGuys from "../../img/backgroundGoudGuys.webp";
+import backgroundReactApiMoovie from "../../img/backgroundReactApiMoovie.webp";
+import backgroundReactPortfolio from "../../img/backgroundReactPortfolio.webp";
 // Preview Video Projects
 import celticVideo from "./celticLaricheBasketPreview.mp4";
 import BAImmobilierVideo from "./BAImmobilierPreview.mp4";
@@ -16,10 +16,10 @@ import ekoVideo from "./ekoWebsitePreview.mp4";
 import paymentPageVideo from "./paymentPagePreview.mp4";
 import reactAPIMoovie from "./reactAPIMoovie.mp4";
 
-import NavbarProjects from "../Component/NavbarProjects";
+import NavbarProjects from "../../Component/NavbarProjects";
 
 // Traduction
-import { Loader } from "../Component/ComponentTraduction";
+import { Loader } from "../../Component/ComponentTraduction";
 import { withTranslation } from "react-i18next";
 
 const ProjectsWebT = ({ t }) => {

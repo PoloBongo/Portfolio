@@ -20,7 +20,10 @@
     "react-router-dom": "^6.21.3",
     "react-scripts": "^5.0.1",
     "react-spring": "^9.7.3",
+    "react-tsparticles": "^2.12.2",
     "react-unity-webgl": "^9.5.0",
+    "styled-components": "^6.1.13",
+    "tsparticles-slim": "^2.12.0",
     "web-vitals": "^2.1.4",
     "ws": "^8.18.0"
   },

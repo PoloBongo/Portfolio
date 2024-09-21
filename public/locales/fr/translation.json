@@ -36,7 +36,8 @@
     "CV": "CV",
     "GameJam": "Game Jam",
     "Unity": "Unity",
-    "ContactMe": "Contact"
+    "ContactMe": "Contact",
+    "Incoming": "Projets à venir 2024-2025"
   },
   "TypeCV": {
     "CVJV": "CV Jeu vidéo",
@@ -128,5 +129,17 @@
       "LearnMore": "En savoir plus",
       "technologies": "Technologie utilisé : Unity"
     }
+  },
+  "Incoming": {
+    "1": "Programmation avancées - C++",
+    "2": "Encapsulation - C++",
+    "3": "Intelligence Artificielle - C++",
+    "4": "Unity 3D - C#",
+    "5": "Unity Shaders",
+    "6": "Unity UI/UX",
+    "7": "Unreal BluePrint - C++",
+    "8": "Unreal C++",
+    "9": "Unreal Physique Avancée",
+    "10": "Gestion de Production & Publishing dans le Jeu Vidéo"
   }
 }

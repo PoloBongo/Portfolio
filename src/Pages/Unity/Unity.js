@@ -1,6 +1,6 @@
-import "../css/Home.css";
-import React, { Suspense, useState, Fragment } from "react";
-import Navbar from "../Component/Navbar.js";
+import "../../css/Home.css";
+import React, { Suspense, useState, Fragment, useEffect } from "react";
+import Navbar from "../../Component/Navbar.js";
 import ProjectsVideosGames from "../Projects/ProjectsVideosGames.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
@@ -9,11 +9,11 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons";
 import { Unity, useUnityContext } from "react-unity-webgl";
 
 // image
-import backgroundUnityRL from "../img/backgroundUnityRL.webp";
-import backgroundUnityShadowScholar from "../img/logoShadowScholar2.webp";
+import backgroundUnityRL from "../../img/backgroundUnityRL.webp";
+import backgroundUnityShadowScholar from "../../img/logoShadowScholar2.webp";
 
 // Traduction
-import { Loader } from "../Component/ComponentTraduction.js";
+import { Loader } from "../../Component/ComponentTraduction.js";
 import { withTranslation } from "react-i18next";
 
 const UnityT = ({ t }) => {
@@ -44,8 +44,13 @@ const UnityT = ({ t }) => {
 
   const handleBackBtnClickUnityPage = () => {
     localStorage.setItem("ActiveBtnBackUnityPage", "false");
+    localStorage.setItem("ActiveBtnNavbarUnityPage", "false");
     setShowProjectsVideoGame(!showProjectsVideoGame);
   };
+
+  useEffect(() => {
+    localStorage.setItem("ActiveBtnNavbarUnityPage", "false");
+  }, []);
 
   return (
     <>

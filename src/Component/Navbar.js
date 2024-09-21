@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import DropdownProject from "./DropdownProject.js";
 import DropdownCV from "./DropdownCV.js";
 import DropdownTraduction from "./DropdownTraduction.js";
@@ -7,12 +7,20 @@ import DropdownTraduction from "./DropdownTraduction.js";
 import { Loader } from "./ComponentTraduction";
 import { withTranslation } from "react-i18next";
 
+// Icon
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
+
 const NavbarT = ({ t }) => {
   const [showNavbarBool, setShowNavbarBool] = useState(true);
 
   const handleNavbarBtnClick = () => {
     setShowNavbarBool(!showNavbarBool);
   };
+
+  useEffect(() => {
+    sessionStorage.setItem("ShowTitleInNavbar", "true");
+  }, []);
 
   return (
     <div className="order-list-navbar-div">
@@ -35,7 +43,7 @@ const NavbarT = ({ t }) => {
         ></div>
       </button>
       <div
-        className="navbarHome width iconLinkedin"
+        className="navbarHome width iconLinkedin navbarHome-add-incoming"
         style={{
           display: showNavbarBool ? "none" : "block",
           maxHeight: showNavbarBool ? "0" : "max-content",
@@ -60,14 +68,31 @@ const NavbarT = ({ t }) => {
               {t("ClassicNavBar.Unity")}
             </li>
           </a>
-          <DropdownProject />
-          <DropdownCV />
+          <DropdownProject isFixed={true} />
+          <DropdownCV isFixed={true} />
           <a className="link-navbar" href="contactme">
             <li className="order-list-navbar-li fontsBold">
               {t("ClassicNavBar.ContactMe")}
             </li>
           </a>
         </ul>
+        {sessionStorage.getItem("ShowTitleInNavbar") === "true" && (
+          <ul className="order-list-navbar-ul add-no-margin-incoming">
+            <a className="link-navbar" href="Incoming">
+              <li className="order-list-navbar-li fontsBold order-list-navbar-li-add-incoming">
+                <div className="width flex-end">
+                  <FontAwesomeIcon
+                    icon={faCircle}
+                    beatFade
+                    style={{ color: "#63E6BE" }}
+                    className="removeMargin"
+                  />
+                  <h4 className="Home">{t("ClassicNavBar.Incoming")}</h4>
+                </div>
+              </li>
+            </a>
+          </ul>
+        )}
       </div>
     </div>
   );

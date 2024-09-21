@@ -1,11 +1,11 @@
 import React, { Suspense, useState } from "react";
-import "../css/Home.css";
-import Navbar from "../Component/Navbar";
+import "../../css/Home.css";
+import Navbar from "../../Component/Navbar";
 import emailjs from "emailjs-com";
-import pikachuForm from "../img/pikachuForm.webp";
+import pikachuForm from "../../img/pikachuForm.webp";
 
 // Traduction
-import { Loader } from "../Component/ComponentTraduction";
+import { Loader } from "../../Component/ComponentTraduction";
 import { withTranslation } from "react-i18next";
 
 const ContactMeT = ({ t }) => {
@@ -68,7 +68,7 @@ const ContactMeT = ({ t }) => {
     <div className="Home-header overflowHidden">
       <Navbar />
       <div className="traitSeparator"></div>
-      <div>
+      <div className="align-form-contact">
         <div className="contactMeFlex">
           <h3 className="fontsBold">{t("ContactMe.title")}</h3>
         </div>
@@ -78,7 +78,7 @@ const ContactMeT = ({ t }) => {
             <form onSubmit={handleSubmit}>
               <div className="flex-part-form">
                 <div className="flex-row-part-form-nom-prenom">
-                  <div className="flex-part-form">
+                  <div className="flex-part-form iconSpace2">
                     <label className="fontsRegular display-remove">
                       {t("ContactMe.name")} :
                     </label>
@@ -143,7 +143,7 @@ const ContactMeT = ({ t }) => {
                   ></textarea>
                 </div>
               </div>
-              <div className="flex-part-form">
+              <div className="flex-part-form margin-submit-form-contact">
                 <button
                   type="submit"
                   className="submitForm relativePosition"

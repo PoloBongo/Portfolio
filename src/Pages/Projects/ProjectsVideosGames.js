@@ -1,15 +1,14 @@
-import React, { Fragment, Suspense, useEffect, useState } from "react";
-import "../css/Home.css";
+import React, { Suspense, useEffect, useState } from "react";
+import "../../css/Home.css";
 // image
-import backgroundProjectCustomEngine from "../img/backgroundCustomEngine.webp";
-import backgroundProjectHelluvaRevenge from "../img/backgroundHelluvaRevenge.webp";
-import backgroundProjectLOL from "../img/backgroundTowerDefenseLOL.webp";
-import backgroundProjectShootEmUp from "../img/shoot-em-up.webp";
-import backgroundCPPBibliotheque from "../img/backgroundCPPBibliotheque.webp";
-import backgroundCPPJeuTextuel from "../img/backgroundCPPJeuTextuel.webp";
-import backgroundProjectLUA from "../img/backgroundLUA.webp";
-import backgroundCSharpConsole from "../img/backgroundCSharpConsole.webp";
-import backgroundUnityRL from "../img/backgroundUnityRL.webp";
+import backgroundProjectCustomEngine from "../../img/backgroundCustomEngine.webp";
+import backgroundProjectHelluvaRevenge from "../../img/backgroundHelluvaRevenge.webp";
+import backgroundProjectLOL from "../../img/backgroundTowerDefenseLOL.webp";
+import backgroundProjectShootEmUp from "../../img/shoot-em-up.webp";
+import backgroundCPPBibliotheque from "../../img/backgroundCPPBibliotheque.webp";
+import backgroundCPPJeuTextuel from "../../img/backgroundCPPJeuTextuel.webp";
+import backgroundProjectLUA from "../../img/backgroundLUA.webp";
+import backgroundCSharpConsole from "../../img/backgroundCSharpConsole.webp";
 // video
 import helluvaRevengeVideo from "./helluvaRevengePreview.mp4";
 import towerDefenseVideo from "./TowerDefensePreview.mp4";
@@ -17,13 +16,11 @@ import shootEmUpVideo from "./shootEmUpPreview.mp4";
 import jeuTextuelPreview from "./jeuTextuelPreview.mp4";
 import CSharpConsoleVideo from "./CSharpConsoleVideo.mp4";
 // component
-import NavbarProjects from "../Component/NavbarProjects";
+import NavbarProjects from "../../Component/NavbarProjects";
 import UnityPage from "../Unity/Unity";
 
-import { Unity, useUnityContext } from "react-unity-webgl";
-
 // Traduction
-import { Loader } from "../Component/ComponentTraduction";
+import { Loader } from "../../Component/ComponentTraduction";
 import { withTranslation } from "react-i18next";
 
 const ProjectsVideosGamesT = ({ t }) => {
@@ -42,19 +39,6 @@ const ProjectsVideosGamesT = ({ t }) => {
       Array.from(document.getElementsByClassName("CustomEngine")).length
     );
   }, []);
-
-  // Unity
-  const { unityProvider, loadingProgression, requestFullscreen } =
-    useUnityContext({
-      loaderUrl: "../BuildUnityRL/Build/public.loader.js",
-      dataUrl: "../BuildUnityRL/Build/public.data",
-      frameworkUrl: "../BuildUnityRL/Build/public.framework.js",
-      codeUrl: "../BuildUnityRL/Build/public.wasm",
-    });
-
-  function handleClickEnterFullscreen() {
-    requestFullscreen(true);
-  }
 
   useEffect(() => {
     // Preview des projects
@@ -91,6 +75,7 @@ const ProjectsVideosGamesT = ({ t }) => {
     const targetHref3 = document.getElementsByClassName("noColorPython");
     const targetHref4 = document.getElementsByClassName("noColorLUA");
     const targetHref5 = document.getElementsByClassName("noColorCSharp");
+    const targetHref6 = document.getElementsByClassName("noColorCustomEngine");
 
     // Permet de récupérer ce que je veux de ce qui est visible sur la fenêtre ( ckasse / id / attribute ect...)
     const observer = new IntersectionObserver(
@@ -116,6 +101,10 @@ const ProjectsVideosGamesT = ({ t }) => {
             Array.from(targetHref4).forEach((element) => {
               element.style.textDecoration =
                 entry.target.id === "LUA" ? "underline" : "";
+            });
+            Array.from(targetHref6).forEach((element) => {
+              element.style.textDecoration =
+                entry.target.id === "CustomEngine" ? "underline" : "";
             });
           }
         });
@@ -148,14 +137,12 @@ const ProjectsVideosGamesT = ({ t }) => {
     setShowUnityPage(!showUnityPage);
   };
 
-  // Unity WebGL
-  const [showUnityPlayBool, setSUnityPlayBool] = useState(true);
-  const [activeGameBtn, setActiveGameBtn] = useState(false);
-
-  const handleActiveGameBtn = () => {
-    setActiveGameBtn(!activeGameBtn);
-    setSUnityPlayBool(!showUnityPlayBool);
-  };
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("ActiveBtnNavbarUnityPage"));
+    if (items) {
+      setShowUnityPage(true);
+    }
+  }, []);
 
   return (
     <>
@@ -192,7 +179,7 @@ const ProjectsVideosGamesT = ({ t }) => {
                   <ul className="backgroundUnderCategory">
                     <a
                       href="#CustomEngine"
-                      className="noColorCPlus fontsRegular"
+                      className="noColorCustomEngine fontsRegular"
                     >
                       {t("BottomNavBarProjects.CustomEngine")}&nbsp;
                       <strong className="green">({customEngine})</strong>
@@ -227,9 +214,9 @@ const ProjectsVideosGamesT = ({ t }) => {
                       <strong className="green">({luaT})</strong>
                     </a>
                   </ul>
-                  <ul className="backgroundUnderCategory">
+                  <ul>
                     <button
-                      className="noColorLUA fontsRegular btnNavbarProject submitForm"
+                      className="noColor fontsRegular btnNavbarProject submitForm"
                       onClick={handleUnityPagebtnClick}
                     >
                       {t("BottomNavBarProjects.Unity")}
@@ -437,84 +424,6 @@ const ProjectsVideosGamesT = ({ t }) => {
                       {t("VideoGamesProjects.learnMore")}
                     </button>
                   </a>
-                </div>
-              </div>
-              <div className="projects C#" id="C#">
-                <div className="aboutMeTitle">
-                  <img
-                    style={{
-                      display: showUnityPlayBool ? "block" : "none",
-                      opacity: showUnityPlayBool ? "1" : "0",
-                      overflow: "hidden",
-                      transition: "all 1s ease",
-                    }}
-                    src={backgroundUnityRL}
-                    loading="lazy"
-                    alt="Unity jeu de balle"
-                    className="sizeProjectIMG"
-                  ></img>
-                </div>
-                <div className="aboutMeTitle">
-                  <Fragment>
-                    {activeGameBtn && (
-                      <>
-                        {loadingProgression < 1 && (
-                          <p className="width flexIMG">
-                            {t("GameJam.Chocolato.LoadingGame")}{" "}
-                            {Math.round(loadingProgression * 100)}%
-                          </p>
-                        )}
-                        <Unity
-                          unityProvider={unityProvider}
-                          className="width"
-                        />
-                      </>
-                    )}
-                  </Fragment>
-                </div>
-                <h4 className="HelluvaRevengeTitle fontsRegular">Unity</h4>
-                <p
-                  className="pDescription fontsLight"
-                  dangerouslySetInnerHTML={{
-                    __html: t("VideoGamesProjects.UnityRL"),
-                  }}
-                ></p>
-                <div className="btnDiscoverProject">
-                  <a
-                    href="https://github.com/MtPoison/UnityRL"
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{
-                      display: showUnityPlayBool ? "block" : "none",
-                      opacity: showUnityPlayBool ? "1" : "0",
-                      overflow: "hidden",
-                      transition: "all 1s ease",
-                    }}
-                  >
-                    <button className="btnStyleDiscoverProject fontsBold">
-                      {t("VideoGamesProjects.learnMore")}
-                    </button>
-                  </a>
-                  <button
-                    style={{
-                      display: showUnityPlayBool ? "none" : "block",
-                      opacity: showUnityPlayBool ? "0" : "1",
-                      overflow: "hidden",
-                      transition: "all 1s ease",
-                    }}
-                    onClick={handleClickEnterFullscreen}
-                    className="btnStyleDiscoverProject fontsBold"
-                  >
-                    {t("VideoGamesProjects.fullScreenGame")}
-                  </button>
-                  <button
-                    onClick={handleActiveGameBtn}
-                    className="btnStyleDiscoverProject fontsBold marge-contact-play"
-                  >
-                    {showUnityPlayBool
-                      ? t("VideoGamesProjects.playProjects")
-                      : t("VideoGamesProjects.stopProjects")}
-                  </button>
                 </div>
               </div>
               <div className="projects Python" id="Python">

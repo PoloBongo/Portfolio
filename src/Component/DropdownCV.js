@@ -11,7 +11,7 @@ import { withTranslation } from "react-i18next";
 
 import "../css/Home.css";
 
-const DropdownCVT = ({ t }) => {
+const DropdownCVT = ({ t, isFixed = false }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -32,6 +32,8 @@ const DropdownCVT = ({ t }) => {
     };
   }, []);
 
+  const fixedClass = isFixed ? "position-fixed" : "";
+
   return (
     <div className="dropdown" ref={dropdownRef}>
       <li className="order-list-navbar-li">
@@ -41,7 +43,7 @@ const DropdownCVT = ({ t }) => {
       </li>
       {showDropdown && (
         <div
-          className="dropdown-content-Projects"
+          className={`dropdown-content-Projects ${fixedClass}`}
           style={{
             overflow: "hidden",
             animation: `${showDropdown ? "fadeIn" : "fadeOut"} 2s ease`,
@@ -79,10 +81,10 @@ const DropdownCVT = ({ t }) => {
 
 const TranslatedDropdownCV = withTranslation()(DropdownCVT);
 
-export default function DropdownCV() {
+export default function DropdownCV({ isFixed = false }) {
   return (
     <Suspense fallback={<Loader />}>
-      <TranslatedDropdownCV />
+      <TranslatedDropdownCV isFixed={isFixed} />
     </Suspense>
   );
 }

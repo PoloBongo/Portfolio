@@ -1,5 +1,5 @@
 import "./css/Home.css";
-import React, { Suspense, useEffect, useState, useRef } from "react";
+import React, { Suspense, useEffect, useState, useRef, lazy } from "react";
 import ScreenSize from "./Component/ScreenSize.js";
 import Navbar from "./Component/Navbar.js";
 import TypingAnimation from "./Component/TextTyping.js";
@@ -21,6 +21,8 @@ import { withTranslation } from "react-i18next";
 
 // Speed Page
 import { SpeedInsights } from "@vercel/speed-insights/react";
+
+const ParralaxEffect = lazy(() => import("./Effects/ParallaxEffect"));
 
 const HomeT = ({ t }) => {
   const [loading, setLoading] = useState(true);
@@ -86,82 +88,85 @@ const HomeT = ({ t }) => {
             <Fade />
           ) : (
             <>
-              <div className="takeSize">
-                <Navbar />
-                <div className="traitSeparator"></div>
-                <div className="aboutMe">
-                  <div className="aboutMeRightPart">
-                    <div className="imagePlacement">
-                      <img
-                        className="imageSize"
-                        src={imgProgrammer}
-                        alt="Programmation"
-                      ></img>
-                    </div>
-                  </div>
-                  <div className="aboutMeLeftPart">
-                    <div className="aboutMeText">
-                      <h3 className="removeMargin typingAnimation">
-                        <TypingAnimation />
-                      </h3>
-                    </div>
-                    <div className="presentationFlex">
-                      <p className="presentationText fontsLight">
-                        {t("Home.info")}
-                      </p>
-                      <div className="RedirectionIcon">
-                        <a
-                          href="https://www.linkedin.com/in/arthur-bru-b71327252/"
-                          target="_blank"
-                          rel="noreferrer"
-                          aria-label="En savoir plus sur mon Linkedin"
-                        >
-                          <FontAwesomeIcon
-                            icon={faLinkedin}
-                            color="#bc63ff"
-                            className="iconLinkedin"
-                            size="xl"
-                          />
-                        </a>
-                        <a
-                          href="https://github.com/PoloBongo"
-                          target="_blank"
-                          rel="noreferrer"
-                          aria-label="En savoir plus sur mon Github"
-                        >
-                          <FontAwesomeIcon
-                            icon={faSquareGithub}
-                            color="#bc63ff"
-                            size="xl"
-                          />
-                        </a>
+              <ParralaxEffect>
+                <div className="takeSize">
+                  <Navbar />
+                  <div className="traitSeparator"></div>
+                  <div className="aboutMe">
+                    <div className="aboutMeRightPart">
+                      <div className="imagePlacement">
+                        <img
+                          className="imageSize"
+                          src={imgProgrammer}
+                          alt="Programmation"
+                        ></img>
                       </div>
-                      <div className="btnDiscover">
-                        <a href="#aboutme&skills">
-                          <button className="btnStyleDiscover fontsRegular">
-                            {t("Home.discover")}
-                          </button>
-                        </a>
+                    </div>
+                    <div className="aboutMeLeftPart">
+                      <div className="aboutMeText">
+                        <h3 className="removeMargin typingAnimation">
+                          <TypingAnimation />
+                        </h3>
+                      </div>
+                      <div className="presentationFlex">
+                        <p className="presentationText fontsLight">
+                          {t("Home.info")}
+                        </p>
+                        <div className="RedirectionIcon">
+                          <a
+                            href="https://www.linkedin.com/in/arthur-bru-b71327252/"
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label="En savoir plus sur mon Linkedin"
+                          >
+                            <FontAwesomeIcon
+                              icon={faLinkedin}
+                              color="#bc63ff"
+                              className="iconLinkedin"
+                              size="xl"
+                            />
+                          </a>
+                          <a
+                            href="https://github.com/PoloBongo"
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label="En savoir plus sur mon Github"
+                          >
+                            <FontAwesomeIcon
+                              icon={faSquareGithub}
+                              color="#bc63ff"
+                              size="xl"
+                            />
+                          </a>
+                        </div>
+                        <div className="btnDiscover">
+                          <a href="#aboutme&skills">
+                            <button className="btnStyleDiscover fontsRegular">
+                              {t("Home.discover")}
+                            </button>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div id="aboutme&skills" className="aboutMePartDescription">
-                {/* <div className="aboutMeTitle">
+
+                <div id="aboutme&skills" className="aboutMePartDescription">
+                  {/* <div className="aboutMeTitle">
                   <h3 className="fontsRegular">{t("Home.title1")}</h3>
                 </div>
                 <p className="paragrapheAboutMe fontsLight">
                   {t("Home.aboutMe")}
                 </p> */}
-                <div className="aboutMeTitle">
-                  <h3 className="fontsRegular">{t("Home.title2")}</h3>
+                  <div className="aboutMeTitle">
+                    <h3 className="fontsRegular">{t("Home.title2")}</h3>
+                  </div>
+                  <PopupMySql />
+                  <h1 className="pDescription centerLoad inherit">
+                    © Arthur BRU
+                  </h1>
                 </div>
-                <PopupMySql />
-                <h1 className="pDescription centerLoad inherit">
-                  © Arthur BRU
-                </h1>
-              </div>
+              </ParralaxEffect>
             </>
           )}
         </header>

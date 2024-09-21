@@ -6,7 +6,7 @@
     "developerJV": "Hello, I am a video game developer.",
     "developerWeb": "Hello, I am a game developer.",
     "role": "C++ Developer",
-    "info": "Currently pursuing a Bachelor's degree in Computer Development with a specialization in video game design at Gaming Campus in my second year of G.Tech, and I am seeking an internship starting May 15th.",
+    "info": "Currently pursuing a Bachelor's degree in Computer Development with a specialization in video game design at Gaming Campus in my third year of G.Tech, and I am seeking an internship starting May 15th.",
     "discover": "Discover Me",
     "title1": "About Me",
     "aboutMe": "Thanks to my experiences, I have been able to refine my technical skills and collaborate effectively with other fields such as the artistic or marketing field. Outside of my studies, I am passionate about basketball!",
@@ -36,7 +36,8 @@
     "CV": "CV",
     "GameJam": "Game Jam",
     "Unity": "Unity",
-    "ContactMe": "Contact Me"
+    "ContactMe": "Contact Me",
+    "Incoming": "Upcoming projects 2024-2025"
   },
   "TypeCV": {
     "CVJV": "Video Game CV",
@@ -128,5 +129,17 @@
       "LearnMore": "Learn more",
       "technologies": "Technology used: Unity"
     }
+  },
+  "Incoming": {
+    "1": "Advanced Programming - C++",
+    "2": "Encapsulation - C++",
+    "3": "Artificial Intelligence - C++",
+    "4": "Unity 3D - C#",
+    "5": "Unity Shaders",
+    "6": "Unity UI/UX",
+    "7": "Unreal BluePrint - C++",
+    "8": "Unreal C++",
+    "9": "Unreal Physique Advanced",
+    "10": "Production & Publishing Management in Jeu Vidéo"
   }
 }
