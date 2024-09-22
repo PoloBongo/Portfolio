@@ -1,5 +1,5 @@
 import "../../css/Home.css";
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense } from "react";
 import Navbar from "../../Component/Navbar.js";
 
 // Icon
@@ -14,10 +14,6 @@ import { Loader } from "../../Component/ComponentTraduction.js";
 import { withTranslation } from "react-i18next";
 
 const IncomingT = ({ t }) => {
-  useEffect(() => {
-    sessionStorage.setItem("ShowTitleInNavbar", "false");
-  }, []);
-
   return (
     <div className="Home-header overflowHidden">
       <Navbar />

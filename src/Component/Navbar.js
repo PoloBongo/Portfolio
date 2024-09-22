@@ -24,6 +24,8 @@ const NavbarT = ({ t }) => {
   const navigateIntoPage = (string) => {
     if (string !== "Incoming") {
       sessionStorage.setItem("ShowTitleInNavbar", "true");
+    } else if (string === "Incoming") {
+      sessionStorage.setItem("ShowTitleInNavbar", "false");
     }
     navigate(string);
   };
