@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import DropdownProject from "./DropdownProject.js";
 import DropdownCV from "./DropdownCV.js";
@@ -24,6 +24,16 @@ const NavbarT = ({ t }) => {
   const navigateIntoPage = (string) => {
     navigate(string);
   };
+
+  const [showIncomingTitle, setShowIncomingTitle] = useState(false);
+  useEffect(() => {
+    const storedValue = sessionStorage.getItem("ShowTitleInNavbar");
+    if (storedValue === "true") {
+      setShowIncomingTitle(true);
+    } else if (storedValue === "false") {
+      setShowIncomingTitle(false);
+    }
+  }, []);
 
   return (
     <div className="order-list-navbar-div">
@@ -95,7 +105,7 @@ const NavbarT = ({ t }) => {
             </button>
           </div>
         </ul>
-        {sessionStorage.getItem("ShowTitleInNavbar") === "true" && (
+        {showIncomingTitle && (
           <ul className="order-list-navbar-ul add-no-margin-incoming">
             <button
               className="noColor fontsRegular btnNavbar submitForm navbar-font"
