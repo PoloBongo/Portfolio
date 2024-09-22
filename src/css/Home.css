@@ -844,7 +844,8 @@ button::placeholder {
   flex-wrap: wrap;
 }
 
-.margin-submit-form-contact {
+.margin-submit-form-contact,
+.margin-incoming-title {
   margin-bottom: 5%;
 }
 
@@ -1061,6 +1062,9 @@ button::placeholder {
   }
   .overflowNavbarProjects {
     overflow: scroll;
+  }
+  .margin-incoming-title {
+    margin: 0;
   }
 }
 

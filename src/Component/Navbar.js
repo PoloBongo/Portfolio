@@ -122,7 +122,7 @@ const NavbarT = ({ t }) => {
               onClick={() => navigateIntoPage("/Incoming")}
             >
               <li className="order-list-navbar-li fontsBold order-list-navbar-li-add-incoming">
-                <div className="width flex-end">
+                <div className="width flex-end margin-incoming-title">
                   <FontAwesomeIcon
                     icon={faCircle}
                     beatFade
