@@ -22,9 +22,9 @@ const NavbarT = ({ t }) => {
   const navigate = useNavigate();
 
   const navigateIntoPage = (string) => {
-    if (string !== "Incoming") {
+    if (string !== "/Incoming") {
       sessionStorage.setItem("ShowTitleInNavbar", "true");
-    } else if (string === "Incoming") {
+    } else if (string === "/Incoming") {
       sessionStorage.setItem("ShowTitleInNavbar", "false");
       checkIncomingTitleState();
     }
