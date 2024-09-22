@@ -8,7 +8,6 @@ const handleResize = () => {
 };
 
 const ScreenSize = () => {
-  sessionStorage.setItem("ShowTitleInNavbar", "true");
   handleResize();
   window.addEventListener("resize", handleResize);
 

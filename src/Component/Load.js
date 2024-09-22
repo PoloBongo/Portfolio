@@ -18,6 +18,7 @@ const LoadT = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
+    sessionStorage.setItem("ShowTitleInNavbar", "true");
     const handleTarget = () => {
       setWindowWidth(window.innerWidth);
     };
