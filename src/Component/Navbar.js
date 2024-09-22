@@ -64,14 +64,16 @@ const NavbarT = ({ t }) => {
               {t("ClassicNavBar.Home")}
             </li>
           </button>
-          <button
-            className="noColor fontsRegular btnNavbar submitForm navbar-font"
-            onClick={() => navigateIntoPage("/Gamejam")}
-          >
-            <li className="order-list-navbar-li fontsBold">
-              {t("ClassicNavBar.GameJam")}
-            </li>
-          </button>
+          <div className="dropdown">
+            <button
+              className="noColor fontsRegular btnNavbar submitForm navbar-font"
+              onClick={() => navigateIntoPage("/Gamejam")}
+            >
+              <li className="order-list-navbar-li fontsBold">
+                {t("ClassicNavBar.GameJam")}
+              </li>
+            </button>
+          </div>
           <button
             className="noColor fontsRegular btnNavbar submitForm navbar-font"
             onClick={() => navigateIntoPage("/Unity")}
@@ -82,14 +84,16 @@ const NavbarT = ({ t }) => {
           </button>
           <DropdownProject isFixed={true} />
           <DropdownCV isFixed={true} />
-          <button
-            className="noColor fontsRegular btnNavbar submitForm navbar-font"
-            onClick={() => navigateIntoPage("/contactme")}
-          >
-            <li className="order-list-navbar-li fontsBold">
-              {t("ClassicNavBar.ContactMe")}
-            </li>
-          </button>
+          <div className="dropdown">
+            <button
+              className="noColor fontsRegular btnNavbar submitForm navbar-font"
+              onClick={() => navigateIntoPage("/contactme")}
+            >
+              <li className="order-list-navbar-li fontsBold">
+                {t("ClassicNavBar.ContactMe")}
+              </li>
+            </button>
+          </div>
         </ul>
         {sessionStorage.getItem("ShowTitleInNavbar") === "true" && (
           <ul className="order-list-navbar-ul add-no-margin-incoming">

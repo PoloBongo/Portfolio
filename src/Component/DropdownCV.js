@@ -35,7 +35,7 @@ const DropdownCVT = ({ t, isFixed = false }) => {
   const fixedClass = isFixed ? "position-fixed" : "";
 
   return (
-    <div className="dropdown" ref={dropdownRef}>
+    <div ref={dropdownRef}>
       <li className="order-list-navbar-li">
         <button className="dropbtn fontsBold" onClick={toggleDropdown}>
           CV

@@ -1031,7 +1031,7 @@ button::placeholder {
 
 /* PAGE PROJECTS FORMAT TELEPHONE */
 
-@media (max-width: 1125px) {
+@media (max-width: 1483px) {
   .navbarProject {
     display: none;
     max-height: 0;
@@ -1064,13 +1064,46 @@ button::placeholder {
   }
 }
 
-@media (min-width: 1125px) {
+@media (min-width: 1483px) {
   .navbarProject {
     display: flex !important;
     max-height: max-content !important;
   }
   .btnDownloadCV {
     display: none;
+  }
+}
+
+@media (min-width: 1483px) and (max-width: 1531px) {
+  .navbarProject {
+    display: none;
+    max-height: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 1%;
+    height: auto;
+    z-index: 100;
+  }
+  .categoryProject {
+    padding: 5px 20px 5px 15px;
+    font-size: small;
+  }
+  .dropbtn,
+  .navbar-font {
+    font-size: small;
+  }
+  .bubbleProjectNavbar {
+    display: none !important;
+  }
+  .btnDownloadCV {
+    display: block;
+  }
+  .order-list-navbar-li {
+    font-size: small;
+  }
+  .overflowNavbarProjects {
+    overflow: scroll;
   }
 }
 
@@ -1357,4 +1390,10 @@ button::placeholder {
 
 .position-fixed {
   position: fixed;
+}
+
+.display-flex-start-navbarProjects-Btn {
+  width: 100%;
+  display: flex !important;
+  justify-content: flex-start;
 }

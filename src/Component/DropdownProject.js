@@ -56,13 +56,13 @@ const DropdownProjectT = ({ t, isFixed = false }) => {
           }}
         >
           <button
-            className="noColor fontsRegular btnNavbarProject submitForm font-weight-100"
+            className="noColor fontsRegular btnNavbarProject submitForm font-weight-100 display-flex-start-navbarProjects-Btn"
             onClick={goToProjectsVideosGames}
           >
             {t("DropdownProjects.ProjectVideoGames")}
           </button>
           <button
-            className="noColor fontsRegular btnNavbarProject submitForm font-weight-100"
+            className="noColor fontsRegular btnNavbarProject submitForm font-weight-100 display-flex-start-navbarProjects-Btn"
             onClick={goToProjectsWeb}
           >
             {t("DropdownProjects.ProjectWeb")}

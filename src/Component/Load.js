@@ -62,12 +62,14 @@ const LoadT = () => {
           src={pikachuWait}
           alt="Pikachu"
           style={pikachuAnimation}
+          loading="lazy"
         />
         <animated.img
           src={bubbleImage}
           alt="Pikachu"
           className="bubbleStyle"
           style={bubbleAnimation}
+          loading="lazy"
         />
       </div>
     </div>
