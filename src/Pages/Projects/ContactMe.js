@@ -158,6 +158,7 @@ const ContactMeT = ({ t }) => {
                         overflow: "hidden",
                         animation: "fadeBongo 7s ease-in-out forwards",
                       }}
+                      loading="lazy"
                     />
                   ) : (
                     t("ContactMe.submit")

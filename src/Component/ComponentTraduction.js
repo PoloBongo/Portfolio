@@ -58,7 +58,9 @@ const Loader = () => {
 
   return (
     <div className="Home-header centerLoad">
-      {setLoader && <img src={pikachuLoad} alt="submit pikachu load" />}
+      {setLoader && (
+        <img src={pikachuLoad} alt="submit pikachu load" loading="lazy" />
+      )}
     </div>
   );
 };
