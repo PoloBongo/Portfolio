@@ -26,18 +26,23 @@ const NavbarT = ({ t }) => {
       sessionStorage.setItem("ShowTitleInNavbar", "true");
     } else if (string === "Incoming") {
       sessionStorage.setItem("ShowTitleInNavbar", "false");
+      checkIncomingTitleState();
     }
     navigate(string);
   };
 
   const [showIncomingTitle, setShowIncomingTitle] = useState(false);
-  useEffect(() => {
+  const checkIncomingTitleState = () => {
     const storedValue = sessionStorage.getItem("ShowTitleInNavbar");
     if (storedValue === "true") {
       setShowIncomingTitle(true);
     } else if (storedValue === "false") {
       setShowIncomingTitle(false);
     }
+  };
+
+  useEffect(() => {
+    checkIncomingTitleState();
   }, []);
 
   return (
