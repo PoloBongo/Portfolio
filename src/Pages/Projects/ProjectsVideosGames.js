@@ -48,7 +48,7 @@ const ProjectsVideosGamesT = ({ t }) => {
     const targetHref5 = document.getElementsByClassName("noColorCSharp");
     const targetHref6 = document.getElementsByClassName("noColorCustomEngine");
 
-    // Permet de récupérer ce que je veux de ce qui est visible sur la fenêtre ( ckasse / id / attribute ect...)
+    // Permet de récupérer ce que je veux de ce qui est visible sur la fenêtre ( classe / id / attribute ect...)
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
