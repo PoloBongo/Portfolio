@@ -63,6 +63,8 @@
     "PaymentPage": "Payment Page"
   },
   "VideoGamesProjects": {
+    "playVideo": "Play video",
+    "stopVideo": "Stop video",
     "learnMore": "Learn More",
     "playProjects": "Play",
     "stopProjects": "Stop",
