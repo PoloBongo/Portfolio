@@ -38,19 +38,20 @@ const TypingAnimationT = () => {
       } else if (currentIndex > 0 && isDeleting) {
         setDisplayedText((prevText) => prevText.slice(0, -1));
         setCurrentIndex((prevIndex) => prevIndex - 1);
-      } else {
-        setIsDeleting((prevDeleting) => !prevDeleting);
-
-        if (isDeleting && currentIndex === 0) {
-          setCurrentPhraseIndex((prevIndex) =>
-            prevIndex === phrases.length - 1 ? 0 : prevIndex + 1
-          );
-        }
-
-        if (isDeleting && currentIndex === currentText.length) {
-          updateTranslation();
-        }
       }
+      //else {
+      //   setIsDeleting((prevDeleting) => !prevDeleting);
+
+      //   if (isDeleting && currentIndex === 0) {
+      //     setCurrentPhraseIndex((prevIndex) =>
+      //       prevIndex === phrases.length - 1 ? 0 : prevIndex + 1
+      //     );
+      //   }
+
+      //   if (isDeleting && currentIndex === currentText.length) {
+      //     updateTranslation();
+      //   }
+      // }
     }, 140);
 
     return () => {

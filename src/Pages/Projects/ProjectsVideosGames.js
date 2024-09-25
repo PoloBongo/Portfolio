@@ -41,35 +41,6 @@ const ProjectsVideosGamesT = ({ t }) => {
   }, []);
 
   useEffect(() => {
-    // Preview des projects
-    const previewContainer = document.querySelectorAll(".preview-div");
-
-    previewContainer.forEach((previewContainers) => {
-      const previewVideo = previewContainers.querySelector(".preview-video");
-      let savedTime = 0;
-
-      previewVideo.addEventListener("loadedmetadata", () => {
-        if (previewVideo.paused) {
-          previewVideo.play();
-          previewVideo.currentTime = savedTime;
-        }
-      });
-
-      previewContainers.addEventListener("mouseenter", () => {
-        if (previewVideo.paused || previewVideo.ended) {
-          previewVideo.play();
-          previewVideo.currentTime = savedTime;
-        }
-      });
-
-      previewContainers.addEventListener("mouseleave", () => {
-        if (!previewVideo.paused && !previewVideo.ended) {
-          savedTime = previewVideo.currentTime;
-          previewVideo.pause();
-        }
-      });
-    });
-
     // const targetHref1 = document.getElementsByClassName("noColorC");
     const targetHref2 = document.getElementsByClassName("noColorCPlus");
     const targetHref3 = document.getElementsByClassName("noColorPython");
@@ -123,6 +94,26 @@ const ProjectsVideosGamesT = ({ t }) => {
       });
     };
   }, []);
+
+  const [showVideo, setShowVideo] = useState({});
+
+  const handlePreviewVideoProjects = (event, index) => {
+    const previewContainer = event.target.closest(".preview-div");
+    const video = previewContainer.querySelector(".preview-video");
+    let savedTime = 0;
+
+    if (video.paused && !showVideo[index]) {
+      video.style.opacity = 1;
+      video.play();
+      video.currentTime = savedTime;
+      setShowVideo((prevState) => ({ ...prevState, [index]: true }));
+    } else if (!video.paused && showVideo[index]) {
+      video.style.opacity = 0;
+      savedTime = video.currentTime;
+      video.pause();
+      setShowVideo((prevState) => ({ ...prevState, [index]: false }));
+    }
+  };
 
   const [showNavbarBool, setShowNavbarBool] = useState(true);
 
@@ -261,7 +252,19 @@ const ProjectsVideosGamesT = ({ t }) => {
                       alt="Helluva Revenge Monde Exploration"
                       className="sizeProjectIMG"
                     />
-                    <video className="preview-video" loop muted>
+                    <div className="pos-btn-video">
+                      <button
+                        className="btnStyleDiscoverProject fontsBold"
+                        onClick={(event) =>
+                          handlePreviewVideoProjects(event, 1)
+                        }
+                      >
+                        {showVideo[1]
+                          ? t("VideoGamesProjects.stopVideo")
+                          : t("VideoGamesProjects.playVideo")}
+                      </button>
+                    </div>
+                    <video loading="lazy" className="preview-video" loop muted>
                       <source src={helluvaRevengeVideo} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
@@ -297,6 +300,18 @@ const ProjectsVideosGamesT = ({ t }) => {
                       alt="Tower Defense Thème Leagues of Legends"
                       className="sizeProjectIMG"
                     />
+                    <div className="pos-btn-video">
+                      <button
+                        className="btnStyleDiscoverProject fontsBold"
+                        onClick={(event) =>
+                          handlePreviewVideoProjects(event, 2)
+                        }
+                      >
+                        {showVideo[2]
+                          ? t("VideoGamesProjects.stopVideo")
+                          : t("VideoGamesProjects.playVideo")}
+                      </button>
+                    </div>
                     <video loading="lazy" className="preview-video" loop muted>
                       <source src={towerDefenseVideo} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -363,6 +378,18 @@ const ProjectsVideosGamesT = ({ t }) => {
                       alt="Jeu Textuel en Console"
                       className="sizeProjectIMG"
                     ></img>
+                    <div className="pos-btn-video">
+                      <button
+                        className="btnStyleDiscoverProject fontsBold"
+                        onClick={(event) =>
+                          handlePreviewVideoProjects(event, 3)
+                        }
+                      >
+                        {showVideo[3]
+                          ? t("VideoGamesProjects.stopVideo")
+                          : t("VideoGamesProjects.playVideo")}
+                      </button>
+                    </div>
                     <video loading="lazy" className="preview-video" loop muted>
                       <source src={jeuTextuelPreview} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -399,6 +426,18 @@ const ProjectsVideosGamesT = ({ t }) => {
                       alt="Tour par tour en console"
                       className="sizeProjectIMG"
                     ></img>
+                    <div className="pos-btn-video">
+                      <button
+                        className="btnStyleDiscoverProject fontsBold"
+                        onClick={(event) =>
+                          handlePreviewVideoProjects(event, 4)
+                        }
+                      >
+                        {showVideo[4]
+                          ? t("VideoGamesProjects.stopVideo")
+                          : t("VideoGamesProjects.playVideo")}
+                      </button>
+                    </div>
                     <video loading="lazy" className="preview-video" loop muted>
                       <source src={CSharpConsoleVideo} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -435,6 +474,18 @@ const ProjectsVideosGamesT = ({ t }) => {
                       alt="Shoot-Em-Up Thème Futuriste"
                       className="sizeProjectIMG"
                     ></img>
+                    <div className="pos-btn-video">
+                      <button
+                        className="btnStyleDiscoverProject fontsBold"
+                        onClick={(event) =>
+                          handlePreviewVideoProjects(event, 5)
+                        }
+                      >
+                        {showVideo[5]
+                          ? t("VideoGamesProjects.stopVideo")
+                          : t("VideoGamesProjects.playVideo")}
+                      </button>
+                    </div>
                     <video loading="lazy" className="preview-video" loop muted>
                       <source src={shootEmUpVideo} type="video/mp4" />
                       Your browser does not support the video tag.

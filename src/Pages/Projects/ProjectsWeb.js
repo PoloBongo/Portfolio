@@ -24,28 +24,6 @@ import { withTranslation } from "react-i18next";
 
 const ProjectsWebT = ({ t }) => {
   useEffect(() => {
-    // Preview des projects
-    const previewContainer = document.querySelectorAll(".preview-div");
-
-    previewContainer.forEach((previewContainers) => {
-      const previewVideo = previewContainers.querySelector(".preview-video");
-      let savedTime = 0;
-
-      previewContainers.addEventListener("mouseenter", () => {
-        if (previewVideo.paused) {
-          previewVideo.play();
-          previewVideo.currentTime = savedTime;
-        }
-      });
-
-      previewContainers.addEventListener("mouseleave", () => {
-        if (!previewVideo.paused) {
-          savedTime = previewVideo.currentTime;
-          previewVideo.pause();
-        }
-      });
-    });
-
     const targetHref1 = document.getElementsByClassName("noColorCeltic");
     const targetHref2 = document.getElementsByClassName("noColorEko");
     const targetHref3 = document.getElementsByClassName("noColorPaiement");
@@ -100,6 +78,26 @@ const ProjectsWebT = ({ t }) => {
       });
     };
   }, []);
+
+  const [showVideo, setShowVideo] = useState({});
+
+  const handlePreviewVideoProjects = (event, index) => {
+    const previewContainer = event.target.closest(".preview-div");
+    const video = previewContainer.querySelector(".preview-video");
+    let savedTime = 0;
+
+    if (video.paused && !showVideo[index]) {
+      video.style.opacity = 1;
+      video.play();
+      video.currentTime = savedTime;
+      setShowVideo((prevState) => ({ ...prevState, [index]: true }));
+    } else if (!video.paused && showVideo[index]) {
+      video.style.opacity = 0;
+      savedTime = video.currentTime;
+      video.pause();
+      setShowVideo((prevState) => ({ ...prevState, [index]: false }));
+    }
+  };
 
   const [showNavbarBool, setShowNavbarBool] = useState(true);
 
@@ -187,7 +185,17 @@ const ProjectsWebT = ({ t }) => {
                   src={backgroundProjectCeltic}
                   alt="Site Internet Celtic La Riche Basket"
                   className="sizeProjectIMG"
-                ></img>{" "}
+                ></img>
+                <div className="pos-btn-video">
+                  <button
+                    className="btnStyleDiscoverProject fontsBold"
+                    onClick={(event) => handlePreviewVideoProjects(event, 1)}
+                  >
+                    {showVideo[1]
+                      ? t("VideoGamesProjects.stopVideo")
+                      : t("VideoGamesProjects.playVideo")}
+                  </button>
+                </div>
                 <video className="preview-video" loop muted>
                   <source src={celticVideo} type="video/mp4" />
                   Your browser does not support the video tag.
@@ -223,7 +231,17 @@ const ProjectsWebT = ({ t }) => {
                   loading="lazy"
                   alt="Site Internet Eko"
                   className="sizeProjectIMG"
-                ></img>{" "}
+                ></img>
+                <div className="pos-btn-video">
+                  <button
+                    className="btnStyleDiscoverProject fontsBold"
+                    onClick={(event) => handlePreviewVideoProjects(event, 2)}
+                  >
+                    {showVideo[2]
+                      ? t("VideoGamesProjects.stopVideo")
+                      : t("VideoGamesProjects.playVideo")}
+                  </button>
+                </div>
                 <video loading="lazy" className="preview-video" loop muted>
                   <source src={ekoVideo} type="video/mp4" />
                   Your browser does not support the video tag.
@@ -257,7 +275,17 @@ const ProjectsWebT = ({ t }) => {
                   loading="lazy"
                   alt="Page de Paiement"
                   className="sizeProjectIMG"
-                ></img>{" "}
+                ></img>
+                <div className="pos-btn-video">
+                  <button
+                    className="btnStyleDiscoverProject fontsBold"
+                    onClick={(event) => handlePreviewVideoProjects(event, 3)}
+                  >
+                    {showVideo[3]
+                      ? t("VideoGamesProjects.stopVideo")
+                      : t("VideoGamesProjects.playVideo")}
+                  </button>
+                </div>
                 <video loading="lazy" className="preview-video" loop muted>
                   <source src={paymentPageVideo} type="video/mp4" />
                   Your browser does not support the video tag.
@@ -321,7 +349,17 @@ const ProjectsWebT = ({ t }) => {
                   loading="lazy"
                   alt="Site Internet B.A Immobilier"
                   className="sizeProjectIMG"
-                ></img>{" "}
+                ></img>
+                <div className="pos-btn-video">
+                  <button
+                    className="btnStyleDiscoverProject fontsBold"
+                    onClick={(event) => handlePreviewVideoProjects(event, 4)}
+                  >
+                    {showVideo[4]
+                      ? t("VideoGamesProjects.stopVideo")
+                      : t("VideoGamesProjects.playVideo")}
+                  </button>
+                </div>
                 <video loading="lazy" className="preview-video" loop muted>
                   <source src={BAImmobilierVideo} type="video/mp4" />
                   Your browser does not support the video tag.
@@ -355,7 +393,17 @@ const ProjectsWebT = ({ t }) => {
                   loading="lazy"
                   alt="Site Internet Moovie API en React"
                   className="sizeProjectIMG"
-                ></img>{" "}
+                ></img>
+                <div className="pos-btn-video">
+                  <button
+                    className="btnStyleDiscoverProject fontsBold"
+                    onClick={(event) => handlePreviewVideoProjects(event, 5)}
+                  >
+                    {showVideo[5]
+                      ? t("VideoGamesProjects.stopVideo")
+                      : t("VideoGamesProjects.playVideo")}
+                  </button>
+                </div>
                 <video loading="lazy" className="preview-video" loop muted>
                   <source src={reactAPIMoovie} type="video/mp4" />
                   Your browser does not support the video tag.

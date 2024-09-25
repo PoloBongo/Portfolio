@@ -48,7 +48,7 @@ const NavbarT = ({ t }) => {
   return (
     <div className="order-list-navbar-div">
       <div className="titleName">
-        <h3 className="sizeArthur">{t("Home.DeveloperJunior")}</h3>
+        <h3 className="sizeArthur fontsRegular">{t("Home.DeveloperJunior")}</h3>
       </div>
       <button
         className="btnDownloadCV bubbleHomeNavbarBtn"

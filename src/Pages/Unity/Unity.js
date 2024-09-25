@@ -55,7 +55,7 @@ const UnityT = ({ t }) => {
   return (
     <>
       {!showProjectsVideoGame ? (
-        <div className="Home-header overflowHidden">
+        <div className="Home-header overflowHidden fontsRegular">
           <Navbar />
           <div className="traitSeparator" id="blur"></div>
           <div>

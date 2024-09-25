@@ -1,33 +1,33 @@
 /* @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap"); */
 
-@font-face {
-  font-family: "pokemonFontRegular";
-  src: url("../fonts/ELEGANTTYPEWRITER.woff2") format("woff2");
+/* @font-face {
+  font-family: pokemonFontRegular;
+  src: url("../fonts/MightySouly-lxggD.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "pokemonFontLight";
-  src: url("../fonts/ELEGANTTYPEWRITER-Light.woff2") format("woff2");
+  font-family: pokemonFontLight;
+  src: url("../fonts/MightySouly-lxggD.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "pokemonFontBold";
-  src: url("../fonts/ELEGANTTYPEWRITER-Bold.woff2") format("woff2");
+  font-family: pokemonFontBold;
+  src: url("../fonts/MightySouly-lxggD.ttf");
   font-display: swap;
-}
+} */
 
 .fontsRegular {
-  font-family: pokemonFontRegular;
+  font-family: monospace;
 }
 
 .fontsLight {
-  font-family: pokemonFontLight;
+  font-family: monospace;
 }
 
 .fontsBold {
-  font-family: pokemonFontBold;
+  font-family: monospace;
 }
 
 * {
@@ -259,11 +259,12 @@
   position: absolute;
   bottom: 0;
   border: 2px solid transparent;
-  animation: borderAnimation 3s infinite linear;
+  /* animation: borderAnimation 3s infinite linear; */
   width: 100%;
+  border-color: #bc63ff;
 }
 
-@keyframes borderAnimation {
+/* @keyframes borderAnimation {
   0% {
     border-color: rgb(255, 0, 0);
   }
@@ -279,7 +280,7 @@
   100% {
     border-color: rgb(255, 0, 255);
   }
-}
+} */
 
 .presentationFlex {
   display: flex;
@@ -344,6 +345,7 @@
 
 .sizeArthur {
   font-size: larger;
+  width: max-content;
 }
 
 .width {
@@ -1157,6 +1159,8 @@ button::placeholder {
   position: relative;
   width: 90%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .preview-video {
@@ -1174,9 +1178,9 @@ button::placeholder {
   display: flex;
 }
 
-.preview-div:hover .preview-video {
+/* .preview-div:hover .preview-video {
   opacity: 1;
-}
+} */
 
 .underline {
   text-decoration: underline;
@@ -1400,4 +1404,16 @@ button::placeholder {
   width: 100%;
   display: flex !important;
   justify-content: flex-start;
+}
+
+.xx-large {
+  font-size: xx-large;
+}
+
+.pos-btn-video {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  z-index: 1;
 }

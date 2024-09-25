@@ -63,6 +63,8 @@
     "PaymentPage": "Page de Paiement"
   },
   "VideoGamesProjects": {
+    "playVideo": "Lancer la vidéo",
+    "stopVideo": "Arrêter la vidéo",
     "learnMore": "En savoir plus",
     "playProjects": "Jouer",
     "stopProjects": "Arrêter",

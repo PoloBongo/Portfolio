@@ -84,7 +84,7 @@ const GameJamT = ({ t }) => {
   }, [showChocolatoBool]);
 
   return (
-    <div className="Home-header overflowHidden">
+    <div className="Home-header overflowHidden fontsRegular">
       <Navbar />
       <div className="traitSeparator" id="blur"></div>
       <div>

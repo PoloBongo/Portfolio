@@ -40,17 +40,18 @@ const ContactMeT = ({ t }) => {
             reply_to: "",
             message: "",
           });
+          document.getElementById("reset-form").reset();
           setShowNotification(false);
-        }, 7000);
+        }, 6000);
       })
       .catch((error) => {
         setNotificationMessage("Échec de l'envoi du mail.");
         setShowNotification(true);
-
         setTimeout(() => {
           setShowGif(false);
           setShowNotification(false);
-        }, 7000);
+          document.getElementById("reset-form").reset();
+        }, 6000);
       });
   };
 
@@ -75,7 +76,7 @@ const ContactMeT = ({ t }) => {
         <div className="flex-contact">
           <div className="separatorContact"></div>
           <div className="flex-contact-div margin-contact-div">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id="reset-form">
               <div className="flex-part-form">
                 <div className="flex-row-part-form-nom-prenom">
                   <div className="flex-part-form iconSpace2">

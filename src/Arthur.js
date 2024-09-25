@@ -106,7 +106,7 @@ const HomeT = ({ t }) => {
                       </div>
                       <div className="aboutMeLeftPart">
                         <div className="aboutMeText">
-                          <h3 className="removeMargin typingAnimation">
+                          <h3 className="removeMargin typingAnimation xx-large">
                             <TypingAnimation />
                           </h3>
                         </div>
