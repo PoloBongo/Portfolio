@@ -140,7 +140,7 @@ const ProjectsVideosGamesT = ({ t }) => {
       {!showUnityPage ? (
         <div className="Home-header">
           <div className="flex-projects">
-            <div>
+            <div className="center-navbar-projects">
               <button className="btnDownloadCV" onClick={handleNavbarBtnClick}>
                 <div
                   className="bubbleProjectNavbar"

@@ -1420,3 +1420,9 @@ button::placeholder {
   width: 100%;
   z-index: 1;
 }
+
+.center-navbar-projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
