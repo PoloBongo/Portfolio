@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState, useRef } from "react";
 import "../../css/Home.css";
 // image
 import backgroundProjectCustomEngine from "../../img/backgroundCustomEngine.webp";
@@ -18,6 +18,10 @@ import CSharpConsoleVideo from "./CSharpConsoleVideo.mp4";
 // component
 import NavbarProjects from "../../Component/NavbarProjects";
 import UnityPage from "../Unity/Unity";
+// Icon
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 // Traduction
 import { Loader } from "../../Component/ComponentTraduction";
@@ -41,7 +45,6 @@ const ProjectsVideosGamesT = ({ t }) => {
   }, []);
 
   useEffect(() => {
-    // const targetHref1 = document.getElementsByClassName("noColorC");
     const targetHref2 = document.getElementsByClassName("noColorCPlus");
     const targetHref3 = document.getElementsByClassName("noColorPython");
     const targetHref4 = document.getElementsByClassName("noColorLUA");
@@ -53,10 +56,7 @@ const ProjectsVideosGamesT = ({ t }) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Array.from(targetHref1).forEach((element) => {
-            //   element.style.textDecoration =
-            //     entry.target.id === "C" ? "underline" : "";
-            // });
+            entry.target.classList.add("active");
             Array.from(targetHref2).forEach((element) => {
               element.style.textDecoration =
                 entry.target.id === "C++" ? "underline" : "";
@@ -77,6 +77,8 @@ const ProjectsVideosGamesT = ({ t }) => {
               element.style.textDecoration =
                 entry.target.id === "CustomEngine" ? "underline" : "";
             });
+          } else {
+            entry.target.classList.remove("active");
           }
         });
       },
@@ -135,6 +137,40 @@ const ProjectsVideosGamesT = ({ t }) => {
     }
   }, []);
 
+  const scrollContainerRef = useRef(null);
+
+  const scrollNext = () => {
+    if (scrollContainerRef.current) {
+      const nextElement = scrollContainerRef.current.querySelector(
+        ".projects.active + .projects"
+      );
+      if (nextElement) {
+        nextElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        updateActiveProject(nextElement);
+      }
+    }
+  };
+
+  const scrollPrev = () => {
+    if (scrollContainerRef.current) {
+      const prevElement =
+        scrollContainerRef.current.querySelector(
+          ".projects.active"
+        ).previousElementSibling;
+      if (prevElement) {
+        prevElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        updateActiveProject(prevElement);
+      }
+    }
+  };
+
+  const updateActiveProject = (element) => {
+    const allProjects =
+      scrollContainerRef.current.querySelectorAll(".projects");
+    allProjects.forEach((el) => el.classList.remove("active"));
+    element.classList.add("active");
+  };
+
   return (
     <>
       {!showUnityPage ? (
@@ -188,11 +224,6 @@ const ProjectsVideosGamesT = ({ t }) => {
                       <strong className="green">({cSharpT})</strong>
                     </a>
                   </ul>
-                  {/* <ul className="backgroundUnderCategory">
-                <a href="#C" className="noColorC fontsRegular">
-                  {t("BottomNavBarProjects.C")}
-                </a>
-              </ul> */}
                   <ul className="backgroundUnderCategory">
                     <a href="#Python" className="noColorPython fontsRegular">
                       {t("BottomNavBarProjects.Python")}&nbsp;
@@ -216,8 +247,8 @@ const ProjectsVideosGamesT = ({ t }) => {
                 </div>
               </div>
             </div>
-            <div className="divGlobalProjects">
-              <div className="projects CustomEngine" id="CustomEngine">
+            <div className="divGlobalProjects" ref={scrollContainerRef}>
+              <div className="projects active CustomEngine" id="CustomEngine">
                 <div className="flexIMG">
                   <img
                     src={backgroundProjectCustomEngine}
@@ -549,6 +580,20 @@ const ProjectsVideosGamesT = ({ t }) => {
                   </a>
                 </div>
               </div>
+            </div>
+            <div className="top-margin-btn-icon">
+              <button
+                onClick={scrollPrev}
+                className="btnStyleDiscoverProject btn-scroll-up-projects"
+              >
+                <FontAwesomeIcon icon={faArrowUp} />
+              </button>
+              <button
+                onClick={scrollNext}
+                className="btnStyleDiscoverProject btn-scroll-up-projects"
+              >
+                <FontAwesomeIcon icon={faArrowDown} />
+              </button>
             </div>
           </div>
         </div>

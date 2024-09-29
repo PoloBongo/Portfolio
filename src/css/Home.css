@@ -466,6 +466,7 @@
   height: 100vh;
   scroll-snap-type: y mandatory;
   scrollbar-width: none;
+  scroll-padding: 0;
 }
 
 .flex-projects {
@@ -967,9 +968,6 @@ button::placeholder {
   .dropdown-content-Projects {
     position: relative;
   }
-  .divGlobalProjects {
-    scroll-snap-type: none;
-  }
   .link-navbar,
   .dropdown {
     margin: 5% 0 5% 0;
@@ -994,6 +992,15 @@ button::placeholder {
   .overflowPopup {
     overflow-y: auto;
     overflow-x: hidden;
+  }
+}
+
+@media (max-width: 1050px) {
+  .divGlobalProjects {
+    scroll-snap-type: none;
+  }
+  .top-margin-btn-icon {
+    display: none !important;
   }
 }
 
@@ -1425,4 +1432,15 @@ button::placeholder {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.btn-scroll-up-projects {
+  display: flex;
+}
+
+.top-margin-btn-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 3% 0;
 }
