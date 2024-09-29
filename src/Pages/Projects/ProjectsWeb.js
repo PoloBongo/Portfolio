@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState, useRef } from "react";
 import "../../css/Home.css";
 
 // Preview Minia Projects
@@ -15,6 +15,10 @@ import BAImmobilierVideo from "./BAImmobilierPreview.mp4";
 import ekoVideo from "./ekoWebsitePreview.mp4";
 import paymentPageVideo from "./paymentPagePreview.mp4";
 import reactAPIMoovie from "./reactAPIMoovie.mp4";
+// Icon
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 import NavbarProjects from "../../Component/NavbarProjects";
 
@@ -37,6 +41,7 @@ const ProjectsWebT = ({ t }) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            entry.target.classList.add("active");
             Array.from(targetHref1).forEach((element) => {
               element.style.textDecoration =
                 entry.target.id === "Celtic" ? "underline" : "";
@@ -61,6 +66,8 @@ const ProjectsWebT = ({ t }) => {
               element.style.textDecoration =
                 entry.target.id === "React" ? "underline" : "";
             });
+          } else {
+            entry.target.classList.remove("active");
           }
         });
       },
@@ -103,6 +110,40 @@ const ProjectsWebT = ({ t }) => {
 
   const handleNavbarBtnClick = () => {
     setShowNavbarBool(!showNavbarBool);
+  };
+
+  const scrollContainerRef = useRef(null);
+
+  const scrollNext = () => {
+    if (scrollContainerRef.current) {
+      const nextElement = scrollContainerRef.current.querySelector(
+        ".projects.active + .projects"
+      );
+      if (nextElement) {
+        nextElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        updateActiveProject(nextElement);
+      }
+    }
+  };
+
+  const scrollPrev = () => {
+    if (scrollContainerRef.current) {
+      const prevElement =
+        scrollContainerRef.current.querySelector(
+          ".projects.active"
+        ).previousElementSibling;
+      if (prevElement) {
+        prevElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        updateActiveProject(prevElement);
+      }
+    }
+  };
+
+  const updateActiveProject = (element) => {
+    const allProjects =
+      scrollContainerRef.current.querySelectorAll(".projects");
+    allProjects.forEach((el) => el.classList.remove("active"));
+    element.classList.add("active");
   };
 
   return (
@@ -177,7 +218,7 @@ const ProjectsWebT = ({ t }) => {
             </div>
           </div>
         </div>
-        <div className="divGlobalProjects">
+        <div className="divGlobalProjects" ref={scrollContainerRef}>
           <div className="projects Celtic" id="Celtic">
             <div className="flexIMG">
               <div className="preview-div">
@@ -456,6 +497,20 @@ const ProjectsWebT = ({ t }) => {
               </a>
             </div>
           </div>
+        </div>
+        <div className="top-margin-btn-icon">
+          <button
+            onClick={scrollPrev}
+            className="btnStyleDiscoverProject btn-scroll-up-projects"
+          >
+            <FontAwesomeIcon icon={faArrowUp} />
+          </button>
+          <button
+            onClick={scrollNext}
+            className="btnStyleDiscoverProject btn-scroll-up-projects"
+          >
+            <FontAwesomeIcon icon={faArrowDown} />
+          </button>
         </div>
       </div>
     </div>
