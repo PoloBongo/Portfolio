@@ -265,12 +265,12 @@ const ProjectsVideosGamesT = ({ t }) => {
                 ></p>
                 <div className="btnDiscoverProject">
                   <a
-                    href="https://github.com/GamingCampus-AdrienBourgois/engine-mmaqjlkf"
+                    href="https://github.com/PoloBongo/custom-engine-cpp"
                     target="_blank"
                     rel="noreferrer"
                   >
                     <button className="btnStyleDiscoverProject fontsBold">
-                      {t("VideoGamesProjects.learnMore")}
+                      {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                 </div>
@@ -317,7 +317,7 @@ const ProjectsVideosGamesT = ({ t }) => {
                     rel="noreferrer"
                   >
                     <button className="btnStyleDiscoverProject fontsBold">
-                      {t("VideoGamesProjects.learnMore")}
+                      {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                 </div>
@@ -365,7 +365,7 @@ const ProjectsVideosGamesT = ({ t }) => {
                     rel="noreferrer"
                   >
                     <button className="btnStyleDiscoverProject fontsBold">
-                      {t("VideoGamesProjects.learnMore")}
+                      {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                 </div>
@@ -395,7 +395,7 @@ const ProjectsVideosGamesT = ({ t }) => {
                     rel="noreferrer"
                   >
                     <button className="btnStyleDiscoverProject fontsBold">
-                      {t("VideoGamesProjects.learnMore")}
+                      {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                 </div>
@@ -443,7 +443,7 @@ const ProjectsVideosGamesT = ({ t }) => {
                     rel="noreferrer"
                   >
                     <button className="btnStyleDiscoverProject fontsBold">
-                      {t("VideoGamesProjects.learnMore")}
+                      {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                 </div>
@@ -491,7 +491,7 @@ const ProjectsVideosGamesT = ({ t }) => {
                     rel="noreferrer"
                   >
                     <button className="btnStyleDiscoverProject fontsBold">
-                      {t("VideoGamesProjects.learnMore")}
+                      {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                 </div>
@@ -539,7 +539,7 @@ const ProjectsVideosGamesT = ({ t }) => {
                     rel="noreferrer"
                   >
                     <button className="btnStyleDiscoverProject fontsBold">
-                      {t("VideoGamesProjects.learnMore")}
+                      {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                 </div>
@@ -575,7 +575,7 @@ const ProjectsVideosGamesT = ({ t }) => {
                     rel="noreferrer"
                   >
                     <button className="btnStyleDiscoverProject fontsBold">
-                      {t("VideoGamesProjects.learnMore")}
+                      {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                 </div>

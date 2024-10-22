@@ -143,7 +143,7 @@ const UnityT = ({ t }) => {
                     }}
                   >
                     <button className="btnStyleDiscoverProject fontsBold">
-                      {t("VideoGamesProjects.learnMore")}
+                      {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                   <button
@@ -202,7 +202,7 @@ const UnityT = ({ t }) => {
                     }}
                   >
                     <button className="btnStyleDiscoverProject fontsBold">
-                      {t("VideoGamesProjects.learnMore")}
+                      {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                   <a
@@ -217,7 +217,7 @@ const UnityT = ({ t }) => {
                     }}
                   >
                     <button className="btnStyleDiscoverProject fontsBold marge-contact-play z-index">
-                      {t("VideoGamesProjects.playProjects")}
+                      {t("VideoGamesProjects.viewMoreGame")}
                     </button>
                   </a>
                 </div>

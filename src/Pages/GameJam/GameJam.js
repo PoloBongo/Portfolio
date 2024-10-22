@@ -185,7 +185,7 @@ const GameJamT = ({ t }) => {
                 }}
               >
                 <button className="btnStyleDiscoverProject fontsBold">
-                  {t("VideoGamesProjects.learnMore")}
+                  {t("VideoGamesProjects.viewMoreGame")}
                 </button>
               </a>
               <button
