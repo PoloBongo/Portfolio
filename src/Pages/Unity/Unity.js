@@ -10,7 +10,6 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 
 // image
 import backgroundUnityRL from "../../img/backgroundUnityRL.webp";
-import backgroundUnityShadowScholar from "../../img/logoShadowScholar2.webp";
 
 // Traduction
 import { Loader } from "../../Component/ComponentTraduction.js";
@@ -131,21 +130,6 @@ const UnityT = ({ t }) => {
                   </strong>
                 </p>
                 <div className="btnDiscoverProject">
-                  <a
-                    href="https://github.com/MtPoison/UnityRL"
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{
-                      display: showUnityPlayBool ? "block" : "none",
-                      opacity: showUnityPlayBool ? "1" : "0",
-                      overflow: "hidden",
-                      transition: "all 1s ease",
-                    }}
-                  >
-                    <button className="btnStyleDiscoverProject fontsBold">
-                      {t("VideoGamesProjects.viewMoreCode")}
-                    </button>
-                  </a>
                   <button
                     style={{
                       display: showUnityPlayBool ? "none" : "block",
@@ -160,7 +144,7 @@ const UnityT = ({ t }) => {
                   </button>
                   <button
                     onClick={handleNavbarBtnClickPlay}
-                    className="btnStyleDiscoverProject fontsBold marge-contact-play z-index"
+                    className="btnStyleDiscoverProject fontsBold z-index"
                   >
                     {showUnityPlayBool
                       ? t("VideoGamesProjects.playProjects")
@@ -173,11 +157,15 @@ const UnityT = ({ t }) => {
                   <h3 className="Home width">Shadow Scholar : La fac ultime</h3>
                 </div>
                 <div className="flexIMG width">
-                  <img
-                    src={backgroundUnityShadowScholar}
-                    alt="Unity Shadow Scholar Logo"
-                    className="sizeProjectIMG2 imgGameJam"
-                  ></img>
+                  <iframe
+                    src="https://www.youtube.com/embed/IwMvlVfyvs8"
+                    title="youtubeVideoPresentation"
+                    frameBorder="0"
+                    width="560"
+                    height="315"
+                    allowFullScreen
+                    className="iframeYoutube"
+                  ></iframe>
                 </div>
                 <p className="text-align-left padding-1vw font-size-large">
                   <p
@@ -191,21 +179,6 @@ const UnityT = ({ t }) => {
                 </p>
                 <div className="btnDiscoverProject">
                   <a
-                    href="https://github.com/PoloBongo/ShadowScholar"
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{
-                      display: showUnityPlayBool ? "block" : "none",
-                      opacity: showUnityPlayBool ? "1" : "0",
-                      overflow: "hidden",
-                      transition: "all 1s ease",
-                    }}
-                  >
-                    <button className="btnStyleDiscoverProject fontsBold">
-                      {t("VideoGamesProjects.viewMoreCode")}
-                    </button>
-                  </a>
-                  <a
                     href="https://arthur-bru.itch.io/shadow-scholar-la-fac-ultime"
                     target="_blank"
                     rel="noreferrer"
@@ -216,7 +189,7 @@ const UnityT = ({ t }) => {
                       transition: "all 1s ease",
                     }}
                   >
-                    <button className="btnStyleDiscoverProject fontsBold marge-contact-play z-index">
+                    <button className="btnStyleDiscoverProject fontsBold z-index">
                       {t("VideoGamesProjects.viewMoreGame")}
                     </button>
                   </a>

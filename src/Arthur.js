@@ -11,7 +11,6 @@ import Fade from "./Component/Fade.js";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 // Tout les imports d'icon / logo / images
-import imgProgrammer from "./img/programmer.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faSquareGithub } from "@fortawesome/free-brands-svg-icons";
 
@@ -95,14 +94,15 @@ const HomeT = ({ t }) => {
                     <div className="traitSeparator"></div>
                     <div className="aboutMe">
                       <div className="aboutMeRightPart">
-                        <div className="imagePlacement">
-                          <img
-                            className="imageSize"
-                            src={imgProgrammer}
-                            alt="Programmation"
-                            loading="lazy"
-                          ></img>
-                        </div>
+                        <iframe
+                          src="https://www.youtube.com/embed/IwMvlVfyvs8"
+                          title="youtubeVideoPresentation"
+                          frameBorder="0"
+                          width="560"
+                          height="315"
+                          allowFullScreen
+                          className="iframeYoutube"
+                        ></iframe>
                       </div>
                       <div className="aboutMeLeftPart">
                         <div className="aboutMeText">

@@ -1,7 +1,8 @@
 import React, { Suspense, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import DropdownProject from "./DropdownProject.js";
-import DropdownCV from "./DropdownCV.js";
+// import DropdownProject from "./DropdownProject.js";
+// import DropdownCV from "./DropdownCV.js";
+import CVArthurCPP from "../Download/CV-Arthur-JV.png";
 import DropdownTraduction from "./DropdownTraduction.js";
 
 // Traduction
@@ -14,6 +15,7 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
 const NavbarT = ({ t }) => {
   const [showNavbarBool, setShowNavbarBool] = useState(true);
+  const [stockString, setStockString] = useState("");
 
   const handleNavbarBtnClick = () => {
     setShowNavbarBool(!showNavbarBool);
@@ -22,11 +24,24 @@ const NavbarT = ({ t }) => {
   const navigate = useNavigate();
 
   const navigateIntoPage = (string) => {
+    setStockString(string);
     if (string !== "/Incoming") {
       sessionStorage.setItem("ShowTitleInNavbar", "true");
     } else if (string === "/Incoming") {
       sessionStorage.setItem("ShowTitleInNavbar", "false");
       checkIncomingTitleState();
+    }
+
+    if (
+      string === "/ProjectsVideosGames" &&
+      stockString === "/ProjectsVideosGames"
+    ) {
+      localStorage.setItem("ActiveBtnNavbarUnityPage", "false");
+      window.location.reload();
+    }
+
+    if (string === "/Unity") {
+      localStorage.setItem("ActiveBtnBackUnityPage", "false");
     }
     navigate(string);
   };
@@ -48,7 +63,9 @@ const NavbarT = ({ t }) => {
   return (
     <div className="order-list-navbar-div">
       <div className="titleName">
-        <h3 className="sizeArthur fontsRegular">{t("Home.DeveloperJunior")}</h3>
+        <h3 className="sizeArthur fontsRegular flexIMG">
+          {t("Home.DeveloperJunior")}
+        </h3>
       </div>
       <button
         className="btnDownloadCV bubbleHomeNavbarBtn"
@@ -102,8 +119,28 @@ const NavbarT = ({ t }) => {
               {t("ClassicNavBar.Unity")}
             </li>
           </button>
-          <DropdownProject isFixed={true} />
-          <DropdownCV isFixed={true} />
+          <button
+            className="noColor fontsRegular btnNavbar submitForm navbar-font"
+            onClick={() => navigateIntoPage("/ProjectsVideosGames")}
+          >
+            <li className="order-list-navbar-li fontsBold">
+              {t("DropdownProjects.ProjectVideoGames")}
+            </li>
+          </button>
+          <button className="noColor fontsRegular btnNavbar submitForm navbar-font">
+            <li className="order-list-navbar-li fontsBold">
+              <a
+                className="link-navbar fontsRegular"
+                href={CVArthurCPP}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {t("ClassicNavBar.CV")}
+              </a>
+            </li>
+          </button>
+          {/* <DropdownProject isFixed={true} />
+          <DropdownCV isFixed={true} /> */}
           <div className="dropdown">
             <button
               className="noColor fontsRegular btnNavbar submitForm navbar-font"

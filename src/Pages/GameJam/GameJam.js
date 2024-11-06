@@ -174,7 +174,7 @@ const GameJamT = ({ t }) => {
             </p>
             <div className="btnDiscoverProject">
               <a
-                href="https://github.com/MtPoison/UnityRL"
+                href="https://demonxlegend.itch.io/chocoblast"
                 target="_blank"
                 rel="noreferrer"
                 style={{

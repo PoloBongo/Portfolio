@@ -2,19 +2,8 @@ import React, { Suspense, useEffect, useState, useRef } from "react";
 import "../../css/Home.css";
 // image
 import backgroundProjectCustomEngine from "../../img/backgroundCustomEngine.webp";
-import backgroundProjectHelluvaRevenge from "../../img/backgroundHelluvaRevenge.webp";
-import backgroundProjectLOL from "../../img/backgroundTowerDefenseLOL.webp";
-import backgroundProjectShootEmUp from "../../img/shoot-em-up.webp";
 import backgroundCPPBibliotheque from "../../img/backgroundCPPBibliotheque.webp";
-import backgroundCPPJeuTextuel from "../../img/backgroundCPPJeuTextuel.webp";
 import backgroundProjectLUA from "../../img/backgroundLUA.webp";
-import backgroundCSharpConsole from "../../img/backgroundCSharpConsole.webp";
-// video
-import helluvaRevengeVideo from "./helluvaRevengePreview.mp4";
-import towerDefenseVideo from "./TowerDefensePreview.mp4";
-import shootEmUpVideo from "./shootEmUpPreview.mp4";
-import jeuTextuelPreview from "./jeuTextuelPreview.mp4";
-import CSharpConsoleVideo from "./CSharpConsoleVideo.mp4";
 // component
 import NavbarProjects from "../../Component/NavbarProjects";
 import UnityPage from "../Unity/Unity";
@@ -27,7 +16,7 @@ import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { Loader } from "../../Component/ComponentTraduction";
 import { withTranslation } from "react-i18next";
 
-const ProjectsVideosGamesT = ({ t }) => {
+const ProjectsVideoGamesT = ({ t }) => {
   const [cPlusPlusT, setCPlusPlusT] = useState(0);
   const [luaT, setLuaT] = useState(0);
   const [cSharpT, setCSharpT] = useState(0);
@@ -97,25 +86,25 @@ const ProjectsVideosGamesT = ({ t }) => {
     };
   }, []);
 
-  const [showVideo, setShowVideo] = useState({});
+  // const [showVideo, setShowVideo] = useState({});
 
-  const handlePreviewVideoProjects = (event, index) => {
-    const previewContainer = event.target.closest(".preview-div");
-    const video = previewContainer.querySelector(".preview-video");
-    let savedTime = 0;
+  // const handlePreviewVideoProjects = (event, index) => {
+  //   const previewContainer = event.target.closest(".preview-div");
+  //   const video = previewContainer.querySelector(".preview-video");
+  //   let savedTime = 0;
 
-    if (video.paused && !showVideo[index]) {
-      video.style.opacity = 1;
-      video.play();
-      video.currentTime = savedTime;
-      setShowVideo((prevState) => ({ ...prevState, [index]: true }));
-    } else if (!video.paused && showVideo[index]) {
-      video.style.opacity = 0;
-      savedTime = video.currentTime;
-      video.pause();
-      setShowVideo((prevState) => ({ ...prevState, [index]: false }));
-    }
-  };
+  //   if (video.paused && !showVideo[index]) {
+  //     video.style.opacity = 1;
+  //     video.play();
+  //     video.currentTime = savedTime;
+  //     setShowVideo((prevState) => ({ ...prevState, [index]: true }));
+  //   } else if (!video.paused && showVideo[index]) {
+  //     video.style.opacity = 0;
+  //     savedTime = video.currentTime;
+  //     video.pause();
+  //     setShowVideo((prevState) => ({ ...prevState, [index]: false }));
+  //   }
+  // };
 
   const [showNavbarBool, setShowNavbarBool] = useState(true);
 
@@ -134,6 +123,8 @@ const ProjectsVideosGamesT = ({ t }) => {
     const items = JSON.parse(localStorage.getItem("ActiveBtnNavbarUnityPage"));
     if (items) {
       setShowUnityPage(true);
+    } else {
+      setShowUnityPage(false);
     }
   }, []);
 
@@ -253,7 +244,7 @@ const ProjectsVideosGamesT = ({ t }) => {
                   <img
                     src={backgroundProjectCustomEngine}
                     alt="Custom Engine"
-                    className="sizeProjectIMG3"
+                    className="sizeProjectIMG2"
                   />
                 </div>
                 <h4 className="HelluvaRevengeTitle fontsRegular">Angine</h4>
@@ -278,27 +269,20 @@ const ProjectsVideosGamesT = ({ t }) => {
               <div className="projects C++" id="C++">
                 <div className="flexIMG">
                   <div className="preview-div">
-                    <img
+                    {/* <img
                       src={backgroundProjectHelluvaRevenge}
                       alt="Helluva Revenge Monde Exploration"
                       className="sizeProjectIMG"
-                    />
-                    <div className="pos-btn-video">
-                      <button
-                        className="btnStyleDiscoverProject fontsBold"
-                        onClick={(event) =>
-                          handlePreviewVideoProjects(event, 1)
-                        }
-                      >
-                        {showVideo[1]
-                          ? t("VideoGamesProjects.stopVideo")
-                          : t("VideoGamesProjects.playVideo")}
-                      </button>
-                    </div>
-                    <video loading="lazy" className="preview-video" loop muted>
-                      <source src={helluvaRevengeVideo} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                    /> */}
+                    <iframe
+                      src="https://www.youtube.com/embed/xkXIosIVZRE"
+                      title="youtubeVideoPresentation"
+                      frameBorder="0"
+                      width="560"
+                      height="315"
+                      allowFullScreen
+                      className="iframeYoutube"
+                    ></iframe>
                   </div>
                 </div>
                 <h4 className="HelluvaRevengeTitle fontsRegular">
@@ -325,28 +309,15 @@ const ProjectsVideosGamesT = ({ t }) => {
               <div className="projects C++" id="C++">
                 <div className="flexIMG">
                   <div className="preview-div">
-                    <img
-                      src={backgroundProjectLOL}
-                      loading="lazy"
-                      alt="Tower Defense Thème Leagues of Legends"
-                      className="sizeProjectIMG"
-                    />
-                    <div className="pos-btn-video">
-                      <button
-                        className="btnStyleDiscoverProject fontsBold"
-                        onClick={(event) =>
-                          handlePreviewVideoProjects(event, 2)
-                        }
-                      >
-                        {showVideo[2]
-                          ? t("VideoGamesProjects.stopVideo")
-                          : t("VideoGamesProjects.playVideo")}
-                      </button>
-                    </div>
-                    <video loading="lazy" className="preview-video" loop muted>
-                      <source src={towerDefenseVideo} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                    <iframe
+                      src="https://www.youtube.com/embed/33BohK7tIfQ"
+                      title="youtubeVideoPresentation"
+                      frameBorder="0"
+                      width="560"
+                      height="315"
+                      allowFullScreen
+                      className="iframeYoutube"
+                    ></iframe>
                   </div>
                 </div>
                 <h4 className="HelluvaRevengeTitle fontsRegular">
@@ -400,7 +371,7 @@ const ProjectsVideosGamesT = ({ t }) => {
                   </a>
                 </div>
               </div>
-              <div className="projects C++" id="C++">
+              {/* <div className="projects C++" id="C++">
                 <div className="flexIMG">
                   <div className="preview-div">
                     <img
@@ -447,32 +418,19 @@ const ProjectsVideosGamesT = ({ t }) => {
                     </button>
                   </a>
                 </div>
-              </div>
+              </div> */}
               <div className="projects C#" id="C#">
                 <div className="flexIMG">
                   <div className="preview-div">
-                    <img
-                      src={backgroundCSharpConsole}
-                      loading="lazy"
-                      alt="Tour par tour en console"
-                      className="sizeProjectIMG"
-                    ></img>
-                    <div className="pos-btn-video">
-                      <button
-                        className="btnStyleDiscoverProject fontsBold"
-                        onClick={(event) =>
-                          handlePreviewVideoProjects(event, 4)
-                        }
-                      >
-                        {showVideo[4]
-                          ? t("VideoGamesProjects.stopVideo")
-                          : t("VideoGamesProjects.playVideo")}
-                      </button>
-                    </div>
-                    <video loading="lazy" className="preview-video" loop muted>
-                      <source src={CSharpConsoleVideo} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                    <iframe
+                      src="https://www.youtube.com/embed/QB-EAMeCPpQ"
+                      title="youtubeVideoPresentation"
+                      frameBorder="0"
+                      width="560"
+                      height="315"
+                      allowFullScreen
+                      className="iframeYoutube"
+                    ></iframe>
                   </div>
                 </div>
                 <h4 className="HelluvaRevengeTitle fontsRegular">
@@ -499,28 +457,15 @@ const ProjectsVideosGamesT = ({ t }) => {
               <div className="projects Python" id="Python">
                 <div className="flexIMG">
                   <div className="preview-div">
-                    <img
-                      src={backgroundProjectShootEmUp}
-                      loading="lazy"
-                      alt="Shoot-Em-Up Thème Futuriste"
-                      className="sizeProjectIMG"
-                    ></img>
-                    <div className="pos-btn-video">
-                      <button
-                        className="btnStyleDiscoverProject fontsBold"
-                        onClick={(event) =>
-                          handlePreviewVideoProjects(event, 5)
-                        }
-                      >
-                        {showVideo[5]
-                          ? t("VideoGamesProjects.stopVideo")
-                          : t("VideoGamesProjects.playVideo")}
-                      </button>
-                    </div>
-                    <video loading="lazy" className="preview-video" loop muted>
-                      <source src={shootEmUpVideo} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                    <iframe
+                      src="https://www.youtube.com/embed/r-x6qlMXgxo"
+                      title="youtubeVideoPresentation"
+                      frameBorder="0"
+                      width="560"
+                      height="315"
+                      allowFullScreen
+                      className="iframeYoutube"
+                    ></iframe>
                   </div>
                 </div>
                 <h4 className="HelluvaRevengeTitle fontsRegular">
@@ -604,12 +549,12 @@ const ProjectsVideosGamesT = ({ t }) => {
   );
 };
 
-const TranslatedProjectsVideosGames = withTranslation()(ProjectsVideosGamesT);
+const TranslatedProjectsVideoGamesPage = withTranslation()(ProjectsVideoGamesT);
 
-export default function ProjectsVideosGames() {
+export default function ProjectsVideoGames() {
   return (
     <Suspense fallback={<Loader />}>
-      <TranslatedProjectsVideosGames />
+      <TranslatedProjectsVideoGamesPage />
     </Suspense>
   );
 }

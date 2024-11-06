@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProjectsWeb from "./Pages/Projects/ProjectsWeb";
-import ProjectsVideosGames from "./Pages/Projects/ProjectsVideosGames";
+import ProjectsVideosGames from "./Pages/ProjetctsJV/JVPage";
 import ContactMe from "./Pages/Projects/ContactMe";
 import GameJam from "./Pages/GameJam/GameJam";
 import UnityPage from "./Pages/Unity/Unity";
