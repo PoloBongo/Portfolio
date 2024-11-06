@@ -58,7 +58,7 @@ const UnityT = ({ t }) => {
           <Navbar />
           <div className="traitSeparator" id="blur"></div>
           <div>
-            <div className="contactMeFlex align-items-center">
+            <div className="contactMeFlex align-items-center fixBackBtnUnity">
               {localStorage.getItem("ActiveBtnBackUnityPage") === "true" && (
                 <div className="backbtnUnityPage">
                   <button

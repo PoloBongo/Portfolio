@@ -893,8 +893,15 @@ button::placeholder {
 }
 
 @media (max-width: 800px) {
+  .fixBackBtnUnity {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: large;
+  }
   .btnNavbar,
-  .btnNavbarProject, .fixMargin {
+  .btnNavbarProject,
+  .fixMargin {
     margin: 5% 0 0 0 !important;
   }
   .takeSize {
