@@ -101,7 +101,7 @@ const NavbarT = ({ t }) => {
               {t("ClassicNavBar.Home")}
             </li>
           </button>
-          <div className="dropdown">
+          <div className="dropdown fixMargin">
             <button
               className="noColor fontsRegular btnNavbar submitForm navbar-font"
               onClick={() => navigateIntoPage("/Gamejam")}
@@ -141,7 +141,7 @@ const NavbarT = ({ t }) => {
           </button>
           {/* <DropdownProject isFixed={true} />
           <DropdownCV isFixed={true} /> */}
-          <div className="dropdown">
+          <div className="dropdown fixMargin">
             <button
               className="noColor fontsRegular btnNavbar submitForm navbar-font"
               onClick={() => navigateIntoPage("/contactme")}

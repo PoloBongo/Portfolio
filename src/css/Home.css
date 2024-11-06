@@ -893,6 +893,10 @@ button::placeholder {
 }
 
 @media (max-width: 800px) {
+  .btnNavbar,
+  .btnNavbarProject, .fixMargin {
+    margin: 5% 0 0 0 !important;
+  }
   .takeSize {
     margin: 5%;
     height: auto !important;
