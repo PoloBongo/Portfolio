@@ -12,11 +12,28 @@ import backgroundChocoBlast from "../../img/backgroundChocoBlast.webp";
 
 // Traduction
 import { Loader } from "../../Component/ComponentTraduction.js";
-import { withTranslation } from "react-i18next";
+import { withTranslation, useTranslation } from "react-i18next";
 
 const GameJamT = ({ t }) => {
+  const { i18n } = useTranslation();
+  const [language, setLanguage] = useState("");
+
+  useEffect(() => {
+    setLanguage(i18n.language);
+  }, [i18n.language]);
+
+  const videoUrls = {
+    fr: "https://youtube.com/embed/zU-sBTZ5yp4",
+    en: "https://youtube.com/embed/qKD15vTFgAM",
+    es: "https://youtube.com/embed/qKD15vTFgAM",
+  };
+
   function handleClickEnterFullscreen() {
     requestFullscreen(true);
+  }
+
+  function handleClickEnterFullscreenStaySoul() {
+    requestFullscreenStaySoul(true);
   }
 
   const { unityProvider, loadingProgression, isLoaded, requestFullscreen } =
@@ -28,6 +45,18 @@ const GameJamT = ({ t }) => {
         "../BuildChocolatoGameJam/Build/BuildChocolatoGameJam.framework.js",
       codeUrl: "../BuildChocolatoGameJam/Build/BuildChocolatoGameJam.wasm",
     });
+
+  const {
+    unityProvider: unityProviderStaySoul,
+    loadingProgression: loadingProgressionStaySoul,
+    requestFullscreen: requestFullscreenStaySoul,
+  } = useUnityContext({
+    loaderUrl: "../BuildStaySoulGameJam/Build/BuildStaySoulGameJam.loader.js",
+    dataUrl: "../BuildStaySoulGameJam/Build/BuildStaySoulGameJam.data",
+    frameworkUrl:
+      "../BuildStaySoulGameJam/Build/BuildStaySoulGameJam.framework.js",
+    codeUrl: "../BuildStaySoulGameJam/Build/BuildStaySoulGameJam.wasm",
+  });
 
   // Unity WebGL
   const [showUnityPlayBool, setSUnityPlayBool] = useState(true);
@@ -78,10 +107,63 @@ const GameJamT = ({ t }) => {
     });
   };
 
+  // Unity Stay Soul WebGL
+  const [showStaySoulUnityPlayBool, setStaySoulUnityPlayBool] = useState(true);
+  const [showStaySoulBool, setShowStaySoulBool] = useState(false);
+  const [activeGameBtnStaySoul, setActiveGameBtnStaySoul] = useState(false);
+  const [removeGameInProgress, setRemoveGameInProgress] = useState(false);
+  const displayStatusStaySoul = useRef(null);
+  const StaySoul = useRef(null);
+
+  const handleActiveGameBtnStaySoul = () => {
+    setActiveGameBtnStaySoul(!activeGameBtnStaySoul);
+    handleNavbarBtnClickPlayStaySoul();
+  };
+
+  const handleNavbarBtnClickPlayStaySoul = () => {
+    setStaySoulUnityPlayBool(!showStaySoulUnityPlayBool);
+    setRemoveGameInProgress(!removeGameInProgress);
+
+    if (showStaySoulBool) {
+      handleNavbarBtnClickAlertStaySoul();
+    }
+
+    if (!showStaySoulBool) {
+      setShowStaySoulBool(showStaySoulBool);
+    }
+
+    if (activeGameBtnStaySoul) {
+      setActiveGameBtnStaySoul(!activeGameBtnStaySoul);
+    }
+  };
+
+  const handleNavbarBtnClickAlertStaySoul = () => {
+    setShowStaySoulBool(!showStaySoulBool);
+    if (StaySoul.current) {
+      StaySoul.current.style.filter = showStaySoulBool
+        ? "blur(0px)"
+        : "blur(5px)";
+    }
+  };
+
+  const StaySoulPopup = (ref, bool) => {
+    if (ref.current) {
+      ref.current.style.position = bool ? "absolute" : "relative";
+      ref.current.style.zIndex = bool ? "100" : "0";
+    }
+    const elements = document.querySelectorAll("#blur");
+    elements.forEach((element) => {
+      if (element) {
+        element.style.filter = bool ? "blur(5px)" : "blur(0px)";
+      }
+    });
+  };
+
   useEffect(() => {
     ChocolatoPopup(Chocolato, showChocolatoBool);
+    StaySoulPopup(StaySoul, showStaySoulBool);
     // eslint-disable-next-line
-  }, [showChocolatoBool]);
+  }, [showChocolatoBool, showStaySoulBool]);
 
   return (
     <div className="Home-header overflowHidden fontsRegular">
@@ -125,34 +207,7 @@ const GameJamT = ({ t }) => {
                 className="sizeProjectIMG imgGameJam"
               ></img>
             </div>
-            {/* <Unity
-              style={{
-                display: showUnityPlayBool ? "none" : "block",
-                opacity: showUnityPlayBool ? "0" : "1",
-                width: "-webkit-fill-available",
-                overflow: "hidden",
-                transition: "all 1s ease",
-              }}
-              unityProvider={unityProvider}
-            /> */}
-
             <Fragment>
-              {/* {isLoaded ? (
-                <div className="flexIMG">
-                  <Unity
-                    unityProvider={unityProvider}
-                    style={{
-                      visibility:
-                        isLoaded && !showUnityPlayBool ? "visible" : "hidden",
-                    }}
-                    className="width"
-                  />
-                </div>
-              ) : (
-                <p>
-                  Loading Application... {Math.round(loadingProgression * 100)}%
-                </p>
-              )} */}
               {activeGameBtn && (
                 <>
                   {loadingProgression < 1 && (
@@ -241,6 +296,140 @@ const GameJamT = ({ t }) => {
                 className="btnStyleDiscoverProject fontsBold marge-contact-play z-index"
               >
                 {showChocolatoBool ? t("VideoGamesProjects.playProjects") : ""}
+              </button>
+            </div>
+          </div>
+          <div className="marge-contact-play modernEnvelop" id="blur">
+            <div className="sizeIconCPlus flexIMG">
+              <h3 className="Home width">Stay Soul</h3>
+              {removeGameInProgress && !showStaySoulBool && (
+                <div className="width flex-end">
+                  <FontAwesomeIcon
+                    icon={faCircle}
+                    beatFade
+                    style={{ color: "#63E6BE" }}
+                    className="removeMargin"
+                  />
+                  <h4 className="Home">
+                    {t("GameJam.Chocolato.GameInProgress")}
+                  </h4>
+                </div>
+              )}
+            </div>
+
+            <div className="flexIMG width">
+              <div
+                className="flexIMG width"
+                style={{
+                  display: showStaySoulUnityPlayBool ? "block" : "none",
+                  opacity: showStaySoulUnityPlayBool ? "1" : "0",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+              >
+                <iframe
+                  src={videoUrls[language] || videoUrls.en}
+                  title="youtubeVideoPresentation"
+                  frameBorder="0"
+                  width="560"
+                  height="315"
+                  allowFullScreen
+                  className="iframeYoutube"
+                ></iframe>
+              </div>
+            </div>
+            <Fragment>
+              {activeGameBtnStaySoul && (
+                <>
+                  {loadingProgressionStaySoul < 1 && (
+                    <p>
+                      {t("GameJam.Chocolato.LoadingGame")}{" "}
+                      {Math.round(loadingProgressionStaySoul * 100)}%
+                    </p>
+                  )}
+                  <Unity
+                    unityProvider={unityProviderStaySoul}
+                    className="width"
+                  />
+                </>
+              )}
+            </Fragment>
+            <p className="text-align-left padding-1vw font-size-large">
+              {t("GameJam.StaySoul.Description")}
+              <br></br>
+              <strong className="underline">
+                {t("GameJam.Chocolato.technologies")}
+              </strong>
+            </p>
+            <div className="btnDiscoverProject">
+              <a
+                href="https://46yuu.itch.io/staysoul"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: showStaySoulUnityPlayBool ? "block" : "none",
+                  opacity: showStaySoulUnityPlayBool ? "1" : "0",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+              >
+                <button className="btnStyleDiscoverProject fontsBold">
+                  {t("VideoGamesProjects.viewMoreGame")}
+                </button>
+              </a>
+              <button
+                style={{
+                  display: showStaySoulUnityPlayBool ? "none" : "block",
+                  opacity: showStaySoulUnityPlayBool ? "0" : "1",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+                onClick={handleClickEnterFullscreenStaySoul}
+                className="btnStyleDiscoverProject fontsBold"
+              >
+                {t("VideoGamesProjects.fullScreenGame")}
+              </button>
+              <button
+                onClick={
+                  showStaySoulUnityPlayBool
+                    ? handleNavbarBtnClickAlertStaySoul
+                    : handleNavbarBtnClickPlayStaySoul
+                }
+                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index"
+              >
+                {showStaySoulUnityPlayBool
+                  ? t("VideoGamesProjects.playProjects")
+                  : t("VideoGamesProjects.stopProjects")}
+              </button>
+            </div>
+          </div>
+          <div
+            style={
+              ({ display: showStaySoulBool ? "block" : "none" },
+              {
+                animation: `${
+                  showStaySoulBool ? "fadeIn" : "fadeOut"
+                } 1s ease forwards`,
+                position: "fixed",
+                textAlign: "center",
+                width: "-webkit-fill-available",
+                height: "-webkit-fill-available",
+                alignContent: "center",
+                zIndex: "10",
+              })
+            }
+            className="overflowPopup backgroundPopupGameJam padding-1vw"
+            ref={displayStatusStaySoul}
+          >
+            <div>
+              <p className="sizeMySql fontsLight text-align-center">
+                {t("GameJam.StaySoul.Alert")}
+              </p>
+              <button
+                onClick={handleActiveGameBtnStaySoul}
+                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index"
+              >
+                {showStaySoulBool ? t("VideoGamesProjects.playProjects") : ""}
               </button>
             </div>
           </div>

@@ -195,6 +195,49 @@ const UnityT = ({ t }) => {
                   </a>
                 </div>
               </div>
+              <div className="marge-contact-play modernEnvelop" id="blur">
+                <div className="sizeIconCPlus flexIMG">
+                  <h3 className="Home width">Navy Bongo</h3>
+                </div>
+                <div className="flexIMG width">
+                  <iframe
+                    src="https://www.youtube.com/embed/YtT03rMnzBg"
+                    title="youtubeVideoPresentationNavyBongo"
+                    frameBorder="0"
+                    width="560"
+                    height="315"
+                    allowFullScreen
+                    className="iframeYoutube"
+                  ></iframe>
+                </div>
+                <p className="text-align-left padding-1vw font-size-large">
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("Unity.NavyBongo.Description"),
+                    }}
+                  ></p>
+                  <strong className="underline">
+                    {t("Unity.NavyBongo.technologies")}
+                  </strong>
+                </p>
+                <div className="btnDiscoverProject">
+                  <a
+                    href="https://arthur-bru.itch.io/navy-bongo"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      display: showUnityPlayBool ? "block" : "none",
+                      opacity: showUnityPlayBool ? "1" : "0",
+                      overflow: "hidden",
+                      transition: "all 1s ease",
+                    }}
+                  >
+                    <button className="btnStyleDiscoverProject fontsBold z-index">
+                      {t("VideoGamesProjects.viewMoreGame")}
+                    </button>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

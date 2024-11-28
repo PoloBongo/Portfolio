@@ -124,12 +124,21 @@
       "LoadingGame": "Carga del juego...",
       "GameInProgress": "Juego en curso",
       "technologies": "Tecnología utilizada: Unity"
+    },
+    "StaySoul": {
+      "Description": "Participé en mi segunda Game Jam organizada por mi escuela en colaboración con Tap Nation. Tuvimos 42 horas para crear un juego con el tema 'Juegos de niños'. Gracias a mis proyectos anteriores y a las habilidades que he adquirido, pude aplicarlas para desarrollar, junto con mis compañeros, un juego jugable.",
+      "Alert": "Para disfrutar de la mejor experiencia, necesitas un teclado."
     }
   },
   "Unity": {
     "Title": "Mis juegos/proyectos de Unity",
     "ShadowScholar": {
       "Description": "Para validar mi segundo año en Gaming Campus, realicé una pasantía donde fui responsable de imaginar y desarrollar el juego 'Shadow Scholar: The Ultimate College'. Pude perfeccionar mis conocimientos de programación en C# y descubrir/mejorar ciertas características en Unity como la herramienta Timeline, Cinemachine, Json Save, Profiler, Skeleton Animation, Animator, AI Navigation y también pude tocar extensiones como GeNa y Autofence Builder.<br></br>- Éramos 2 desarrolladores",
+      "LearnMore": "Más información",
+      "technologies": "Tecnología utilizada: Unity"
+    },
+    "NavyBongo": {
+      "Description": "Aquí tienes un proyecto de videojuego individual hecho en Unity. Tuve un poco más de una semana para crear el juego. Juegas como un barco, y el objetivo del juego es destruir todas las torres enemigas en el tiempo asignado. ¡Cuanto más avanzas en el juego, más barcos poderosos obtienes!",
       "LearnMore": "Más información",
       "technologies": "Tecnología utilizada: Unity"
     }
