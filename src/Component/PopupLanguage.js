@@ -9,7 +9,6 @@ import {
   faHtml5,
   faCss3Alt,
   faGitAlt,
-  faPython,
   faBootstrap,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
@@ -20,6 +19,7 @@ import imgCLangage from "../img/cIcon.svg";
 import imgCSharpLangage from "../img/CSharpIcon.svg";
 import imgInfoIcon from "../img/infoIcon.svg";
 import imgUnityIcon from "../img/unityIcon.svg";
+import imgPythonIcon from "../img/pythonIcon.svg";
 import imgTypeScriptIcon from "../img/typescriptIcon.svg";
 
 // Traduction
@@ -282,13 +282,14 @@ const PopupMySqlT = ({ t }) => {
         onClick={() => navigateIntoPage("/ProjectsVideosGames#Python")}
       >
         <div className="rectangleTool fontsRegular surbrillance" id="blur">
-          <FontAwesomeIcon
-            icon={faPython}
-            color="#bc63ff"
-            size="xl"
-            className="iconSpace"
-          />
-          {t("Home.Python")}
+          <div className="sizeIconCPlus fontsRegular">
+            <img
+              src={imgPythonIcon}
+              className="iconSpace"
+              alt="Python Icon"
+            ></img>
+            {t("Home.Python")}
+          </div>
         </div>
       </button>
       <div className="rectangleTool fontsRegular" id="blur">
