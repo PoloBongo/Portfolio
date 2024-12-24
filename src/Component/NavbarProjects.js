@@ -1,6 +1,7 @@
 import React, { Suspense, useState } from "react";
 // import DropdownProject from "./DropdownProject";
-import DropdownCV from "./DropdownCV";
+// import DropdownCV from "./DropdownCV";
+import CVArthurCPP from "../Download/CV-Arthur-JV.png";
 import DropdownTraduction from "./DropdownTraduction";
 
 // Traduction
@@ -60,8 +61,18 @@ const NavbarProjectsT = ({ t }) => {
         {/* <ul className="dropdownProjectPadding">
           <DropdownProject isFixed={false} />
         </ul> */}
-        <ul className="dropdownProjectPadding">
+        {/* <ul className="dropdownProjectPadding">
           <DropdownCV isFixed={false} />
+        </ul> */}
+        <ul className="backgroundUnderCategory">
+          <a
+            className="noColorNavbar fontsBold"
+            href={CVArthurCPP}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t("TopNavBarProjects.CV")}
+          </a>
         </ul>
         <ul className="backgroundUnderCategory">
           <a href="contactme" className="noColorNavbar fontsBold">
