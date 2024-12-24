@@ -1,4 +1,5 @@
 import { Suspense, useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -34,6 +35,7 @@ const PopupMySqlT = ({ t }) => {
   const MySQLCSS = useRef(null);
   const displayStatusGit = useRef(null);
   const GitCSS = useRef(null);
+  const [stockString, setStockString] = useState("");
 
   const CSSPopup = (ref, bool) => {
     if (ref.current) {
@@ -72,18 +74,42 @@ const PopupMySqlT = ({ t }) => {
     }
   };
 
+  const navigate = useNavigate();
+
+  const navigateIntoPage = (string) => {
+    setStockString(string);
+
+    if (
+      string === "/ProjectsVideosGames" &&
+      stockString === "/ProjectsVideosGames"
+    ) {
+      localStorage.setItem("ActiveBtnNavbarUnityPage", "false");
+      window.location.reload();
+    }
+
+    if (string === "/Unity") {
+      localStorage.setItem("ActiveBtnBackUnityPage", "false");
+    }
+    navigate(string);
+  };
+
   return (
     <div className="rectangleGlobal">
-      <div className="rectangleTool" id="blur">
-        <div className="sizeIconCPlus fontsRegular">
-          <img
-            src={imgUnityIcon}
-            className="iconSpace"
-            alt="Unity Custom Engine Icon"
-          ></img>
-          {t("Home.Unity")}
+      <button
+        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        onClick={() => navigateIntoPage("/Unity")}
+      >
+        <div className="rectangleTool surbrillance" id="blur">
+          <div className="sizeIconCPlus fontsRegular">
+            <img
+              src={imgUnityIcon}
+              className="iconSpace"
+              alt="Unity Custom Engine Icon"
+            ></img>
+            {t("Home.Unity")}
+          </div>
         </div>
-      </div>
+      </button>
       <div className="rectangleTool" id="blur">
         <div className="sizeIconCPlus fontsRegular">
           <img
@@ -94,26 +120,36 @@ const PopupMySqlT = ({ t }) => {
           {t("Home.C")}
         </div>
       </div>
-      <div className="rectangleTool" id="blur">
-        <div className="sizeIconCPlus fontsRegular">
-          <img
-            src={imgCPlusLangage}
-            className="iconSpace"
-            alt="C++ Langage Icon"
-          ></img>
-          {t("Home.C++")}
+      <button
+        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        onClick={() => navigateIntoPage("/ProjectsVideosGames#Cpp")}
+      >
+        <div className="rectangleTool surbrillance" id="blur">
+          <div className="sizeIconCPlus fontsRegular">
+            <img
+              src={imgCPlusLangage}
+              className="iconSpace"
+              alt="C++ Langage Icon"
+            ></img>
+            {t("Home.C++")}
+          </div>
         </div>
-      </div>
-      <div className="rectangleTool" id="blur">
-        <div className="sizeIconCPlus fontsRegular">
-          <img
-            src={imgCSharpLangage}
-            className="iconSpace"
-            alt="C# Langage Icon"
-          ></img>
-          {t("Home.C#")}
+      </button>
+      <button
+        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        onClick={() => navigateIntoPage("/ProjectsVideosGames#CSharp")}
+      >
+        <div className="rectangleTool surbrillance" id="blur">
+          <div className="sizeIconCPlus fontsRegular">
+            <img
+              src={imgCSharpLangage}
+              className="iconSpace"
+              alt="C# Langage Icon"
+            ></img>
+            {t("Home.C#")}
+          </div>
         </div>
-      </div>
+      </button>
       <div className="rectangleTool" id="blur">
         <div className="sizeIconCPlus fontsRegular">
           <FontAwesomeIcon
@@ -241,15 +277,20 @@ const PopupMySqlT = ({ t }) => {
         />
         {t("Home.Bootstrap")}
       </div>
-      <div className="rectangleTool fontsRegular" id="blur">
-        <FontAwesomeIcon
-          icon={faPython}
-          color="#bc63ff"
-          size="xl"
-          className="iconSpace"
-        />
-        {t("Home.Python")}
-      </div>
+      <button
+        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        onClick={() => navigateIntoPage("/ProjectsVideosGames#Python")}
+      >
+        <div className="rectangleTool fontsRegular surbrillance" id="blur">
+          <FontAwesomeIcon
+            icon={faPython}
+            color="#bc63ff"
+            size="xl"
+            className="iconSpace"
+          />
+          {t("Home.Python")}
+        </div>
+      </button>
       <div className="rectangleTool fontsRegular" id="blur">
         <FontAwesomeIcon
           icon={faReact}
@@ -259,26 +300,36 @@ const PopupMySqlT = ({ t }) => {
         />
         {t("Home.React")}
       </div>
-      <div className="rectangleTool fontsRegular" id="blur">
-        <div className="sizeIconCPlus">
-          <img
-            src={imgLuaLangage}
-            className="iconSpace"
-            alt="Lua Langage Icon"
-          ></img>
-          {t("Home.LUA")}
+      <button
+        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        onClick={() => navigateIntoPage("/ProjectsVideosGames#LUA")}
+      >
+        <div className="rectangleTool fontsRegular surbrillance" id="blur">
+          <div className="sizeIconCPlus">
+            <img
+              src={imgLuaLangage}
+              className="iconSpace"
+              alt="Lua Langage Icon"
+            ></img>
+            {t("Home.LUA")}
+          </div>
         </div>
-      </div>
-      <div className="rectangleTool fontsRegular" id="blur">
-        <div className="sizeIconCPlus">
-          <img
-            src={imgTypeScriptIcon}
-            className="iconSpace"
-            alt="TypeScript Langage Icon"
-          ></img>
-          {t("Home.TypeScript")}
+      </button>
+      <button
+        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        onClick={() => navigateIntoPage("/ProjectsVideosGames#LUA")}
+      >
+        <div className="rectangleTool fontsRegular surbrillance" id="blur">
+          <div className="sizeIconCPlus">
+            <img
+              src={imgTypeScriptIcon}
+              className="iconSpace"
+              alt="TypeScript Langage Icon"
+            ></img>
+            {t("Home.TypeScript")}
+          </div>
         </div>
-      </div>
+      </button>
     </div>
   );
 };

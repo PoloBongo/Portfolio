@@ -176,7 +176,10 @@ const GameJamT = ({ t }) => {
           </h3>
         </div>
         <div className="grid-gamejam">
-          <div className="marge-contact-play modernEnvelop" id="blur">
+          <div
+            className="marge-contact-play modernEnvelop flex-column-center"
+            id="blur"
+          >
             <div className="sizeIconCPlus flexIMG">
               <h3 className="Home width">Choco Blast</h3>
               {isLoaded && !showUnityPlayBool && (
@@ -239,7 +242,7 @@ const GameJamT = ({ t }) => {
                   transition: "all 1s ease",
                 }}
               >
-                <button className="btnStyleDiscoverProject fontsBold">
+                <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                   {t("VideoGamesProjects.viewMoreGame")}
                 </button>
               </a>
@@ -251,7 +254,7 @@ const GameJamT = ({ t }) => {
                   transition: "all 1s ease",
                 }}
                 onClick={handleClickEnterFullscreen}
-                className="btnStyleDiscoverProject fontsBold"
+                className="btnStyleDiscoverProject fontsBold responsive-text-btn"
               >
                 {t("VideoGamesProjects.fullScreenGame")}
               </button>
@@ -261,12 +264,27 @@ const GameJamT = ({ t }) => {
                     ? handleNavbarBtnClickAlert
                     : handleNavbarBtnClickPlay
                 }
-                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index"
+                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index responsive-text-btn"
               >
                 {showUnityPlayBool
                   ? t("VideoGamesProjects.playProjects")
                   : t("VideoGamesProjects.stopProjects")}
               </button>
+              <a
+                href="https://github.com/DemonXlegenD/Chocoblast"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: showUnityPlayBool ? "block" : "none",
+                  opacity: showUnityPlayBool ? "1" : "0",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+              >
+                <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  {t("VideoGamesProjects.viewMoreCode")}
+                </button>
+              </a>
             </div>
           </div>
           <div
@@ -292,14 +310,23 @@ const GameJamT = ({ t }) => {
                 {t("GameJam.Chocolato.Alert")}
               </p>
               <button
+                onClick={handleNavbarBtnClickAlertStaySoul}
+                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index responsive-text-btn"
+              >
+                {showStaySoulBool ? t("VideoGamesProjects.stopProjects") : ""}
+              </button>
+              <button
                 onClick={handleActiveGameBtn}
-                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index"
+                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index responsive-text-btn"
               >
                 {showChocolatoBool ? t("VideoGamesProjects.playProjects") : ""}
               </button>
             </div>
           </div>
-          <div className="marge-contact-play modernEnvelop" id="blur">
+          <div
+            className="marge-contact-play modernEnvelop flex-column-center"
+            id="blur"
+          >
             <div className="sizeIconCPlus flexIMG">
               <h3 className="Home width">Stay Soul</h3>
               {removeGameInProgress && !showStaySoulBool && (
@@ -373,7 +400,7 @@ const GameJamT = ({ t }) => {
                   transition: "all 1s ease",
                 }}
               >
-                <button className="btnStyleDiscoverProject fontsBold">
+                <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                   {t("VideoGamesProjects.viewMoreGame")}
                 </button>
               </a>
@@ -385,7 +412,7 @@ const GameJamT = ({ t }) => {
                   transition: "all 1s ease",
                 }}
                 onClick={handleClickEnterFullscreenStaySoul}
-                className="btnStyleDiscoverProject fontsBold"
+                className="btnStyleDiscoverProject fontsBold responsive-text-btn responsive-text-btn"
               >
                 {t("VideoGamesProjects.fullScreenGame")}
               </button>
@@ -395,12 +422,27 @@ const GameJamT = ({ t }) => {
                     ? handleNavbarBtnClickAlertStaySoul
                     : handleNavbarBtnClickPlayStaySoul
                 }
-                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index"
+                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index responsive-text-btn"
               >
                 {showStaySoulUnityPlayBool
                   ? t("VideoGamesProjects.playProjects")
                   : t("VideoGamesProjects.stopProjects")}
               </button>
+              <a
+                href="https://github.com/PoloBongo/Meta_GTech"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: showUnityPlayBool ? "block" : "none",
+                  opacity: showUnityPlayBool ? "1" : "0",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+              >
+                <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  {t("VideoGamesProjects.viewMoreCode")}
+                </button>
+              </a>
             </div>
           </div>
           <div
@@ -426,8 +468,14 @@ const GameJamT = ({ t }) => {
                 {t("GameJam.StaySoul.Alert")}
               </p>
               <button
+                onClick={handleNavbarBtnClickAlertStaySoul}
+                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index responsive-text-btn"
+              >
+                {showStaySoulBool ? t("VideoGamesProjects.stopProjects") : ""}
+              </button>
+              <button
                 onClick={handleActiveGameBtnStaySoul}
-                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index"
+                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index responsive-text-btn"
               >
                 {showStaySoulBool ? t("VideoGamesProjects.playProjects") : ""}
               </button>

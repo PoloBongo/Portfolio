@@ -3,11 +3,11 @@
   "Home": {
     "DeveloperJunior": "Junior developer",
     "name": "Hello, I am Arthur BRU",
-    "developerJV": "Hello, I am a video game developer.",
-    "developerWeb": "Hello, I am a game developer.",
+    "developerJV": "Hello, I'm Arthur, a Gameplay Programmer.",
+    "developerWeb": "Hello, I'm Arthur, a Gameplay Programmer.",
     "role": "C++ Developer",
-    "info": "Currently a student in a bachelor's degree in computer development with a specialization in video game design at Campus Gaming in the third year of G.Tech, I am looking for an internship starting on May 15 and a work-study program at the beginning of September 2025.",
-    "discover": "Discover Me",
+    "info": "Currently a student in a bachelor's degree in computer development with a specialization in video game design at Campus Gaming in the third year of G.Tech, I am looking for an internship starting on May 02 and a work-study program at the beginning of September 2025.",
+    "discover": "My skills",
     "title1": "About Me",
     "aboutMe": "Thanks to my experiences, I have been able to refine my technical skills and collaborate effectively with other fields such as the artistic or marketing field. Outside of my studies, I am passionate about basketball!",
     "title2": "Technologies and Tools",
@@ -127,7 +127,7 @@
     },
     "StaySoul": {
       "Description": "I participated in my second Game Jam organized by my school in collaboration with Tap Nation. We had 42 hours to create a game on the theme 'Children's Games.' Thanks to my previous projects and the skills I have acquired, I was able to apply them to create a playable game with my teammates.",
-      "Alert": "For the best experience, you need a keyboard."
+      "Alert": "For the best experience, you need a mouse."
     }
   },
   "Unity": {
@@ -139,6 +139,12 @@
     },
     "NavyBongo": {
       "Description": "Here is an individual video game project made on Unity. I had a little more than a week to create the game. You play as a boat, and the goal of the game is to destroy all the enemy towers within the allotted time. The further you progress in the game, the more powerful boats you acquire!",
+      "LearnMore": "Learn more",
+      "technologies": "Technology used: Unity"
+    },
+    "UIUXCooking": {
+      "Description": "This is a solo project on the theme of UI/UX, where I was able to learn how to handle the UI in a fairly comprehensive way. I learned to work with grids, manipulate dropdowns, and use Scriptable Objects to manage my ingredients and recipes. A great project that allowed me to improve my skills in Unity!",
+      "Alert": "For the best experience, you need a keyboard.",
       "LearnMore": "Learn more",
       "technologies": "Technology used: Unity"
     }

@@ -3,11 +3,11 @@
   "Home": {
     "DeveloperJunior": "Desarrollador junior",
     "name": "Hola, soy Arthur BRU",
-    "developerJV": "Hola, soy un desarrollador de videojuegos.",
-    "developerWeb": "Hola, soy un desarrollador de videojuegos.",
+    "developerJV": "Hola, soy Arthur, programador de juegos.",
+    "developerWeb": "Hola, soy Arthur, programador de juegos.",
     "role": "Desarrollador de C++",
-    "info": "Actualmente estudiante de licenciatura en desarrollo informático con especialización en diseño de videojuegos en Campus Gaming en el tercer año de G.Tech, busco una pasantía a partir del 15 de mayo y un programa de estudio y trabajo a principios de septiembre de 2025.",
-    "discover": "Descúbreme",
+    "info": "Actualmente estudiante de licenciatura en desarrollo informático con especialización en diseño de videojuegos en Campus Gaming en el tercer año de G.Tech, busco una pasantía a partir del 02 de mayo y un programa de estudio y trabajo a principios de septiembre de 2025.",
+    "discover": "Mis habilidades",
     "title1": "Acerca de mí",
     "aboutMe": "Gracias a mis experiencias, he podido perfeccionar mis habilidades técnicas y colaborar eficazmente con otras ramas como la rama artística o de marketing. Fuera de mis estudios, ¡soy apasionado por el baloncesto!",
     "title2": "Tecnologías y Herramientas",
@@ -127,7 +127,7 @@
     },
     "StaySoul": {
       "Description": "Participé en mi segunda Game Jam organizada por mi escuela en colaboración con Tap Nation. Tuvimos 42 horas para crear un juego con el tema 'Juegos de niños'. Gracias a mis proyectos anteriores y a las habilidades que he adquirido, pude aplicarlas para desarrollar, junto con mis compañeros, un juego jugable.",
-      "Alert": "Para disfrutar de la mejor experiencia, necesitas un teclado."
+      "Alert": "Para disfrutar de la mejor experiencia, necesitas un ratón."
     }
   },
   "Unity": {
@@ -139,6 +139,12 @@
     },
     "NavyBongo": {
       "Description": "Aquí tienes un proyecto de videojuego individual hecho en Unity. Tuve un poco más de una semana para crear el juego. Juegas como un barco, y el objetivo del juego es destruir todas las torres enemigas en el tiempo asignado. ¡Cuanto más avanzas en el juego, más barcos poderosos obtienes!",
+      "LearnMore": "Más información",
+      "technologies": "Tecnología utilizada: Unity"
+    },
+    "UIUXCooking": {
+      "Description": "Este es un proyecto en solitario sobre el tema de UI/UX, donde pude aprender a manejar la UI de manera bastante completa. Aprendí a trabajar con rejillas, manipular menús desplegables y usar Scriptable Objects para gestionar mis ingredientes y recetas. ¡Un gran proyecto que me permitió mejorar mis habilidades en Unity!",
+      "Alert": "Para disfrutar de la mejor experiencia, necesitas un teclado.",
       "LearnMore": "Más información",
       "technologies": "Tecnología utilizada: Unity"
     }

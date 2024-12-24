@@ -10,6 +10,7 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 
 // image
 import backgroundUnityRL from "../../img/backgroundUnityRL.webp";
+import backgroundUIUXCook from "../../img/backgroundUIUXCook.webp";
 
 // Traduction
 import { Loader } from "../../Component/ComponentTraduction.js";
@@ -22,11 +23,27 @@ const UnityT = ({ t }) => {
 
   const { unityProvider, loadingProgression, isLoaded, requestFullscreen } =
     useUnityContext({
-      loaderUrl: "../BuildUnityRL/Build/public.loader.js",
-      dataUrl: "../BuildUnityRL/Build/public.data",
-      frameworkUrl: "../BuildUnityRL/Build/public.framework.js",
-      codeUrl: "../BuildUnityRL/Build/public.wasm",
+      loaderUrl: "/BuildUnityRL/Build/public.loader.js",
+      dataUrl: "/BuildUnityRL/Build/public.data",
+      frameworkUrl: "/BuildUnityRL/Build/public.framework.js",
+      codeUrl: "/BuildUnityRL/Build/public.wasm",
     });
+
+  function handleClickEnterFullscreenUIUXCooking() {
+    requestFullscreenUIUXCooking(true);
+  }
+
+  const {
+    unityProvider: unityProviderUIUXCooking,
+    loadingProgression: loadingProgressionUIUXCooking,
+    isLoaded: isLoadedUIUXCooking,
+    requestFullscreen: requestFullscreenUIUXCooking,
+  } = useUnityContext({
+    loaderUrl: "../BuildUnityUIUXCook/Build/BuildUnityUIUXCook.loader.js",
+    dataUrl: "../BuildUnityUIUXCook/Build/BuildUnityUIUXCook.data",
+    frameworkUrl: "../BuildUnityUIUXCook/Build/BuildUnityUIUXCook.framework.js",
+    codeUrl: "../BuildUnityUIUXCook/Build/BuildUnityUIUXCook.wasm",
+  });
 
   // Unity WebGL
   const [showUnityPlayBool, setSUnityPlayBool] = useState(true);
@@ -36,6 +53,18 @@ const UnityT = ({ t }) => {
     setSUnityPlayBool(!showUnityPlayBool);
     if (!showChocolatoBool) {
       setShowChocolatoBool(showChocolatoBool);
+    }
+  };
+
+  // cooking game
+  const [showUnityPlayUICookingBool, setSUnityPlayUICookingBool] =
+    useState(true);
+  const [showUICookingBool, setShowUICookingBool] = useState(false);
+
+  const handleNavbarBtnClickPlayUICooking = () => {
+    setSUnityPlayUICookingBool(!showUnityPlayUICookingBool);
+    if (!showUICookingBool) {
+      setShowUICookingBool(showUICookingBool);
     }
   };
 
@@ -62,7 +91,7 @@ const UnityT = ({ t }) => {
               {localStorage.getItem("ActiveBtnBackUnityPage") === "true" && (
                 <div className="backbtnUnityPage">
                   <button
-                    className="btnStyleDiscoverProject fontsBold"
+                    className="btnStyleDiscoverProject fontsBold responsive-text-btn"
                     onClick={handleBackBtnClickUnityPage}
                   >
                     Back
@@ -75,7 +104,10 @@ const UnityT = ({ t }) => {
               </h3>
             </div>
             <div className="grid-gamejam">
-              <div className="marge-contact-play modernEnvelop" id="blur">
+              <div
+                className="marge-contact-play modernEnvelop flex-column-center"
+                id="blur"
+              >
                 <div className="sizeIconCPlus flexIMG">
                   <h3 className="Home width">Unity RL</h3>
                   {isLoaded && !showUnityPlayBool && (
@@ -138,13 +170,13 @@ const UnityT = ({ t }) => {
                       transition: "all 1s ease",
                     }}
                     onClick={handleClickEnterFullscreen}
-                    className="btnStyleDiscoverProject fontsBold"
+                    className="btnStyleDiscoverProject fontsBold responsive-text-btn"
                   >
                     {t("VideoGamesProjects.fullScreenGame")}
                   </button>
                   <button
                     onClick={handleNavbarBtnClickPlay}
-                    className="btnStyleDiscoverProject fontsBold z-index"
+                    className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn"
                   >
                     {showUnityPlayBool
                       ? t("VideoGamesProjects.playProjects")
@@ -152,7 +184,10 @@ const UnityT = ({ t }) => {
                   </button>
                 </div>
               </div>
-              <div className="marge-contact-play modernEnvelop" id="blur">
+              <div
+                className="marge-contact-play modernEnvelop flex-column-center"
+                id="blur"
+              >
                 <div className="sizeIconCPlus flexIMG">
                   <h3 className="Home width">Shadow Scholar : La fac ultime</h3>
                 </div>
@@ -189,13 +224,16 @@ const UnityT = ({ t }) => {
                       transition: "all 1s ease",
                     }}
                   >
-                    <button className="btnStyleDiscoverProject fontsBold z-index">
+                    <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
                       {t("VideoGamesProjects.viewMoreGame")}
                     </button>
                   </a>
                 </div>
               </div>
-              <div className="marge-contact-play modernEnvelop" id="blur">
+              <div
+                className="marge-contact-play modernEnvelop flex-column-center"
+                id="blur"
+              >
                 <div className="sizeIconCPlus flexIMG">
                   <h3 className="Home width">Navy Bongo</h3>
                 </div>
@@ -232,8 +270,121 @@ const UnityT = ({ t }) => {
                       transition: "all 1s ease",
                     }}
                   >
-                    <button className="btnStyleDiscoverProject fontsBold z-index">
+                    <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
                       {t("VideoGamesProjects.viewMoreGame")}
+                    </button>
+                  </a>
+                  <a
+                    href="https://github.com/PoloBongo/NavyBongo"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      display: showUnityPlayBool ? "block" : "none",
+                      opacity: showUnityPlayBool ? "1" : "0",
+                      overflow: "hidden",
+                      transition: "all 1s ease",
+                    }}
+                  >
+                    <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                      {t("VideoGamesProjects.viewMoreCode")}
+                    </button>
+                  </a>
+                </div>
+              </div>
+              <div
+                className="marge-contact-play modernEnvelop flex-column-center"
+                id="blur"
+              >
+                <div className="sizeIconCPlus flexIMG">
+                  <h3 className="Home width">UI UX Cooking Project</h3>
+                  {isLoadedUIUXCooking && !showUnityPlayUICookingBool && (
+                    <div className="width flex-end">
+                      <FontAwesomeIcon
+                        icon={faCircle}
+                        beatFade
+                        style={{ color: "#63E6BE" }}
+                        className="removeMargin"
+                      />
+                      <h4 className="Home">
+                        {t("GameJam.Chocolato.GameInProgress")}
+                      </h4>
+                    </div>
+                  )}
+                </div>
+
+                <div className="flexIMG width">
+                  <img
+                    style={{
+                      display: showUnityPlayUICookingBool ? "block" : "none",
+                      opacity: showUnityPlayUICookingBool ? "1" : "0",
+                      overflow: "hidden",
+                      transition: "all 1s ease",
+                    }}
+                    src={backgroundUIUXCook}
+                    alt="UI UX Cooking Game"
+                    className="sizeProjectIMG imgGameJam"
+                  ></img>
+                </div>
+                <Fragment>
+                  {!showUnityPlayUICookingBool && (
+                    <>
+                      {loadingProgressionUIUXCooking < 1 && (
+                        <p>
+                          {t("GameJam.Chocolato.LoadingGame")}{" "}
+                          {Math.round(loadingProgressionUIUXCooking * 100)}%
+                        </p>
+                      )}
+                      <Unity
+                        unityProvider={unityProviderUIUXCooking}
+                        className="width"
+                      />
+                    </>
+                  )}
+                </Fragment>
+                <p className="text-align-left padding-1vw font-size-large">
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("Unity.UIUXCooking.Description"),
+                    }}
+                  ></p>
+                  <strong className="underline">
+                    {t("Unity.UIUXCooking.technologies")}
+                  </strong>
+                </p>
+                <div className="btnDiscoverProject">
+                  <button
+                    onClick={handleNavbarBtnClickPlayUICooking}
+                    className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn"
+                  >
+                    {showUnityPlayUICookingBool
+                      ? t("VideoGamesProjects.playProjects")
+                      : t("VideoGamesProjects.stopProjects")}
+                  </button>
+                  <button
+                    style={{
+                      display: showUnityPlayUICookingBool ? "none" : "block",
+                      opacity: showUnityPlayUICookingBool ? "0" : "1",
+                      overflow: "hidden",
+                      transition: "all 1s ease",
+                    }}
+                    onClick={handleClickEnterFullscreenUIUXCooking}
+                    className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn"
+                  >
+                    {t("VideoGamesProjects.fullScreenGame")}
+                  </button>
+                  <a
+                    href="https://github.com/PoloBongo/UICookProject"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      display: showUnityPlayBool ? "block" : "none",
+                      opacity: showUnityPlayBool ? "1" : "0",
+                      overflow: "hidden",
+                      transition: "all 1s ease",
+                    }}
+                  >
+                    <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                      {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                 </div>

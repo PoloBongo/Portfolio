@@ -43,6 +43,7 @@ const DropdownProjectT = ({ t, isFixed = false }) => {
   return (
     <div className="dropdown" ref={dropdownRef}>
       <li className="order-list-navbar-li">
+        <ol></ol>
         <button className="dropbtn fontsBold" onClick={toggleDropdown}>
           {t("ClassicNavBar.Projects")}
         </button>

@@ -23,15 +23,71 @@ const JVPageT = ({ t }) => {
   const [pythonT, setPythonT] = useState(0);
   const [customEngine, setCustomEngine] = useState(0);
 
+  // permet d'aller directement à la section dans l'url quand on arrive sur la page
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   useEffect(() => {
-    setCPlusPlusT(Array.from(document.getElementsByClassName("C++")).length);
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      setTimeout(() => scrollToSection(hash), 100);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      // effet smooth
+      if (hash) {
+        setTimeout(() => {
+          const section = document.getElementById(hash);
+          if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 100);
+      }
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    setCPlusPlusT(Array.from(document.getElementsByClassName("Cpp")).length);
     setLuaT(Array.from(document.getElementsByClassName("LUA")).length);
-    setCSharpT(Array.from(document.getElementsByClassName("C#")).length);
+    setCSharpT(Array.from(document.getElementsByClassName("Csharp")).length);
     setPythonT(Array.from(document.getElementsByClassName("Python")).length);
     setCustomEngine(
       Array.from(document.getElementsByClassName("CustomEngine")).length
     );
   }, []);
+
+  const navbarLinks = document.querySelectorAll(".navbarJV a");
+
+  navbarLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const targetId = link.getAttribute("href").substring(1);
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      }
+
+      navbarLinks.forEach((navLink) => {
+        navLink.classList.remove("active");
+      });
+      link.classList.add("active");
+    });
+  });
 
   useEffect(() => {
     const targetHref2 = document.getElementsByClassName("noColorCPlus");
@@ -48,11 +104,11 @@ const JVPageT = ({ t }) => {
             entry.target.classList.add("active");
             Array.from(targetHref2).forEach((element) => {
               element.style.textDecoration =
-                entry.target.id === "C++" ? "underline" : "";
+                entry.target.id === "Cpp" ? "underline" : "";
             });
             Array.from(targetHref5).forEach((element) => {
               element.style.textDecoration =
-                entry.target.id === "C#" ? "underline" : "";
+                entry.target.id === "Csharp" ? "underline" : "";
             });
             Array.from(targetHref3).forEach((element) => {
               element.style.textDecoration =
@@ -194,7 +250,7 @@ const JVPageT = ({ t }) => {
                   <h5 className="sizeCategoryProjectGames fontsBold">
                     {t("BottomNavBarProjects.Category")}
                   </h5>
-                  <ul className="backgroundUnderCategory">
+                  <ul className="backgroundUnderCategory navbarJV">
                     <a
                       href="#CustomEngine"
                       className="noColorCustomEngine fontsRegular"
@@ -203,25 +259,25 @@ const JVPageT = ({ t }) => {
                       <strong className="green">({customEngine})</strong>
                     </a>
                   </ul>
-                  <ul className="backgroundUnderCategory">
-                    <a href="#C++" className="noColorCPlus fontsRegular">
+                  <ul className="backgroundUnderCategory navbarJV">
+                    <a href="#Cpp" className="noColorCPlus fontsRegular">
                       {t("BottomNavBarProjects.C++")}&nbsp;
                       <strong className="green">({cPlusPlusT})</strong>
                     </a>
                   </ul>
-                  <ul className="backgroundUnderCategory">
-                    <a href="#C#" className="noColorCSharp fontsRegular">
+                  <ul className="backgroundUnderCategory navbarJV">
+                    <a href="#Csharp" className="noColorCSharp fontsRegular">
                       {t("BottomNavBarProjects.CSharp")}&nbsp;
                       <strong className="green">({cSharpT})</strong>
                     </a>
                   </ul>
-                  <ul className="backgroundUnderCategory">
+                  <ul className="backgroundUnderCategory navbarJV">
                     <a href="#Python" className="noColorPython fontsRegular">
                       {t("BottomNavBarProjects.Python")}&nbsp;
                       <strong className="green">({pythonT})</strong>
                     </a>
                   </ul>
-                  <ul className="backgroundUnderCategory">
+                  <ul className="backgroundUnderCategory navbarJV">
                     <a href="#LUA" className="noColorLUA fontsRegular">
                       {t("BottomNavBarProjects.LUA")}&nbsp;
                       <strong className="green">({luaT})</strong>
@@ -260,13 +316,13 @@ const JVPageT = ({ t }) => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <button className="btnStyleDiscoverProject fontsBold">
+                    <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                       {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                 </div>
               </div>
-              <div className="projects C++" id="C++">
+              <div className="projects Cpp" id="Cpp">
                 <div className="flexIMG">
                   <div className="preview-div">
                     {/* <img
@@ -300,13 +356,13 @@ const JVPageT = ({ t }) => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <button className="btnStyleDiscoverProject fontsBold">
+                    <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                       {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                 </div>
               </div>
-              <div className="projects C++" id="C++">
+              <div className="projects Cpp" id="Cpp">
                 <div className="flexIMG">
                   <div className="preview-div">
                     <iframe
@@ -335,18 +391,18 @@ const JVPageT = ({ t }) => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <button className="btnStyleDiscoverProject fontsBold">
+                    <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                       {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                 </div>
               </div>
-              <div className="projects C++" id="C++">
+              <div className="projects Cpp" id="Cpp">
                 <div className="flexIMG">
                   <img
                     src={backgroundCPPBibliotheque}
                     loading="lazy"
-                    alt="Bibliothèque C++"
+                    alt="Bibliothèque Cpp"
                     className="sizeProjectIMG"
                   ></img>
                 </div>
@@ -365,13 +421,13 @@ const JVPageT = ({ t }) => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <button className="btnStyleDiscoverProject fontsBold">
+                    <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                       {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                 </div>
               </div>
-              {/* <div className="projects C++" id="C++">
+              {/* <div className="projects Cpp" id="Cpp">
                 <div className="flexIMG">
                   <div className="preview-div">
                     <img
@@ -419,7 +475,7 @@ const JVPageT = ({ t }) => {
                   </a>
                 </div>
               </div> */}
-              <div className="projects C#" id="C#">
+              <div className="projects Csharp" id="Csharp">
                 <div className="flexIMG">
                   <div className="preview-div">
                     <iframe
@@ -448,7 +504,7 @@ const JVPageT = ({ t }) => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <button className="btnStyleDiscoverProject fontsBold">
+                    <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                       {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
@@ -483,7 +539,7 @@ const JVPageT = ({ t }) => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <button className="btnStyleDiscoverProject fontsBold">
+                    <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                       {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
@@ -519,7 +575,7 @@ const JVPageT = ({ t }) => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <button className="btnStyleDiscoverProject fontsBold">
+                    <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                       {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>

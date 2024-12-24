@@ -866,8 +866,23 @@ button::placeholder {
   flex-wrap: wrap;
 }
 
+.responsive-text-btn {
+  font-size: 0.5em;
+}
+
 .overflowPopup {
   overflow: hidden;
+}
+
+.noACss {
+  color: unset;
+  text-decoration: unset;
+}
+
+@media (max-width: 1500px) {
+  .imgProg {
+    display: none;
+  }
 }
 
 /* PAGE HOME FORMAT TELEPHONE */
@@ -879,6 +894,9 @@ button::placeholder {
   }
   .aboutMeRightPart {
     display: none;
+  }
+  .imgProg {
+    display: flex;
   }
 }
 
@@ -1475,4 +1493,21 @@ button::placeholder {
 
 .sizeProjectIMG3 {
   width: inherit;
+}
+
+/* Surbrillance */
+
+.surbrillance:hover {
+  box-shadow: 0 0 10px 3px rgba(188, 99, 255, 0.7);
+  transition: box-shadow 0.5s ease;
+}
+
+.surbrillance {
+  transition: box-shadow 0.5s ease;
+}
+
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from "react";
-import DropdownProject from "./DropdownProject";
+// import DropdownProject from "./DropdownProject";
 import DropdownCV from "./DropdownCV";
 import DropdownTraduction from "./DropdownTraduction";
 
@@ -57,9 +57,9 @@ const NavbarProjectsT = ({ t }) => {
             </a>
           </button>
         </ul>
-        <ul className="dropdownProjectPadding">
+        {/* <ul className="dropdownProjectPadding">
           <DropdownProject isFixed={false} />
-        </ul>
+        </ul> */}
         <ul className="dropdownProjectPadding">
           <DropdownCV isFixed={false} />
         </ul>

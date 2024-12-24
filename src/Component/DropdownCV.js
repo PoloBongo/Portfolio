@@ -37,6 +37,7 @@ const DropdownCVT = ({ t, isFixed = false }) => {
   return (
     <div ref={dropdownRef}>
       <li className="order-list-navbar-li">
+        <ol></ol>
         <button className="dropbtn fontsBold" onClick={toggleDropdown}>
           CV
         </button>

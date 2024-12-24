@@ -49,6 +49,7 @@ const DropdownTraduction = () => {
   return (
     <div className="dropdown" ref={dropdownRef}>
       <li className="order-list-navbar-li">
+        <ol></ol>
         <button
           className="dropbtn fontsBold displayBtn"
           onClick={toggleDropdown}

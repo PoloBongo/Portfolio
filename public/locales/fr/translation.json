@@ -3,11 +3,11 @@
   "Home": {
     "DeveloperJunior": "Développeur junior",
     "name": "Bonjour, je suis Arthur BRU",
-    "developerJV": "Bonjour, je suis un développeur de Jeu Vidéo",
-    "developerWeb": "Bonjour, je suis un développeur de Jeu Vidéo",
+    "developerJV": "Bonjour, je suis Arthur, un Gameplay Programmer.",
+    "developerWeb": "Bonjour, je suis Arthur, un Gameplay Programmer.",
     "role": "C++ Développeur",
-    "info": "Actuellement en Bachelor en développement informatique option jeu vidéo au Gaming Campus en 3ème année de G.Tech et je recherche un Stage et une alternance dès le 15 mai 2025.",
-    "discover": "Me découvrir",
+    "info": "Actuellement en Bachelor en développement informatique option jeu vidéo au Gaming Campus en 3ème année de G.Tech et je recherche un Stage et une alternance dès le 02 mai 2025.",
+    "discover": "Mes compétences",
     "title1": "A propos de moi",
     "aboutMe": "Grâce à mes expériences, j'ai pu perfectionner mes compétences techniques et collaborer efficacement avec d'autres filières telles que la filière artistique ou bien marketing. En dehors de mes études, je suis passionné par le basket !",
     "title2": "Technologies et Outils",
@@ -76,7 +76,7 @@
     "platformer": "Voici un platformer 2D réalisé en 2 semaines à l'aide d'un moteur fournit par l'intervenant.<br>- Groupe de 4 étudiants.",
     "bibliotheque": "Dans ce projet, nous devions faire nos propres bibliothèque, nous avions 1 semaines pour faire les bibliothèques suivantes : Vector, Container, Collision et un début de GameObject. Nous avons également vu les test unitaire pour tester nos bibliothèques<br>- Groupe de 3 étudiants.",
     "TextuelGameConsole": "Voici le premier projet réalisé en C++, c'est un jeu textuel, tour par tour, sur le thème de One Piece. C'étais un projet pour la transition entre le C et le C++ pour bien acquérir les bases, nous avions 1 semaine.<br>- Groupe de 2 étudiants.",
-    "shootEmUp": "Voici le grand projet réalisé en fin de première année en l'espace de 2 semaines. Nous étions en collaboration avec la filiare Business qui était chargé de premouvoir le jeu et nous de le développé.<br>- Groupe de 6 étudiants.",
+    "shootEmUp": "Voici le grand projet réalisé en fin de première année en l'espace de 2 semaines. Nous étions en collaboration avec la filiare Business qui était chargé de promouvoir le jeu et nous de le développé.<br>- Groupe de 6 étudiants.",
     "luaPart1": "Avant d'intégrer le Gaming Campus, j'ai développé en LUA sur la plateforme FiveM pendant environ 4 ans. Cette expérience m'a permis d'acquérir de solides connaissances en gestion et création de bases de données, et j'ai eu l'occasion de travailler sur Linux pour gérer différents serveurs. Au cours de ces 4 années, j'ai également créé le projet ",
     "luaPart2": ", me permettant de partager mon contenu avec ma communauté. Aujourd'hui, j'ai arrêté le projet Polo Leaks car j'ai exploré toutes les possibilités qu'il offrait.",
     "CSharpConsole": "Jeu en console, un jeu au tour par tour réalisé en 2 semaines. Nous devions créer une carte en ASCII et la rendre attrayante. Nous avons choisi le thème de One Piece et pour le système de combat, nous devions créer 3 types d'IA : Facile, Normal et Difficile. Nous avons également fait des Test unitaires.<br></br>- Groupe de 4 étudiants.",
@@ -127,7 +127,7 @@
     },
     "StaySoul": {
       "Description": "J'ai participé à ma deuxième Game Jam organisé par l'école mon école en collaboration avec Tap Nation. Nous avions 42 heures pour réaliser un Jeu sur le thème 'Jeux d'enfants'. Grâce à mes précèdents projets et à mes compétences, acquises j'ai pu les appliquer pour rendre un jeu jouable avec mes camarades.",
-      "Alert": "Pour une meilleur expérience, il vous faut un clavier."
+      "Alert": "Pour une meilleur expérience, il vous faut une souris."
     }
   },
   "Unity": {
@@ -139,6 +139,12 @@
     },
     "NavyBongo": {
       "Description": "Voici un projet de jeu vidéo sur Unity en individuel. J'avais un peu plus d'une semaine pour réaliser le jeu. Vous incarnez un bateau et le but du jeu est de détruire toutes les tours ennemies dans le temps impartie. Pour cela plsu vous avancez dans la partie, plus vous obtenez des bateaux plus puissant!",
+      "LearnMore": "En savoir plus",
+      "technologies": "Technologie utilisé : Unity"
+    },
+    "UIUXCooking": {
+      "Description": "Voici un projet en solo sur le thème de l'UI/UX, où j'ai pu apprendre à manipuler l'UI de manière assez complète. J'ai notamment appris à utiliser les grilles, à manipuler les menus déroulants, et à travailler avec des Scriptable Objects pour gérer mes ingrédients et mes recettes. Un beau projet qui m'a permis de mieux maîtriser Unity !",
+      "Alert": "Pour une meilleur expérience, il vous faut un clavier.",
       "LearnMore": "En savoir plus",
       "technologies": "Technologie utilisé : Unity"
     }

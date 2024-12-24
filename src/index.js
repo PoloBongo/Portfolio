@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ProjectsWeb from "./Pages/Projects/ProjectsWeb";
+// import ProjectsWeb from "./Pages/Projects/ProjectsWeb";
 import ProjectsVideosGames from "./Pages/ProjetctsJV/JVPage";
 import ContactMe from "./Pages/Projects/ContactMe";
 import GameJam from "./Pages/GameJam/GameJam";
@@ -31,7 +31,7 @@ root.render(
         <Route path="/GameJam" element={<GameJam />} />
         <Route path="/Unity" element={<UnityPage />} />
         <Route path="/Incoming" element={<IncomingPage />} />
-        <Route path="/ProjectsWeb" element={<ProjectsWeb />} />
+        {/* <Route path="/ProjectsWeb" element={<ProjectsWeb />} /> */}
         <Route path="/ProjectsVideosGames" element={<ProjectsVideosGames />} />
         <Route path="/contactMe" element={<ContactMe />} />
       </Routes>

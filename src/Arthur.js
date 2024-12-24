@@ -7,6 +7,8 @@ import PopupMySql from "./Component/PopupLanguage.js";
 import Load from "./Component/Load.js";
 import Fade from "./Component/Fade.js";
 
+import imgProgrammer from "./img/programmer.svg";
+
 // Balise React
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
@@ -94,7 +96,7 @@ const HomeT = ({ t }) => {
                     <div className="traitSeparator"></div>
                     <div className="aboutMe">
                       <div className="aboutMeRightPart">
-                        <iframe
+                        {/* <iframe
                           src="https://www.youtube.com/embed/IwMvlVfyvs8"
                           title="youtubeVideoPresentation"
                           frameBorder="0"
@@ -102,7 +104,12 @@ const HomeT = ({ t }) => {
                           height="315"
                           allowFullScreen
                           className="iframeYoutube"
-                        ></iframe>
+                        ></iframe> */}
+                        <img
+                          src={imgProgrammer}
+                          alt="imgProg"
+                          className="sizeProjectIMG imgProg"
+                        ></img>
                       </div>
                       <div className="aboutMeLeftPart">
                         <div className="aboutMeText">
