@@ -37,7 +37,8 @@
     "GameJam": "Game Jam",
     "Unity": "Unity",
     "ContactMe": "Contact",
-    "Incoming": "Projets à venir 2024-2025"
+    "Incoming": "Projets à venir 2024-2025",
+    "Unreal": "Unreal"
   },
   "TypeCV": {
     "CVJV": "CV Jeu vidéo",
@@ -147,6 +148,14 @@
       "Alert": "Pour une meilleur expérience, il vous faut un clavier.",
       "LearnMore": "En savoir plus",
       "technologies": "Technologie utilisé : Unity"
+    }
+  },
+  "Unreal": {
+    "Title": "Mes jeux/projets Unreal Engine",
+    "Funfair": {
+      "Description": "Je suis très heureux de vous présenter mon premier projet sur Unreal Engine 5.4 tout en Blueprint. Le but du projet était de faire un Chamboule tout, des auto-tamponneuses et des PNJ ce déplacement. Personnellement j'ai fait plus, j'ai ajouté un roller coaster, un système de coins ( UI Player) et une attraction de Grande Roue.",
+      "LearnMore": "En savoir plus",
+      "technologies": "Technologie utilisé : Unreal Engine 5.4"
     }
   },
   "Incoming": {

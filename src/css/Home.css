@@ -1511,3 +1511,17 @@ button::placeholder {
   flex-direction: column;
   justify-content: center;
 }
+
+.padding-int:hover {
+  padding: 3%;
+  transition: padding 1s;
+}
+
+.padding-int {
+  padding: 0%;
+  transition: padding 1s;
+}
+
+.no-margin-top {
+  margin-top: 0!important;
+}

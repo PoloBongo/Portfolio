@@ -63,9 +63,14 @@ const NavbarT = ({ t }) => {
   return (
     <div className="order-list-navbar-div">
       <div className="titleName">
-        <h3 className="sizeArthur fontsRegular flexIMG">
-          {t("Home.DeveloperJunior")}
-        </h3>
+        <button
+          className="noColor fontsRegular btnNavbar submitForm navbar-font"
+          onClick={() => navigateIntoPage("/arthur")}
+        >
+          <h3 className="sizeArthur fontsRegular flexIMG surbrillance padding-int">
+            {t("Home.DeveloperJunior")}
+          </h3>
+        </button>
       </div>
       <button
         className="btnDownloadCV bubbleHomeNavbarBtn"
@@ -95,13 +100,13 @@ const NavbarT = ({ t }) => {
           <DropdownTraduction />
           <button
             className="noColor fontsRegular btnNavbar submitForm navbar-font"
-            onClick={() => navigateIntoPage("/arthur")}
+            onClick={() => navigateIntoPage("/Unreal")}
           >
             <li className="order-list-navbar-li fontsBold">
-              {t("ClassicNavBar.Home")}
+              {t("ClassicNavBar.Unreal")}
             </li>
           </button>
-          <div className="dropdown fixMargin">
+          <div className="dropdown fixMargin no-margin-top">
             <button
               className="noColor fontsRegular btnNavbar submitForm navbar-font"
               onClick={() => navigateIntoPage("/Gamejam")}
@@ -141,7 +146,7 @@ const NavbarT = ({ t }) => {
           </button>
           {/* <DropdownProject isFixed={true} />
           <DropdownCV isFixed={true} /> */}
-          <div className="dropdown fixMargin">
+          <div className="dropdown fixMargin no-margin-top">
             <button
               className="noColor fontsRegular btnNavbar submitForm navbar-font"
               onClick={() => navigateIntoPage("/contactme")}

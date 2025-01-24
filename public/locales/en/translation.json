@@ -49,7 +49,8 @@
     "Language": "Language",
     "Projects": "Projects",
     "CV": "CV",
-    "ContactMe": "Contact Me"
+    "ContactMe": "Contact Me",
+    "Unreal": "Unreal"
   },
   "BottomNavBarProjects": {
     "Category": "Category",
@@ -147,6 +148,14 @@
       "Alert": "For the best experience, you need a keyboard.",
       "LearnMore": "Learn more",
       "technologies": "Technology used: Unity"
+    }
+  },
+  "Unreal": {
+    "Title": "My Unreal games/projects",
+    "Funfair": {
+      "Description": "I am very happy to present to you my first project on Unreal Engine 5.4 entirely using Blueprints. The goal of the project was to create a Chamboule tout, bumper cars, and NPCs that move around. Personally, I did more—I added a roller coaster, a coin system (UI Player), and a Ferris Wheel attraction.",
+      "LearnMore": "Learn more",
+      "technologies": "Technology used: Unreal Engine 5.4"
     }
   },
   "Incoming": {
