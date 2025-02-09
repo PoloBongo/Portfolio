@@ -63,6 +63,11 @@ const NavbarProjectsT = ({ t }) => {
             {t("ClassicNavBar.Unreal")}
           </a>
         </ul>
+        <ul className="backgroundUnderCategory">
+          <a className="noColorNavbar fontsBold" href="ProjectsWeb">
+            {t("DropdownProjects.ProjectWeb")}
+          </a>
+        </ul>
         {/* <ul className="dropdownProjectPadding">
           <DropdownProject isFixed={false} />
         </ul> */}

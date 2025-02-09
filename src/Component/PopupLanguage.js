@@ -150,46 +150,66 @@ const PopupMySqlT = ({ t }) => {
           </div>
         </div>
       </button>
-      <div className="rectangleTool" id="blur">
-        <div className="sizeIconCPlus fontsRegular">
+      <button
+        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        onClick={() => navigateIntoPage("/ProjectsWeb")}
+      >
+        <div className="rectangleTool surbrillance" id="blur">
+          <div className="sizeIconCPlus fontsRegular">
+            <FontAwesomeIcon
+              icon={faPhp}
+              color="#bc63ff"
+              size="xl"
+              className="iconSpace"
+            />
+            {t("Home.PHP")}
+          </div>
+        </div>
+      </button>
+      <button
+        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        onClick={() => navigateIntoPage("/ProjectsWeb")}
+      >
+        <div className="rectangleTool surbrillance" id="blur">
+          <div className="sizeIconCPlus fontsRegular">
+            <FontAwesomeIcon
+              icon={faJs}
+              color="#bc63ff"
+              size="xl"
+              className="iconSpace"
+            />
+            {t("Home.JavaScript")}
+          </div>
+        </div>
+      </button>
+      <button
+        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        onClick={() => navigateIntoPage("/ProjectsWeb")}
+      >
+        <div className="rectangleTool fontsRegular surbrillance" id="blur">
           <FontAwesomeIcon
-            icon={faPhp}
+            icon={faHtml5}
             color="#bc63ff"
             size="xl"
             className="iconSpace"
           />
-          {t("Home.PHP")}
+          {t("Home.HTML")}
         </div>
-      </div>
-      <div className="rectangleTool" id="blur">
-        <div className="sizeIconCPlus fontsRegular">
+      </button>
+      <button
+        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        onClick={() => navigateIntoPage("/ProjectsWeb")}
+      >
+        <div className="rectangleTool fontsRegular surbrillance" id="blur">
           <FontAwesomeIcon
-            icon={faJs}
+            icon={faCss3Alt}
             color="#bc63ff"
             size="xl"
             className="iconSpace"
           />
-          {t("Home.JavaScript")}
+          {t("Home.CSS")}
         </div>
-      </div>
-      <div className="rectangleTool fontsRegular" id="blur">
-        <FontAwesomeIcon
-          icon={faHtml5}
-          color="#bc63ff"
-          size="xl"
-          className="iconSpace"
-        />
-        {t("Home.HTML")}
-      </div>
-      <div className="rectangleTool fontsRegular" id="blur">
-        <FontAwesomeIcon
-          icon={faCss3Alt}
-          color="#bc63ff"
-          size="xl"
-          className="iconSpace"
-        />
-        {t("Home.CSS")}
-      </div>
+      </button>
       <div className="rectangleTool fontsRegular" ref={MySQLCSS} id="MySql">
         <div className="infoIcon">
           <button className="btnNavbarProjects" onClick={handleSqlBtnClick}>
@@ -268,15 +288,20 @@ const PopupMySqlT = ({ t }) => {
           </div>
         </div>
       </div>
-      <div className="rectangleTool fontsRegular" id="blur">
-        <FontAwesomeIcon
-          icon={faBootstrap}
-          color="#bc63ff"
-          size="xl"
-          className="iconSpace"
-        />
-        {t("Home.Bootstrap")}
-      </div>
+      <button
+        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        onClick={() => navigateIntoPage("/ProjectsWeb")}
+      >
+        <div className="rectangleTool fontsRegular surbrillance" id="blur">
+          <FontAwesomeIcon
+            icon={faBootstrap}
+            color="#bc63ff"
+            size="xl"
+            className="iconSpace"
+          />
+          {t("Home.Bootstrap")}
+        </div>
+      </button>
       <button
         className="noColor fontsRegular btnNavbar submitForm navbar-font"
         onClick={() => navigateIntoPage("/ProjectsVideosGames#Python")}

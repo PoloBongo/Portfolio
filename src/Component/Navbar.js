@@ -1,71 +1,118 @@
 import React, { Suspense, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-// import DropdownProject from "./DropdownProject.js";
-// import DropdownCV from "./DropdownCV.js";
+import { useNavigate, useLocation } from "react-router-dom";
 import CVArthurCPP from "../Download/CV-Arthur-JV.png";
 import DropdownTraduction from "./DropdownTraduction.js";
-
-// Traduction
 import { Loader } from "./ComponentTraduction";
 import { withTranslation } from "react-i18next";
-
-// Icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
 const NavbarT = ({ t }) => {
   const [showNavbarBool, setShowNavbarBool] = useState(true);
-  const [stockString, setStockString] = useState("");
-
-  const handleNavbarBtnClick = () => {
-    setShowNavbarBool(!showNavbarBool);
-  };
+  const [showIncomingTitle, setShowIncomingTitle] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const navigateIntoPage = (string) => {
-    setStockString(string);
-    if (string !== "/Incoming") {
-      sessionStorage.setItem("ShowTitleInNavbar", "true");
-    } else if (string === "/Incoming") {
-      sessionStorage.setItem("ShowTitleInNavbar", "false");
-      checkIncomingTitleState();
-    }
-
-    if (
-      string === "/ProjectsVideosGames" &&
-      stockString === "/ProjectsVideosGames"
-    ) {
-      localStorage.setItem("ActiveBtnNavbarUnityPage", "false");
-      window.location.reload();
-    }
-
-    if (string === "/Unity") {
-      localStorage.setItem("ActiveBtnBackUnityPage", "false");
-    }
-    navigate(string);
-  };
-
-  const [showIncomingTitle, setShowIncomingTitle] = useState(false);
-  const checkIncomingTitleState = () => {
-    const storedValue = sessionStorage.getItem("ShowTitleInNavbar");
-    if (storedValue === "true") {
-      setShowIncomingTitle(true);
-    } else if (storedValue === "false") {
-      setShowIncomingTitle(false);
-    }
+  const pageVisibility = {
+    "/Arthur": {
+      home: false,
+      unity: true,
+      unreal: true,
+      gameJam: true,
+      videoGame: true,
+      contact: true,
+    },
+    "/Unity": {
+      home: true,
+      unity: false,
+      unreal: true,
+      gameJam: true,
+      videoGame: true,
+      contact: true,
+    },
+    "/Unreal": {
+      home: true,
+      unity: true,
+      unreal: false,
+      gameJam: true,
+      videoGame: true,
+      contact: true,
+    },
+    "/Gamejam": {
+      home: true,
+      unity: true,
+      unreal: true,
+      gameJam: false,
+      videoGame: true,
+      contact: true,
+    },
+    "/ProjectsVideosGames": {
+      home: true,
+      unity: true,
+      unreal: true,
+      gameJam: true,
+      videoGame: false,
+      contact: true,
+    },
+    "/contactme": {
+      home: true,
+      unity: true,
+      unreal: true,
+      gameJam: true,
+      videoGame: true,
+      contact: false,
+    },
+    "/Incoming": {
+      home: true,
+      unity: true,
+      unreal: true,
+      gameJam: true,
+      videoGame: true,
+      contact: true,
+    },
+    "/ProjectsWeb": {
+      home: true,
+      unity: true,
+      unreal: true,
+      gameJam: true,
+      videoGame: true,
+      contact: true,
+    },
   };
 
   useEffect(() => {
-    checkIncomingTitleState();
-  }, []);
+    const storedValue = sessionStorage.getItem("ShowTitleInNavbar");
+    setShowIncomingTitle(storedValue === "true");
+  }, [location.pathname]);
+
+  const navigateIntoPage = (path) => {
+    setShowIncomingTitle(path === "/Incoming");
+    sessionStorage.setItem(
+      "ShowTitleInNavbar",
+      path === "/Incoming" ? "false" : "true"
+    );
+    navigate(path);
+  };
+
+  const renderNavbarButton = (visible, path, label) => {
+    if (!visible) return null;
+    return (
+      <button
+        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        onClick={() => navigateIntoPage(path)}
+      >
+        <li className="order-list-navbar-li fontsBold">{t(label)}</li>
+      </button>
+    );
+  };
 
   return (
     <div className="order-list-navbar-div">
       <div className="titleName">
         <button
           className="noColor fontsRegular btnNavbar submitForm navbar-font"
-          onClick={() => navigateIntoPage("/arthur")}
+          onClick={() => navigateIntoPage("/Arthur")}
         >
           <h3 className="sizeArthur fontsRegular flexIMG surbrillance padding-int">
             {t("Home.DeveloperJunior")}
@@ -74,7 +121,7 @@ const NavbarT = ({ t }) => {
       </div>
       <button
         className="btnDownloadCV bubbleHomeNavbarBtn"
-        onClick={handleNavbarBtnClick}
+        onClick={() => setShowNavbarBool(!showNavbarBool)}
       >
         <div
           className="bubbleHomeNavbar"
@@ -98,40 +145,31 @@ const NavbarT = ({ t }) => {
       >
         <ul className="order-list-navbar-ul">
           <DropdownTraduction />
-          <button
-            className="noColor fontsRegular btnNavbar submitForm navbar-font"
-            onClick={() => navigateIntoPage("/Unreal")}
-          >
-            <li className="order-list-navbar-li fontsBold">
-              {t("ClassicNavBar.Unreal")}
-            </li>
-          </button>
-          <div className="dropdown fixMargin no-margin-top">
-            <button
-              className="noColor fontsRegular btnNavbar submitForm navbar-font"
-              onClick={() => navigateIntoPage("/Gamejam")}
-            >
-              <li className="order-list-navbar-li fontsBold">
-                {t("ClassicNavBar.GameJam")}
-              </li>
-            </button>
-          </div>
-          <button
-            className="noColor fontsRegular btnNavbar submitForm navbar-font"
-            onClick={() => navigateIntoPage("/Unity")}
-          >
-            <li className="order-list-navbar-li fontsBold">
-              {t("ClassicNavBar.Unity")}
-            </li>
-          </button>
-          <button
-            className="noColor fontsRegular btnNavbar submitForm navbar-font"
-            onClick={() => navigateIntoPage("/ProjectsVideosGames")}
-          >
-            <li className="order-list-navbar-li fontsBold">
-              {t("DropdownProjects.ProjectVideoGames")}
-            </li>
-          </button>
+          {renderNavbarButton(
+            pageVisibility[location.pathname]?.home,
+            "/Arthur",
+            "ClassicNavBar.Home"
+          )}
+          {renderNavbarButton(
+            pageVisibility[location.pathname]?.unreal,
+            "/Unreal",
+            "ClassicNavBar.Unreal"
+          )}
+          {renderNavbarButton(
+            pageVisibility[location.pathname]?.gameJam,
+            "/Gamejam",
+            "ClassicNavBar.GameJam"
+          )}
+          {renderNavbarButton(
+            pageVisibility[location.pathname]?.unity,
+            "/Unity",
+            "ClassicNavBar.Unity"
+          )}
+          {renderNavbarButton(
+            pageVisibility[location.pathname]?.videoGame,
+            "/ProjectsVideosGames",
+            "DropdownProjects.ProjectVideoGames"
+          )}
           <button className="noColor fontsRegular btnNavbar submitForm navbar-font">
             <li className="order-list-navbar-li fontsBold">
               <a
@@ -144,21 +182,14 @@ const NavbarT = ({ t }) => {
               </a>
             </li>
           </button>
-          {/* <DropdownProject isFixed={true} />
-          <DropdownCV isFixed={true} /> */}
-          <div className="dropdown fixMargin no-margin-top">
-            <button
-              className="noColor fontsRegular btnNavbar submitForm navbar-font"
-              onClick={() => navigateIntoPage("/contactme")}
-            >
-              <li className="order-list-navbar-li fontsBold">
-                {t("ClassicNavBar.ContactMe")}
-              </li>
-            </button>
-          </div>
+          {renderNavbarButton(
+            pageVisibility[location.pathname]?.contact,
+            "/contactme",
+            "ClassicNavBar.ContactMe"
+          )}
         </ul>
         {showIncomingTitle && (
-          <ul className="order-list-navbar-ul add-no-margin-incoming">
+          <ul className="order-list-navbar-ul add-no-margin-incoming align-items-center">
             <button
               className="noColor fontsRegular btnNavbar submitForm navbar-font"
               onClick={() => navigateIntoPage("/Incoming")}
@@ -172,6 +203,16 @@ const NavbarT = ({ t }) => {
                     className="removeMargin"
                   />
                   <h4 className="Home">{t("ClassicNavBar.Incoming")}</h4>
+                </div>
+              </li>
+            </button>
+            <button
+              className="noColor fontsRegular btnNavbar submitForm navbar-font"
+              onClick={() => navigateIntoPage("/ProjectsWeb")}
+            >
+              <li className="order-list-navbar-li fontsBold order-list-navbar-li-add-incoming">
+                <div className="width flex-end margin-incoming-title">
+                  <h4 className="Home">{t("DropdownProjects.ProjectWeb")}</h4>
                 </div>
               </li>
             </button>

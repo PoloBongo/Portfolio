@@ -6,7 +6,7 @@
     "developerJV": "Bonjour, je suis Arthur, un Gameplay Programmer.",
     "developerWeb": "Bonjour, je suis Arthur, un Gameplay Programmer.",
     "role": "C++ Développeur",
-    "info": "Actuellement en Bachelor en développement informatique option jeu vidéo au Gaming Campus en 3ème année de G.Tech et je recherche un Stage et une alternance dès le 02 mai 2025.",
+    "info": "Actuellement en Bachelor en développement informatique option jeu vidéo au Gaming Campus en 3ème année de G.Tech. Je suis activement en recherche d'un Stage dès le 02 mai 2025, avec possibilité de poursuivre en alternance pour ma 4ème année.",
     "discover": "Mes compétences",
     "title1": "A propos de moi",
     "aboutMe": "Grâce à mes expériences, j'ai pu perfectionner mes compétences techniques et collaborer efficacement avec d'autres filières telles que la filière artistique ou bien marketing. En dehors de mes études, je suis passionné par le basket !",
@@ -85,14 +85,22 @@
     "CustomEngine": "Durant ma 2ème année, j'ai pu avoir la chance de réaliser un moteur custom avec Vulkan en C++. Je me suis principalement occupé de la partie réseau, c'est-à-dire des protocoles TCP et UDP et également de l'intégration du son via la librairie FMOD. Le projet était sur 1 mois.<br><br>- Groupe de 8 étudiants."
   },
   "WebProjects": {
+    "Title": "Mes projets Web",
     "learnMore": "En savoir plus",
-    "Celtic": "Site web pour une association de basketball créé en 2 mois. Nous étions 100 % bénévoles pour le réaliser.<br></br>- Projet personnel, nous étions 2 développeurs.",
-    "Eko": "Eko est un site de vente en ligne qui propose également des abonnements. Il a été réalisé en 2 semaines.<br></br>- Groupe de 4 étudiants",
-    "BAImmobilier": "Site web pour le Bac, c'était mon premier site créé. L'objectif était de créer une entreprise fictive mais réaliste.",
+    "aboutWebsite": "Voir le Site",
+    "Celtic": "Site web pour une association de basketball créé en 2 mois. Nous étions 100% bénévoles pour le réaliser. Nous avons fait la maquette, la réalisation puis le déploiement du site.<br></br>- Projet personnel, nous étions 2 développeurs.",
+    "CelticTechno": "Technologie utilisé : HTML, CSS, PHP, JavaScript, Ajax, Bootstrap 5, cURL, jQuery, PHPMailer, SweetAlert, PDFjs, MySql, API Stripe, API Facebook Graph",
+    "Eko": "Eko est un site de vente en ligne qui propose également des abonnements. Il a été réalisé en 2 semaines dans le cadre d'un projet d'école.<br></br>- Groupe de 4 étudiants",
+    "EkoTechno": "API de paiement : Stripe, CSS, Bootstrap 5, PHP, JavaScript",
+    "BAImmobilier": "Site web réaliser pour le Bac, c'était mon premier site créé. L'objectif était de créer une entreprise fictive mais réaliste.",
+    "BAImmobilierTechno": "HTML, CSS, JavaScript",
     "GoudGuys": "Site web pour une association esport créé en 1 mois lors d'un stage.<br></br>- Nous étions 2 développeurs.",
-    "ShoppingSystem": "Voici une page de paiement et un panier inspirés du site web JD Sport, créés en 1 semaine.<br></br>- Projet personnel<br></br>- API de paiement : Stripe & Paypal",
+    "ShoppingSystem": "Voici une page de paiement et un panier inspirés du site web JD Sport, créés en 1 semaine.<br></br>- Projet personnel",
+    "ShoppingSystemtechno": "API de paiement : Stripe & Paypal, CSS",
     "React": "Site web réalisé en première année. Le but était de prendre une API de film fourni par l'intervenant et nous devions faire un premier catalogue avec des filtres.<br></br>- Premier projet en React<br></br>- Projet d'un étudiant",
-    "ReactPortfolio": "Portfolio développé en React JS, intégrant les bibliothèques suivantes : Axios, i18next, Font Awesome et emailjs-com.<br></br>Les technologies utilisées comprennent React, HTML et CSS.<br></br>J'ai porté une attention particulière au référencement (SEO) avec l'optimisation pour Google Search, l'utilisation d'une Sitemap et l'implémentation de balises appropriées."
+    "ReactPortfolio": "Portfolio développé en React JS, intégrant les bibliothèques suivantes : Axios, i18next, Font Awesome et emailjs-com.<br></br>Les technologies utilisées comprennent React, HTML et CSS.<br></br>J'ai porté une attention particulière au référencement (SEO) avec l'optimisation pour Google Search, l'utilisation d'une Sitemap et l'implémentation de balises appropriées.",
+    "PaymentPageTitle": "Design d'un processus de paiement",
+    "NoPreview": "Preview non disponible"
   },
   "ContactMe": {
     "title": "Me Contacter",
