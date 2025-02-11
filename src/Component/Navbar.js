@@ -15,11 +15,19 @@ const NavbarT = ({ t }) => {
   const location = useLocation();
 
   const pageVisibility = {
+    "/": {
+      home: false,
+      unity: true,
+      unreal: true,
+      Gamejam: true,
+      videoGame: true,
+      contact: true,
+    },
     "/Arthur": {
       home: false,
       unity: true,
       unreal: true,
-      gameJam: true,
+      Gamejam: true,
       videoGame: true,
       contact: true,
     },
@@ -27,7 +35,7 @@ const NavbarT = ({ t }) => {
       home: true,
       unity: false,
       unreal: true,
-      gameJam: true,
+      Gamejam: true,
       videoGame: true,
       contact: true,
     },
@@ -35,7 +43,7 @@ const NavbarT = ({ t }) => {
       home: true,
       unity: true,
       unreal: false,
-      gameJam: true,
+      Gamejam: true,
       videoGame: true,
       contact: true,
     },
@@ -43,7 +51,7 @@ const NavbarT = ({ t }) => {
       home: true,
       unity: true,
       unreal: true,
-      gameJam: false,
+      Gamejam: false,
       videoGame: true,
       contact: true,
     },
@@ -51,7 +59,7 @@ const NavbarT = ({ t }) => {
       home: true,
       unity: true,
       unreal: true,
-      gameJam: true,
+      Gamejam: true,
       videoGame: false,
       contact: true,
     },
@@ -59,7 +67,7 @@ const NavbarT = ({ t }) => {
       home: true,
       unity: true,
       unreal: true,
-      gameJam: true,
+      Gamejam: true,
       videoGame: true,
       contact: false,
     },
@@ -67,7 +75,7 @@ const NavbarT = ({ t }) => {
       home: true,
       unity: true,
       unreal: true,
-      gameJam: true,
+      Gamejam: true,
       videoGame: true,
       contact: true,
     },
@@ -75,7 +83,7 @@ const NavbarT = ({ t }) => {
       home: true,
       unity: true,
       unreal: true,
-      gameJam: true,
+      Gamejam: true,
       videoGame: true,
       contact: true,
     },
@@ -156,7 +164,7 @@ const NavbarT = ({ t }) => {
             "ClassicNavBar.Unreal"
           )}
           {renderNavbarButton(
-            pageVisibility[location.pathname]?.gameJam,
+            pageVisibility[location.pathname]?.Gamejam,
             "/Gamejam",
             "ClassicNavBar.GameJam"
           )}
