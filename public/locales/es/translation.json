@@ -172,6 +172,11 @@
       "Description": "Estoy muy feliz de presentarles mi primer proyecto en Unreal Engine 5.4, completamente en Blueprints. El objetivo del proyecto era hacer un Chamboule tout, autos chocadores y PNJs que se muevan. Personalmente, hice más: añadí una montaña rusa, un sistema de monedas (UI del jugador) y una atracción de rueda de la fortuna.",
       "LearnMore": "Más información",
       "technologies": "Tecnología utilizada: Unreal Engine 5.4"
+    },
+    "SpacialRace": {
+      "Description": "Proyecto basado en la física en Unreal Engine 5.4 en un grupo de 3. Teníamos que implementar mecanismos que afectaran la física del jugador. También aprendí a usar la herramienta 'Chaos'. Es un proyecto mitad C++ y mitad Blueprint.",
+      "LearnMore": "Saber más",
+      "technologies": "Tecnología utilizada: Unreal Engine"
     }
   },
   "Incoming": {
