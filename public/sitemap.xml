@@ -56,6 +56,13 @@
 </url>
 
 <url>
+  <loc>https://www.arthur-portfolio.dev/ProjectsWeb</loc>
+  <lastmod>2024-12-15T08:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.5</priority>
+</url>
+
+<url>
   <loc>https://www.arthur-portfolio.dev/Incoming</loc>
   <lastmod>2024-12-15T08:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
