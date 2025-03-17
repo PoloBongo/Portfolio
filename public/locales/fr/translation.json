@@ -137,6 +137,14 @@
     "StaySoul": {
       "Description": "J'ai participé à ma deuxième Game Jam organisé par l'école mon école en collaboration avec Tap Nation. Nous avions 42 heures pour réaliser un Jeu sur le thème 'Jeux d'enfants'. Grâce à mes précèdents projets et à mes compétences, acquises j'ai pu les appliquer pour rendre un jeu jouable avec mes camarades.",
       "Alert": "Pour une meilleur expérience, il vous faut une souris."
+    },
+    "AttractionFlow": {
+      "Description": "Game Jam organisé par TapNation X Gaming Campus où le thème était 'Attraction'. Nous avions 42 heures pour faire un jeu mobile sur ce thème et je suis heureux de vous présenter 'Attraction Flow'. Un jeu mobile hyper casual et très rapide à prendre en main !",
+      "LearnMore": "En savoir plus",
+      "Alert": "Pour une meilleur expérience, il vous faut un pc ou un téléphone.",
+      "LoadingGame": "Chargement du jeu...",
+      "GameInProgress": "Jeu en cours",
+      "technologies": "Technologie utilisé : Unity"
     }
   },
   "Unity": {
@@ -164,6 +172,11 @@
       "Description": "Je suis très heureux de vous présenter mon premier projet sur Unreal Engine 5.4 tout en Blueprint. Le but du projet était de faire un Chamboule tout, des auto-tamponneuses et des PNJ ce déplacement. Personnellement j'ai fait plus, j'ai ajouté un roller coaster, un système de coins ( UI Player) et une attraction de Grande Roue.",
       "LearnMore": "En savoir plus",
       "technologies": "Technologie utilisé : Unreal Engine 5.4"
+    },
+    "SpacialRace": {
+      "Description": "Projet basé sur la physique sur Unreal Engine 5.4 en groupe de 3. Nous devions mettre en place des mécanisme affectant la physique du joueur. J'ai pu apprendre également l'outil 'Chaos'. C'est un projet à moitié C++ et à moitié Blueprint",
+      "LearnMore": "En savoir plus",
+      "technologies": "Technologie utilisé : Unreal Engine"
     }
   },
   "Incoming": {

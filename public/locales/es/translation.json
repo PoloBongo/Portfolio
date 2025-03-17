@@ -137,6 +137,14 @@
     "StaySoul": {
       "Description": "Participé en mi segunda Game Jam organizada por mi escuela en colaboración con Tap Nation. Tuvimos 42 horas para crear un juego con el tema 'Juegos de niños'. Gracias a mis proyectos anteriores y a las habilidades que he adquirido, pude aplicarlas para desarrollar, junto con mis compañeros, un juego jugable.",
       "Alert": "Para disfrutar de la mejor experiencia, necesitas un ratón."
+    },
+    "AttractionFlow": {
+      "Description": "Game Jam organizada por TapNation X Gaming Campus donde el tema era 'Atracción'. Tuvimos 42 horas para hacer un juego móvil sobre este tema y estoy feliz de presentarles 'Attraction Flow'. ¡Un juego móvil hiper casual y muy fácil de jugar!",
+      "LearnMore": "Saber más",
+      "Alert": "Para una mejor experiencia, necesitas una PC o un teléfono.",
+      "LoadingGame": "Cargando el juego...",
+      "GameInProgress": "Juego en curso",
+      "technologies": "Tecnología utilizada: Unity"
     }
   },
   "Unity": {

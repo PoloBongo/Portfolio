@@ -181,6 +181,125 @@ const GameJamT = ({ t }) => {
             id="blur"
           >
             <div className="sizeIconCPlus flexIMG">
+              <h3 className="Home width">Attraction Flow</h3>
+              {isLoaded && !showUnityPlayBool && (
+                <div className="width flex-end">
+                  <FontAwesomeIcon
+                    icon={faCircle}
+                    beatFade
+                    style={{ color: "#63E6BE" }}
+                    className="removeMargin"
+                  />
+                  <h4 className="Home">
+                    {t("GameJam.AttractionFlow.GameInProgress")}
+                  </h4>
+                </div>
+              )}
+            </div>
+
+            <div className="flexIMG width">
+              <div
+                className="flexIMG width"
+                style={{
+                  display: showStaySoulUnityPlayBool ? "block" : "none",
+                  opacity: showStaySoulUnityPlayBool ? "1" : "0",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+              >
+                <iframe
+                  src="https://youtube.com/embed/-F1GZJYqFyw"
+                  title="youtubeVideoPresentation"
+                  frameBorder="0"
+                  width="560"
+                  height="315"
+                  allowFullScreen
+                  className="iframeYoutube"
+                ></iframe>
+              </div>
+            </div>
+            <Fragment>
+              {activeGameBtn && (
+                <>
+                  {loadingProgression < 1 && (
+                    <p>
+                      {t("GameJam.AttractionFlow.LoadingGame")}{" "}
+                      {Math.round(loadingProgression * 100)}%
+                    </p>
+                  )}
+                  <Unity unityProvider={unityProvider} className="width" />
+                </>
+              )}
+            </Fragment>
+            <p className="text-align-left padding-1vw font-size-large">
+              {t("GameJam.AttractionFlow.Description")}
+              <br></br>
+              <strong className="underline">
+                {t("GameJam.AttractionFlow.technologies")}
+              </strong>
+            </p>
+            <div className="btnDiscoverProject">
+              <a
+                href="https://stratix0.itch.io/attraction-flow"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: showUnityPlayBool ? "block" : "none",
+                  opacity: showUnityPlayBool ? "1" : "0",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+              >
+                <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
+                  {t("VideoGamesProjects.viewMoreGame")}
+                </button>
+              </a>
+              <button
+                style={{
+                  display: showUnityPlayBool ? "none" : "block",
+                  opacity: showUnityPlayBool ? "0" : "1",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+                onClick={handleClickEnterFullscreen}
+                className="btnStyleDiscoverProject fontsBold responsive-text-btn"
+              >
+                {t("VideoGamesProjects.fullScreenGame")}
+              </button>
+              {/* <button
+                onClick={
+                  showUnityPlayBool
+                    ? handleNavbarBtnClickAlert
+                    : handleNavbarBtnClickPlay
+                }
+                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index responsive-text-btn"
+              >
+                {showUnityPlayBool
+                  ? t("VideoGamesProjects.playProjects")
+                  : t("VideoGamesProjects.stopProjects")}
+              </button> */}
+              <a
+                href="https://github.com/PoloBongo/AttractionFlow"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: showUnityPlayBool ? "block" : "none",
+                  opacity: showUnityPlayBool ? "1" : "0",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+              >
+                <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  {t("VideoGamesProjects.viewMoreCode")}
+                </button>
+              </a>
+            </div>
+          </div>
+          <div
+            className="marge-contact-play modernEnvelop flex-column-center"
+            id="blur"
+          >
+            <div className="sizeIconCPlus flexIMG">
               <h3 className="Home width">Choco Blast</h3>
               {isLoaded && !showUnityPlayBool && (
                 <div className="width flex-end">

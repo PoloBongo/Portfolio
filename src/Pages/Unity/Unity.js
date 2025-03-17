@@ -109,86 +109,6 @@ const UnityT = ({ t }) => {
                 id="blur"
               >
                 <div className="sizeIconCPlus flexIMG">
-                  <h3 className="Home width">Unity RL</h3>
-                  {isLoaded && !showUnityPlayBool && (
-                    <div className="width flex-end">
-                      <FontAwesomeIcon
-                        icon={faCircle}
-                        beatFade
-                        style={{ color: "#63E6BE" }}
-                        className="removeMargin"
-                      />
-                      <h4 className="Home">
-                        {t("GameJam.Chocolato.GameInProgress")}
-                      </h4>
-                    </div>
-                  )}
-                </div>
-
-                <div className="flexIMG width">
-                  <img
-                    style={{
-                      display: showUnityPlayBool ? "block" : "none",
-                      opacity: showUnityPlayBool ? "1" : "0",
-                      overflow: "hidden",
-                      transition: "all 1s ease",
-                    }}
-                    src={backgroundUnityRL}
-                    alt="Unity RL Game"
-                    className="sizeProjectIMG imgGameJam"
-                  ></img>
-                </div>
-                <Fragment>
-                  {!showUnityPlayBool && (
-                    <>
-                      {loadingProgression < 1 && (
-                        <p>
-                          {t("GameJam.Chocolato.LoadingGame")}{" "}
-                          {Math.round(loadingProgression * 100)}%
-                        </p>
-                      )}
-                      <Unity unityProvider={unityProvider} className="width" />
-                    </>
-                  )}
-                </Fragment>
-                <p className="text-align-left padding-1vw font-size-large">
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: t("VideoGamesProjects.UnityRL"),
-                    }}
-                  ></p>
-                  <strong className="underline">
-                    {t("GameJam.Chocolato.technologies")}
-                  </strong>
-                </p>
-                <div className="btnDiscoverProject">
-                  <button
-                    style={{
-                      display: showUnityPlayBool ? "none" : "block",
-                      opacity: showUnityPlayBool ? "0" : "1",
-                      overflow: "hidden",
-                      transition: "all 1s ease",
-                    }}
-                    onClick={handleClickEnterFullscreen}
-                    className="btnStyleDiscoverProject fontsBold responsive-text-btn"
-                  >
-                    {t("VideoGamesProjects.fullScreenGame")}
-                  </button>
-                  <button
-                    onClick={handleNavbarBtnClickPlay}
-                    className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn"
-                  >
-                    {showUnityPlayBool
-                      ? t("VideoGamesProjects.playProjects")
-                      : t("VideoGamesProjects.stopProjects")}
-                  </button>
-                </div>
-              </div>
-              <div
-                className="marge-contact-play modernEnvelop flex-column-center"
-                id="blur"
-              >
-                <div className="sizeIconCPlus flexIMG">
                   <h3 className="Home width">Shadow Scholar : La fac ultime</h3>
                 </div>
                 <div className="flexIMG width">
@@ -226,67 +146,6 @@ const UnityT = ({ t }) => {
                   >
                     <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
                       {t("VideoGamesProjects.viewMoreGame")}
-                    </button>
-                  </a>
-                </div>
-              </div>
-              <div
-                className="marge-contact-play modernEnvelop flex-column-center"
-                id="blur"
-              >
-                <div className="sizeIconCPlus flexIMG">
-                  <h3 className="Home width">Navy Bongo</h3>
-                </div>
-                <div className="flexIMG width">
-                  <iframe
-                    src="https://www.youtube.com/embed/YtT03rMnzBg"
-                    title="youtubeVideoPresentationNavyBongo"
-                    frameBorder="0"
-                    width="560"
-                    height="315"
-                    allowFullScreen
-                    className="iframeYoutube"
-                  ></iframe>
-                </div>
-                <p className="text-align-left padding-1vw font-size-large">
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: t("Unity.NavyBongo.Description"),
-                    }}
-                  ></p>
-                  <strong className="underline">
-                    {t("Unity.NavyBongo.technologies")}
-                  </strong>
-                </p>
-                <div className="btnDiscoverProject">
-                  <a
-                    href="https://arthur-bru.itch.io/navy-bongo"
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{
-                      display: showUnityPlayBool ? "block" : "none",
-                      opacity: showUnityPlayBool ? "1" : "0",
-                      overflow: "hidden",
-                      transition: "all 1s ease",
-                    }}
-                  >
-                    <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
-                      {t("VideoGamesProjects.viewMoreGame")}
-                    </button>
-                  </a>
-                  <a
-                    href="https://github.com/PoloBongo/NavyBongo"
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{
-                      display: showUnityPlayBool ? "block" : "none",
-                      opacity: showUnityPlayBool ? "1" : "0",
-                      overflow: "hidden",
-                      transition: "all 1s ease",
-                    }}
-                  >
-                    <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
-                      {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
                 </div>
@@ -387,6 +246,146 @@ const UnityT = ({ t }) => {
                       {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>
+                </div>
+              </div>
+              <div
+                className="marge-contact-play modernEnvelop flex-column-center"
+                id="blur"
+              >
+                <div className="sizeIconCPlus flexIMG">
+                  <h3 className="Home width">Navy Bongo</h3>
+                </div>
+                <div className="flexIMG width">
+                  <iframe
+                    src="https://www.youtube.com/embed/YtT03rMnzBg"
+                    title="youtubeVideoPresentationNavyBongo"
+                    frameBorder="0"
+                    width="560"
+                    height="315"
+                    allowFullScreen
+                    className="iframeYoutube"
+                  ></iframe>
+                </div>
+                <p className="text-align-left padding-1vw font-size-large">
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("Unity.NavyBongo.Description"),
+                    }}
+                  ></p>
+                  <strong className="underline">
+                    {t("Unity.NavyBongo.technologies")}
+                  </strong>
+                </p>
+                <div className="btnDiscoverProject">
+                  <a
+                    href="https://arthur-bru.itch.io/navy-bongo"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      display: showUnityPlayBool ? "block" : "none",
+                      opacity: showUnityPlayBool ? "1" : "0",
+                      overflow: "hidden",
+                      transition: "all 1s ease",
+                    }}
+                  >
+                    <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
+                      {t("VideoGamesProjects.viewMoreGame")}
+                    </button>
+                  </a>
+                  <a
+                    href="https://github.com/PoloBongo/NavyBongo"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      display: showUnityPlayBool ? "block" : "none",
+                      opacity: showUnityPlayBool ? "1" : "0",
+                      overflow: "hidden",
+                      transition: "all 1s ease",
+                    }}
+                  >
+                    <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                      {t("VideoGamesProjects.viewMoreCode")}
+                    </button>
+                  </a>
+                </div>
+              </div>
+              <div
+                className="marge-contact-play modernEnvelop flex-column-center"
+                id="blur"
+              >
+                <div className="sizeIconCPlus flexIMG">
+                  <h3 className="Home width">Unity RL</h3>
+                  {isLoaded && !showUnityPlayBool && (
+                    <div className="width flex-end">
+                      <FontAwesomeIcon
+                        icon={faCircle}
+                        beatFade
+                        style={{ color: "#63E6BE" }}
+                        className="removeMargin"
+                      />
+                      <h4 className="Home">
+                        {t("GameJam.Chocolato.GameInProgress")}
+                      </h4>
+                    </div>
+                  )}
+                </div>
+                <div className="flexIMG width">
+                  <img
+                    style={{
+                      display: showUnityPlayBool ? "block" : "none",
+                      opacity: showUnityPlayBool ? "1" : "0",
+                      overflow: "hidden",
+                      transition: "all 1s ease",
+                    }}
+                    src={backgroundUnityRL}
+                    alt="Unity RL Game"
+                    className="sizeProjectIMG imgGameJam"
+                  ></img>
+                </div>
+                <Fragment>
+                  {!showUnityPlayBool && (
+                    <>
+                      {loadingProgression < 1 && (
+                        <p>
+                          {t("GameJam.Chocolato.LoadingGame")}{" "}
+                          {Math.round(loadingProgression * 100)}%
+                        </p>
+                      )}
+                      <Unity unityProvider={unityProvider} className="width" />
+                    </>
+                  )}
+                </Fragment>
+                <p className="text-align-left padding-1vw font-size-large">
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("VideoGamesProjects.UnityRL"),
+                    }}
+                  ></p>
+                  <strong className="underline">
+                    {t("GameJam.Chocolato.technologies")}
+                  </strong>
+                </p>
+                <div className="btnDiscoverProject">
+                  <button
+                    style={{
+                      display: showUnityPlayBool ? "none" : "block",
+                      opacity: showUnityPlayBool ? "0" : "1",
+                      overflow: "hidden",
+                      transition: "all 1s ease",
+                    }}
+                    onClick={handleClickEnterFullscreen}
+                    className="btnStyleDiscoverProject fontsBold responsive-text-btn"
+                  >
+                    {t("VideoGamesProjects.fullScreenGame")}
+                  </button>
+                  <button
+                    onClick={handleNavbarBtnClickPlay}
+                    className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn"
+                  >
+                    {showUnityPlayBool
+                      ? t("VideoGamesProjects.playProjects")
+                      : t("VideoGamesProjects.stopProjects")}
+                  </button>
                 </div>
               </div>
             </div>

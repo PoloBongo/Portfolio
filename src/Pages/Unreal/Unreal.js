@@ -68,6 +68,46 @@ const UnrealT = ({ t }) => {
                 </a>
               </div>
             </div>
+            <div
+              className="marge-contact-play modernEnvelop flex-column-center"
+              id="blur"
+            >
+              <div className="sizeIconCPlus flexIMG">
+                <h3 className="Home width">Attraction Flow</h3>
+              </div>
+              <div className="flexIMG width">
+                <iframe
+                  src="https://www.youtube.com/embed/2Ptn12UQuUs"
+                  title="youtubeVideoPresentationAttractionFlow"
+                  frameBorder="0"
+                  width="560"
+                  height="315"
+                  allowFullScreen
+                  className="iframeYoutube"
+                ></iframe>
+              </div>
+              <p className="text-align-left padding-1vw font-size-large">
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: t("Unreal.SpacialRace.Description"),
+                  }}
+                ></p>
+                <strong className="underline">
+                  {t("Unreal.SpacialRace.technologies")}
+                </strong>
+              </p>
+              <div className="btnDiscoverProject">
+                <a
+                  href="https://github.com/PoloBongo/SpacialRaceUE5"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
+                    {t("VideoGamesProjects.viewMoreCode")}
+                  </button>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -137,6 +137,14 @@
     "StaySoul": {
       "Description": "I participated in my second Game Jam organized by my school in collaboration with Tap Nation. We had 42 hours to create a game on the theme 'Children's Games.' Thanks to my previous projects and the skills I have acquired, I was able to apply them to create a playable game with my teammates.",
       "Alert": "For the best experience, you need a mouse."
+    },
+    "AttractionFlow": {
+      "Description": "Game Jam organized by TapNation X Gaming Campus where the theme was 'Attraction'. We had 42 hours to make a mobile game on this theme, and I am happy to present 'Attraction Flow'. A hyper-casual mobile game that is very easy to pick up!",
+      "LearnMore": "Learn more",
+      "Alert": "For a better experience, you need a PC or a phone.",
+      "LoadingGame": "Loading game...",
+      "GameInProgress": "Game in progress",
+      "technologies": "Technology used: Unity"
     }
   },
   "Unity": {
