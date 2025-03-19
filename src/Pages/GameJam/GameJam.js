@@ -159,11 +159,69 @@ const GameJamT = ({ t }) => {
     });
   };
 
+  // Unity Attraction Flow WebGL
+  const [showAttractionFlowUnityPlayBool, setAttractionFlowUnityPlayBool] =
+    useState(true);
+  const [showAttractionFlowBool, setShowAttractionFlowBool] = useState(false);
+  const [activeGameBtnAttractionFlow, setActiveGameBtnAttractionFlow] =
+    useState(false);
+  const [
+    removeGameInProgressAttractionFlow,
+    setRemoveGameInProgressAttractionFlow,
+  ] = useState(false);
+  const displayStatusAttractionFlow = useRef(null);
+  const AttractionFlow = useRef(null);
+
+  const handleActiveGameBtnAttractionFlow = () => {
+    setActiveGameBtnAttractionFlow(!activeGameBtnAttractionFlow);
+    handleNavbarBtnClickPlayAttractionFlow();
+  };
+
+  const handleNavbarBtnClickPlayAttractionFlow = () => {
+    setAttractionFlowUnityPlayBool(!showAttractionFlowUnityPlayBool);
+    setRemoveGameInProgressAttractionFlow(!removeGameInProgressAttractionFlow);
+
+    if (showAttractionFlowBool) {
+      handleNavbarBtnClickAlertAttractionFlow();
+    }
+
+    if (!showAttractionFlowBool) {
+      setShowAttractionFlowBool(showAttractionFlowBool);
+    }
+
+    if (activeGameBtnAttractionFlow) {
+      setActiveGameBtnAttractionFlow(!activeGameBtnAttractionFlow);
+    }
+  };
+
+  const handleNavbarBtnClickAlertAttractionFlow = () => {
+    setShowAttractionFlowBool(!showAttractionFlowBool);
+    if (AttractionFlow.current) {
+      AttractionFlow.current.style.filter = showAttractionFlowBool
+        ? "blur(0px)"
+        : "blur(5px)";
+    }
+  };
+
+  const AttractionFlowPopup = (ref, bool) => {
+    if (ref.current) {
+      ref.current.style.position = bool ? "absolute" : "relative";
+      ref.current.style.zIndex = bool ? "100" : "0";
+    }
+    const elements = document.querySelectorAll("#blur");
+    elements.forEach((element) => {
+      if (element) {
+        element.style.filter = bool ? "blur(5px)" : "blur(0px)";
+      }
+    });
+  };
+
   useEffect(() => {
     ChocolatoPopup(Chocolato, showChocolatoBool);
     StaySoulPopup(StaySoul, showStaySoulBool);
+    AttractionFlowPopup(AttractionFlow, showAttractionFlowBool);
     // eslint-disable-next-line
-  }, [showChocolatoBool, showStaySoulBool]);
+  }, [showChocolatoBool, showStaySoulBool, showAttractionFlowBool]);
 
   return (
     <div className="Home-header overflowHidden fontsRegular">
@@ -182,7 +240,7 @@ const GameJamT = ({ t }) => {
           >
             <div className="sizeIconCPlus flexIMG">
               <h3 className="Home width">Attraction Flow</h3>
-              {isLoaded && !showUnityPlayBool && (
+              {isLoaded && !showAttractionFlowUnityPlayBool && (
                 <div className="width flex-end">
                   <FontAwesomeIcon
                     icon={faCircle}
@@ -201,8 +259,8 @@ const GameJamT = ({ t }) => {
               <div
                 className="flexIMG width"
                 style={{
-                  display: showStaySoulUnityPlayBool ? "block" : "none",
-                  opacity: showStaySoulUnityPlayBool ? "1" : "0",
+                  display: showAttractionFlowUnityPlayBool ? "block" : "none",
+                  opacity: showAttractionFlowUnityPlayBool ? "1" : "0",
                   overflow: "hidden",
                   transition: "all 1s ease",
                 }}
@@ -219,7 +277,7 @@ const GameJamT = ({ t }) => {
               </div>
             </div>
             <Fragment>
-              {activeGameBtn && (
+              {activeGameBtnAttractionFlow && (
                 <>
                   {loadingProgression < 1 && (
                     <p>
@@ -244,8 +302,8 @@ const GameJamT = ({ t }) => {
                 target="_blank"
                 rel="noreferrer"
                 style={{
-                  display: showUnityPlayBool ? "block" : "none",
-                  opacity: showUnityPlayBool ? "1" : "0",
+                  display: showAttractionFlowUnityPlayBool ? "block" : "none",
+                  opacity: showAttractionFlowUnityPlayBool ? "1" : "0",
                   overflow: "hidden",
                   transition: "all 1s ease",
                 }}
@@ -256,8 +314,8 @@ const GameJamT = ({ t }) => {
               </a>
               <button
                 style={{
-                  display: showUnityPlayBool ? "none" : "block",
-                  opacity: showUnityPlayBool ? "0" : "1",
+                  display: showAttractionFlowUnityPlayBool ? "none" : "block",
+                  opacity: showAttractionFlowUnityPlayBool ? "0" : "1",
                   overflow: "hidden",
                   transition: "all 1s ease",
                 }}
@@ -268,13 +326,13 @@ const GameJamT = ({ t }) => {
               </button>
               {/* <button
                 onClick={
-                  showUnityPlayBool
-                    ? handleNavbarBtnClickAlert
-                    : handleNavbarBtnClickPlay
+                  showAttractionFlowUnityPlayBool
+                    ? handleNavbarBtnClickAlertAttractionFlow
+                    : handleNavbarBtnClickPlayAttractionFlow
                 }
                 className="btnStyleDiscoverProject fontsBold marge-contact-play z-index responsive-text-btn"
               >
-                {showUnityPlayBool
+                {showStaySoulUnityPlayBool
                   ? t("VideoGamesProjects.playProjects")
                   : t("VideoGamesProjects.stopProjects")}
               </button> */}
@@ -429,10 +487,10 @@ const GameJamT = ({ t }) => {
                 {t("GameJam.Chocolato.Alert")}
               </p>
               <button
-                onClick={handleNavbarBtnClickAlertStaySoul}
+                onClick={handleNavbarBtnClickAlert}
                 className="btnStyleDiscoverProject fontsBold marge-contact-play z-index responsive-text-btn"
               >
-                {showStaySoulBool ? t("VideoGamesProjects.stopProjects") : ""}
+                {showChocolatoBool ? t("VideoGamesProjects.stopProjects") : ""}
               </button>
               <button
                 onClick={handleActiveGameBtn}
@@ -597,6 +655,46 @@ const GameJamT = ({ t }) => {
                 className="btnStyleDiscoverProject fontsBold marge-contact-play z-index responsive-text-btn"
               >
                 {showStaySoulBool ? t("VideoGamesProjects.playProjects") : ""}
+              </button>
+            </div>
+          </div>
+          <div
+            style={
+              ({ display: showAttractionFlowBool ? "block" : "none" },
+              {
+                animation: `${
+                  showAttractionFlowBool ? "fadeIn" : "fadeOut"
+                } 1s ease forwards`,
+                position: "fixed",
+                textAlign: "center",
+                width: "-webkit-fill-available",
+                height: "-webkit-fill-available",
+                alignContent: "center",
+                zIndex: "10",
+              })
+            }
+            className="overflowPopup backgroundPopupGameJam padding-1vw"
+            ref={displayStatusAttractionFlow}
+          >
+            <div>
+              <p className="sizeMySql fontsLight text-align-center">
+                {t("GameJam.StaySoul.Alert")}
+              </p>
+              <button
+                onClick={handleNavbarBtnClickAlertAttractionFlow}
+                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index responsive-text-btn"
+              >
+                {showAttractionFlowBool
+                  ? t("VideoGamesProjects.stopProjects")
+                  : ""}
+              </button>
+              <button
+                onClick={handleActiveGameBtnAttractionFlow}
+                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index responsive-text-btn"
+              >
+                {showAttractionFlowBool
+                  ? t("VideoGamesProjects.playProjects")
+                  : ""}
               </button>
             </div>
           </div>
