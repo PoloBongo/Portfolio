@@ -138,8 +138,8 @@ const UnityT = ({ t }) => {
                     target="_blank"
                     rel="noreferrer"
                     style={{
-                      display: showUnityPlayBool ? "block" : "none",
-                      opacity: showUnityPlayBool ? "1" : "0",
+                      display: "block",
+                      opacity: "1",
                       overflow: "hidden",
                       transition: "all 1s ease",
                     }}
@@ -282,8 +282,8 @@ const UnityT = ({ t }) => {
                     target="_blank"
                     rel="noreferrer"
                     style={{
-                      display: showUnityPlayBool ? "block" : "none",
-                      opacity: showUnityPlayBool ? "1" : "0",
+                      display: "block",
+                      opacity: "1",
                       overflow: "hidden",
                       transition: "all 1s ease",
                     }}
@@ -297,8 +297,8 @@ const UnityT = ({ t }) => {
                     target="_blank"
                     rel="noreferrer"
                     style={{
-                      display: showUnityPlayBool ? "block" : "none",
-                      opacity: showUnityPlayBool ? "1" : "0",
+                      display: "block",
+                      opacity: "1",
                       overflow: "hidden",
                       transition: "all 1s ease",
                     }}
@@ -386,6 +386,21 @@ const UnityT = ({ t }) => {
                       ? t("VideoGamesProjects.playProjects")
                       : t("VideoGamesProjects.stopProjects")}
                   </button>
+                  <a
+                    href="https://p0izon.itch.io/fou2foot"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      display: showUnityPlayBool ? "block" : "none",
+                      opacity: showUnityPlayBool ? "1" : "0",
+                      overflow: "hidden",
+                      transition: "all 1s ease",
+                    }}
+                  >
+                    <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                      {t("VideoGamesProjects.viewMoreGame")}
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>
