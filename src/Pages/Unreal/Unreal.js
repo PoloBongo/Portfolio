@@ -18,7 +18,7 @@ const UnrealT = ({ t }) => {
               {t("Unreal.Title")}
             </h3>
           </div>
-          <div className="grid-gamejam">
+          <div className="grid-gamejam2">
             <div
               className="marge-contact-play modernEnvelop flex-column-center"
               id="blur"
@@ -37,16 +37,57 @@ const UnrealT = ({ t }) => {
                   className="iframeYoutube"
                 ></iframe>
               </div>
-              <p className="text-align-left padding-1vw font-size-large">
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: t("Unreal.Funfair.Description"),
-                  }}
-                ></p>
-                <strong className="underline">
-                  {t("Unreal.Funfair.technologies")}
-                </strong>
-              </p>
+              <div className="grid-gamejam">
+                <p className="text-align-left padding-1vw font-size-large">
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Langage")}
+                    </span>{" "}
+                    {t("Unreal.Funfair.Langage")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.ToolsUsed")}
+                    </span>
+                  </p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("Unreal.Funfair.ToolsUsed"),
+                    }}
+                  ></p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Duration")}
+                    </span>{" "}
+                    {t("Unreal.Funfair.Duration")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Completion")}
+                    </span>{" "}
+                    {t("Unreal.Funfair.Completion")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.TeamSize")}
+                    </span>{" "}
+                    {t("Unreal.Funfair.TeamSize")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Role")}
+                    </span>{" "}
+                    {t("Unreal.Funfair.Role")}
+                  </p>
+                </p>
+                <p className="text-align-left padding-1vw font-size-large">
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("Unreal.Funfair.Description"),
+                    }}
+                  ></p>
+                </p>
+              </div>
               <div className="btnDiscoverProject">
                 <a
                   href="https://arthur-bru.itch.io/carnival-unreal-engine-5"
@@ -68,12 +109,14 @@ const UnrealT = ({ t }) => {
                 </a>
               </div>
             </div>
+          </div>
+          <div className="grid-gamejam">
             <div
               className="marge-contact-play modernEnvelop flex-column-center"
               id="blur"
             >
               <div className="sizeIconCPlus flexIMG">
-                <h3 className="Home width">Attraction Flow</h3>
+                <h3 className="Home width">Spacial Race</h3>
               </div>
               <div className="flexIMG width">
                 <iframe

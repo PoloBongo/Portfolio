@@ -22,7 +22,7 @@ const JVPageT = ({ t }) => {
             {t("VideoGamesProjects.Title")}
           </h3>
         </div>
-        <div className="grid-gamejam">
+        <div className="grid-gamejam2">
           <div
             className="marge-contact-play modernEnvelop flex-column-center"
             id="blur"
@@ -37,13 +37,57 @@ const JVPageT = ({ t }) => {
                 className="sizeProjectIMG2"
               />
             </div>
-            <p className="text-align-left padding-1vw font-size-large">
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: t("VideoGamesProjects.CustomEngine"),
-                }}
-              ></p>
-            </p>
+            <div className="grid-gamejam">
+              <p className="text-align-left padding-1vw font-size-large">
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Langage")}
+                  </span>{" "}
+                  {t("VideoGamesProjects.Angine.Langage")}
+                </p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.ToolsUsed")}
+                  </span>
+                </p>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: t("VideoGamesProjects.Angine.ToolsUsed"),
+                  }}
+                ></p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Duration")}
+                  </span>{" "}
+                  {t("VideoGamesProjects.Angine.Duration")}
+                </p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Completion")}
+                  </span>{" "}
+                  {t("VideoGamesProjects.Angine.Completion")}
+                </p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.TeamSize")}
+                  </span>{" "}
+                  {t("VideoGamesProjects.Angine.TeamSize")}
+                </p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Role")}
+                  </span>{" "}
+                  {t("VideoGamesProjects.Angine.Role")}
+                </p>
+              </p>
+              <p className="text-align-left padding-1vw font-size-large">
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: t("VideoGamesProjects.Angine.Description"),
+                  }}
+                ></p>
+              </p>
+            </div>
             <div className="btnDiscoverProject">
               <a
                 href="https://github.com/PoloBongo/custom-engine-cpp"
@@ -62,6 +106,8 @@ const JVPageT = ({ t }) => {
               </a>
             </div>
           </div>
+        </div>
+        <div className="grid-gamejam">
           <div
             className="marge-contact-play modernEnvelop flex-column-center"
             id="blur"

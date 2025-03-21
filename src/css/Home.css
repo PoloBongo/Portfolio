@@ -1318,8 +1318,30 @@ button::placeholder {
   margin-bottom: 1vw;
 }
 
+.grid-gamejam2 {
+  display: grid;
+  grid-template-columns: repeat(
+    1,
+    1fr
+  ); /* a mettre sur (3, 1fr) quand j'aurai plus de game jam à mettre */
+  grid-template-rows: repeat(
+    1,
+    1fr
+  ); /* a mettre sur (3, 1fr) quand j'aurai plus de game jam à mettre */
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  margin-bottom: 1vw;
+}
+
+.colorPurple {
+  color: #c663ff;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 @media screen and (max-width: 1000px) {
   .grid-gamejam,
+  .grid-gamejam2,
   .grid-incoming {
     grid-template-columns: repeat(1, 1fr);
     transition: all 1s;
@@ -1523,5 +1545,5 @@ button::placeholder {
 }
 
 .no-margin-top {
-  margin-top: 0!important;
+  margin-top: 0 !important;
 }

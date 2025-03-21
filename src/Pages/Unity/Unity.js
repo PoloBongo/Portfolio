@@ -103,7 +103,7 @@ const UnityT = ({ t }) => {
                 {t("Unity.Title")}
               </h3>
             </div>
-            <div className="grid-gamejam">
+            <div className="grid-gamejam2">
               <div
                 className="marge-contact-play modernEnvelop flex-column-center"
                 id="blur"
@@ -122,16 +122,57 @@ const UnityT = ({ t }) => {
                     className="iframeYoutube"
                   ></iframe>
                 </div>
-                <p className="text-align-left padding-1vw font-size-large">
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: t("Unity.ShadowScholar.Description"),
-                    }}
-                  ></p>
-                  <strong className="underline">
-                    {t("Unity.ShadowScholar.technologies")}
-                  </strong>
-                </p>
+                <div className="grid-gamejam">
+                  <p className="text-align-left padding-1vw font-size-large">
+                    <p>
+                      <span className="colorPurple">
+                        {t("VideoGamesProjects.Langage")}
+                      </span>{" "}
+                      {t("Unity.ShadowScholar.Langage")}
+                    </p>
+                    <p>
+                      <span className="colorPurple">
+                        {t("VideoGamesProjects.ToolsUsed")}
+                      </span>
+                    </p>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: t("Unity.ShadowScholar.ToolsUsed"),
+                      }}
+                    ></p>
+                    <p>
+                      <span className="colorPurple">
+                        {t("VideoGamesProjects.Duration")}
+                      </span>{" "}
+                      {t("Unity.ShadowScholar.Duration")}
+                    </p>
+                    <p>
+                      <span className="colorPurple">
+                        {t("VideoGamesProjects.Completion")}
+                      </span>{" "}
+                      {t("Unity.ShadowScholar.Completion")}
+                    </p>
+                    <p>
+                      <span className="colorPurple">
+                        {t("VideoGamesProjects.TeamSize")}
+                      </span>{" "}
+                      {t("Unity.ShadowScholar.TeamSize")}
+                    </p>
+                    <p>
+                      <span className="colorPurple">
+                        {t("VideoGamesProjects.Role")}
+                      </span>{" "}
+                      {t("Unity.ShadowScholar.Role")}
+                    </p>
+                  </p>
+                  <p className="text-align-left padding-1vw font-size-large">
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: t("Unity.ShadowScholar.Description"),
+                      }}
+                    ></p>
+                  </p>
+                </div>
                 <div className="btnDiscoverProject">
                   <a
                     href="https://arthur-bru.itch.io/shadow-scholar-la-fac-ultime"
@@ -150,6 +191,8 @@ const UnityT = ({ t }) => {
                   </a>
                 </div>
               </div>
+            </div>
+            <div className="grid-gamejam">
               <div
                 className="marge-contact-play modernEnvelop flex-column-center"
                 id="blur"
