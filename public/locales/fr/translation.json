@@ -203,6 +203,12 @@
       "Description": "Projet basé sur la physique sur Unreal Engine 5.4 en groupe de 3. Nous devions mettre en place des mécanisme affectant la physique du joueur. J'ai pu apprendre également l'outil 'Chaos'. C'est un projet à moitié C++ et à moitié Blueprint",
       "LearnMore": "En savoir plus",
       "technologies": "Technologie utilisé : Unreal Engine"
+    },
+    "InventoryDemo": {
+      "Title": "Système d'inventaire",
+      "Description": "Voici un système d'inventaire comprenant un drop d'item et l'utilisation de chaque item. Le système a était progammé avec 90% de C++ et environ 10% de Blueprint. Les évènements de Click, Hover et UnHover sont ajouté dynamiquement avec et sans paramètre que ce soit pour l'inventaire ou pour le drop.",
+      "LearnMore": "En savoir plus",
+      "technologies": "Technologie utilisé : Unreal Engine"
     }
   },
   "Incoming": {
