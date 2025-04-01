@@ -11,6 +11,7 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 // image
 import backgroundUnityRL from "../../img/backgroundUnityRL.webp";
 import backgroundUIUXCook from "../../img/backgroundUIUXCook.webp";
+import backgroundAngryBirds from "../../img/backgroundAngryBirds.webp";
 
 // Traduction
 import { Loader } from "../../Component/ComponentTraduction.js";
@@ -45,6 +46,22 @@ const UnityT = ({ t }) => {
     codeUrl: "../BuildUnityUIUXCook/Build/BuildUnityUIUXCook.wasm",
   });
 
+  function handleClickEnterFullscreenAngryBirds() {
+    requestFullscreenAngryBirds(true);
+  }
+
+  const {
+    unityProvider: unityProviderAngryBirds,
+    loadingProgression: loadingProgressionAngryBirds,
+    isLoaded: isLoadedAngryBirds,
+    requestFullscreen: requestFullscreenAngryBirds,
+  } = useUnityContext({
+    loaderUrl: "../BuildUnityAngryBirds/Build/BuildUnityAngryBirds.loader.js",
+    dataUrl: "../BuildUnityAngryBirds/Build/BuildUnityAngryBirds.data",
+    frameworkUrl: "../BuildUnityAngryBirds/Build/BuildUnityAngryBirds.framework.js",
+    codeUrl: "../BuildUnityAngryBirds/Build/BuildUnityAngryBirds.wasm",
+  });
+
   // Unity WebGL
   const [showUnityPlayBool, setSUnityPlayBool] = useState(true);
   const [showChocolatoBool, setShowChocolatoBool] = useState(false);
@@ -65,6 +82,18 @@ const UnityT = ({ t }) => {
     setSUnityPlayUICookingBool(!showUnityPlayUICookingBool);
     if (!showUICookingBool) {
       setShowUICookingBool(showUICookingBool);
+    }
+  };
+
+  // angrybirds game
+  const [showUnityPlayAngryBirdsBool, setSUnityPlayAngryBirdsBool] =
+    useState(true);
+  const [showAngryBirdsBool, setShowAngryBirdsBool] = useState(false);
+
+  const handleNavbarBtnClickPlayAngryBirds = () => {
+    setSUnityPlayAngryBirdsBool(!showUnityPlayAngryBirdsBool);
+    if (!showAngryBirdsBool) {
+      setShowAngryBirdsBool(showAngryBirdsBool);
     }
   };
 
@@ -193,6 +222,104 @@ const UnityT = ({ t }) => {
               </div>
             </div>
             <div className="grid-gamejam">
+              <div
+                className="marge-contact-play modernEnvelop flex-column-center"
+                id="blur"
+              >
+                <div className="sizeIconCPlus flexIMG">
+                  <h3 className="Home width">Angry Birds</h3>
+                  {isLoadedAngryBirds && !showUnityPlayAngryBirdsBool && (
+                    <div className="width flex-end">
+                      <FontAwesomeIcon
+                        icon={faCircle}
+                        beatFade
+                        style={{ color: "#63E6BE" }}
+                        className="removeMargin"
+                      />
+                      <h4 className="Home">
+                        {t("GameJam.Chocolato.GameInProgress")}
+                      </h4>
+                    </div>
+                  )}
+                </div>
+
+                <div className="flexIMG width">
+                  <img
+                    style={{
+                      display: showUnityPlayAngryBirdsBool ? "block" : "none",
+                      opacity: showUnityPlayAngryBirdsBool ? "1" : "0",
+                      overflow: "hidden",
+                      transition: "all 1s ease",
+                    }}
+                    src={backgroundAngryBirds}
+                    alt="Angry Birds Game"
+                    className="sizeProjectIMG imgGameJam"
+                  ></img>
+                </div>
+                <Fragment>
+                  {!showUnityPlayAngryBirdsBool && (
+                    <>
+                      {loadingProgressionAngryBirds < 1 && (
+                        <p>
+                          {t("GameJam.Chocolato.LoadingGame")}{" "}
+                          {Math.round(loadingProgressionAngryBirds * 100)}%
+                        </p>
+                      )}
+                      <Unity
+                        unityProvider={unityProviderAngryBirds}
+                        className="width"
+                      />
+                    </>
+                  )}
+                </Fragment>
+                <p className="text-align-left padding-1vw font-size-large">
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("Unity.AngryBirds.Description"),
+                    }}
+                  ></p>
+                  <strong className="underline">
+                    {t("Unity.AngryBirds.technologies")}
+                  </strong>
+                </p>
+                <div className="btnDiscoverProject">
+                  <button
+                    onClick={handleNavbarBtnClickPlayAngryBirds}
+                    className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn"
+                  >
+                    {showUnityPlayAngryBirdsBool
+                      ? t("VideoGamesProjects.playProjects")
+                      : t("VideoGamesProjects.stopProjects")}
+                  </button>
+                  <button
+                    style={{
+                      display: showUnityPlayAngryBirdsBool ? "none" : "block",
+                      opacity: showUnityPlayAngryBirdsBool ? "0" : "1",
+                      overflow: "hidden",
+                      transition: "all 1s ease",
+                    }}
+                    onClick={handleClickEnterFullscreenAngryBirds}
+                    className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn"
+                  >
+                    {t("VideoGamesProjects.fullScreenGame")}
+                  </button>
+                  <a
+                    href="https://github.com/PoloBongo/AngryBirds"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      display: showUnityPlayBool ? "block" : "none",
+                      opacity: showUnityPlayBool ? "1" : "0",
+                      overflow: "hidden",
+                      transition: "all 1s ease",
+                    }}
+                  >
+                    <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                      {t("VideoGamesProjects.viewMoreCode")}
+                    </button>
+                  </a>
+                </div>
+              </div>
               <div
                 className="marge-contact-play modernEnvelop flex-column-center"
                 id="blur"

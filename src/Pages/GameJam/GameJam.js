@@ -358,6 +358,128 @@ const GameJamT = ({ t }) => {
             id="blur"
           >
             <div className="sizeIconCPlus flexIMG">
+              <h3 className="Home width">Stay Soul</h3>
+              {removeGameInProgress && !showStaySoulBool && (
+                <div className="width flex-end">
+                  <FontAwesomeIcon
+                    icon={faCircle}
+                    beatFade
+                    style={{ color: "#63E6BE" }}
+                    className="removeMargin"
+                  />
+                  <h4 className="Home">
+                    {t("GameJam.Chocolato.GameInProgress")}
+                  </h4>
+                </div>
+              )}
+            </div>
+
+            <div className="flexIMG width">
+              <div
+                className="flexIMG width"
+                style={{
+                  display: showStaySoulUnityPlayBool ? "block" : "none",
+                  opacity: showStaySoulUnityPlayBool ? "1" : "0",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+              >
+                <iframe
+                  src={videoUrls[language] || videoUrls.en}
+                  title="youtubeVideoPresentation"
+                  frameBorder="0"
+                  width="560"
+                  height="315"
+                  allowFullScreen
+                  className="iframeYoutube"
+                ></iframe>
+              </div>
+            </div>
+            <Fragment>
+              {activeGameBtnStaySoul && (
+                <>
+                  {loadingProgressionStaySoul < 1 && (
+                    <p>
+                      {t("GameJam.Chocolato.LoadingGame")}{" "}
+                      {Math.round(loadingProgressionStaySoul * 100)}%
+                    </p>
+                  )}
+                  <Unity
+                    unityProvider={unityProviderStaySoul}
+                    className="width"
+                  />
+                </>
+              )}
+            </Fragment>
+            <p className="text-align-left padding-1vw font-size-large">
+              {t("GameJam.StaySoul.Description")}
+              <br></br>
+              <strong className="underline">
+                {t("GameJam.Chocolato.technologies")}
+              </strong>
+            </p>
+            <div className="btnDiscoverProject">
+              <a
+                href="https://46yuu.itch.io/staysoul"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: showStaySoulUnityPlayBool ? "block" : "none",
+                  opacity: showStaySoulUnityPlayBool ? "1" : "0",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+              >
+                <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
+                  {t("VideoGamesProjects.viewMoreGame")}
+                </button>
+              </a>
+              <button
+                style={{
+                  display: showStaySoulUnityPlayBool ? "none" : "block",
+                  opacity: showStaySoulUnityPlayBool ? "0" : "1",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+                onClick={handleClickEnterFullscreenStaySoul}
+                className="btnStyleDiscoverProject fontsBold responsive-text-btn responsive-text-btn"
+              >
+                {t("VideoGamesProjects.fullScreenGame")}
+              </button>
+              <button
+                onClick={
+                  showStaySoulUnityPlayBool
+                    ? handleNavbarBtnClickAlertStaySoul
+                    : handleNavbarBtnClickPlayStaySoul
+                }
+                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index responsive-text-btn"
+              >
+                {showStaySoulUnityPlayBool
+                  ? t("VideoGamesProjects.playProjects")
+                  : t("VideoGamesProjects.stopProjects")}
+              </button>
+              <a
+                href="https://github.com/PoloBongo/Meta_GTech"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: showUnityPlayBool ? "block" : "none",
+                  opacity: showUnityPlayBool ? "1" : "0",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+              >
+                <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  {t("VideoGamesProjects.viewMoreCode")}
+                </button>
+              </a>
+            </div>
+          </div>
+          <div
+            className="marge-contact-play modernEnvelop flex-column-center"
+            id="blur"
+          >
+            <div className="sizeIconCPlus flexIMG">
               <h3 className="Home width">Choco Blast</h3>
               {isLoaded && !showUnityPlayBool && (
                 <div className="width flex-end">
@@ -373,7 +495,6 @@ const GameJamT = ({ t }) => {
                 </div>
               )}
             </div>
-
             <div className="flexIMG width">
               <img
                 style={{
@@ -498,128 +619,6 @@ const GameJamT = ({ t }) => {
               >
                 {showChocolatoBool ? t("VideoGamesProjects.playProjects") : ""}
               </button>
-            </div>
-          </div>
-          <div
-            className="marge-contact-play modernEnvelop flex-column-center"
-            id="blur"
-          >
-            <div className="sizeIconCPlus flexIMG">
-              <h3 className="Home width">Stay Soul</h3>
-              {removeGameInProgress && !showStaySoulBool && (
-                <div className="width flex-end">
-                  <FontAwesomeIcon
-                    icon={faCircle}
-                    beatFade
-                    style={{ color: "#63E6BE" }}
-                    className="removeMargin"
-                  />
-                  <h4 className="Home">
-                    {t("GameJam.Chocolato.GameInProgress")}
-                  </h4>
-                </div>
-              )}
-            </div>
-
-            <div className="flexIMG width">
-              <div
-                className="flexIMG width"
-                style={{
-                  display: showStaySoulUnityPlayBool ? "block" : "none",
-                  opacity: showStaySoulUnityPlayBool ? "1" : "0",
-                  overflow: "hidden",
-                  transition: "all 1s ease",
-                }}
-              >
-                <iframe
-                  src={videoUrls[language] || videoUrls.en}
-                  title="youtubeVideoPresentation"
-                  frameBorder="0"
-                  width="560"
-                  height="315"
-                  allowFullScreen
-                  className="iframeYoutube"
-                ></iframe>
-              </div>
-            </div>
-            <Fragment>
-              {activeGameBtnStaySoul && (
-                <>
-                  {loadingProgressionStaySoul < 1 && (
-                    <p>
-                      {t("GameJam.Chocolato.LoadingGame")}{" "}
-                      {Math.round(loadingProgressionStaySoul * 100)}%
-                    </p>
-                  )}
-                  <Unity
-                    unityProvider={unityProviderStaySoul}
-                    className="width"
-                  />
-                </>
-              )}
-            </Fragment>
-            <p className="text-align-left padding-1vw font-size-large">
-              {t("GameJam.StaySoul.Description")}
-              <br></br>
-              <strong className="underline">
-                {t("GameJam.Chocolato.technologies")}
-              </strong>
-            </p>
-            <div className="btnDiscoverProject">
-              <a
-                href="https://46yuu.itch.io/staysoul"
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: showStaySoulUnityPlayBool ? "block" : "none",
-                  opacity: showStaySoulUnityPlayBool ? "1" : "0",
-                  overflow: "hidden",
-                  transition: "all 1s ease",
-                }}
-              >
-                <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
-                  {t("VideoGamesProjects.viewMoreGame")}
-                </button>
-              </a>
-              <button
-                style={{
-                  display: showStaySoulUnityPlayBool ? "none" : "block",
-                  opacity: showStaySoulUnityPlayBool ? "0" : "1",
-                  overflow: "hidden",
-                  transition: "all 1s ease",
-                }}
-                onClick={handleClickEnterFullscreenStaySoul}
-                className="btnStyleDiscoverProject fontsBold responsive-text-btn responsive-text-btn"
-              >
-                {t("VideoGamesProjects.fullScreenGame")}
-              </button>
-              <button
-                onClick={
-                  showStaySoulUnityPlayBool
-                    ? handleNavbarBtnClickAlertStaySoul
-                    : handleNavbarBtnClickPlayStaySoul
-                }
-                className="btnStyleDiscoverProject fontsBold marge-contact-play z-index responsive-text-btn"
-              >
-                {showStaySoulUnityPlayBool
-                  ? t("VideoGamesProjects.playProjects")
-                  : t("VideoGamesProjects.stopProjects")}
-              </button>
-              <a
-                href="https://github.com/PoloBongo/Meta_GTech"
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: showUnityPlayBool ? "block" : "none",
-                  opacity: showUnityPlayBool ? "1" : "0",
-                  overflow: "hidden",
-                  transition: "all 1s ease",
-                }}
-              >
-                <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
-                  {t("VideoGamesProjects.viewMoreCode")}
-                </button>
-              </a>
             </div>
           </div>
           <div

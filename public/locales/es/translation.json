@@ -165,6 +165,12 @@
       "Alert": "Para disfrutar de la mejor experiencia, necesitas un teclado.",
       "LearnMore": "Más información",
       "technologies": "Tecnología utilizada: Unity"
+    },
+    "AngryBirds": {
+      "Description": "Aquí hay un proyecto en solitario basado en el tema de Angry Birds, donde apliqué mis habilidades matemáticas al juego. Pude comprender mejor la gravedad de Unity y aprender a simular la mía propia, con y sin fricción del aire. Además de eso, encontrarás dos funciones: un salto implementado con recursión y una duplicación de Bird realizada con una fórmula matemática para simular múltiples trayectorias según un ángulo (que va de 0 a π/2).",
+      "Alert": "Para una mejor experiencia, necesitas un ratón.",
+      "LearnMore": "Saber más",
+      "technologies": "Tecnología utilizada: Unity"
     }
   },
   "Unreal": {
