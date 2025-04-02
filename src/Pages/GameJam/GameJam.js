@@ -36,6 +36,10 @@ const GameJamT = ({ t }) => {
     requestFullscreenStaySoul(true);
   }
 
+  function handleClickEnterFullscreenAttractionFlow() {
+    requestFullscreenAttractionFlow(true);
+  }
+
   const { unityProvider, loadingProgression, isLoaded, requestFullscreen } =
     useUnityContext({
       loaderUrl:
@@ -56,6 +60,21 @@ const GameJamT = ({ t }) => {
     frameworkUrl:
       "../BuildStaySoulGameJam/Build/BuildStaySoulGameJam.framework.js",
     codeUrl: "../BuildStaySoulGameJam/Build/BuildStaySoulGameJam.wasm",
+  });
+
+  const {
+    unityProvider: unityProviderAttractionFlow,
+    loadingProgression: loadingProgressionAttractionFlow,
+    requestFullscreen: requestFullscreenAttractionFlow,
+  } = useUnityContext({
+    loaderUrl:
+      "../BuildAttractionFlowGameJam/Build/BuildAttractionFlowGameJam.loader.js",
+    dataUrl:
+      "../BuildAttractionFlowGameJam/Build/BuildAttractionFlowGameJam.data",
+    frameworkUrl:
+      "../BuildAttractionFlowGameJam/Build/BuildAttractionFlowGameJam.framework.js",
+    codeUrl:
+      "../BuildAttractionFlowGameJam/Build/BuildAttractionFlowGameJam.wasm",
   });
 
   // Unity WebGL
@@ -279,13 +298,16 @@ const GameJamT = ({ t }) => {
             <Fragment>
               {activeGameBtnAttractionFlow && (
                 <>
-                  {loadingProgression < 1 && (
+                  {loadingProgressionAttractionFlow < 1 && (
                     <p>
                       {t("GameJam.AttractionFlow.LoadingGame")}{" "}
-                      {Math.round(loadingProgression * 100)}%
+                      {Math.round(loadingProgressionAttractionFlow * 100)}%
                     </p>
                   )}
-                  <Unity unityProvider={unityProvider} className="width" />
+                  <Unity
+                    unityProvider={unityProviderAttractionFlow}
+                    className="width"
+                  />
                 </>
               )}
             </Fragment>
@@ -319,12 +341,12 @@ const GameJamT = ({ t }) => {
                   overflow: "hidden",
                   transition: "all 1s ease",
                 }}
-                onClick={handleClickEnterFullscreen}
+                onClick={handleClickEnterFullscreenAttractionFlow}
                 className="btnStyleDiscoverProject fontsBold responsive-text-btn"
               >
                 {t("VideoGamesProjects.fullScreenGame")}
               </button>
-              {/* <button
+              <button
                 onClick={
                   showAttractionFlowUnityPlayBool
                     ? handleNavbarBtnClickAlertAttractionFlow
@@ -332,10 +354,10 @@ const GameJamT = ({ t }) => {
                 }
                 className="btnStyleDiscoverProject fontsBold marge-contact-play z-index responsive-text-btn"
               >
-                {showStaySoulUnityPlayBool
+                {showAttractionFlowUnityPlayBool
                   ? t("VideoGamesProjects.playProjects")
                   : t("VideoGamesProjects.stopProjects")}
-              </button> */}
+              </button>
               <a
                 href="https://github.com/PoloBongo/AttractionFlow"
                 target="_blank"
