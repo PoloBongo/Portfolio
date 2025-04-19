@@ -40,7 +40,7 @@
 
 .Home-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 150vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -321,6 +321,10 @@
   background: rgba(188, 99, 255, 0.6);
 }
 
+.btnStyleDiscoverProjectIncoming {
+  cursor: default;
+}
+
 .aboutMePartDescription {
   display: flex;
   flex-wrap: wrap;
@@ -536,6 +540,17 @@
   color: white;
   font-weight: bold;
   font-size: medium;
+}
+
+.btnStyleDiscoverProjectIncoming {
+  border-radius: 5%;
+  padding: 15px 50px 15px 50px;
+  background: rgba(188, 99, 255, 1);
+  transition: all 1s;
+  color: white;
+  font-weight: bold;
+  font-size: medium;
+  pointer-events: none;
 }
 
 /* Download CV */
@@ -898,6 +913,9 @@ button::placeholder {
   .imgProg {
     display: flex;
   }
+  .iconResponsive {
+    font-size: 2rem!important;
+  }
 }
 
 @media (max-width: 650px) {
@@ -905,8 +923,10 @@ button::placeholder {
     flex-direction: row;
     align-items: center;
   }
-  .btnStyleDiscoverProject {
+  .btnStyleDiscoverProject,
+  .btnStyleDiscoverProjectIncoming {
     padding: 15px;
+    background: rgba(188, 99, 255, 1);
   }
 }
 
@@ -1546,4 +1566,8 @@ button::placeholder {
 
 .no-margin-top {
   margin-top: 0 !important;
+}
+
+.iconResponsive {
+  font-size: 3rem;
 }

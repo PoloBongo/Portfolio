@@ -21,6 +21,7 @@ import imgInfoIcon from "../img/infoIcon.svg";
 import imgUnityIcon from "../img/unityIcon.svg";
 import imgPythonIcon from "../img/pythonIcon.svg";
 import imgTypeScriptIcon from "../img/typescriptIcon.svg";
+import imgDevOpsLangage from "../img/DevOpsIcon.svg";
 
 // Traduction
 import { Loader } from "./ComponentTraduction";
@@ -113,6 +114,16 @@ const PopupMySqlT = ({ t }) => {
       <div className="rectangleTool" id="blur">
         <div className="sizeIconCPlus fontsRegular">
           <img
+            src={imgDevOpsLangage}
+            className="iconSpace"
+            alt="DevOps Icon"
+          ></img>
+          {t("Home.DevOps")}
+        </div>
+      </div>
+      <div className="rectangleTool" id="blur">
+        <div className="sizeIconCPlus fontsRegular">
+          <img
             src={imgCLangage}
             className="iconSpace"
             alt="C Langage Icon"
@@ -159,8 +170,7 @@ const PopupMySqlT = ({ t }) => {
             <FontAwesomeIcon
               icon={faPhp}
               color="#bc63ff"
-              size="xl"
-              className="iconSpace"
+              className="iconSpace iconResponsive"
             />
             {t("Home.PHP")}
           </div>
@@ -175,8 +185,7 @@ const PopupMySqlT = ({ t }) => {
             <FontAwesomeIcon
               icon={faJs}
               color="#bc63ff"
-              size="xl"
-              className="iconSpace"
+              className="iconSpace iconResponsive"
             />
             {t("Home.JavaScript")}
           </div>
@@ -187,13 +196,14 @@ const PopupMySqlT = ({ t }) => {
         onClick={() => navigateIntoPage("/ProjectsWeb")}
       >
         <div className="rectangleTool fontsRegular surbrillance" id="blur">
-          <FontAwesomeIcon
-            icon={faHtml5}
-            color="#bc63ff"
-            size="xl"
-            className="iconSpace"
-          />
-          {t("Home.HTML")}
+          <div className="sizeIconCPlus fontsRegular">
+            <FontAwesomeIcon
+              icon={faHtml5}
+              color="#bc63ff"
+              className="iconSpace iconResponsive"
+            />
+            {t("Home.HTML")}
+          </div>
         </div>
       </button>
       <button
@@ -201,13 +211,14 @@ const PopupMySqlT = ({ t }) => {
         onClick={() => navigateIntoPage("/ProjectsWeb")}
       >
         <div className="rectangleTool fontsRegular surbrillance" id="blur">
-          <FontAwesomeIcon
-            icon={faCss3Alt}
-            color="#bc63ff"
-            size="xl"
-            className="iconSpace"
-          />
-          {t("Home.CSS")}
+          <div className="sizeIconCPlus fontsRegular">
+            <FontAwesomeIcon
+              icon={faCss3Alt}
+              color="#bc63ff"
+              className="iconSpace iconResponsive"
+            />
+            {t("Home.CSS")}
+          </div>
         </div>
       </button>
       <div className="rectangleTool fontsRegular" ref={MySQLCSS} id="MySql">
@@ -220,13 +231,14 @@ const PopupMySqlT = ({ t }) => {
             ></img>
           </button>
         </div>
-        <FontAwesomeIcon
-          icon={faDatabase}
-          color="#bc63ff"
-          size="xl"
-          className="iconSpace"
-        />
-        {t("Home.MySQL")}
+        <div className="sizeIconCPlus fontsRegular">
+          <FontAwesomeIcon
+            icon={faDatabase}
+            color="#bc63ff"
+            className="iconSpace iconResponsive"
+          />
+          {t("Home.MySQL")}
+        </div>
         <div
           style={
             ({ display: showSqlBool ? "block" : "none" },
@@ -259,13 +271,14 @@ const PopupMySqlT = ({ t }) => {
             ></img>
           </button>
         </div>
-        <FontAwesomeIcon
-          icon={faGitAlt}
-          color="#bc63ff"
-          size="xl"
-          className="iconSpace"
-        />
-        {t("Home.Git")}
+        <div className="sizeIconCPlus fontsRegular">
+          <FontAwesomeIcon
+            icon={faGitAlt}
+            color="#bc63ff"
+            className="iconSpace iconResponsive"
+          />
+          {t("Home.Git")}
+        </div>
         <div
           style={
             ({ display: showGitBool ? "block" : "none" },
@@ -293,13 +306,14 @@ const PopupMySqlT = ({ t }) => {
         onClick={() => navigateIntoPage("/ProjectsWeb")}
       >
         <div className="rectangleTool fontsRegular surbrillance" id="blur">
-          <FontAwesomeIcon
-            icon={faBootstrap}
-            color="#bc63ff"
-            size="xl"
-            className="iconSpace"
-          />
-          {t("Home.Bootstrap")}
+          <div className="sizeIconCPlus fontsRegular">
+            <FontAwesomeIcon
+              icon={faBootstrap}
+              color="#bc63ff"
+              className="iconSpace iconResponsive"
+            />
+            {t("Home.Bootstrap")}
+          </div>
         </div>
       </button>
       <button
@@ -318,13 +332,14 @@ const PopupMySqlT = ({ t }) => {
         </div>
       </button>
       <div className="rectangleTool fontsRegular" id="blur">
-        <FontAwesomeIcon
-          icon={faReact}
-          color="#bc63ff"
-          size="xl"
-          className="iconSpace"
-        />
-        {t("Home.React")}
+        <div className="sizeIconCPlus fontsRegular">
+          <FontAwesomeIcon
+            icon={faReact}
+            color="#bc63ff"
+            className="iconSpace iconResponsive"
+          />
+          {t("Home.React")}
+        </div>
       </div>
       <button
         className="noColor fontsRegular btnNavbar submitForm navbar-font"

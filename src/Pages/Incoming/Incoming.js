@@ -51,52 +51,52 @@ const IncomingT = ({ t }) => {
             </div>
             <div className="overflow-y-incomming">
               <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProject fontsBold width">
+                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
                   {t("Incoming.1")}
                 </button>
               </div>
               <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProject fontsBold width">
+                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
                   {t("Incoming.2")}
                 </button>
               </div>
               <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProject fontsBold width">
+                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
                   {t("Incoming.3")}
                 </button>
               </div>
               <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProject fontsBold width">
+                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
                   {t("Incoming.4")}
                 </button>
               </div>
               <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProject fontsBold width">
+                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
                   {t("Incoming.5")}
                 </button>
               </div>
               <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProject fontsBold width">
+                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
                   {t("Incoming.6")}
                 </button>
               </div>
               <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProject fontsBold width">
+                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
                   {t("Incoming.7")}
                 </button>
               </div>
               <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProject fontsBold width">
+                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
                   {t("Incoming.8")}
                 </button>
               </div>
               <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProject fontsBold width">
+                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
                   {t("Incoming.9")}
                 </button>
               </div>
               <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProject fontsBold width">
+                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
                   {t("Incoming.10")}
                 </button>
               </div>
