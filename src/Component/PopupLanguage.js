@@ -32,10 +32,13 @@ import "../css/Home.css";
 const PopupMySqlT = ({ t }) => {
   const [showSqlBool, setShowSqlBool] = useState(false);
   const [showGitBool, setShowGitBool] = useState(false);
+  const [showDevOpsBool, setShowDevOpsBool] = useState(false);
   const displayStatus = useRef(null);
   const MySQLCSS = useRef(null);
   const displayStatusGit = useRef(null);
   const GitCSS = useRef(null);
+  const displayStatusDevOps = useRef(null);
+  const DEVOPS = useRef(null);
   const [stockString, setStockString] = useState("");
 
   const CSSPopup = (ref, bool) => {
@@ -61,6 +64,11 @@ const PopupMySqlT = ({ t }) => {
     // eslint-disable-next-line
   }, [showGitBool]);
 
+  useEffect(() => {
+    CSSPopup(DEVOPS, showDevOpsBool);
+    // eslint-disable-next-line
+  }, [showDevOpsBool]);
+
   const handleSqlBtnClick = () => {
     setShowSqlBool(!showSqlBool);
     if (GitCSS.current) {
@@ -72,6 +80,15 @@ const PopupMySqlT = ({ t }) => {
     setShowGitBool(!showGitBool);
     if (MySQLCSS.current) {
       MySQLCSS.current.style.filter = showGitBool ? "blur(0px)" : "blur(5px)";
+    }
+  };
+
+  const handleDevOpsBtnClick = () => {
+    setShowDevOpsBool(!showDevOpsBool);
+    if (DEVOPS.current) {
+      MySQLCSS.current.style.filter = showDevOpsBool
+        ? "blur(0px)"
+        : "blur(5px)";
     }
   };
 
@@ -111,7 +128,16 @@ const PopupMySqlT = ({ t }) => {
           </div>
         </div>
       </button>
-      <div className="rectangleTool" id="blur">
+      <div className="rectangleTool" ref={DEVOPS} id="DevOps">
+        <div className="infoIcon">
+          <button className="btnNavbarProjects" onClick={handleDevOpsBtnClick}>
+            <img
+              src={imgInfoIcon}
+              className="iconInfoWidth"
+              alt="Info Langage Icon"
+            ></img>
+          </button>
+        </div>
         <div className="sizeIconCPlus fontsRegular">
           <img
             src={imgDevOpsLangage}
@@ -119,6 +145,27 @@ const PopupMySqlT = ({ t }) => {
             alt="DevOps Icon"
           ></img>
           {t("Home.DevOps")}
+        </div>
+        <div
+          style={
+            ({ display: showDevOpsBool ? "block" : "none" },
+            {
+              overflow: "hidden",
+              animation: `${
+                showDevOpsBool ? "fadeIn" : "fadeOut"
+              } 1s ease forwards`,
+            })
+          }
+          ref={displayStatusDevOps}
+        >
+          <div>
+            <p
+              className="sizeMySql fontsLight"
+              dangerouslySetInnerHTML={{
+                __html: t("Home.DevOpsDescription"),
+              }}
+            ></p>
+          </div>
         </div>
       </div>
       <div className="rectangleTool" id="blur">

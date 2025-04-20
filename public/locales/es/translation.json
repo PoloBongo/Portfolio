@@ -24,6 +24,7 @@
     "MySQLDescription": "Llevo 4 años conociendo y practicando MySQL, utilizando especialmente phpMyAdmin. Mi experiencia con LUA y PHP me ha permitido progresar considerablemente en la manipulación de datos con MySQL.<br></br>He utilizado principalmente dos interfaces para trabajar con bases de datos:<br></br><br></br>- phpMyAdmin: Por su facilidad de uso, gestión de tareas comunes y seguridad.<br></br>- DBeaver: Prefiero que se use para Linux y por sus funciones avanzadas y soporte multiplataforma.",
     "Git": "Git",
     "GitDescription": "Comencé a usar Git en octubre de 2023 y desde entonces se ha convertido en una herramienta imprescindible para mí. Su utilidad y rapidez una vez dominados los comandos lo convierten en una herramienta formidable. Estoy cómodo con los comandos clásicos para la gestión de proyectos.",
+    "DevOpsDescription": "Gracias a mis proyectos en Unity, pude configurar builds automáticos de Android en GitHub usando GitHub Actions. Exploré varios plugins para mejorar mi script de compilación, como el envío de notificaciones a Discord y la subida de archivos a Dropbox y Google Drive. También probé los runners de GitHub y mis propios runners en localhost. Además, eché un vistazo a Jenkins y su sistema de agentes.",
     "Bootstrap": "Bootstrap 5",
     "Python": "Python",
     "React": "React (Front-End)",
