@@ -192,6 +192,13 @@
       "Alert": "Pour une meilleur expérience, il vous faut une souris.",
       "LearnMore": "En savoir plus",
       "technologies": "Technologie utilisé : Unity"
+    },
+    "RATP": {
+      "Title": "RATP Maintenance Challenge",
+      "InProgress": "Project in progress",
+      "Description": "Un projet professionnel en collaboration avec la RATP et mon école, pour lequel j’ai eu l’opportunité d’être sélectionné. L’objectif est de promouvoir, à travers le jeu vidéo, les métiers méconnus de la RATP. Grâce à la gamification, nous sommes en train de créer une scène de station dynamique et réaliste, où le but du jeu sera de réparer des systèmes défectueux.",
+      "LearnMore": "En savoir plus",
+      "technologies": "Technologie utilisé : Unity"
     }
   },
   "Unreal": {
