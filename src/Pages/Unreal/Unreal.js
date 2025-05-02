@@ -130,14 +130,53 @@ const UnrealT = ({ t }) => {
                 ></iframe>
               </div>
               <p className="text-align-left padding-1vw font-size-large">
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Langage")}
+                  </span>{" "}
+                  {t("Unreal.SpacialRace.Langage")}
+                </p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.ToolsUsed")}
+                  </span>
+                </p>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: t("Unreal.SpacialRace.ToolsUsed"),
+                  }}
+                ></p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Duration")}
+                  </span>{" "}
+                  {t("Unreal.SpacialRace.Duration")}
+                </p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Completion")}
+                  </span>{" "}
+                  {t("Unreal.SpacialRace.Completion")}
+                </p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.TeamSize")}
+                  </span>{" "}
+                  {t("Unreal.SpacialRace.TeamSize")}
+                </p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Role")}
+                  </span>{" "}
+                  {t("Unreal.SpacialRace.Role")}
+                </p>
+              </p>
+              <p className="text-align-left padding-1vw font-size-large">
                 <p
                   dangerouslySetInnerHTML={{
                     __html: t("Unreal.SpacialRace.Description"),
                   }}
                 ></p>
-                <strong className="underline">
-                  {t("Unreal.SpacialRace.technologies")}
-                </strong>
               </p>
               <div className="btnDiscoverProject">
                 <a
@@ -172,14 +211,53 @@ const UnrealT = ({ t }) => {
                 ></iframe>
               </div>
               <p className="text-align-left padding-1vw font-size-large">
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Langage")}
+                  </span>{" "}
+                  {t("Unreal.InventoryDemo.Langage")}
+                </p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.ToolsUsed")}
+                  </span>
+                </p>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: t("Unreal.InventoryDemo.ToolsUsed"),
+                  }}
+                ></p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Duration")}
+                  </span>{" "}
+                  {t("Unreal.InventoryDemo.Duration")}
+                </p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Completion")}
+                  </span>{" "}
+                  {t("Unreal.InventoryDemo.Completion")}
+                </p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.TeamSize")}
+                  </span>{" "}
+                  {t("Unreal.InventoryDemo.TeamSize")}
+                </p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Role")}
+                  </span>{" "}
+                  {t("Unreal.InventoryDemo.Role")}
+                </p>
+              </p>
+              <p className="text-align-left padding-1vw font-size-large">
                 <p
                   dangerouslySetInnerHTML={{
                     __html: t("Unreal.InventoryDemo.Description"),
                   }}
                 ></p>
-                <strong className="underline">
-                  {t("Unreal.InventoryDemo.technologies")}
-                </strong>
               </p>
               <div className="btnDiscoverProject">
                 <a

@@ -151,54 +151,114 @@
     }
   },
   "Unity": {
-    "Title": "Mis juegos/proyectos de Unity",
+    "Title": "Mis juegos/proyectos en Unity",
     "ShadowScholar": {
-      "Description": "Para validar mi segundo año en Gaming Campus, realicé una pasantía donde fui responsable de imaginar y desarrollar el juego 'Shadow Scholar: The Ultimate College'. Pude perfeccionar mis conocimientos de programación en C# y descubrir/mejorar ciertas características en Unity como la herramienta Timeline, Cinemachine, Json Save, Profiler, Skeleton Animation, Animator, AI Navigation y también pude tocar extensiones como GeNa y Autofence Builder.<br></br>- Éramos 2 desarrolladores",
+      "Description": "Juegas como Tyler Cross, un estudiante ordinario cuya vida cambia radicalmente de la noche a la mañana. Todo comienza con una tragedia: presencia, impotente, la muerte de su mejor amigo durante una emotiva cinemática. Sumergido en un mundo de secretos, misiones peligrosas y conspiraciones, deberá afrontar un destino que no eligió.<br><br>Cuando su padre, agente de una organización gubernamental secreta, desaparece durante una misión, Tyler se ve obligado a seguir sus pasos. Entre infiltraciones, investigaciones y descubrimientos impactantes, deberá reunir las piezas del rompecabezas para descubrir la verdad y quizás vengar a su padre.",
       "LearnMore": "Más información",
-      "technologies": "Tecnología utilizada: Unity"
+      "Langage": "C#",
+      "ToolsUsed": "Unity, Timeline, Cinemachine, Guardado Json, Profiler, Skeleton Animation, Animator, Navegación IA (Navmesh), GeNa",
+      "Duration": "2 meses",
+      "Completion": "2025",
+      "TeamSize": "2",
+      "Role": "Concepto del juego, colocación de accesorios y texturas, creación del terreno y del mapa, luces, pathfinding, 50% de la jugabilidad, 80% de las cinemáticas, optimización, sistema de cambio de escena con carga de recursos"
     },
     "NavyBongo": {
-      "Description": "Aquí tienes un proyecto de videojuego individual hecho en Unity. Tuve un poco más de una semana para crear el juego. Juegas como un barco, y el objetivo del juego es destruir todas las torres enemigas en el tiempo asignado. ¡Cuanto más avanzas en el juego, más barcos poderosos obtienes!",
+      "Description": "Un proyecto individual desarrollado en Unity en poco más de una semana. Controlas un barco cuyo objetivo es destruir todas las torres enemigas en el tiempo asignado. ¡Cuanto más avances, más barcos poderosos desbloqueas!",
       "LearnMore": "Más información",
-      "technologies": "Tecnología utilizada: Unity"
+      "Langage": "C#",
+      "ToolsUsed": "Unity, Timeline, Cinemachine, Guardado Json, LOD, LOD Group, Nuevo Sistema de Entrada, HDRP, Shader Graph, Sistema de Partículas",
+      "Duration": "1 semana y media",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Concepto del juego, desarrollo completo y publicación"
     },
     "UIUXCooking": {
-      "Description": "Este es un proyecto en solitario sobre el tema de UI/UX, donde pude aprender a manejar la UI de manera bastante completa. Aprendí a trabajar con rejillas, manipular menús desplegables y usar Scriptable Objects para gestionar mis ingredientes y recetas. ¡Un gran proyecto que me permitió mejorar mis habilidades en Unity!",
-      "Alert": "Para disfrutar de la mejor experiencia, necesitas un teclado.",
+      "Description": "Proyecto individual centrado en la interfaz de usuario (UI/UX), donde aprendí a manipular el sistema de UI de Unity en profundidad. Aprendí a usar rejillas, menús desplegables y Scriptable Objects para gestionar ingredientes y recetas. ¡Un gran proyecto para mejorar mis habilidades en Unity!",
+      "Alert": "Para una mejor experiencia, se recomienda usar un teclado.",
       "LearnMore": "Más información",
-      "technologies": "Tecnología utilizada: Unity"
+      "Langage": "C#",
+      "ToolsUsed": "Unity, LitMotion, Nuevo Sistema de Entrada, Scriptable Object, Lit Motion, Animator, Animación, UI/UX, Shader Graph, Sistema de Partículas",
+      "Duration": "2 semanas",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Desarrollo completo del juego"
     },
     "AngryBirds": {
-      "Description": "Aquí hay un proyecto en solitario basado en el tema de Angry Birds, donde apliqué mis habilidades matemáticas al juego. Pude comprender mejor la gravedad de Unity y aprender a simular la mía propia, con y sin fricción del aire. Además de eso, encontrarás dos funciones: un salto implementado con recursión y una duplicación de Bird realizada con una fórmula matemática para simular múltiples trayectorias según un ángulo (que va de 0 a π/2).",
-      "Alert": "Para una mejor experiencia, necesitas un ratón.",
-      "LearnMore": "Saber más",
-      "technologies": "Tecnología utilizada: Unity"
+      "Description": "Proyecto individual inspirado en Angry Birds, en el cual apliqué conocimientos matemáticos al juego. Estudié la gravedad de Unity y desarrollé mi propia simulación, con y sin resistencia del aire. Implementé habilidades como un salto usando recurrencia y la duplicación de pájaros mediante una fórmula matemática que simula varias trayectorias según un ángulo (de 0 a π/2).",
+      "Alert": "Para una mejor experiencia, se recomienda usar un ratón.",
+      "LearnMore": "Más información",
+      "Langage": "C#",
+      "ToolsUsed": "Unity, LitMotion, Nuevo Sistema de Entrada, Sprite/TileMap 2D, Lit Motion, Matemáticas, Física, UI/UX, Line Renderer",
+      "Duration": "2 semanas",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Desarrollo completo del juego y aplicación de fórmulas matemáticas"
     },
     "RATP": {
-      "Title": "Desafío de mantenimiento de la RATP",
-      "InProgress": "Proyecto en progreso",
-      "Description": "Un proyecto profesional en colaboración con la RATP y mi escuela, para el cual tuve la oportunidad de ser seleccionado. El objetivo es promover, a través de los videojuegos, los oficios poco conocidos de la RATP. Gracias a la gamificación, estamos creando una escena de estación dinámica y realista, donde el objetivo del juego será reparar sistemas defectuosos.",
-      "LearnMore": "Saber más",
-      "technologies": "Tecnología utilizada: Unity"
+      "Title": "RATP Maintenance Challenge",
+      "InProgress": "Proyecto en curso",
+      "Description": "Proyecto profesional en colaboración con la RATP y mi escuela. Fui seleccionado para participar en esta iniciativa, cuyo objetivo es promover, a través del videojuego, las profesiones menos conocidas de la RATP. Estamos creando una escena de estación dinámica y realista en la que el jugador debe reparar sistemas defectuosos.",
+      "LearnMore": "Más información",
+      "Langage": "C#",
+      "ToolsUsed": "Proyecto en curso",
+      "Duration": "Proyecto en curso",
+      "Completion": "2025",
+      "TeamSize": "6",
+      "Role": "Proyecto en curso"
+    },
+    "DepthsOfHue": {
+      "Description": "Proyecto de fin de estudios en el que desarrollamos *Depths of Hue*, un juego de puzles ambientado en un universo submarino inmersivo. El jugador, acompañado de un compañero, explora un mundo vibrante lleno de acertijos y misterios.<br><br>Resumen del juego: *Depths of Hue* es un juego narrativo móvil de reflexión donde resolver enigmas permite a los jugadores recuperar los recuerdos fragmentados del protagonista, reconstruyendo poco a poco una historia profunda y emotiva.",
+      "Alert": "Para una mejor experiencia, se recomienda usar un ratón.",
+      "LearnMore": "Más información",
+      "Langage": "C#",
+      "ToolsUsed": "Unity, 2D NavMesh Plus, Nuevo y Viejo Sistema de Entrada, Addressables, Localización, Navegación, Matemáticas, Scriptable Object, Shader Graph, TextMeshPro, Android y Windows, Json, Sistema de Partículas, NaughtyAttributes",
+      "Duration": "1 mes",
+      "Completion": "2025",
+      "TeamSize": "5 Desarrolladores, 2 Artistas, 6 Negocios",
+      "Role": "Líder Técnico, Build Master (GitHub Actions y luego Jenkins), gestión del personaje y su compañero, navegación en modo exploración, sistema de mapas, depuración"
+    },
+    "UnityRL": {
+      "Description": "Mi primer videojuego desarrollado en Unity, cuyo objetivo fue descubrir el motor y su entorno. Incluye funcionalidades como generación procedural, curvas de animación, IA de drones, gestión de entradas, OpenProBuilder y otras bases de Unity.",
+      "Langage": "C#",
+      "ToolsUsed": "Unity, Matemáticas, ProBuilder, TextMeshPro, Audio",
+      "Duration": "2 semanas",
+      "Completion": "2025",
+      "TeamSize": "2 Desarrolladores",
+      "Role": "Sistema de drones completo, mapa de entrenamiento y sus funcionalidades, gestión de entradas"
     }
   },
   "Unreal": {
-    "Title": "Mis juegos/proyectos de Unreal",
+    "Title": "Mis juegos/proyectos en Unreal Engine",
     "Funfair": {
-      "Description": "Estoy muy feliz de presentarles mi primer proyecto en Unreal Engine 5.4, completamente en Blueprints. El objetivo del proyecto era hacer un Chamboule tout, autos chocadores y PNJs que se muevan. Personalmente, hice más: añadí una montaña rusa, un sistema de monedas (UI del jugador) y una atracción de rueda de la fortuna.",
-      "LearnMore": "Más información",
-      "technologies": "Tecnología utilizada: Unreal Engine 5.4"
+      "Description": "¡Estoy encantado de presentar mi primer proyecto en Unreal Engine 5.4, completamente desarrollado con Blueprints! Esta simulación de feria incluye varias atracciones interactivas y un entorno inmersivo donde los PNJ dan vida a la escena.<br><br>Al principio me centré en un juego de tiro a latas, autos de choque y PNJ en movimiento. Más tarde amplié el proyecto añadiendo montañas rusas, una noria funcional y un sistema de monedas con una interfaz de usuario dinámica para el jugador.",
+      "LearnMore": "Saber más",
+      "Langage": "Blueprint",
+      "ToolsUsed": "Unreal Engine 5.4, 100% Blueprint, Spline Component, Niagara, NavMesh, Line Trace, Gráficos, Game Mode, Animación",
+      "Duration": "2 semanas",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Programación de atracciones, Comportamiento de IA, Animación, Interfaz de usuario"
     },
     "SpacialRace": {
-      "Description": "Proyecto basado en la física en Unreal Engine 5.4 en un grupo de 3. Teníamos que implementar mecanismos que afectaran la física del jugador. También aprendí a usar la herramienta 'Chaos'. Es un proyecto mitad C++ y mitad Blueprint.",
+      "Description": "Proyecto basado en la física en Unreal Engine 5.4 realizado en grupo de 3 personas. Tuvimos que implementar mecánicas que afectan a la física del jugador. También aprendí a utilizar la herramienta 'Chaos'. Es un proyecto hecho a medias en C++ y Blueprint.",
       "LearnMore": "Saber más",
-      "technologies": "Tecnología utilizada: Unreal Engine"
+      "Langage": "C++/Blueprint",
+      "ToolsUsed": "Unreal Engine 5.4, C++/Blueprint, Spline Component, Niagara, Line Trace, Data Asset, JSON, Event",
+      "Duration": "2 semanas",
+      "Completion": "2025",
+      "TeamSize": "3",
+      "Role": "Sistema de personalización de nave, Sistema de guardado, Animación previa al juego, Funcionalidad de inversión de gravedad, Chaos, Física de la nave"
     },
     "InventoryDemo": {
       "Title": "Sistema de inventario",
-      "Description": "Este es un sistema de inventario que incluye la caída de ítems y el uso de cada uno. El sistema ha sido codificado con un 90% en C++ y aproximadamente un 10% en Blueprint. Los eventos de clic, hover y unhover se añaden dinámicamente con y sin parámetros, tanto para el inventario como para la caída de ítems.",
+      "Description": "Este es un sistema de inventario que incluye la caída y el uso de objetos. Está programado en un 90% con C++ y un 10% con Blueprint. Los eventos de Clic, Hover y UnHover se añaden dinámicamente con o sin parámetros, tanto para el inventario como para los objetos lanzados.",
       "LearnMore": "Saber más",
-      "technologies": "Tecnología utilizada: Unreal Engine"
+      "Langage": "Blueprint",
+      "ToolsUsed": "Unreal Engine 5.4, C++/Blueprint, Data Asset, JSON, Event",
+      "Duration": "1 semana",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Sistema de inventario, Sistema de drop, Tienda, Uso de objetos"
     }
   },
   "Incoming": {

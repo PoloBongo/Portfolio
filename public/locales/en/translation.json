@@ -151,54 +151,114 @@
     }
   },
   "Unity": {
-    "Title": "My Unity games/projects",
+    "Title": "My Unity Games/Projects",
     "ShadowScholar": {
-      "Description": "To validate my second year at the Gaming Campus, I did an internship where I was responsible for imagining and developing the game 'Shadow Scholar: The Ultimate College'. I was able to perfect my knowledge in C# programming and discover / improve certain features on Unity such as the Timeline tool, Cinemachine, Json Backup, Profiler, Skeleton Animation, Animator, AI Navigation and I was also able to touch on extensions such as GeNa and Autofence Builder.<br></br>- We were 2 Developers",
+      "Description": "Play as Tyler Cross, an ordinary student whose life is turned upside down overnight. It all starts with a tragedy: he helplessly witnesses the death of his best friend during a moving cutscene. Thrust into a world of secrets, dangerous missions, and conspiracies, he must face a fate he never chose.<br><br>When his father, an agent of a secret government organization, goes missing during a mission, Tyler is forced to take up the mantle. Between infiltration, investigation, and shocking discoveries, he must piece together the puzzle to uncover the truth and possibly avenge his father.",
       "LearnMore": "Learn more",
-      "technologies": "Technology used: Unity"
+      "Langage": "C#",
+      "ToolsUsed": "Unity, Timeline, Cinemachine, Json Save, Profiler, Skeleton Animation, Animator, AI Navigation (Navmesh), GeNa",
+      "Duration": "2 months",
+      "Completion": "2025",
+      "TeamSize": "2",
+      "Role": "Game concept, asset and texture placement, terrain and map creation, lighting, pathfinding, 50% gameplay, 80% cinematics, optimization, scene switching with asset loading"
     },
     "NavyBongo": {
-      "Description": "Here is an individual video game project made on Unity. I had a little more than a week to create the game. You play as a boat, and the goal of the game is to destroy all the enemy towers within the allotted time. The further you progress in the game, the more powerful boats you acquire!",
+      "Description": "A solo Unity game project completed in just over a week. You control a boat, and the goal is to destroy all enemy towers within the time limit. The further you progress, the more powerful boats you unlock!",
       "LearnMore": "Learn more",
-      "technologies": "Technology used: Unity"
+      "Langage": "C#",
+      "ToolsUsed": "Unity, Timeline, Cinemachine, Json Save, LOD, LOD Group, New Input System, HDRP, Shader Graph, Particle System",
+      "Duration": "1.5 weeks",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Game concept, full development and deployment"
     },
     "UIUXCooking": {
-      "Description": "This is a solo project on the theme of UI/UX, where I was able to learn how to handle the UI in a fairly comprehensive way. I learned to work with grids, manipulate dropdowns, and use Scriptable Objects to manage my ingredients and recipes. A great project that allowed me to improve my skills in Unity!",
-      "Alert": "For the best experience, you need a keyboard.",
+      "Description": "A solo project focused on UI/UX, where I learned how to manipulate Unity's UI in depth. I explored grid layouts, dropdown menus, and used Scriptable Objects to manage ingredients and recipes. A great project to improve my Unity skills!",
+      "Alert": "For a better experience, use a keyboard.",
       "LearnMore": "Learn more",
-      "technologies": "Technology used: Unity"
+      "Langage": "C#",
+      "ToolsUsed": "Unity, LitMotion, New Input System, Scriptable Object, Lit Motion, Animator, Animation, UI/UX, Shader Graph, Particle System",
+      "Duration": "2 weeks",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Full game creation"
     },
     "AngryBirds": {
-      "Description": "Here is a solo project based on the theme of Angry Birds, where I applied my math skills to the game. I was able to better understand Unity's gravity and learn how to simulate my own, with and without air friction. In addition to that, you will find two features: a jump implemented using recursion and a Bird duplication made with a mathematical formula to simulate multiple trajectories based on an angle (ranging from 0 to π/2).",
-      "Alert": "For a better experience, you need a mouse.",
+      "Description": "A solo project inspired by Angry Birds, where I applied mathematical knowledge to the game. I studied Unity's gravity and simulated my own, with and without air resistance. I implemented skills such as jump using recurrence, and a bird duplication feature simulating multiple trajectories using a math formula with an angle from 0 to π/2.",
+      "Alert": "For a better experience, use a mouse.",
       "LearnMore": "Learn more",
-      "technologies": "Technology used: Unity"
+      "Langage": "C#",
+      "ToolsUsed": "Unity, LitMotion, New Input System, 2D Sprite/TileMap, Lit Motion, Mathematics, Physics, UI/UX, Line Renderer",
+      "Duration": "2 weeks",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Complete game and mathematical feature implementation"
     },
     "RATP": {
       "Title": "RATP Maintenance Challenge",
-      "InProgress": "Projet en cours",
-      "Description": "A professional project in collaboration with the RATP and my school, for which I had the opportunity to be selected. The goal is to promote the RATP’s lesser-known professions through video games. Using gamification, we are creating a dynamic and realistic station scene where the objective is to repair malfunctioning systems.",
+      "InProgress": "Project in progress",
+      "Description": "A professional project in collaboration with RATP and my school. I was selected to work on this initiative to promote lesser-known RATP professions through video games. We're creating a dynamic, realistic station scene where players must repair faulty systems through gameplay.",
       "LearnMore": "Learn more",
-      "technologies": "Technology used: Unity"
+      "Langage": "C#",
+      "ToolsUsed": "In progress",
+      "Duration": "In progress",
+      "Completion": "2025",
+      "TeamSize": "6",
+      "Role": "In progress"
+    },
+    "DepthsOfHue": {
+      "Description": "Final Bachelor project where we developed *Depths of Hue*, a puzzle game set in an immersive underwater world. The player, accompanied by a companion, explores a vibrant environment filled with challenges and mysteries.<br><br>Game Pitch: *Depths of Hue* is a mobile narrative puzzle game where solving enigmas allows players to recover fragmented memories and piece together an emotional and deep story.",
+      "Alert": "For a better experience, use a mouse.",
+      "LearnMore": "Learn more",
+      "Langage": "C#",
+      "ToolsUsed": "Unity, 2D NavMesh Plus, New & Old Input System, Addressables, Localization, Navigation, Mathematics, Scriptable Object, Shader Graph, TextMeshPro, Android & Windows, Json, Particle System, NaughtyAttributes",
+      "Duration": "1 month",
+      "Completion": "2025",
+      "TeamSize": "5 Developers, 2 Artists, 6 Business",
+      "Role": "Lead Tech, Build Master (GitHub Actions then Jenkins), character and companion logic, exploration navigation, map system, debugging"
+    },
+    "UnityRL": {
+      "Description": "My first Unity game, aimed at learning the engine and its tools. Includes features such as procedural generation, animation curves, drone AI, input handling, OpenProBuilder, and other Unity basics.",
+      "Langage": "C#",
+      "ToolsUsed": "Unity, Mathematics, ProBuilder, TextMeshPro, Audio",
+      "Duration": "2 weeks",
+      "Completion": "2025",
+      "TeamSize": "2 Developers",
+      "Role": "Full drone system, training map and features, input management"
     }
   },
   "Unreal": {
-    "Title": "My Unreal games/projects",
+    "Title": "My Unreal Engine Games/Projects",
     "Funfair": {
-      "Description": "I am very happy to present to you my first project on Unreal Engine 5.4 entirely using Blueprints. The goal of the project was to create a Chamboule tout, bumper cars, and NPCs that move around. Personally, I did more—I added a roller coaster, a coin system (UI Player), and a Ferris Wheel attraction.",
+      "Description": "I’m excited to present my first project on Unreal Engine 5.4, fully developed using Blueprints! This funfair simulation features several interactive rides and an immersive environment where NPCs bring the scene to life.<br><br>Initially, I focused on a knock-down cans game, bumper cars, and moving NPCs. I later expanded the project by adding roller coasters, a functioning Ferris wheel, and a coin system with a dynamic user interface for the player.",
       "LearnMore": "Learn more",
-      "technologies": "Technology used: Unreal Engine 5.4"
+      "Langage": "Blueprint",
+      "ToolsUsed": "Unreal Engine 5.4, 100% Blueprint, Spline Component, Niagara, NavMesh, Line Trace, Graphics, Game Mode, Animation",
+      "Duration": "2 weeks",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Ride scripting, AI behavior, Animation, User Interface"
     },
     "SpacialRace": {
-      "Description": "Physics-based project on Unreal Engine 5.4 in a team of 3. We had to implement mechanisms affecting the player's physics. I also learned to use the 'Chaos' tool. It is a project that is half C++ and half Blueprint.",
+      "Description": "Physics-based project made with Unreal Engine 5.4 in a team of 3. We had to implement mechanics affecting the player's physics. I also learned to use the 'Chaos' tool. This project was developed half in C++ and half in Blueprint.",
       "LearnMore": "Learn more",
-      "technologies": "Technology used: Unreal Engine"
+      "Langage": "C++/Blueprint",
+      "ToolsUsed": "Unreal Engine 5.4, C++/Blueprint, Spline Component, Niagara, Line Trace, Data Asset, JSON, Event",
+      "Duration": "2 weeks",
+      "Completion": "2025",
+      "TeamSize": "3",
+      "Role": "Spaceship customization system, Save system, Pre-game animation, Gravity inversion feature, Chaos, Spaceship physics"
     },
     "InventoryDemo": {
       "Title": "Inventory System",
-      "Description": "This is an inventory system that includes item drops and the use of each item. The system was coded with 90% C++ and approximately 10% Blueprint. Click, hover, and unhover events are dynamically added with and without parameters, both for the inventory and for item drops.",
+      "Description": "This is an inventory system featuring item dropping and item usage. The system is about 90% C++ and 10% Blueprint. Click, Hover, and UnHover events are dynamically added, with or without parameters, both for the inventory and the item drops.",
       "LearnMore": "Learn more",
-      "technologies": "Technology used: Unreal Engine"
+      "Langage": "Blueprint",
+      "ToolsUsed": "Unreal Engine 5.4, C++/Blueprint, Data Asset, JSON, Event",
+      "Duration": "1 week",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Inventory system, Item drop system, Shop, Item usage"
     }
   },
   "Incoming": {

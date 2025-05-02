@@ -513,6 +513,10 @@
   width: 70%;
 }
 
+.sizeProjectIMGDepthsOfHue {
+  width: 70%;
+}
+
 .flexIMG {
   display: flex;
   justify-content: center;
@@ -914,7 +918,7 @@ button::placeholder {
     display: flex;
   }
   .iconResponsive {
-    font-size: 2rem!important;
+    font-size: 2rem !important;
   }
 }
 

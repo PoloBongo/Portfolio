@@ -13,6 +13,7 @@ import backgroundUnityRL from "../../img/backgroundUnityRL.webp";
 import backgroundUIUXCook from "../../img/backgroundUIUXCook.webp";
 import backgroundAngryBirds from "../../img/backgroundAngryBirds.webp";
 import backgroundRATP from "../../img/backgroundRATP.webp";
+import backgroundDepthsOfHue from "../../img/backgroundDepthsOfHue.webp";
 
 // Traduction
 import { Loader } from "../../Component/ComponentTraduction.js";
@@ -99,6 +100,18 @@ const UnityT = ({ t }) => {
     }
   };
 
+  // DepthsOfHue game
+  const [showUnityPlayDepthsOfHueBool, setSUnityPlayDepthsOfHueBool] =
+    useState(true);
+  const [showDepthsOfHueBool, setShowDepthsOfHueBool] = useState(false);
+
+  const handleNavbarBtnClickPlayDepthsOfHue = () => {
+    setSUnityPlayDepthsOfHueBool(!showUnityPlayDepthsOfHueBool);
+    if (!showDepthsOfHueBool) {
+      setShowDepthsOfHueBool(showDepthsOfHueBool);
+    }
+  };
+
   const [showProjectsVideoGame, setShowProjectsVideoGame] = useState(false);
 
   const handleBackBtnClickUnityPage = () => {
@@ -135,10 +148,119 @@ const UnityT = ({ t }) => {
               </h3>
             </div>
             <div className="grid-gamejam2">
-              <div
-                className="marge-contact-play modernEnvelop flex-column-center"
-                id="blur"
-              >
+              <div className="marge-contact-play modernEnvelop" id="blur">
+                <div className="sizeIconCPlus flexIMG">
+                  <h3 className="Home width">Depths Of Hue</h3>
+                </div>
+                <div className="flexIMG width">
+                  <img
+                    style={{
+                      display: showUnityPlayDepthsOfHueBool ? "block" : "none",
+                      opacity: showUnityPlayDepthsOfHueBool ? "1" : "0",
+                      overflow: "hidden",
+                      transition: "all 1s ease",
+                    }}
+                    src={backgroundDepthsOfHue}
+                    alt="Depths Of Hue Game"
+                    className="sizeProjectIMGDepthsOfHue"
+                  ></img>
+                </div>
+                {!showUnityPlayDepthsOfHueBool && (
+                  <>
+                    <iframe
+                      src="https://www.youtube.com/embed/dlC3tTf1Jlo"
+                      title="youtubeVideoPresentation"
+                      frameBorder="0"
+                      width="560"
+                      height="315"
+                      allowFullScreen
+                      className="iframeYoutube"
+                    ></iframe>
+                  </>
+                )}
+                <div className="grid-gamejam">
+                  <p className="text-align-left padding-1vw font-size-large">
+                    <p>
+                      <span className="colorPurple">
+                        {t("VideoGamesProjects.Langage")}
+                      </span>{" "}
+                      {t("Unity.DepthsOfHue.Langage")}
+                    </p>
+                    <p>
+                      <span className="colorPurple">
+                        {t("VideoGamesProjects.ToolsUsed")}
+                      </span>
+                    </p>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: t("Unity.DepthsOfHue.ToolsUsed"),
+                      }}
+                    ></p>
+                    <p>
+                      <span className="colorPurple">
+                        {t("VideoGamesProjects.Duration")}
+                      </span>{" "}
+                      {t("Unity.DepthsOfHue.Duration")}
+                    </p>
+                    <p>
+                      <span className="colorPurple">
+                        {t("VideoGamesProjects.Completion")}
+                      </span>{" "}
+                      {t("Unity.DepthsOfHue.Completion")}
+                    </p>
+                    <p>
+                      <span className="colorPurple">
+                        {t("VideoGamesProjects.TeamSize")}
+                      </span>{" "}
+                      {t("Unity.DepthsOfHue.TeamSize")}
+                    </p>
+                    <p>
+                      <span className="colorPurple">
+                        {t("VideoGamesProjects.Role")}
+                      </span>{" "}
+                      {t("Unity.DepthsOfHue.Role")}
+                    </p>
+                  </p>
+                  <p className="text-align-left padding-1vw font-size-large">
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: t("Unity.DepthsOfHue.Description"),
+                      }}
+                    ></p>
+                  </p>
+                </div>
+                <div className="btnDiscoverProject">
+                  <button
+                    onClick={handleNavbarBtnClickPlayDepthsOfHue}
+                    className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn"
+                  >
+                    {showUnityPlayDepthsOfHueBool
+                      ? t("VideoGamesProjects.playVideo")
+                      : t("VideoGamesProjects.stopVideo")}
+                  </button>
+                  <a
+                    href="https://github.com/GamingCampus-MillieBourgois-24-25/grand-projet-commun-depths-of-hue"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                      {t("VideoGamesProjects.viewMoreCode")}
+                    </button>
+                  </a>
+                  <a
+                    href="https://arthur-bru.itch.io/depths-of-hue"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                      {t("VideoGamesProjects.viewMoreGame")}
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="grid-gamejam">
+              <div className="marge-contact-play modernEnvelop" id="blur">
                 <div className="sizeIconCPlus flexIMG">
                   <h3 className="Home width">Shadow Scholar : La fac ultime</h3>
                 </div>
@@ -153,57 +275,55 @@ const UnityT = ({ t }) => {
                     className="iframeYoutube"
                   ></iframe>
                 </div>
-                <div className="grid-gamejam">
-                  <p className="text-align-left padding-1vw font-size-large">
-                    <p>
-                      <span className="colorPurple">
-                        {t("VideoGamesProjects.Langage")}
-                      </span>{" "}
-                      {t("Unity.ShadowScholar.Langage")}
-                    </p>
-                    <p>
-                      <span className="colorPurple">
-                        {t("VideoGamesProjects.ToolsUsed")}
-                      </span>
-                    </p>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: t("Unity.ShadowScholar.ToolsUsed"),
-                      }}
-                    ></p>
-                    <p>
-                      <span className="colorPurple">
-                        {t("VideoGamesProjects.Duration")}
-                      </span>{" "}
-                      {t("Unity.ShadowScholar.Duration")}
-                    </p>
-                    <p>
-                      <span className="colorPurple">
-                        {t("VideoGamesProjects.Completion")}
-                      </span>{" "}
-                      {t("Unity.ShadowScholar.Completion")}
-                    </p>
-                    <p>
-                      <span className="colorPurple">
-                        {t("VideoGamesProjects.TeamSize")}
-                      </span>{" "}
-                      {t("Unity.ShadowScholar.TeamSize")}
-                    </p>
-                    <p>
-                      <span className="colorPurple">
-                        {t("VideoGamesProjects.Role")}
-                      </span>{" "}
-                      {t("Unity.ShadowScholar.Role")}
-                    </p>
+                <p className="text-align-left padding-1vw font-size-large">
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Langage")}
+                    </span>{" "}
+                    {t("Unity.ShadowScholar.Langage")}
                   </p>
-                  <p className="text-align-left padding-1vw font-size-large">
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: t("Unity.ShadowScholar.Description"),
-                      }}
-                    ></p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.ToolsUsed")}
+                    </span>
                   </p>
-                </div>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("Unity.ShadowScholar.ToolsUsed"),
+                    }}
+                  ></p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Duration")}
+                    </span>{" "}
+                    {t("Unity.ShadowScholar.Duration")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Completion")}
+                    </span>{" "}
+                    {t("Unity.ShadowScholar.Completion")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.TeamSize")}
+                    </span>{" "}
+                    {t("Unity.ShadowScholar.TeamSize")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Role")}
+                    </span>{" "}
+                    {t("Unity.ShadowScholar.Role")}
+                  </p>
+                </p>
+                <p className="text-align-left padding-1vw font-size-large">
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("Unity.ShadowScholar.Description"),
+                    }}
+                  ></p>
+                </p>
                 <div className="btnDiscoverProject">
                   <a
                     href="https://arthur-bru.itch.io/shadow-scholar-la-fac-ultime"
@@ -222,12 +342,7 @@ const UnityT = ({ t }) => {
                   </a>
                 </div>
               </div>
-            </div>
-            <div className="grid-gamejam">
-              <div
-                className="marge-contact-play modernEnvelop flex-column-center"
-                id="blur"
-              >
+              <div className="marge-contact-play modernEnvelop" id="blur">
                 <div className="sizeIconCPlus flexIMG">
                   <h3 className="Home width">{t("Unity.RATP.Title")}</h3>
                   <div className="width flex-end">
@@ -249,20 +364,56 @@ const UnityT = ({ t }) => {
                   ></img>
                 </div>
                 <p className="text-align-left padding-1vw font-size-large">
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Langage")}
+                    </span>{" "}
+                    {t("Unity.RATP.Langage")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.ToolsUsed")}
+                    </span>
+                  </p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("Unity.RATP.ToolsUsed"),
+                    }}
+                  ></p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Duration")}
+                    </span>{" "}
+                    {t("Unity.RATP.Duration")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Completion")}
+                    </span>{" "}
+                    {t("Unity.RATP.Completion")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.TeamSize")}
+                    </span>{" "}
+                    {t("Unity.RATP.TeamSize")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Role")}
+                    </span>{" "}
+                    {t("Unity.RATP.Role")}
+                  </p>
+                </p>
+                <p className="text-align-left padding-1vw font-size-large">
                   <p
                     dangerouslySetInnerHTML={{
                       __html: t("Unity.RATP.Description"),
                     }}
                   ></p>
-                  <strong className="underline">
-                    {t("Unity.RATP.technologies")}
-                  </strong>
                 </p>
               </div>
-              <div
-                className="marge-contact-play modernEnvelop flex-column-center"
-                id="blur"
-              >
+              <div className="marge-contact-play modernEnvelop" id="blur">
                 <div className="sizeIconCPlus flexIMG">
                   <h3 className="Home width">Angry Birds</h3>
                   {isLoadedAngryBirds && !showUnityPlayAngryBirdsBool && (
@@ -279,7 +430,6 @@ const UnityT = ({ t }) => {
                     </div>
                   )}
                 </div>
-
                 <div className="flexIMG width">
                   <img
                     style={{
@@ -310,14 +460,53 @@ const UnityT = ({ t }) => {
                   )}
                 </Fragment>
                 <p className="text-align-left padding-1vw font-size-large">
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Langage")}
+                    </span>{" "}
+                    {t("Unity.AngryBirds.Langage")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.ToolsUsed")}
+                    </span>
+                  </p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("Unity.AngryBirds.ToolsUsed"),
+                    }}
+                  ></p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Duration")}
+                    </span>{" "}
+                    {t("Unity.AngryBirds.Duration")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Completion")}
+                    </span>{" "}
+                    {t("Unity.AngryBirds.Completion")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.TeamSize")}
+                    </span>{" "}
+                    {t("Unity.AngryBirds.TeamSize")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Role")}
+                    </span>{" "}
+                    {t("Unity.AngryBirds.Role")}
+                  </p>
+                </p>
+                <p className="text-align-left padding-1vw font-size-large">
                   <p
                     dangerouslySetInnerHTML={{
                       __html: t("Unity.AngryBirds.Description"),
                     }}
                   ></p>
-                  <strong className="underline">
-                    {t("Unity.AngryBirds.technologies")}
-                  </strong>
                 </p>
                 <div className="btnDiscoverProject">
                   <button
@@ -345,8 +534,8 @@ const UnityT = ({ t }) => {
                     target="_blank"
                     rel="noreferrer"
                     style={{
-                      display: showUnityPlayBool ? "block" : "none",
-                      opacity: showUnityPlayBool ? "1" : "0",
+                      display: showUnityPlayAngryBirdsBool ? "block" : "none",
+                      opacity: showUnityPlayAngryBirdsBool ? "1" : "0",
                       overflow: "hidden",
                       transition: "all 1s ease",
                     }}
@@ -357,10 +546,7 @@ const UnityT = ({ t }) => {
                   </a>
                 </div>
               </div>
-              <div
-                className="marge-contact-play modernEnvelop flex-column-center"
-                id="blur"
-              >
+              <div className="marge-contact-play modernEnvelop" id="blur">
                 <div className="sizeIconCPlus flexIMG">
                   <h3 className="Home width">UI UX Cooking Project</h3>
                   {isLoadedUIUXCooking && !showUnityPlayUICookingBool && (
@@ -408,14 +594,53 @@ const UnityT = ({ t }) => {
                   )}
                 </Fragment>
                 <p className="text-align-left padding-1vw font-size-large">
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Langage")}
+                    </span>{" "}
+                    {t("Unity.UIUXCooking.Langage")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.ToolsUsed")}
+                    </span>
+                  </p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("Unity.UIUXCooking.ToolsUsed"),
+                    }}
+                  ></p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Duration")}
+                    </span>{" "}
+                    {t("Unity.UIUXCooking.Duration")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Completion")}
+                    </span>{" "}
+                    {t("Unity.UIUXCooking.Completion")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.TeamSize")}
+                    </span>{" "}
+                    {t("Unity.UIUXCooking.TeamSize")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Role")}
+                    </span>{" "}
+                    {t("Unity.UIUXCooking.Role")}
+                  </p>
+                </p>
+                <p className="text-align-left padding-1vw font-size-large">
                   <p
                     dangerouslySetInnerHTML={{
                       __html: t("Unity.UIUXCooking.Description"),
                     }}
                   ></p>
-                  <strong className="underline">
-                    {t("Unity.UIUXCooking.technologies")}
-                  </strong>
                 </p>
                 <div className="btnDiscoverProject">
                   <button
@@ -443,8 +668,8 @@ const UnityT = ({ t }) => {
                     target="_blank"
                     rel="noreferrer"
                     style={{
-                      display: showUnityPlayBool ? "block" : "none",
-                      opacity: showUnityPlayBool ? "1" : "0",
+                      display: showUnityPlayUICookingBool ? "block" : "none",
+                      opacity: showUnityPlayUICookingBool ? "1" : "0",
                       overflow: "hidden",
                       transition: "all 1s ease",
                     }}
@@ -455,10 +680,7 @@ const UnityT = ({ t }) => {
                   </a>
                 </div>
               </div>
-              <div
-                className="marge-contact-play modernEnvelop flex-column-center"
-                id="blur"
-              >
+              <div className="marge-contact-play modernEnvelop" id="blur">
                 <div className="sizeIconCPlus flexIMG">
                   <h3 className="Home width">Navy Bongo</h3>
                 </div>
@@ -474,14 +696,53 @@ const UnityT = ({ t }) => {
                   ></iframe>
                 </div>
                 <p className="text-align-left padding-1vw font-size-large">
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Langage")}
+                    </span>{" "}
+                    {t("Unity.NavyBongo.Langage")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.ToolsUsed")}
+                    </span>
+                  </p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("Unity.NavyBongo.ToolsUsed"),
+                    }}
+                  ></p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Duration")}
+                    </span>{" "}
+                    {t("Unity.NavyBongo.Duration")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Completion")}
+                    </span>{" "}
+                    {t("Unity.NavyBongo.Completion")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.TeamSize")}
+                    </span>{" "}
+                    {t("Unity.NavyBongo.TeamSize")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Role")}
+                    </span>{" "}
+                    {t("Unity.NavyBongo.Role")}
+                  </p>
+                </p>
+                <p className="text-align-left padding-1vw font-size-large">
                   <p
                     dangerouslySetInnerHTML={{
                       __html: t("Unity.NavyBongo.Description"),
                     }}
                   ></p>
-                  <strong className="underline">
-                    {t("Unity.NavyBongo.technologies")}
-                  </strong>
                 </p>
                 <div className="btnDiscoverProject">
                   <a
@@ -516,10 +777,8 @@ const UnityT = ({ t }) => {
                   </a>
                 </div>
               </div>
-              <div
-                className="marge-contact-play modernEnvelop flex-column-center"
-                id="blur"
-              >
+              {/* flex-column-center */}
+              <div className="marge-contact-play modernEnvelop" id="blur">
                 <div className="sizeIconCPlus flexIMG">
                   <h3 className="Home width">Unity RL</h3>
                   {isLoaded && !showUnityPlayBool && (
@@ -563,14 +822,53 @@ const UnityT = ({ t }) => {
                   )}
                 </Fragment>
                 <p className="text-align-left padding-1vw font-size-large">
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Langage")}
+                    </span>{" "}
+                    {t("Unity.UnityRL.Langage")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.ToolsUsed")}
+                    </span>
+                  </p>
                   <p
                     dangerouslySetInnerHTML={{
-                      __html: t("VideoGamesProjects.UnityRL"),
+                      __html: t("Unity.UnityRL.ToolsUsed"),
                     }}
                   ></p>
-                  <strong className="underline">
-                    {t("GameJam.Chocolato.technologies")}
-                  </strong>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Duration")}
+                    </span>{" "}
+                    {t("Unity.UnityRL.Duration")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Completion")}
+                    </span>{" "}
+                    {t("Unity.UnityRL.Completion")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.TeamSize")}
+                    </span>{" "}
+                    {t("Unity.UnityRL.TeamSize")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Role")}
+                    </span>{" "}
+                    {t("Unity.UnityRL.Role")}
+                  </p>
+                </p>
+                <p className="text-align-left padding-1vw font-size-large">
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("Unity.UnityRL.Description"),
+                    }}
+                  ></p>
                 </p>
                 <div className="btnDiscoverProject">
                   <button

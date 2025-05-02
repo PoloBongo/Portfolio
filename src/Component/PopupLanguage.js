@@ -73,6 +73,7 @@ const PopupMySqlT = ({ t }) => {
     setShowSqlBool(!showSqlBool);
     if (GitCSS.current) {
       GitCSS.current.style.filter = showSqlBool ? "blur(0px)" : "blur(5px)";
+      DEVOPS.current.style.filter = showSqlBool ? "blur(0px)" : "blur(5px)";
     }
   };
 
@@ -80,6 +81,7 @@ const PopupMySqlT = ({ t }) => {
     setShowGitBool(!showGitBool);
     if (MySQLCSS.current) {
       MySQLCSS.current.style.filter = showGitBool ? "blur(0px)" : "blur(5px)";
+      DEVOPS.current.style.filter = showGitBool ? "blur(0px)" : "blur(5px)";
     }
   };
 
@@ -89,6 +91,7 @@ const PopupMySqlT = ({ t }) => {
       MySQLCSS.current.style.filter = showDevOpsBool
         ? "blur(0px)"
         : "blur(5px)";
+      GitCSS.current.style.filter = showDevOpsBool ? "blur(0px)" : "blur(5px)";
     }
   };
 
