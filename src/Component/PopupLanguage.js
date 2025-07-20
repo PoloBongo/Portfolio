@@ -22,6 +22,7 @@ import imgUnityIcon from "../img/unityIcon.svg";
 import imgPythonIcon from "../img/pythonIcon.svg";
 import imgTypeScriptIcon from "../img/typescriptIcon.svg";
 import imgDevOpsLangage from "../img/DevOpsIcon.svg";
+import imgSymphonyLangage from "../img/SymphonyIcon.svg";
 
 // Traduction
 import { Loader } from "./ComponentTraduction";
@@ -169,6 +170,16 @@ const PopupMySqlT = ({ t }) => {
               }}
             ></p>
           </div>
+        </div>
+      </div>
+      <div className="rectangleTool" id="blur">
+        <div className="sizeIconCPlus fontsRegular">
+          <img
+            src={imgSymphonyLangage}
+            className="iconSpace"
+            alt="Symphony Langage Icon"
+          ></img>
+          {t("Home.Symphony")}
         </div>
       </div>
       <div className="rectangleTool" id="blur">

@@ -21,6 +21,7 @@
     "HTML": "HTML",
     "CSS": "CSS",
     "MySQL": "MySQL",
+    "Symphony": "Symphony",
     "MySQLDescription": "I have known and practiced MySQL for 4 years, using phpMyAdmin in particular. My experience with LUA and PHP has allowed me to make significant progress in data manipulation with MySQL.<br></br> I have primarily used two interfaces to work with databases:<br></br><br></br>- phpMyAdmin: For its ease of use, management of common tasks, and security.<br></br>- DBeaver: I prefer to use it for linux and for its advanced features and cross-platform support.",
     "Git": "Git",
     "GitDescription": "I started using Git in October 2023, and since then, it has become an essential tool for me. Its usefulness and speed, once the commands are mastered, make it a fantastic tool. I am comfortable with standard commands for project management.",
