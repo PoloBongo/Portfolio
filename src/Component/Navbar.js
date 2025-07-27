@@ -126,109 +126,15 @@ const NavbarT = ({ t }) => {
     ? CVArthurCPP
     : CVArthurCPPEN;
 
+  const isHome = location.pathname === "/" || location.pathname === "/Arthur";
+
   return (
-    // <div className="order-list-navbar-div">
-    //   <div className="titleName">
-    //     <button
-    //       className="noColor fontsRegular btnNavbar submitForm navbar-font"
-    //       onClick={() => navigateIntoPage("/Arthur")}
-    //     >
-    //       <h3 className="sizeArthur fontsRegular flexIMG surbrillance padding-int">
-    //         {t("Home.DeveloperJunior")}
-    //       </h3>
-    //     </button>
-    //   </div>
-    //   <button
-    //     className="btnDownloadCV bubbleHomeNavbarBtn"
-    //     onClick={() => setShowNavbarBool(!showNavbarBool)}
-    //   >
-    //     <div
-    //       className="bubbleHomeNavbar"
-    //       style={{
-    //         width: showNavbarBool ? "50px" : "25px",
-    //         height: showNavbarBool ? "50px" : "25px",
-    //         zIndex: "1000",
-    //         overflow: "hidden",
-    //         transition: "all 1s ease",
-    //       }}
-    //     ></div>
-    //   </button>
-    //   <div
-    //     className="navbarHome width iconLinkedin navbarHome-add-incoming"
-    //     style={{
-    //       display: showNavbarBool ? "none" : "block",
-    //       maxHeight: showNavbarBool ? "0" : "max-content",
-    //       overflow: "hidden",
-    //       transition: "all 1s ease",
-    //     }}
-    //   >
-    //     <ul className="order-list-navbar-ul">
-    //       <DropdownTraduction />
-    //       {renderNavbarButton(
-    //         pageVisibility[location.pathname]?.home,
-    //         "/Arthur",
-    //         "ClassicNavBar.Home"
-    //       )}
-    //       {renderNavbarButton(
-    //         pageVisibility[location.pathname]?.unreal,
-    //         "/Unreal",
-    //         "ClassicNavBar.Unreal"
-    //       )}
-    //       {renderNavbarButton(
-    //         pageVisibility[location.pathname]?.Gamejam,
-    //         "/Gamejam",
-    //         "ClassicNavBar.GameJam"
-    //       )}
-    //       {renderNavbarButton(
-    //         pageVisibility[location.pathname]?.unity,
-    //         "/Unity",
-    //         "ClassicNavBar.Unity"
-    //       )}
-    //       {renderNavbarButton(
-    //         pageVisibility[location.pathname]?.videoGame,
-    //         "/ProjectsVideosGames",
-    //         "DropdownProjects.ProjectVideoGames"
-    //       )}
-    //       <button className="noColor fontsRegular btnNavbar submitForm navbar-font">
-    //         <li className="order-list-navbar-li fontsBold">
-    //           <a
-    //             className="link-navbar fontsRegular"
-    //             href={CVArthurCPP}
-    //             target="_blank"
-    //             rel="noreferrer"
-    //           >
-    //             {t("ClassicNavBar.CV")}
-    //           </a>
-    //         </li>
-    //       </button>
-    //       {renderNavbarButton(
-    //         pageVisibility[location.pathname]?.contact,
-    //         "/contactme",
-    //         "ClassicNavBar.ContactMe"
-    //       )}
-    //     </ul>
-    //     <ul className="order-list-navbar-ul add-no-margin-incoming align-items-center">
-    //       {showIncomingTitle && (
-    //         <button
-    //           className="noColor fontsRegular btnNavbar submitForm navbar-font"
-    //           onClick={() => navigateIntoPage("/Incoming")}
-    //         >
-    //           <li className="order-list-navbar-li fontsBold">
-    //             <h4 className="Home">{t("ClassicNavBar.Incoming")}</h4>
-    //           </li>
-    //         </button>
-    //       )}
-    //       {renderNavbarButton(
-    //         pageVisibility[location.pathname]?.web,
-    //         "/ProjectsWeb",
-    //         "DropdownProjects.ProjectWeb"
-    //       )}
-    //     </ul>
-    //   </div>
-    // </div>
     <div className="navbar-container">
       <input type="checkbox" id="menu-toggle" className="menu-toggle" />
-      <label htmlFor="menu-toggle" className="menu-icon">
+      <label
+        htmlFor="menu-toggle"
+        className={`${isHome ? "menu-icon-home" : "menu-icon"}`}
+      >
         <span></span>
         <span></span>
         <span></span>

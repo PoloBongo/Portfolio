@@ -1367,7 +1367,8 @@ button::placeholder {
 }
 
 /* Burger icon */
-.menu-icon {
+.menu-icon,
+.menu-icon-home {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -1401,6 +1402,15 @@ button::placeholder {
   transition: 0.3s ease;
 }
 
+.menu-icon-home span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: #c663ff;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
 /* Animation when menu is open */
 .menu-toggle:checked + .menu-icon span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
@@ -1409,6 +1419,16 @@ button::placeholder {
   opacity: 0;
 }
 .menu-toggle:checked + .menu-icon span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.menu-toggle:checked + .menu-icon-home span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle:checked + .menu-icon-home span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle:checked + .menu-icon-home span:nth-child(3) {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
