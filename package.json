@@ -60,6 +60,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "eslint-config-react-app": "^7.0.1"
+    "eslint-config-react-app": "^7.0.1",
+    "purgecss": "^7.0.2"
   }
 }

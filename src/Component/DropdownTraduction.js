@@ -48,10 +48,10 @@ const DropdownTraduction = () => {
 
   return (
     <div className="dropdown" ref={dropdownRef}>
-      <li className="order-list-navbar-li">
+      <li className="navbar-item">
         <ol></ol>
         <button
-          className="dropbtn fontsBold displayBtn"
+          className="dropbtn fontsBold displayBtn navbar-link"
           onClick={toggleDropdown}
         >
           <img src={getFlag(i18n.language)} alt="Drapeaux"></img>

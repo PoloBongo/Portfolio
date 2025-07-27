@@ -23,6 +23,8 @@ import imgPythonIcon from "../img/pythonIcon.svg";
 import imgTypeScriptIcon from "../img/typescriptIcon.svg";
 import imgDevOpsLangage from "../img/DevOpsIcon.svg";
 import imgSymphonyLangage from "../img/SymphonyIcon.svg";
+import imgVueJsLangage from "../img/VueJsicon.svg";
+import imgChartJsLangage from "../img/ChartJsIcon.svg";
 
 // Traduction
 import { Loader } from "./ComponentTraduction";
@@ -182,6 +184,36 @@ const PopupMySqlT = ({ t }) => {
           {t("Home.Symphony")}
         </div>
       </div>
+      <button
+        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        onClick={() => navigateIntoPage("/ProjectsWeb#VueJs")}
+      >
+        <div className="rectangleTool surbrillance" id="blur">
+          <div className="sizeIconCPlus fontsRegular">
+            <img
+              src={imgVueJsLangage}
+              className="iconSpace"
+              alt="VueJs Langage Icon"
+            ></img>
+            {t("Home.VueJs")}
+          </div>
+        </div>
+      </button>
+      <button
+        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        onClick={() => navigateIntoPage("/ProjectsWeb#VueJs")}
+      >
+        <div className="rectangleTool surbrillance" id="blur">
+          <div className="sizeIconCPlus fontsRegular">
+            <img
+              src={imgChartJsLangage}
+              className="iconSpace"
+              alt="ChartJs Langage Icon"
+            ></img>
+            {t("Home.ChartJs")}
+          </div>
+        </div>
+      </button>
       <div className="rectangleTool" id="blur">
         <div className="sizeIconCPlus fontsRegular">
           <img

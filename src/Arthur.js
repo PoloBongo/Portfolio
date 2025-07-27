@@ -93,7 +93,6 @@ const HomeT = ({ t }) => {
                 <ParralaxEffect>
                   <div className="takeSize">
                     <Navbar />
-                    <div className="traitSeparator"></div>
                     <div className="aboutMe">
                       <div className="aboutMeRightPart">
                         {/* <iframe

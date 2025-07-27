@@ -3,8 +3,8 @@
   "Home": {
     "DeveloperJunior": "Gameplay Programmer",
     "name": "Hello, I am Arthur BRU",
-    "developerJV": "Hello, I'm Arthur, a Gameplay Programmer.",
-    "developerWeb": "Hello, I'm Arthur, a Gameplay Programmer.",
+    "developerJV": "Hello, I'm Arthur, passionate about programming.",
+    "developerWeb": "Hello, I'm Arthur, passionate about programming.",
     "role": "C++ Developer",
     "info": "Holder of a Bachelor's degree in Computer Development with a specialization in Video Games, obtained from Quest Education (G.Tech), I am currently looking for a work-study opportunity for my 4th year starting in September 2025.",
     "discover": "My skills",
@@ -20,6 +20,7 @@
     "JavaScript": "JavaScript",
     "HTML": "HTML",
     "CSS": "CSS",
+    "VueJs": "Vue.js",
     "MySQL": "MySQL",
     "Symphony": "Symphony",
     "MySQLDescription": "I have known and practiced MySQL for 4 years, using phpMyAdmin in particular. My experience with LUA and PHP has allowed me to make significant progress in data manipulation with MySQL.<br></br> I have primarily used two interfaces to work with databases:<br></br><br></br>- phpMyAdmin: For its ease of use, management of common tasks, and security.<br></br>- DBeaver: I prefer to use it for linux and for its advanced features and cross-platform support.",
@@ -92,19 +93,63 @@
     "Title": "My Web Projects",
     "learnMore": "Learn More",
     "aboutWebsite": "View the Site",
-    "Celtic": "Website for a basketball association created in 2 months. We were 100% volunteers to create it. We did the mockup, development, and deployment of the site.<br></br>- Personal project, we were 2 developers.",
-    "CelticTechno": "Technologies used: HTML, CSS, PHP, JavaScript, Ajax, Bootstrap 5, cURL, jQuery, PHPMailer, SweetAlert, PDFjs, MySQL, Stripe API, Facebook Graph API",
-    "Eko": "Eko is an e-commerce website that also offers subscriptions. It was created in 2 weeks as part of a school project.<br></br>- Group of 4 students",
-    "EkoTechno": "Payment API: Stripe, CSS, Bootstrap 5, PHP, JavaScript",
-    "BAImmobilier": "Website created for the Baccalaureate, it was my first website. The goal was to create a fictional but realistic company.",
-    "BAImmobilierTechno": "HTML, CSS, JavaScript",
     "GoudGuys": "Website for an esports association created in 1 month during an internship.<br></br>- We were 2 developers.",
-    "ShoppingSystem": "Here is a payment page and a shopping cart inspired by the JD Sport website, created in 1 week.<br></br>- Personal project",
-    "ShoppingSystemtechno": "Payment API: Stripe & Paypal, CSS",
     "React": "Website created in my first year. The goal was to take a movie API provided by the instructor, and we had to create a first catalog with filters.<br></br>- First project in React<br></br>- Student project",
-    "ReactPortfolio": "Portfolio developed in React JS, integrating the following libraries: Axios, i18next, Font Awesome, and emailjs-com.<br></br>The technologies used include React, HTML, and CSS.<br></br>I paid special attention to SEO with optimization for Google Search, use of a Sitemap, and implementation of appropriate tags.",
-    "PaymentPageTitle": "Payment Process Design",
-    "NoPreview": "Preview unavailable"
+    "NoPreview": "Preview unavailable",
+    "CelticLaRicheBasket": {
+      "Description": "Website for a basketball association developed over 2 months. We were 100% volunteers on the project. We created the wireframes, built the site, and deployed it. I provided concrete solutions to real-world problems and made the website fully manageable by someone with no technical background.<br></br>This project allowed me to implement payment integration with the Stripe API, use the Facebook Graph API for news updates, and manage a MySQL database.",
+      "LearnMore": "Learn more",
+      "Langage": "HTML, CSS, PHP, JavaScript, Ajax, Bootstrap 5, cURL, jQuery, PHPMailer, SweetAlert, PDFjs, MySQL, Stripe API, Facebook Graph API",
+      "Duration": "2 months",
+      "Completion": "2023",
+      "TeamSize": "2",
+      "Role": "Development environment management via OVH servers, Site wireframing, Technology choices, Website creation, Deployment, Database management, Facebook Graph API integration, Stripe API payment system."
+    },
+    "MeteoDashboard": {
+      "Description": "Weather dashboard built with Vue.js and Vite, retrieving real-time weather data via the 'WeatherApi', then displaying it interactively using Chart.js. The project explores Vue 3’s features, reactive data handling, and integration with external libraries for data visualization and HTTP requests.",
+      "LearnMore": "Learn more",
+      "Langage": "VueJs, ChartJs, i18next, JavaScript, Flag-Icons, CSS",
+      "Duration": "1 week",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Project development, WeatherApi integration, Chart.js visualizations, Language handling with i18next, Project deployment."
+    },
+    "PaymentPage": {
+      "PaymentPageTitle": "Payment Process Design",
+      "Description": "A payment page and shopping cart inspired by JD Sports’ website. Implemented with Stripe API for payment handling. It highlights skills in payment system integration and front-end development.",
+      "LearnMore": "Learn more",
+      "Langage": "HTML, CSS, JavaScript, Bootstrap 5, Stripe API, PayPal API",
+      "Duration": "1 week",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Payment page development, Stripe API integration, Cart creation, Secure payment system, Promo code system, PayPal API integration."
+    },
+    "Eko": {
+      "Description": "Eko is an e-commerce website offering subscription-based services. It was developed as part of a school project.",
+      "LearnMore": "Learn more",
+      "Langage": "Stripe, CSS, Bootstrap 5, PHP, JavaScript, MySQL, OVH",
+      "Duration": "2 weeks",
+      "Completion": "2025",
+      "TeamSize": "4",
+      "Role": "Development environment management via OVH, UX/UI design, Technology selection, Website creation, Deployment, Database management, Stripe API integration for payments, Subscription system."
+    },
+    "BAImmobilier": {
+      "Description": "Website developed for my high school final project (Bac). It was my very first website. The goal was to create a realistic fictional real estate agency and build its online presence.",
+      "LearnMore": "Learn more",
+      "Langage": "HTML, CSS, JavaScript",
+      "Duration": "1 month",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Website development, Wireframe creation, Database management, Page and feature creation."
+    },
+    "Portfolio": {
+      "Description": "Portfolio developed in React JS, using libraries such as Axios, i18next, Font Awesome, and emailjs-com.<br></br>Technologies used include React, HTML, and CSS.<br></br>Special attention was given to SEO with optimization for Google Search, a sitemap, and proper meta tag implementation.",
+      "LearnMore": "Learn more",
+      "Langage": "HTML, CSS, JavaScript, React, i18next, Font Awesome, emailjs-com",
+      "Duration": "Constantly evolving",
+      "Completion": "2025",
+      "TeamSize": "1"
+    }
   },
   "ContactMe": {
     "title": "Contact Me",

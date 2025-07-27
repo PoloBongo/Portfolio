@@ -1,14 +1,13 @@
 import React, { Suspense, useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import CVArthurCPP from "../Download/CV-Arthur-JV.png";
+import CVArthurCPPEN from "../Download/ArthurCVJV-EN.png";
 import DropdownTraduction from "./DropdownTraduction.js";
 import { Loader } from "./ComponentTraduction";
-import { withTranslation } from "react-i18next";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle } from "@fortawesome/free-solid-svg-icons";
+import { withTranslation, useTranslation } from "react-i18next";
 
 const NavbarT = ({ t }) => {
-  const [showNavbarBool, setShowNavbarBool] = useState(true);
+  const { i18n } = useTranslation();
   const [showIncomingTitle, setShowIncomingTitle] = useState(false);
 
   const navigate = useNavigate();
@@ -22,6 +21,7 @@ const NavbarT = ({ t }) => {
       Gamejam: true,
       videoGame: true,
       contact: true,
+      web: true,
     },
     "/Arthur": {
       home: false,
@@ -30,6 +30,7 @@ const NavbarT = ({ t }) => {
       Gamejam: true,
       videoGame: true,
       contact: true,
+      web: true,
     },
     "/Unity": {
       home: true,
@@ -38,6 +39,7 @@ const NavbarT = ({ t }) => {
       Gamejam: true,
       videoGame: true,
       contact: true,
+      web: true,
     },
     "/Unreal": {
       home: true,
@@ -46,6 +48,7 @@ const NavbarT = ({ t }) => {
       Gamejam: true,
       videoGame: true,
       contact: true,
+      web: true,
     },
     "/Gamejam": {
       home: true,
@@ -54,6 +57,7 @@ const NavbarT = ({ t }) => {
       Gamejam: false,
       videoGame: true,
       contact: true,
+      web: true,
     },
     "/ProjectsVideosGames": {
       home: true,
@@ -62,6 +66,7 @@ const NavbarT = ({ t }) => {
       Gamejam: true,
       videoGame: false,
       contact: true,
+      web: true,
     },
     "/contactme": {
       home: true,
@@ -70,6 +75,7 @@ const NavbarT = ({ t }) => {
       Gamejam: true,
       videoGame: true,
       contact: false,
+      web: true,
     },
     "/Incoming": {
       home: true,
@@ -78,6 +84,7 @@ const NavbarT = ({ t }) => {
       Gamejam: true,
       videoGame: true,
       contact: true,
+      web: true,
     },
     "/ProjectsWeb": {
       home: true,
@@ -86,6 +93,7 @@ const NavbarT = ({ t }) => {
       Gamejam: true,
       videoGame: true,
       contact: true,
+      web: false,
     },
   };
 
@@ -106,52 +114,127 @@ const NavbarT = ({ t }) => {
   const renderNavbarButton = (visible, path, label) => {
     if (!visible) return null;
     return (
-      <button
-        className="noColor fontsRegular btnNavbar submitForm navbar-font"
-        onClick={() => navigateIntoPage(path)}
-      >
-        <li className="order-list-navbar-li fontsBold">{t(label)}</li>
-      </button>
+      <li className="navbar-item">
+        <button className="navbar-link" onClick={() => navigateIntoPage(path)}>
+          {t(label)}
+        </button>
+      </li>
     );
   };
 
+  const cvToDownload = i18n.language.startsWith("fr")
+    ? CVArthurCPP
+    : CVArthurCPPEN;
+
   return (
-    <div className="order-list-navbar-div">
-      <div className="titleName">
-        <button
-          className="noColor fontsRegular btnNavbar submitForm navbar-font"
-          onClick={() => navigateIntoPage("/Arthur")}
-        >
-          <h3 className="sizeArthur fontsRegular flexIMG surbrillance padding-int">
-            {t("Home.DeveloperJunior")}
-          </h3>
-        </button>
-      </div>
-      <button
-        className="btnDownloadCV bubbleHomeNavbarBtn"
-        onClick={() => setShowNavbarBool(!showNavbarBool)}
-      >
-        <div
-          className="bubbleHomeNavbar"
-          style={{
-            width: showNavbarBool ? "50px" : "25px",
-            height: showNavbarBool ? "50px" : "25px",
-            zIndex: "1000",
-            overflow: "hidden",
-            transition: "all 1s ease",
-          }}
-        ></div>
-      </button>
-      <div
-        className="navbarHome width iconLinkedin navbarHome-add-incoming"
-        style={{
-          display: showNavbarBool ? "none" : "block",
-          maxHeight: showNavbarBool ? "0" : "max-content",
-          overflow: "hidden",
-          transition: "all 1s ease",
-        }}
-      >
-        <ul className="order-list-navbar-ul">
+    // <div className="order-list-navbar-div">
+    //   <div className="titleName">
+    //     <button
+    //       className="noColor fontsRegular btnNavbar submitForm navbar-font"
+    //       onClick={() => navigateIntoPage("/Arthur")}
+    //     >
+    //       <h3 className="sizeArthur fontsRegular flexIMG surbrillance padding-int">
+    //         {t("Home.DeveloperJunior")}
+    //       </h3>
+    //     </button>
+    //   </div>
+    //   <button
+    //     className="btnDownloadCV bubbleHomeNavbarBtn"
+    //     onClick={() => setShowNavbarBool(!showNavbarBool)}
+    //   >
+    //     <div
+    //       className="bubbleHomeNavbar"
+    //       style={{
+    //         width: showNavbarBool ? "50px" : "25px",
+    //         height: showNavbarBool ? "50px" : "25px",
+    //         zIndex: "1000",
+    //         overflow: "hidden",
+    //         transition: "all 1s ease",
+    //       }}
+    //     ></div>
+    //   </button>
+    //   <div
+    //     className="navbarHome width iconLinkedin navbarHome-add-incoming"
+    //     style={{
+    //       display: showNavbarBool ? "none" : "block",
+    //       maxHeight: showNavbarBool ? "0" : "max-content",
+    //       overflow: "hidden",
+    //       transition: "all 1s ease",
+    //     }}
+    //   >
+    //     <ul className="order-list-navbar-ul">
+    //       <DropdownTraduction />
+    //       {renderNavbarButton(
+    //         pageVisibility[location.pathname]?.home,
+    //         "/Arthur",
+    //         "ClassicNavBar.Home"
+    //       )}
+    //       {renderNavbarButton(
+    //         pageVisibility[location.pathname]?.unreal,
+    //         "/Unreal",
+    //         "ClassicNavBar.Unreal"
+    //       )}
+    //       {renderNavbarButton(
+    //         pageVisibility[location.pathname]?.Gamejam,
+    //         "/Gamejam",
+    //         "ClassicNavBar.GameJam"
+    //       )}
+    //       {renderNavbarButton(
+    //         pageVisibility[location.pathname]?.unity,
+    //         "/Unity",
+    //         "ClassicNavBar.Unity"
+    //       )}
+    //       {renderNavbarButton(
+    //         pageVisibility[location.pathname]?.videoGame,
+    //         "/ProjectsVideosGames",
+    //         "DropdownProjects.ProjectVideoGames"
+    //       )}
+    //       <button className="noColor fontsRegular btnNavbar submitForm navbar-font">
+    //         <li className="order-list-navbar-li fontsBold">
+    //           <a
+    //             className="link-navbar fontsRegular"
+    //             href={CVArthurCPP}
+    //             target="_blank"
+    //             rel="noreferrer"
+    //           >
+    //             {t("ClassicNavBar.CV")}
+    //           </a>
+    //         </li>
+    //       </button>
+    //       {renderNavbarButton(
+    //         pageVisibility[location.pathname]?.contact,
+    //         "/contactme",
+    //         "ClassicNavBar.ContactMe"
+    //       )}
+    //     </ul>
+    //     <ul className="order-list-navbar-ul add-no-margin-incoming align-items-center">
+    //       {showIncomingTitle && (
+    //         <button
+    //           className="noColor fontsRegular btnNavbar submitForm navbar-font"
+    //           onClick={() => navigateIntoPage("/Incoming")}
+    //         >
+    //           <li className="order-list-navbar-li fontsBold">
+    //             <h4 className="Home">{t("ClassicNavBar.Incoming")}</h4>
+    //           </li>
+    //         </button>
+    //       )}
+    //       {renderNavbarButton(
+    //         pageVisibility[location.pathname]?.web,
+    //         "/ProjectsWeb",
+    //         "DropdownProjects.ProjectWeb"
+    //       )}
+    //     </ul>
+    //   </div>
+    // </div>
+    <div className="navbar-container">
+      <input type="checkbox" id="menu-toggle" className="menu-toggle" />
+      <label htmlFor="menu-toggle" className="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <nav className="navbar-vertical">
+        <ul>
           <DropdownTraduction />
           {renderNavbarButton(
             pageVisibility[location.pathname]?.home,
@@ -164,69 +247,44 @@ const NavbarT = ({ t }) => {
             "ClassicNavBar.Unreal"
           )}
           {renderNavbarButton(
+            pageVisibility[location.pathname]?.unity,
+            "/Unity",
+            "ClassicNavBar.Unity"
+          )}
+          {renderNavbarButton(
             pageVisibility[location.pathname]?.Gamejam,
             "/Gamejam",
             "ClassicNavBar.GameJam"
           )}
           {renderNavbarButton(
-            pageVisibility[location.pathname]?.unity,
-            "/Unity",
-            "ClassicNavBar.Unity"
+            pageVisibility[location.pathname]?.web,
+            "/ProjectsWeb",
+            "DropdownProjects.ProjectWeb"
           )}
           {renderNavbarButton(
             pageVisibility[location.pathname]?.videoGame,
             "/ProjectsVideosGames",
             "DropdownProjects.ProjectVideoGames"
           )}
-          <button className="noColor fontsRegular btnNavbar submitForm navbar-font">
-            <li className="order-list-navbar-li fontsBold">
-              <a
-                className="link-navbar fontsRegular"
-                href={CVArthurCPP}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {t("ClassicNavBar.CV")}
-              </a>
-            </li>
-          </button>
           {renderNavbarButton(
             pageVisibility[location.pathname]?.contact,
             "/contactme",
             "ClassicNavBar.ContactMe"
           )}
+          <li className="navbar-item">
+            <a
+              className="navbar-link"
+              href={cvToDownload}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t("ClassicNavBar.CV")}
+            </a>
+          </li>
+          {showIncomingTitle &&
+            renderNavbarButton(true, "/Incoming", "ClassicNavBar.Incoming")}
         </ul>
-        {showIncomingTitle && (
-          <ul className="order-list-navbar-ul add-no-margin-incoming align-items-center">
-            <button
-              className="noColor fontsRegular btnNavbar submitForm navbar-font"
-              onClick={() => navigateIntoPage("/Incoming")}
-            >
-              <li className="order-list-navbar-li fontsBold order-list-navbar-li-add-incoming">
-                <div className="width flex-end margin-incoming-title">
-                  <FontAwesomeIcon
-                    icon={faCircle}
-                    beatFade
-                    style={{ color: "#63E6BE" }}
-                    className="removeMargin"
-                  />
-                  <h4 className="Home">{t("ClassicNavBar.Incoming")}</h4>
-                </div>
-              </li>
-            </button>
-            <button
-              className="noColor fontsRegular btnNavbar submitForm navbar-font"
-              onClick={() => navigateIntoPage("/ProjectsWeb")}
-            >
-              <li className="order-list-navbar-li fontsBold order-list-navbar-li-add-incoming">
-                <div className="width flex-end margin-incoming-title">
-                  <h4 className="Home">{t("DropdownProjects.ProjectWeb")}</h4>
-                </div>
-              </li>
-            </button>
-          </ul>
-        )}
-      </div>
+      </nav>
     </div>
   );
 };

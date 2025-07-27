@@ -1,17 +1,18 @@
 import React, { Suspense, useState, useRef, useEffect } from "react";
 import CVArthurCPP from "../Download/CV-Arthur-JV.png";
-// import CVArthurWEB from "../Download/CV-Arthur-WEB.pdf";
+import CVArthurCPPEN from "../Download/ArthurCVJV-EN.png";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 // Traduction
 import { Loader } from "./ComponentTraduction";
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import "../css/Home.css";
 
-const DropdownCVT = ({ t, isFixed = false }) => {
+const DropdownCV = ({ isFixed = false }) => {
+  const { t, i18n } = useTranslation();
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -32,7 +33,14 @@ const DropdownCVT = ({ t, isFixed = false }) => {
     };
   }, []);
 
+  useEffect(() => {
+    setShowDropdown(false);
+  }, [i18n.language]);
+
   const fixedClass = isFixed ? "position-fixed" : "";
+  const cvToDownload = i18n.language.startsWith("fr")
+    ? CVArthurCPP
+    : CVArthurCPPEN;
 
   return (
     <div ref={dropdownRef}>
@@ -52,7 +60,7 @@ const DropdownCVT = ({ t, isFixed = false }) => {
         >
           <a
             className="link-navbar dropdownSize fontsRegular"
-            href={CVArthurCPP}
+            href={cvToDownload}
             target="_blank"
             rel="noreferrer"
           >
@@ -62,30 +70,16 @@ const DropdownCVT = ({ t, isFixed = false }) => {
               className="marginDownloadIcon"
             />
           </a>
-          {/* <a
-            className="link-navbar dropdownSize fontsRegular"
-            href={CVArthurWEB}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {t("TypeCV.CVWeb")}
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              className="marginDownloadIcon"
-            />
-          </a> */}
         </div>
       )}
     </div>
   );
 };
 
-const TranslatedDropdownCV = withTranslation()(DropdownCVT);
-
-export default function DropdownCV({ isFixed = false }) {
+export default function DropdownCVWrapper({ isFixed = false }) {
   return (
     <Suspense fallback={<Loader />}>
-      <TranslatedDropdownCV isFixed={isFixed} />
+      <DropdownCV isFixed={isFixed} />
     </Suspense>
   );
 }

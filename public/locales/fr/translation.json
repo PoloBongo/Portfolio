@@ -3,8 +3,8 @@
   "Home": {
     "DeveloperJunior": "Gameplay Programmer",
     "name": "Bonjour, je suis Arthur BRU",
-    "developerJV": "Bonjour, je suis Arthur, un Gameplay Programmer.",
-    "developerWeb": "Bonjour, je suis Arthur, un Gameplay Programmer.",
+    "developerJV": "Bonjour, je suis Arthur, passionné par la programmation.",
+    "developerWeb": "Bonjour, je suis Arthur, passionné par la programmation.",
     "role": "C++ Développeur",
     "info": "Titulaire d’un Bachelor en développement informatique, option jeu vidéo, obtenu chez Quest Education (G.Tech), je suis actuellement à la recherche d’une alternance pour ma 4ᵉ année à partir de septembre 2025.",
     "discover": "Mes compétences",
@@ -19,6 +19,8 @@
     "PHP": "PHP",
     "HTML": "HTML",
     "CSS": "CSS",
+    "VueJs": "Vue.js",
+    "ChartJs": "Chart.js",
     "MySQL": "MySQL",
     "Symphony": "Symphony",
     "MySQLDescription": "Je connais et pratique MySQL depuis 4 ans, en utilisant notamment phpMyAdmin. Mon expérience avec LUA et PHP m'a permis de faire des progrès significatifs dans la manipulation des données avec MySQL.<br></br> J'ai principalement utilisé deux interfaces pour travailler avec les bases de données :<br></br><br></br>- phpMyAdmin : Pour sa facilité d'utilisation, la gestion des tâches courantes et la sécurité.<br></br>- DBeaver : Je préfère l'utilisé pour du linux et pour ses fonctionnalités avancées et son support multiplateforme.",
@@ -105,19 +107,63 @@
     "Title": "Mes projets Web",
     "learnMore": "En savoir plus",
     "aboutWebsite": "Voir le Site",
-    "Celtic": "Site web pour une association de basketball créé en 2 mois. Nous étions 100% bénévoles pour le réaliser. Nous avons fait la maquette, la réalisation puis le déploiement du site.<br></br>- Projet personnel, nous étions 2 développeurs.",
-    "CelticTechno": "Technologie utilisé : HTML, CSS, PHP, JavaScript, Ajax, Bootstrap 5, cURL, jQuery, PHPMailer, SweetAlert, PDFjs, MySql, API Stripe, API Facebook Graph",
-    "Eko": "Eko est un site de vente en ligne qui propose également des abonnements. Il a été réalisé en 2 semaines dans le cadre d'un projet d'école.<br></br>- Groupe de 4 étudiants",
-    "EkoTechno": "API de paiement : Stripe, CSS, Bootstrap 5, PHP, JavaScript",
-    "BAImmobilier": "Site web réaliser pour le Bac, c'était mon premier site créé. L'objectif était de créer une entreprise fictive mais réaliste.",
-    "BAImmobilierTechno": "HTML, CSS, JavaScript",
     "GoudGuys": "Site web pour une association esport créé en 1 mois lors d'un stage.<br></br>- Nous étions 2 développeurs.",
-    "ShoppingSystem": "Voici une page de paiement et un panier inspirés du site web JD Sport, créés en 1 semaine.<br></br>- Projet personnel",
-    "ShoppingSystemtechno": "API de paiement : Stripe & Paypal, CSS",
     "React": "Site web réalisé en première année. Le but était de prendre une API de film fourni par l'intervenant et nous devions faire un premier catalogue avec des filtres.<br></br>- Premier projet en React<br></br>- Projet d'un étudiant",
-    "ReactPortfolio": "Portfolio développé en React JS, intégrant les bibliothèques suivantes : Axios, i18next, Font Awesome et emailjs-com.<br></br>Les technologies utilisées comprennent React, HTML et CSS.<br></br>J'ai porté une attention particulière au référencement (SEO) avec l'optimisation pour Google Search, l'utilisation d'une Sitemap et l'implémentation de balises appropriées.",
-    "PaymentPageTitle": "Design d'un processus de paiement",
-    "NoPreview": "Preview non disponible"
+    "NoPreview": "Preview non disponible",
+    "CelticLaRicheBasket": {
+      "Description": "Site web pour une association de basketball créé en 2 mois. Nous étions 100% bénévoles pour le réaliser. Nous avons fait la maquette, la réalisation puis le déploiement du site. J'ai pu apporter des solutions à des problèmes concrets et établir un site 100% autonome par une personne qui n'est pas développeur.<br></br>Grâce à ce projet j'ai pu mettre en pratique, sur de réel situation, un système de paiement avec l'API Stripe, une API Facebook Graph pour les actualités et un système de gestion de base de données avec MySQL.",
+      "LearnMore": "En savoir plus",
+      "Langage": "HTML, CSS, PHP, JavaScript, Ajax, Bootstrap 5, cURL, jQuery, PHPMailer, SweetAlert, PDFjs, MySql, API Stripe, API Facebook Graph",
+      "Duration": "2 mois",
+      "Completion": "2023",
+      "TeamSize": "2",
+      "Role": "Gestion du site de développement via les serveurs d'OVH, Réalisation de la maquette du Site, Choix des technologies, Création du site, Déploiement du site, Gestion de la base de données, API Facebook Graph pour les actualités, API Stripe pour les paiements."
+    },
+    "MeteoDashboard": {
+      "Description": "Tableau de bord météo a été développé avec Vue.js et Vite, qui récupère des données météo en temps réel via une l'API 'WeatherApi', puis les affiche de manière interactive grâce à Chart.js. Ce projet a pour but d’explorer les fonctionnalités de Vue 3, la gestion réactive des données, ainsi que l’intégration de bibliothèques externes pour la visualisation et les requêtes HTTP.",
+      "LearnMore": "En savoir plus",
+      "Langage": "VueJs, ChartJs, i18next, JavaScript, Flag-Icons, CSS",
+      "Duration": "1 semaine",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Réalisation du projet, Intégration de l'API 'WeatherApi', Création des graphiques avec Chart.js, Mise en place de la gestion des langues avec i18next, Déploiement du projet."
+    },
+    "PaymentPage": {
+      "PaymentPageTitle": "Design d'un processus de paiement",
+      "Description": "Voici une page de paiement et un panier inspirés du site web JD Sport. Implementé avec l'API Stripe pour la gestion des paiements. Il met en avant les compétences en intégration de systèmes de paiement et en développement web.",
+      "LearnMore": "En savoir plus",
+      "Langage": "HTML, CSS, JavaScript, Bootstrap 5, Stripe API, Paypal API",
+      "Duration": "1 semaine",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Réalisation de la page de paiement, Intégration de l'API Stripe, Création du panier, Mise en place du système de paiement sécurisé, Système de code promo, Intégration de l'API Paypal."
+    },
+    "Eko": {
+      "Description": "Eko est un site de vente en ligne qui propose également des abonnements. Eko a été réalisé dans le cadre d'un projet d'école.",
+      "LearnMore": "En savoir plus",
+      "Langage": "Stripe, CSS, Bootstrap 5, PHP, JavaScript, MySQL, OVH",
+      "Duration": "2 semaines",
+      "Completion": "2025",
+      "TeamSize": "4",
+      "Role": "Gestion du site de développement via les serveurs d'OVH, Gestion UX/UI, Choix des technologies, Création du site, Déploiement du site, Gestion de la base de données, Intégration de l'API Stripe pour les paiements, Gestion des abonnements."
+    },
+    "BAImmobilier": {
+      "Description": "Site web réaliser pour le Bac, c'était mon premier site créé. L'objectif était de créer une entreprise fictive mais réaliste sur une agence immobilière et la gestion de son site internet",
+      "LearnMore": "En savoir plus",
+      "Langage": "HTML, CSS, JavaScript",
+      "Duration": "1 mois",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Réalisation du site, Création de la maquette, Gestion de la base de données, Création des pages et des fonctionnalités."
+    },
+    "Portfolio": {
+      "Description": "Portfolio développé en React JS, intégrant les bibliothèques suivantes : Axios, i18next, Font Awesome et emailjs-com.<br></br>Les technologies utilisées comprennent React, HTML et CSS.<br></br>J'ai porté une attention particulière au référencement (SEO) avec l'optimisation pour Google Search, l'utilisation d'une Sitemap et l'implémentation de balises appropriées.",
+      "LearnMore": "En savoir plus",
+      "Langage": "HTML, CSS, JavaScript, React, i18next, Font Awesome, emailjs-com",
+      "Duration": "En continuelle évolution",
+      "Completion": "2025",
+      "TeamSize": "1"
+    }
   },
   "ContactMe": {
     "title": "Me Contacter",
