@@ -307,6 +307,7 @@
   background-color: #464d5a;
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 .aboutMeTitle {
@@ -1300,7 +1301,7 @@ button::placeholder {
 }
 
 .overflow-y-incomming {
-  max-height: 250px;
+  max-height: 450px;
   overflow-y: scroll;
 }
 
@@ -1387,6 +1388,7 @@ button::placeholder {
     top: auto !important;
     left: auto !important;
     z-index: 9999;
+    overflow-x: hidden;
   }
 }
 
