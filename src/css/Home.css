@@ -1391,6 +1391,9 @@ button::placeholder {
     z-index: 9999;
     overflow-x: hidden;
   }
+  .menu-icon-home {
+    overflow-x: hidden;
+  }
 }
 
 .menu-icon span {
