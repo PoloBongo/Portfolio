@@ -1384,6 +1384,7 @@ button::placeholder {
     top: auto;
     bottom: 20px;
     right: 20px;
+    z-index: 1002;
   }
 }
 
