@@ -21,6 +21,8 @@
     "HTML": "HTML",
     "CSS": "CSS",
     "VueJs": "Vue.js",
+    "NextJs": "Next.js",
+    "ChartJs": "Chart.js",
     "MySQL": "MySQL",
     "Symphony": "Symphony",
     "MySQLDescription": "Llevo 4 años conociendo y practicando MySQL, utilizando especialmente phpMyAdmin. Mi experiencia con LUA y PHP me ha permitido progresar considerablemente en la manipulación de datos con MySQL.<br></br>He utilizado principalmente dos interfaces para trabajar con bases de datos:<br></br><br></br>- phpMyAdmin: Por su facilidad de uso, gestión de tareas comunes y seguridad.<br></br>- DBeaver: Prefiero que se use para Linux y por sus funciones avanzadas y soporte multiplataforma.",
@@ -114,6 +116,15 @@
       "Completion": "2025",
       "TeamSize": "1",
       "Role": "Desarrollo del proyecto, Integración de la API WeatherApi, Gráficos con Chart.js, Gestión multilingüe con i18next, Despliegue del proyecto."
+    },
+    "ArticlesManager": {
+      "Description": "ArticlesManager es un sistema de gestión de artículos desarrollado con Next.js 15, que incluye autenticación segura mediante credenciales. Los usuarios pueden iniciar sesión, crear, editar o eliminar artículos. Cada artículo está vinculado a su autor, lo que permite un seguimiento claro de quién creó qué. El proyecto utiliza MongoDB, las rutas API del App Router de Next.js y Tailwind CSS para el estilo.",
+      "LearnMore": "Saber más",
+      "Langage": "Next.js 15, TypeScript, MongoDB, Tailwind CSS, NextAuth.js, Mongoose",
+      "Duration": "1 semana",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Desarrollo completo, Integración de autenticación con NextAuth.js, Creación de rutas API, Conexión a MongoDB con Mongoose, Interfaz responsive con Tailwind CSS, Despliegue en Vercel."
     },
     "PaymentPage": {
       "PaymentPageTitle": "Diseño de proceso de pago",

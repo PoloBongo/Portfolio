@@ -192,6 +192,88 @@ const ProjectsWebT = ({ t }) => {
               </a>
             </div>
           </div>
+          <div className="marge-contact-play modernEnvelop" id="NextJs">
+            <div className="sizeIconCPlus flexIMG">
+              <h3 className="Home width">Articles Manager Next Js</h3>
+            </div>
+            <div className="flexIMG width">
+              <iframe
+                loading="lazy"
+                src="https://www.youtube.com/embed/ozyPAW86O84"
+                title="youtubeVideoPresentationArticlesManager"
+                frameBorder="0"
+                width="560"
+                height="315"
+                allowFullScreen
+                className="iframeYoutube"
+              ></iframe>
+            </div>
+            <p className="text-align-left padding-1vw font-size-large">
+              <p>
+                <span className="colorPurple">
+                  {t("VideoGamesProjects.Langage")}
+                </span>{" "}
+                {t("WebProjects.ArticlesManager.Langage")}
+              </p>
+              <p>
+                <span className="colorPurple">
+                  {t("VideoGamesProjects.Duration")}
+                </span>{" "}
+                {t("WebProjects.ArticlesManager.Duration")}
+              </p>
+              <p>
+                <span className="colorPurple">
+                  {t("VideoGamesProjects.Completion")}
+                </span>{" "}
+                {t("WebProjects.ArticlesManager.Completion")}
+              </p>
+              <p>
+                <span className="colorPurple">
+                  {t("VideoGamesProjects.TeamSize")}
+                </span>{" "}
+                {t("WebProjects.ArticlesManager.TeamSize")}
+              </p>
+              <p>
+                <span className="colorPurple">
+                  {t("VideoGamesProjects.Role")}
+                </span>{" "}
+                {t("WebProjects.ArticlesManager.Role")}
+              </p>
+            </p>
+            <p className="text-align-left padding-1vw font-size-large">
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: t("WebProjects.ArticlesManager.Description"),
+                }}
+              ></p>
+            </p>
+            <div className="btnDiscoverProject">
+              <a
+                href="https://github.com/PoloBongo/NextJs_Articles_Auth_CMS"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: "block",
+                  opacity: "1",
+                  overflow: "hidden",
+                  transition: "all 1s ease",
+                }}
+              >
+                <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
+                  {t("VideoGamesProjects.viewMoreCode")}
+                </button>
+              </a>
+              <a
+                href="https://next-js-articles-auth-cms-c5vo.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  {t("WebProjects.aboutWebsite")}
+                </button>
+              </a>
+            </div>
+          </div>
           <div className="marge-contact-play modernEnvelop" id="blur">
             <div className="sizeIconCPlus flexIMG">
               <h3 className="Home width">

@@ -25,6 +25,7 @@ import imgDevOpsLangage from "../img/DevOpsIcon.svg";
 import imgSymphonyLangage from "../img/SymphonyIcon.svg";
 import imgVueJsLangage from "../img/VueJsicon.svg";
 import imgChartJsLangage from "../img/ChartJsIcon.svg";
+import imgNextJsLangage from "../img/NextJsIcon.svg";
 
 // Traduction
 import { Loader } from "./ComponentTraduction";
@@ -196,6 +197,21 @@ const PopupMySqlT = ({ t }) => {
               alt="VueJs Langage Icon"
             ></img>
             {t("Home.VueJs")}
+          </div>
+        </div>
+      </button>
+      <button
+        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        onClick={() => navigateIntoPage("/ProjectsWeb#NextJs")}
+      >
+        <div className="rectangleTool surbrillance" id="blur">
+          <div className="sizeIconCPlus fontsRegular">
+            <img
+              src={imgNextJsLangage}
+              className="iconSpace"
+              alt="NextJs Langage Icon"
+            ></img>
+            {t("Home.NextJs")}
           </div>
         </div>
       </button>

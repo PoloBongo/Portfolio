@@ -20,6 +20,7 @@
     "HTML": "HTML",
     "CSS": "CSS",
     "VueJs": "Vue.js",
+    "NextJs": "Next.js",
     "ChartJs": "Chart.js",
     "MySQL": "MySQL",
     "Symphony": "Symphony",
@@ -127,6 +128,15 @@
       "Completion": "2025",
       "TeamSize": "1",
       "Role": "Réalisation du projet, Intégration de l'API 'WeatherApi', Création des graphiques avec Chart.js, Mise en place de la gestion des langues avec i18next, Déploiement du projet."
+    },
+    "ArticlesManager": {
+      "Description": "CMS Auth Articles est un système de gestion d’articles développé avec Next.js 15, incluant une authentification sécurisée via Credentials. Les utilisateurs peuvent se connecter, créer, modifier ou supprimer des articles. Chaque article est lié à son auteur, ce qui permet un traçage précis de qui a créé quoi. Le projet met en œuvre une base MongoDB, l’API Route Handlers de Next.js App Router, ainsi que Tailwind CSS pour le style.",
+      "LearnMore": "En savoir plus",
+      "Langage": "Next.js 15, TypeScript, MongoDB, Tailwind CSS, NextAuth.js, Mongoose",
+      "Duration": "1 semaine",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Développement complet, Intégration de l’authentification avec NextAuth.js, Création des routes API, Liaison MongoDB via Mongoose, Interface responsive avec Tailwind CSS, Déploiement sur Vercel."
     },
     "PaymentPage": {
       "PaymentPageTitle": "Design d'un processus de paiement",
