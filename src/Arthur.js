@@ -6,6 +6,7 @@ import TypingAnimation from "./Component/TextTyping.js";
 import PopupMySql from "./Component/PopupLanguage.js";
 import Load from "./Component/Load.js";
 import Fade from "./Component/Fade.js";
+import FocusLoop from "./Component/FocusLoop.js";
 
 import imgProgrammer from "./img/programmer.svg";
 
@@ -91,11 +92,12 @@ const HomeT = ({ t }) => {
             ) : (
               <>
                 <ParralaxEffect>
-                  <div className="takeSize">
-                    <Navbar />
-                    <div className="aboutMe">
-                      <div className="aboutMeRightPart">
-                        {/* <iframe
+                  <FocusLoop>
+                    <div className="takeSize">
+                      <Navbar tabIndex={21} />
+                      <div className="aboutMe">
+                        <div className="aboutMeRightPart">
+                          {/* <iframe
                           src="https://www.youtube.com/embed/IwMvlVfyvs8"
                           title="youtubeVideoPresentation"
                           frameBorder="0"
@@ -104,76 +106,75 @@ const HomeT = ({ t }) => {
                           allowFullScreen
                           className="iframeYoutube"
                         ></iframe> */}
-                        <img
-                          src={imgProgrammer}
-                          alt="imgProg"
-                          className="sizeProjectIMG imgProg"
-                        ></img>
-                      </div>
-                      <div className="aboutMeLeftPart">
-                        <div className="aboutMeText">
-                          <h3 className="removeMargin typingAnimation xx-large">
-                            <TypingAnimation />
-                          </h3>
+                          <img
+                            src={imgProgrammer}
+                            alt="imgProg"
+                            className="sizeProjectIMG imgProg"
+                          ></img>
                         </div>
-                        <div className="presentationFlex">
-                          <p className="presentationText fontsLight">
-                            {t("Home.info")}
-                          </p>
-                          <div className="RedirectionIcon">
-                            <a
-                              href="https://www.linkedin.com/in/arthur-bru-b71327252/"
-                              target="_blank"
-                              rel="noreferrer"
-                              aria-label="En savoir plus sur mon Linkedin"
-                            >
-                              <FontAwesomeIcon
-                                icon={faLinkedin}
-                                color="#bc63ff"
-                                className="iconLinkedin"
-                                size="xl"
-                              />
-                            </a>
-                            <a
-                              href="https://github.com/PoloBongo"
-                              target="_blank"
-                              rel="noreferrer"
-                              aria-label="En savoir plus sur mon Github"
-                            >
-                              <FontAwesomeIcon
-                                icon={faSquareGithub}
-                                color="#bc63ff"
-                                size="xl"
-                              />
-                            </a>
+                        <div className="aboutMeLeftPart">
+                          <div className="aboutMeText">
+                            <h3 className="removeMargin typingAnimation xx-large">
+                              <TypingAnimation />
+                            </h3>
                           </div>
-                          <div className="btnDiscover">
-                            <a href="#aboutme&skills">
-                              <button className="btnStyleDiscover fontsRegular">
+                          <div className="presentationFlex">
+                            <p className="presentationText fontsLight">
+                              {t("Home.info")}
+                            </p>
+                            <div className="RedirectionIcon">
+                              <a
+                                href="https://www.linkedin.com/in/arthur-bru-b71327252/"
+                                target="_blank"
+                                rel="noreferrer"
+                                tabIndex={1}
+                                aria-label="En savoir plus sur mon Linkedin"
+                              >
+                                <FontAwesomeIcon
+                                  icon={faLinkedin}
+                                  color="#bc63ff"
+                                  className="iconLinkedin"
+                                  size="xl"
+                                />
+                              </a>
+                              <a
+                                href="https://github.com/PoloBongo"
+                                target="_blank"
+                                rel="noreferrer"
+                                tabIndex={2}
+                                aria-label="En savoir plus sur mon Github"
+                              >
+                                <FontAwesomeIcon
+                                  icon={faSquareGithub}
+                                  color="#bc63ff"
+                                  size="xl"
+                                />
+                              </a>
+                            </div>
+                            <div className="btnDiscover">
+                              <a
+                                href="#aboutme&skills"
+                                className="btnStyleDiscover fontsRegular"
+                                tabIndex={3}
+                              >
                                 {t("Home.discover")}
-                              </button>
-                            </a>
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div id="aboutme&skills" className="aboutMePartDescription">
-                    {/* <div className="aboutMeTitle">
-                  <h3 className="fontsRegular">{t("Home.title1")}</h3>
-                </div>
-                <p className="paragrapheAboutMe fontsLight">
-                  {t("Home.aboutMe")}
-                </p> */}
-                    <div className="aboutMeTitle">
-                      <h3 className="fontsRegular">{t("Home.title2")}</h3>
+                    <div id="aboutme&skills" className="aboutMePartDescription">
+                      <div className="aboutMeTitle">
+                        <h3 className="fontsRegular">{t("Home.title2")}</h3>
+                      </div>
+                      <PopupMySql tabIndex={3} />
+                      <h1 className="pDescription centerLoad inherit">
+                        © Arthur BRU
+                      </h1>
                     </div>
-                    <PopupMySql />
-                    <h1 className="pDescription centerLoad inherit">
-                      © Arthur BRU
-                    </h1>
-                  </div>
+                  </FocusLoop>
                 </ParralaxEffect>
               </>
             )}
