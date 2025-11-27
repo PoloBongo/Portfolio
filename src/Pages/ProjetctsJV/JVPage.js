@@ -11,362 +11,374 @@ import backgroundProjectLUA from "../../img/backgroundLUA.webp";
 import { Loader } from "../../Component/ComponentTraduction.js";
 import { withTranslation } from "react-i18next";
 
+import FocusLoop from "../../Component/FocusLoop.js";
+
 const JVPageT = ({ t }) => {
   return (
     <div className="Home-header overflowHidden fontsRegular">
-      <Navbar />
-      <div className="traitSeparator" id="blur"></div>
-      <div>
-        <div className="contactMeFlex align-items-center fixBackBtnUnity">
-          <h3 className="fontsBold underline titleUnityPage" id="blur">
-            {t("VideoGamesProjects.Title")}
-          </h3>
-        </div>
-        <div className="grid-gamejam2">
-          <div
-            className="marge-contact-play modernEnvelop flex-column-center"
-            id="blur"
-          >
-            <div className="sizeIconCPlus flexIMG">
-              <h3 className="Home width">Angine</h3>
+      <FocusLoop>
+        <Navbar tabIndex={9} />
+        <div className="traitSeparator" id="blur"></div>
+        <div>
+          <div className="contactMeFlex align-items-center fixBackBtnUnity">
+            <h3 className="fontsBold underline titleUnityPage" id="blur">
+              {t("VideoGamesProjects.Title")}
+            </h3>
+          </div>
+          <div className="grid-gamejam2">
+            <div
+              className="marge-contact-play modernEnvelop flex-column-center"
+              id="blur"
+            >
+              <div className="sizeIconCPlus flexIMG">
+                <h3 className="Home width">Angine</h3>
+              </div>
+              <div className="flexIMG width">
+                <img
+                  src={backgroundProjectCustomEngine}
+                  alt="Custom Engine"
+                  className="sizeProjectIMG2"
+                />
+              </div>
+              <div className="grid-gamejam">
+                <p className="text-align-left padding-1vw font-size-large">
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Langage")}
+                    </span>{" "}
+                    {t("VideoGamesProjects.Angine.Langage")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.ToolsUsed")}
+                    </span>
+                  </p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("VideoGamesProjects.Angine.ToolsUsed"),
+                    }}
+                  ></p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Duration")}
+                    </span>{" "}
+                    {t("VideoGamesProjects.Angine.Duration")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Completion")}
+                    </span>{" "}
+                    {t("VideoGamesProjects.Angine.Completion")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.TeamSize")}
+                    </span>{" "}
+                    {t("VideoGamesProjects.Angine.TeamSize")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Role")}
+                    </span>{" "}
+                    {t("VideoGamesProjects.Angine.Role")}
+                  </p>
+                </p>
+                <p className="text-align-left padding-1vw font-size-large">
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("VideoGamesProjects.Angine.Description"),
+                    }}
+                  ></p>
+                </p>
+              </div>
+              <div className="btnDiscoverProject">
+                <a
+                  href="https://github.com/PoloBongo/custom-engine-cpp"
+                  target="_blank"
+                  rel="noreferrer"
+                  tabIndex={1}
+                  style={{
+                    display: "block",
+                    opacity: "1",
+                    overflow: "hidden",
+                    transition: "all 1s ease",
+                  }}
+                >
+                  <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
+                    {t("VideoGamesProjects.viewMoreCode")}
+                  </button>
+                </a>
+              </div>
             </div>
-            <div className="flexIMG width">
-              <img
-                src={backgroundProjectCustomEngine}
-                alt="Custom Engine"
-                className="sizeProjectIMG2"
-              />
-            </div>
-            <div className="grid-gamejam">
+          </div>
+          <div className="grid-gamejam">
+            <div
+              className="marge-contact-play modernEnvelop flex-column-center"
+              id="blur"
+            >
+              <div className="sizeIconCPlus flexIMG">
+                <h3 className="Home width">Helluva Revenge</h3>
+              </div>
+              <div className="flexIMG width">
+                <iframe
+                  src="https://www.youtube.com/embed/xkXIosIVZRE"
+                  title="youtubeVideoPresentation"
+                  frameBorder="0"
+                  width="560"
+                  height="315"
+                  allowFullScreen
+                  className="iframeYoutube"
+                ></iframe>
+              </div>
               <p className="text-align-left padding-1vw font-size-large">
-                <p>
-                  <span className="colorPurple">
-                    {t("VideoGamesProjects.Langage")}
-                  </span>{" "}
-                  {t("VideoGamesProjects.Angine.Langage")}
-                </p>
-                <p>
-                  <span className="colorPurple">
-                    {t("VideoGamesProjects.ToolsUsed")}
-                  </span>
-                </p>
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: t("VideoGamesProjects.Angine.ToolsUsed"),
+                    __html: t("VideoGamesProjects.helluvaRevenge"),
                   }}
                 ></p>
-                <p>
-                  <span className="colorPurple">
-                    {t("VideoGamesProjects.Duration")}
-                  </span>{" "}
-                  {t("VideoGamesProjects.Angine.Duration")}
-                </p>
-                <p>
-                  <span className="colorPurple">
-                    {t("VideoGamesProjects.Completion")}
-                  </span>{" "}
-                  {t("VideoGamesProjects.Angine.Completion")}
-                </p>
-                <p>
-                  <span className="colorPurple">
-                    {t("VideoGamesProjects.TeamSize")}
-                  </span>{" "}
-                  {t("VideoGamesProjects.Angine.TeamSize")}
-                </p>
-                <p>
-                  <span className="colorPurple">
-                    {t("VideoGamesProjects.Role")}
-                  </span>{" "}
-                  {t("VideoGamesProjects.Angine.Role")}
-                </p>
               </p>
+              <div className="btnDiscoverProject">
+                <a
+                  href="https://github.com/DemonXlegenD/Helluva-Revenge"
+                  target="_blank"
+                  rel="noreferrer"
+                  tabIndex={2}
+                  style={{
+                    display: "block",
+                    opacity: "1",
+                    overflow: "hidden",
+                    transition: "all 1s ease",
+                  }}
+                >
+                  <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
+                    {t("VideoGamesProjects.viewMoreCode")}
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div
+              className="marge-contact-play modernEnvelop flex-column-center"
+              id="blur"
+            >
+              <div className="sizeIconCPlus flexIMG">
+                <h3 className="Home width">Tower Defense</h3>
+              </div>
+              <div className="flexIMG width">
+                <iframe
+                  src="https://www.youtube.com/embed/33BohK7tIfQ"
+                  title="youtubeVideoPresentation"
+                  frameBorder="0"
+                  width="560"
+                  height="315"
+                  allowFullScreen
+                  className="iframeYoutube"
+                ></iframe>
+              </div>
               <p className="text-align-left padding-1vw font-size-large">
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: t("VideoGamesProjects.Angine.Description"),
+                    __html: t("VideoGamesProjects.towerDefense"),
                   }}
                 ></p>
               </p>
+              <div className="btnDiscoverProject">
+                <a
+                  href="https://github.com/PoloBongo/CPP_Tower_Defense"
+                  target="_blank"
+                  rel="noreferrer"
+                  tabIndex={3}
+                  style={{
+                    display: "block",
+                    opacity: "1",
+                    overflow: "hidden",
+                    transition: "all 1s ease",
+                  }}
+                >
+                  <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
+                    {t("VideoGamesProjects.viewMoreCode")}
+                  </button>
+                </a>
+              </div>
             </div>
-            <div className="btnDiscoverProject">
-              <a
-                href="https://github.com/PoloBongo/custom-engine-cpp"
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: "block",
-                  opacity: "1",
-                  overflow: "hidden",
-                  transition: "all 1s ease",
-                }}
-              >
-                <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
-                  {t("VideoGamesProjects.viewMoreCode")}
-                </button>
-              </a>
+            <div
+              className="marge-contact-play modernEnvelop flex-column-center"
+              id="blur"
+            >
+              <div className="sizeIconCPlus flexIMG">
+                <h3 className="Home width">C++ Bibliothèque</h3>
+              </div>
+              <div className="flexIMG width">
+                <img
+                  src={backgroundCPPBibliotheque}
+                  loading="lazy"
+                  alt="Bibliothèque Cpp"
+                  className="sizeProjectIMG"
+                ></img>
+              </div>
+              <p className="text-align-left padding-1vw font-size-large">
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: t("VideoGamesProjects.bibliotheque"),
+                  }}
+                ></p>
+              </p>
+              <div className="btnDiscoverProject">
+                <a
+                  href="https://github.com/PoloBongo/CPP_Bibliotheque/"
+                  target="_blank"
+                  rel="noreferrer"
+                  tabIndex={4}
+                  style={{
+                    display: "block",
+                    opacity: "1",
+                    overflow: "hidden",
+                    transition: "all 1s ease",
+                  }}
+                >
+                  <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
+                    {t("VideoGamesProjects.viewMoreCode")}
+                  </button>
+                </a>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="grid-gamejam">
-          <div
-            className="marge-contact-play modernEnvelop flex-column-center"
-            id="blur"
-          >
-            <div className="sizeIconCPlus flexIMG">
-              <h3 className="Home width">Helluva Revenge</h3>
+            <div
+              className="marge-contact-play modernEnvelop flex-column-center"
+              id="blur"
+            >
+              <div className="sizeIconCPlus flexIMG">
+                <h3 className="Home width">Tour par tour en console</h3>
+              </div>
+              <div className="flexIMG width">
+                <iframe
+                  src="https://www.youtube.com/embed/QB-EAMeCPpQ"
+                  title="youtubeVideoPresentation"
+                  frameBorder="0"
+                  width="560"
+                  height="315"
+                  allowFullScreen
+                  className="iframeYoutube"
+                ></iframe>
+              </div>
+              <p className="text-align-left padding-1vw font-size-large">
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: t("VideoGamesProjects.CSharpConsole"),
+                  }}
+                ></p>
+              </p>
+              <div className="btnDiscoverProject">
+                <a
+                  href="https://github.com/PoloBongo/Projet9---CSharp"
+                  target="_blank"
+                  rel="noreferrer"
+                  tabIndex={5}
+                  style={{
+                    display: "block",
+                    opacity: "1",
+                    overflow: "hidden",
+                    transition: "all 1s ease",
+                  }}
+                >
+                  <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
+                    {t("VideoGamesProjects.viewMoreCode")}
+                  </button>
+                </a>
+              </div>
             </div>
-            <div className="flexIMG width">
-              <iframe
-                src="https://www.youtube.com/embed/xkXIosIVZRE"
-                title="youtubeVideoPresentation"
-                frameBorder="0"
-                width="560"
-                height="315"
-                allowFullScreen
-                className="iframeYoutube"
-              ></iframe>
+            <div
+              className="marge-contact-play modernEnvelop flex-column-center"
+              id="blur"
+            >
+              <div className="sizeIconCPlus flexIMG">
+                <h3 className="Home width">Shoot-Em-Up</h3>
+              </div>
+              <div className="flexIMG width">
+                <iframe
+                  src="https://www.youtube.com/embed/r-x6qlMXgxo"
+                  title="youtubeVideoPresentation"
+                  frameBorder="0"
+                  width="560"
+                  height="315"
+                  allowFullScreen
+                  className="iframeYoutube"
+                ></iframe>
+              </div>
+              <p className="text-align-left padding-1vw font-size-large">
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: t("VideoGamesProjects.shootEmUp"),
+                  }}
+                ></p>
+              </p>
+              <div className="btnDiscoverProject">
+                <a
+                  href="https://github.com/PoloBongo/Shoot-Em-Up"
+                  target="_blank"
+                  rel="noreferrer"
+                  tabIndex={6}
+                  style={{
+                    display: "block",
+                    opacity: "1",
+                    overflow: "hidden",
+                    transition: "all 1s ease",
+                  }}
+                >
+                  <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
+                    {t("VideoGamesProjects.viewMoreCode")}
+                  </button>
+                </a>
+              </div>
             </div>
-            <p className="text-align-left padding-1vw font-size-large">
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: t("VideoGamesProjects.helluvaRevenge"),
-                }}
-              ></p>
-            </p>
-            <div className="btnDiscoverProject">
-              <a
-                href="https://github.com/DemonXlegenD/Helluva-Revenge"
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: "block",
-                  opacity: "1",
-                  overflow: "hidden",
-                  transition: "all 1s ease",
-                }}
-              >
-                <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
-                  {t("VideoGamesProjects.viewMoreCode")}
-                </button>
-              </a>
-            </div>
-          </div>
-          <div
-            className="marge-contact-play modernEnvelop flex-column-center"
-            id="blur"
-          >
-            <div className="sizeIconCPlus flexIMG">
-              <h3 className="Home width">Tower Defense</h3>
-            </div>
-            <div className="flexIMG width">
-              <iframe
-                src="https://www.youtube.com/embed/33BohK7tIfQ"
-                title="youtubeVideoPresentation"
-                frameBorder="0"
-                width="560"
-                height="315"
-                allowFullScreen
-                className="iframeYoutube"
-              ></iframe>
-            </div>
-            <p className="text-align-left padding-1vw font-size-large">
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: t("VideoGamesProjects.towerDefense"),
-                }}
-              ></p>
-            </p>
-            <div className="btnDiscoverProject">
-              <a
-                href="https://github.com/PoloBongo/CPP_Tower_Defense"
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: "block",
-                  opacity: "1",
-                  overflow: "hidden",
-                  transition: "all 1s ease",
-                }}
-              >
-                <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
-                  {t("VideoGamesProjects.viewMoreCode")}
-                </button>
-              </a>
-            </div>
-          </div>
-          <div
-            className="marge-contact-play modernEnvelop flex-column-center"
-            id="blur"
-          >
-            <div className="sizeIconCPlus flexIMG">
-              <h3 className="Home width">C++ Bibliothèque</h3>
-            </div>
-            <div className="flexIMG width">
-              <img
-                src={backgroundCPPBibliotheque}
-                loading="lazy"
-                alt="Bibliothèque Cpp"
-                className="sizeProjectIMG"
-              ></img>
-            </div>
-            <p className="text-align-left padding-1vw font-size-large">
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: t("VideoGamesProjects.bibliotheque"),
-                }}
-              ></p>
-            </p>
-            <div className="btnDiscoverProject">
-              <a
-                href="https://github.com/PoloBongo/CPP_Bibliotheque/"
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: "block",
-                  opacity: "1",
-                  overflow: "hidden",
-                  transition: "all 1s ease",
-                }}
-              >
-                <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
-                  {t("VideoGamesProjects.viewMoreCode")}
-                </button>
-              </a>
-            </div>
-          </div>
-          <div
-            className="marge-contact-play modernEnvelop flex-column-center"
-            id="blur"
-          >
-            <div className="sizeIconCPlus flexIMG">
-              <h3 className="Home width">Tour par tour en console</h3>
-            </div>
-            <div className="flexIMG width">
-              <iframe
-                src="https://www.youtube.com/embed/QB-EAMeCPpQ"
-                title="youtubeVideoPresentation"
-                frameBorder="0"
-                width="560"
-                height="315"
-                allowFullScreen
-                className="iframeYoutube"
-              ></iframe>
-            </div>
-            <p className="text-align-left padding-1vw font-size-large">
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: t("VideoGamesProjects.CSharpConsole"),
-                }}
-              ></p>
-            </p>
-            <div className="btnDiscoverProject">
-              <a
-                href="https://github.com/PoloBongo/Projet9---CSharp"
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: "block",
-                  opacity: "1",
-                  overflow: "hidden",
-                  transition: "all 1s ease",
-                }}
-              >
-                <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
-                  {t("VideoGamesProjects.viewMoreCode")}
-                </button>
-              </a>
-            </div>
-          </div>
-          <div
-            className="marge-contact-play modernEnvelop flex-column-center"
-            id="blur"
-          >
-            <div className="sizeIconCPlus flexIMG">
-              <h3 className="Home width">Shoot-Em-Up</h3>
-            </div>
-            <div className="flexIMG width">
-              <iframe
-                src="https://www.youtube.com/embed/r-x6qlMXgxo"
-                title="youtubeVideoPresentation"
-                frameBorder="0"
-                width="560"
-                height="315"
-                allowFullScreen
-                className="iframeYoutube"
-              ></iframe>
-            </div>
-            <p className="text-align-left padding-1vw font-size-large">
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: t("VideoGamesProjects.shootEmUp"),
-                }}
-              ></p>
-            </p>
-            <div className="btnDiscoverProject">
-              <a
-                href="https://github.com/PoloBongo/Shoot-Em-Up"
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: "block",
-                  opacity: "1",
-                  overflow: "hidden",
-                  transition: "all 1s ease",
-                }}
-              >
-                <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
-                  {t("VideoGamesProjects.viewMoreCode")}
-                </button>
-              </a>
-            </div>
-          </div>
-          <div
-            className="marge-contact-play modernEnvelop flex-column-center"
-            id="blur"
-          >
-            <div className="sizeIconCPlus flexIMG">
-              <h3 className="Home width">Projets LUA</h3>
-            </div>
-            <div className="flexIMG width">
-              <img
-                src={backgroundProjectLUA}
-                loading="lazy"
-                alt="Shoot-Em-Up Thème Futuriste"
-                className="sizeProjectIMG"
-              ></img>
-            </div>
-            <p className="text-align-left padding-1vw font-size-large pDescription fontsLight">
-              {t("VideoGamesProjects.luaPart1")}
-              <a
-                href="https://www.youtube.com/@Polo_Leaks"
-                className="link-navbar fontsRegular underline bold"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Polo Leaks
-              </a>
-              {t("VideoGamesProjects.luaPart2")}
-            </p>
-            <div className="btnDiscoverProject">
-              <a
-                href="https://github.com/PoloBongo/ExampleScriptsLua"
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: "block",
-                  opacity: "1",
-                  overflow: "hidden",
-                  transition: "all 1s ease",
-                }}
-              >
-                <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
-                  {t("VideoGamesProjects.viewMoreCode")}
-                </button>
-              </a>
+            <div
+              className="marge-contact-play modernEnvelop flex-column-center"
+              id="blur"
+            >
+              <div className="sizeIconCPlus flexIMG">
+                <h3 className="Home width">Projets LUA</h3>
+              </div>
+              <div className="flexIMG width">
+                <img
+                  src={backgroundProjectLUA}
+                  loading="lazy"
+                  alt="Shoot-Em-Up Thème Futuriste"
+                  className="sizeProjectIMG"
+                ></img>
+              </div>
+              <p className="text-align-left padding-1vw font-size-large pDescription fontsLight">
+                {t("VideoGamesProjects.luaPart1")}
+                <a
+                  href="https://www.youtube.com/@Polo_Leaks"
+                  className="link-navbar fontsRegular underline bold"
+                  target="_blank"
+                  rel="noreferrer"
+                  tabIndex={7}
+                >
+                  Polo Leaks
+                </a>
+                {t("VideoGamesProjects.luaPart2")}
+              </p>
+              <div className="btnDiscoverProject">
+                <a
+                  href="https://github.com/PoloBongo/ExampleScriptsLua"
+                  target="_blank"
+                  rel="noreferrer"
+                  tabIndex={8}
+                  style={{
+                    display: "block",
+                    opacity: "1",
+                    overflow: "hidden",
+                    transition: "all 1s ease",
+                  }}
+                >
+                  <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
+                    {t("VideoGamesProjects.viewMoreCode")}
+                  </button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </FocusLoop>
     </div>
   );
 };
