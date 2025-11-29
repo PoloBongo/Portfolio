@@ -761,7 +761,6 @@ textarea {
   background: rgba(188, 99, 255, 1);
   color: black;
   border: none;
-  outline: none;
   font-family: pokemonFont;
   font-weight: bold;
   z-index: 1;
@@ -1496,4 +1495,9 @@ button::placeholder {
 
 .navbar-link:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+:focus {
+  outline: 3px solid #bc63ff;
+  outline-offset: 4px;
 }
