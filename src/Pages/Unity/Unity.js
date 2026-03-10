@@ -239,23 +239,25 @@ const UnityT = ({ t }) => {
                     ? t("VideoGamesProjects.playVideo")
                     : t("VideoGamesProjects.stopVideo")}
                 </button>
+                <span className="marge-contact-play"></span>
                 <a
                   href="https://github.com/GamingCampus-MillieBourgois-24-25/grand-projet-commun-depths-of-hue"
                   target="_blank"
                   rel="noreferrer"
                   tabIndex={2}
                 >
-                  <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("VideoGamesProjects.viewMoreCode")}
                   </button>
                 </a>
+                <span className="marge-contact-play"></span>
                 <a
                   href="https://arthur-bru.itch.io/depths-of-hue"
                   target="_blank"
                   rel="noreferrer"
                   tabIndex={3}
                 >
-                  <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("VideoGamesProjects.viewMoreGame")}
                   </button>
                 </a>
@@ -349,15 +351,6 @@ const UnityT = ({ t }) => {
             <div className="marge-contact-play modernEnvelop" id="blur">
               <div className="sizeIconCPlus flexIMG">
                 <h3 className="Home width">{t("Unity.RATP.Title")}</h3>
-                <div className="width flex-end">
-                  <FontAwesomeIcon
-                    icon={faCircle}
-                    beatFade
-                    style={{ color: "#63E6BE" }}
-                    className="removeMargin"
-                  />
-                  <h4 className="Home">{t("Unity.RATP.InProgress")}</h4>
-                </div>
               </div>
 
               <div className="flexIMG width">
@@ -523,6 +516,7 @@ const UnityT = ({ t }) => {
                     ? t("VideoGamesProjects.playProjects")
                     : t("VideoGamesProjects.stopProjects")}
                 </button>
+                <span className="marge-contact-play"></span>
                 <button
                   style={{
                     display: showUnityPlayAngryBirdsBool ? "none" : "block",
@@ -532,7 +526,7 @@ const UnityT = ({ t }) => {
                   }}
                   onClick={handleClickEnterFullscreenAngryBirds}
                   tabIndex={7}
-                  className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn"
+                  className="btnStyleDiscoverProject fontsBold responsive-text-btn"
                 >
                   {t("VideoGamesProjects.fullScreenGame")}
                 </button>
@@ -548,7 +542,7 @@ const UnityT = ({ t }) => {
                     transition: "all 1s ease",
                   }}
                 >
-                  <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("VideoGamesProjects.viewMoreCode")}
                   </button>
                 </a>
@@ -673,6 +667,7 @@ const UnityT = ({ t }) => {
                 >
                   {t("VideoGamesProjects.fullScreenGame")}
                 </button>
+                <span className="marge-contact-play"></span>
                 <a
                   href="https://github.com/PoloBongo/UICookProject"
                   target="_blank"
@@ -685,7 +680,7 @@ const UnityT = ({ t }) => {
                     transition: "all 1s ease",
                   }}
                 >
-                  <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("VideoGamesProjects.viewMoreCode")}
                   </button>
                 </a>
@@ -772,6 +767,7 @@ const UnityT = ({ t }) => {
                     {t("VideoGamesProjects.viewMoreGame")}
                   </button>
                 </a>
+                <span className="marge-contact-play"></span>
                 <a
                   href="https://github.com/PoloBongo/NavyBongo"
                   target="_blank"
@@ -784,7 +780,7 @@ const UnityT = ({ t }) => {
                     transition: "all 1s ease",
                   }}
                 >
-                  <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("VideoGamesProjects.viewMoreCode")}
                   </button>
                 </a>
@@ -906,6 +902,7 @@ const UnityT = ({ t }) => {
                     ? t("VideoGamesProjects.playProjects")
                     : t("VideoGamesProjects.stopProjects")}
                 </button>
+                <span className="marge-contact-play"></span>
                 <a
                   href="https://p0izon.itch.io/fou2foot"
                   target="_blank"
@@ -918,7 +915,7 @@ const UnityT = ({ t }) => {
                     transition: "all 1s ease",
                   }}
                 >
-                  <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("VideoGamesProjects.viewMoreGame")}
                   </button>
                 </a>

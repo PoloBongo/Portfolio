@@ -266,15 +266,14 @@
     },
     "RATP": {
       "Title": "RATP Maintenance Challenge",
-      "InProgress": "Projet en cours",
       "Description": "Un projet professionnel en collaboration avec la RATP et mon école, pour lequel j'ai eu l'opportunité d'être sélectionné. L'objectif est de promouvoir, à travers le jeu vidéo, les métiers méconnus de la RATP. Grâce à la gamification, nous sommes en train de créer une scène de station dynamique et réaliste, où le but du jeu sera de réparer des systèmes défectueux.",
       "LearnMore": "En savoir plus",
       "Langage": "C#",
-      "ToolsUsed": "Projet en cours",
-      "Duration": "Projet en cours",
+      "ToolsUsed": "Unity, Animator, IA, Cinemachine, NavMesh, Design Patterns",
+      "Duration": "3 mois",
       "Completion": "2025",
       "TeamSize": "6",
-      "Role": "Projet en cours"
+      "Role": "Système de foule dans les gares, animation des métros, IA (Pathfinding & gestion des états)"
     },
     "DepthsOfHue": {
       "Description": "Projet de fin de Bachelor durant lequel nous avons conçu *Depths of Hue*, un jeu d'énigmes se déroulant dans un univers sous-marin immersif. Le joueur y incarne un personnage accompagné d'un compagnon, explorant un monde vibrant d'énigme à résoudre et d'exploration. <br><br>Pitch du jeu : Depth of Hue est un jeu mobile narratif de réflexion dans lequel la résolution d'énigmes permet aux joueurs d'explorer les souvenirs fragmentés du personnage principal, qui tente de retrouver la mémoire perdue. À mesure que les joueurs progressent dans les énigmes, ils reconstituent progressivement une histoire profonde et émouvante.",

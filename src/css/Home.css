@@ -362,6 +362,17 @@
   margin: 5px 30px 50px;
 }
 
+.rectangleToolWithoutMargin {
+  position: relative;
+  padding: 15px 50px 15px 25px;
+  background-color: #282c34;
+  border-radius: 4%;
+}
+
+.rectangleToolMargin {
+  margin: 5px 30px 50px;
+}
+
 .iconSpace,
 .iconSpace2 {
   margin-right: 10px;

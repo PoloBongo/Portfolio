@@ -98,17 +98,18 @@ const ProjectsWebT = ({ t }) => {
                   rel="noreferrer"
                   tabIndex={1}
                 >
-                  <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("VideoGamesProjects.viewMoreCode")}
                   </button>
                 </a>
+                <span className="marge-contact-play"></span>
                 <a
                   href="https://www.celticlarichebasket.fr/"
                   target="_blank"
                   rel="noreferrer"
                   tabIndex={2}
                 >
-                  <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("WebProjects.aboutWebsite")}
                   </button>
                 </a>
@@ -187,13 +188,14 @@ const ProjectsWebT = ({ t }) => {
                     {t("VideoGamesProjects.viewMoreCode")}
                   </button>
                 </a>
+                <span className="marge-contact-play"></span>
                 <a
                   href="https://polobongo.github.io/VueJS_MeteoDashboard/"
                   target="_blank"
                   rel="noreferrer"
                   tabIndex={4}
                 >
-                  <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("WebProjects.aboutWebsite")}
                   </button>
                 </a>
@@ -271,13 +273,14 @@ const ProjectsWebT = ({ t }) => {
                     {t("VideoGamesProjects.viewMoreCode")}
                   </button>
                 </a>
+                <span className="marge-contact-play"></span>
                 <a
                   href="https://next-js-articles-auth-cms-c5vo.vercel.app/"
                   target="_blank"
                   rel="noreferrer"
                   tabIndex={6}
                 >
-                  <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("WebProjects.aboutWebsite")}
                   </button>
                 </a>

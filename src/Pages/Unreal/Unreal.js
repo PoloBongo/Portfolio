@@ -102,13 +102,14 @@ const UnrealT = ({ t }) => {
                       {t("VideoGamesProjects.viewMoreGame")}
                     </button>
                   </a>
+                  <span className="marge-contact-play"></span>
                   <a
                     href="https://github.com/PoloBongo/Funfair_UE5"
                     target="_blank"
                     rel="noreferrer"
                     tabIndex={2}
                   >
-                    <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                    <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                       {t("VideoGamesProjects.viewMoreCode")}
                     </button>
                   </a>

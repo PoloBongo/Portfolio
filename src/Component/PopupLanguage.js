@@ -121,11 +121,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
   return (
     <div className="rectangleGlobal">
       <button
-        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 1 || 0}
         onClick={() => navigateIntoPage("/Unity")}
       >
-        <div className="rectangleTool surbrillance" id="blur">
+        <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
             <img
               src={imgUnityIcon}
@@ -191,11 +191,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
         </div>
       </div>
       <button
-        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 3 || 0}
         onClick={() => navigateIntoPage("/ProjectsWeb#VueJs")}
       >
-        <div className="rectangleTool surbrillance" id="blur">
+        <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
             <img
               src={imgVueJsLangage}
@@ -207,11 +207,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
         </div>
       </button>
       <button
-        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 4 || 0}
         onClick={() => navigateIntoPage("/ProjectsWeb#NextJs")}
       >
-        <div className="rectangleTool surbrillance" id="blur">
+        <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
             <img
               src={imgNextJsLangage}
@@ -223,11 +223,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
         </div>
       </button>
       <button
-        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 5 || 0}
         onClick={() => navigateIntoPage("/ProjectsWeb#VueJs")}
       >
-        <div className="rectangleTool surbrillance" id="blur">
+        <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
             <img
               src={imgChartJsLangage}
@@ -249,11 +249,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
         </div>
       </div>
       <button
-        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 6 || 0}
         onClick={() => navigateIntoPage("/ProjectsVideosGames#Cpp")}
       >
-        <div className="rectangleTool surbrillance" id="blur">
+        <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
             <img
               src={imgCPlusLangage}
@@ -265,11 +265,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
         </div>
       </button>
       <button
-        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 7 || 0}
         onClick={() => navigateIntoPage("/ProjectsVideosGames#CSharp")}
       >
-        <div className="rectangleTool surbrillance" id="blur">
+        <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
             <img
               src={imgCSharpLangage}
@@ -281,11 +281,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
         </div>
       </button>
       <button
-        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 8 || 0}
         onClick={() => navigateIntoPage("/ProjectsWeb")}
       >
-        <div className="rectangleTool surbrillance" id="blur">
+        <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
             <FontAwesomeIcon
               icon={faPhp}
@@ -297,11 +297,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
         </div>
       </button>
       <button
-        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 9 || 0}
         onClick={() => navigateIntoPage("/ProjectsWeb")}
       >
-        <div className="rectangleTool surbrillance" id="blur">
+        <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
             <FontAwesomeIcon
               icon={faJs}
@@ -313,11 +313,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
         </div>
       </button>
       <button
-        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 10 || 0}
         onClick={() => navigateIntoPage("/ProjectsWeb")}
       >
-        <div className="rectangleTool fontsRegular surbrillance" id="blur">
+        <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
             <FontAwesomeIcon
               icon={faHtml5}
@@ -329,11 +329,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
         </div>
       </button>
       <button
-        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 11 || 0}
         onClick={() => navigateIntoPage("/ProjectsWeb")}
       >
-        <div className="rectangleTool fontsRegular surbrillance" id="blur">
+        <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
             <FontAwesomeIcon
               icon={faCss3Alt}
@@ -433,11 +433,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
         </div>
       </div>
       <button
-        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 14 || 0}
         onClick={() => navigateIntoPage("/ProjectsWeb")}
       >
-        <div className="rectangleTool fontsRegular surbrillance" id="blur">
+        <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
             <FontAwesomeIcon
               icon={faBootstrap}
@@ -449,11 +449,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
         </div>
       </button>
       <button
-        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 15 || 0}
         onClick={() => navigateIntoPage("/ProjectsVideosGames#Python")}
       >
-        <div className="rectangleTool fontsRegular surbrillance" id="blur">
+        <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
             <img
               src={imgPythonIcon}
@@ -475,11 +475,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
         </div>
       </div>
       <button
-        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 16 || 0}
         onClick={() => navigateIntoPage("/ProjectsVideosGames#LUA")}
       >
-        <div className="rectangleTool fontsRegular surbrillance" id="blur">
+        <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
           <div className="sizeIconCPlus">
             <img
               src={imgLuaLangage}
@@ -491,11 +491,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
         </div>
       </button>
       <button
-        className="noColor fontsRegular btnNavbar submitForm navbar-font"
+        className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 17 || 0}
         onClick={() => navigateIntoPage("/ProjectsVideosGames#LUA")}
       >
-        <div className="rectangleTool fontsRegular surbrillance" id="blur">
+        <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
           <div className="sizeIconCPlus">
             <img
               src={imgTypeScriptIcon}

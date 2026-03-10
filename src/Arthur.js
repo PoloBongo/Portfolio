@@ -133,10 +133,10 @@ const HomeT = ({ t }) => {
                                 <FontAwesomeIcon
                                   icon={faLinkedin}
                                   color="#bc63ff"
-                                  className="iconLinkedin"
                                   size="xl"
                                 />
                               </a>
+                              <span className="iconLinkedin"></span>
                               <a
                                 href="https://github.com/PoloBongo"
                                 target="_blank"

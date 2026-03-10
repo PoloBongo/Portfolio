@@ -363,6 +363,7 @@ const GameJamT = ({ t }) => {
                     ? t("VideoGamesProjects.playProjects")
                     : t("VideoGamesProjects.stopProjects")}
                 </button>
+                <span className="marge-contact-play"></span>
                 <a
                   href="https://github.com/PoloBongo/AttractionFlow"
                   target="_blank"
@@ -375,7 +376,7 @@ const GameJamT = ({ t }) => {
                     transition: "all 1s ease",
                   }}
                 >
-                  <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("VideoGamesProjects.viewMoreCode")}
                   </button>
                 </a>
@@ -488,6 +489,7 @@ const GameJamT = ({ t }) => {
                     ? t("VideoGamesProjects.playProjects")
                     : t("VideoGamesProjects.stopProjects")}
                 </button>
+                <span className="marge-contact-play"></span>
                 <a
                   href="https://github.com/PoloBongo/Meta_GTech"
                   target="_blank"
@@ -500,7 +502,7 @@ const GameJamT = ({ t }) => {
                     transition: "all 1s ease",
                   }}
                 >
-                  <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("VideoGamesProjects.viewMoreCode")}
                   </button>
                 </a>
@@ -601,6 +603,7 @@ const GameJamT = ({ t }) => {
                     ? t("VideoGamesProjects.playProjects")
                     : t("VideoGamesProjects.stopProjects")}
                 </button>
+                <span className="marge-contact-play"></span>
                 <a
                   href="https://github.com/DemonXlegenD/Chocoblast"
                   target="_blank"
@@ -613,7 +616,7 @@ const GameJamT = ({ t }) => {
                     transition: "all 1s ease",
                   }}
                 >
-                  <button className="btnStyleDiscoverProject fontsBold marge-contact-play responsive-text-btn">
+                  <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("VideoGamesProjects.viewMoreCode")}
                   </button>
                 </a>
