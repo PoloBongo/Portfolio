@@ -11,7 +11,7 @@ import FocusLoop from "./Component/FocusLoop.js";
 import imgProgrammer from "./img/programmer.svg";
 
 // Balise React
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 
 // Tout les imports d'icon / logo / images
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -73,15 +73,17 @@ const HomeT = ({ t }) => {
   }, [fade]);
 
   return (
-    <HelmetProvider>
-      <div className="Home">
+    <div className="Home">
         <SpeedInsights />
         <Helmet>
-          <title>Arthur Portfolio G.Tech</title>
+          <title>Portfolio - Arthur BRU | Développeur Web &amp; Jeu Vidéo</title>
           <meta
             name="description"
-            content="Présentation de Arthur en détail avec mes compétences, skills et passions. Gaming Campus, G.Tech"
+            content="Portfolio d'Arthur BRU, développeur Web &amp; Jeu Vidéo. Bachelor en développement informatique option jeu vidéo. Compétences en Unity, Unreal Engine, C++, React."
           />
+          <meta property="og:title" content="Portfolio - Arthur BRU | Développeur Web &amp; Jeu Vidéo" />
+          <meta property="og:description" content="Portfolio d'Arthur BRU, développeur Web &amp; Jeu Vidéo. Découvrez mes projets Unity, Unreal Engine, Game Jam et web." />
+          <meta property="og:url" content="https://www.arthur-portfolio.dev/" />
         </Helmet>
         {loading && sessionStorage.getItem("AntiPikachu") === null ? (
           <Load />
@@ -181,7 +183,6 @@ const HomeT = ({ t }) => {
           </header>
         )}
       </div>
-    </HelmetProvider>
   );
 };
 

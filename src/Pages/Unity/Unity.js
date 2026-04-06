@@ -1,6 +1,7 @@
 import "../../css/Home.css";
 import React, { Suspense, useState, Fragment, useEffect } from "react";
 import Navbar from "../../Component/Navbar.js";
+import { Helmet } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -127,6 +128,14 @@ const UnityT = ({ t }) => {
 
   return (
     <div className="Home-header overflowHidden fontsRegular">
+      <Helmet>
+        <title>{t("Unity.Title")} - Arthur BRU</title>
+        <meta name="description" content="Découvrez mes projets Unity en C# : Depths of Hue, ShadowScholar, RATP, NavyBongo, AngryBirds et plus. Certains jeux sont jouables directement dans le navigateur." />
+        <link rel="canonical" href="https://www.arthur-portfolio.dev/Unity" />
+        <meta property="og:title" content="Projets Unity - Arthur BRU" />
+        <meta property="og:description" content="Projets Unity en C# : Depths of Hue, ShadowScholar, RATP, NavyBongo. Jeux jouables dans le navigateur." />
+        <meta property="og:url" content="https://www.arthur-portfolio.dev/Unity" />
+      </Helmet>
       <FocusLoop>
         <Navbar tabIndex={17} />
         <div className="traitSeparator" id="blur"></div>
@@ -143,9 +152,9 @@ const UnityT = ({ t }) => {
               </div>
             )}
 
-            <h3 className="fontsBold underline titleUnityPage" id="blur">
+            <h1 className="fontsBold underline titleUnityPage" id="blur">
               {t("Unity.Title")}
-            </h3>
+            </h1>
           </div>
           <div className="grid-gamejam2">
             <div className="marge-contact-play modernEnvelop" id="blur">

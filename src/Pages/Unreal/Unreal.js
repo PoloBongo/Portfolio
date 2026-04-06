@@ -1,6 +1,7 @@
 import "../../css/Home.css";
 import React, { Suspense } from "react";
 import Navbar from "../../Component/Navbar.js";
+import { Helmet } from "react-helmet-async";
 
 // Traduction
 import { Loader } from "../../Component/ComponentTraduction.js";
@@ -11,15 +12,23 @@ import FocusLoop from "../../Component/FocusLoop.js";
 const UnrealT = ({ t }) => {
   return (
     <>
+      <Helmet>
+        <title>{t("Unreal.Title")} - Arthur BRU</title>
+        <meta name="description" content="Découvrez mes projets Unreal Engine 5 : Funfair (fête foraine interactive), SpacialRace et un système d'inventaire complet en C++ et Blueprint." />
+        <link rel="canonical" href="https://www.arthur-portfolio.dev/Unreal" />
+        <meta property="og:title" content="Projets Unreal Engine - Arthur BRU" />
+        <meta property="og:description" content="Découvrez mes projets Unreal Engine 5 : Funfair, SpacialRace et un système d'inventaire en C++ et Blueprint." />
+        <meta property="og:url" content="https://www.arthur-portfolio.dev/Unreal" />
+      </Helmet>
       <div className="Home-header overflowHidden fontsRegular">
         <FocusLoop>
           <Navbar tabIndex={5} />
           <div className="traitSeparator" id="blur"></div>
           <div>
             <div className="contactMeFlex align-items-center fixBackBtnUnity">
-              <h3 className="fontsBold underline titleUnityPage" id="blur">
+              <h1 className="fontsBold underline titleUnityPage" id="blur">
                 {t("Unreal.Title")}
-              </h3>
+              </h1>
             </div>
             <div className="grid-gamejam2">
               <div

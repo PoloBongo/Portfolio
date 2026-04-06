@@ -1,6 +1,7 @@
 import "../../css/Home.css";
 import React, { Suspense } from "react";
 import Navbar from "../../Component/Navbar.js";
+import { Helmet } from "react-helmet-async";
 
 // image
 import backgroundProjectCustomEngine from "../../img/backgroundCustomEngine.webp";
@@ -15,15 +16,24 @@ import FocusLoop from "../../Component/FocusLoop.js";
 
 const JVPageT = ({ t }) => {
   return (
+    <>
+      <Helmet>
+        <title>{t("VideoGamesProjects.Title")} - Arthur BRU</title>
+        <meta name="description" content="Projets jeu vidéo d'Arthur BRU en C++, C# et LUA : moteur custom, bibliothèques, Tower Defense, Platformer 2D. Réalisés en équipe ou en solo." />
+        <link rel="canonical" href="https://www.arthur-portfolio.dev/ProjectsVideosGames" />
+        <meta property="og:title" content="Projets Jeu Vidéo - Arthur BRU" />
+        <meta property="og:description" content="Projets jeu vidéo en C++, C# et LUA : moteur custom, bibliothèques, Tower Defense, Platformer 2D." />
+        <meta property="og:url" content="https://www.arthur-portfolio.dev/ProjectsVideosGames" />
+      </Helmet>
     <div className="Home-header overflowHidden fontsRegular">
       <FocusLoop>
         <Navbar tabIndex={9} />
         <div className="traitSeparator" id="blur"></div>
         <div>
           <div className="contactMeFlex align-items-center fixBackBtnUnity">
-            <h3 className="fontsBold underline titleUnityPage" id="blur">
+            <h1 className="fontsBold underline titleUnityPage" id="blur">
               {t("VideoGamesProjects.Title")}
-            </h3>
+            </h1>
           </div>
           <div className="grid-gamejam2">
             <div
@@ -380,6 +390,7 @@ const JVPageT = ({ t }) => {
         </div>
       </FocusLoop>
     </div>
+    </>
   );
 };
 

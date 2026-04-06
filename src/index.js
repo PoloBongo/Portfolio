@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import ProjectsWeb from "./Pages/Projects/ProjectsWeb";
 import ProjectsVideosGames from "./Pages/ProjetctsJV/JVPage";
 import ContactMe from "./Pages/Projects/ContactMe";
@@ -18,13 +19,14 @@ import "./i18n";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <HelmetProvider>
     <Router>
       <Routes>
         <Route path="/arthur" element={<Arthur />} />
         <Route
           path="/"
           element={
-            <Layout canonicalUrl="https://www.arthur-portfolio.dev/arthur">
+            <Layout canonicalUrl="https://www.arthur-portfolio.dev/">
               <Arthur />
             </Layout>
           }
@@ -38,6 +40,7 @@ root.render(
         <Route path="/contactMe" element={<ContactMe />} />
       </Routes>
     </Router>
+    </HelmetProvider>
   </React.StrictMode>
 );
 

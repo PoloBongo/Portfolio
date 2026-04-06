@@ -1,6 +1,7 @@
 import "../../css/Home.css";
 import React, { Suspense, useEffect } from "react";
 import Navbar from "../../Component/Navbar.js";
+import { Helmet } from "react-helmet-async";
 
 // image
 import backgroundPortfolio from "../../img/backgroundReactPortfolio.webp";
@@ -25,14 +26,22 @@ const ProjectsWebT = ({ t }) => {
   }, []);
   return (
     <div className="Home-header overflowHidden fontsRegular">
+      <Helmet>
+        <title>{t("WebProjects.Title")} - Arthur BRU</title>
+        <meta name="description" content="Projets web d'Arthur BRU : site associatif, CMS Next.js, dashboard météo Vue.js, page de paiement Stripe, e-commerce PHP. React, TypeScript, MySQL." />
+        <link rel="canonical" href="https://www.arthur-portfolio.dev/ProjectsWeb" />
+        <meta property="og:title" content="Projets Web - Arthur BRU" />
+        <meta property="og:description" content="Projets web en React, Next.js, Vue.js, PHP : site associatif, CMS, page de paiement Stripe, dashboard météo." />
+        <meta property="og:url" content="https://www.arthur-portfolio.dev/ProjectsWeb" />
+      </Helmet>
       <FocusLoop>
         <Navbar tabIndex={14} />
         <div className="traitSeparator" id="blur"></div>
         <div>
           <div className="contactMeFlex align-items-center fixBackBtnUnity">
-            <h3 className="fontsBold underline titleUnityPage" id="blur">
+            <h1 className="fontsBold underline titleUnityPage" id="blur">
               {t("WebProjects.Title")}
-            </h3>
+            </h1>
           </div>
           <div className="grid-gamejam2">
             <div className="marge-contact-play modernEnvelop" id="blur">

@@ -1,6 +1,7 @@
 import "../../css/Home.css";
 import React, { Suspense, useState, useRef, useEffect, Fragment } from "react";
 import Navbar from "../../Component/Navbar.js";
+import { Helmet } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -246,14 +247,22 @@ const GameJamT = ({ t }) => {
 
   return (
     <div className="Home-header overflowHidden fontsRegular">
+      <Helmet>
+        <title>{t("GameJam.Title")} - Arthur BRU</title>
+        <meta name="description" content="Découvrez mes participations aux Game Jam : Chocolato, StaySoul et AttractionFlow — des jeux créés en 42 à 48 heures avec Unity, jouables dans le navigateur." />
+        <link rel="canonical" href="https://www.arthur-portfolio.dev/GameJam" />
+        <meta property="og:title" content="Game Jam - Arthur BRU" />
+        <meta property="og:description" content="Jeux de Game Jam créés en 42 à 48 heures avec Unity : Chocolato, StaySoul et AttractionFlow." />
+        <meta property="og:url" content="https://www.arthur-portfolio.dev/GameJam" />
+      </Helmet>
       <FocusLoop>
         <Navbar tabIndex={10} />
         <div className="traitSeparator" id="blur"></div>
         <div>
           <div className="contactMeFlex">
-            <h3 className="fontsBold underline" id="blur">
+            <h1 className="fontsBold underline" id="blur">
               {t("GameJam.Title")}
-            </h3>
+            </h1>
           </div>
           <div className="grid-gamejam">
             <div

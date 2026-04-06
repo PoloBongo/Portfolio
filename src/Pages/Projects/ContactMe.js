@@ -1,6 +1,7 @@
 import { Suspense, useState } from "react";
 import "../../css/Home.css";
 import Navbar from "../../Component/Navbar";
+import { Helmet } from "react-helmet-async";
 import emailjs from "emailjs-com";
 import pikachuForm from "../../img/pikachuForm.webp";
 
@@ -69,12 +70,20 @@ const ContactMeT = ({ t }) => {
 
   return (
     <div className="Home-header overflowHidden">
+      <Helmet>
+        <title>{t("ContactMe.title")} - Arthur BRU</title>
+        <meta name="description" content="Contactez Arthur BRU, développeur Web &amp; Jeu Vidéo. Envoyez-moi un message directement via ce formulaire de contact." />
+        <link rel="canonical" href="https://www.arthur-portfolio.dev/contactMe" />
+        <meta property="og:title" content="Contact - Arthur BRU" />
+        <meta property="og:description" content="Contactez Arthur BRU, développeur Web &amp; Jeu Vidéo." />
+        <meta property="og:url" content="https://www.arthur-portfolio.dev/contactMe" />
+      </Helmet>
       <FocusLoop>
         <Navbar tabIndex={6} />
         <div className="traitSeparator"></div>
         <div className="align-form-contact">
           <div className="contactMeFlex">
-            <h3 className="fontsBold">{t("ContactMe.title")}</h3>
+            <h1 className="fontsBold">{t("ContactMe.title")}</h1>
           </div>
           <div className="flex-contact">
             <div className="separatorContact"></div>

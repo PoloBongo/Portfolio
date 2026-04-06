@@ -1,16 +1,14 @@
 import React from "react";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 
 const Layout = ({ canonicalUrl, children }) => {
   return (
-    <HelmetProvider>
-      <div>
-        <Helmet>
-          {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-        </Helmet>
-        {children}
-      </div>
-    </HelmetProvider>
+    <>
+      <Helmet>
+        {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+      </Helmet>
+      {children}
+    </>
   );
 };
 

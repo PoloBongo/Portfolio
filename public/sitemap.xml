@@ -4,105 +4,62 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- Sitemap généré pour arthur-portfolio.dev -->
+<!-- Sitemap généré pour www.arthur-portfolio.dev -->
 
 <url>
-  <loc>https://arthur-portfolio.dev/</loc>
-  <lastmod>2024-12-24T15:34:25+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>1.0</priority>
-</url>
-
-<url>
-  <loc>https://arthur-portfolio.dev/arthur</loc>
-  <lastmod>2024-12-20T12:00:00+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>1.0</priority>
-</url>
-
-<url>
-  <loc>https://arthur-portfolio.dev/Gamejam</loc>
-  <lastmod>2024-12-15T08:00:00+00:00</lastmod>
-  <changefreq>daily</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://arthur-portfolio.dev/Unity</loc>
-  <lastmod>2024-12-15T08:00:00+00:00</lastmod>
-  <changefreq>daily</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://arthur-portfolio.dev/Unreal</loc>
-  <lastmod>2024-12-15T08:00:00+00:00</lastmod>
-  <changefreq>daily</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://arthur-portfolio.dev/ProjectsVideosGames</loc>
-  <lastmod>2024-12-15T08:00:00+00:00</lastmod>
-  <changefreq>daily</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://arthur-portfolio.dev/contactme</loc>
-  <lastmod>2024-12-15T08:00:00+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.5</priority>
-</url>
-
-<url>
-  <loc>https://arthur-portfolio.dev/ProjectsWeb</loc>
-  <lastmod>2024-12-15T08:00:00+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.5</priority>
-</url>
-
-<url>
-  <loc>https://arthur-portfolio.dev/Incoming</loc>
-  <lastmod>2024-12-15T08:00:00+00:00</lastmod>
+  <loc>https://www.arthur-portfolio.dev/</loc>
+  <lastmod>2026-04-06T00:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
-  <priority>0.4</priority>
-</url>
-
-<url>
-  <loc>https://www.arthur-portfolio.dev/arthur</loc>
-  <lastmod>2025-11-29T15:34:25+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>1.0</priority>
-</url>
-
-<url>
-  <loc>https://www.arthur-portfolio.dev/Unreal</loc>
-  <lastmod>2025-11-29T15:34:25+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>1.0</priority>
-</url>
-
-<url>
-  <loc>https://www.arthur-portfolio.dev/ProjectsVideosGames</loc>
-  <lastmod>2025-11-29T15:34:25+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>1.0</priority>
-</url>
-
-<url>
-  <loc>https://www.arthur-portfolio.dev/contactme</loc>
-  <lastmod>2025-11-29T15:34:25+00:00</lastmod>
-  <changefreq>weekly</changefreq>
   <priority>1.0</priority>
 </url>
 
 <url>
   <loc>https://www.arthur-portfolio.dev/Unity</loc>
-  <lastmod>2025-11-29T15:34:25+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>1.0</priority>
+  <lastmod>2026-04-06T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
 </url>
 
+<url>
+  <loc>https://www.arthur-portfolio.dev/Unreal</loc>
+  <lastmod>2026-04-06T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://www.arthur-portfolio.dev/GameJam</loc>
+  <lastmod>2026-04-06T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://www.arthur-portfolio.dev/ProjectsVideosGames</loc>
+  <lastmod>2026-04-06T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<url>
+  <loc>https://www.arthur-portfolio.dev/ProjectsWeb</loc>
+  <lastmod>2026-04-06T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<url>
+  <loc>https://www.arthur-portfolio.dev/contactMe</loc>
+  <lastmod>2026-04-06T00:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.5</priority>
+</url>
+
+<url>
+  <loc>https://www.arthur-portfolio.dev/Incoming</loc>
+  <lastmod>2026-04-06T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.4</priority>
+</url>
 
 </urlset>

@@ -1,6 +1,7 @@
 import "../../css/Home.css";
 import React, { Suspense } from "react";
 import Navbar from "../../Component/Navbar.js";
+import { Helmet } from "react-helmet-async";
 
 // Icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,6 +17,14 @@ import { withTranslation } from "react-i18next";
 const IncomingT = ({ t }) => {
   return (
     <div className="Home-header overflowHidden">
+      <Helmet>
+        <title>Mon programme de cours - Arthur BRU</title>
+        <meta name="description" content="Programme de Master d'Arthur BRU en développement jeu vidéo : C++ avancé, Unity, Unreal Engine, shaders, physique avancée, IA et gestion de production." />
+        <link rel="canonical" href="https://www.arthur-portfolio.dev/Incoming" />
+        <meta property="og:title" content="Mon programme de cours - Arthur BRU" />
+        <meta property="og:description" content="Programme de Master en développement jeu vidéo : C++, Unity, Unreal Engine, shaders, IA et gestion de production." />
+        <meta property="og:url" content="https://www.arthur-portfolio.dev/Incoming" />
+      </Helmet>
       <Navbar />
       <div className="traitSeparator" id="blur"></div>
       <div>
