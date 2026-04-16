@@ -132,9 +132,79 @@ const UnityT = ({ t }) => {
         <title>{t("Unity.Title")} - Arthur BRU</title>
         <meta name="description" content="Découvrez mes projets Unity en C# : Depths of Hue, ShadowScholar, RATP, NavyBongo, AngryBirds et plus. Certains jeux sont jouables directement dans le navigateur." />
         <link rel="canonical" href="https://www.arthur-portfolio.dev/Unity" />
+        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/Unity" />
+        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/Unity" />
+        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/Unity" />
+        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/Unity" />
         <meta property="og:title" content="Projets Unity - Arthur BRU" />
         <meta property="og:description" content="Projets Unity en C# : Depths of Hue, ShadowScholar, RATP, NavyBongo. Jeux jouables dans le navigateur." />
         <meta property="og:url" content="https://www.arthur-portfolio.dev/Unity" />
+        <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Projets Unity - Arthur BRU" />
+        <meta name="twitter:description" content="Projets Unity en C# : Depths of Hue, ShadowScholar, RATP, NavyBongo. Jeux jouables dans le navigateur." />
+        <meta name="twitter:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
+        <script type="application/ld+json">{`{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "name": "Projets Unity - Arthur BRU",
+              "url": "https://www.arthur-portfolio.dev/Unity",
+              "description": "Projets Unity en C# : Depths of Hue, ShadowScholar, RATP, NavyBongo, AngryBirds. Jeux jouables dans le navigateur.",
+              "author": { "@type": "Person", "name": "Arthur BRU" }
+            },
+            {
+              "@type": "VideoGame",
+              "name": "Depths Of Hue",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "gamePlatform": "Unity WebGL",
+              "applicationCategory": "Game"
+            },
+            {
+              "@type": "VideoGame",
+              "name": "Shadow Scholar : La fac ultime",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "gamePlatform": "Unity WebGL",
+              "applicationCategory": "Game"
+            },
+            {
+              "@type": "VideoGame",
+              "name": "RATP Simulator",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "gamePlatform": "Unity WebGL",
+              "applicationCategory": "Game"
+            },
+            {
+              "@type": "VideoGame",
+              "name": "Angry Birds",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "gamePlatform": "Unity WebGL",
+              "applicationCategory": "Game"
+            },
+            {
+              "@type": "VideoGame",
+              "name": "UI UX Cooking Project",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "gamePlatform": "Unity WebGL",
+              "applicationCategory": "Game"
+            },
+            {
+              "@type": "VideoGame",
+              "name": "Navy Bongo",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "gamePlatform": "Unity WebGL",
+              "applicationCategory": "Game"
+            },
+            {
+              "@type": "VideoGame",
+              "name": "Unity RL",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "gamePlatform": "Unity WebGL",
+              "applicationCategory": "Game"
+            }
+          ]
+        }`}</script>
       </Helmet>
       <FocusLoop>
         <Navbar tabIndex={17} />
@@ -172,6 +242,7 @@ const UnityT = ({ t }) => {
                   src={backgroundDepthsOfHue}
                   alt="Depths Of Hue Game"
                   className="sizeProjectIMGDepthsOfHue"
+                  loading="lazy"
                 ></img>
               </div>
               {!showUnityPlayDepthsOfHueBool && (
@@ -367,6 +438,7 @@ const UnityT = ({ t }) => {
                   src={backgroundRATP}
                   alt="RATP Game"
                   className="sizeProjectIMG imgGameJam"
+                  loading="lazy"
                 ></img>
               </div>
               <p className="text-align-left padding-1vw font-size-large">
@@ -448,6 +520,7 @@ const UnityT = ({ t }) => {
                   src={backgroundAngryBirds}
                   alt="Angry Birds Game"
                   className="sizeProjectIMG imgGameJam"
+                  loading="lazy"
                 ></img>
               </div>
               <Fragment>
@@ -586,6 +659,7 @@ const UnityT = ({ t }) => {
                   src={backgroundUIUXCook}
                   alt="UI UX Cooking Game"
                   className="sizeProjectIMG imgGameJam"
+                  loading="lazy"
                 ></img>
               </div>
               <Fragment>
@@ -824,6 +898,7 @@ const UnityT = ({ t }) => {
                   src={backgroundUnityRL}
                   alt="Unity RL Game"
                   className="sizeProjectIMG imgGameJam"
+                  loading="lazy"
                 ></img>
               </div>
               <Fragment>

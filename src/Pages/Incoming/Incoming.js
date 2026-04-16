@@ -56,6 +56,7 @@ const IncomingT = ({ t }) => {
                 src={backgroundGamingCampus}
                 alt="Choco Blast Menu Principal"
                 className="sizeProjectIMG imgGameJam"
+                loading="lazy"
               ></img>
             </div>
             <div className="overflow-y-incomming">

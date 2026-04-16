@@ -47,7 +47,7 @@ const HomeT = ({ t }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 2950);
+    }, 1500);
 
     return () => {
       clearTimeout(timeout);
@@ -58,7 +58,7 @@ const HomeT = ({ t }) => {
     if (!loading) {
       setTimeout(() => {
         setFade(false);
-      }, 1500);
+      }, 800);
     }
   }, [loading]);
 
@@ -81,9 +81,26 @@ const HomeT = ({ t }) => {
             name="description"
             content="Portfolio d'Arthur BRU, développeur Web &amp; Jeu Vidéo. Bachelor en développement informatique option jeu vidéo. Compétences en Unity, Unreal Engine, C++, React."
           />
+          <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/" />
+          <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/" />
+          <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/" />
+          <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/" />
           <meta property="og:title" content="Portfolio - Arthur BRU | Développeur Web &amp; Jeu Vidéo" />
           <meta property="og:description" content="Portfolio d'Arthur BRU, développeur Web &amp; Jeu Vidéo. Découvrez mes projets Unity, Unreal Engine, Game Jam et web." />
           <meta property="og:url" content="https://www.arthur-portfolio.dev/" />
+          <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:title" content="Portfolio - Arthur BRU | Développeur Web &amp; Jeu Vidéo" />
+          <meta name="twitter:description" content="Portfolio d'Arthur BRU, développeur Web &amp; Jeu Vidéo. Découvrez mes projets Unity, Unreal Engine, Game Jam et web." />
+          <meta name="twitter:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
+          <script type="application/ld+json">{`{
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Portfolio - Arthur BRU | Développeur Web & Jeu Vidéo",
+            "url": "https://www.arthur-portfolio.dev/",
+            "description": "Portfolio d'Arthur BRU, développeur Web & Jeu Vidéo. Compétences en Unity, Unreal Engine, C++, React.",
+            "author": { "@type": "Person", "name": "Arthur BRU" }
+          }`}</script>
         </Helmet>
         {loading && sessionStorage.getItem("AntiPikachu") === null ? (
           <Load />
@@ -97,7 +114,7 @@ const HomeT = ({ t }) => {
                   <FocusLoop>
                     <div className="takeSize">
                       <Navbar tabIndex={21} />
-                      <div className="aboutMe">
+                      <main className="aboutMe">
                         <div className="aboutMeRightPart">
                           {/* <iframe
                           src="https://www.youtube.com/embed/IwMvlVfyvs8"
@@ -112,13 +129,14 @@ const HomeT = ({ t }) => {
                             src={imgProgrammer}
                             alt="imgProg"
                             className="sizeProjectIMG imgProg"
+                            fetchpriority="high"
                           ></img>
                         </div>
                         <div className="aboutMeLeftPart">
                           <div className="aboutMeText">
-                            <h3 className="removeMargin typingAnimation xx-large">
+                            <h1 className="removeMargin typingAnimation xx-large">
                               <TypingAnimation />
-                            </h3>
+                            </h1>
                           </div>
                           <div className="presentationFlex">
                             <p className="presentationText fontsLight">
@@ -164,18 +182,18 @@ const HomeT = ({ t }) => {
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </main>
                     </div>
 
-                    <div id="aboutme&skills" className="aboutMePartDescription">
+                    <section id="aboutme&skills" className="aboutMePartDescription">
                       <div className="aboutMeTitle">
-                        <h3 className="fontsRegular">{t("Home.title2")}</h3>
+                        <h2 className="fontsRegular">{t("Home.title2")}</h2>
                       </div>
                       <PopupMySql tabIndex={3} />
-                      <h1 className="pDescription centerLoad inherit">
+                      <p className="pDescription centerLoad inherit">
                         © Arthur BRU
-                      </h1>
-                    </div>
+                      </p>
+                    </section>
                   </FocusLoop>
                 </ParralaxEffect>
               </>

@@ -74,9 +74,26 @@ const ContactMeT = ({ t }) => {
         <title>{t("ContactMe.title")} - Arthur BRU</title>
         <meta name="description" content="Contactez Arthur BRU, développeur Web &amp; Jeu Vidéo. Envoyez-moi un message directement via ce formulaire de contact." />
         <link rel="canonical" href="https://www.arthur-portfolio.dev/contactMe" />
+        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/contactMe" />
+        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/contactMe" />
+        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/contactMe" />
+        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/contactMe" />
         <meta property="og:title" content="Contact - Arthur BRU" />
         <meta property="og:description" content="Contactez Arthur BRU, développeur Web &amp; Jeu Vidéo." />
         <meta property="og:url" content="https://www.arthur-portfolio.dev/contactMe" />
+        <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Contact - Arthur BRU" />
+        <meta name="twitter:description" content="Contactez Arthur BRU, développeur Web &amp; Jeu Vidéo." />
+        <meta name="twitter:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
+        <script type="application/ld+json">{`{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Contact - Arthur BRU",
+          "url": "https://www.arthur-portfolio.dev/contactMe",
+          "description": "Contactez Arthur BRU, développeur Web & Jeu Vidéo.",
+          "author": { "@type": "Person", "name": "Arthur BRU" }
+        }`}</script>
       </Helmet>
       <FocusLoop>
         <Navbar tabIndex={6} />

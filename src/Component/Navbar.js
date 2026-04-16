@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useRef } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import CVArthurCPP from "../Download/CV-Arthur-JV.png";
 import CVArthurCPPEN from "../Download/ArthurCVJV-EN.png";
 import DropdownTraduction from "./DropdownTraduction.js";
@@ -154,17 +154,23 @@ const NavbarT = ({ t, tabIndex }) => {
     }
   };
 
+  const handleNavClick = (path) => {
+    setShowIncomingTitle(path === "/Incoming");
+    sessionStorage.setItem("ShowTitleInNavbar", path === "/Incoming" ? "false" : "true");
+  };
+
   const renderNavbarButton = (visible, path, label) => {
     if (!visible) return null;
     return (
       <li className="navbar-item">
-        <button
+        <Link
           className="navbar-link"
-          onClick={() => navigateIntoPage(path)}
+          to={path}
+          onClick={() => handleNavClick(path)}
           tabIndex={menuOpen ? 0 : -1}
         >
           {t(label)}
-        </button>
+        </Link>
       </li>
     );
   };

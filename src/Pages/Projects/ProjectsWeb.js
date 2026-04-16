@@ -30,9 +30,77 @@ const ProjectsWebT = ({ t }) => {
         <title>{t("WebProjects.Title")} - Arthur BRU</title>
         <meta name="description" content="Projets web d'Arthur BRU : site associatif, CMS Next.js, dashboard météo Vue.js, page de paiement Stripe, e-commerce PHP. React, TypeScript, MySQL." />
         <link rel="canonical" href="https://www.arthur-portfolio.dev/ProjectsWeb" />
+        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/ProjectsWeb" />
+        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/ProjectsWeb" />
+        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/ProjectsWeb" />
+        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/ProjectsWeb" />
         <meta property="og:title" content="Projets Web - Arthur BRU" />
         <meta property="og:description" content="Projets web en React, Next.js, Vue.js, PHP : site associatif, CMS, page de paiement Stripe, dashboard météo." />
         <meta property="og:url" content="https://www.arthur-portfolio.dev/ProjectsWeb" />
+        <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Projets Web - Arthur BRU" />
+        <meta name="twitter:description" content="Projets web en React, Next.js, Vue.js, PHP : site associatif, CMS, page de paiement Stripe, dashboard météo." />
+        <meta name="twitter:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
+        <script type="application/ld+json">{`{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "name": "Projets Web - Arthur BRU",
+              "url": "https://www.arthur-portfolio.dev/ProjectsWeb",
+              "description": "Projets web en React, Next.js, Vue.js, PHP : site associatif, CMS, page de paiement Stripe, dashboard météo.",
+              "author": { "@type": "Person", "name": "Arthur BRU" }
+            },
+            {
+              "@type": "WebSite",
+              "name": "Celtic La Riche Basket",
+              "description": "Site web pour un club de basket.",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "url": "https://www.celticlarichebasket.fr/"
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "Meteo Dashboard",
+              "description": "Dashboard météo développé avec Vue.js.",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "applicationCategory": "WebApplication"
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "Articles Manager Next.js",
+              "description": "CMS de gestion d'articles développé avec Next.js.",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "applicationCategory": "WebApplication"
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "Page de paiement Stripe",
+              "description": "Page de paiement intégrant Stripe.",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "applicationCategory": "WebApplication"
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "Eko",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "applicationCategory": "WebApplication"
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "B.A Immobilier",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "applicationCategory": "WebApplication"
+            },
+            {
+              "@type": "WebSite",
+              "name": "Portfolio Arthur BRU",
+              "description": "Portfolio personnel développé avec React.",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "url": "https://www.arthur-portfolio.dev/"
+            }
+          ]
+        }`}</script>
       </Helmet>
       <FocusLoop>
         <Navbar tabIndex={14} />

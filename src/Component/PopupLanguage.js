@@ -1,5 +1,5 @@
 import { Suspense, useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -99,31 +99,24 @@ const PopupMySqlT = ({ t, tabIndex }) => {
     }
   };
 
-  const navigate = useNavigate();
-
-  const navigateIntoPage = (string) => {
+  const handleSkillNav = (string) => {
     setStockString(string);
-
-    if (
-      string === "/ProjectsVideosGames" &&
-      stockString === "/ProjectsVideosGames"
-    ) {
+    if (string === "/ProjectsVideosGames" && stockString === "/ProjectsVideosGames") {
       localStorage.setItem("ActiveBtnNavbarUnityPage", "false");
       window.location.reload();
     }
-
     if (string === "/Unity") {
       localStorage.setItem("ActiveBtnBackUnityPage", "false");
     }
-    navigate(string);
   };
 
   return (
     <div className="rectangleGlobal">
-      <button
+      <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 1 || 0}
-        onClick={() => navigateIntoPage("/Unity")}
+        to="/Unity"
+        onClick={() => handleSkillNav("/Unity")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
@@ -131,11 +124,12 @@ const PopupMySqlT = ({ t, tabIndex }) => {
               src={imgUnityIcon}
               className="iconSpace"
               alt="Unity Custom Engine Icon"
+              loading="lazy"
             ></img>
             {t("Home.Unity")}
           </div>
         </div>
-      </button>
+      </Link>
       <div className="rectangleTool" ref={DEVOPS} id="DevOps">
         <div className="infoIcon">
           <button
@@ -147,6 +141,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
               src={imgInfoIcon}
               className="iconInfoWidth"
               alt="Info Langage Icon"
+              loading="lazy"
             ></img>
           </button>
         </div>
@@ -155,7 +150,8 @@ const PopupMySqlT = ({ t, tabIndex }) => {
             src={imgDevOpsLangage}
             className="iconSpace"
             alt="DevOps Icon"
-          ></img>
+              loading="lazy"
+            ></img>
           {t("Home.DevOps")}
         </div>
         <div
@@ -186,14 +182,16 @@ const PopupMySqlT = ({ t, tabIndex }) => {
             src={imgSymphonyLangage}
             className="iconSpace"
             alt="Symphony Langage Icon"
-          ></img>
+              loading="lazy"
+            ></img>
           {t("Home.Symphony")}
         </div>
       </div>
-      <button
+      <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 3 || 0}
-        onClick={() => navigateIntoPage("/ProjectsWeb#VueJs")}
+        to="/ProjectsWeb#VueJs"
+        onClick={() => handleSkillNav("/ProjectsWeb#VueJs")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
@@ -201,15 +199,17 @@ const PopupMySqlT = ({ t, tabIndex }) => {
               src={imgVueJsLangage}
               className="iconSpace"
               alt="VueJs Langage Icon"
+              loading="lazy"
             ></img>
             {t("Home.VueJs")}
           </div>
         </div>
-      </button>
-      <button
+      </Link>
+      <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 4 || 0}
-        onClick={() => navigateIntoPage("/ProjectsWeb#NextJs")}
+        to="/ProjectsWeb#NextJs"
+        onClick={() => handleSkillNav("/ProjectsWeb#NextJs")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
@@ -217,15 +217,17 @@ const PopupMySqlT = ({ t, tabIndex }) => {
               src={imgNextJsLangage}
               className="iconSpace"
               alt="NextJs Langage Icon"
+              loading="lazy"
             ></img>
             {t("Home.NextJs")}
           </div>
         </div>
-      </button>
-      <button
+      </Link>
+      <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 5 || 0}
-        onClick={() => navigateIntoPage("/ProjectsWeb#VueJs")}
+        to="/ProjectsWeb#VueJs"
+        onClick={() => handleSkillNav("/ProjectsWeb#VueJs")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
@@ -233,25 +235,28 @@ const PopupMySqlT = ({ t, tabIndex }) => {
               src={imgChartJsLangage}
               className="iconSpace"
               alt="ChartJs Langage Icon"
+              loading="lazy"
             ></img>
             {t("Home.ChartJs")}
           </div>
         </div>
-      </button>
+      </Link>
       <div className="rectangleTool" id="blur">
         <div className="sizeIconCPlus fontsRegular">
           <img
             src={imgCLangage}
             className="iconSpace"
             alt="C Langage Icon"
-          ></img>
+              loading="lazy"
+            ></img>
           {t("Home.C")}
         </div>
       </div>
-      <button
+      <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 6 || 0}
-        onClick={() => navigateIntoPage("/ProjectsVideosGames#Cpp")}
+        to="/ProjectsVideosGames#Cpp"
+        onClick={() => handleSkillNav("/ProjectsVideosGames#Cpp")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
@@ -259,15 +264,17 @@ const PopupMySqlT = ({ t, tabIndex }) => {
               src={imgCPlusLangage}
               className="iconSpace"
               alt="C++ Langage Icon"
+              loading="lazy"
             ></img>
             {t("Home.C++")}
           </div>
         </div>
-      </button>
-      <button
+      </Link>
+      <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 7 || 0}
-        onClick={() => navigateIntoPage("/ProjectsVideosGames#CSharp")}
+        to="/ProjectsVideosGames#CSharp"
+        onClick={() => handleSkillNav("/ProjectsVideosGames#CSharp")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
@@ -275,15 +282,17 @@ const PopupMySqlT = ({ t, tabIndex }) => {
               src={imgCSharpLangage}
               className="iconSpace"
               alt="C# Langage Icon"
+              loading="lazy"
             ></img>
             {t("Home.C#")}
           </div>
         </div>
-      </button>
-      <button
+      </Link>
+      <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 8 || 0}
-        onClick={() => navigateIntoPage("/ProjectsWeb")}
+        to="/ProjectsWeb"
+        onClick={() => handleSkillNav("/ProjectsWeb")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
@@ -295,11 +304,12 @@ const PopupMySqlT = ({ t, tabIndex }) => {
             {t("Home.PHP")}
           </div>
         </div>
-      </button>
-      <button
+      </Link>
+      <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 9 || 0}
-        onClick={() => navigateIntoPage("/ProjectsWeb")}
+        to="/ProjectsWeb"
+        onClick={() => handleSkillNav("/ProjectsWeb")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
@@ -311,11 +321,12 @@ const PopupMySqlT = ({ t, tabIndex }) => {
             {t("Home.JavaScript")}
           </div>
         </div>
-      </button>
-      <button
+      </Link>
+      <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 10 || 0}
-        onClick={() => navigateIntoPage("/ProjectsWeb")}
+        to="/ProjectsWeb"
+        onClick={() => handleSkillNav("/ProjectsWeb")}
       >
         <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
@@ -327,11 +338,12 @@ const PopupMySqlT = ({ t, tabIndex }) => {
             {t("Home.HTML")}
           </div>
         </div>
-      </button>
-      <button
+      </Link>
+      <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 11 || 0}
-        onClick={() => navigateIntoPage("/ProjectsWeb")}
+        to="/ProjectsWeb"
+        onClick={() => handleSkillNav("/ProjectsWeb")}
       >
         <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
@@ -343,7 +355,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
             {t("Home.CSS")}
           </div>
         </div>
-      </button>
+      </Link>
       <div className="rectangleTool fontsRegular" ref={MySQLCSS} id="MySql">
         <div className="infoIcon">
           <button
@@ -355,6 +367,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
               src={imgInfoIcon}
               className="iconInfoWidth"
               alt="Info Langage Icon"
+              loading="lazy"
             ></img>
           </button>
         </div>
@@ -399,6 +412,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
               src={imgInfoIcon}
               className="iconInfoWidth"
               alt="Info Langage Icon"
+              loading="lazy"
             ></img>
           </button>
         </div>
@@ -432,10 +446,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
           </div>
         </div>
       </div>
-      <button
+      <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 14 || 0}
-        onClick={() => navigateIntoPage("/ProjectsWeb")}
+        to="/ProjectsWeb"
+        onClick={() => handleSkillNav("/ProjectsWeb")}
       >
         <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
@@ -447,11 +462,12 @@ const PopupMySqlT = ({ t, tabIndex }) => {
             {t("Home.Bootstrap")}
           </div>
         </div>
-      </button>
-      <button
+      </Link>
+      <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 15 || 0}
-        onClick={() => navigateIntoPage("/ProjectsVideosGames#Python")}
+        to="/ProjectsVideosGames#Python"
+        onClick={() => handleSkillNav("/ProjectsVideosGames#Python")}
       >
         <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
           <div className="sizeIconCPlus fontsRegular">
@@ -459,11 +475,12 @@ const PopupMySqlT = ({ t, tabIndex }) => {
               src={imgPythonIcon}
               className="iconSpace"
               alt="Python Icon"
+              loading="lazy"
             ></img>
             {t("Home.Python")}
           </div>
         </div>
-      </button>
+      </Link>
       <div className="rectangleTool fontsRegular" id="blur">
         <div className="sizeIconCPlus fontsRegular">
           <FontAwesomeIcon
@@ -474,10 +491,11 @@ const PopupMySqlT = ({ t, tabIndex }) => {
           {t("Home.React")}
         </div>
       </div>
-      <button
+      <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 16 || 0}
-        onClick={() => navigateIntoPage("/ProjectsVideosGames#LUA")}
+        to="/ProjectsVideosGames#LUA"
+        onClick={() => handleSkillNav("/ProjectsVideosGames#LUA")}
       >
         <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
           <div className="sizeIconCPlus">
@@ -485,15 +503,17 @@ const PopupMySqlT = ({ t, tabIndex }) => {
               src={imgLuaLangage}
               className="iconSpace"
               alt="Lua Langage Icon"
+              loading="lazy"
             ></img>
             {t("Home.LUA")}
           </div>
         </div>
-      </button>
-      <button
+      </Link>
+      <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 17 || 0}
-        onClick={() => navigateIntoPage("/ProjectsVideosGames#LUA")}
+        to="/ProjectsVideosGames#LUA"
+        onClick={() => handleSkillNav("/ProjectsVideosGames#LUA")}
       >
         <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
           <div className="sizeIconCPlus">
@@ -501,11 +521,12 @@ const PopupMySqlT = ({ t, tabIndex }) => {
               src={imgTypeScriptIcon}
               className="iconSpace"
               alt="TypeScript Langage Icon"
+              loading="lazy"
             ></img>
             {t("Home.TypeScript")}
           </div>
         </div>
-      </button>
+      </Link>
     </div>
   );
 };

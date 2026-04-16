@@ -21,9 +21,81 @@ const JVPageT = ({ t }) => {
         <title>{t("VideoGamesProjects.Title")} - Arthur BRU</title>
         <meta name="description" content="Projets jeu vidéo d'Arthur BRU en C++, C# et LUA : moteur custom, bibliothèques, Tower Defense, Platformer 2D. Réalisés en équipe ou en solo." />
         <link rel="canonical" href="https://www.arthur-portfolio.dev/ProjectsVideosGames" />
+        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/ProjectsVideosGames" />
+        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/ProjectsVideosGames" />
+        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/ProjectsVideosGames" />
+        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/ProjectsVideosGames" />
         <meta property="og:title" content="Projets Jeu Vidéo - Arthur BRU" />
         <meta property="og:description" content="Projets jeu vidéo en C++, C# et LUA : moteur custom, bibliothèques, Tower Defense, Platformer 2D." />
         <meta property="og:url" content="https://www.arthur-portfolio.dev/ProjectsVideosGames" />
+        <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Projets Jeu Vidéo - Arthur BRU" />
+        <meta name="twitter:description" content="Projets jeu vidéo en C++, C# et LUA : moteur custom, bibliothèques, Tower Defense, Platformer 2D." />
+        <meta name="twitter:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
+        <script type="application/ld+json">{`{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "name": "Projets Jeu Vidéo - Arthur BRU",
+              "url": "https://www.arthur-portfolio.dev/ProjectsVideosGames",
+              "description": "Projets jeu vidéo en C++, C# et LUA : moteur custom, bibliothèques, Tower Defense, Platformer 2D.",
+              "author": { "@type": "Person", "name": "Arthur BRU" }
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "Angine",
+              "description": "Moteur de jeu vidéo custom développé en C++.",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "applicationCategory": "DeveloperApplication",
+              "url": "https://github.com/PoloBongo/custom-engine-cpp"
+            },
+            {
+              "@type": "VideoGame",
+              "name": "Helluva Revenge",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "gamePlatform": "PC",
+              "applicationCategory": "Game",
+              "url": "https://github.com/DemonXlegenD/Helluva-Revenge"
+            },
+            {
+              "@type": "VideoGame",
+              "name": "Tower Defense",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "gamePlatform": "PC",
+              "applicationCategory": "Game"
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "C++ Bibliothèque",
+              "description": "Bibliothèques C++ développées en équipe.",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "applicationCategory": "DeveloperApplication"
+            },
+            {
+              "@type": "VideoGame",
+              "name": "Tour par tour en console",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "gamePlatform": "PC",
+              "applicationCategory": "Game"
+            },
+            {
+              "@type": "VideoGame",
+              "name": "Shoot-Em-Up",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "gamePlatform": "PC",
+              "applicationCategory": "Game"
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "Projets LUA",
+              "description": "Projets développés en LUA.",
+              "author": { "@type": "Person", "name": "Arthur BRU" },
+              "applicationCategory": "DeveloperApplication"
+            }
+          ]
+        }`}</script>
       </Helmet>
     <div className="Home-header overflowHidden fontsRegular">
       <FocusLoop>
@@ -48,6 +120,7 @@ const JVPageT = ({ t }) => {
                   src={backgroundProjectCustomEngine}
                   alt="Custom Engine"
                   className="sizeProjectIMG2"
+                  loading="lazy"
                 />
               </div>
               <div className="grid-gamejam">
