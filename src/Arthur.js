@@ -1,5 +1,6 @@
 import "./css/Home.css";
 import React, { Suspense, useEffect, useState, useRef, lazy } from "react";
+import { useParams } from "react-router-dom";
 import ScreenSize from "./Component/ScreenSize.js";
 import Navbar from "./Component/Navbar.js";
 import TypingAnimation from "./Component/TextTyping.js";
@@ -27,6 +28,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 const ParralaxEffect = lazy(() => import("./Effects/ParallaxEffect"));
 
 const HomeT = ({ t }) => {
+  const { lang = "fr" } = useParams();
   const [loading, setLoading] = useState(true);
   const [fade, setFade] = useState(true);
 
@@ -81,13 +83,14 @@ const HomeT = ({ t }) => {
             name="description"
             content="Portfolio d'Arthur BRU, développeur Web &amp; Jeu Vidéo. Bachelor en développement informatique option jeu vidéo. Compétences en Unity, Unreal Engine, C++, React."
           />
-          <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/" />
-          <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/" />
-          <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/" />
-          <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/" />
+          <link rel="canonical" href={`https://www.arthur-portfolio.dev/${lang}`} />
+          <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr" />
+          <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en" />
+          <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es" />
+          <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr" />
           <meta property="og:title" content="Portfolio - Arthur BRU | Développeur Web &amp; Jeu Vidéo" />
           <meta property="og:description" content="Portfolio d'Arthur BRU, développeur Web &amp; Jeu Vidéo. Découvrez mes projets Unity, Unreal Engine, Game Jam et web." />
-          <meta property="og:url" content="https://www.arthur-portfolio.dev/" />
+          <meta property="og:url" content={`https://www.arthur-portfolio.dev/${lang}`} />
           <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:title" content="Portfolio - Arthur BRU | Développeur Web &amp; Jeu Vidéo" />

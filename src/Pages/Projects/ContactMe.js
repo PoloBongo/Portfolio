@@ -1,5 +1,6 @@
 import { Suspense, useState } from "react";
 import "../../css/Home.css";
+import { useParams } from "react-router-dom";
 import Navbar from "../../Component/Navbar";
 import { Helmet } from "react-helmet-async";
 import emailjs from "emailjs-com";
@@ -12,6 +13,7 @@ import { withTranslation } from "react-i18next";
 import FocusLoop from "../../Component/FocusLoop";
 
 const ContactMeT = ({ t }) => {
+  const { lang = "fr" } = useParams();
   const [showGif, setShowGif] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState("");
@@ -73,14 +75,14 @@ const ContactMeT = ({ t }) => {
       <Helmet>
         <title>{t("ContactMe.title")} - Arthur BRU</title>
         <meta name="description" content="Contactez Arthur BRU, développeur Web &amp; Jeu Vidéo. Envoyez-moi un message directement via ce formulaire de contact." />
-        <link rel="canonical" href="https://www.arthur-portfolio.dev/contactMe" />
-        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/contactMe" />
-        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/contactMe" />
-        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/contactMe" />
-        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/contactMe" />
+        <link rel="canonical" href={`https://www.arthur-portfolio.dev/${lang}/contactMe`} />
+        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/contactMe" />
+        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/contactMe" />
+        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/contactMe" />
+        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/contactMe" />
         <meta property="og:title" content="Contact - Arthur BRU" />
         <meta property="og:description" content="Contactez Arthur BRU, développeur Web &amp; Jeu Vidéo." />
-        <meta property="og:url" content="https://www.arthur-portfolio.dev/contactMe" />
+        <meta property="og:url" content={`https://www.arthur-portfolio.dev/${lang}/contactMe`} />
         <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Contact - Arthur BRU" />

@@ -1,5 +1,6 @@
 import "../../css/Home.css";
 import React, { Suspense } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../../Component/Navbar.js";
 import { Helmet } from "react-helmet-async";
 
@@ -15,19 +16,20 @@ import { withTranslation } from "react-i18next";
 import FocusLoop from "../../Component/FocusLoop.js";
 
 const JVPageT = ({ t }) => {
+  const { lang = "fr" } = useParams();
   return (
     <>
       <Helmet>
         <title>{t("VideoGamesProjects.Title")} - Arthur BRU</title>
         <meta name="description" content="Projets jeu vidéo d'Arthur BRU en C++, C# et LUA : moteur custom, bibliothèques, Tower Defense, Platformer 2D. Réalisés en équipe ou en solo." />
-        <link rel="canonical" href="https://www.arthur-portfolio.dev/ProjectsVideosGames" />
-        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/ProjectsVideosGames" />
-        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/ProjectsVideosGames" />
-        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/ProjectsVideosGames" />
-        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/ProjectsVideosGames" />
+        <link rel="canonical" href={`https://www.arthur-portfolio.dev/${lang}/ProjectsVideosGames`} />
+        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/ProjectsVideosGames" />
+        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/ProjectsVideosGames" />
+        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/ProjectsVideosGames" />
+        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/ProjectsVideosGames" />
         <meta property="og:title" content="Projets Jeu Vidéo - Arthur BRU" />
         <meta property="og:description" content="Projets jeu vidéo en C++, C# et LUA : moteur custom, bibliothèques, Tower Defense, Platformer 2D." />
-        <meta property="og:url" content="https://www.arthur-portfolio.dev/ProjectsVideosGames" />
+        <meta property="og:url" content={`https://www.arthur-portfolio.dev/${lang}/ProjectsVideosGames`} />
         <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Projets Jeu Vidéo - Arthur BRU" />

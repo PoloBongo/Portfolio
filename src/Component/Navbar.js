@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect, useRef } from "react";
-import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useParams } from "react-router-dom";
 import CVArthurCPP from "../Download/CV-Arthur-JV.png";
 import CVArthurCPPEN from "../Download/ArthurCVJV-EN.png";
 import DropdownTraduction from "./DropdownTraduction.js";
@@ -8,8 +8,9 @@ import { withTranslation, useTranslation } from "react-i18next";
 
 const NavbarT = ({ t, tabIndex }) => {
   const { i18n } = useTranslation();
-  const navigate = useNavigate();
   const location = useLocation();
+  const { lang = "fr" } = useParams();
+  const pagePath = "/" + (location.pathname.split("/").slice(2).join("/") || "");
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [showIncomingTitle, setShowIncomingTitle] = useState(false);
@@ -54,7 +55,7 @@ const NavbarT = ({ t, tabIndex }) => {
       contact: true,
       web: true,
     },
-    "/Gamejam": {
+    "/GameJam": {
       home: true,
       unity: true,
       unreal: true,
@@ -72,7 +73,7 @@ const NavbarT = ({ t, tabIndex }) => {
       contact: true,
       web: true,
     },
-    "/contactme": {
+    "/contactMe": {
       home: true,
       unity: true,
       unreal: true,
@@ -105,15 +106,6 @@ const NavbarT = ({ t, tabIndex }) => {
     const storedValue = sessionStorage.getItem("ShowTitleInNavbar");
     setShowIncomingTitle(storedValue === "true");
   }, [location.pathname]);
-
-  const navigateIntoPage = (path) => {
-    setShowIncomingTitle(path === "/Incoming");
-    sessionStorage.setItem(
-      "ShowTitleInNavbar",
-      path === "/Incoming" ? "false" : "true"
-    );
-    navigate(path);
-  };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -165,7 +157,7 @@ const NavbarT = ({ t, tabIndex }) => {
       <li className="navbar-item">
         <Link
           className="navbar-link"
-          to={path}
+          to={`/${lang}${path}`}
           onClick={() => handleNavClick(path)}
           tabIndex={menuOpen ? 0 : -1}
         >
@@ -178,7 +170,7 @@ const NavbarT = ({ t, tabIndex }) => {
   const cvToDownload = i18n.language.startsWith("fr")
     ? CVArthurCPP
     : CVArthurCPPEN;
-  const isHome = location.pathname === "/" || location.pathname === "/Arthur";
+  const isHome = pagePath === "/" || pagePath === "/Arthur" || pagePath === "";
 
   return (
     <div className="navbar-container">
@@ -210,37 +202,37 @@ const NavbarT = ({ t, tabIndex }) => {
         <ul>
           <DropdownTraduction tabIndex={menuOpen ? 0 : -1} />
           {renderNavbarButton(
-            pageVisibility[location.pathname]?.home,
+            pageVisibility[pagePath]?.home,
             "/Arthur",
             "ClassicNavBar.Home"
           )}
           {renderNavbarButton(
-            pageVisibility[location.pathname]?.unity,
+            pageVisibility[pagePath]?.unity,
             "/Unity",
             "ClassicNavBar.Unity"
           )}
           {renderNavbarButton(
-            pageVisibility[location.pathname]?.unreal,
+            pageVisibility[pagePath]?.unreal,
             "/Unreal",
             "ClassicNavBar.Unreal"
           )}
           {renderNavbarButton(
-            pageVisibility[location.pathname]?.Gamejam,
+            pageVisibility[pagePath]?.Gamejam,
             "/Gamejam",
             "ClassicNavBar.GameJam"
           )}
           {renderNavbarButton(
-            pageVisibility[location.pathname]?.videoGame,
+            pageVisibility[pagePath]?.videoGame,
             "/ProjectsVideosGames",
             "DropdownProjects.ProjectVideoGames"
           )}
           {renderNavbarButton(
-            pageVisibility[location.pathname]?.web,
+            pageVisibility[pagePath]?.web,
             "/ProjectsWeb",
             "DropdownProjects.ProjectWeb"
           )}
           {renderNavbarButton(
-            pageVisibility[location.pathname]?.contact,
+            pageVisibility[pagePath]?.contact,
             "/contactme",
             "ClassicNavBar.ContactMe"
           )}

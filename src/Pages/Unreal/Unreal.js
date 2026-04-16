@@ -1,5 +1,6 @@
 import "../../css/Home.css";
 import React, { Suspense } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../../Component/Navbar.js";
 import { Helmet } from "react-helmet-async";
 
@@ -10,19 +11,20 @@ import { withTranslation } from "react-i18next";
 import FocusLoop from "../../Component/FocusLoop.js";
 
 const UnrealT = ({ t }) => {
+  const { lang = "fr" } = useParams();
   return (
     <>
       <Helmet>
         <title>{t("Unreal.Title")} - Arthur BRU</title>
         <meta name="description" content="Découvrez mes projets Unreal Engine 5 : Funfair (fête foraine interactive), SpacialRace et un système d'inventaire complet en C++ et Blueprint." />
-        <link rel="canonical" href="https://www.arthur-portfolio.dev/Unreal" />
-        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/Unreal" />
-        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/Unreal" />
-        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/Unreal" />
-        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/Unreal" />
+        <link rel="canonical" href={`https://www.arthur-portfolio.dev/${lang}/Unreal`} />
+        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/Unreal" />
+        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/Unreal" />
+        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/Unreal" />
+        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/Unreal" />
         <meta property="og:title" content="Projets Unreal Engine - Arthur BRU" />
         <meta property="og:description" content="Découvrez mes projets Unreal Engine 5 : Funfair, SpacialRace et un système d'inventaire en C++ et Blueprint." />
-        <meta property="og:url" content="https://www.arthur-portfolio.dev/Unreal" />
+        <meta property="og:url" content={`https://www.arthur-portfolio.dev/${lang}/Unreal`} />
         <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Projets Unreal Engine - Arthur BRU" />

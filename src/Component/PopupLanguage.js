@@ -1,5 +1,5 @@
 import { Suspense, useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -34,6 +34,7 @@ import { withTranslation } from "react-i18next";
 import "../css/Home.css";
 
 const PopupMySqlT = ({ t, tabIndex }) => {
+  const { lang = "fr" } = useParams();
   const [showSqlBool, setShowSqlBool] = useState(false);
   const [showGitBool, setShowGitBool] = useState(false);
   const [showDevOpsBool, setShowDevOpsBool] = useState(false);
@@ -115,7 +116,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
       <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 1 || 0}
-        to="/Unity"
+        to={`/${lang}/Unity`}
         onClick={() => handleSkillNav("/Unity")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
@@ -190,7 +191,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
       <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 3 || 0}
-        to="/ProjectsWeb#VueJs"
+        to={`/${lang}/ProjectsWeb#VueJs`}
         onClick={() => handleSkillNav("/ProjectsWeb#VueJs")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
@@ -208,7 +209,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
       <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 4 || 0}
-        to="/ProjectsWeb#NextJs"
+        to={`/${lang}/ProjectsWeb#NextJs`}
         onClick={() => handleSkillNav("/ProjectsWeb#NextJs")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
@@ -226,7 +227,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
       <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 5 || 0}
-        to="/ProjectsWeb#VueJs"
+        to={`/${lang}/ProjectsWeb#VueJs`}
         onClick={() => handleSkillNav("/ProjectsWeb#VueJs")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
@@ -255,7 +256,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
       <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 6 || 0}
-        to="/ProjectsVideosGames#Cpp"
+        to={`/${lang}/ProjectsVideosGames#Cpp`}
         onClick={() => handleSkillNav("/ProjectsVideosGames#Cpp")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
@@ -273,7 +274,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
       <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 7 || 0}
-        to="/ProjectsVideosGames#CSharp"
+        to={`/${lang}/ProjectsVideosGames#CSharp`}
         onClick={() => handleSkillNav("/ProjectsVideosGames#CSharp")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
@@ -291,7 +292,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
       <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 8 || 0}
-        to="/ProjectsWeb"
+        to={`/${lang}/ProjectsWeb`}
         onClick={() => handleSkillNav("/ProjectsWeb")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
@@ -308,7 +309,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
       <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 9 || 0}
-        to="/ProjectsWeb"
+        to={`/${lang}/ProjectsWeb`}
         onClick={() => handleSkillNav("/ProjectsWeb")}
       >
         <div className="rectangleToolWithoutMargin surbrillance" id="blur">
@@ -325,7 +326,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
       <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 10 || 0}
-        to="/ProjectsWeb"
+        to={`/${lang}/ProjectsWeb`}
         onClick={() => handleSkillNav("/ProjectsWeb")}
       >
         <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
@@ -342,7 +343,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
       <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 11 || 0}
-        to="/ProjectsWeb"
+        to={`/${lang}/ProjectsWeb`}
         onClick={() => handleSkillNav("/ProjectsWeb")}
       >
         <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
@@ -449,7 +450,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
       <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 14 || 0}
-        to="/ProjectsWeb"
+        to={`/${lang}/ProjectsWeb`}
         onClick={() => handleSkillNav("/ProjectsWeb")}
       >
         <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
@@ -466,7 +467,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
       <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 15 || 0}
-        to="/ProjectsVideosGames#Python"
+        to={`/${lang}/ProjectsVideosGames#Python`}
         onClick={() => handleSkillNav("/ProjectsVideosGames#Python")}
       >
         <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
@@ -494,7 +495,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
       <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 16 || 0}
-        to="/ProjectsVideosGames#LUA"
+        to={`/${lang}/ProjectsVideosGames#LUA`}
         onClick={() => handleSkillNav("/ProjectsVideosGames#LUA")}
       >
         <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">
@@ -512,7 +513,7 @@ const PopupMySqlT = ({ t, tabIndex }) => {
       <Link
         className="noColor fontsRegular submitForm navbar-font rectangleToolMargin"
         tabIndex={tabIndex + 17 || 0}
-        to="/ProjectsVideosGames#LUA"
+        to={`/${lang}/ProjectsVideosGames#LUA`}
         onClick={() => handleSkillNav("/ProjectsVideosGames#LUA")}
       >
         <div className="rectangleToolWithoutMargin fontsRegular surbrillance" id="blur">

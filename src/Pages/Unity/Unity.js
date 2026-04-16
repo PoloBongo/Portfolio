@@ -1,5 +1,6 @@
 import "../../css/Home.css";
 import React, { Suspense, useState, Fragment, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../../Component/Navbar.js";
 import { Helmet } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,6 +23,7 @@ import { withTranslation } from "react-i18next";
 import FocusLoop from "../../Component/FocusLoop.js";
 
 const UnityT = ({ t }) => {
+  const { lang = "fr" } = useParams();
   function handleClickEnterFullscreen() {
     requestFullscreen(true);
   }
@@ -131,14 +133,14 @@ const UnityT = ({ t }) => {
       <Helmet>
         <title>{t("Unity.Title")} - Arthur BRU</title>
         <meta name="description" content="Découvrez mes projets Unity en C# : Depths of Hue, ShadowScholar, RATP, NavyBongo, AngryBirds et plus. Certains jeux sont jouables directement dans le navigateur." />
-        <link rel="canonical" href="https://www.arthur-portfolio.dev/Unity" />
-        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/Unity" />
-        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/Unity" />
-        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/Unity" />
-        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/Unity" />
+        <link rel="canonical" href={`https://www.arthur-portfolio.dev/${lang}/Unity`} />
+        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/Unity" />
+        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/Unity" />
+        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/Unity" />
+        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/Unity" />
         <meta property="og:title" content="Projets Unity - Arthur BRU" />
         <meta property="og:description" content="Projets Unity en C# : Depths of Hue, ShadowScholar, RATP, NavyBongo. Jeux jouables dans le navigateur." />
-        <meta property="og:url" content="https://www.arthur-portfolio.dev/Unity" />
+        <meta property="og:url" content={`https://www.arthur-portfolio.dev/${lang}/Unity`} />
         <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Projets Unity - Arthur BRU" />

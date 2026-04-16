@@ -14,10 +14,12 @@ import backgroundChocoBlast from "../../img/backgroundChocoBlast.webp";
 // Traduction
 import { Loader } from "../../Component/ComponentTraduction.js";
 import { withTranslation, useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 
 import FocusLoop from "../../Component/FocusLoop.js";
 
 const GameJamT = ({ t }) => {
+  const { lang = "fr" } = useParams();
   const { i18n } = useTranslation();
   const [language, setLanguage] = useState("");
 
@@ -250,14 +252,14 @@ const GameJamT = ({ t }) => {
       <Helmet>
         <title>{t("GameJam.Title")} - Arthur BRU</title>
         <meta name="description" content="Découvrez mes participations aux Game Jam : Chocolato, StaySoul et AttractionFlow — des jeux créés en 42 à 48 heures avec Unity, jouables dans le navigateur." />
-        <link rel="canonical" href="https://www.arthur-portfolio.dev/GameJam" />
-        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/GameJam" />
-        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/GameJam" />
-        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/GameJam" />
-        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/GameJam" />
+        <link rel="canonical" href={`https://www.arthur-portfolio.dev/${lang}/GameJam`} />
+        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/GameJam" />
+        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/GameJam" />
+        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/GameJam" />
+        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/GameJam" />
         <meta property="og:title" content="Game Jam - Arthur BRU" />
         <meta property="og:description" content="Jeux de Game Jam créés en 42 à 48 heures avec Unity : Chocolato, StaySoul et AttractionFlow." />
-        <meta property="og:url" content="https://www.arthur-portfolio.dev/GameJam" />
+        <meta property="og:url" content={`https://www.arthur-portfolio.dev/${lang}/GameJam`} />
         <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Game Jam - Arthur BRU" />

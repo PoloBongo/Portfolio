@@ -1,5 +1,6 @@
 import "../../css/Home.css";
 import React, { Suspense, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../../Component/Navbar.js";
 import { Helmet } from "react-helmet-async";
 
@@ -13,6 +14,7 @@ import { withTranslation } from "react-i18next";
 import FocusLoop from "../../Component/FocusLoop.js";
 
 const ProjectsWebT = ({ t }) => {
+  const { lang = "fr" } = useParams();
   useEffect(() => {
     const anchor = window.location.hash?.substring(1);
     if (anchor) {
@@ -29,14 +31,14 @@ const ProjectsWebT = ({ t }) => {
       <Helmet>
         <title>{t("WebProjects.Title")} - Arthur BRU</title>
         <meta name="description" content="Projets web d'Arthur BRU : site associatif, CMS Next.js, dashboard météo Vue.js, page de paiement Stripe, e-commerce PHP. React, TypeScript, MySQL." />
-        <link rel="canonical" href="https://www.arthur-portfolio.dev/ProjectsWeb" />
-        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/ProjectsWeb" />
-        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/ProjectsWeb" />
-        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/ProjectsWeb" />
-        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/ProjectsWeb" />
+        <link rel="canonical" href={`https://www.arthur-portfolio.dev/${lang}/ProjectsWeb`} />
+        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/ProjectsWeb" />
+        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/ProjectsWeb" />
+        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/ProjectsWeb" />
+        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/ProjectsWeb" />
         <meta property="og:title" content="Projets Web - Arthur BRU" />
         <meta property="og:description" content="Projets web en React, Next.js, Vue.js, PHP : site associatif, CMS, page de paiement Stripe, dashboard météo." />
-        <meta property="og:url" content="https://www.arthur-portfolio.dev/ProjectsWeb" />
+        <meta property="og:url" content={`https://www.arthur-portfolio.dev/${lang}/ProjectsWeb`} />
         <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Projets Web - Arthur BRU" />

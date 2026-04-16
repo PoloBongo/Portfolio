@@ -1,18 +1,27 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { useTranslation, withTranslation } from "react-i18next";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 
 import pikachuLoad from "../img/pikachuForm.webp";
 
-// page uses the hook
 const ComponentTraductionT = ({ t }) => {
   const { i18n } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { lang: currentLang = "fr" } = useParams();
+
+  const changeLanguage = (newLang) => {
+    i18n.changeLanguage(newLang);
+    const newPath = location.pathname.replace(`/${currentLang}`, `/${newLang}`);
+    navigate(newPath);
+  };
 
   return (
     <div>
       <button
         type="submit"
         style={{ fontWeight: i18n.language === "fr" ? "bold" : "normal" }}
-        onClick={() => i18n.changeLanguage("fr")}
+        onClick={() => changeLanguage("fr")}
         className="dropdown-content traductionPojects pointer order-list-navbar-li noMargin"
       >
         {t("DropdownLanguage.FrenchLanguage")}
@@ -20,7 +29,7 @@ const ComponentTraductionT = ({ t }) => {
       <button
         type="submit"
         style={{ fontWeight: i18n.language === "en" ? "bold" : "normal" }}
-        onClick={() => i18n.changeLanguage("en")}
+        onClick={() => changeLanguage("en")}
         className="dropdown-content traductionPojects paddingLastLanguage pointer order-list-navbar-li noMargin"
       >
         {t("DropdownLanguage.EnglishLanguage")}
@@ -28,7 +37,7 @@ const ComponentTraductionT = ({ t }) => {
       <button
         type="submit"
         style={{ fontWeight: i18n.language === "es" ? "bold" : "normal" }}
-        onClick={() => i18n.changeLanguage("es")}
+        onClick={() => changeLanguage("es")}
         className="dropdown-content traductionPojects paddingLastLanguage pointer order-list-navbar-li noMargin"
       >
         {t("DropdownLanguage.SpanishLanguage")}
