@@ -17,6 +17,19 @@ import i18n from "./i18n";
 
 import "./i18n";
 
+let keyboardNavActive = false;
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Tab" && !keyboardNavActive) {
+    keyboardNavActive = true;
+    document.body.classList.add("keyboard-nav");
+    e.preventDefault();
+  }
+});
+document.addEventListener("mousedown", () => {
+  keyboardNavActive = false;
+  document.body.classList.remove("keyboard-nav");
+});
+
 function LangRedirect({ page }) {
   const navigate = useNavigate();
 

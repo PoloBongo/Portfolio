@@ -763,7 +763,7 @@
   flex-wrap: wrap;
 }
 
-input[type="mail"],
+input[type="email"],
 input[type="text"],
 button[type="submit"],
 textarea {
@@ -1509,6 +1509,10 @@ button::placeholder {
 }
 
 :focus {
+  outline: none;
+}
+
+body.keyboard-nav :focus {
   outline: 3px solid #bc63ff;
   outline-offset: 4px;
 }

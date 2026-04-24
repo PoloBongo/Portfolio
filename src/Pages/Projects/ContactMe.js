@@ -111,7 +111,7 @@ const ContactMeT = ({ t }) => {
                 <div className="flex-part-form">
                   <div className="flex-row-part-form-nom-prenom">
                     <div className="flex-part-form iconSpace2">
-                      <label className="fontsRegular display-remove">
+                      <label htmlFor="name" className="fontsRegular display-remove">
                         {t("ContactMe.name")} :
                       </label>
                       <div className="borderRGBForm">
@@ -128,7 +128,7 @@ const ContactMeT = ({ t }) => {
                       </div>
                     </div>
                     <div className="flex-part-form prenom">
-                      <label className="fontsRegular display-remove">
+                      <label htmlFor="prenom" className="fontsRegular display-remove">
                         {t("ContactMe.prenom")} :
                       </label>
                       <div className="borderRGBForm">
@@ -147,12 +147,12 @@ const ContactMeT = ({ t }) => {
                   </div>
                 </div>
                 <div className="flex-part-form">
-                  <label className="fontsRegular display-remove">
+                  <label htmlFor="mail" className="fontsRegular display-remove">
                     {t("ContactMe.mail")} :
                   </label>
                   <div className="borderRGBForm">
                     <input
-                      type="mail"
+                      type="email"
                       name="reply_to"
                       id="mail"
                       placeholder="Saisissez votre Mail"
@@ -164,7 +164,7 @@ const ContactMeT = ({ t }) => {
                   </div>
                 </div>
                 <div className="flex-part-form">
-                  <label className="fontsRegular display-remove">
+                  <label htmlFor="message" className="fontsRegular display-remove">
                     {t("ContactMe.message")} :
                   </label>
                   <div className="borderRGBForm">
