@@ -8,8 +8,7 @@ import PopupMySql from "./Component/PopupLanguage.js";
 import Load from "./Component/Load.js";
 import Fade from "./Component/Fade.js";
 import FocusLoop from "./Component/FocusLoop.js";
-
-import imgProgrammer from "./img/programmer.svg";
+import CertificateCarousel from "./Component/CertificateCarousel";
 
 // Balise React
 import { Helmet } from "react-helmet-async";
@@ -81,7 +80,7 @@ const HomeT = ({ t }) => {
           <title>Portfolio - Arthur BRU | Développeur Web &amp; Jeu Vidéo</title>
           <meta
             name="description"
-            content="Portfolio d'Arthur BRU, développeur Web &amp; Jeu Vidéo. Bachelor en développement informatique option jeu vidéo. Compétences en Unity, Unreal Engine, C++, React."
+            content="Portfolio d'Arthur BRU, développeur Web &amp; Jeu Vidéo. Certifié en IA (MCP, LangChain, Streamlit). Compétences en Unity, Unreal Engine, C++, React."
           />
           <link rel="canonical" href={`https://www.arthur-portfolio.dev/${lang}`} />
           <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr" />
@@ -89,20 +88,63 @@ const HomeT = ({ t }) => {
           <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es" />
           <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr" />
           <meta property="og:title" content="Portfolio - Arthur BRU | Développeur Web &amp; Jeu Vidéo" />
-          <meta property="og:description" content="Portfolio d'Arthur BRU, développeur Web &amp; Jeu Vidéo. Découvrez mes projets Unity, Unreal Engine, Game Jam et web." />
+          <meta property="og:description" content="Portfolio d'Arthur BRU, développeur Web &amp; Jeu Vidéo. Certifié Educative en IA : MCP Fundamentals, LangChain, Streamlit. Découvrez mes projets Unity, Unreal Engine, Game Jam et web." />
           <meta property="og:url" content={`https://www.arthur-portfolio.dev/${lang}`} />
           <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:title" content="Portfolio - Arthur BRU | Développeur Web &amp; Jeu Vidéo" />
-          <meta name="twitter:description" content="Portfolio d'Arthur BRU, développeur Web &amp; Jeu Vidéo. Découvrez mes projets Unity, Unreal Engine, Game Jam et web." />
+          <meta name="twitter:description" content="Portfolio d'Arthur BRU, développeur Web &amp; Jeu Vidéo. Certifié Educative en IA : MCP Fundamentals, LangChain, Streamlit. Découvrez mes projets Unity, Unreal Engine, Game Jam et web." />
           <meta name="twitter:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
           <script type="application/ld+json">{`{
             "@context": "https://schema.org",
             "@type": "WebPage",
             "name": "Portfolio - Arthur BRU | Développeur Web & Jeu Vidéo",
             "url": "https://www.arthur-portfolio.dev/",
-            "description": "Portfolio d'Arthur BRU, développeur Web & Jeu Vidéo. Compétences en Unity, Unreal Engine, C++, React.",
+            "description": "Portfolio d'Arthur BRU, développeur Web & Jeu Vidéo. Certifié en IA (MCP, LangChain, Streamlit). Compétences en Unity, Unreal Engine, C++, React.",
             "author": { "@type": "Person", "name": "Arthur BRU" }
+          }`}</script>
+          <script type="application/ld+json">{`{
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Certifications - Arthur BRU",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "EducationalOccupationalCredential",
+                  "name": "MCP Fundamentals for Building AI Agents",
+                  "credentialCategory": "certificate",
+                  "recognizedBy": { "@type": "Organization", "name": "Educative" },
+                  "dateCreated": "2026-01",
+                  "url": "https://www.educative.io/verify-certificate/JZmo10C1MggP22nLGcyGPOGO9Y1yC3"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "EducationalOccupationalCredential",
+                  "name": "Mastering MCP: Building Advanced Agentic Applications",
+                  "credentialCategory": "certificate",
+                  "recognizedBy": { "@type": "Organization", "name": "Educative" },
+                  "dateCreated": "2026-02",
+                  "url": "https://www.educative.io/verify-certificate/KOnpGJIZ6KMQpp4L3cnvYGvG8XxncB"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "EducationalOccupationalCredential",
+                  "name": "Build AI Chatbots with Open-Source LLMs, LangChain, and Streamlit",
+                  "credentialCategory": "certificate",
+                  "recognizedBy": { "@type": "Organization", "name": "Educative" },
+                  "dateCreated": "2026-02",
+                  "url": "https://www.educative.io/verify-certificate/EKMzZJK04L2fgP1vB8nQ47uxwAQwQ2JMxTG"
+                }
+              }
+            ]
           }`}</script>
         </Helmet>
         {loading && sessionStorage.getItem("AntiPikachu") === null ? (
@@ -119,21 +161,7 @@ const HomeT = ({ t }) => {
                       <Navbar tabIndex={21} />
                       <main className="aboutMe">
                         <div className="aboutMeRightPart">
-                          {/* <iframe
-                          src="https://www.youtube.com/embed/IwMvlVfyvs8"
-                          title="youtubeVideoPresentation"
-                          frameBorder="0"
-                          width="560"
-                          height="315"
-                          allowFullScreen
-                          className="iframeYoutube"
-                        ></iframe> */}
-                          <img
-                            src={imgProgrammer}
-                            alt="imgProg"
-                            className="sizeProjectIMG imgProg"
-                            fetchpriority="high"
-                          ></img>
+                          <CertificateCarousel />
                         </div>
                         <div className="aboutMeLeftPart">
                           <div className="aboutMeText">

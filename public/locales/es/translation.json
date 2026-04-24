@@ -335,5 +335,13 @@
     "8": "Unreal C++",
     "9": "Física irreal avanzada",
     "10": "Gestión de producción y edición en Jeu Vidéo"
+  },
+  "Certificates": {
+    "title": "Certificaciones",
+    "issuedOn": "Emitido",
+    "viewCertificate": "Ver certificado",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "cert": "Certificado"
   }
 }

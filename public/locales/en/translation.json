@@ -334,5 +334,13 @@
     "8": "Unreal C++",
     "9": "Unreal Physique Advanced",
     "10": "Production & Publishing Management in Jeu Vidéo"
+  },
+  "Certificates": {
+    "title": "Certifications",
+    "issuedOn": "Issued",
+    "viewCertificate": "View certificate",
+    "prev": "Previous",
+    "next": "Next",
+    "cert": "Certificate"
   }
 }
