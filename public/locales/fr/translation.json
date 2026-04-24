@@ -330,6 +330,11 @@
       "Role": "Système d'inventaire, Système de drop d'item, Shop, Utilisation de l'item"
     }
   },
+  "ErrorPage": {
+    "title": "Page introuvable",
+    "message": "Cette page n'existe pas ou a été déplacée.",
+    "backHome": "Retour à l'accueil"
+  },
   "Incoming": {
     "1": "Programmation avancées - C++",
     "2": "Encapsulation - C++",

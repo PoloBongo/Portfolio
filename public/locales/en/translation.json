@@ -318,6 +318,11 @@
       "Role": "Inventory system, Item drop system, Shop, Item usage"
     }
   },
+  "ErrorPage": {
+    "title": "Page not found",
+    "message": "This page doesn't exist or has been moved.",
+    "backHome": "Back to home"
+  },
   "Incoming": {
     "1": "Advanced Programming - C++",
     "2": "Encapsulation - C++",

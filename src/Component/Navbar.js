@@ -203,7 +203,7 @@ const NavbarT = ({ t, tabIndex }) => {
           <DropdownTraduction tabIndex={menuOpen ? 0 : -1} />
           {renderNavbarButton(
             pageVisibility[pagePath]?.home,
-            "/Arthur",
+            "",
             "ClassicNavBar.Home"
           )}
           {renderNavbarButton(
@@ -233,7 +233,7 @@ const NavbarT = ({ t, tabIndex }) => {
           )}
           {renderNavbarButton(
             pageVisibility[pagePath]?.contact,
-            "/contactme",
+            "/contactMe",
             "ClassicNavBar.ContactMe"
           )}
           <li className="navbar-item">

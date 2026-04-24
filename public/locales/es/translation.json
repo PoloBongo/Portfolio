@@ -319,6 +319,11 @@
       "Role": "Sistema de inventario, Sistema de drop, Tienda, Uso de objetos"
     }
   },
+  "ErrorPage": {
+    "title": "Página no encontrada",
+    "message": "Esta página no existe o ha sido movida.",
+    "backHome": "Volver al inicio"
+  },
   "Incoming": {
     "1": "Programación avanzada - C++",
     "2": "Encapsulación - C++",

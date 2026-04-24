@@ -30,33 +30,31 @@ const ContactMeT = ({ t }) => {
     const templateId = "react_contact_form";
     const userId = "0V7hrtVud6jFHapQ2";
 
+    const ANIM_MS = 3000;
     setShowGif(true);
+    const t0 = Date.now();
 
     emailjs
       .send(serviceId, templateId, formData, userId)
-      .then((response) => {
-        setNotificationMessage("Mail envoyé avec succès!");
-        setShowNotification(true);
+      .then(() => {
+        const delay = Math.max(0, ANIM_MS - (Date.now() - t0));
         setTimeout(() => {
           setShowGif(false);
-          setFormData({
-            from_name: "",
-            from_prenom: "",
-            reply_to: "",
-            message: "",
-          });
+          setFormData({ from_name: "", from_prenom: "", reply_to: "", message: "" });
           document.getElementById("reset-form").reset();
-          setShowNotification(false);
-        }, 6000);
+          setNotificationMessage("Mail envoyé avec succès!");
+          setShowNotification(true);
+          setTimeout(() => setShowNotification(false), 2000);
+        }, delay);
       })
-      .catch((error) => {
-        setNotificationMessage("Échec de l'envoi du mail.");
-        setShowNotification(true);
+      .catch(() => {
+        const delay = Math.max(0, ANIM_MS - (Date.now() - t0));
         setTimeout(() => {
           setShowGif(false);
-          setShowNotification(false);
-          document.getElementById("reset-form").reset();
-        }, 6000);
+          setNotificationMessage("Échec de l'envoi du mail.");
+          setShowNotification(true);
+          setTimeout(() => setShowNotification(false), 2000);
+        }, delay);
       });
   };
 
@@ -101,110 +99,100 @@ const ContactMeT = ({ t }) => {
         <Navbar tabIndex={6} />
         <div className="traitSeparator"></div>
         <div className="align-form-contact">
-          <div className="contactMeFlex">
-            <h1 className="fontsBold">{t("ContactMe.title")}</h1>
-          </div>
-          <div className="flex-contact">
-            <div className="separatorContact"></div>
-            <div className="flex-contact-div margin-contact-div">
-              <form onSubmit={handleSubmit} id="reset-form">
-                <div className="flex-part-form">
-                  <div className="flex-row-part-form-nom-prenom">
-                    <div className="flex-part-form iconSpace2">
-                      <label htmlFor="name" className="fontsRegular display-remove">
-                        {t("ContactMe.name")} :
-                      </label>
-                      <div className="borderRGBForm">
-                        <input
-                          type="text"
-                          name="from_name"
-                          id="name"
-                          placeholder="Saisissez votre Nom"
-                          value={formData.from_name}
-                          onChange={handleChange}
-                          tabIndex={1}
-                          required
-                        ></input>
-                      </div>
-                    </div>
-                    <div className="flex-part-form prenom">
-                      <label htmlFor="prenom" className="fontsRegular display-remove">
-                        {t("ContactMe.prenom")} :
-                      </label>
-                      <div className="borderRGBForm">
-                        <input
-                          type="text"
-                          name="from_prenom"
-                          id="prenom"
-                          placeholder="Saisissez votre Prénom"
-                          onChange={handleChange}
-                          value={formData.from_prenom}
-                          tabIndex={2}
-                          required
-                        ></input>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex-part-form">
-                  <label htmlFor="mail" className="fontsRegular display-remove">
-                    {t("ContactMe.mail")} :
-                  </label>
-                  <div className="borderRGBForm">
-                    <input
-                      type="email"
-                      name="reply_to"
-                      id="mail"
-                      placeholder="Saisissez votre Mail"
-                      value={formData.reply_to}
-                      onChange={handleChange}
-                      tabIndex={3}
-                      required
-                    ></input>
-                  </div>
-                </div>
-                <div className="flex-part-form">
-                  <label htmlFor="message" className="fontsRegular display-remove">
-                    {t("ContactMe.message")} :
-                  </label>
-                  <div className="borderRGBForm">
-                    <textarea
-                      placeholder="Votre Message"
-                      name="message"
-                      id="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      tabIndex={4}
-                      required
-                    ></textarea>
-                  </div>
-                </div>
-                <div className="flex-part-form margin-submit-form-contact">
-                  <button
-                    type="submit"
-                    tabIndex={5}
-                    onClick={(e) => handleSubmit(e)}
-                    className="submitForm relativePosition"
-                    id="last"
-                  >
-                    {showGif ? (
-                      <img
-                        src={pikachuForm}
-                        alt="submit pikachu load"
-                        className="gifForm"
-                        style={{
-                          overflow: "hidden",
-                          animation: "fadeBongo 7s ease-in-out forwards",
-                        }}
-                        loading="lazy"
-                      />
-                    ) : (
-                      t("ContactMe.submit")
-                    )}
-                  </button>
-                </div>
-              </form>
+          <div className="contact-card">
+            <div className="contact-card-header">
+              <svg
+                className="contact-card-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+              <h1 className="fontsBold">{t("ContactMe.title")}</h1>
+              <a href="mailto:arthur.plfm@gmail.com" className="contact-card-email">
+                arthur.plfm@gmail.com
+              </a>
             </div>
+            <form onSubmit={handleSubmit} id="reset-form">
+              <div className="contact-form-row">
+                <div className="contact-form-field">
+                  <input
+                    type="text"
+                    name="from_name"
+                    id="name"
+                    placeholder=" "
+                    value={formData.from_name}
+                    onChange={handleChange}
+                    tabIndex={1}
+                    required
+                  />
+                  <label htmlFor="name">{t("ContactMe.name")}</label>
+                </div>
+                <div className="contact-form-field">
+                  <input
+                    type="text"
+                    name="from_prenom"
+                    id="prenom"
+                    placeholder=" "
+                    onChange={handleChange}
+                    value={formData.from_prenom}
+                    tabIndex={2}
+                    required
+                  />
+                  <label htmlFor="prenom">{t("ContactMe.prenom")}</label>
+                </div>
+              </div>
+              <div className="contact-form-field">
+                <input
+                  type="email"
+                  name="reply_to"
+                  id="mail"
+                  placeholder=" "
+                  value={formData.reply_to}
+                  onChange={handleChange}
+                  tabIndex={3}
+                  required
+                />
+                <label htmlFor="mail">{t("ContactMe.mail")}</label>
+              </div>
+              <div className="contact-form-field">
+                <textarea
+                  name="message"
+                  id="message"
+                  placeholder=" "
+                  value={formData.message}
+                  onChange={handleChange}
+                  tabIndex={4}
+                  required
+                />
+                <label htmlFor="message">{t("ContactMe.message")}</label>
+              </div>
+              <button type="submit" tabIndex={5} id="last" disabled={showGif}>
+                {showGif ? (
+                  <img
+                    src={pikachuForm}
+                    alt="submit pikachu load"
+                    className="gifForm"
+                    style={{
+                      overflow: "hidden",
+                      animation: "fadeBongo 3s ease-in-out forwards",
+                    }}
+                    loading="lazy"
+                  />
+                ) : (
+                  t("ContactMe.submit")
+                )}
+              </button>
+            </form>
           </div>
         </div>
       </FocusLoop>

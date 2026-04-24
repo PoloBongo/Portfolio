@@ -9,6 +9,7 @@ import GameJam from "./Pages/GameJam/GameJam";
 import UnityPage from "./Pages/Unity/Unity";
 import UnrealPage from "./Pages/Unreal/Unreal";
 import IncomingPage from "./Pages/Incoming/Incoming";
+import ErrorPage from "./Pages/ErrorPage";
 import "./index.css";
 import Arthur from "./Arthur";
 import reportWebVitals from "./reportWebVitals";
@@ -69,7 +70,9 @@ root.render(
             <Route path="ProjectsWeb" element={<ProjectsWeb />} />
             <Route path="ProjectsVideosGames" element={<ProjectsVideosGames />} />
             <Route path="contactMe" element={<ContactMe />} />
+            <Route path="*" element={<ErrorPage />} />
           </Route>
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>
     </HelmetProvider>
