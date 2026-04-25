@@ -393,7 +393,6 @@
   overflow-x: hidden;
   height: 100vh;
   height: 100svh;
-  overflow-y: hidden;
 }
 
 .infoIcon {
@@ -824,6 +823,12 @@ button::placeholder {
   }
 }
 
+.certificate-mobile-only {
+  display: none;
+  background-color: #282c34;
+  width: 100%;
+}
+
 /* PAGE HOME FORMAT TELEPHONE */
 @media (max-width: 900px) {
   .aboutMe {
@@ -866,6 +871,12 @@ button::placeholder {
   .takeSize {
     margin: 5%;
     height: auto !important;
+  }
+  .certificate-desktop-only {
+    display: none !important;
+  }
+  .certificate-mobile-only {
+    display: block;
   }
   .navbarHome {
     display: none;
@@ -949,6 +960,10 @@ button::placeholder {
 }
 
 @media (max-width: 1500px) {
+  .takeSize {
+    height: auto;
+  }
+
   .aboutMe {
     display: flex;
     flex-direction: column;

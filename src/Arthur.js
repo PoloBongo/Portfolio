@@ -154,7 +154,7 @@ const HomeT = ({ t }) => {
                     <div className="takeSize">
                       <Navbar tabIndex={27} />
                       <main className="aboutMe">
-                        <div className="aboutMeRightPart">
+                        <div className="aboutMeRightPart certificate-desktop-only">
                           <CertificateCarousel />
                         </div>
                         <div className="aboutMeLeftPart">
@@ -208,6 +208,10 @@ const HomeT = ({ t }) => {
                           </div>
                         </div>
                       </main>
+                    </div>
+
+                    <div className="certificate-mobile-only">
+                      <CertificateCarousel />
                     </div>
 
                     <section id="aboutme&skills" className="aboutMePartDescription">
