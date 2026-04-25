@@ -1,7 +1,6 @@
 import "./css/Home.css";
-import React, { Suspense, useEffect, useState, useRef, lazy } from "react";
+import React, { Suspense, useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
-import ScreenSize from "./Component/ScreenSize.js";
 import Navbar from "./Component/Navbar.js";
 import TypingAnimation from "./Component/TextTyping.js";
 import PopupMySql from "./Component/PopupLanguage.js";
@@ -9,6 +8,7 @@ import Load from "./Component/Load.js";
 import Fade from "./Component/Fade.js";
 import FocusLoop from "./Component/FocusLoop.js";
 import CertificateCarousel from "./Component/CertificateCarousel";
+import ParralaxEffect from "./Effects/ParallaxEffect";
 
 // Balise React
 import { Helmet } from "react-helmet-async";
@@ -23,8 +23,6 @@ import { withTranslation } from "react-i18next";
 
 // Speed Page
 import { SpeedInsights } from "@vercel/speed-insights/react";
-
-const ParralaxEffect = lazy(() => import("./Effects/ParallaxEffect"));
 
 const HomeT = ({ t }) => {
   const { lang = "fr" } = useParams();
@@ -65,11 +63,7 @@ const HomeT = ({ t }) => {
 
   useEffect(() => {
     if (!fade) {
-      const cleanUp = ScreenSize();
       sessionStorage.setItem("AntiPikachu", "true");
-      return () => {
-        cleanUp();
-      };
     }
   }, [fade]);
 
@@ -158,7 +152,7 @@ const HomeT = ({ t }) => {
                 <ParralaxEffect>
                   <FocusLoop>
                     <div className="takeSize">
-                      <Navbar tabIndex={21} />
+                      <Navbar tabIndex={27} />
                       <main className="aboutMe">
                         <div className="aboutMeRightPart">
                           <CertificateCarousel />
@@ -220,7 +214,7 @@ const HomeT = ({ t }) => {
                       <div className="aboutMeTitle">
                         <h2 className="fontsRegular">{t("Home.title2")}</h2>
                       </div>
-                      <PopupMySql tabIndex={3} />
+                      <PopupMySql tabIndex={9} />
                       <p className="pDescription centerLoad inherit">
                         © Arthur BRU
                       </p>

@@ -1,6 +1,5 @@
-import { Suspense, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Loader } from "./ComponentTraduction";
 import { withTranslation } from "react-i18next";
 import "../css/Home.css";
 
@@ -27,12 +26,23 @@ const LANG_LOCALE = { fr: "fr-FR", en: "en-US", es: "es-ES" };
 const CertificateCarouselT = ({ t }) => {
   const { lang = "fr" } = useParams();
   const [current, setCurrent] = useState(0);
+  const certLinkRef = useRef(null);
   const cert = CERTIFICATES[current];
 
   const formattedDate = new Date(cert.date + "-01").toLocaleDateString(
     LANG_LOCALE[lang] || "fr-FR",
     { month: "long", year: "numeric" }
   );
+
+  const handleNext = () => {
+    setCurrent((c) => c + 1);
+    setTimeout(() => certLinkRef.current?.focus(), 0);
+  };
+
+  const handlePrev = () => {
+    setCurrent((c) => c - 1);
+    setTimeout(() => certLinkRef.current?.focus(), 0);
+  };
 
   return (
     <section className="certificate-section" aria-label={t("Certificates.title")}>
@@ -42,9 +52,10 @@ const CertificateCarouselT = ({ t }) => {
       <div className="certificate-carousel-wrapper">
         <button
           className="carousel-btn"
-          onClick={() => setCurrent((c) => c - 1)}
+          onClick={handlePrev}
           disabled={current === 0}
           aria-label={t("Certificates.prev")}
+          tabIndex={current > 0 ? 6 : -1}
         >
           ‹
         </button>
@@ -55,19 +66,22 @@ const CertificateCarouselT = ({ t }) => {
             {t("Certificates.issuedOn")} {formattedDate}
           </p>
           <a
+            ref={certLinkRef}
             href={cert.url}
             target="_blank"
             rel="noreferrer"
             className="certificate-link fontsRegular"
+            tabIndex={4}
           >
             {t("Certificates.viewCertificate")}
           </a>
         </div>
         <button
           className="carousel-btn"
-          onClick={() => setCurrent((c) => c + 1)}
+          onClick={handleNext}
           disabled={current === CERTIFICATES.length - 1}
           aria-label={t("Certificates.next")}
+          tabIndex={5}
         >
           ›
         </button>
@@ -80,6 +94,7 @@ const CertificateCarouselT = ({ t }) => {
             onClick={() => setCurrent(i)}
             aria-label={`${t("Certificates.cert")} ${i + 1}`}
             aria-current={i === current ? "true" : "false"}
+            tabIndex={-1}
           />
         ))}
       </div>
@@ -91,7 +106,7 @@ const TranslatedCertificateCarousel = withTranslation()(CertificateCarouselT);
 
 export default function CertificateCarousel() {
   return (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={null}>
       <TranslatedCertificateCarousel />
     </Suspense>
   );

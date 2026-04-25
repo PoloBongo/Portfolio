@@ -188,7 +188,6 @@
 
 .aboutMeRightPart {
   grid-area: right / right / right / right;
-  margin-left: 30px;
 }
 
 .imageSize {
@@ -209,6 +208,7 @@
 
 .typingAnimation {
   font-weight: 600;
+  min-height: 1.5em;
 }
 
 .font-weight-100 {
@@ -391,6 +391,9 @@
   z-index: 1;
   position: relative;
   overflow-x: hidden;
+  height: 100vh;
+  height: 100svh;
+  overflow-y: hidden;
 }
 
 .infoIcon {
@@ -950,6 +953,14 @@ button::placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .aboutMeLeftPart {
+    order: 1;
+  }
+
+  .aboutMeRightPart {
+    order: 2;
   }
 
   .iframeYoutube {
@@ -1720,7 +1731,6 @@ body.keyboard-nav :focus {
 
 .certificate-section {
   width: 100%;
-  background-color: #282c34;
   padding: 48px 20px;
   box-sizing: border-box;
 }
