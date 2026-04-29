@@ -18,89 +18,6 @@ const NavbarT = ({ t, tabIndex }) => {
   const menuToggleRef = useRef(null);
   const navRef = useRef(null);
 
-  const pageVisibility = {
-    "/": {
-      home: false,
-      unity: true,
-      unreal: true,
-      Gamejam: true,
-      videoGame: true,
-      contact: true,
-      web: true,
-    },
-    "/Arthur": {
-      home: false,
-      unity: true,
-      unreal: true,
-      Gamejam: true,
-      videoGame: true,
-      contact: true,
-      web: true,
-    },
-    "/Unity": {
-      home: true,
-      unity: false,
-      unreal: true,
-      Gamejam: true,
-      videoGame: true,
-      contact: true,
-      web: true,
-    },
-    "/Unreal": {
-      home: true,
-      unity: true,
-      unreal: false,
-      Gamejam: true,
-      videoGame: true,
-      contact: true,
-      web: true,
-    },
-    "/GameJam": {
-      home: true,
-      unity: true,
-      unreal: true,
-      Gamejam: false,
-      videoGame: true,
-      contact: true,
-      web: true,
-    },
-    "/ProjectsVideosGames": {
-      home: true,
-      unity: true,
-      unreal: true,
-      Gamejam: true,
-      videoGame: false,
-      contact: true,
-      web: true,
-    },
-    "/contactMe": {
-      home: true,
-      unity: true,
-      unreal: true,
-      Gamejam: true,
-      videoGame: true,
-      contact: false,
-      web: true,
-    },
-    "/Incoming": {
-      home: true,
-      unity: true,
-      unreal: true,
-      Gamejam: true,
-      videoGame: true,
-      contact: true,
-      web: true,
-    },
-    "/ProjectsWeb": {
-      home: true,
-      unity: true,
-      unreal: true,
-      Gamejam: true,
-      videoGame: true,
-      contact: true,
-      web: false,
-    },
-  };
 
   useEffect(() => {
     const storedValue = sessionStorage.getItem("ShowTitleInNavbar");
@@ -151,15 +68,19 @@ const NavbarT = ({ t, tabIndex }) => {
     sessionStorage.setItem("ShowTitleInNavbar", path === "/Incoming" ? "false" : "true");
   };
 
-  const renderNavbarButton = (visible, path, label) => {
-    if (!visible) return null;
+  const renderNavbarButton = (path, label) => {
+    const isActive =
+      path === ""
+        ? pagePath === "/" || pagePath === "/Arthur" || pagePath === ""
+        : pagePath === path;
     return (
       <li className="navbar-item">
         <Link
-          className="navbar-link"
+          className={`navbar-link${isActive ? " navbar-link--active" : ""}`}
           to={`/${lang}${path}`}
           onClick={() => handleNavClick(path)}
           tabIndex={menuOpen ? 0 : -1}
+          aria-current={isActive ? "page" : undefined}
         >
           {t(label)}
         </Link>
@@ -201,41 +122,13 @@ const NavbarT = ({ t, tabIndex }) => {
       >
         <ul>
           <DropdownTraduction tabIndex={menuOpen ? 0 : -1} />
-          {renderNavbarButton(
-            pageVisibility[pagePath]?.home,
-            "",
-            "ClassicNavBar.Home"
-          )}
-          {renderNavbarButton(
-            pageVisibility[pagePath]?.unity,
-            "/Unity",
-            "ClassicNavBar.Unity"
-          )}
-          {renderNavbarButton(
-            pageVisibility[pagePath]?.unreal,
-            "/Unreal",
-            "ClassicNavBar.Unreal"
-          )}
-          {renderNavbarButton(
-            pageVisibility[pagePath]?.Gamejam,
-            "/Gamejam",
-            "ClassicNavBar.GameJam"
-          )}
-          {renderNavbarButton(
-            pageVisibility[pagePath]?.videoGame,
-            "/ProjectsVideosGames",
-            "DropdownProjects.ProjectVideoGames"
-          )}
-          {renderNavbarButton(
-            pageVisibility[pagePath]?.web,
-            "/ProjectsWeb",
-            "DropdownProjects.ProjectWeb"
-          )}
-          {renderNavbarButton(
-            pageVisibility[pagePath]?.contact,
-            "/contactMe",
-            "ClassicNavBar.ContactMe"
-          )}
+          {renderNavbarButton("", "ClassicNavBar.Home")}
+          {renderNavbarButton("/Unity", "ClassicNavBar.Unity")}
+          {renderNavbarButton("/Unreal", "ClassicNavBar.Unreal")}
+          {renderNavbarButton("/Gamejam", "ClassicNavBar.GameJam")}
+          {renderNavbarButton("/ProjectsVideosGames", "DropdownProjects.ProjectVideoGames")}
+          {renderNavbarButton("/ProjectsWeb", "DropdownProjects.ProjectWeb")}
+          {renderNavbarButton("/contactMe", "ClassicNavBar.ContactMe")}
           <li className="navbar-item">
             <a
               className="navbar-link"
@@ -248,7 +141,7 @@ const NavbarT = ({ t, tabIndex }) => {
             </a>
           </li>
           {showIncomingTitle &&
-            renderNavbarButton(true, "/Incoming", "ClassicNavBar.Incoming")}
+            renderNavbarButton("/Incoming", "ClassicNavBar.Incoming")}
         </ul>
       </nav>
     </div>

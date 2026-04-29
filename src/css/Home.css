@@ -1532,6 +1532,18 @@ button::placeholder {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+.navbar-link--active {
+  background-color: rgba(188, 99, 255, 0.2);
+  border-left: 3px solid #bc63ff;
+  padding-left: calc(1rem - 3px);
+  font-weight: 600;
+  color: #e0b3ff;
+}
+
+.navbar-link--active:hover {
+  background-color: rgba(188, 99, 255, 0.3);
+}
+
 :focus {
   outline: none;
 }
