@@ -2,7 +2,7 @@ import "../../css/Home.css";
 import React, { Suspense, useState, Fragment, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../../Component/Navbar.js";
-import { Helmet } from "react-helmet-async";
+import SEO from "../../Component/Layout.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -130,23 +130,14 @@ const UnityT = ({ t }) => {
 
   return (
     <div className="Home-header overflowHidden fontsRegular">
-      <Helmet>
-        <title>{t("Unity.Title")} - Arthur BRU</title>
-        <meta name="description" content="Découvrez mes projets Unity en C# : Depths of Hue, ShadowScholar, RATP, NavyBongo, AngryBirds et plus. Certains jeux sont jouables directement dans le navigateur." />
-        <link rel="canonical" href={`https://www.arthur-portfolio.dev/${lang}/Unity`} />
-        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/Unity" />
-        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/Unity" />
-        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/Unity" />
-        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/Unity" />
-        <meta property="og:title" content="Projets Unity - Arthur BRU" />
-        <meta property="og:description" content="Projets Unity en C# : Depths of Hue, ShadowScholar, RATP, NavyBongo. Jeux jouables dans le navigateur." />
-        <meta property="og:url" content={`https://www.arthur-portfolio.dev/${lang}/Unity`} />
-        <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Projets Unity - Arthur BRU" />
-        <meta name="twitter:description" content="Projets Unity en C# : Depths of Hue, ShadowScholar, RATP, NavyBongo. Jeux jouables dans le navigateur." />
-        <meta name="twitter:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
-        <script type="application/ld+json">{`{
+      <SEO
+        lang={lang}
+        path="/Unity"
+        title={`${t("Unity.Title")} - Arthur BRU`}
+        description="Découvrez mes projets Unity en C# : Depths of Hue, ShadowScholar, RATP, NavyBongo, AngryBirds et plus. Certains jeux sont jouables directement dans le navigateur."
+        ogTitle="Projets Unity - Arthur BRU"
+        ogDescription="Projets Unity en C# : Depths of Hue, ShadowScholar, RATP, NavyBongo. Jeux jouables dans le navigateur."
+        structuredData={`{
           "@context": "https://schema.org",
           "@graph": [
             {
@@ -156,58 +147,16 @@ const UnityT = ({ t }) => {
               "description": "Projets Unity en C# : Depths of Hue, ShadowScholar, RATP, NavyBongo, AngryBirds. Jeux jouables dans le navigateur.",
               "author": { "@type": "Person", "name": "Arthur BRU" }
             },
-            {
-              "@type": "VideoGame",
-              "name": "Depths Of Hue",
-              "author": { "@type": "Person", "name": "Arthur BRU" },
-              "gamePlatform": "Unity WebGL",
-              "applicationCategory": "Game"
-            },
-            {
-              "@type": "VideoGame",
-              "name": "Shadow Scholar : La fac ultime",
-              "author": { "@type": "Person", "name": "Arthur BRU" },
-              "gamePlatform": "Unity WebGL",
-              "applicationCategory": "Game"
-            },
-            {
-              "@type": "VideoGame",
-              "name": "RATP Simulator",
-              "author": { "@type": "Person", "name": "Arthur BRU" },
-              "gamePlatform": "Unity WebGL",
-              "applicationCategory": "Game"
-            },
-            {
-              "@type": "VideoGame",
-              "name": "Angry Birds",
-              "author": { "@type": "Person", "name": "Arthur BRU" },
-              "gamePlatform": "Unity WebGL",
-              "applicationCategory": "Game"
-            },
-            {
-              "@type": "VideoGame",
-              "name": "UI UX Cooking Project",
-              "author": { "@type": "Person", "name": "Arthur BRU" },
-              "gamePlatform": "Unity WebGL",
-              "applicationCategory": "Game"
-            },
-            {
-              "@type": "VideoGame",
-              "name": "Navy Bongo",
-              "author": { "@type": "Person", "name": "Arthur BRU" },
-              "gamePlatform": "Unity WebGL",
-              "applicationCategory": "Game"
-            },
-            {
-              "@type": "VideoGame",
-              "name": "Unity RL",
-              "author": { "@type": "Person", "name": "Arthur BRU" },
-              "gamePlatform": "Unity WebGL",
-              "applicationCategory": "Game"
-            }
+            { "@type": "VideoGame", "name": "Depths Of Hue", "author": { "@type": "Person", "name": "Arthur BRU" }, "gamePlatform": "Unity WebGL", "applicationCategory": "Game" },
+            { "@type": "VideoGame", "name": "Shadow Scholar : La fac ultime", "author": { "@type": "Person", "name": "Arthur BRU" }, "gamePlatform": "Unity WebGL", "applicationCategory": "Game" },
+            { "@type": "VideoGame", "name": "RATP Simulator", "author": { "@type": "Person", "name": "Arthur BRU" }, "gamePlatform": "Unity WebGL", "applicationCategory": "Game" },
+            { "@type": "VideoGame", "name": "Angry Birds", "author": { "@type": "Person", "name": "Arthur BRU" }, "gamePlatform": "Unity WebGL", "applicationCategory": "Game" },
+            { "@type": "VideoGame", "name": "UI UX Cooking Project", "author": { "@type": "Person", "name": "Arthur BRU" }, "gamePlatform": "Unity WebGL", "applicationCategory": "Game" },
+            { "@type": "VideoGame", "name": "Navy Bongo", "author": { "@type": "Person", "name": "Arthur BRU" }, "gamePlatform": "Unity WebGL", "applicationCategory": "Game" },
+            { "@type": "VideoGame", "name": "Unity RL", "author": { "@type": "Person", "name": "Arthur BRU" }, "gamePlatform": "Unity WebGL", "applicationCategory": "Game" }
           ]
-        }`}</script>
-      </Helmet>
+        }`}
+      />
       <FocusLoop>
         <Navbar tabIndex={17} />
         <div className="traitSeparator" id="blur"></div>

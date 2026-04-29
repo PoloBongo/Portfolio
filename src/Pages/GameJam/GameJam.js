@@ -1,7 +1,7 @@
 import "../../css/Home.css";
 import React, { Suspense, useState, useRef, useEffect, Fragment } from "react";
 import Navbar from "../../Component/Navbar.js";
-import { Helmet } from "react-helmet-async";
+import SEO from "../../Component/Layout.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -249,23 +249,14 @@ const GameJamT = ({ t }) => {
 
   return (
     <div className="Home-header overflowHidden fontsRegular">
-      <Helmet>
-        <title>{t("GameJam.Title")} - Arthur BRU</title>
-        <meta name="description" content="Découvrez mes participations aux Game Jam : Chocolato, StaySoul et AttractionFlow — des jeux créés en 42 à 48 heures avec Unity, jouables dans le navigateur." />
-        <link rel="canonical" href={`https://www.arthur-portfolio.dev/${lang}/GameJam`} />
-        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/GameJam" />
-        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/GameJam" />
-        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/GameJam" />
-        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/GameJam" />
-        <meta property="og:title" content="Game Jam - Arthur BRU" />
-        <meta property="og:description" content="Jeux de Game Jam créés en 42 à 48 heures avec Unity : Chocolato, StaySoul et AttractionFlow." />
-        <meta property="og:url" content={`https://www.arthur-portfolio.dev/${lang}/GameJam`} />
-        <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Game Jam - Arthur BRU" />
-        <meta name="twitter:description" content="Jeux de Game Jam créés en 42 à 48 heures avec Unity : Chocolato, StaySoul et AttractionFlow." />
-        <meta name="twitter:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
-        <script type="application/ld+json">{`{
+      <SEO
+        lang={lang}
+        path="/GameJam"
+        title={`${t("GameJam.Title")} - Arthur BRU`}
+        description="Découvrez mes participations aux Game Jam : Chocolato, StaySoul et AttractionFlow — des jeux créés en 42 à 48 heures avec Unity, jouables dans le navigateur."
+        ogTitle="Game Jam - Arthur BRU"
+        ogDescription="Jeux de Game Jam créés en 42 à 48 heures avec Unity : Chocolato, StaySoul et AttractionFlow."
+        structuredData={`{
           "@context": "https://schema.org",
           "@graph": [
             {
@@ -275,33 +266,12 @@ const GameJamT = ({ t }) => {
               "description": "Jeux de Game Jam créés en 42 à 48 heures avec Unity : Attraction Flow, Stay Soul et Choco Blast.",
               "author": { "@type": "Person", "name": "Arthur BRU" }
             },
-            {
-              "@type": "VideoGame",
-              "name": "Attraction Flow",
-              "description": "Jeu créé en 48 heures lors d'une Game Jam avec Unity.",
-              "author": { "@type": "Person", "name": "Arthur BRU" },
-              "gamePlatform": "Unity WebGL",
-              "applicationCategory": "Game"
-            },
-            {
-              "@type": "VideoGame",
-              "name": "Stay Soul",
-              "description": "Jeu créé en 48 heures lors d'une Game Jam avec Unity.",
-              "author": { "@type": "Person", "name": "Arthur BRU" },
-              "gamePlatform": "Unity WebGL",
-              "applicationCategory": "Game"
-            },
-            {
-              "@type": "VideoGame",
-              "name": "Choco Blast",
-              "description": "Jeu créé en 42 heures lors d'une Game Jam avec Unity.",
-              "author": { "@type": "Person", "name": "Arthur BRU" },
-              "gamePlatform": "Unity WebGL",
-              "applicationCategory": "Game"
-            }
+            { "@type": "VideoGame", "name": "Attraction Flow", "description": "Jeu créé en 48 heures lors d'une Game Jam avec Unity.", "author": { "@type": "Person", "name": "Arthur BRU" }, "gamePlatform": "Unity WebGL", "applicationCategory": "Game" },
+            { "@type": "VideoGame", "name": "Stay Soul", "description": "Jeu créé en 48 heures lors d'une Game Jam avec Unity.", "author": { "@type": "Person", "name": "Arthur BRU" }, "gamePlatform": "Unity WebGL", "applicationCategory": "Game" },
+            { "@type": "VideoGame", "name": "Choco Blast", "description": "Jeu créé en 42 heures lors d'une Game Jam avec Unity.", "author": { "@type": "Person", "name": "Arthur BRU" }, "gamePlatform": "Unity WebGL", "applicationCategory": "Game" }
           ]
-        }`}</script>
-      </Helmet>
+        }`}
+      />
       <FocusLoop>
         <Navbar tabIndex={10} />
         <div className="traitSeparator" id="blur"></div>

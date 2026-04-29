@@ -2,7 +2,7 @@ import { Suspense, useState } from "react";
 import "../../css/Home.css";
 import { useParams } from "react-router-dom";
 import Navbar from "../../Component/Navbar";
-import { Helmet } from "react-helmet-async";
+import SEO from "../../Component/Layout.js";
 import emailjs from "emailjs-com";
 import pikachuForm from "../../img/pikachuForm.webp";
 
@@ -70,31 +70,22 @@ const ContactMeT = ({ t }) => {
 
   return (
     <div className="Home-header overflowHidden">
-      <Helmet>
-        <title>{t("ContactMe.title")} - Arthur BRU</title>
-        <meta name="description" content="Contactez Arthur BRU, développeur Web &amp; Jeu Vidéo. Envoyez-moi un message directement via ce formulaire de contact." />
-        <link rel="canonical" href={`https://www.arthur-portfolio.dev/${lang}/contactMe`} />
-        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/contactMe" />
-        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/contactMe" />
-        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/contactMe" />
-        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/contactMe" />
-        <meta property="og:title" content="Contact - Arthur BRU" />
-        <meta property="og:description" content="Contactez Arthur BRU, développeur Web &amp; Jeu Vidéo." />
-        <meta property="og:url" content={`https://www.arthur-portfolio.dev/${lang}/contactMe`} />
-        <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Contact - Arthur BRU" />
-        <meta name="twitter:description" content="Contactez Arthur BRU, développeur Web &amp; Jeu Vidéo." />
-        <meta name="twitter:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
-        <script type="application/ld+json">{`{
+      <SEO
+        lang={lang}
+        path="/contactMe"
+        title={`${t("ContactMe.title")} - Arthur BRU`}
+        description="Contactez Arthur BRU, développeur Web &amp; Jeu Vidéo. Envoyez-moi un message directement via ce formulaire de contact."
+        ogTitle="Contact - Arthur BRU"
+        ogDescription="Contactez Arthur BRU, développeur Web &amp; Jeu Vidéo."
+        structuredData={`{
           "@context": "https://schema.org",
           "@type": "WebPage",
           "name": "Contact - Arthur BRU",
           "url": "https://www.arthur-portfolio.dev/contactMe",
           "description": "Contactez Arthur BRU, développeur Web & Jeu Vidéo.",
           "author": { "@type": "Person", "name": "Arthur BRU" }
-        }`}</script>
-      </Helmet>
+        }`}
+      />
       <FocusLoop>
         <Navbar tabIndex={6} />
         <div className="traitSeparator"></div>

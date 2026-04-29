@@ -2,7 +2,7 @@ import "../../css/Home.css";
 import React, { Suspense } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../../Component/Navbar.js";
-import { Helmet } from "react-helmet-async";
+import SEO from "../../Component/Layout.js";
 
 // Traduction
 import { Loader } from "../../Component/ComponentTraduction.js";
@@ -14,23 +14,14 @@ const UnrealT = ({ t }) => {
   const { lang = "fr" } = useParams();
   return (
     <>
-      <Helmet>
-        <title>{t("Unreal.Title")} - Arthur BRU</title>
-        <meta name="description" content="Découvrez mes projets Unreal Engine 5 : Funfair (fête foraine interactive), SpacialRace et un système d'inventaire complet en C++ et Blueprint." />
-        <link rel="canonical" href={`https://www.arthur-portfolio.dev/${lang}/Unreal`} />
-        <link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/Unreal" />
-        <link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/Unreal" />
-        <link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/Unreal" />
-        <link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/Unreal" />
-        <meta property="og:title" content="Projets Unreal Engine - Arthur BRU" />
-        <meta property="og:description" content="Découvrez mes projets Unreal Engine 5 : Funfair, SpacialRace et un système d'inventaire en C++ et Blueprint." />
-        <meta property="og:url" content={`https://www.arthur-portfolio.dev/${lang}/Unreal`} />
-        <meta property="og:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Projets Unreal Engine - Arthur BRU" />
-        <meta name="twitter:description" content="Découvrez mes projets Unreal Engine 5 : Funfair, SpacialRace et un système d'inventaire en C++ et Blueprint." />
-        <meta name="twitter:image" content="https://www.arthur-portfolio.dev/arthur.webp" />
-        <script type="application/ld+json">{`{
+      <SEO
+        lang={lang}
+        path="/Unreal"
+        title={`${t("Unreal.Title")} - Arthur BRU`}
+        description="Découvrez mes projets Unreal Engine 5 : Funfair (fête foraine interactive), SpacialRace et un système d'inventaire complet en C++ et Blueprint."
+        ogTitle="Projets Unreal Engine - Arthur BRU"
+        ogDescription="Découvrez mes projets Unreal Engine 5 : Funfair, SpacialRace et un système d'inventaire en C++ et Blueprint."
+        structuredData={`{
           "@context": "https://schema.org",
           "@graph": [
             {
@@ -40,32 +31,12 @@ const UnrealT = ({ t }) => {
               "description": "Projets Unreal Engine 5 : Funfair, SpacialRace et un système d'inventaire en C++ et Blueprint.",
               "author": { "@type": "Person", "name": "Arthur BRU" }
             },
-            {
-              "@type": "VideoGame",
-              "name": "Funfair",
-              "description": "Fête foraine interactive réalisée avec Unreal Engine 5.",
-              "author": { "@type": "Person", "name": "Arthur BRU" },
-              "gamePlatform": "PC",
-              "applicationCategory": "Game",
-              "url": "https://arthur-bru.itch.io/carnival-unreal-engine-5"
-            },
-            {
-              "@type": "VideoGame",
-              "name": "Spacial Race",
-              "author": { "@type": "Person", "name": "Arthur BRU" },
-              "gamePlatform": "PC",
-              "applicationCategory": "Game"
-            },
-            {
-              "@type": "SoftwareApplication",
-              "name": "Inventory Demo",
-              "description": "Système d'inventaire complet en C++ et Blueprint pour Unreal Engine 5.",
-              "author": { "@type": "Person", "name": "Arthur BRU" },
-              "applicationCategory": "DeveloperApplication"
-            }
+            { "@type": "VideoGame", "name": "Funfair", "description": "Fête foraine interactive réalisée avec Unreal Engine 5.", "author": { "@type": "Person", "name": "Arthur BRU" }, "gamePlatform": "PC", "applicationCategory": "Game", "url": "https://arthur-bru.itch.io/carnival-unreal-engine-5" },
+            { "@type": "VideoGame", "name": "Spacial Race", "author": { "@type": "Person", "name": "Arthur BRU" }, "gamePlatform": "PC", "applicationCategory": "Game" },
+            { "@type": "SoftwareApplication", "name": "Inventory Demo", "description": "Système d'inventaire complet en C++ et Blueprint pour Unreal Engine 5.", "author": { "@type": "Person", "name": "Arthur BRU" }, "applicationCategory": "DeveloperApplication" }
           ]
-        }`}</script>
-      </Helmet>
+        }`}
+      />
       <div className="Home-header overflowHidden fontsRegular">
         <FocusLoop>
           <Navbar tabIndex={5} />
