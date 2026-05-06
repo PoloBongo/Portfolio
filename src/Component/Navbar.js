@@ -24,6 +24,13 @@ const NavbarT = ({ t, tabIndex }) => {
     setShowIncomingTitle(storedValue === "true");
   }, [location.pathname]);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   const handleKeyDown = (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -95,6 +102,13 @@ const NavbarT = ({ t, tabIndex }) => {
 
   return (
     <div className="navbar-container">
+      {menuOpen && (
+        <div
+          className="navbar-backdrop"
+          onClick={() => setMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
       <input
         ref={menuToggleRef}
         type="checkbox"

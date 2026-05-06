@@ -1231,6 +1231,13 @@ button::placeholder {
   z-index: 1000;
 }
 
+.navbar-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background: rgba(0, 0, 0, 0.4);
+}
+
 /* Hide the checkbox */
 .menu-toggle {
   display: none;
@@ -1254,7 +1261,7 @@ button::placeholder {
 @media screen and (max-width: 768px) {
   .menu-icon {
     position: fixed !important;
-    bottom: 20px !important;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
     right: 20px !important;
     top: auto !important;
     left: auto !important;
@@ -1263,6 +1270,7 @@ button::placeholder {
   }
   .menu-icon-home {
     overflow-x: hidden;
+    top: calc(20px + env(safe-area-inset-top, 0px));
   }
 }
 
@@ -1311,6 +1319,10 @@ button::placeholder {
   right: 0;
   width: 250px;
   height: 100vh;
+  height: 100svh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   background-color: #282c34;
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
@@ -1324,6 +1336,10 @@ button::placeholder {
 
 .menu-toggle:checked ~ .navbar-vertical {
   transform: translateX(0%);
+}
+
+.navbar-vertical::-webkit-scrollbar {
+  display: none;
 }
 
 .navbar-vertical ul {
