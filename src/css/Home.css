@@ -1260,16 +1260,10 @@ button::placeholder {
 
 @media screen and (max-width: 768px) {
   .menu-icon {
-    position: fixed !important;
-    bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
-    right: 20px !important;
-    top: auto !important;
-    left: auto !important;
+    top: calc(20px + env(safe-area-inset-top, 0px)) !important;
     z-index: 9999;
-    overflow-x: hidden;
   }
   .menu-icon-home {
-    overflow-x: hidden;
     top: calc(20px + env(safe-area-inset-top, 0px));
   }
 }
