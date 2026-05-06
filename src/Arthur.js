@@ -136,10 +136,10 @@ const HomeT = ({ t }) => {
               <Fade />
             ) : (
               <>
+                <Navbar tabIndex={27} />
                 <ParralaxEffect>
                   <FocusLoop>
                     <div className="takeSize">
-                      <Navbar tabIndex={27} />
                       <main className="aboutMe">
                         <div className="aboutMeRightPart certificate-desktop-only">
                           <CertificateCarousel />
