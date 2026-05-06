@@ -1,4 +1,14 @@
 {
+  "redirects": [
+    { "source": "/Unity",               "destination": "/fr/Unity",               "permanent": true },
+    { "source": "/Unreal",              "destination": "/fr/Unreal",              "permanent": true },
+    { "source": "/Gamejam",             "destination": "/fr/Gamejam",             "permanent": true },
+    { "source": "/ProjectsVideosGames", "destination": "/fr/ProjectsVideosGames", "permanent": true },
+    { "source": "/ProjectsWeb",         "destination": "/fr/ProjectsWeb",         "permanent": true },
+    { "source": "/contactMe",           "destination": "/fr/contactMe",           "permanent": true },
+    { "source": "/Incoming",            "destination": "/fr/Incoming",            "permanent": true },
+    { "source": "/Arthur",              "destination": "/fr/",                    "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

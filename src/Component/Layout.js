@@ -5,7 +5,8 @@ const BASE_URL = "https://www.arthur-portfolio.dev";
 const LANGS = ["fr", "en", "es"];
 
 const SEO = ({ lang, path = "", title, description, ogTitle, ogDescription, structuredData }) => {
-  const url = `${BASE_URL}/${lang}${path}`;
+  const normalizedPath = path || "/";
+  const url = `${BASE_URL}/${lang}${normalizedPath}`;
   const resolvedOgTitle = ogTitle || title;
   const resolvedOgDesc = ogDescription || description;
   const dataBlocks = structuredData
@@ -20,9 +21,9 @@ const SEO = ({ lang, path = "", title, description, ogTitle, ogDescription, stru
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
       {LANGS.map((l) => (
-        <link key={l} rel="alternate" hreflang={l} href={`${BASE_URL}/${l}${path}`} />
+        <link key={l} rel="alternate" hreflang={l} href={`${BASE_URL}/${l}${normalizedPath}`} />
       ))}
-      <link rel="alternate" hreflang="x-default" href={`${BASE_URL}/fr${path}`} />
+      <link rel="alternate" hreflang="x-default" href={`${BASE_URL}/fr${normalizedPath}`} />
       <meta property="og:title" content={resolvedOgTitle} />
       <meta property="og:description" content={resolvedOgDesc} />
       <meta property="og:url" content={url} />
