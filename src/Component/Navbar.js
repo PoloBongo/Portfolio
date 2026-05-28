@@ -142,6 +142,7 @@ const NavbarT = ({ t, tabIndex }) => {
           {renderNavbarButton("/Gamejam", "ClassicNavBar.GameJam")}
           {renderNavbarButton("/ProjectsVideosGames", "DropdownProjects.ProjectVideoGames")}
           {renderNavbarButton("/ProjectsWeb", "DropdownProjects.ProjectWeb")}
+          {renderNavbarButton("/AI", "ClassicNavBar.AI")}
           {renderNavbarButton("/contactMe", "ClassicNavBar.ContactMe")}
           <li className="navbar-item">
             <a

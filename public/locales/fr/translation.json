@@ -43,7 +43,8 @@
     "GameJam": "Game Jam",
     "Unity": "Unity",
     "ContactMe": "Contact",
-    "Incoming": "Mon Programme de cours 2024-2025",
+    "Incoming": "Mon Programme de cours 2025-2026",
+    "AI": "AI & Automation",
     "Unreal": "Unreal"
   },
   "TypeCV": {
@@ -336,16 +337,36 @@
     "backHome": "Retour à l'accueil"
   },
   "Incoming": {
-    "1": "Programmation avancées - C++",
-    "2": "Encapsulation - C++",
-    "3": "Intelligence Artificielle - C++",
-    "4": "Unity 3D - C#",
-    "5": "Unity Shaders",
-    "6": "Unity UI/UX",
-    "7": "Unreal BluePrint - C++",
-    "8": "Unreal C++",
-    "9": "Unreal Physique Avancée",
-    "10": "Gestion de Production & Publishing dans le Jeu Vidéo"
+    "1": "Blueprint & Event Dispatchers",
+    "2": "IA / Behaviour Tree / Navmesh",
+    "3": "Architecture SOLID & Code Propre",
+    "4": "Animation / Game Feel",
+    "5": "Création de Niveau",
+    "6": "Shaders / Géométrie Shader",
+    "7": "VFX / Illumination Globale",
+    "8": "Intégration du Son"
+  },
+  "AIProjects": {
+    "Title": "Mes projets IA & Automatisation",
+    "InProgress": "En cours",
+    "Cerebro": {
+      "Description": "Application web de chat augmenté par RAG (Retrieval-Augmented Generation). L'utilisateur uploade des documents PDF, le système les ingère via un pipeline multimodal qui sépare et traite le texte, les tableaux et les images (OCR EasyOCR) puis les stocke dans une base vectorielle Qdrant en deux collections distinctes. Le chatbot répond aux questions en temps réel via streaming SSE, avec reranking cross-encoder pour les images, pré-filtrage conversationnel et isolation multi-tenant des données.",
+      "Langage": "PHP / Python",
+      "ToolsUsed": "Laravel 12, React 19 (TypeScript), Inertia.js, FastAPI, Qdrant, SentenceTransformer (E5 multilingual), Mistral-7B (OVH AI Endpoints), EasyOCR, cross-encoder mMiniLM, UMAP/PCA, Docker Compose, shadcn/ui",
+      "Duration": "3 mois",
+      "Completion": "En cours",
+      "TeamSize": "1",
+      "Role": "Architecture full-stack complète, pipeline d'ingestion multimodal (PDF → texte/tableaux/images + OCR), pipeline RAG avec reranking cross-encoder et gates de pertinence, streaming SSE, multi-tenancy, visualisation UMAP/PCA des embeddings"
+    },
+    "SEOAutopilot": {
+      "Description": "Plateforme d'automatisation d'audits SEO orchestrée par n8n. Les workflows déclenchent des audits Lighthouse (performance) et WAVE (accessibilité) tournant sous Docker, puis un LLM GPT parse et reformule les résultats. Les rapports transitent par Google Sheets et sont archivés dans AWS S3. Une web app permet de consulter les rapports avec des statistiques détaillées — chaque problème identifié (card) dispose d'un assistant IA contextuel (Ollama ou Mistral-7B) qui connaît le contexte du souci pour aider à sa résolution.",
+      "Langage": "JavaScript / Python",
+      "ToolsUsed": "n8n, GPT (OpenAI API), Ollama, Mistral-7B (OVH Public Cloud), Lighthouse, WAVE, Docker, AWS S3, Google Sheets, React",
+      "Duration": "2 mois",
+      "Completion": "2025",
+      "TeamSize": "1",
+      "Role": "Conception et développement du workflow n8n complet, intégration Lighthouse + WAVE sous Docker, pipeline LLM GPT de parsing et reformulation, archivage AWS S3, web app de consultation avec assistant IA contextuel par carte de rapport"
+    }
   },
   "Certificates": {
     "title": "Certifications",

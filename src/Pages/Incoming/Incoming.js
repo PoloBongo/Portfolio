@@ -23,8 +23,8 @@ const IncomingT = ({ t }) => {
         lang={lang}
         path="/Incoming"
         title="Mon programme de cours - Arthur BRU"
-        description="Programme de Master d'Arthur BRU en développement jeu vidéo : C++ avancé, Unity, Unreal Engine, shaders, physique avancée, IA et gestion de production."
-        ogDescription="Programme de Master en développement jeu vidéo : C++, Unity, Unreal Engine, shaders, IA et gestion de production."
+        description="Programme de Master 4ème année d'Arthur BRU en développement jeu vidéo : Blueprint, IA, Behaviour Tree, SOLID, animation, level design, shaders, VFX et son."
+        ogDescription="Programme de Master 4ème année en développement jeu vidéo : Blueprint, IA, SOLID, animation, shaders, VFX et intégration sonore."
       />
       <Navbar />
       <div className="traitSeparator" id="blur"></div>
@@ -39,7 +39,7 @@ const IncomingT = ({ t }) => {
                 className="removeMargin"
               />
               <h4 className="Home">
-                Mes projets d'école à venir 2024-2025 ( 3ème année )
+                Mes projets d'école à venir 2025-2026 ( 4ème année )
               </h4>
               <FontAwesomeIcon
                 icon={faCircle}
@@ -99,16 +99,6 @@ const IncomingT = ({ t }) => {
               <div className="btnDiscoverProject padding-1vw">
                 <button className="btnStyleDiscoverProjectIncoming fontsBold width">
                   {t("Incoming.8")}
-                </button>
-              </div>
-              <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
-                  {t("Incoming.9")}
-                </button>
-              </div>
-              <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
-                  {t("Incoming.10")}
                 </button>
               </div>
             </div>
