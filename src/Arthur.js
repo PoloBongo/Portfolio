@@ -131,12 +131,12 @@ const HomeT = ({ t }) => {
         {loading && sessionStorage.getItem("AntiPikachu") === null ? (
           <Load />
         ) : (
-          <header className="Home-header overflow-x-Hidden">
-            {fade ? (
-              <Fade />
-            ) : (
-              <>
-                <Navbar tabIndex={27} />
+          <>
+            {!fade && <Navbar tabIndex={27} />}
+            <header className="Home-header overflow-x-Hidden">
+              {fade ? (
+                <Fade />
+              ) : (
                 <ParralaxEffect>
                   <FocusLoop>
                     <div className="takeSize">
@@ -212,9 +212,9 @@ const HomeT = ({ t }) => {
                     </section>
                   </FocusLoop>
                 </ParralaxEffect>
-              </>
-            )}
-          </header>
+              )}
+            </header>
+          </>
         )}
       </div>
   );
