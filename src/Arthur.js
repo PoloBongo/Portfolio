@@ -142,7 +142,7 @@ const HomeT = ({ t }) => {
                   className="proRedirectBanner-link"
                   href="https://www.arthur-bru.com"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                   tabIndex={0}
                 >
                   {t("Home.proRedirect")}

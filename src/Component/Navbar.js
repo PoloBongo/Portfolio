@@ -162,7 +162,7 @@ const NavbarT = ({ t, tabIndex }) => {
               className="navbar-link navbar-link--pro"
               href="https://www.arthur-bru.com"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               tabIndex={menuOpen ? 0 : -1}
             >
               {t("ClassicNavBar.SitePro")}
