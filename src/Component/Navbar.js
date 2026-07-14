@@ -157,6 +157,18 @@ const NavbarT = ({ t, tabIndex }) => {
           </li>
           {showIncomingTitle &&
             renderNavbarButton("/Incoming", "ClassicNavBar.Incoming")}
+          <li className="navbar-item navbar-item--pro">
+            <a
+              className="navbar-link navbar-link--pro"
+              href="https://www.arthur-bru.com"
+              target="_blank"
+              rel="noopener"
+              tabIndex={menuOpen ? 0 : -1}
+            >
+              {t("ClassicNavBar.SitePro")}
+              <span className="navbar-link--pro-arrow" aria-hidden="true"> ↗</span>
+            </a>
+          </li>
         </ul>
       </nav>
     </div>

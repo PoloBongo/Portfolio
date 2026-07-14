@@ -27,6 +27,9 @@ const HomeT = ({ t }) => {
   const { lang = "fr" } = useParams();
   const [loading, setLoading] = useState(true);
   const [fade, setFade] = useState(true);
+  const [showProBanner, setShowProBanner] = useState(
+    () => localStorage.getItem("hideProBanner") !== "true"
+  );
 
   const alreadyLoad = useRef(sessionStorage.getItem("alreadyLoad"));
 
@@ -133,6 +136,32 @@ const HomeT = ({ t }) => {
         ) : (
           <>
             {!fade && <Navbar tabIndex={27} />}
+            {!fade && showProBanner && (
+              <div className="proRedirectBanner">
+                <a
+                  className="proRedirectBanner-link"
+                  href="https://www.arthur-bru.com"
+                  target="_blank"
+                  rel="noopener"
+                  tabIndex={0}
+                >
+                  {t("Home.proRedirect")}
+                  <span aria-hidden="true"> ↗</span>
+                </a>
+                <button
+                  type="button"
+                  className="proRedirectBanner-close"
+                  onClick={() => {
+                    setShowProBanner(false);
+                    localStorage.setItem("hideProBanner", "true");
+                  }}
+                  aria-label={t("Home.proRedirectClose")}
+                  title={t("Home.proRedirectClose")}
+                >
+                  ×
+                </button>
+              </div>
+            )}
             <header className="Home-header overflow-x-Hidden">
               {fade ? (
                 <Fade />

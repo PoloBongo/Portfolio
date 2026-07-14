@@ -7,6 +7,8 @@
     "developerWeb": "Bonjour, je suis Arthur, passionné par la programmation.",
     "role": "C++ Développeur",
     "info": "Titulaire d’un Bachelor en développement informatique, option jeu vidéo, obtenu chez Quest Education (G.Tech), je suis actuellement en Master développeur jeu vidéo & Master européen expert IT",
+    "proRedirect": "Besoin d’un développeur web & IA freelance ? Mon site pro",
+    "proRedirectClose": "Masquer ce message",
     "discover": "Mes compétences",
     "title1": "A propos de moi",
     "aboutMe": "Grâce à mes expériences, j'ai pu perfectionner mes compétences techniques et collaborer efficacement avec d'autres filières telles que la filière artistique ou bien marketing. En dehors de mes études, je suis passionné par le basket !",
@@ -45,7 +47,8 @@
     "ContactMe": "Contact",
     "Incoming": "Mon Programme de cours 2025-2026",
     "AI": "AI & Automation",
-    "Unreal": "Unreal"
+    "Unreal": "Unreal",
+    "SitePro": "Mon site pro"
   },
   "TypeCV": {
     "CVJV": "CV Jeu vidéo",

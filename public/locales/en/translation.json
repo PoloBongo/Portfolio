@@ -7,6 +7,8 @@
     "developerWeb": "Hello, I'm Arthur, passionate about programming.",
     "role": "C++ Developer",
     "info": "Holder of a Bachelor's degree in Computer Development with a specialization in Video Games, obtained from Quest Education (G.Tech), I am currently pursuing a Master's degree in video game development and a European Master's degree in IT expertise.",
+    "proRedirect": "Looking for a freelance web & AI developer? My pro site",
+    "proRedirectClose": "Hide this message",
     "discover": "My skills",
     "title1": "About Me",
     "aboutMe": "Thanks to my experiences, I have been able to refine my technical skills and collaborate effectively with other fields such as the artistic or marketing field. Outside of my studies, I am passionate about basketball!",
@@ -44,7 +46,8 @@
     "Unity": "Unity",
     "ContactMe": "Contact Me",
     "Incoming": "My Course Schedule 2025-2026",
-    "AI": "AI & Automation"
+    "AI": "AI & Automation",
+    "SitePro": "My freelance site"
   },
   "TypeCV": {
     "CVJV": "Video Game CV",
