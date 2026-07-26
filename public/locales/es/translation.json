@@ -103,6 +103,15 @@
     "React": "Sitio web creado en primer año. El objetivo era tomar una API de películas proporcionada por el instructor y teníamos que crear un primer catálogo con filtros.<br></br>- Primer proyecto en React<br></br>- Proyecto de un estudiante",
     "PaymentPageTitle": "Diseño del proceso de pago",
     "NoPreview": "Vista previa no disponible",
+    "AuFilDesImages": {
+      "Description": "Au fil des images es una asociación cultural de Tours que hace accesibles la danza, el bienestar y la creación artística a todas las personas, más allá de la discapacidad. Desarrollé su sitio web como freelance: página de inicio con carrusel y noticias, biblioteca de clips de vídeo, presentación de talleres y tienda online con fichas de producto y área de cliente (inicio de sesión, historial de pedidos).<br></br>Stack técnico: Next.js 15, TypeScript, Supabase (autenticación + base de datos), Resend para los correos, generación de PDF en el servidor y despliegue continuo en Vercel.",
+      "LearnMore": "Saber más",
+      "Langage": "Next.js 15, TypeScript, React 19, Supabase, Resend, PDF-lib, Vercel",
+      "Duration": "1 mes",
+      "Completion": "2026",
+      "TeamSize": "1",
+      "Role": "Desarrollo freelance de principio a fin: arquitectura técnica, integración de Next.js/Supabase, sistema de autenticación y cuenta de cliente, tienda online con fichas de producto en PDF, galería de clips, formulario de contacto, integración con Instagram, despliegue y mantenimiento en Vercel."
+    },
     "CelticLaRicheBasket": {
       "Description": "Sitio web para una asociación de baloncesto creado en 2 meses. Fuimos 100% voluntarios en su realización. Hicimos el diseño, el desarrollo y el despliegue del sitio. Pude aportar soluciones a problemas reales y hacer un sitio totalmente autónomo para una persona sin conocimientos de desarrollo.<br></br>Gracias a este proyecto, pude aplicar en situaciones reales un sistema de pagos con la API de Stripe, una API de Facebook Graph para noticias, y un sistema de gestión de base de datos con MySQL.",
       "LearnMore": "Saber más",

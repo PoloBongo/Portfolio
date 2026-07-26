@@ -115,6 +115,15 @@
     "GoudGuys": "Site web pour une association esport créé en 1 mois lors d'un stage.<br></br>- Nous étions 2 développeurs.",
     "React": "Site web réalisé en première année. Le but était de prendre une API de film fourni par l'intervenant et nous devions faire un premier catalogue avec des filtres.<br></br>- Premier projet en React<br></br>- Projet d'un étudiant",
     "NoPreview": "Preview non disponible",
+    "AuFilDesImages": {
+      "Description": "Au fil des images est une association culturelle basée à Tours qui rend la danse, le bien-être et la création artistique accessibles à tous, au-delà du handicap. J'ai développé leur site vitrine en freelance : page d'accueil avec carrousel et actualités, bibliothèque de clips vidéo, présentation des ateliers, boutique en ligne avec fiches produits et espace client (connexion, historique de commandes).<br></br>Stack technique : Next.js 15, TypeScript, Supabase (authentification + base de données), Resend pour les emails, génération de PDF côté serveur et déploiement continu sur Vercel.",
+      "LearnMore": "En savoir plus",
+      "Langage": "Next.js 15, TypeScript, React 19, Supabase, Resend, PDF-lib, Vercel",
+      "Duration": "1 mois",
+      "Completion": "2026",
+      "TeamSize": "1",
+      "Role": "Développement freelance en autonomie complète : conception technique, intégration Next.js/Supabase, système d'authentification et compte client, boutique en ligne avec fiches produits PDF, galerie de clips vidéo, formulaire de contact, intégration Instagram, déploiement et maintenance sur Vercel."
+    },
     "CelticLaRicheBasket": {
       "Description": "Site web pour une association de basketball créé en 2 mois. Nous étions 100% bénévoles pour le réaliser. Nous avons fait la maquette, la réalisation puis le déploiement du site. J'ai pu apporter des solutions à des problèmes concrets et établir un site 100% autonome par une personne qui n'est pas développeur.<br></br>Grâce à ce projet j'ai pu mettre en pratique, sur de réel situation, un système de paiement avec l'API Stripe, une API Facebook Graph pour les actualités et un système de gestion de base de données avec MySQL.",
       "LearnMore": "En savoir plus",

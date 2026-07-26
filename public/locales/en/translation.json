@@ -102,6 +102,15 @@
     "GoudGuys": "Website for an esports association created in 1 month during an internship.<br></br>- We were 2 developers.",
     "React": "Website created in my first year. The goal was to take a movie API provided by the instructor, and we had to create a first catalog with filters.<br></br>- First project in React<br></br>- Student project",
     "NoPreview": "Preview unavailable",
+    "AuFilDesImages": {
+      "Description": "Au fil des images is a Tours-based cultural association that makes dance, wellness and artistic creation accessible to everyone, regardless of disability. I built their public website as a freelance developer: a homepage with a hero carousel and news feed, a curated video clip library, a workshop showcase, and an online shop with product sheets and a customer account area (login, order history).<br></br>Tech stack: Next.js 15, TypeScript, Supabase (auth + database), Resend for transactional emails, server-side PDF generation, and continuous deployment on Vercel.",
+      "LearnMore": "Learn more",
+      "Langage": "Next.js 15, TypeScript, React 19, Supabase, Resend, PDF-lib, Vercel",
+      "Duration": "1 month",
+      "Completion": "2026",
+      "TeamSize": "1",
+      "Role": "End-to-end freelance development: technical architecture, Next.js/Supabase integration, authentication and customer account system, online shop with PDF product sheets, video clip gallery, contact form, Instagram integration, deployment and maintenance on Vercel."
+    },
     "CelticLaRicheBasket": {
       "Description": "Website for a basketball association developed over 2 months. We were 100% volunteers on the project. We created the wireframes, built the site, and deployed it. I provided concrete solutions to real-world problems and made the website fully manageable by someone with no technical background.<br></br>This project allowed me to implement payment integration with the Stripe API, use the Facebook Graph API for news updates, and manage a MySQL database.",
       "LearnMore": "Learn more",

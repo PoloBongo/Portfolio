@@ -45,6 +45,7 @@ const ProjectsWebT = ({ t }) => {
               "description": "Projets web en React, Next.js, Vue.js, PHP : site associatif, CMS, page de paiement Stripe, dashboard météo.",
               "author": { "@type": "Person", "name": "Arthur BRU" }
             },
+            { "@type": "WebSite", "name": "Au fil des images", "description": "Site web pour une association culturelle basée à Tours.", "author": { "@type": "Person", "name": "Arthur BRU" }, "url": "https://www.assoaufildesimages.com" },
             { "@type": "WebSite", "name": "Celtic La Riche Basket", "description": "Site web pour un club de basket.", "author": { "@type": "Person", "name": "Arthur BRU" }, "url": "https://www.celticlarichebasket.fr/" },
             { "@type": "SoftwareApplication", "name": "Meteo Dashboard", "description": "Dashboard météo développé avec Vue.js.", "author": { "@type": "Person", "name": "Arthur BRU" }, "applicationCategory": "WebApplication" },
             { "@type": "SoftwareApplication", "name": "Articles Manager Next.js", "description": "CMS de gestion d'articles développé avec Next.js.", "author": { "@type": "Person", "name": "Arthur BRU" }, "applicationCategory": "WebApplication" },
@@ -56,7 +57,7 @@ const ProjectsWebT = ({ t }) => {
         }`}
       />
       <FocusLoop>
-        <Navbar tabIndex={14} />
+        <Navbar tabIndex={15} />
         <div className="traitSeparator" id="blur"></div>
         <div>
           <div className="contactMeFlex align-items-center fixBackBtnUnity">
@@ -65,6 +66,78 @@ const ProjectsWebT = ({ t }) => {
             </h1>
           </div>
           <div className="grid-gamejam2">
+            <div className="marge-contact-play modernEnvelop" id="blur">
+              <div className="sizeIconCPlus flexIMG">
+                <h3 className="Home width">Au fil des images</h3>
+              </div>
+              <div className="flexIMG width">
+                <iframe
+                  loading="lazy"
+                  src="https://www.youtube.com/embed/UXJA-0_h_CY"
+                  title="youtubeVideoPresentationAuFilDesImages"
+                  frameBorder="0"
+                  width="560"
+                  height="315"
+                  allowFullScreen
+                  className="iframeYoutube"
+                ></iframe>
+              </div>
+              <div className="grid-gamejam">
+                <p className="text-align-left padding-1vw font-size-large">
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Langage")}
+                    </span>{" "}
+                    {t("WebProjects.AuFilDesImages.Langage")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Duration")}
+                    </span>{" "}
+                    {t("WebProjects.AuFilDesImages.Duration")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Completion")}
+                    </span>{" "}
+                    {t("WebProjects.AuFilDesImages.Completion")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.TeamSize")}
+                    </span>{" "}
+                    {t("WebProjects.AuFilDesImages.TeamSize")}
+                  </p>
+                  <p>
+                    <span className="colorPurple">
+                      {t("VideoGamesProjects.Role")}
+                    </span>{" "}
+                    {t("WebProjects.AuFilDesImages.Role")}
+                  </p>
+                </p>
+                <p className="text-align-left padding-1vw font-size-large">
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t("WebProjects.AuFilDesImages.Description"),
+                    }}
+                  ></p>
+                </p>
+              </div>
+              <div className="btnDiscoverProject">
+                <a
+                  href="https://www.assoaufildesimages.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  tabIndex={1}
+                >
+                  <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
+                    {t("WebProjects.aboutWebsite")}
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="grid-gamejam">
             <div className="marge-contact-play modernEnvelop" id="blur">
               <div className="sizeIconCPlus flexIMG">
                 <h3 className="Home width">Celtic La Riche Basket</h3>
@@ -80,55 +153,59 @@ const ProjectsWebT = ({ t }) => {
                   className="iframeYoutube"
                 ></iframe>
               </div>
-              <div className="grid-gamejam">
-                <p className="text-align-left padding-1vw font-size-large">
-                  <p>
-                    <span className="colorPurple">
-                      {t("VideoGamesProjects.Langage")}
-                    </span>{" "}
-                    {t("WebProjects.CelticLaRicheBasket.Langage")}
-                  </p>
-                  <p>
-                    <span className="colorPurple">
-                      {t("VideoGamesProjects.Duration")}
-                    </span>{" "}
-                    {t("WebProjects.CelticLaRicheBasket.Duration")}
-                  </p>
-                  <p>
-                    <span className="colorPurple">
-                      {t("VideoGamesProjects.Completion")}
-                    </span>{" "}
-                    {t("WebProjects.CelticLaRicheBasket.Completion")}
-                  </p>
-                  <p>
-                    <span className="colorPurple">
-                      {t("VideoGamesProjects.TeamSize")}
-                    </span>{" "}
-                    {t("WebProjects.CelticLaRicheBasket.TeamSize")}
-                  </p>
-                  <p>
-                    <span className="colorPurple">
-                      {t("VideoGamesProjects.Role")}
-                    </span>{" "}
-                    {t("WebProjects.CelticLaRicheBasket.Role")}
-                  </p>
+              <p className="text-align-left padding-1vw font-size-large">
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Langage")}
+                  </span>{" "}
+                  {t("WebProjects.CelticLaRicheBasket.Langage")}
                 </p>
-                <p className="text-align-left padding-1vw font-size-large">
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: t("WebProjects.CelticLaRicheBasket.Description"),
-                    }}
-                  ></p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Duration")}
+                  </span>{" "}
+                  {t("WebProjects.CelticLaRicheBasket.Duration")}
                 </p>
-              </div>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Completion")}
+                  </span>{" "}
+                  {t("WebProjects.CelticLaRicheBasket.Completion")}
+                </p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.TeamSize")}
+                  </span>{" "}
+                  {t("WebProjects.CelticLaRicheBasket.TeamSize")}
+                </p>
+                <p>
+                  <span className="colorPurple">
+                    {t("VideoGamesProjects.Role")}
+                  </span>{" "}
+                  {t("WebProjects.CelticLaRicheBasket.Role")}
+                </p>
+              </p>
+              <p className="text-align-left padding-1vw font-size-large">
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: t("WebProjects.CelticLaRicheBasket.Description"),
+                  }}
+                ></p>
+              </p>
               <div className="btnDiscoverProject">
                 <a
                   href="https://github.com/PoloBongo/WebSite-Basket"
                   target="_blank"
                   rel="noreferrer"
-                  tabIndex={1}
+                  tabIndex={2}
+                  style={{
+                    display: "block",
+                    opacity: "1",
+                    overflow: "hidden",
+                    transition: "all 1s ease",
+                  }}
                 >
-                  <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
+                  <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
                     {t("VideoGamesProjects.viewMoreCode")}
                   </button>
                 </a>
@@ -137,7 +214,7 @@ const ProjectsWebT = ({ t }) => {
                   href="https://www.celticlarichebasket.fr/"
                   target="_blank"
                   rel="noreferrer"
-                  tabIndex={2}
+                  tabIndex={3}
                 >
                   <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("WebProjects.aboutWebsite")}
@@ -145,8 +222,6 @@ const ProjectsWebT = ({ t }) => {
                 </a>
               </div>
             </div>
-          </div>
-          <div className="grid-gamejam">
             <div className="marge-contact-play modernEnvelop" id="VueJs">
               <div className="sizeIconCPlus flexIMG">
                 <h3 className="Home width">Meteo Dashboard</h3>
@@ -206,7 +281,7 @@ const ProjectsWebT = ({ t }) => {
                   href="https://github.com/PoloBongo/VueJS_MeteoDashboard"
                   target="_blank"
                   rel="noreferrer"
-                  tabIndex={3}
+                  tabIndex={4}
                   style={{
                     display: "block",
                     opacity: "1",
@@ -223,7 +298,7 @@ const ProjectsWebT = ({ t }) => {
                   href="https://polobongo.github.io/VueJS_MeteoDashboard/"
                   target="_blank"
                   rel="noreferrer"
-                  tabIndex={4}
+                  tabIndex={5}
                 >
                   <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("WebProjects.aboutWebsite")}
@@ -291,7 +366,7 @@ const ProjectsWebT = ({ t }) => {
                   href="https://github.com/PoloBongo/NextJs_Articles_Auth_CMS"
                   target="_blank"
                   rel="noreferrer"
-                  tabIndex={5}
+                  tabIndex={6}
                   style={{
                     display: "block",
                     opacity: "1",
@@ -308,7 +383,7 @@ const ProjectsWebT = ({ t }) => {
                   href="https://next-js-articles-auth-cms-c5vo.vercel.app/"
                   target="_blank"
                   rel="noreferrer"
-                  tabIndex={6}
+                  tabIndex={7}
                 >
                   <button className="btnStyleDiscoverProject fontsBold responsive-text-btn">
                     {t("WebProjects.aboutWebsite")}
@@ -322,7 +397,7 @@ const ProjectsWebT = ({ t }) => {
                   {t("WebProjects.PaymentPage.PaymentPageTitle")}
                 </h3>
               </div>
-              <div className="flexIMG width" tabIndex={7}>
+              <div className="flexIMG width" tabIndex={8}>
                 <iframe
                   src="https://www.youtube.com/embed/le0FzwEJX_I"
                   title="youtubeVideoPresentationPaymentPage"
@@ -370,7 +445,7 @@ const ProjectsWebT = ({ t }) => {
                   dangerouslySetInnerHTML={{
                     __html: t("WebProjects.PaymentPage.Description"),
                   }}
-                  tabIndex={8}
+                  tabIndex={9}
                 ></p>
               </p>
             </div>
@@ -433,7 +508,7 @@ const ProjectsWebT = ({ t }) => {
                   href="https://github.com/PoloBongo/eko-commerce-project"
                   target="_blank"
                   rel="noreferrer"
-                  tabIndex={9}
+                  tabIndex={10}
                 >
                   <button className="btnStyleDiscoverProject fontsBold z-index responsive-text-btn">
                     {t("VideoGamesProjects.viewMoreCode")}
@@ -445,7 +520,7 @@ const ProjectsWebT = ({ t }) => {
               <div className="sizeIconCPlus flexIMG">
                 <h3 className="Home width">B.A Immobilier</h3>
               </div>
-              <div className="flexIMG width" tabIndex={10}>
+              <div className="flexIMG width" tabIndex={11}>
                 <iframe
                   src="https://www.youtube.com/embed/mfMnkY3wAvs"
                   title="youtubeVideoPresentationEkoProject"
@@ -493,7 +568,7 @@ const ProjectsWebT = ({ t }) => {
                   dangerouslySetInnerHTML={{
                     __html: t("WebProjects.BAImmobilier.Description"),
                   }}
-                  tabIndex={11}
+                  tabIndex={12}
                 ></p>
               </p>
             </div>
@@ -507,7 +582,7 @@ const ProjectsWebT = ({ t }) => {
                   loading="lazy"
                   alt="Protfolio Preview"
                   className="sizeProjectIMG"
-                  tabIndex={12}
+                  tabIndex={13}
                 ></img>
               </div>
               <p className="text-align-left padding-1vw font-size-large">
@@ -541,7 +616,7 @@ const ProjectsWebT = ({ t }) => {
                   dangerouslySetInnerHTML={{
                     __html: t("WebProjects.Portfolio.Description"),
                   }}
-                  tabIndex={13}
+                  tabIndex={14}
                 ></p>
               </p>
             </div>
