@@ -45,7 +45,7 @@
     "GameJam": "Game Jam",
     "Unity": "Unity",
     "ContactMe": "Contact",
-    "Incoming": "Mon Programme de cours 2025-2026",
+    "Incoming": "Mon Programme de cours 2026-2027",
     "AI": "AI & Automation",
     "Unreal": "Unreal",
     "SitePro": "Mon site pro"
@@ -349,14 +349,9 @@
     "backHome": "Retour à l'accueil"
   },
   "Incoming": {
-    "1": "Blueprint & Event Dispatchers",
-    "2": "IA / Behaviour Tree / Navmesh",
-    "3": "Architecture SOLID & Code Propre",
-    "4": "Animation / Game Feel",
-    "5": "Création de Niveau",
-    "6": "Shaders / Géométrie Shader",
-    "7": "VFX / Illumination Globale",
-    "8": "Intégration du Son"
+    "1": "Création de son Game Design Document (x2)",
+    "2": "Analyse et Gestion de Projet",
+    "3": "Projet Fil Rouge : Expérience complète sous Unreal Engine (Rendu final)"
   },
   "AIProjects": {
     "Title": "Mes projets IA & Automatisation",

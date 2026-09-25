@@ -23,8 +23,8 @@ const IncomingT = ({ t }) => {
         lang={lang}
         path="/Incoming"
         title="Mon programme de cours - Arthur BRU"
-        description="Programme de Master 4ème année d'Arthur BRU en développement jeu vidéo : Blueprint, IA, Behaviour Tree, SOLID, animation, level design, shaders, VFX et son."
-        ogDescription="Programme de Master 4ème année en développement jeu vidéo : Blueprint, IA, SOLID, animation, shaders, VFX et intégration sonore."
+        description="Programme de Master 2 (5ème année) d'Arthur BRU en développement jeu vidéo : création de Game Design Document, analyse et gestion de projet, et projet fil rouge d'expérience complète sous Unreal Engine en groupe de 4."
+        ogDescription="Programme de Master 2 (5ème année) en développement jeu vidéo : Game Design Document, gestion de projet, et projet fil rouge sous Unreal Engine."
       />
       <Navbar />
       <div className="traitSeparator" id="blur"></div>
@@ -39,7 +39,7 @@ const IncomingT = ({ t }) => {
                 className="removeMargin"
               />
               <h4 className="Home">
-                Mes projets d'école à venir 2025-2026 ( 4ème année )
+                Mes projets d'école à venir 2026-2027 ( 5ème année - Master 2 )
               </h4>
               <FontAwesomeIcon
                 icon={faCircle}
@@ -74,31 +74,6 @@ const IncomingT = ({ t }) => {
               <div className="btnDiscoverProject padding-1vw">
                 <button className="btnStyleDiscoverProjectIncoming fontsBold width">
                   {t("Incoming.3")}
-                </button>
-              </div>
-              <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
-                  {t("Incoming.4")}
-                </button>
-              </div>
-              <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
-                  {t("Incoming.5")}
-                </button>
-              </div>
-              <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
-                  {t("Incoming.6")}
-                </button>
-              </div>
-              <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
-                  {t("Incoming.7")}
-                </button>
-              </div>
-              <div className="btnDiscoverProject padding-1vw">
-                <button className="btnStyleDiscoverProjectIncoming fontsBold width">
-                  {t("Incoming.8")}
                 </button>
               </div>
             </div>

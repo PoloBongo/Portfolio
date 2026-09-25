@@ -45,7 +45,7 @@
     "GameJam": "Game Jam",
     "Unity": "Unity",
     "ContactMe": "Contact Me",
-    "Incoming": "My Course Schedule 2025-2026",
+    "Incoming": "My Course Schedule 2026-2027",
     "AI": "AI & Automation",
     "SitePro": "My freelance site"
   },
@@ -337,14 +337,9 @@
     "backHome": "Back to home"
   },
   "Incoming": {
-    "1": "Blueprint & Event Dispatchers",
-    "2": "AI / Behaviour Tree / Navmesh",
-    "3": "SOLID Architecture & Clean Code",
-    "4": "Animation / Game Feel",
-    "5": "Level Design",
-    "6": "Shaders / Geometry Shader",
-    "7": "VFX / Global Illumination",
-    "8": "Sound Integration"
+    "1": "Writing a Game Design Document (x2)",
+    "2": "Project Analysis & Management",
+    "3": "Capstone Project: Full Experience in Unreal Engine (Final Render)"
   },
   "AIProjects": {
     "Title": "My AI & Automation Projects",

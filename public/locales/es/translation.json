@@ -45,7 +45,7 @@
     "GameJam": "Game Jam",
     "Unity": "Unity",
     "ContactMe": "Contáctame",
-    "Incoming": "Mi Programa de Cursos 2025-2026",
+    "Incoming": "Mi Programa de Cursos 2026-2027",
     "AI": "AI & Automation",
     "SitePro": "Mi sitio profesional"
   },
@@ -338,14 +338,9 @@
     "backHome": "Volver al inicio"
   },
   "Incoming": {
-    "1": "Blueprint & Event Dispatchers",
-    "2": "IA / Behaviour Tree / Navmesh",
-    "3": "Arquitectura SOLID & Código Limpio",
-    "4": "Animación / Game Feel",
-    "5": "Creación de Niveles",
-    "6": "Shaders / Geometry Shader",
-    "7": "VFX / Iluminación Global",
-    "8": "Integración de Sonido"
+    "1": "Creación de su Game Design Document (x2)",
+    "2": "Análisis y Gestión de Proyecto",
+    "3": "Proyecto Insignia: Experiencia completa en Unreal Engine (Render final)"
   },
   "AIProjects": {
     "Title": "Mis proyectos de IA & Automatización",
