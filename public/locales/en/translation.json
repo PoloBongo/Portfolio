@@ -47,7 +47,8 @@
     "ContactMe": "Contact Me",
     "Incoming": "My Course Schedule 2026-2027",
     "AI": "AI & Automation",
-    "SitePro": "My freelance site"
+    "SitePro": "My freelance site",
+    "Unreal": "Unreal"
   },
   "TypeCV": {
     "CVJV": "Video Game CV",
@@ -93,7 +94,22 @@
     "luaPart2": ", allowing me to share my content with the community. Today, I have stopped the Polo Leaks project as I have explored all the possibilities it offered.",
     "CSharpConsole": "Game in console, a turn-based game developed in 2 weeks. We had to create an ASCII map and make it attractive. We chose the theme of One Piece, and for the combat system, we had to create 3 types of AI: Easy, Normal, and Hard. We also conducted unit tests.<br></br>- Group of 4 students.",
     "UnityRL": "A game developed in 2 weeks using the Unity game engine with several features such as procedural generation, Animation Curve, Drone AI, Input Management, Coroutines, OpenProBuilder, and other Unity basics.<br></br>- Group of 2 students.",
-    "CustomEngine": "During my 2nd year, I had the chance to make a custom engine with Vulkan in C++. I am mainly in charge of the network part, that is to say the TCP and UDP protocols and also the integration of sound via the FMOD library. The project was over 1 month.<br><br>- Group of 8 students."
+    "CustomEngine": "During my 2nd year, I had the chance to make a custom engine with Vulkan in C++. I am mainly in charge of the network part, that is to say the TCP and UDP protocols and also the integration of sound via the FMOD library. The project was over 1 month.<br><br>- Group of 8 students.",
+    "Langage": "Language:",
+    "ToolsUsed": "Tools / Technologies used:",
+    "Duration": "Duration:",
+    "Completion": "Completion:",
+    "TeamSize": "Team size:",
+    "Role": "Role:",
+    "Angine": {
+      "Description": "Our 3D engine harnesses the power of Vulkan for optimized, high-performance rendering. We integrated several specialized libraries to improve the development process and provide a robust solution for resource management, physics, audio and networking.",
+      "Langage": "C++",
+      "ToolsUsed": "Graphics API: Vulkan<br>User interfaces: Dear ImGui<br>Physics simulation: Bullet Physics<br>Windowing and input handling: GLFW<br>Audio: FMOD<br>OBJ file loading: tinyObjLoader<br>Graphics math library: GLM",
+      "Duration": "1 month",
+      "Completion": "2024",
+      "TeamSize": "8",
+      "Role": "Audio implementation with FMOD and the whole multithreading part, used to build a TCP and UDP chat"
+    }
   },
   "WebProjects": {
     "Title": "My Web Projects",
@@ -182,7 +198,10 @@
     "mail": "Mail",
     "message": "Message",
     "submit": "Submit",
-    "submitInProgress": "Submit in progress..."
+    "submitInProgress": "Submit in progress...",
+    "intro": "An idea, a project, a question? Write to me.",
+    "success": "Message sent successfully!",
+    "error": "Failed to send the message."
   },
   "DropdownCV": {
     "CVWeb": "WEB CV",
@@ -339,7 +358,9 @@
   "Incoming": {
     "1": "Writing a Game Design Document (x2)",
     "2": "Project Analysis & Management",
-    "3": "Capstone Project: Full Experience in Unreal Engine (Final Render)"
+    "3": "Capstone Project: Full Experience in Unreal Engine (Final Render)",
+    "eyebrow": "5th year — Master 2",
+    "heading": "My upcoming school projects 2026-2027"
   },
   "AIProjects": {
     "Title": "My AI & Automation Projects",
@@ -370,5 +391,63 @@
     "prev": "Previous",
     "next": "Next",
     "cert": "Certificate"
+  },
+  "Menu": {
+    "open": "Menu",
+    "close": "Close",
+    "nav": "Main navigation",
+    "language": "Language",
+    "social": "Social"
+  },
+  "Hero": {
+    "hello": "Hello, I'm",
+    "roleGame": "Game developer",
+    "roleWeb": "Web developer",
+    "roleAI": "AI engineer",
+    "scroll": "Scroll"
+  },
+  "Work": {
+    "title": "Selected work",
+    "projects": "projects"
+  },
+  "Footer": {
+    "title": "Got a project in mind?",
+    "titleAccent": "Let's talk.",
+    "copy": "Copy email",
+    "copied": "Copied!",
+    "top": "Back to top",
+    "rights": "All rights reserved"
+  },
+  "Skills": {
+    "game": "Game dev",
+    "web": "Web",
+    "tools": "Data & tools"
+  },
+  "Hud": {
+    "level": "LVL",
+    "sound": "Sound",
+    "soundOn": "Sound on",
+    "soundOff": "Sound off",
+    "lost": "Unknown zone",
+    "hero": "Boot",
+    "intro": "About",
+    "work": "Projects",
+    "skills": "Skills",
+    "certs": "Achievements",
+    "footer": "Continue?"
+  },
+  "Stage": {
+    "face": "Gameplay & engines",
+    "web": "Web",
+    "tools": "Data & tools",
+    "engine": "Engine & network",
+    "ai": "AI & agents",
+    "caption": "Exploded view — Player 1"
+  },
+  "Card": {
+    "player": "Player 1",
+    "alt": "Portrait of Arthur BRU",
+    "projects": "Projects",
+    "certs": "Certifications"
   }
 }

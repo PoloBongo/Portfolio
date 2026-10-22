@@ -1,22 +1,63 @@
-import { Suspense, useState } from "react";
-import "../../css/Home.css";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import Navbar from "../../Component/Navbar";
-import SEO from "../../Component/Layout.js";
 import emailjs from "emailjs-com";
-import pikachuForm from "../../img/pikachuForm.webp";
+import SEO from "../../Component/Layout.js";
+import Navbar from "../../Component/Navbar";
+import Footer from "../../Component/Footer";
+import FocusLoop from "../../Component/FocusLoop";
+import SplitReveal from "../../Effects/SplitReveal";
+import Reveal from "../../Effects/Reveal";
+import Magnetic from "../../Effects/Magnetic";
+import "../../css/Pages.css";
 
 // Traduction
-import { Loader } from "../../Component/ComponentTraduction";
+import { Loader } from "../../Component/Loader";
 import { withTranslation } from "react-i18next";
 
-import FocusLoop from "../../Component/FocusLoop";
+const EMAIL = "arthur.plfm@gmail.com";
+const ANIM_MS = 2200;
+
+const Arrow = () => (
+  <svg className="btn__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <path
+      d="M4 12L12 4M12 4H5.5M12 4v6.5"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 const ContactMeT = ({ t }) => {
   const { lang = "fr" } = useParams();
-  const [showGif, setShowGif] = useState(false);
-  const [showNotification, setShowNotification] = useState(false);
-  const [notificationMessage, setNotificationMessage] = useState("");
+  const [sending, setSending] = useState(false);
+  const [notice, setNotice] = useState(null);
+  const [formData, setFormData] = useState({
+    from_name: "",
+    from_prenom: "",
+    reply_to: "",
+    message: "",
+  });
+  const timers = useRef([]);
+
+  useEffect(() => {
+    const pending = timers.current;
+    return () => pending.forEach(clearTimeout);
+  }, []);
+
+  const later = (fn, ms) => {
+    timers.current.push(setTimeout(fn, ms));
+  };
+
+  const showNotice = (type) => {
+    setNotice(type);
+    later(() => setNotice(null), 3200);
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,46 +71,31 @@ const ContactMeT = ({ t }) => {
     const templateId = "react_contact_form";
     const userId = "0V7hrtVud6jFHapQ2";
 
-    const ANIM_MS = 3000;
-    setShowGif(true);
+    // L'animation d'envoi dure au minimum ANIM_MS, même si emailJS répond plus vite
+    setSending(true);
     const t0 = Date.now();
 
     emailjs
       .send(serviceId, templateId, formData, userId)
       .then(() => {
         const delay = Math.max(0, ANIM_MS - (Date.now() - t0));
-        setTimeout(() => {
-          setShowGif(false);
+        later(() => {
+          setSending(false);
           setFormData({ from_name: "", from_prenom: "", reply_to: "", message: "" });
-          document.getElementById("reset-form").reset();
-          setNotificationMessage("Mail envoyé avec succès!");
-          setShowNotification(true);
-          setTimeout(() => setShowNotification(false), 2000);
+          showNotice("success");
         }, delay);
       })
       .catch(() => {
         const delay = Math.max(0, ANIM_MS - (Date.now() - t0));
-        setTimeout(() => {
-          setShowGif(false);
-          setNotificationMessage("Échec de l'envoi du mail.");
-          setShowNotification(true);
-          setTimeout(() => setShowNotification(false), 2000);
+        later(() => {
+          setSending(false);
+          showNotice("error");
         }, delay);
       });
   };
 
-  const [formData, setFormData] = useState({
-    from_name: "",
-    from_prenom: "",
-    reply_to: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   return (
-    <div className="Home-header overflowHidden">
+    <div className="page">
       <SEO
         lang={lang}
         path="/contactMe"
@@ -87,109 +113,117 @@ const ContactMeT = ({ t }) => {
         }`}
       />
       <FocusLoop>
-        <Navbar tabIndex={6} />
-        <div className="traitSeparator"></div>
-        <div className="align-form-contact">
-          <div className="contact-card">
-            <div className="contact-card-header">
-              <svg
-                className="contact-card-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-              </svg>
-              <h1 className="fontsBold">{t("ContactMe.title")}</h1>
-              <a href="mailto:arthur.plfm@gmail.com" className="contact-card-email">
-                arthur.plfm@gmail.com
+        <main id="main" className="contact container">
+          <div className="contact__intro">
+            <Reveal className="mono eyebrow">{t("ClassicNavBar.ContactMe")}</Reveal>
+            <h1 className="contact__title">
+              <SplitReveal text={t("ContactMe.title")} scroll />
+            </h1>
+            <Reveal className="contact__lead" delay={0.25}>
+              {t("ContactMe.intro")}
+            </Reveal>
+            <Reveal className="contact__links" delay={0.35} stagger={0.08} y={20}>
+              <a className="contact__mail link-line" href={`mailto:${EMAIL}`}>
+                {EMAIL}
               </a>
-            </div>
-            <form onSubmit={handleSubmit} id="reset-form">
-              <div className="contact-form-row">
-                <div className="contact-form-field">
-                  <input
-                    type="text"
-                    name="from_name"
-                    id="name"
-                    placeholder=" "
-                    value={formData.from_name}
-                    onChange={handleChange}
-                    tabIndex={1}
-                    required
-                  />
-                  <label htmlFor="name">{t("ContactMe.name")}</label>
-                </div>
-                <div className="contact-form-field">
-                  <input
-                    type="text"
-                    name="from_prenom"
-                    id="prenom"
-                    placeholder=" "
-                    onChange={handleChange}
-                    value={formData.from_prenom}
-                    tabIndex={2}
-                    required
-                  />
-                  <label htmlFor="prenom">{t("ContactMe.prenom")}</label>
-                </div>
-              </div>
-              <div className="contact-form-field">
-                <input
-                  type="email"
-                  name="reply_to"
-                  id="mail"
-                  placeholder=" "
-                  value={formData.reply_to}
-                  onChange={handleChange}
-                  tabIndex={3}
-                  required
-                />
-                <label htmlFor="mail">{t("ContactMe.mail")}</label>
-              </div>
-              <div className="contact-form-field">
-                <textarea
-                  name="message"
-                  id="message"
-                  placeholder=" "
-                  value={formData.message}
-                  onChange={handleChange}
-                  tabIndex={4}
-                  required
-                />
-                <label htmlFor="message">{t("ContactMe.message")}</label>
-              </div>
-              <button type="submit" tabIndex={5} id="last" disabled={showGif}>
-                {showGif ? (
-                  <img
-                    src={pikachuForm}
-                    alt="submit pikachu load"
-                    className="gifForm"
-                    style={{
-                      overflow: "hidden",
-                      animation: "fadeBongo 3s ease-in-out forwards",
-                    }}
-                    loading="lazy"
-                  />
-                ) : (
-                  t("ContactMe.submit")
-                )}
-              </button>
-            </form>
+              <span className="contact__socials">
+                <a
+                  className="link-line"
+                  href="https://www.linkedin.com/in/arthur-bru-b71327252/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn ↗
+                </a>
+                <a className="link-line" href="https://github.com/PoloBongo" target="_blank" rel="noreferrer">
+                  GitHub ↗
+                </a>
+              </span>
+            </Reveal>
           </div>
-        </div>
+
+          <form className="contact__form" onSubmit={handleSubmit} id="reset-form">
+            <Reveal className="field-row" delay={0.2} stagger={0.1} y={30}>
+              <div className="field">
+                <input
+                  type="text"
+                  name="from_name"
+                  id="name"
+                  autoComplete="family-name"
+                  placeholder=" "
+                  value={formData.from_name}
+                  onChange={handleChange}
+                  required
+                />
+                <label htmlFor="name">{t("ContactMe.name")}</label>
+              </div>
+              <div className="field">
+                <input
+                  type="text"
+                  name="from_prenom"
+                  id="prenom"
+                  autoComplete="given-name"
+                  placeholder=" "
+                  onChange={handleChange}
+                  value={formData.from_prenom}
+                  required
+                />
+                <label htmlFor="prenom">{t("ContactMe.prenom")}</label>
+              </div>
+            </Reveal>
+            <Reveal className="field" delay={0.3} y={30}>
+              <input
+                type="email"
+                name="reply_to"
+                id="mail"
+                autoComplete="email"
+                placeholder=" "
+                value={formData.reply_to}
+                onChange={handleChange}
+                required
+              />
+              <label htmlFor="mail">{t("ContactMe.mail")}</label>
+            </Reveal>
+            <Reveal className="field" delay={0.4} y={30}>
+              <textarea
+                name="message"
+                id="message"
+                placeholder=" "
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
+              <label htmlFor="message">{t("ContactMe.message")}</label>
+            </Reveal>
+            <Reveal className="contact__actions" delay={0.5} y={30}>
+              <Magnetic>
+                <button
+                  type="submit"
+                  id="last"
+                  className={`btn btn--solid contact__submit${sending ? " is-sending" : ""}`}
+                  disabled={sending}
+                >
+                  {sending && <span className="contact__progress" aria-hidden="true" />}
+                  <span className="contact__submit-label">
+                    {sending ? t("ContactMe.submitInProgress") : t("ContactMe.submit")}
+                  </span>
+                  {!sending && <Arrow />}
+                </button>
+              </Magnetic>
+            </Reveal>
+          </form>
+        </main>
+        <Footer compact />
+        <Navbar />
       </FocusLoop>
-      {showNotification && (
-        <div className="notification fontsRegular">{notificationMessage}</div>
-      )}
+
+      <div
+        className={`toast${notice ? " is-visible" : ""}${notice === "error" ? " toast--error" : ""}`}
+        role="status"
+        aria-live="polite"
+      >
+        {notice ? t(`ContactMe.${notice}`) : ""}
+      </div>
     </div>
   );
 };

@@ -47,7 +47,8 @@
     "ContactMe": "Contáctame",
     "Incoming": "Mi Programa de Cursos 2026-2027",
     "AI": "AI & Automation",
-    "SitePro": "Mi sitio profesional"
+    "SitePro": "Mi sitio profesional",
+    "Unreal": "Unreal"
   },
   "TypeCV": {
     "CVJV": "CV de Videojuegos",
@@ -93,7 +94,22 @@
     "luaPart2": ", que me permitió compartir mi contenido con mi comunidad. Hoy, he detenido el proyecto Polo Leaks porque he explorado todas las posibilidades que ofrecía.",
     "CSharpConsole": "Juego en consola, un juego por turnos realizado en 2 semanas. Teníamos que crear un mapa en ASCII y hacerlo atractivo. Elegimos el tema de One Piece y para el sistema de combate, teníamos que crear 3 tipos de IA: Fácil, Normal y Difícil. También realizamos pruebas unitarias.<br></br>- Grupo de 4 estudiantes.",
     "UnityRL": "Un juego desarrollado en 2 semanas utilizando el motor de juego Unity con varias características como generación procedural, Animation Curve, IA de drones, gestión de entradas, Corrutinas, OpenProBuilder y otros fundamentos de Unity.<br></br>- Grupo de 2 estudiantes.",
-    "CustomEngine": "Durante mi segundo año, tuve la oportunidad de crear un motor personalizado con Vulkan en C++. Principalmente me ocupé de la parte de la red, es decir de los protocolos TCP y UDP y también de la integración del sonido a través de la biblioteca FMOD. El proyecto tuvo una duración de 1 mes.<br><br>- Grupo de 8 alumnos."
+    "CustomEngine": "Durante mi segundo año, tuve la oportunidad de crear un motor personalizado con Vulkan en C++. Principalmente me ocupé de la parte de la red, es decir de los protocolos TCP y UDP y también de la integración del sonido a través de la biblioteca FMOD. El proyecto tuvo una duración de 1 mes.<br><br>- Grupo de 8 alumnos.",
+    "Langage": "Lenguaje:",
+    "ToolsUsed": "Herramientas / tecnologías usadas:",
+    "Duration": "Duración:",
+    "Completion": "Finalización:",
+    "TeamSize": "Tamaño del equipo:",
+    "Role": "Rol:",
+    "Angine": {
+      "Description": "Nuestro motor 3D aprovecha la potencia de Vulkan para un renderizado gráfico optimizado y eficiente. Integramos varias bibliotecas especializadas para mejorar el proceso de desarrollo y ofrecer una solución robusta para la gestión de recursos, la física, el audio y la red.",
+      "Langage": "C++",
+      "ToolsUsed": "API gráfica: Vulkan<br>Interfaces de usuario: Dear ImGui<br>Simulación de física: Bullet Physics<br>Creación de ventanas y gestión de entradas: GLFW<br>Gestión de audio: FMOD<br>Carga de archivos obj: tinyObjLoader<br>Biblioteca matemática para gráficos: GLM",
+      "Duration": "1 mes",
+      "Completion": "2024",
+      "TeamSize": "8",
+      "Role": "Implementación del audio con FMOD y de toda la parte de multithreading para crear un chat en TCP y UDP"
+    }
   },
   "WebProjects": {
     "Title": "Mis Proyectos Web",
@@ -183,7 +199,10 @@
     "mail": "Correo electrónico",
     "message": "Mensaje",
     "submit": "Enviar",
-    "submitInProgress": "Enviando..."
+    "submitInProgress": "Enviando...",
+    "intro": "¿Una idea, un proyecto, una pregunta? Escríbeme.",
+    "success": "¡Mensaje enviado con éxito!",
+    "error": "No se pudo enviar el mensaje."
   },
   "DropdownCV": {
     "CVWeb": "CV Web",
@@ -340,7 +359,9 @@
   "Incoming": {
     "1": "Creación de su Game Design Document (x2)",
     "2": "Análisis y Gestión de Proyecto",
-    "3": "Proyecto Insignia: Experiencia completa en Unreal Engine (Render final)"
+    "3": "Proyecto Insignia: Experiencia completa en Unreal Engine (Render final)",
+    "eyebrow": "5.º año — Máster 2",
+    "heading": "Mis próximos proyectos escolares 2026-2027"
   },
   "AIProjects": {
     "Title": "Mis proyectos de IA & Automatización",
@@ -371,5 +392,63 @@
     "prev": "Anterior",
     "next": "Siguiente",
     "cert": "Certificado"
+  },
+  "Menu": {
+    "open": "Menú",
+    "close": "Cerrar",
+    "nav": "Navegación principal",
+    "language": "Idioma",
+    "social": "Redes"
+  },
+  "Hero": {
+    "hello": "Hola, soy",
+    "roleGame": "Desarrollador de videojuegos",
+    "roleWeb": "Desarrollador web",
+    "roleAI": "Ingeniero de IA",
+    "scroll": "Desplazar"
+  },
+  "Work": {
+    "title": "Proyectos",
+    "projects": "proyectos"
+  },
+  "Footer": {
+    "title": "¿Tienes un proyecto en mente?",
+    "titleAccent": "Hablemos.",
+    "copy": "Copiar correo",
+    "copied": "¡Copiado!",
+    "top": "Volver arriba",
+    "rights": "Todos los derechos reservados"
+  },
+  "Skills": {
+    "game": "Videojuegos",
+    "web": "Web",
+    "tools": "Datos y herramientas"
+  },
+  "Hud": {
+    "level": "NIV",
+    "sound": "Sonido",
+    "soundOn": "Sonido activado",
+    "soundOff": "Sonido apagado",
+    "lost": "Zona desconocida",
+    "hero": "Inicio",
+    "intro": "Acerca de",
+    "work": "Proyectos",
+    "skills": "Habilidades",
+    "certs": "Logros",
+    "footer": "¿Continuar?"
+  },
+  "Stage": {
+    "face": "Gameplay y motores",
+    "web": "Web",
+    "tools": "Datos y herramientas",
+    "engine": "Motor y red",
+    "ai": "IA y agentes",
+    "caption": "Vista explosionada — Jugador 1"
+  },
+  "Card": {
+    "player": "Jugador 1",
+    "alt": "Retrato de Arthur BRU",
+    "projects": "Proyectos",
+    "certs": "Certificaciones"
   }
 }

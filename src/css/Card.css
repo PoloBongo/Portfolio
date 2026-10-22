@@ -1,0 +1,234 @@
+/* ==========================================================================
+   Carte « Joueur 1 » (section À propos) : portrait, identité, chiffres
+   Le canvas .card__mosaic dessine le portrait en gros pixels pendant le scroll ; l'image reste dessous
+   (sans JS ou avec mouvement réduit, seule l'image est visible).
+   ========================================================================== */
+
+.card {
+  --mx: 50%;
+  --my: 30%;
+  position: relative;
+  width: 100%;
+  perspective: 1100px;
+}
+
+.card__tilt {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  padding: 14px 14px 24px;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: 26px;
+  background: radial-gradient(120% 55% at 100% 0%, rgba(188, 99, 255, 0.16), transparent 60%), var(--bg-raised);
+  box-shadow: 0 50px 90px -50px rgba(0, 0, 0, 0.9);
+  will-change: transform;
+}
+
+/* ---------- En-tête ---------- */
+
+.card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 8px 0;
+  color: var(--ink);
+}
+
+.card__player {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8em;
+}
+
+.card__player::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: var(--violet);
+  box-shadow: 0 0 10px var(--violet);
+  animation: card-blink 1.3s steps(1) infinite;
+}
+
+.card__engine {
+  color: var(--ink-faint);
+}
+
+@keyframes card-blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+/* ---------- Portrait ---------- */
+
+.card__frame {
+  position: relative;
+  aspect-ratio: 1 / 1.12;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--bg-sunken);
+}
+
+.card__img,
+.card__mosaic {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card__img {
+  object-fit: cover;
+  filter: saturate(0.85) contrast(1.06);
+}
+
+.card__mosaic {
+  image-rendering: pixelated;
+  opacity: 0;
+  transition: opacity 0.7s var(--ease-out);
+}
+
+.card.is-live .card__mosaic {
+  opacity: 1;
+}
+
+.card.is-live.is-sharp .card__mosaic {
+  opacity: 0;
+}
+
+/* Teinte violette et assombrissement du bas : le fond gris de la photo rejoint la palette du site */
+.card__tint,
+.card__scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.card__tint {
+  background: linear-gradient(180deg, rgba(10, 10, 15, 0) 45%, rgba(10, 10, 15, 0.7) 100%),
+    linear-gradient(135deg, rgba(188, 99, 255, 0.42), rgba(40, 52, 190, 0.34));
+  mix-blend-mode: color;
+  transition: opacity 0.8s var(--ease-out);
+}
+
+/* Au survol, la teinte se retire en partie : on voit les vraies couleurs de la photo */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__tint {
+    opacity: 0.4;
+  }
+}
+
+.card__scan {
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.16) 0 1px, transparent 1px 3px);
+  opacity: 0.55;
+}
+
+/* Coins de visée, comme le cadre du HUD */
+.card__corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 0 solid var(--violet);
+  pointer-events: none;
+}
+
+.card__corner--tl {
+  top: 12px;
+  left: 12px;
+  border-top-width: 1.5px;
+  border-left-width: 1.5px;
+}
+
+.card__corner--tr {
+  top: 12px;
+  right: 12px;
+  border-top-width: 1.5px;
+  border-right-width: 1.5px;
+}
+
+.card__corner--bl {
+  bottom: 12px;
+  left: 12px;
+  border-bottom-width: 1.5px;
+  border-left-width: 1.5px;
+}
+
+.card__corner--br {
+  right: 12px;
+  bottom: 12px;
+  border-right-width: 1.5px;
+  border-bottom-width: 1.5px;
+}
+
+/* ---------- Identité et chiffres ---------- */
+
+.card__id {
+  display: grid;
+  gap: 4px;
+  padding-inline: 8px;
+}
+
+.card__name {
+  font-size: clamp(1.6rem, 1.2rem + 0.9vw, 2.1rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.card__roles {
+  color: var(--violet);
+  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.35rem);
+  line-height: 1.2;
+}
+
+.card__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-inline: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.card__stat {
+  display: grid;
+  gap: 4px;
+}
+
+.card__stat dt {
+  color: var(--ink-dim);
+}
+
+.card__num {
+  font-size: clamp(2rem, 1.6rem + 1vw, 2.6rem);
+  font-weight: 560;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Reflet qui suit le curseur ---------- */
+
+.card__glare {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(420px circle at var(--mx) var(--my), rgba(255, 255, 255, 0.16), transparent 62%);
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__glare {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card__player::before {
+    animation: none;
+  }
+}

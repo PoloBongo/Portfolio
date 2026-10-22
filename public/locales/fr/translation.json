@@ -103,7 +103,7 @@
     },
     "Langage": "Langage:",
     "ToolsUsed": "Outils/Technologies utilisés:",
-    "Duration": "Duration:",
+    "Duration": "Durée:",
     "Completion": "Achèvement:",
     "TeamSize": "Taille de l'équipe:",
     "Role": "Rôle:"
@@ -195,7 +195,10 @@
     "mail": "Mail",
     "message": "Message",
     "submit": "Envoyer",
-    "submitInProgress": "Envoie en cours..."
+    "submitInProgress": "Envoie en cours...",
+    "intro": "Une idée, un projet, une question ? Écrivez-moi.",
+    "success": "Mail envoyé avec succès !",
+    "error": "Échec de l'envoi du mail."
   },
   "DropdownCV": {
     "CVWeb": "CV Web",
@@ -351,7 +354,9 @@
   "Incoming": {
     "1": "Création de son Game Design Document (x2)",
     "2": "Analyse et Gestion de Projet",
-    "3": "Projet Fil Rouge : Expérience complète sous Unreal Engine (Rendu final)"
+    "3": "Projet Fil Rouge : Expérience complète sous Unreal Engine (Rendu final)",
+    "eyebrow": "5ème année — Master 2",
+    "heading": "Mes projets d'école à venir 2026-2027"
   },
   "AIProjects": {
     "Title": "Mes projets IA & Automatisation",
@@ -382,5 +387,63 @@
     "prev": "Précédent",
     "next": "Suivant",
     "cert": "Certificat"
+  },
+  "Menu": {
+    "open": "Menu",
+    "close": "Fermer",
+    "nav": "Navigation principale",
+    "language": "Langue",
+    "social": "Réseaux"
+  },
+  "Hero": {
+    "hello": "Bonjour, je suis",
+    "roleGame": "Développeur jeu vidéo",
+    "roleWeb": "Développeur web",
+    "roleAI": "Ingénieur IA",
+    "scroll": "Défiler"
+  },
+  "Work": {
+    "title": "Projets",
+    "projects": "projets"
+  },
+  "Footer": {
+    "title": "Un projet en tête ?",
+    "titleAccent": "Parlons-en.",
+    "copy": "Copier l'e-mail",
+    "copied": "Copié !",
+    "top": "Haut de page",
+    "rights": "Tous droits réservés"
+  },
+  "Skills": {
+    "game": "Jeu vidéo",
+    "web": "Web",
+    "tools": "Données & outils"
+  },
+  "Hud": {
+    "level": "NIV",
+    "sound": "Son",
+    "soundOn": "Son activé",
+    "soundOff": "Son coupé",
+    "lost": "Zone inconnue",
+    "hero": "Démarrage",
+    "intro": "À propos",
+    "work": "Projets",
+    "skills": "Compétences",
+    "certs": "Succès",
+    "footer": "Continuer ?"
+  },
+  "Stage": {
+    "face": "Gameplay & moteurs",
+    "web": "Web",
+    "tools": "Données & outils",
+    "engine": "Moteur & réseau",
+    "ai": "IA & agents",
+    "caption": "Vue éclatée — Joueur 1"
+  },
+  "Card": {
+    "player": "Joueur 1",
+    "alt": "Portrait d’Arthur BRU",
+    "projects": "Projets",
+    "certs": "Certifications"
   }
 }

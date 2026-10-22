@@ -16,8 +16,10 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-    debug: true,
+    debug: process.env.NODE_ENV === "development",
     fallbackLng: "fr",
+    // fr-FR → fr : évite de chercher /locales/fr-FR/translation.json (inexistant)
+    load: "languageOnly",
     // keySeparator: false,
 
     interpolation: {
