@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Monde de Celtic La Riche Basket : l'affiche de club collée dans la rue. Vert profond, trame de demi-teinte,
+   lettres Anton, orange du ballon, tableau d'affichage.
+   ========================================================================== */
+
+.w-celtic-la-riche-basket {
+  --w-display: "Anton", Impact, "Arial Narrow", sans-serif;
+  --w-body: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+}
+
+.w-celtic-la-riche-basket .w-title {
+  font-weight: 400;
+  font-size: clamp(2.6rem, 0.8rem + 9vw, 7rem);
+  font-variation-settings: normal;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-shadow: 0.06em 0.06em 0 rgba(255, 122, 26, 0.9);
+}
+
+.w-celtic-la-riche-basket .w-tagline {
+  color: var(--violet);
+  font-family: var(--w-body);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.5rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 760px) {
+  .w-celtic-la-riche-basket .w-title {
+    left: 5.4cqw;
+    top: 9cqw;
+    width: 56cqw;
+    font-size: 8.2cqw;
+  }
+
+  .w-celtic-la-riche-basket .w-tagline {
+    left: 6cqw;
+    top: 31cqw;
+    width: 46cqw;
+    max-width: none;
+    margin: 0;
+    font-size: 2.3cqw;
+  }
+}
+
+.w-celtic-la-riche-basket .w-stage {
+  background: radial-gradient(circle at 50% 50%, rgba(7, 40, 28, 0.5) 1.1px, transparent 1.5px) 0 0 / 1.4cqw 1.4cqw,
+    radial-gradient(70% 90% at 80% 0%, rgba(255, 255, 255, 0.12), transparent 70%), var(--w0);
+}
+
+.w-cb2__kick {
+  left: 6cqw;
+  top: 5cqw;
+  font: 600 2cqw var(--w-body);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--w4);
+}
+
+.w-cb2__board {
+  right: 5cqw;
+  top: 5cqw;
+  display: flex;
+  gap: 1cqw;
+  padding: 1cqw;
+  background: var(--w3);
+  border-radius: 1cqw;
+  font: 400 6cqw/1 var(--w-display);
+  color: var(--w1);
+  box-shadow: 0 0 0 0.3cqw #333;
+}
+
+.w-cb2__board span {
+  padding: 0.5cqw 1.2cqw;
+  background: #000;
+  border-radius: 0.5cqw;
+  min-width: 8.5cqw;
+  text-align: center;
+}
+
+.w-cb2__board small {
+  display: block;
+  font: 600 1.1cqw var(--w-body);
+  letter-spacing: 0.14em;
+  color: var(--w4);
+  opacity: 0.7;
+}
+
+.w-cb2__board em {
+  font-style: normal;
+}
+
+.w-cb2__ball {
+  right: 12cqw;
+  bottom: 3.6cqw;
+  width: 12cqw;
+  height: 12cqw;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffa04d, var(--w1) 55%, #b94d00);
+  box-shadow: inset -0.8cqw -0.8cqw 1.6cqw rgba(0, 0, 0, 0.35);
+  animation: w-cb2-bounce 1.5s cubic-bezier(0.3, 0, 0.6, 1) infinite;
+}
+
+.w-cb2__ball::before,
+.w-cb2__ball::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 0.3cqw solid rgba(20, 10, 0, 0.75);
+  clip-path: inset(0 0 0 48%);
+  transform: scaleX(-1);
+}
+
+.w-cb2__ball::after {
+  clip-path: none;
+  border-width: 0 0 0.3cqw;
+  inset: 49.5% 0 auto;
+  height: 0;
+  border-radius: 0;
+  transform: none;
+}
+
+.w-cb2__shadow {
+  right: 11cqw;
+  bottom: 1.6cqw;
+  width: 14cqw;
+  height: 1.6cqw;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  animation: w-cb2-shadow 1.5s cubic-bezier(0.3, 0, 0.6, 1) infinite;
+}
+
+@keyframes w-cb2-bounce {
+  0% {
+    transform: translateY(-26cqw) rotate(0);
+  }
+  50% {
+    transform: translateY(0) rotate(180deg);
+    animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  }
+  100% {
+    transform: translateY(-26cqw) rotate(360deg);
+  }
+}
+
+@keyframes w-cb2-shadow {
+  0%,
+  100% {
+    transform: scale(0.45);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}

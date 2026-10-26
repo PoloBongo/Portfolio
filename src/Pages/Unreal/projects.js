@@ -3,6 +3,7 @@ export const UNREAL_PROJECTS = [
   {
     id: "funfair",
     title: "Funfair",
+    tags: "Unreal 5.4 · Blueprint · Niagara",
     i18n: "Unreal.Funfair",
     video: "suI8_LCzjSI",
     links: [
@@ -17,6 +18,7 @@ export const UNREAL_PROJECTS = [
   {
     id: "spacial-race",
     title: "Spacial Race",
+    tags: "Unreal 5.4 · C++ · Chaos",
     i18n: "Unreal.SpacialRace",
     video: "2Ptn12UQuUs",
     links: [
@@ -26,6 +28,7 @@ export const UNREAL_PROJECTS = [
   {
     id: "inventory",
     titleKey: "Unreal.InventoryDemo.Title",
+    tags: "Unreal 5.4 · C++ · Data Assets",
     i18n: "Unreal.InventoryDemo",
     video: "kWMr7oxRCWQ",
     links: [

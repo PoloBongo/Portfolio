@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { prefersReducedMotion } from "./motion";
+import { fieldState, subscribeTint } from "./fieldBus";
 
 const VERTEX = `
 attribute vec2 aPos;
@@ -14,6 +15,8 @@ precision highp float;
 uniform vec2 uRes;
 uniform float uTime;
 uniform vec2 uMouse;
+uniform vec3 uTint;
+uniform float uTintMix;
 
 float hash(vec2 p) {
   p = fract(p * vec2(123.34, 456.21));
@@ -60,15 +63,20 @@ void main() {
   float glow = exp(-distance(p, m) * 3.4);
 
   vec3 base = vec3(0.039, 0.039, 0.059);
-  vec3 violet = vec3(0.45, 0.16, 0.78);
-  vec3 magenta = vec3(0.86, 0.30, 0.72);
-  vec3 indigo = vec3(0.12, 0.16, 0.62);
+  vec3 violet = vec3(0.36, 0.15, 0.7);
+  vec3 magenta = vec3(0.7, 0.26, 0.66);
+  vec3 indigo = vec3(0.1, 0.17, 0.58);
+
+  // Couleur du monde en cours (acte du hero) : l'aurore vire vers elle, en restant sombre
+  violet = mix(violet, uTint * 0.5, uTintMix * 0.85);
+  magenta = mix(magenta, uTint * 0.62, uTintMix * 0.8);
+  indigo = mix(indigo, uTint * 0.25, uTintMix * 0.7);
 
   vec3 col = base;
   col = mix(col, indigo, smoothstep(0.35, 0.95, length(q)) * 0.5);
-  col = mix(col, violet, smoothstep(0.28, 0.86, f) * 0.62);
-  col = mix(col, magenta, smoothstep(0.55, 1.05, length(r)) * 0.24);
-  col += vec3(0.74, 0.39, 1.0) * glow * 0.26;
+  col = mix(col, violet, smoothstep(0.3, 0.9, f) * 0.46);
+  col = mix(col, magenta, smoothstep(0.55, 1.05, length(r)) * 0.12);
+  col += mix(vec3(0.74, 0.39, 1.0), uTint, uTintMix) * glow * 0.18;
 
   float vig = 1.0 - smoothstep(0.2, 1.15, length(uv - 0.5) * 1.25);
   col *= mix(0.5, 1.0, vig);
@@ -129,6 +137,12 @@ export default function Aurora({ className = "" }) {
     const uRes = gl.getUniformLocation(program, "uRes");
     const uTime = gl.getUniformLocation(program, "uTime");
     const uMouse = gl.getUniformLocation(program, "uMouse");
+    const uTint = gl.getUniformLocation(program, "uTint");
+    const uTintMix = gl.getUniformLocation(program, "uTintMix");
+
+    // Teinte du monde en cours : la valeur affichée rejoint la cible à chaque image
+    const tint = { rgb: [...fieldState.tint.rgb], mix: fieldState.tint.mix };
+    const tintTarget = { rgb: [...fieldState.tint.rgb], mix: fieldState.tint.mix };
 
     // Résolution de rendu réduite : le dégradé reste lisse et le coût GPU baisse beaucoup
     const coarse = window.matchMedia("(pointer: coarse)").matches;
@@ -159,9 +173,13 @@ export default function Aurora({ className = "" }) {
     const draw = (now) => {
       mouse.x += (target.x - mouse.x) * 0.06;
       mouse.y += (target.y - mouse.y) * 0.06;
+      for (let c = 0; c < 3; c += 1) tint.rgb[c] += (tintTarget.rgb[c] - tint.rgb[c]) * 0.045;
+      tint.mix += (tintTarget.mix - tint.mix) * 0.045;
       gl.uniform2f(uRes, canvas.width, canvas.height);
       gl.uniform1f(uTime, (now - start) / 1000 + 12);
       gl.uniform2f(uMouse, mouse.x, mouse.y);
+      gl.uniform3f(uTint, tint.rgb[0], tint.rgb[1], tint.rgb[2]);
+      gl.uniform1f(uTintMix, tint.mix);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     };
 
@@ -182,6 +200,15 @@ export default function Aurora({ className = "" }) {
     draw(start);
 
     const reduced = prefersReducedMotion();
+    const stopTint = subscribeTint(({ rgb, mix }) => {
+      tintTarget.rgb = [rgb[0], rgb[1], rgb[2]];
+      tintTarget.mix = mix;
+      if (reduced) {
+        tint.rgb = [rgb[0], rgb[1], rgb[2]];
+        tint.mix = mix;
+        draw(performance.now());
+      }
+    });
     const observer = new IntersectionObserver(([entry]) => {
       inView = entry.isIntersecting;
       if (inView) play();
@@ -203,6 +230,7 @@ export default function Aurora({ className = "" }) {
 
     return () => {
       pause();
+      stopTint();
       observer.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("pointermove", onMove);

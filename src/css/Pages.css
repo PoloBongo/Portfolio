@@ -299,7 +299,6 @@
   padding: 120px var(--pad-x) 80px;
   overflow: clip;
   text-align: center;
-  isolation: isolate;
 }
 
 .notfound::before {
@@ -354,14 +353,6 @@
   color: var(--ink-dim);
 }
 
-.notfound__pika {
-  position: absolute;
-  right: clamp(12px, 6vw, 120px);
-  bottom: 0;
-  width: clamp(110px, 13vw, 190px);
-  height: auto;
-  pointer-events: none;
-}
 
 /* ---------- Chargement des traductions ---------- */
 

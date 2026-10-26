@@ -1,0 +1,143 @@
+/* ==========================================================================
+   Monde de RATP Maintenance Challenge : l'affiche du jeu. Nuit urbaine, cyan et bleu RATP, titre large en italique,
+   quai en perspective, tableau à palettes.
+   ========================================================================== */
+
+.w-ratp {
+  --w-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --w-body: "Overpass Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+.w-ratp .w-title {
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(2.2rem, 0.6rem + 7vw, 5rem);
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--violet);
+  text-shadow: 0.05em 0.05em 0 rgba(0, 0, 0, 0.6);
+}
+
+.w-ratp .w-tagline {
+  color: var(--ink);
+  font-family: var(--w-body);
+  font-size: clamp(0.95rem, 0.88rem + 0.4vw, 1.25rem);
+  line-height: 1.5;
+}
+
+@media (min-width: 760px) {
+  .w-ratp .w-title {
+    left: 5cqw;
+    top: 5cqw;
+    width: 52cqw;
+    font-size: 5.2cqw;
+  }
+
+  .w-ratp .w-tagline {
+    left: 5.4cqw;
+    top: 26cqw;
+    width: 36cqw;
+    max-width: none;
+    margin: 0;
+    font-size: 1.55cqw;
+  }
+}
+
+.w-ratp .w-stage {
+  background: radial-gradient(circle at 20% 80%, rgba(255, 190, 80, 0.22) 0 1.2cqw, transparent 1.4cqw) 0 0 / 7cqw 6cqw,
+    radial-gradient(circle at 70% 30%, rgba(255, 120, 60, 0.18) 0 1cqw, transparent 1.2cqw) 0 0 / 5cqw 8cqw,
+    linear-gradient(180deg, #0a1018, #101a28);
+}
+
+.w-rt__quay {
+  right: 4cqw;
+  top: 13cqw;
+  width: 40cqw;
+  height: 22cqw;
+  border: 0.45cqw solid var(--w1);
+  background: linear-gradient(160deg, #3b3f46, #2a2d33);
+  overflow: hidden;
+  transform: perspective(90cqw) rotateX(18deg) rotateZ(-4deg);
+  box-shadow: 0 2cqw 4cqw rgba(0, 0, 0, 0.5);
+}
+
+.w-rt__quay::before {
+  content: "";
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  top: 58%;
+  height: 0.7cqw;
+  background: #f2c13b;
+}
+
+.w-rt__train {
+  position: absolute;
+  left: -30%;
+  top: 28%;
+  width: 30%;
+  height: 20%;
+  border-radius: 0.8cqw;
+  background: linear-gradient(180deg, #d6e8ee, #8fb1bd);
+  animation: w-rt-arrive 7s ease-in-out infinite;
+}
+
+.w-rt__train::after {
+  content: "";
+  position: absolute;
+  inset: 20% 6% auto;
+  height: 30%;
+  background: repeating-linear-gradient(90deg, #12202b 0 22%, transparent 22% 28%);
+}
+
+@keyframes w-rt-arrive {
+  0% {
+    transform: translateX(0);
+  }
+  40%,
+  75% {
+    transform: translateX(300%);
+  }
+  100% {
+    transform: translateX(520%);
+  }
+}
+
+.w-rt__pin {
+  position: absolute;
+  right: 12%;
+  top: 8%;
+  width: 3.4cqw;
+  height: 3.4cqw;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: #e0242b;
+  box-shadow: 0 0 0 0.4cqw #fff;
+}
+
+.w-rt__board {
+  left: 5cqw;
+  top: 40cqw;
+  width: 36cqw;
+  padding: 1cqw 1.4cqw;
+  border-radius: 0.8cqw;
+  background: #05080d;
+  border: 0.25cqw solid var(--w2);
+  font: 700 1.9cqw/1.8 var(--w-body);
+  color: #ffd36b;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.w-rt__board p {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.w-rt__board p span:first-child {
+  color: var(--w4);
+}

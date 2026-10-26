@@ -6,12 +6,13 @@ import { TLink } from "../Effects/PageTransition";
 import { gsap, EASE, onReady, hasFinePointer } from "../Effects/motion";
 import { isSoundOn, setSound, subscribeSound, play } from "../Effects/sound";
 import { setFps } from "../Effects/perf";
-import { setHud } from "../Effects/hudState";
 import { pageLabelKey } from "./navItems";
 import "../css/Hud.css";
 
 const LANGS = ["fr", "en", "es"];
 const pad = (n, size = 2) => String(n).padStart(size, "0");
+// Coordonnée signée à deux décimales (le « vecteur » du curseur)
+const signed = (n) => `${n < 0 ? "−" : "+"}${Math.abs(n).toFixed(2)}`;
 
 const ZONE = (() => {
   try {
@@ -27,7 +28,7 @@ function useSoundState() {
   return on;
 }
 
-// Habillage « moteur de jeu » : coins de cadre, barre d'état (niveau, XP au scroll, FPS, heure, son)
+// Habillage « console » : coins de cadre, barre d'état (section, contexte lu au scroll, vecteur du curseur, latence, heure, son)
 function HudInner() {
   const { t, i18n } = useTranslation();
   const { pathname } = useLocation();
@@ -60,11 +61,11 @@ function HudInner() {
     { scope: rootRef }
   );
 
-  // Horloge, FPS et coordonnées du pointeur : écrits directement dans le DOM, sans rendu React
+  // Horloge, latence d'image et vecteur du pointeur : écrits directement dans le DOM, sans rendu React
   useEffect(() => {
     const root = rootRef.current;
     const clockEl = root.querySelector("[data-clock]");
-    const fpsEl = root.querySelector("[data-fps]");
+    const latEl = root.querySelector("[data-lat]");
     const posEl = root.querySelector("[data-pos]");
 
     const tickClock = () => {
@@ -86,7 +87,7 @@ function HudInner() {
       last = now;
       // Onglet resté en arrière-plan : la mesure n'est pas représentative
       if (document.hidden || elapsed > 1500) return;
-      fpsEl.textContent = pad(fps);
+      latEl.textContent = pad(Math.round(1000 / Math.max(fps, 1)));
       setFps(fps);
     };
     gsap.ticker.add(onTick);
@@ -98,7 +99,7 @@ function HudInner() {
       let y = 0;
       const write = () => {
         frame = 0;
-        posEl.textContent = `${pad(Math.round(x), 4)}·${pad(Math.round(y), 4)}`;
+        posEl.textContent = `${signed((x / window.innerWidth) * 2 - 1)} ${signed(1 - (y / window.innerHeight) * 2)}`;
       };
       const onMove = (e) => {
         x = e.clientX;
@@ -119,7 +120,7 @@ function HudInner() {
     };
   }, []);
 
-  // XP = progression de lecture de la page ; niveau = section au centre de l'écran
+  // Contexte = part de la page déjà parcourue ; section = celle au centre de l'écran
   useEffect(() => {
     const root = rootRef.current;
     const xpEl = root.querySelector(".hud__xp");
@@ -132,7 +133,6 @@ function HudInner() {
       const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
       xpEl.style.setProperty("--xp", p.toFixed(4));
       xpNum.textContent = pad(Math.round(p * 100), 3);
-      setHud({ xp: p });
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(read);
@@ -183,11 +183,10 @@ function HudInner() {
     };
   }, [pathname]);
 
-  // Le nom du niveau se « décode » à chaque changement de section
+  // Le nom de la section se « décode » à chaque changement
   useEffect(() => {
     const el = nameRef.current;
     if (!el) return;
-    setHud({ name: levelName });
     if (previousName.current === null) {
       previousName.current = levelName;
       el.textContent = levelName;
@@ -223,7 +222,7 @@ function HudInner() {
         </div>
 
         <div className="hud__item hud__xp-wrap">
-          <span className="hud__tag">XP</span>
+          <span className="hud__tag">{t("Hud.progress")}</span>
           <span className="hud__xp">
             <i className="hud__xp-track" />
             <i className="hud__xp-fill" />
@@ -235,12 +234,14 @@ function HudInner() {
 
         <div className="hud__item hud__stats">
           <span className="hud__stat hud__stat--pos">
-            <span className="hud__tag">XY</span>
-            <span data-pos>0000·0000</span>
+            <span className="hud__tag">{t("Hud.vector")}</span>
+            <span data-pos>+0.00 +0.00</span>
           </span>
           <span className="hud__stat hud__stat--fps">
-            <span className="hud__tag">FPS</span>
-            <span data-fps>60</span>
+            <span className="hud__tag">{t("Hud.latency")}</span>
+            <span>
+              <span data-lat>16</span> ms
+            </span>
           </span>
           <span className="hud__stat hud__stat--clock">
             <span data-clock>00:00:00</span>

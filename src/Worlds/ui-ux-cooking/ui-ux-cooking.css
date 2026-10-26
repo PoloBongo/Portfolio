@@ -1,0 +1,339 @@
+/* ==========================================================================
+   Monde d'UI UX Cooking : la cuisine low-poly du jeu. Murs beige-gris, tables orange, frigo turquoise,
+   chef en toque, une poêle qui flambe (thème clair, ton chaud).
+   ========================================================================== */
+
+.w-ui-ux-cooking {
+  --w-display: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+  --w-body: "Nunito", "Helvetica Neue", Arial, sans-serif;
+}
+
+.w-ui-ux-cooking .w-title {
+  font-weight: 800;
+  font-size: clamp(2.8rem, 0.8rem + 9vw, 7rem);
+  font-variation-settings: normal;
+  line-height: 0.96;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+
+.w-ui-ux-cooking .w-tagline {
+  color: var(--ink);
+  font-family: var(--w-body);
+  font-weight: 700;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.4rem);
+  line-height: 1.4;
+}
+
+@media (min-width: 760px) {
+  .w-ui-ux-cooking .w-title {
+    right: 11cqw;
+    top: 6.4cqw;
+    width: 40cqw;
+    text-align: right;
+    font-size: 6.2cqw;
+  }
+
+  .w-ui-ux-cooking .w-tagline {
+    right: 11.2cqw;
+    top: 19.4cqw;
+    width: 38cqw;
+    max-width: none;
+    margin: 0;
+    text-align: right;
+    font-size: 1.9cqw;
+  }
+}
+
+.w-ui-ux-cooking .w-stage {
+  background: #bcae9d;
+}
+
+.w-uc__back {
+  inset: 0;
+  clip-path: polygon(12% 6%, 88% 6%, 88% 58%, 12% 58%);
+  background: linear-gradient(180deg, #c6b9a8, #b3a592);
+}
+
+.w-uc__lw {
+  inset: 0;
+  clip-path: polygon(0 0, 12% 6%, 12% 58%, 0 100%);
+  background: linear-gradient(90deg, #8f8272, #a39685);
+}
+
+.w-uc__rw {
+  inset: 0;
+  clip-path: polygon(100% 0, 88% 6%, 88% 58%, 100% 100%);
+  background: linear-gradient(90deg, #c9bcaa, #b7a996);
+}
+
+.w-uc__ce {
+  inset: 0;
+  clip-path: polygon(0 0, 100% 0, 88% 6%, 12% 6%);
+  background: #e0d7c9;
+}
+
+.w-uc__fl {
+  inset: 0;
+  clip-path: polygon(0 100%, 12% 58%, 88% 58%, 100% 100%);
+  background: linear-gradient(180deg, #a8a6a3, #c1beb9);
+}
+
+.w-uc__glow {
+  inset: 0;
+  background: radial-gradient(45% 55% at 52% 44%, rgba(255, 214, 150, 0.32), transparent 70%);
+  mix-blend-mode: screen;
+}
+
+.w-uc__fridge {
+  left: 15cqw;
+  top: 9cqw;
+  width: 9.5cqw;
+  height: 26.5cqw;
+  border-radius: 0.9cqw;
+  background: linear-gradient(90deg, var(--w2), #86d6ec 70%, #5eb4cf);
+  box-shadow: 0 1.2cqw 1.6cqw rgba(0, 0, 0, 0.3);
+}
+
+.w-uc__fridge::before {
+  content: "";
+  position: absolute;
+  left: 0.6cqw;
+  right: 0.6cqw;
+  top: 11cqw;
+  height: 0.3cqw;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.w-uc__fridge::after {
+  content: "";
+  position: absolute;
+  left: 0.9cqw;
+  top: 4cqw;
+  width: 0.5cqw;
+  height: 4cqw;
+  background: #8a6aa8;
+  border-radius: 0.3cqw;
+  box-shadow: 0 9cqw 0 #8a6aa8;
+}
+
+.w-uc__counter {
+  left: 26cqw;
+  top: 22cqw;
+  width: 36cqw;
+  height: 13.5cqw;
+  background: linear-gradient(180deg, #7d95bd, var(--w3));
+  border-radius: 0.5cqw 0.5cqw 0 0;
+  box-shadow: inset 0 1.1cqw 0 #9db3d6;
+}
+
+.w-uc__counter::after {
+  content: "";
+  position: absolute;
+  left: 1.4cqw;
+  right: 1.4cqw;
+  top: 3.2cqw;
+  bottom: 1cqw;
+  background: repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.15) 0 0.2cqw, transparent 0.2cqw 8.8cqw);
+}
+
+.w-uc__hood {
+  left: 40cqw;
+  top: 8cqw;
+  width: 12cqw;
+  height: 6.5cqw;
+  background: linear-gradient(180deg, #7d95bd, #5f78a2);
+  clip-path: polygon(24% 0, 76% 0, 100% 100%, 0 100%);
+}
+
+.w-uc__micro {
+  left: 29cqw;
+  top: 18.4cqw;
+  width: 5.6cqw;
+  height: 3.6cqw;
+  border-radius: 0.4cqw;
+  background: #e9e6df;
+  box-shadow: inset -1.6cqw 0 0 #28303a;
+}
+
+.w-uc__pan {
+  left: 44.4cqw;
+  top: 20.8cqw;
+  width: 5.2cqw;
+  height: 1.3cqw;
+  border-radius: 0 0 1cqw 1cqw;
+  background: #3a3f46;
+}
+
+.w-uc__flame {
+  left: 45.8cqw;
+  top: 16.2cqw;
+  width: 2.6cqw;
+  height: 4.8cqw;
+  background: radial-gradient(ellipse at 50% 85%, #fff3b0, #ffa31a 52%, transparent 72%);
+  border-radius: 50% 50% 40% 40%;
+  transform-origin: 50% 100%;
+  animation: w-uc-flick 0.45s ease-in-out infinite alternate;
+}
+
+@keyframes w-uc-flick {
+  to {
+    transform: scale(1.14, 0.86) skewX(5deg);
+    opacity: 0.85;
+  }
+}
+
+.w-uc__smoke {
+  left: 45cqw;
+  top: 13cqw;
+  width: 4cqw;
+  height: 4cqw;
+  border-radius: 50%;
+  background: rgba(224, 120, 47, 0.5);
+  filter: blur(0.55cqw);
+  animation: w-uc-smoke 3.2s ease-out infinite;
+  animation-delay: var(--d);
+}
+
+@keyframes w-uc-smoke {
+  from {
+    transform: translateY(2cqw) scale(0.5);
+    opacity: 0.85;
+  }
+  to {
+    transform: translateY(-8cqw) scale(1.7);
+    opacity: 0;
+  }
+}
+
+.w-uc__disp {
+  left: 74cqw;
+  top: 25cqw;
+  width: 4cqw;
+  height: 10.5cqw;
+  background: #eceae4;
+  border-radius: 0.6cqw;
+  box-shadow: inset 0 2.8cqw 0 #cfe7f3;
+}
+
+.w-uc__lamp {
+  left: 40cqw;
+  top: 3.4cqw;
+  width: 12cqw;
+  height: 0.5cqw;
+  background: #3a3f46;
+  box-shadow: 1.2cqw 0.7cqw 0 -0.1cqw #6e8fb8, 5.6cqw 0.7cqw 0 -0.1cqw #6e8fb8, 10cqw 0.7cqw 0 -0.1cqw #6e8fb8;
+}
+
+.w-uc__t {
+  background: linear-gradient(180deg, #ef8a3a, var(--w1));
+  border-radius: 50% / 45%;
+  box-shadow: 0 1.4cqw 0 #a8531a, 0 2.6cqw 1.6cqw rgba(0, 0, 0, 0.28);
+}
+
+.w-uc__t::before,
+.w-uc__t::after {
+  content: "";
+  position: absolute;
+  top: 90%;
+  width: 0.9cqw;
+  height: 4cqw;
+  background: #b35a1c;
+  border-radius: 0.3cqw;
+  left: 12%;
+}
+
+.w-uc__t::after {
+  left: auto;
+  right: 12%;
+}
+
+.w-uc__st {
+  left: 50cqw;
+  top: 30cqw;
+  width: 9cqw;
+  height: 2.6cqw;
+  background: #6f86ac;
+  border-radius: 0.4cqw;
+  box-shadow: 0 0.8cqw 0 #55698c;
+}
+
+.w-uc__bread {
+  left: 53.6cqw;
+  top: 28.5cqw;
+  width: 3cqw;
+  height: 1.6cqw;
+  border-radius: 50%;
+  background: #f0a53a;
+}
+
+.w-uc__item {
+  border-radius: 40%;
+}
+
+.w-uc__chef {
+  left: 40cqw;
+  top: 28cqw;
+  width: 8.4cqw;
+  height: 15cqw;
+  animation: w-uc-bob 2.4s ease-in-out infinite;
+}
+
+@keyframes w-uc-bob {
+  50% {
+    transform: translateY(-0.8cqw);
+  }
+}
+
+.w-uc__chef i {
+  position: absolute;
+  display: block;
+}
+
+.w-uc__chef .tq {
+  left: 1.4cqw;
+  top: 0;
+  width: 5.6cqw;
+  height: 4.6cqw;
+  border-radius: 2.8cqw 2.8cqw 0.5cqw 0.5cqw;
+  background: #fbf6ec;
+  box-shadow: inset -0.8cqw 0 0 rgba(0, 0, 0, 0.06);
+}
+
+.w-uc__chef .hd {
+  left: 2.2cqw;
+  top: 3.8cqw;
+  width: 4cqw;
+  height: 3.8cqw;
+  border-radius: 50%;
+  background: #8a5a44;
+}
+
+.w-uc__chef .mu {
+  left: 2.6cqw;
+  top: 6cqw;
+  width: 3.2cqw;
+  height: 0.9cqw;
+  border-radius: 0.5cqw;
+  background: #2b1f18;
+}
+
+.w-uc__chef .bd {
+  left: 0.3cqw;
+  top: 7.4cqw;
+  width: 7.8cqw;
+  height: 7.4cqw;
+  border-radius: 2.4cqw 2.4cqw 0.6cqw 0.6cqw;
+  background: #fbf6ec;
+  box-shadow: inset -1cqw 0 0 rgba(0, 0, 0, 0.07);
+}
+
+.w-uc__chef .bt {
+  left: 3.4cqw;
+  top: 9.4cqw;
+  width: 0.7cqw;
+  height: 0.7cqw;
+  border-radius: 50%;
+  background: #b8b2a4;
+  box-shadow: 1.5cqw 0 0 #b8b2a4, 0 1.6cqw 0 #b8b2a4, 1.5cqw 1.6cqw 0 #b8b2a4;
+}

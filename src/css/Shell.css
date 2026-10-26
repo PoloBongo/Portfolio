@@ -86,6 +86,18 @@
   transform: scale(1);
 }
 
+/* Zone de requête : au-dessus du nuage de points, l'anneau devient la zone interrogée (menthe) */
+.cursor__ring[data-state="query"] {
+  width: 104px;
+  height: 104px;
+  border-color: rgba(99, 230, 190, 0.7);
+  background: rgba(99, 230, 190, 0.06);
+}
+
+.cursor__dot[data-state="query"] {
+  background: var(--mint);
+}
+
 .cursor__ring[data-state="text"],
 .cursor__ring[data-state="hide"] {
   opacity: 0 !important;
@@ -195,6 +207,79 @@ html.has-cursor iframe {
 
 .curtain__label span {
   display: block;
+}
+
+/* ---------- Transition entre mondes (View Transitions, voir PageTransition.js) ---------- */
+
+/* L'ancienne image reste fixe, la nouvelle se dévoile en cercle (animation posée en JS) : les fondus par défaut
+   sont retirés */
+::view-transition-group(root),
+::view-transition-image-pair(root),
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+}
+
+/* Effets de clic des mondes (canvas plein écran, voir Effects/ClickFx.js) */
+.click-fx {
+  position: fixed;
+  inset: 0;
+  z-index: 8000;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Genres où l'ancienne page reste au-dessus (ticket déchiré) */
+html.vt-old-top ::view-transition-old(root) {
+  z-index: 3;
+}
+
+/* Calque de décor des transitions signature (canvas, voir Effects/worldTransition.js) : nommé pour faire partie
+   de la View Transition, au-dessus des deux pages ; absent du reste du temps */
+.vt-fx {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: none;
+  pointer-events: none;
+}
+
+.vt-fx canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+html.is-vt .vt-fx {
+  display: block;
+  view-transition-name: vt-fx;
+}
+
+html.is-vt ::view-transition-group(vt-fx),
+html.is-vt ::view-transition-image-pair(vt-fx),
+html.is-vt ::view-transition-new(vt-fx) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html.is-vt ::view-transition-old(vt-fx) {
+  display: none;
+}
+
+/* Juste avant la coupe, le contenu de l'ancienne page s'assombrit : seul le nuage, étiré, reste lumineux */
+html.is-world main {
+  opacity: 0.35;
+  transition: opacity 0.26s var(--ease-out);
 }
 
 /* ---------- Préloader ---------- */

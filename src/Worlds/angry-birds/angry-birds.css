@@ -1,0 +1,96 @@
+/* ==========================================================================
+   Monde d'Angry Birds : le jeu tel quel. Ciel gris-bleu, herbe et terre, oiseau rouge, lance-pierre en bois,
+   boutons vernis verts et orange (thème clair).
+   ========================================================================== */
+
+.w-angry-birds {
+  --w-display: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+  --w-body: "Patrick Hand", "Trebuchet MS", system-ui, sans-serif;
+}
+
+.w-angry-birds .w-title {
+  font-weight: 800;
+  font-size: clamp(3rem, 0.8rem + 10vw, 8rem);
+  font-variation-settings: normal;
+  line-height: 0.95;
+  letter-spacing: 0;
+  color: var(--violet);
+  -webkit-text-stroke: 0.06em var(--ink);
+  paint-order: stroke fill;
+  text-shadow: 0 0.07em 0 var(--ink);
+}
+
+.w-angry-birds .w-tagline {
+  color: var(--ink);
+  font-family: var(--w-body);
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.6rem);
+  line-height: 1.35;
+}
+
+@media (min-width: 760px) {
+  .w-angry-birds .w-title {
+    left: 5cqw;
+    top: 3.4cqw;
+    width: 40cqw;
+    font-size: 8.6cqw;
+  }
+
+  .w-angry-birds .w-tagline {
+    left: 5.4cqw;
+    top: 22cqw;
+    width: 40cqw;
+    max-width: none;
+    margin: 0;
+    font-size: 2.3cqw;
+  }
+}
+
+.w-angry-birds .w-stage {
+  background: linear-gradient(180deg, #8fa8bd 0%, var(--w0) 62%, #c9d8e2 100%);
+}
+
+.w-ab__cloud {
+  background: rgba(236, 244, 248, 0.85);
+  border-radius: 50%;
+  filter: blur(0.4cqw);
+  animation: w-ab-drift 40s linear infinite;
+}
+
+@keyframes w-ab-drift {
+  from {
+    transform: translateX(-20cqw);
+  }
+  to {
+    transform: translateX(120cqw);
+  }
+}
+
+.w-ab__ground {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 17cqw;
+  background: linear-gradient(180deg, var(--w2) 0 2.2cqw, var(--w3) 2.2cqw);
+  border-top: 0.4cqw solid #2e9a3b;
+}
+
+.w-ab__tog {
+  right: 3.6cqw;
+  top: 3cqw;
+  display: flex;
+  gap: 1cqw;
+}
+
+.w-ab__tog i {
+  font: normal 700 1.5cqw var(--w-display);
+  padding: 0.55em 1.1em;
+  border-radius: 0.7cqw;
+  color: #fff;
+  text-shadow: 0 0.1cqw 0 rgba(0, 0, 0, 0.5);
+  background: linear-gradient(180deg, #ff9c4a, #e14b0c);
+  box-shadow: inset 0 0.25cqw 0 rgba(255, 255, 255, 0.45), 0 0.2cqw 0.5cqw rgba(0, 0, 0, 0.4);
+}
+
+.w-ab__tog i.g {
+  background: linear-gradient(180deg, #7bf06b, #1fa334);
+}

@@ -2,10 +2,10 @@ import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useGSAP } from "@gsap/react";
 import Reveal from "../Effects/Reveal";
-import PlayerCard from "./PlayerCard";
+import ProfileCard from "./ProfileCard";
 import { gsap, prefersReducedMotion } from "../Effects/motion";
 
-// Présentation : le texte s'allume mot après mot pendant le défilement, la carte du joueur à côté
+// Présentation : le texte s'allume mot après mot pendant le défilement, la carte de profil à côté
 export default function Intro() {
   const { t } = useTranslation();
   const rootRef = useRef(null);
@@ -55,7 +55,7 @@ export default function Intro() {
             {t("Home.aboutMe")}
           </Reveal>
         </div>
-        <PlayerCard />
+        <ProfileCard />
       </div>
     </section>
   );

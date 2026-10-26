@@ -1,0 +1,245 @@
+/* ==========================================================================
+   Monde de Navy Bongo : le pont d'un voilier pirate, vu du gouvernail. Mer bleue qui houle, bois orangé,
+   voiles noires, HUD rouge et pièces d'or.
+   ========================================================================== */
+
+.w-navy-bongo {
+  --w-display: "Cinzel", Georgia, "Times New Roman", serif;
+  --w-body: "IM Fell English", Georgia, "Times New Roman", serif;
+}
+
+.w-navy-bongo .w-title {
+  font-weight: 700;
+  font-size: clamp(2.8rem, 0.8rem + 9vw, 7rem);
+  font-variation-settings: normal;
+  line-height: 1.02;
+  letter-spacing: 0.06em;
+  color: #fff;
+  text-shadow: 0 0.07em 0.3em rgba(0, 20, 50, 0.85);
+}
+
+.w-navy-bongo .w-tagline {
+  color: var(--ink);
+  font-family: var(--w-body);
+  font-style: italic;
+  font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.5rem);
+  line-height: 1.4;
+  text-shadow: 0 0.1em 0.4em rgba(0, 20, 50, 0.9);
+}
+
+@media (min-width: 760px) {
+  .w-navy-bongo .w-title {
+    left: 4.6cqw;
+    top: 9cqw;
+    width: 28cqw;
+    font-size: 6cqw;
+  }
+
+  .w-navy-bongo .w-tagline {
+    left: 4.8cqw;
+    top: 26cqw;
+    width: 27cqw;
+    max-width: none;
+    margin: 0;
+    font-size: 1.85cqw;
+  }
+}
+
+.w-navy-bongo .w-stage {
+  background: linear-gradient(180deg, #78bff0 0%, #c4e6f8 36%, var(--w0) 37%, #0a2c4d 100%);
+}
+
+.w-nb__sun {
+  left: 70cqw;
+  top: 6cqw;
+  width: 8cqw;
+  height: 8cqw;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff8d8, rgba(255, 244, 190, 0.5) 40%, transparent 70%);
+}
+
+.w-nb__isle {
+  top: 20.8cqw;
+  height: 2.6cqw;
+  background: #2b5b5e;
+  border-radius: 60% 60% 0 0 / 100% 100% 0 0;
+}
+
+.w-nb__mast {
+  left: 49.6cqw;
+  top: 0;
+  width: 0.9cqw;
+  height: 40cqw;
+  background: linear-gradient(90deg, #6b3a1c, #8a4f2b);
+  z-index: 2;
+}
+
+.w-nb__boom {
+  left: 33cqw;
+  top: 14cqw;
+  width: 34cqw;
+  height: 0.7cqw;
+  background: #6b3a1c;
+  z-index: 2;
+}
+
+.w-nb__sail {
+  top: 0;
+  width: 15.6cqw;
+  height: 24cqw;
+  background: linear-gradient(180deg, #14171d, #0a0c10);
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%);
+  transform-origin: 50% 0;
+  animation: w-nb-sail 5s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+@keyframes w-nb-sail {
+  to {
+    transform: skewX(-2.5deg) scaleY(0.985);
+  }
+}
+
+.w-nb__flag {
+  left: 50.6cqw;
+  top: 0;
+  width: 5cqw;
+  height: 2.6cqw;
+  background: #d7263d;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  z-index: 2;
+  animation: w-nb-flag 1.2s ease-in-out infinite alternate;
+  transform-origin: 0 50%;
+}
+
+@keyframes w-nb-flag {
+  to {
+    transform: skewY(8deg) scaleX(0.9);
+  }
+}
+
+.w-nb__rig {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.w-nb__rig line {
+  stroke: rgba(40, 24, 12, 0.75);
+  stroke-width: 0.22;
+}
+
+.w-nb__deck {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 16cqw;
+  background: repeating-linear-gradient(90deg, transparent 0 7cqw, rgba(60, 28, 10, 0.5) 7cqw 7.3cqw), linear-gradient(180deg, #b0683a, var(--w3) 55%, #5e3219);
+  clip-path: polygon(0 100%, 3% 18%, 97% 18%, 100% 100%);
+  z-index: 4;
+}
+
+.w-nb__post {
+  bottom: 12cqw;
+  width: 1.6cqw;
+  height: 6cqw;
+  background: #7a4423;
+  border-radius: 0.4cqw 0.4cqw 0 0;
+  z-index: 4;
+}
+
+.w-nb__wheel {
+  left: 50%;
+  bottom: -5cqw;
+  width: 22cqw;
+  height: 22cqw;
+  margin-left: -11cqw;
+  z-index: 5;
+  animation: w-nb-wheel 6s ease-in-out infinite;
+}
+
+@keyframes w-nb-wheel {
+  0%,
+  100% {
+    transform: rotate(-16deg);
+  }
+  50% {
+    transform: rotate(16deg);
+  }
+}
+
+.w-nb__hp,
+.w-nb__xp {
+  top: 3cqw;
+  width: 18cqw;
+  height: 2.2cqw;
+  border-radius: 1cqw;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 6;
+  font: 700 1.1cqw/2.2cqw var(--w-body);
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+.w-nb__hp {
+  left: 3.5cqw;
+}
+
+.w-nb__xp {
+  right: 3.5cqw;
+}
+
+.w-nb__hp::after,
+.w-nb__xp::after {
+  content: "";
+  position: absolute;
+  inset: 0.25cqw;
+  border-radius: 1cqw;
+  z-index: -1;
+}
+
+.w-nb__hp::after {
+  width: 72%;
+  background: var(--w2);
+}
+
+.w-nb__xp::after {
+  width: 40%;
+  background: #ff5fa8;
+}
+
+.w-nb__timer {
+  left: 50%;
+  top: 1.4cqw;
+  transform: translateX(-50%);
+  padding: 0.3em 1.1em;
+  background: #e0405b;
+  color: #fff;
+  font: 700 1.9cqw var(--w-display);
+  letter-spacing: 0.08em;
+  clip-path: polygon(0 0, 100% 0, 94% 50%, 100% 100%, 0 100%, 6% 50%);
+  z-index: 6;
+}
+
+.w-nb__gold {
+  left: 3.6cqw;
+  bottom: 18cqw;
+  display: flex;
+  align-items: center;
+  gap: 0.8cqw;
+  font: 700 2.6cqw var(--w-display);
+  color: var(--w1);
+  z-index: 6;
+  text-shadow: 0 0.15cqw 0.5cqw rgba(0, 0, 0, 0.6);
+}
+
+.w-nb__gold i {
+  width: 2.8cqw;
+  height: 2.8cqw;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff1a8, var(--w1) 60%, #b97c0e);
+  box-shadow: inset 0 0 0 0.3cqw #b97c0e;
+}

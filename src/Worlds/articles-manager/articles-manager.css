@@ -1,0 +1,127 @@
+/* ==========================================================================
+   Monde d'Articles Manager : la une d'un quotidien. Papier journal, encre noire, rouge d'édition (thème clair).
+   ========================================================================== */
+
+.w-articles-manager {
+  --w-display: "Abril Fatface", Georgia, "Times New Roman", serif;
+  --w-body: "Newsreader", Georgia, "Times New Roman", serif;
+}
+
+.w-articles-manager .w-title {
+  font-weight: 400;
+  font-size: clamp(2.8rem, 0.8rem + 8.6vw, 6.8rem);
+  font-variation-settings: normal;
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.w-articles-manager .w-tagline {
+  color: var(--ink-dim);
+  font-family: var(--w-body);
+  font-style: italic;
+  font-size: clamp(1.05rem, 0.95rem + 0.55vw, 1.55rem);
+  line-height: 1.4;
+}
+
+@media (min-width: 760px) {
+  .w-articles-manager .w-title {
+    left: 5cqw;
+    top: 10.5cqw;
+    width: 52cqw;
+    font-size: 5.4cqw;
+  }
+
+  .w-articles-manager .w-tagline {
+    left: 5.2cqw;
+    top: 23.4cqw;
+    width: 52cqw;
+    max-width: none;
+    margin: 0;
+    font-size: 1.8cqw;
+  }
+}
+
+.w-articles-manager .w-stage {
+  background: repeating-linear-gradient(0deg, rgba(58, 54, 44, 0.04) 0 2px, transparent 2px 4px), var(--w0);
+  box-shadow: 0 0 0 1px var(--line-strong);
+}
+
+.w-am__mast {
+  left: 5cqw;
+  right: 5cqw;
+  top: 3.4cqw;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 0.8cqw;
+  border-bottom: 0.35cqw double var(--w4);
+  font: 500 1.45cqw var(--w-body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.w-am__mast strong {
+  font: 400 3.4cqw var(--w-display);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.w-am__cols {
+  left: 5cqw;
+  top: 32cqw;
+  width: 58cqw;
+  height: 13cqw;
+  overflow: hidden;
+  column-count: 3;
+  column-gap: 2cqw;
+  column-rule: 0.1cqw solid var(--w3);
+  font: 400 1.5cqw/1.5 var(--w-body);
+  color: var(--w4);
+  text-align: justify;
+  hyphens: auto;
+}
+
+.w-am__cols::first-letter {
+  float: left;
+  font: 400 5.2cqw/0.8 var(--w-display);
+  color: var(--w1);
+  padding: 0.3cqw 0.6cqw 0 0;
+}
+
+.w-am__photo {
+  right: 5cqw;
+  top: 11cqw;
+  width: 24cqw;
+  height: 24cqw;
+  background: repeating-linear-gradient(45deg, rgba(20, 20, 20, 0.85) 0 0.35cqw, transparent 0.35cqw 0.7cqw), radial-gradient(circle at 35% 35%, #fff, #888);
+  filter: grayscale(1) contrast(1.2);
+  mix-blend-mode: multiply;
+}
+
+.w-am__tick {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3.6cqw;
+  overflow: hidden;
+  background: var(--w1);
+  color: #fff;
+  font: 600 1.5cqw/3.6cqw var(--w-body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 4;
+}
+
+.w-am__tick span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: w-am-tick 18s linear infinite;
+}
+
+@keyframes w-am-tick {
+  to {
+    transform: translateX(-100%);
+  }
+}

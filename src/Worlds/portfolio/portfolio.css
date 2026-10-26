@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Monde de Portfolio : le monde par défaut, la peau actuelle du site. Violet, menthe, nuage de points.
+   Il reprend les polices du site (aucune feuille supplémentaire).
+   ========================================================================== */
+
+.w-portfolio {
+  --w-display: var(--font-display);
+  --w-body: var(--font-serif);
+  --w-mono: var(--font-mono);
+}
+
+.w-portfolio .w-title {
+  font-size: clamp(3rem, 0.8rem + 11vw, 9rem);
+  font-variation-settings: "wght" 800, "wdth" 75, "opsz" 96;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.w-portfolio .w-tagline {
+  color: var(--violet);
+  font-family: var(--w-body);
+  font-size: clamp(1.4rem, 1rem + 1.5vw, 2.6rem);
+  line-height: 1.12;
+}
+
+@media (min-width: 760px) {
+  .w-portfolio .w-title {
+    left: 5cqw;
+    top: 12cqw;
+    font-size: 12cqw;
+  }
+
+  .w-portfolio .w-tagline {
+    left: 5.4cqw;
+    top: 36cqw;
+    width: 46cqw;
+    max-width: none;
+    margin: 0;
+    font-size: 3cqw;
+  }
+}
+
+.w-portfolio .w-stage {
+  background: radial-gradient(60% 80% at 75% 45%, rgba(188, 99, 255, 0.18), transparent 70%), var(--w0);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.w-pf__hud {
+  left: 5cqw;
+  top: 4.4cqw;
+  display: flex;
+  gap: 2.4cqw;
+  font: 500 1.5cqw var(--w-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--w2);
+}
+
+.w-pf__hud b {
+  color: var(--w4);
+  font-weight: 500;
+}
+
+.w-pf__role {
+  left: 5.4cqw;
+  top: 49cqw;
+  font: 400 1.8cqw var(--w-mono);
+  letter-spacing: 0.06em;
+  color: var(--w4);
+  opacity: 0.7;
+}

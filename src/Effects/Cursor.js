@@ -4,17 +4,9 @@ import { gsap, hasFinePointer } from "./motion";
 const INTERACTIVE = 'a, button, [role="button"], label[for], summary, [data-cursor]';
 const TEXTUAL = 'input, textarea, select, [contenteditable="true"]';
 
-// Forçage de l'état du curseur par un objet qui n'est pas dans le DOM (boutons 3D de la manette)
-let applyOverride = null;
-let overridden = false;
-
-export function setCursorOverride(state, text = "") {
-  overridden = !!state;
-  if (applyOverride) applyOverride(state || "idle", text);
-}
-
 // Curseur custom : point précis + anneau qui suit avec inertie.
-// L'état visuel vient de data-cursor="view|play|drag" et data-cursor-text sur n'importe quel élément.
+// L'état visuel vient de data-cursor="view|play|drag|query" et data-cursor-text sur n'importe quel élément
+// (« query » : zone où le curseur interroge le nuage de points).
 export default function Cursor() {
   const dotRef = useRef(null);
   const ringRef = useRef(null);
@@ -56,11 +48,9 @@ export default function Cursor() {
       ringY(e.clientY);
     };
 
-    applyOverride = setState;
-
     const onOver = (e) => {
       const target = e.target;
-      if (overridden || !(target instanceof Element)) return;
+      if (!(target instanceof Element)) return;
       if (target.closest("iframe")) {
         setState("hide");
         return;
@@ -104,7 +94,6 @@ export default function Cursor() {
       root.removeEventListener("mouseleave", onLeave);
       root.removeEventListener("mouseenter", onEnter);
       root.classList.remove("has-cursor");
-      applyOverride = null;
     };
   }, []);
 

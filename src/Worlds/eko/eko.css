@@ -1,0 +1,116 @@
+/* ==========================================================================
+   Monde d'Eko : une forêt dans la brume. Strates de sapins, lumière filtrée, mousse et soleil.
+   ========================================================================== */
+
+.w-eko {
+  --w-display: "Young Serif", Georgia, "Times New Roman", serif;
+  --w-body: "Albert Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+.w-eko .w-title {
+  font-weight: 400;
+  font-size: clamp(3.4rem, 0.8rem + 12vw, 9rem);
+  font-variation-settings: normal;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.w-eko .w-tagline {
+  color: var(--ink);
+  opacity: 0.88;
+  font-family: var(--w-body);
+  font-size: clamp(1.05rem, 0.95rem + 0.55vw, 1.5rem);
+  line-height: 1.45;
+}
+
+@media (min-width: 760px) {
+  .w-eko .w-title {
+    left: 6cqw;
+    top: 6cqw;
+    font-size: 11cqw;
+  }
+
+  .w-eko .w-tagline {
+    left: 6.4cqw;
+    top: 22cqw;
+    width: 34cqw;
+    max-width: none;
+    margin: 0;
+    font-size: 2cqw;
+  }
+}
+
+.w-eko .w-stage {
+  background: linear-gradient(180deg, #1d4a39 0%, var(--w0) 80%);
+}
+
+.w-ek__sun {
+  left: 62cqw;
+  top: 6cqw;
+  width: 11cqw;
+  height: 11cqw;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffe2a0, var(--w2) 55%, transparent 72%);
+  box-shadow: 0 0 9cqw 4cqw rgba(242, 195, 107, 0.35);
+}
+
+.w-ek__layer {
+  inset: 0 -4cqw;
+  width: calc(100% + 8cqw);
+  height: 100%;
+  transition: transform 0.25s ease-out;
+}
+
+/* Parallaxe : les plans proches bougent plus que les lointains, à l'opposé du curseur (transform posée par scene.js) */
+
+.w-ek__mist {
+  left: -30cqw;
+  right: -30cqw;
+  height: 18cqw;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(217, 230, 211, 0.35), transparent 70%);
+  filter: blur(1cqw);
+  animation: w-ek-drift 16s ease-in-out infinite alternate;
+}
+
+.w-ek__m1 {
+  bottom: 16cqw;
+}
+
+.w-ek__m2 {
+  bottom: 4cqw;
+  animation-duration: 22s;
+  animation-direction: alternate-reverse;
+  opacity: 0.8;
+}
+
+@keyframes w-ek-drift {
+  to {
+    transform: translateX(22cqw);
+  }
+}
+
+.w-ek__sprout {
+  bottom: 2cqw;
+  width: 2.2cqw;
+  height: 3.6cqw;
+  border-radius: 50% 50% 0 0;
+  background: var(--w1);
+  transform-origin: 50% 100%;
+  animation: w-ek-grow 5s ease-out infinite;
+  animation-delay: var(--d);
+  z-index: 4;
+}
+
+@keyframes w-ek-grow {
+  0% {
+    transform: scaleY(0);
+  }
+  30%,
+  85% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}

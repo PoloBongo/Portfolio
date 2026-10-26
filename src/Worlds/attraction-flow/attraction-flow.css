@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Monde d'Attraction Flow : le parc du jeu vu de dessus. Herbe menthe, allées beige à barrières, arbres low-poly
+   colorés, manège bleu (thème clair, ton frais).
+   ========================================================================== */
+
+.w-attraction-flow {
+  --w-display: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+  --w-body: "Nunito", "Helvetica Neue", Arial, sans-serif;
+}
+
+.w-attraction-flow .w-title {
+  font-weight: 800;
+  font-size: clamp(3rem, 0.8rem + 10vw, 8rem);
+  font-variation-settings: normal;
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.w-attraction-flow .w-tagline {
+  color: var(--ink);
+  font-family: var(--w-body);
+  font-weight: 700;
+  font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.5rem);
+  line-height: 1.4;
+}
+
+@media (min-width: 760px) {
+  .w-attraction-flow .w-title {
+    left: 5cqw;
+    top: 9cqw;
+    width: 50cqw;
+    font-size: 8.8cqw;
+    text-shadow: 0.4cqw 0.4cqw 0 rgba(255, 255, 255, 0.7);
+  }
+
+  .w-attraction-flow .w-tagline {
+    left: 5.4cqw;
+    top: 30cqw;
+    width: 34cqw;
+    max-width: none;
+    margin: 0;
+    font-size: 2.2cqw;
+  }
+}
+
+.w-attraction-flow .w-stage {
+  background: var(--w0);
+}
+
+.w-af__money {
+  left: 4cqw;
+  top: 4cqw;
+  font: 800 2.6cqw var(--w-display);
+  color: var(--w4);
+  z-index: 3;
+}

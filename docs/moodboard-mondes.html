@@ -1,0 +1,1733 @@
+<title>Mondes du portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Figtree:wght@400;500;700&family=Anton&family=Barlow+Condensed:wght@400;600;700&family=Hanken+Grotesk:wght@200;400;600&family=Abril+Fatface&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Courier+Prime:wght@400;700&family=Young+Serif&family=Albert+Sans:wght@400;600&family=Share+Tech+Mono&family=Cormorant:ital,wght@0,300..600;1,300..600&family=Jost:wght@300;400;500&family=Bodoni+Moda:opsz,wght@6..96,400..800&family=Special+Elite&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700;900&family=Overpass+Mono:wght@400;700&family=Baloo+2:wght@500;800&family=Patrick+Hand&family=Caveat:wght@500;700&family=Nunito:wght@400;700;900&family=Cinzel:wght@500;700&family=IM+Fell+English:ital@0;1&family=Doto:wght@400;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Rubik:wght@400;600&family=Michroma&family=Chakra+Petch:wght@400;600&family=Pirata+One&family=Alegreya+Sans:wght@400;700&family=Familjen+Grotesk:wght@400;600&family=Sometype+Mono:wght@400;600&family=Press+Start+2P&family=VT323&family=Chewy&display=swap">
+<style>
+/* Planche de revue : un rail d'index, un panneau par monde (scène vivante, palette, typographie, signature,
+   transition, avis). Les scènes gardent leurs propres couleurs ; seule la planche suit le thème. */
+:root {
+  --bg: #edecea;
+  --panel: #f8f7f5;
+  --ink: #16161b;
+  --muted: #5f5e69;
+  --line: #d6d4cf;
+  --chip: #e4e2dd;
+  --accent: #7a2fd0;
+  --accent-ink: #ffffff;
+  --ok: #17835a;
+  --revise: #a8620a;
+  --no: #c23636;
+  --ui: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c0c11;
+    --panel: #14141b;
+    --ink: #f2f0ea;
+    --muted: #9c9ba8;
+    --line: #272731;
+    --chip: #1e1e28;
+    --accent: #bc63ff;
+    --accent-ink: #14081f;
+    --ok: #4ad69a;
+    --revise: #f2b04a;
+    --no: #ff7777;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c0c11;
+  --panel: #14141b;
+  --ink: #f2f0ea;
+  --muted: #9c9ba8;
+  --line: #272731;
+  --chip: #1e1e28;
+  --accent: #bc63ff;
+  --accent-ink: #14081f;
+  --ok: #4ad69a;
+  --revise: #f2b04a;
+  --no: #ff7777;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 15px/1.5 var(--ui);
+  -webkit-font-smoothing: antialiased;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 40;
+  background: var(--bg);
+}
+h1, h2, h3, p, ul, dl, dd { margin: 0; padding: 0; }
+ul { list-style: none; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.mono { font-family: var(--mono); font-size: 11px; letter-spacing: .07em; text-transform: uppercase; }
+.wrap { max-width: 1500px; margin-inline: auto; }
+
+/* ---------- En-tête ---------- */
+.top { display: grid; gap: 22px; padding-block: clamp(30px, 6vw, 76px) 26px; }
+.top h1 {
+  font-size: clamp(3.6rem, 1rem + 13vw, 11rem);
+  line-height: .82;
+  font-weight: 800;
+  font-stretch: 75%;
+  font-variation-settings: "wdth" 75, "wght" 800;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.top .lede { max-width: 58ch; font-size: clamp(1.05rem, .95rem + .5vw, 1.35rem); line-height: 1.4; color: var(--muted); }
+.top .lede b { color: var(--ink); font-weight: 600; }
+.shell {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 0;
+  max-width: 880px;
+  border-top: 1px solid var(--line);
+}
+.shell > div { padding: 14px 22px 14px 0; display: grid; gap: 6px; }
+.shell > div + div { padding-left: 22px; border-left: 1px solid var(--line); }
+.shell h2 { font-size: 11px; font-family: var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.shell p { font-size: 14.5px; }
+.shell .keep p { color: var(--muted); }
+
+/* ---------- Barre de suivi ---------- */
+.bar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 30;
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  padding: 10px max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px));
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.bar-in { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; max-width: 1500px; margin-inline: auto; }
+.progress { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1 1 260px; }
+.progress .track { flex: 1 1 80px; max-width: 220px; height: 5px; border-radius: 99px; background: var(--chip); overflow: hidden; display: flex; }
+.progress .track i { display: block; height: 100%; transition: width .5s cubic-bezier(.16, 1, .3, 1); }
+.progress .track .t-ok { background: var(--ok); }
+.progress .track .t-revise { background: var(--revise); }
+.progress .track .t-no { background: var(--no); }
+.counts { display: flex; gap: 14px; font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; }
+.counts span { display: inline-flex; align-items: center; gap: 6px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line); display: inline-block; flex: none; }
+.dot.ok { background: var(--ok); }
+.dot.revise { background: var(--revise); }
+.dot.no { background: var(--no); }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.filters button {
+  padding: 6px 12px;
+  border-radius: 99px;
+  border: 1px solid var(--line);
+  background: transparent;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+/* ---------- Mise en page ---------- */
+.layout { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: clamp(20px, 3vw, 44px); padding-block: 28px 70px; align-items: start; }
+.rail { position: sticky; top: 74px; max-height: calc(100vh - 96px); overflow: auto; padding-right: 6px; scrollbar-width: thin; }
+.rail ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; counter-reset: none; }
+.rail a {
+  display: grid;
+  grid-template-columns: 26px 1fr 10px;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 8px;
+  border-radius: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13.5px;
+}
+.rail a:hover { background: var(--chip); color: var(--ink); }
+.rail a .n { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.rail a[hidden] { display: none; }
+.list { display: grid; gap: clamp(22px, 3vw, 40px); }
+
+/* ---------- Panneau d'un monde ---------- */
+.pw { container-type: inline-size; scroll-margin-top: 84px; }
+.panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.pw[hidden] { display: none; }
+.left { display: grid; align-content: start; gap: 0; min-width: 0; padding: 14px; }
+.right { display: grid; align-content: start; gap: 16px; min-width: 0; padding: 22px 22px 22px 14px; }
+@container (max-width: 820px) {
+  .panel { grid-template-columns: minmax(0, 1fr); }
+  .right { padding: 6px 18px 20px; }
+}
+.hint { display: flex; justify-content: space-between; gap: 12px; padding: 10px 4px 0; color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.meta .no { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-right: 4px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 99px; background: var(--chip); font-family: var(--mono); font-size: 10.5px; letter-spacing: .07em; text-transform: uppercase; }
+.chip.tier-S { background: var(--ink); color: var(--bg); }
+.chip.done { background: color-mix(in srgb, var(--ok) 18%, transparent); color: var(--ok); }
+.right h2 { font-size: clamp(2rem, 1.2rem + 1.6vw, 3rem); line-height: .96; letter-spacing: -.03em; font-weight: 700; font-stretch: 85%; font-variation-settings: "wdth" 85, "wght" 700; text-wrap: balance; }
+.concept { font-size: 16px; line-height: 1.4; max-width: 46ch; }
+.facts { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.facts > div { display: grid; grid-template-columns: 94px minmax(0, 1fr); gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); align-items: start; }
+.facts dt { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.facts dd { font-size: 14px; line-height: 1.45; min-width: 0; }
+.sw { display: flex; flex-wrap: wrap; gap: 8px 10px; }
+.sw li { display: grid; gap: 4px; justify-items: start; }
+.sw i { display: block; width: 38px; height: 38px; border-radius: 9px; box-shadow: inset 0 0 0 1px rgba(128, 128, 128, .28); }
+.sw span { font-family: var(--mono); font-size: 9.5px; letter-spacing: .04em; color: var(--muted); text-transform: uppercase; }
+.type { display: grid; gap: 4px; }
+.type .a { font-size: 25px; line-height: 1.05; }
+.type .b { font-size: 14px; color: var(--muted); }
+.type small { font-family: var(--mono); font-size: 10px; letter-spacing: .05em; color: var(--muted); text-transform: uppercase; }
+.tr { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; align-items: center; }
+.tr canvas { width: 112px; height: 70px; border-radius: 8px; background: var(--chip); }
+@media (max-width: 460px) { .tr { grid-template-columns: 1fr; } .facts > div { grid-template-columns: 1fr; gap: 4px; } }
+
+/* ---------- Avis ---------- */
+.verdict { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.vbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: transparent;
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: background .2s, border-color .2s, color .2s;
+}
+.vbtn svg { width: 15px; height: 15px; flex: none; }
+.vbtn:hover { border-color: var(--ink); }
+.vbtn[aria-pressed="true"][data-v="ok"] { background: var(--ok); border-color: var(--ok); color: #fff; }
+.vbtn[aria-pressed="true"][data-v="revise"] { background: var(--revise); border-color: var(--revise); color: #fff; }
+.vbtn[aria-pressed="true"][data-v="no"] { background: var(--no); border-color: var(--no); color: #fff; }
+.note { display: grid; gap: 4px; }
+.note textarea {
+  width: 100%;
+  min-height: 62px;
+  resize: vertical;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 14px/1.45 var(--ui);
+}
+.note textarea::placeholder { color: var(--muted); }
+.saved { font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); min-height: 14px; }
+
+/* ---------- Pied ---------- */
+.foot { display: grid; gap: 14px; padding-block: 10px 80px; max-width: 760px; }
+.foot h2 { font-size: clamp(1.6rem, 1rem + 1.6vw, 2.4rem); letter-spacing: -.02em; }
+.foot p { color: var(--muted); }
+.foot pre { margin: 0; padding: 14px; border-radius: 12px; background: var(--chip); font: 12px/1.6 var(--mono); white-space: pre-wrap; max-height: 320px; overflow: auto; }
+.btn { justify-self: start; padding: 11px 18px; border-radius: 99px; border: 1px solid var(--ink); background: var(--ink); color: var(--bg); font-weight: 600; }
+
+@media (max-width: 1040px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  .rail { display: none; }
+}
+
+/* ======================================================================
+   Scènes. Chaque scène se dessine dans .stage (16:10, unités cqw) avec les variables --w0…--w4 de sa palette :
+   fond, accent, second accent, surface, encre.
+   ====================================================================== */
+.stage {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  container-type: size;
+  border-radius: 12px;
+  background: var(--w0);
+  color: var(--w4);
+  isolation: isolate;
+  font-family: var(--wf-body, system-ui, sans-serif);
+  --mx: 50%;
+  --my: 50%;
+}
+.stage > * { position: absolute; margin: 0; }
+.stage .cv { inset: 0; width: 100%; height: 100%; }
+.stage .ui { left: 5cqw; bottom: 4.4cqw; display: flex; align-items: center; gap: 1.6cqw; font-size: 2.1cqw; z-index: 5; }
+.stage .ui .b { padding: .75em 1.35em; border-radius: 99px; background: var(--w1); color: var(--w0); font-weight: 600; white-space: nowrap; }
+.stage .ui .c { padding: .45em .9em; border: 1px solid color-mix(in srgb, var(--w4) 32%, transparent); border-radius: 99px; font-family: var(--wf-mono, monospace); font-size: .78em; letter-spacing: .07em; text-transform: uppercase; white-space: nowrap; }
+.stage h3 { font-weight: inherit; }
+
+/* ---- 01 Cerebro ---- */
+.s-cerebro {
+  background: radial-gradient(60% 70% at 78% 30%, rgba(99, 230, 190, .14), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(99, 230, 190, .05) 0 1px, transparent 1px 9cqw),
+    repeating-linear-gradient(0deg, rgba(99, 230, 190, .035) 0 1px, transparent 1px 9cqw), var(--w0);
+}
+.s-cerebro .prompt { left: 6cqw; top: 8cqw; font: 500 1.9cqw var(--wf-mono); color: var(--w1); letter-spacing: .04em; }
+.s-cerebro .title {
+  left: 5.2cqw; top: 12cqw; font-family: var(--wf-display); font-size: 13.6cqw; font-weight: 800; font-stretch: 75%;
+  line-height: .86; letter-spacing: -.03em;
+  background: linear-gradient(180deg, var(--w4) 0 52%, var(--w1) 135%); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.s-cerebro .tag { left: 6cqw; top: 31cqw; width: 38cqw; font: 400 2cqw/1.5 var(--wf-mono); color: color-mix(in srgb, var(--w4) 66%, transparent); }
+.s-cerebro .caret { display: inline-block; width: .55em; height: 1em; margin-left: .25em; background: var(--w1); vertical-align: -.15em; animation: blink 1.05s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ---- 02 SEO Autopilot ---- */
+.s-seo { background: radial-gradient(circle at 1px 1px, rgba(28, 28, 36, .22) 1px, transparent 1.3px) 0 0 / 3cqw 3cqw, var(--w0); }
+.s-seo .title { left: 5cqw; top: 5cqw; font: 600 5.2cqw/1 var(--wf-display); letter-spacing: -.02em; }
+.s-seo .file { left: 5.2cqw; top: 11.8cqw; font: 500 1.7cqw var(--wf-mono); color: rgba(28, 28, 36, .55); }
+.s-seo .wires { inset: 0; width: 100%; height: 100%; }
+.s-seo .node {
+  width: 17cqw; height: 9.4cqw; border-radius: 1.2cqw; overflow: hidden; background: #fff;
+  border: .18cqw solid rgba(28, 28, 36, .16);
+  box-shadow: 0 .2cqw 0 rgba(28, 28, 36, .08), 0 1.2cqw 2.4cqw -1cqw rgba(28, 28, 36, .35);
+  animation: nrun 7s infinite; animation-delay: var(--d);
+}
+.s-seo .node header { height: 3.1cqw; display: flex; align-items: center; gap: .8cqw; padding: 0 1.1cqw; font: 600 1.5cqw var(--wf-display); background: var(--c); color: #fff; }
+.s-seo .node header i { width: 1cqw; height: 1cqw; border-radius: 50%; background: rgba(255, 255, 255, .85); }
+.s-seo .node p { padding: .9cqw 1.1cqw 0; font: 500 1.3cqw/1.35 var(--wf-mono); color: rgba(28, 28, 36, .6); }
+.s-seo .node b { display: block; padding: 0 1.1cqw; font: 600 2.5cqw/1.2 var(--wf-display); color: var(--w4); }
+@keyframes nrun {
+  0%, 13% { box-shadow: 0 0 0 .4cqw var(--w1), 0 1.2cqw 2.4cqw -1cqw rgba(255, 90, 71, .6); }
+  17%, 100% { box-shadow: 0 .2cqw 0 rgba(28, 28, 36, .08), 0 1.2cqw 2.4cqw -1cqw rgba(28, 28, 36, .35); }
+}
+
+/* ---- 03 Au fil des images ---- */
+.s-fil { background: radial-gradient(60% 80% at 18% 8%, rgba(255, 198, 92, .38), transparent 62%), radial-gradient(50% 70% at 92% 90%, rgba(107, 63, 181, .16), transparent 70%), var(--w0); }
+.s-fil svg { inset: 0; width: 100%; height: 100%; overflow: visible; }
+.s-fil .thread { fill: none; stroke: var(--w1); stroke-width: .42; stroke-linecap: round; stroke-dasharray: 220; stroke-dashoffset: 220; animation: draw 2.6s .2s cubic-bezier(.16, 1, .3, 1) forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.s-fil .ph { transform-box: fill-box; transform-origin: 50% 0; animation: sway 4.8s ease-in-out infinite; animation-delay: calc(var(--i) * -.9s); }
+@keyframes sway { 0%, 100% { transform: rotate(-2.4deg); } 50% { transform: rotate(2.4deg); } }
+.s-fil .sub { left: 6cqw; top: 35cqw; font: 500 1.6cqw var(--wf-body); letter-spacing: .14em; text-transform: uppercase; color: var(--w2); }
+.s-fil .title { left: 5.5cqw; top: 38cqw; font: italic 600 8.4cqw/1 var(--wf-display); color: var(--w4); font-variation-settings: "opsz" 144; white-space: nowrap; }
+
+/* ---- Celtic La Riche Basket ---- */
+.s-celtic { background: radial-gradient(circle at 50% 50%, rgba(7, 40, 28, .5) 1.1px, transparent 1.5px) 0 0 / 1.4cqw 1.4cqw, radial-gradient(70% 90% at 80% 0%, rgba(255, 255, 255, .12), transparent 70%), var(--w0); }
+.s-celtic .kick { left: 6cqw; top: 5cqw; font: 600 2cqw var(--wf-body); letter-spacing: .22em; text-transform: uppercase; color: var(--w4); }
+.s-celtic .title { left: 5.4cqw; top: 8.5cqw; font: 400 17cqw/.9 var(--wf-display); text-transform: uppercase; color: var(--w4); text-shadow: .7cqw .7cqw 0 var(--w2); }
+.s-celtic .club { left: 6cqw; top: 29.5cqw; font: 600 3cqw var(--wf-body); letter-spacing: .06em; text-transform: uppercase; color: var(--w1); }
+.s-celtic .board { right: 5cqw; top: 5cqw; display: flex; gap: 1cqw; padding: 1cqw; background: var(--w3); border-radius: 1cqw; font: 400 6cqw/1 var(--wf-display); color: var(--w1); box-shadow: 0 0 0 .3cqw #333; }
+.s-celtic .board span { padding: .5cqw 1.2cqw; background: #000; border-radius: .5cqw; min-width: 8.5cqw; text-align: center; }
+.s-celtic .board small { display: block; font: 600 1.1cqw var(--wf-body); letter-spacing: .14em; color: var(--w4); opacity: .7; }
+.s-celtic .ball { right: 12cqw; bottom: 3.6cqw; width: 12cqw; height: 12cqw; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ffa04d, var(--w1) 55%, #b94d00); box-shadow: inset -.8cqw -.8cqw 1.6cqw rgba(0, 0, 0, .35); animation: bounce 1.5s cubic-bezier(.3, 0, .6, 1) infinite; }
+.s-celtic .ball::before, .s-celtic .ball::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: .3cqw solid rgba(20, 10, 0, .75); clip-path: inset(0 0 0 48%); transform: scaleX(-1); }
+.s-celtic .ball::after { clip-path: none; border-width: 0 0 .3cqw; inset: 49.5% 0 auto; height: 0; border-radius: 0; transform: none; }
+.s-celtic .shadow { right: 11cqw; bottom: 1.6cqw; width: 14cqw; height: 1.6cqw; border-radius: 50%; background: rgba(0, 0, 0, .35); animation: shadowb 1.5s cubic-bezier(.3, 0, .6, 1) infinite; }
+@keyframes bounce { 0% { transform: translateY(-26cqw) rotate(0); } 50% { transform: translateY(0) rotate(180deg); animation-timing-function: cubic-bezier(.4, 0, 1, 1); } 100% { transform: translateY(-26cqw) rotate(360deg); } }
+@keyframes shadowb { 0%, 100% { transform: scale(.45); opacity: .3; } 50% { transform: scale(1); opacity: .8; } }
+.s-celtic .ui { left: auto; right: auto; left: 5cqw; }
+
+/* ---- Meteo Dashboard ---- */
+.s-meteo { background: linear-gradient(180deg, #1c3a5c 0%, var(--w0) 55%, #0f1d2e 100%); }
+.s-meteo .temp { left: 6cqw; top: 6cqw; font: 200 21cqw/.9 var(--wf-display); letter-spacing: -.04em; color: var(--w4); }
+.s-meteo .temp sup { font-size: .32em; vertical-align: top; position: relative; top: .35em; color: var(--w1); }
+.s-meteo .city { left: 6.5cqw; top: 25cqw; font: 300 2.6cqw var(--wf-body); letter-spacing: .3em; text-transform: uppercase; color: var(--w3); }
+.s-meteo .hours { right: 5cqw; top: 6cqw; display: grid; gap: 1.2cqw; font: 300 1.8cqw var(--wf-mono); color: var(--w3); text-align: right; }
+.s-meteo .hours b { color: var(--w1); font-weight: 500; }
+.s-meteo .fog { inset: 0; z-index: 3; background: rgba(207, 224, 238, .2); backdrop-filter: blur(.6cqw); -webkit-backdrop-filter: blur(.6cqw);
+  -webkit-mask-image: radial-gradient(circle 15cqw at var(--mx) var(--my), transparent 0 55%, #000 100%); mask-image: radial-gradient(circle 15cqw at var(--mx) var(--my), transparent 0 55%, #000 100%); }
+.s-meteo .cv { z-index: 2; }
+.s-meteo .ui { z-index: 6; }
+
+/* ---- Articles Manager ---- */
+.s-articles { background: repeating-linear-gradient(0deg, rgba(58, 54, 44, .04) 0 2px, transparent 2px 4px), var(--w0); }
+.s-articles .mast { left: 5cqw; right: 5cqw; top: 3.4cqw; display: flex; justify-content: space-between; align-items: baseline; padding-bottom: .8cqw; border-bottom: .35cqw double var(--w4); font: 500 1.45cqw var(--wf-body); letter-spacing: .12em; text-transform: uppercase; }
+.s-articles .mast strong { font: 400 3.4cqw var(--wf-display); letter-spacing: 0; text-transform: none; }
+.s-articles .head { left: 5cqw; top: 10.5cqw; width: 60cqw; font: 400 8.4cqw/.95 var(--wf-display); color: var(--w4); letter-spacing: -.01em; }
+.s-articles .head i { font-style: normal; display: inline-block; opacity: 0; transform: translateY(1.2cqw); animation: set .4s cubic-bezier(.2, .8, .3, 1) forwards; animation-delay: calc(var(--i) * 70ms + .2s); }
+@keyframes set { to { opacity: 1; transform: none; } }
+.s-articles .cols { left: 5cqw; top: 31cqw; width: 58cqw; height: 14cqw; overflow: hidden; column-count: 3; column-gap: 2cqw; column-rule: .1cqw solid var(--w3); font: 400 1.5cqw/1.5 var(--wf-body); color: var(--w4); text-align: justify; hyphens: auto; }
+.s-articles .cols::first-letter { float: left; font: 400 5.2cqw/.8 var(--wf-display); color: var(--w1); padding: .3cqw .6cqw 0 0; }
+.s-articles .photo { right: 5cqw; top: 11cqw; width: 24cqw; height: 24cqw; background: repeating-linear-gradient(45deg, rgba(20, 20, 20, .85) 0 .35cqw, transparent .35cqw .7cqw), radial-gradient(circle at 35% 35%, #fff, #888); filter: grayscale(1) contrast(1.2); mix-blend-mode: multiply; }
+.s-articles .photo::after { content: "Fig. 1"; position: absolute; left: 0; right: 0; bottom: -2.4cqw; font: italic 1.3cqw var(--wf-body); color: var(--w4); }
+.s-articles .tick { left: 0; right: 0; bottom: 0; height: 3.6cqw; overflow: hidden; background: var(--w1); color: #fff; font: 600 1.5cqw/3.6cqw var(--wf-body); letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; z-index: 4; }
+.s-articles .tick span { display: inline-block; padding-left: 100%; animation: tk 18s linear infinite; }
+@keyframes tk { to { transform: translateX(-100%); } }
+.s-articles .ui { bottom: 6.4cqw; left: auto; right: 5cqw; }
+.s-articles .ui .b { background: var(--w4); color: var(--w0); }
+
+/* ---- Payment ---- */
+.s-payment { background: repeating-linear-gradient(90deg, rgba(232, 255, 46, .06) 0 .2cqw, transparent .2cqw 3cqw), var(--w0); }
+.s-payment .title { left: 4.5cqw; top: 3.5cqw; font: 900 15cqw/.82 var(--wf-display); font-stretch: 75%; text-transform: uppercase; color: var(--w1); letter-spacing: -.02em; }
+.s-payment .sub { left: 5cqw; top: 32cqw; font: 700 1.9cqw var(--wf-mono); letter-spacing: .2em; color: var(--w2); text-transform: uppercase; }
+.s-payment .rcpt { right: 6cqw; top: -2cqw; width: 29cqw; padding: 5cqw 2cqw 3.6cqw; background: var(--w2); color: #151515; font: 400 1.55cqw/1.65 var(--wf-mono); transform: rotate(2.2deg); box-shadow: 0 1.5cqw 3cqw rgba(0, 0, 0, .55); clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.1cqw), 95% 100%, 90% calc(100% - 1.1cqw), 85% 100%, 80% calc(100% - 1.1cqw), 75% 100%, 70% calc(100% - 1.1cqw), 65% 100%, 60% calc(100% - 1.1cqw), 55% 100%, 50% calc(100% - 1.1cqw), 45% 100%, 40% calc(100% - 1.1cqw), 35% 100%, 30% calc(100% - 1.1cqw), 25% 100%, 20% calc(100% - 1.1cqw), 15% 100%, 10% calc(100% - 1.1cqw), 5% 100%, 0 calc(100% - 1.1cqw)); }
+.s-payment .rcpt p { display: flex; justify-content: space-between; margin: 0; overflow: hidden; white-space: nowrap; clip-path: inset(0 100% 0 0); animation: print 8s steps(14, end) infinite; animation-delay: calc(var(--i) * .5s); }
+.s-payment .rcpt p.tot { margin-top: .8cqw; padding-top: .8cqw; border-top: .2cqw dashed #151515; font-weight: 700; font-size: 1.9cqw; }
+@keyframes print { 0% { clip-path: inset(0 100% 0 0); } 6%, 90% { clip-path: inset(0 0 0 0); } 96%, 100% { clip-path: inset(0 100% 0 0); } }
+.s-payment .bar { margin-top: 1.6cqw; height: 4cqw; background: repeating-linear-gradient(90deg, #151515 0 .2cqw, transparent .2cqw .5cqw, #151515 .5cqw .9cqw, transparent .9cqw 1.1cqw, #151515 1.1cqw 1.3cqw, transparent 1.3cqw 1.9cqw); position: relative; overflow: hidden; }
+.s-payment .bar::after { content: ""; position: absolute; top: 0; bottom: 0; width: 1cqw; background: linear-gradient(90deg, transparent, var(--w1), transparent); animation: scan 2s ease-in-out infinite alternate; }
+@keyframes scan { from { left: -1cqw; } to { left: 100%; } }
+
+/* ---- Eko ---- */
+.s-eko { background: linear-gradient(180deg, #1d4a39 0%, var(--w0) 80%); }
+.s-eko .sun { left: 62cqw; top: 6cqw; width: 11cqw; height: 11cqw; border-radius: 50%; background: radial-gradient(circle, #ffe2a0, var(--w2) 55%, transparent 72%); box-shadow: 0 0 9cqw 4cqw rgba(242, 195, 107, .35); }
+.s-eko .layer { inset: 0 -4cqw; width: calc(100% + 8cqw); height: 100%; transition: transform .25s ease-out; }
+.s-eko .l1 { transform: translateX(calc((var(--mx) - 50cqw) * -.012)); }
+.s-eko .l2 { transform: translateX(calc((var(--mx) - 50cqw) * -.03)); }
+.s-eko .l3 { transform: translateX(calc((var(--mx) - 50cqw) * -.06)); }
+.s-eko .mist { left: -30cqw; right: -30cqw; height: 18cqw; background: radial-gradient(50% 50% at 50% 50%, rgba(217, 230, 211, .35), transparent 70%); filter: blur(1cqw); animation: drift 16s ease-in-out infinite alternate; }
+.s-eko .m1 { bottom: 16cqw; } .s-eko .m2 { bottom: 4cqw; animation-duration: 22s; animation-direction: alternate-reverse; opacity: .8; }
+@keyframes drift { to { transform: translateX(22cqw); } }
+.s-eko .title { left: 6cqw; top: 6cqw; font: 400 11cqw/.95 var(--wf-display); color: var(--w4); }
+.s-eko .tag { left: 6.4cqw; top: 22cqw; width: 34cqw; font: 400 2cqw/1.45 var(--wf-body); color: var(--w4); opacity: .85; }
+.s-eko .sprout { bottom: 2cqw; width: 2.2cqw; height: 3.6cqw; border-radius: 50% 50% 0 0; background: var(--w1); transform-origin: 50% 100%; animation: grow 5s ease-out infinite; animation-delay: var(--d); z-index: 4; }
+@keyframes grow { 0% { transform: scaleY(0); } 30%, 85% { transform: scaleY(1); } 100% { transform: scaleY(0); } }
+
+/* ---- B.A Immobilier (DA du site : anthracite + turquoise) ---- */
+.s-immo { background: var(--w0); }
+.s-immo .title { left: 6cqw; top: 9cqw; width: 46cqw; font: 700 7.6cqw/1 var(--wf-display); text-transform: uppercase; color: var(--w4); letter-spacing: .005em; }
+.s-immo .title b { color: var(--w1); font-weight: 700; }
+.s-immo .tag { left: 6.2cqw; top: 29cqw; font: 400 2.5cqw var(--wf-display); letter-spacing: .04em; text-transform: uppercase; color: var(--w4); }
+.s-immo .disc { left: 6.2cqw; top: 36cqw; padding: .7em 1.6em; border: .2cqw solid var(--w1); color: var(--w1); font: 400 1.7cqw var(--wf-mono); letter-spacing: .12em; text-transform: uppercase; }
+.s-immo svg { right: 3cqw; top: 6cqw; width: 46cqw; height: 40cqw; overflow: visible; }
+.s-immo .wall { fill: none; stroke: var(--w1); stroke-width: .5; stroke-linecap: square; stroke-dasharray: 140; stroke-dashoffset: 140; animation: plan 6s ease-in-out infinite; }
+@keyframes plan { 0% { stroke-dashoffset: 140; } 40%, 85% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 140; } }
+.s-immo .room { fill: transparent; transition: fill .35s; }
+.s-immo .room:hover, .s-immo .room.on { fill: rgba(242, 185, 122, .75); }
+.s-immo .dim { stroke: rgba(232, 232, 230, .5); stroke-width: .18; }
+.s-immo text { fill: rgba(232, 232, 230, .7); font: 2.4px var(--wf-mono); text-anchor: middle; }
+.s-immo .conn { right: 5cqw; bottom: 4.4cqw; padding: .7em 1.4em; border-radius: .5cqw; background: #6db3f2; color: #14202b; font: 600 1.7cqw var(--wf-body); }
+.s-immo .ui { display: none; }
+
+/* ---- Portfolio ---- */
+.s-portfolio { background: radial-gradient(60% 80% at 75% 45%, rgba(188, 99, 255, .18), transparent 70%), var(--w0); }
+.s-portfolio .hud { left: 5cqw; top: 4.4cqw; display: flex; gap: 2.4cqw; font: 500 1.5cqw var(--wf-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--w2); }
+.s-portfolio .hud b { color: var(--w4); font-weight: 500; }
+.s-portfolio .title { left: 5cqw; top: 16cqw; font: 800 12cqw/.88 var(--wf-display); font-stretch: 75%; letter-spacing: -.02em; color: var(--w4); }
+.s-portfolio .title span { color: var(--w1); }
+.s-portfolio .role { left: 5.4cqw; top: 40cqw; font: italic 400 3.4cqw var(--wf-body); color: var(--w4); opacity: .8; }
+
+/* ---- Depths Of Hue ---- */
+.s-depths { background: linear-gradient(180deg, #02100f 0%, var(--w0) 55%, #02100f 100%); }
+.s-depths .art { inset: 0; }
+.s-depths .art > * { position: absolute; }
+.s-depths .hub { top: 14cqw; width: 11cqw; height: 18cqw; border-radius: 50%; background: radial-gradient(ellipse at 50% 40%, #b8ffe0 0%, var(--w1) 38%, #0a6b55 78%); box-shadow: 0 0 5cqw 1.2cqw rgba(54, 227, 161, .55), inset 0 0 0 .8cqw var(--w3); }
+.s-depths .coral { bottom: 0; width: 8cqw; height: 15cqw; background: var(--w2); clip-path: polygon(48% 100%, 44% 55%, 20% 18%, 30% 14%, 46% 38%, 50% 0, 60% 0, 58% 40%, 78% 10%, 88% 16%, 62% 58%, 60% 100%); }
+.s-depths .fish { top: var(--y); left: -10cqw; width: 6cqw; height: 2.6cqw; border-radius: 60% 40% 40% 60%; background: #ffd36b; animation: swim var(--t) linear infinite; animation-delay: var(--d); }
+.s-depths .fish::after { content: ""; position: absolute; right: -1.8cqw; top: 0; border: 1.3cqw solid transparent; border-left: 1.9cqw solid #ffd36b; border-right: 0; }
+@keyframes swim { to { transform: translateX(120cqw); } }
+.s-depths .bub { bottom: -3cqw; left: var(--x); width: var(--s); height: var(--s); border-radius: 50%; border: .2cqw solid rgba(228, 255, 244, .6); animation: rise var(--t) linear infinite; animation-delay: var(--d); }
+@keyframes rise { to { transform: translateY(-70cqw); } }
+.s-depths .grey { inset: 0; z-index: 3; backdrop-filter: grayscale(1) brightness(.8); -webkit-backdrop-filter: grayscale(1) brightness(.8);
+  -webkit-mask-image: radial-gradient(circle 14cqw at var(--mx) var(--my), transparent 0 55%, #000 100%); mask-image: radial-gradient(circle 14cqw at var(--mx) var(--my), transparent 0 55%, #000 100%); }
+.s-depths .title { left: 6cqw; top: 6cqw; font: italic 300 10.5cqw/.95 var(--wf-display); color: var(--w4); z-index: 4; }
+.s-depths .tag { left: 6.4cqw; top: 22cqw; font: 300 2cqw var(--wf-body); letter-spacing: .2em; text-transform: uppercase; color: var(--w4); opacity: .8; z-index: 4; }
+.s-depths .ui { z-index: 6; }
+
+/* ---- Shadow Scholar ---- */
+.s-shadow { background: radial-gradient(60% 70% at 70% 55%, #16255a 0%, var(--w0) 70%); }
+.s-shadow .streak { height: .55cqw; background: linear-gradient(90deg, transparent, var(--c)); transform: rotate(var(--r)); transform-origin: 100% 50%; animation: streak 2.4s ease-out infinite; animation-delay: var(--d); }
+@keyframes streak { 0% { opacity: 0; width: 0; } 30% { opacity: 1; } 100% { opacity: 0; width: var(--w); } }
+.s-shadow .scholar { right: 12cqw; top: 6cqw; width: 30cqw; height: 34cqw; }
+.s-shadow .title { left: 5.2cqw; top: 8cqw; font: 400 13cqw/.88 var(--wf-display); text-transform: uppercase; color: var(--w4); -webkit-text-stroke: .15cqw var(--w1); text-shadow: .6cqw .6cqw 0 rgba(229, 86, 109, .8); }
+.s-shadow .sub { left: 6cqw; top: 34.5cqw; padding: .4em 1em; border: .22cqw solid var(--w2); color: var(--w2); font: 600 2.2cqw var(--wf-body); letter-spacing: .2em; text-transform: uppercase; background: rgba(3, 5, 15, .6); }
+.s-shadow .dark { inset: 0; z-index: 4; background: repeating-linear-gradient(180deg, rgba(3, 5, 15, .88) 0 1.1cqw, rgba(3, 5, 15, .78) 1.1cqw 1.5cqw);
+  -webkit-mask-image: radial-gradient(circle 22cqw at var(--mx) var(--my), transparent 0 40%, #000 100%); mask-image: radial-gradient(circle 22cqw at var(--mx) var(--my), transparent 0 40%, #000 100%); }
+.s-shadow .ui { z-index: 6; }
+
+/* ---- RATP Maintenance Challenge ---- */
+.s-ratp { background: radial-gradient(circle at 20% 80%, rgba(255, 190, 80, .22) 0 1.2cqw, transparent 1.4cqw) 0 0 / 7cqw 6cqw, radial-gradient(circle at 70% 30%, rgba(255, 120, 60, .18) 0 1cqw, transparent 1.2cqw) 0 0 / 5cqw 8cqw, linear-gradient(180deg, #0a1018, #101a28); }
+.s-ratp .title { left: 5cqw; top: 5cqw; font: 900 5.6cqw/.98 var(--wf-display); font-stretch: 125%; font-style: italic; text-transform: uppercase; color: var(--w1); letter-spacing: -.01em; text-shadow: .5cqw .5cqw 0 rgba(0, 0, 0, .6); }
+.s-ratp .tag { left: 5.4cqw; top: 25cqw; font: 900 4.4cqw var(--wf-display); font-stretch: 125%; font-style: italic; text-transform: uppercase; color: var(--w4); }
+.s-ratp .quay { right: 4cqw; top: 13cqw; width: 40cqw; height: 22cqw; border: .45cqw solid var(--w1); background: linear-gradient(160deg, #3b3f46, #2a2d33); overflow: hidden; transform: perspective(90cqw) rotateX(18deg) rotateZ(-4deg); box-shadow: 0 2cqw 4cqw rgba(0, 0, 0, .5); }
+.s-ratp .quay::before { content: ""; position: absolute; left: -10%; right: -10%; top: 58%; height: .7cqw; background: #f2c13b; }
+.s-ratp .train { position: absolute; left: -30%; top: 28%; width: 30%; height: 20%; border-radius: .8cqw; background: linear-gradient(180deg, #d6e8ee, #8fb1bd); animation: arrive 7s ease-in-out infinite; }
+.s-ratp .train::after { content: ""; position: absolute; inset: 20% 6% auto; height: 30%; background: repeating-linear-gradient(90deg, #12202b 0 22%, transparent 22% 28%); }
+@keyframes arrive { 0% { transform: translateX(0); } 40%, 75% { transform: translateX(300%); } 100% { transform: translateX(520%); } }
+.s-ratp .pin { position: absolute; right: 12%; top: 8%; width: 3.4cqw; height: 3.4cqw; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: #e0242b; box-shadow: 0 0 0 .4cqw #fff; }
+.s-ratp .board { left: 5cqw; top: 33cqw; width: 36cqw; padding: 1cqw 1.4cqw; border-radius: .8cqw; background: #05080d; border: .25cqw solid var(--w2); font: 700 1.9cqw/1.8 var(--wf-mono); color: #ffd36b; letter-spacing: .08em; text-transform: uppercase; }
+.s-ratp .board p { display: flex; justify-content: space-between; margin: 0; }
+.s-ratp .board p span:first-child { color: var(--w4); }
+.s-ratp .ui { left: auto; right: 5cqw; }
+.s-ratp .ui .b { background: var(--w1); }
+
+/* ---- Angry Birds ---- */
+.s-angry { background: linear-gradient(180deg, #8fa8bd 0%, var(--w0) 62%, #c9d8e2 100%); }
+.s-angry .cloud { background: rgba(236, 244, 248, .85); border-radius: 50%; filter: blur(.4cqw); animation: cdrift 40s linear infinite; }
+@keyframes cdrift { from { transform: translateX(-20cqw); } to { transform: translateX(120cqw); } }
+.s-angry .ground { left: 0; right: 0; bottom: 0; height: 17cqw; background: linear-gradient(180deg, var(--w2) 0 2.2cqw, var(--w3) 2.2cqw); border-top: .4cqw solid #2e9a3b; }
+.s-angry .title { left: 5cqw; top: 3.4cqw; font: 800 8.6cqw/.95 var(--wf-display); color: var(--w1); -webkit-text-stroke: .3cqw var(--w4); paint-order: stroke fill; text-shadow: 0 .6cqw 0 var(--w4); }
+.s-angry .tag { left: 5.4cqw; top: 18cqw; font: 600 2.4cqw var(--wf-display); color: var(--w4); }
+.s-angry .tog { right: 3.6cqw; top: 3cqw; display: flex; gap: 1cqw; }
+.s-angry .tog i { font: normal 700 1.5cqw var(--wf-display); padding: .55em 1.1em; border-radius: .7cqw; color: #fff; text-shadow: 0 .1cqw 0 rgba(0, 0, 0, .5); background: linear-gradient(180deg, #ff9c4a, #e14b0c); box-shadow: inset 0 .25cqw 0 rgba(255, 255, 255, .45), 0 .2cqw .5cqw rgba(0, 0, 0, .4); }
+.s-angry .tog i.g { background: linear-gradient(180deg, #7bf06b, #1fa334); }
+.s-angry .ui { z-index: 6; bottom: 19cqw; }
+.s-angry .ui .c { background: rgba(255, 255, 255, .55); }
+
+/* ---- UI UX Cooking : la cuisine low-poly du jeu ---- */
+.s-cooking { background: #bcae9d; }
+.s-cooking .face-bg { inset: 0; }
+.s-cooking .back { inset: 0; clip-path: polygon(12% 6%, 88% 6%, 88% 58%, 12% 58%); background: linear-gradient(180deg, #c6b9a8, #b3a592); }
+.s-cooking .lw { inset: 0; clip-path: polygon(0 0, 12% 6%, 12% 58%, 0 100%); background: linear-gradient(90deg, #8f8272, #a39685); }
+.s-cooking .rw { inset: 0; clip-path: polygon(100% 0, 88% 6%, 88% 58%, 100% 100%); background: linear-gradient(90deg, #c9bcaa, #b7a996); }
+.s-cooking .ce { inset: 0; clip-path: polygon(0 0, 100% 0, 88% 6%, 12% 6%); background: #e0d7c9; }
+.s-cooking .fl { inset: 0; clip-path: polygon(0 100%, 12% 58%, 88% 58%, 100% 100%); background: linear-gradient(180deg, #a8a6a3, #c1beb9); }
+.s-cooking .glow { inset: 0; background: radial-gradient(45% 55% at 52% 44%, rgba(255, 214, 150, .32), transparent 70%); mix-blend-mode: screen; }
+.s-cooking .fridge { left: 15cqw; top: 9cqw; width: 9.5cqw; height: 26.5cqw; border-radius: .9cqw; background: linear-gradient(90deg, var(--w2), #86d6ec 70%, #5eb4cf); box-shadow: 0 1.2cqw 1.6cqw rgba(0, 0, 0, .3); }
+.s-cooking .fridge::before { content: ""; position: absolute; left: .6cqw; right: .6cqw; top: 11cqw; height: .3cqw; background: rgba(0, 0, 0, .28); }
+.s-cooking .fridge::after { content: ""; position: absolute; left: .9cqw; top: 4cqw; width: .5cqw; height: 4cqw; background: #8a6aa8; border-radius: .3cqw; box-shadow: 0 9cqw 0 #8a6aa8; }
+.s-cooking .counter { left: 26cqw; top: 22cqw; width: 36cqw; height: 13.5cqw; background: linear-gradient(180deg, #7d95bd, var(--w3)); border-radius: .5cqw .5cqw 0 0; box-shadow: inset 0 1.1cqw 0 #9db3d6; }
+.s-cooking .counter::after { content: ""; position: absolute; left: 1.4cqw; right: 1.4cqw; top: 3.2cqw; bottom: 1cqw; background: repeating-linear-gradient(90deg, rgba(0, 0, 0, .15) 0 .2cqw, transparent .2cqw 8.8cqw); }
+.s-cooking .hood { left: 40cqw; top: 8cqw; width: 12cqw; height: 6.5cqw; background: linear-gradient(180deg, #7d95bd, #5f78a2); clip-path: polygon(24% 0, 76% 0, 100% 100%, 0 100%); }
+.s-cooking .micro { left: 29cqw; top: 18.4cqw; width: 5.6cqw; height: 3.6cqw; border-radius: .4cqw; background: #e9e6df; box-shadow: inset -1.6cqw 0 0 #28303a; }
+.s-cooking .pan { left: 44.4cqw; top: 20.8cqw; width: 5.2cqw; height: 1.3cqw; border-radius: 0 0 1cqw 1cqw; background: #3a3f46; }
+.s-cooking .flame { left: 45.8cqw; top: 16.2cqw; width: 2.6cqw; height: 4.8cqw; background: radial-gradient(ellipse at 50% 85%, #fff3b0, #ffa31a 52%, transparent 72%); border-radius: 50% 50% 40% 40%; transform-origin: 50% 100%; animation: flick .45s ease-in-out infinite alternate; }
+@keyframes flick { to { transform: scale(1.14, .86) skewX(5deg); opacity: .85; } }
+.s-cooking .smoke { left: 45cqw; top: 13cqw; width: 4cqw; height: 4cqw; border-radius: 50%; background: rgba(224, 120, 47, .5); filter: blur(.55cqw); animation: sm 3.2s ease-out infinite; animation-delay: var(--d); }
+@keyframes sm { from { transform: translateY(2cqw) scale(.5); opacity: .85; } to { transform: translateY(-8cqw) scale(1.7); opacity: 0; } }
+.s-cooking .disp { left: 74cqw; top: 25cqw; width: 4cqw; height: 10.5cqw; background: #eceae4; border-radius: .6cqw; box-shadow: inset 0 2.8cqw 0 #cfe7f3; }
+.s-cooking .lamp { left: 40cqw; top: 3.4cqw; width: 12cqw; height: .5cqw; background: #3a3f46; box-shadow: 1.2cqw .7cqw 0 -.1cqw #6e8fb8, 5.6cqw .7cqw 0 -.1cqw #6e8fb8, 10cqw .7cqw 0 -.1cqw #6e8fb8; }
+.s-cooking .t { background: linear-gradient(180deg, #ef8a3a, var(--w1)); border-radius: 50% / 45%; box-shadow: 0 1.4cqw 0 #a8531a, 0 2.6cqw 1.6cqw rgba(0, 0, 0, .28); }
+.s-cooking .t::before, .s-cooking .t::after { content: ""; position: absolute; top: 90%; width: .9cqw; height: 4cqw; background: #b35a1c; border-radius: .3cqw; left: 12%; }
+.s-cooking .t::after { left: auto; right: 12%; }
+.s-cooking .st { left: 50cqw; top: 30cqw; width: 9cqw; height: 2.6cqw; background: #6f86ac; border-radius: .4cqw; box-shadow: 0 .8cqw 0 #55698c; }
+.s-cooking .bread { left: 53.6cqw; top: 28.5cqw; width: 3cqw; height: 1.6cqw; border-radius: 50%; background: #f0a53a; }
+.s-cooking .item { border-radius: 40%; }
+.s-cooking .chef { left: 40cqw; top: 28cqw; width: 8.4cqw; height: 15cqw; animation: bob 2.4s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-.8cqw); } }
+.s-cooking .chef i { position: absolute; display: block; }
+.s-cooking .chef .tq { left: 1.4cqw; top: 0; width: 5.6cqw; height: 4.6cqw; border-radius: 2.8cqw 2.8cqw .5cqw .5cqw; background: #fbf6ec; box-shadow: inset -.8cqw 0 0 rgba(0, 0, 0, .06); }
+.s-cooking .chef .hd { left: 2.2cqw; top: 3.8cqw; width: 4cqw; height: 3.8cqw; border-radius: 50%; background: #8a5a44; }
+.s-cooking .chef .mu { left: 2.6cqw; top: 6cqw; width: 3.2cqw; height: .9cqw; border-radius: .5cqw; background: #2b1f18; }
+.s-cooking .chef .bd { left: .3cqw; top: 7.4cqw; width: 7.8cqw; height: 7.4cqw; border-radius: 2.4cqw 2.4cqw .6cqw .6cqw; background: #fbf6ec; box-shadow: inset -1cqw 0 0 rgba(0, 0, 0, .07); }
+.s-cooking .chef .bt { left: 3.4cqw; top: 9.4cqw; width: .7cqw; height: .7cqw; border-radius: 50%; background: #b8b2a4; box-shadow: 1.5cqw 0 0 #b8b2a4, 0 1.6cqw 0 #b8b2a4, 1.5cqw 1.6cqw 0 #b8b2a4; }
+.s-cooking .title { right: 11cqw; top: 6.4cqw; text-align: right; font: 800 6.2cqw/.95 var(--wf-display); color: var(--w4); }
+.s-cooking .tag { right: 11.2cqw; top: 19.6cqw; text-align: right; font: 700 1.9cqw var(--wf-body); color: var(--w4); }
+.s-cooking .ui { z-index: 6; }
+.s-cooking .ui .c { background: rgba(251, 246, 236, .7); }
+
+/* ---- Navy Bongo : pont d'un voilier, vue du gouvernail ---- */
+.s-navy { background: linear-gradient(180deg, #78bff0 0%, #c4e6f8 36%, var(--w0) 37%, #0a2c4d 100%); }
+.s-navy .sun { left: 70cqw; top: 6cqw; width: 8cqw; height: 8cqw; border-radius: 50%; background: radial-gradient(circle, #fff8d8, rgba(255, 244, 190, .5) 40%, transparent 70%); }
+.s-navy .isle { top: 20.8cqw; height: 2.6cqw; background: #2b5b5e; border-radius: 60% 60% 0 0 / 100% 100% 0 0; }
+.s-navy .mast { left: 49.6cqw; top: 0; width: .9cqw; height: 40cqw; background: linear-gradient(90deg, #6b3a1c, #8a4f2b); z-index: 2; }
+.s-navy .boom { left: 33cqw; top: 14cqw; width: 34cqw; height: .7cqw; background: #6b3a1c; z-index: 2; }
+.s-navy .sail { top: 0; width: 15.6cqw; height: 24cqw; background: linear-gradient(180deg, #14171d, #0a0c10); clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%); transform-origin: 50% 0; animation: sl 5s ease-in-out infinite alternate; z-index: 2; }
+@keyframes sl { to { transform: skewX(-2.5deg) scaleY(.985); } }
+.s-navy .flag { left: 50.6cqw; top: 0; width: 5cqw; height: 2.6cqw; background: #d7263d; clip-path: polygon(0 0, 100% 50%, 0 100%); z-index: 2; animation: flag 1.2s ease-in-out infinite alternate; transform-origin: 0 50%; }
+@keyframes flag { to { transform: skewY(8deg) scaleX(.9); } }
+.s-navy .rig { inset: 0; width: 100%; height: 100%; z-index: 3; pointer-events: none; }
+.s-navy .rig line { stroke: rgba(40, 24, 12, .75); stroke-width: .22; }
+.s-navy .deck { left: 0; right: 0; bottom: 0; height: 16cqw; background: repeating-linear-gradient(90deg, transparent 0 7cqw, rgba(60, 28, 10, .5) 7cqw 7.3cqw), linear-gradient(180deg, #b0683a, var(--w3) 55%, #5e3219); clip-path: polygon(0 100%, 3% 18%, 97% 18%, 100% 100%); z-index: 4; }
+.s-navy .post { bottom: 12cqw; width: 1.6cqw; height: 6cqw; background: #7a4423; border-radius: .4cqw .4cqw 0 0; z-index: 4; }
+.s-navy .wheel { left: 50%; bottom: -5cqw; width: 22cqw; height: 22cqw; margin-left: -11cqw; z-index: 5; animation: wob 6s ease-in-out infinite; }
+@keyframes wob { 0%, 100% { transform: rotate(-16deg); } 50% { transform: rotate(16deg); } }
+.s-navy .hp { left: 3.5cqw; top: 3cqw; width: 18cqw; height: 2.2cqw; border-radius: 1cqw; background: rgba(0, 0, 0, .45); z-index: 6; font: 700 1.1cqw/2.2cqw var(--wf-body); color: #fff; text-align: center; letter-spacing: .1em; }
+.s-navy .hp::after { content: ""; position: absolute; inset: .25cqw; width: 72%; border-radius: 1cqw; background: var(--w2); z-index: -1; }
+.s-navy .xp { right: 3.5cqw; top: 3cqw; width: 18cqw; height: 2.2cqw; border-radius: 1cqw; background: rgba(0, 0, 0, .45); z-index: 6; font: 700 1.1cqw/2.2cqw var(--wf-body); color: #fff; text-align: center; }
+.s-navy .xp::after { content: ""; position: absolute; inset: .25cqw; width: 40%; border-radius: 1cqw; background: #ff5fa8; z-index: -1; }
+.s-navy .timer { left: 50%; top: 1.4cqw; transform: translateX(-50%); padding: .3em 1.1em; background: #e0405b; color: #fff; font: 700 1.9cqw var(--wf-display); letter-spacing: .08em; clip-path: polygon(0 0, 100% 0, 94% 50%, 100% 100%, 0 100%, 6% 50%); z-index: 6; }
+.s-navy .gold { left: 3.6cqw; bottom: 18cqw; display: flex; align-items: center; gap: .8cqw; font: 700 2.6cqw var(--wf-display); color: var(--w1); z-index: 6; text-shadow: 0 .15cqw .5cqw rgba(0, 0, 0, .6); }
+.s-navy .gold i { width: 2.8cqw; height: 2.8cqw; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff1a8, var(--w1) 60%, #b97c0e); box-shadow: inset 0 0 0 .3cqw #b97c0e; }
+.s-navy .title { left: 4.6cqw; top: 9cqw; font: 700 6cqw/1.02 var(--wf-display); letter-spacing: .06em; color: #fff; text-shadow: 0 .4cqw 1.4cqw rgba(0, 20, 50, .85); z-index: 6; }
+.s-navy .ui { z-index: 7; left: auto; right: 5cqw; bottom: 18cqw; }
+.s-navy .ui .b { background: var(--w1); }
+
+/* ---- Unity RL : foot sur un toit, écran partagé ---- */
+.s-unityrl { background: #5f7bb4; }
+.s-unityrl .half { top: 0; bottom: 0; width: 50%; overflow: hidden; background: linear-gradient(180deg, #5f7fb8 0%, #a6bde0 34%, #b9cde8 35%, #8cbb74 36%, var(--w0) 100%); }
+.s-unityrl .h1 { left: 0; } .s-unityrl .h2 { right: 0; border-left: .35cqw solid #1b2a14; }
+.s-unityrl .half > * { position: absolute; }
+.s-unityrl .fence { left: 0; right: 0; top: 13cqw; height: 9cqw; background: repeating-linear-gradient(45deg, rgba(70, 80, 92, .6) 0 .2cqw, transparent .2cqw 1.1cqw), repeating-linear-gradient(-45deg, rgba(70, 80, 92, .6) 0 .2cqw, transparent .2cqw 1.1cqw); }
+.s-unityrl .pole { top: -2cqw; width: 1.6cqw; height: 28cqw; background: linear-gradient(90deg, #5a6068, #8b9097); }
+.s-unityrl .pole::before { content: ""; position: absolute; left: -.4cqw; top: 0; width: 3.2cqw; height: 1cqw; background: #fff; box-shadow: 0 0 1.6cqw 0 rgba(255, 255, 255, .7); }
+.s-unityrl .goal { left: 40%; top: 17cqw; width: 11cqw; height: 6.4cqw; border: .7cqw solid #3a3f46; border-bottom: 0; background: repeating-linear-gradient(0deg, rgba(255, 255, 255, .25) 0 .15cqw, transparent .15cqw .9cqw), repeating-linear-gradient(90deg, rgba(255, 255, 255, .25) 0 .15cqw, transparent .15cqw .9cqw); }
+.s-unityrl .tgt { top: 21.4cqw; width: 4.2cqw; height: 4.2cqw; background: #b27a43; border-radius: .3cqw; box-shadow: inset 0 0 0 .3cqw #7a4e27; }
+.s-unityrl .tgt::after { content: ""; position: absolute; inset: .5cqw; border-radius: 50%; background: radial-gradient(circle, #151515 0 14%, #fff 15% 38%, #151515 39% 46%, #fff 47%); }
+.s-unityrl .line { left: -5%; right: -5%; top: 31cqw; height: .3cqw; background: rgba(255, 255, 255, .85); }
+.s-unityrl .circle { left: 8%; right: 8%; top: 33cqw; height: 13cqw; border: .35cqw solid rgba(255, 255, 255, .85); border-radius: 50%; }
+.s-unityrl .shadow { bottom: 5cqw; width: 8cqw; height: 1.5cqw; border-radius: 50%; background: rgba(0, 0, 0, .3); animation: shd 1.4s cubic-bezier(.3, 0, .6, 1) infinite; }
+.s-unityrl .ball { bottom: 6cqw; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #bdbdb8 60%, #8e8e88); animation: hop 1.4s cubic-bezier(.3, 0, .6, 1) infinite; }
+.s-unityrl .ball::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 28% 36%, #151515 0 11%, transparent 12%), radial-gradient(circle at 68% 28%, #151515 0 11%, transparent 12%), radial-gradient(circle at 55% 74%, #151515 0 11%, transparent 12%), radial-gradient(circle at 82% 62%, #151515 0 8%, transparent 9%); }
+.s-unityrl .h1 .ball { left: 30%; width: 10cqw; height: 10cqw; }
+.s-unityrl .h2 .ball { left: 38%; width: 15cqw; height: 15cqw; animation-delay: -.7s; }
+.s-unityrl .h1 .shadow { left: 29%; } .s-unityrl .h2 .shadow { left: 36%; width: 12cqw; animation-delay: -.7s; }
+@keyframes hop { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10cqw); animation-timing-function: cubic-bezier(.4, 0, 1, 1); } }
+@keyframes shd { 0%, 100% { transform: scale(1); opacity: .5; } 50% { transform: scale(.6); opacity: .25; } }
+.s-unityrl .bar { bottom: 3cqw; width: .8cqw; height: 18cqw; border-radius: .5cqw; background: #f5b400; }
+.s-unityrl .bar::before { content: ""; position: absolute; left: -.5cqw; top: -.6cqw; width: 1.8cqw; height: 1.8cqw; border-radius: 50%; background: #e59a00; }
+.s-unityrl .h1 .bar { left: 1.4cqw; } .s-unityrl .h2 .bar { right: 1.4cqw; }
+.s-unityrl .score { left: 50%; top: 0; transform: translateX(-50%); display: flex; z-index: 3; font: 600 6cqw/1 var(--wf-display); color: #fff; }
+.s-unityrl .score span { width: 9.4cqw; padding: .5cqw 0; text-align: center; } .s-unityrl .score .a { background: var(--w1); } .s-unityrl .score .b { background: var(--w2); }
+.s-unityrl .title { left: 5cqw; top: 5cqw; font: 700 8.6cqw/.9 var(--wf-display); color: #fff; text-shadow: 0 .5cqw 0 rgba(20, 40, 20, .5); z-index: 3; text-transform: uppercase; }
+.s-unityrl .ui { z-index: 6; }
+
+/* ---- Funfair : l'affiche vidéo (nuit, cadres vert et bleu, badge Unreal) ---- */
+.s-funfair { background: radial-gradient(circle at 18% 78%, rgba(255, 190, 80, .3) 0 1.2cqw, transparent 1.5cqw) 0 0 / 6cqw 5cqw, radial-gradient(circle at 74% 38%, rgba(255, 120, 60, .24) 0 1cqw, transparent 1.3cqw) 0 0 / 4.4cqw 7cqw, linear-gradient(180deg, #080a18, #14172e); }
+.s-funfair .title { left: 5cqw; top: 6cqw; font: italic 400 8.4cqw/.9 var(--wf-display); text-transform: uppercase; color: var(--w1); text-shadow: .45cqw .45cqw 0 rgba(0, 0, 0, .6); }
+.s-funfair .sub { left: 5.6cqw; top: 15.8cqw; font: italic 400 2cqw var(--wf-display); color: var(--w1); text-transform: lowercase; }
+.s-funfair .sub2 { left: 5.2cqw; top: 18.6cqw; font: italic 400 5.6cqw/1 var(--wf-display); text-transform: uppercase; color: var(--w1); text-shadow: .35cqw .35cqw 0 rgba(0, 0, 0, .6); }
+.s-funfair .fg { right: 4cqw; top: 4cqw; width: 36cqw; height: 22cqw; border: .55cqw solid #2e9b4a; background: linear-gradient(180deg, #1a1b36, #231f3e); overflow: hidden; }
+.s-funfair .fg svg { width: 100%; height: 100%; }
+.s-funfair .wheel { transform-origin: 50px 36px; animation: spin 24s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.s-funfair .fb { left: 5cqw; top: 31cqw; width: 36cqw; height: 22cqw; border: .55cqw solid #3b82d8; background: linear-gradient(180deg, #8a1c26, #c8202a 60%, #7a141c); overflow: hidden; }
+.s-funfair .fb .cac { position: absolute; left: 25%; bottom: 20%; width: 6cqw; height: 11cqw; border-radius: 3cqw 3cqw .8cqw .8cqw; background: #e7a3b4; box-shadow: -2.4cqw -2cqw 0 -1.2cqw #e7a3b4, 2.4cqw -3cqw 0 -1.2cqw #e7a3b4; }
+.s-funfair .fb .tb { position: absolute; left: 44%; bottom: 8%; width: 10cqw; height: 5.4cqw; background: #e83fb0; box-shadow: 0 1cqw 0 #a82682; }
+.s-funfair .fb .bt { position: absolute; left: 49%; bottom: 36%; width: 2cqw; height: 2.6cqw; background: #2b1f2f; border-radius: .3cqw; box-shadow: 2.4cqw 0 0 #2b1f2f, 1.2cqw -2.4cqw 0 #2b1f2f; }
+.s-funfair .fb .ba { position: absolute; left: 18%; bottom: 7%; width: 20%; height: .8cqw; background: #4aa8ff; border-radius: .4cqw; }
+.s-funfair .ue { left: 41.6cqw; top: 22cqw; width: 14cqw; height: 14cqw; border-radius: 50%; background: #000; color: #fff; display: grid; place-items: center; align-content: center; z-index: 3; box-shadow: 0 0 0 .3cqw rgba(255, 255, 255, .15); }
+.s-funfair .ue b { font: 800 4.6cqw/1 var(--wf-body); }
+.s-funfair .ue span { font: 700 1.5cqw var(--wf-body); letter-spacing: .12em; }
+.s-funfair .eng { right: 4.6cqw; top: 31cqw; text-align: right; font: italic 400 4.8cqw/.98 var(--wf-display); text-transform: uppercase; color: #fff; text-shadow: .3cqw .3cqw 0 rgba(0, 0, 0, .6); }
+.s-funfair .ui { z-index: 6; left: auto; right: 5cqw; bottom: 3.6cqw; }
+
+/* ---- Spacial Race : route grise, neige, voiture retournable ---- */
+.s-spacial { background: #c9ced2; }
+.s-spacial .world { inset: 0; transition: transform 1.1s cubic-bezier(.7, 0, .2, 1); }
+.s-spacial.flip .world { transform: rotate(180deg); }
+.s-spacial .world > * { position: absolute; }
+.s-spacial .world .cv { inset: 0; }
+.s-spacial .sky { left: 0; right: 0; top: 0; height: 44%; background: linear-gradient(180deg, #e9eef2, #cfd6db); }
+.s-spacial .mtn { bottom: 56%; width: 40cqw; height: 14cqw; background: linear-gradient(135deg, #fff, #cbd5dc); clip-path: polygon(0 100%, 30% 12%, 48% 52%, 66% 0, 100% 100%); }
+.s-spacial .car { left: 52cqw; top: 31cqw; width: 12cqw; height: 5.6cqw; z-index: 3; animation: carb 1.1s ease-in-out infinite; }
+@keyframes carb { 50% { transform: translateY(-.5cqw); } }
+.s-spacial .car::before { content: ""; position: absolute; inset: 0; border-radius: 1.6cqw 3cqw 1cqw 1cqw; background: linear-gradient(180deg, #ff9a3c, #d9531a 70%, #7e2a0c); box-shadow: 0 1.2cqw 1.2cqw rgba(0, 0, 0, .35); }
+.s-spacial .car::after { content: ""; position: absolute; left: 22%; top: -2cqw; width: 48%; height: 2.6cqw; border-radius: 1.4cqw 1.8cqw 0 0; background: linear-gradient(180deg, #3b434c, #232a31); }
+.s-spacial .fl { left: -4cqw; top: 1.3cqw; width: 6cqw; height: 3cqw; border-radius: 50%; background: radial-gradient(ellipse at 80% 50%, #fff6b0, #ffa31a 45%, transparent 70%); animation: ff .12s linear infinite alternate; }
+@keyframes ff { to { transform: scaleX(1.3); opacity: .8; } }
+.s-spacial .hud { left: 50%; top: 3cqw; transform: translateX(-50%); font: 700 3cqw var(--wf-mono); color: #fff; text-shadow: 0 .2cqw .6cqw rgba(0, 0, 0, .6); z-index: 6; letter-spacing: .04em; }
+.s-spacial .hud small { display: block; text-align: center; font-size: 1.3cqw; font-weight: 400; }
+.s-spacial .title { left: 5cqw; top: 6cqw; font: 700 6.8cqw/.98 var(--wf-display); text-transform: uppercase; color: var(--w4); z-index: 6; letter-spacing: .02em; }
+.s-spacial .tag { left: 5.4cqw; top: 22cqw; font: 600 2cqw var(--wf-body); color: var(--w4); z-index: 6; }
+.s-spacial .flipb { right: 4.4cqw; bottom: 4.4cqw; padding: .6em 1.2em; border-radius: 99px; border: .2cqw solid var(--w4); background: rgba(255, 255, 255, .55); color: var(--w4); font: 600 1.6cqw var(--wf-body); letter-spacing: .06em; text-transform: uppercase; z-index: 6; cursor: pointer; }
+.s-spacial .ui { z-index: 6; }
+.s-spacial .ui .c { background: rgba(255, 255, 255, .55); }
+
+/* ---- Inventory : ruines de grès, éclairage ambre, barre d'objets ---- */
+.s-inventory { background: radial-gradient(60% 70% at 45% 55%, rgba(255, 176, 74, .35), transparent 70%), repeating-linear-gradient(0deg, rgba(0, 0, 0, .28) 0 .3cqw, transparent .3cqw 6cqw), repeating-linear-gradient(90deg, rgba(0, 0, 0, .18) 0 .3cqw, transparent .3cqw 11cqw), linear-gradient(180deg, #5b3b27, var(--w3) 55%, #3a2517); }
+.s-inventory .floor { left: 0; right: 0; bottom: 0; height: 26cqw; background: linear-gradient(180deg, #8a6847, #a98763 60%, #6e5035); clip-path: polygon(0 100%, 14% 0, 86% 0, 100% 100%); opacity: .95; }
+.s-inventory .table { left: 8cqw; top: 25cqw; width: 30cqw; height: 15cqw; background: #050505; border: .55cqw solid var(--w1); box-shadow: 0 0 2.4cqw .6cqw rgba(255, 176, 74, .55); transform: perspective(60cqw) rotateX(55deg); transform-origin: 50% 100%; }
+.s-inventory .rug { left: 6cqw; top: 38cqw; width: 36cqw; height: 18cqw; border-radius: 1cqw; background: repeating-linear-gradient(60deg, #6c5240 0 1.2cqw, #58402f 1.2cqw 2.4cqw); opacity: .85; }
+.s-inventory .man { left: 52cqw; top: 14cqw; width: 12cqw; height: 26cqw; z-index: 2; animation: float 3.6s ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-1cqw); } }
+.s-inventory .press { left: 50cqw; top: 31cqw; width: 18cqw; text-align: center; font: 700 3.4cqw var(--wf-body); color: #fff; text-shadow: 0 .2cqw .6cqw rgba(0, 0, 0, .7); z-index: 3; }
+.s-inventory .press kbd { font: inherit; padding: 0 .35em; border: .2cqw solid rgba(255, 255, 255, .7); border-radius: .5cqw; }
+.s-inventory .rb { right: 4cqw; padding: .5em 1em; background: #d9d9d9; color: #111; border-radius: .4cqw; font: 600 1.7cqw var(--wf-body); z-index: 4; }
+.s-inventory .slots { left: 50%; bottom: 3.4cqw; transform: translateX(-50%); display: flex; gap: 1.2cqw; z-index: 4; }
+.s-inventory .slots i { position: relative; width: 6.4cqw; height: 6.4cqw; border-radius: .8cqw; background: rgba(10, 10, 12, .6); border: .25cqw solid rgba(95, 201, 214, .6); display: block; }
+.s-inventory .slots i b { position: absolute; inset: 22%; border-radius: 35%; background: var(--w2); box-shadow: 0 0 1.2cqw var(--w2); transform: scale(0); animation: pop 7s infinite; animation-delay: calc(var(--i) * .8s); }
+@keyframes pop { 0%, 5% { transform: scale(0); } 12%, 85% { transform: scale(1); } 95%, 100% { transform: scale(0); } }
+.s-inventory .tip { left: 55cqw; bottom: 12cqw; padding: .6em 1em; background: rgba(8, 8, 10, .85); border: .2cqw solid var(--w1); color: #fff; font: 500 1.5cqw/1.4 var(--wf-body); z-index: 5; border-radius: .5cqw; animation: tipa 7s infinite; }
+@keyframes tipa { 0%, 30% { opacity: 0; } 36%, 70% { opacity: 1; } 78%, 100% { opacity: 0; } }
+.s-inventory .tip b { display: block; color: var(--w1); }
+.s-inventory .title { left: 5cqw; top: 5cqw; font: 700 8cqw/.95 var(--wf-display); color: var(--w4); text-shadow: 0 .4cqw 1.2cqw rgba(0, 0, 0, .65); z-index: 4; }
+.s-inventory .tag { left: 5.4cqw; top: 15.6cqw; font: 500 2cqw var(--wf-body); color: var(--w4); z-index: 4; text-shadow: 0 .2cqw .6cqw rgba(0, 0, 0, .65); }
+.s-inventory .ui { z-index: 6; bottom: 12cqw; }
+
+/* ---- Attraction Flow : parc vu de dessus, menthe ---- */
+.s-attraction .m { left: 4cqw; top: 4cqw; font: 800 2.6cqw var(--wf-display); color: var(--w4); z-index: 3; }
+.s-attraction .title { left: 5cqw; top: 9cqw; font: 800 8.8cqw/.92 var(--wf-display); color: var(--w4); z-index: 3; text-shadow: .4cqw .4cqw 0 rgba(255, 255, 255, .7); }
+.s-attraction .tag { left: 5.4cqw; top: 29.6cqw; font: 700 2.2cqw var(--wf-body); color: var(--w4); z-index: 3; }
+.s-attraction .ui { z-index: 6; }
+
+/* ---- Stay Soul : pixel art, noir, crème et prune ---- */
+.s-staysoul { background: var(--w0); }
+.s-staysoul .cv { image-rendering: pixelated; }
+.s-staysoul .logo { left: 50%; top: 11cqw; transform: translateX(-50%); text-align: center; font: 400 7cqw/1.1 var(--wf-display); color: var(--w4); letter-spacing: .02em;
+  text-shadow: .5cqw 0 0 var(--w3), -.5cqw 0 0 var(--w3), 0 .5cqw 0 var(--w3), 0 -.5cqw 0 var(--w3), .5cqw .5cqw 0 var(--w3), -.5cqw .5cqw 0 var(--w3), .5cqw -.5cqw 0 var(--w3), -.5cqw -.5cqw 0 var(--w3), 1cqw 1cqw 0 rgba(0, 0, 0, .6); z-index: 3; white-space: nowrap; }
+.s-staysoul .hint { left: 50%; bottom: 14cqw; transform: translateX(-50%); font: 400 3.4cqw var(--wf-body); color: var(--w2); letter-spacing: .12em; text-transform: uppercase; z-index: 3; animation: blink 1.4s steps(1) infinite; white-space: nowrap; }
+.s-staysoul .ui { z-index: 6; }
+
+/* ---- Choco Blast : menu brun, boutons rose bonbon, métaballes ---- */
+.s-choco { background: var(--w0); }
+.s-choco .goo { inset: 0; filter: url(#goo-choco); z-index: 1; }
+.s-choco .goo i { position: absolute; border-radius: 50%; background: var(--w3); }
+.s-choco .title { left: 50%; top: 3cqw; transform: translateX(-50%) skewX(-8deg); font: 400 11cqw/1 var(--wf-display); color: #fff; letter-spacing: .01em; white-space: nowrap; text-shadow: 0 0 1.4cqw rgba(245, 196, 0, .75), .3cqw .4cqw 0 var(--w2); z-index: 3; }
+.s-choco .menu { left: 50%; top: 19cqw; transform: translateX(-50%); display: grid; gap: 1.2cqw; z-index: 3; }
+.s-choco .menu i { display: block; width: 22cqw; padding: .4em 0; text-align: center; font: 400 2.5cqw var(--wf-display); font-style: italic; letter-spacing: .1em; color: #fff3cf; text-transform: uppercase; background: linear-gradient(180deg, #ff4fb0, var(--w1) 55%, #c40e72); border: .45cqw solid var(--w2); border-radius: .8cqw; box-shadow: 0 .4cqw 0 rgba(0, 0, 0, .35); }
+.s-choco .menu i.on { outline: .45cqw solid var(--w2); outline-offset: .5cqw; }
+.s-choco .ver { right: 3cqw; bottom: 3cqw; font: 400 1.8cqw var(--wf-body); color: rgba(255, 255, 255, .8); z-index: 3; }
+.s-choco .ui { z-index: 6; bottom: 3.4cqw; }
+
+/* @@WORLD-CSS */
+
+@media (prefers-reduced-motion: reduce) {
+  .stage *, .stage *::before, .stage *::after { animation: none !important; transition: none !important; }
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <p class="mono" style="color:var(--muted)">Portfolio d'Arthur BRU · phase 2 · à valider</p>
+    <h1>Mondes</h1>
+    <p class="lede">Chaque projet aura sa page et sa <b>peau</b>. Voici les 23 directions artistiques proposées : survolez les scènes, puis donnez votre avis sur chacune. <b>Je lis vos réponses directement</b>, rien à me renvoyer.</p>
+    <div class="shell">
+      <div class="keep"><h2>Ne change jamais</h2><p>HUD, menu, curseur, grain, courbes d'animation, mixeur son, grille de lecture.</p></div>
+      <div><h2>Change par monde</h2><p>Palette, typographie, fond, signature d'interaction, transition d'entrée, palette sonore, forme et couleur du nuage.</p></div>
+    </div>
+  </header>
+
+  <div class="bar" id="bar">
+    <div class="bar-in">
+      <div class="progress" aria-live="polite">
+        <span class="mono" id="prog-label">0 / 23 avec avis</span>
+        <span class="track" aria-hidden="true"><i class="t-ok" id="t-ok"></i><i class="t-revise" id="t-revise"></i><i class="t-no" id="t-no"></i></span>
+        <span class="counts"><span><i class="dot ok"></i><b id="c-ok">0</b></span><span><i class="dot revise"></i><b id="c-revise">0</b></span><span><i class="dot no"></i><b id="c-no">0</b></span></span>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filtrer les mondes"></div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <nav class="rail" aria-label="Index des mondes"><ol id="rail"></ol></nav>
+    <main class="list" id="list"></main>
+  </div>
+
+  <section class="foot" id="foot">
+    <h2>Bilan</h2>
+    <p id="foot-text">Aucun avis pour l'instant.</p>
+    <pre id="recap" hidden></pre>
+    <button class="btn" id="copy" type="button">Copier le bilan</button>
+  </section>
+</div>
+
+<script>
+"use strict";
+/* ---------- Données : un monde par projet ---------- */
+const CATS = { ia: "IA", web: "Web", unity: "Unity", unreal: "Unreal", jam: "Game jam" };
+const WORLDS = [
+  {
+    id: "cerebro", cat: "ia", tier: "S", done: true, name: "Cerebro",
+    concept: "L'espace latent lui-même : une nuit profonde où la matière est menthe et la requête violette.",
+    palette: [["#05060c", "Nuit"], ["#63e6be", "Matière"], ["#b79bff", "Requête"], ["#0a0c18", "Panneau"], ["#f3f0ea", "Encre"]],
+    fonts: ["Bricolage Grotesque", "JetBrains Mono"], fontStyle: ["font-stretch:75%;font-weight:800", ""],
+    signature: "Le schéma du pipeline RAG en grand : la question entre dans l'espace, ses voisins s'allument. Le curseur est une requête.",
+    transition: ["iris", "Décodage : le nuage se resserre du bruit vers le réseau pendant que le cercle s'ouvre."],
+    sound: "Frappes de clavier, souffle grave quand la requête part.", hover: "Survolez : l'anneau de requête allume ses voisins"
+  },
+  {
+    id: "seo", cat: "ia", tier: "S", name: "SEO Autopilot",
+    concept: "Un éditeur de nœuds sur papier pointillé : le seul monde en thème clair.",
+    palette: [["#f3f1ec", "Papier"], ["#ff5a47", "Corail"], ["#4b5bd7", "Indigo"], ["#ffffff", "Nœud"], ["#1c1c24", "Encre"]],
+    fonts: ["IBM Plex Sans", "IBM Plex Mono"], fontStyle: ["font-weight:600", ""],
+    signature: "Un workflow jouable : Cron, Lighthouse, WAVE, GPT, S3. « Exécuter » allume les nœuds un à un et fait monter les scores.",
+    transition: ["dots", "Une grille de points qui grossissent et se rejoignent, du clic vers les bords."],
+    sound: "Clics secs de relais, un tic de validation par nœud."
+  },
+  {
+    id: "fil", cat: "web", tier: "S", name: "Au fil des images",
+    concept: "Un fil continu qui relie des images, comme un linge de photos : la danse, le geste, la création pour tous.",
+    palette: [["#f7f0e6", "Crème"], ["#ff7a59", "Corail"], ["#6b3fb5", "Violet"], ["#ffc65c", "Soleil"], ["#2b1650", "Aubergine"]],
+    fonts: ["Fraunces", "Figtree"], fontStyle: ["font-style:italic;font-weight:600", ""],
+    signature: "Un fil tracé au défilement, des cadres suspendus qui oscillent. Le curseur est l'aiguille qui tire le fil.",
+    transition: ["thread", "Le fil se tend d'un bord à l'autre, puis la page se déploie derrière lui."],
+    sound: "Cordes pincées douces, frottement de papier."
+  },
+  {
+    id: "celtic", cat: "web", tier: "A", name: "Celtic La Riche Basket",
+    concept: "L'affiche de club collée dans la rue : vert profond, trame de demi-teinte, un ballon qui rebondit.",
+    palette: [["#0e6b47", "Vert club"], ["#ff7a1a", "Ballon"], ["#07281c", "Nuit"], ["#101010", "Noir"], ["#f4efe2", "Craie"]],
+    fonts: ["Anton", "Barlow Condensed"], fontStyle: ["letter-spacing:.01em", "font-weight:600"],
+    signature: "Un vrai ballon à lancer sur la page ; le tableau d'affichage compte les paniers ; les faits deviennent des scores.",
+    transition: ["iris", "Le ballon rebondit et le cercle s'ouvre depuis son point d'impact."],
+    sound: "Rebond de ballon, sifflet bref, crissement de baskets."
+  },
+  {
+    id: "meteo", cat: "web", tier: "A", name: "Meteo Dashboard",
+    concept: "Une vitre sous la pluie : l'atmosphère du moment colore tout le monde.",
+    palette: [["#274b73", "Crépuscule"], ["#ffc857", "Soleil"], ["#0f1d2e", "Abysse"], ["#cfe0ee", "Brume"], ["#e9f2ff", "Éclair"]],
+    fonts: ["Hanken Grotesk", "Hanken Grotesk"], fontStyle: ["font-weight:200", ""],
+    signature: "Le curseur essuie la buée ; les gouttes courent sur la vitre ; le fond suit l'heure (aube, jour, orage, nuit).",
+    transition: ["ink", "Un rideau de pluie qui se dissout dans la nouvelle page."],
+    sound: "Pluie filtrée, tonnerre lointain en bas de page.", hover: "Survolez : le curseur essuie la buée"
+  },
+  {
+    id: "articles", cat: "web", tier: "A", name: "Articles Manager",
+    concept: "La une d'un quotidien : papier journal, encre noire, rouge d'édition.",
+    palette: [["#ece5d6", "Papier"], ["#c8321e", "Rouge"], ["#a69e8a", "Gris"], ["#3a362c", "Filet"], ["#141414", "Encre"]],
+    fonts: ["Abril Fatface", "Newsreader"], fontStyle: ["", "font-style:italic"],
+    signature: "Le titre se compose lettre par lettre, en plomb ; colonnes et lettrines ; un bandeau défile comme un téléscripteur.",
+    transition: ["doors", "Double page : deux feuilles s'ouvrent depuis la pliure."],
+    sound: "Frappe de linotype, froissement de papier."
+  },
+  {
+    id: "payment", cat: "web", tier: "B", name: "Payment",
+    concept: "Streetwear et ticket de caisse : noir, jaune fluo, papier thermique.",
+    palette: [["#0c0c0c", "Noir"], ["#e8ff2e", "Jaune fluo"], ["#f4f4ef", "Thermique"], ["#6e6e68", "Gris"], ["#1a1a1a", "Encre"]],
+    fonts: ["Archivo", "Courier Prime"], fontStyle: ["font-weight:900;font-stretch:75%", ""],
+    signature: "Le ticket s'imprime ligne à ligne ; le total compte ; le code-barres balaie.",
+    transition: ["tear", "Déchirure du ticket : bord perforé, les deux moitiés s'écartent."],
+    sound: "Imprimante thermique, bip de caisse."
+  },
+  {
+    id: "eko", cat: "web", tier: "A", name: "Eko",
+    concept: "Une forêt dans la brume : strates de sapins, lumière filtrée.",
+    palette: [["#0f2a20", "Nuit forêt"], ["#7fb08a", "Mousse"], ["#f2c36b", "Soleil"], ["#25503b", "Sapin"], ["#d9e6d3", "Brume"]],
+    fonts: ["Young Serif", "Albert Sans"], fontStyle: ["", ""],
+    signature: "Trois plans de forêt en parallaxe au curseur, une brume qui dérive ; les abonnements poussent comme des pousses.",
+    transition: ["ink", "La brume avale l'ancienne page puis se lève."],
+    sound: "Oiseaux lointains, vent dans les feuilles.", hover: "Survolez : les plans bougent en parallaxe"
+  },
+  {
+    id: "immo", cat: "web", tier: "A", name: "B.A Immobilier",
+    concept: "La DA du vrai site (fond anthracite, titres condensés blanc et turquoise, bouton filet) prolongée par un plan d'architecte filaire turquoise. Au survol, la pièce passe en rendu.",
+    palette: [["#232527", "Anthracite"], ["#1fb8c4", "Turquoise"], ["#f2b97a", "Rendu"], ["#303337", "Panneau"], ["#e8e8e6", "Blanc cassé"]],
+    fonts: ["Barlow Condensed", "Share Tech Mono"], fontStyle: ["font-weight:700;letter-spacing:.02em;text-transform:uppercase", ""],
+    signature: "Un plan d'appartement qui se dessine au défilement, avec ses cotes ; survoler une pièce la colore (plan, puis rendu).",
+    transition: ["thread", "Un trait se dessine d'un bord à l'autre, puis la page se révèle."],
+    sound: "Mine de crayon, règle posée.", hover: "Survolez une pièce : le plan devient rendu"
+  },
+  {
+    id: "portfolio", cat: "web", tier: "B", name: "Portfolio",
+    concept: "Le monde par défaut : la peau actuelle du site, violet et nuage de points.",
+    palette: [["#0a0a0f", "Nuit"], ["#bc63ff", "Violet"], ["#63e6be", "Menthe"], ["#12121a", "Panneau"], ["#f3f0ea", "Encre"]],
+    fonts: ["Bricolage Grotesque", "Instrument Serif"], fontStyle: ["font-stretch:75%;font-weight:800", ""],
+    signature: "Le compteur de points, les images par seconde et la latence du HUD deviennent le contenu : le site se décrit lui-même.",
+    transition: ["iris", "Décodage standard du site."],
+    sound: "La palette actuelle : clics, whoosh, boot."
+  },
+  {
+    id: "depths", cat: "unity", tier: "S", name: "Depths Of Hue",
+    concept: "Le couloir du sous-marin du jeu, hublots vert menthe : un monde sans couleur où la couleur revient sous le curseur.",
+    palette: [["#031a1c", "Coursive"], ["#36e3a1", "Hublot"], ["#ff7f8a", "Corail"], ["#0b3b3f", "Acier"], ["#e4fff4", "Écume"]],
+    fonts: ["Cormorant", "Jost"], fontStyle: ["font-style:italic;font-weight:300", "font-weight:300"],
+    signature: "Page désaturée ; un halo rend leurs couleurs aux coraux et aux poissons qu'il touche ; caustiques et bulles au défilement.",
+    transition: ["ink", "Une goutte d'encre dans l'eau : la forme organique s'épanouit depuis le clic."],
+    sound: "Basses sous-marines, sonar très doux.", hover: "Survolez : la couleur revient sous le curseur"
+  },
+  {
+    id: "shadow", cat: "unity", tier: "S", name: "Shadow Scholar",
+    concept: "L'emblème e-sport du jeu : nuit bleutée, traits de vitesse acier et corail, lettres anguleuses. Le curseur est une lampe torche : on ne voit que ce que l'on éclaire.",
+    palette: [["#03050f", "Nuit"], ["#4a86d6", "Acier"], ["#e5566d", "Corail"], ["#0e1530", "Marine"], ["#f4f6ff", "Blanc"]],
+    fonts: ["Anton", "Barlow Condensed"], fontStyle: ["letter-spacing:.02em;text-transform:uppercase", "font-weight:600"],
+    signature: "Le curseur est une lampe : texte et indices n'existent que dans son cône. Lames de store en ambiance, dossier tamponné.",
+    transition: ["blinds", "Les lames d'un store se referment puis s'ouvrent sur la nouvelle page."],
+    sound: "Pas dans un couloir, interrupteur, machine à écrire.", hover: "Survolez : la lampe révèle le dossier"
+  },
+  {
+    id: "ratp", cat: "unity", tier: "A", name: "RATP Maintenance Challenge",
+    concept: "L'affiche du jeu : nuit urbaine, cyan et bleu RATP, titre large en italique, quai en vue isométrique ; un tableau à palettes bat les destinations.",
+    palette: [["#0a1018", "Nuit"], ["#12d8dc", "Cyan"], ["#1d6fc4", "Bleu"], ["#49b8a5", "Vert RATP"], ["#f4fbfb", "Blanc"]],
+    fonts: ["Archivo", "Overpass Mono"], fontStyle: ["font-weight:900;font-stretch:125%;font-style:italic;text-transform:uppercase", ""],
+    signature: "Un tableau à palettes qui bat les destinations ; chaque rôle devient une ligne (foule, métros, IA) ; le cadre visé s'éclaire.",
+    transition: ["doors", "Portes de métro : deux battants coulissent."],
+    sound: "Carillon d'annonce, bip de fermeture des portes."
+  },
+  {
+    id: "angry", cat: "unity", tier: "A", name: "Angry Birds",
+    concept: "Le jeu tel quel : ciel gris-bleu, herbe et terre, oiseau rouge, lance-pierre en bois, boutons vernis verts et orange (« Use Friction », « Enable Unity Gravity »).",
+    palette: [["#a9bfd0", "Ciel"], ["#e0242e", "Oiseau"], ["#3fbf4d", "Herbe"], ["#a9774b", "Terre"], ["#2a1d12", "Bois"]],
+    fonts: ["Baloo 2", "Patrick Hand"], fontStyle: ["font-weight:800", ""],
+    signature: "Un lance-pierre à tirer : l'oiseau suit la parabole calculée (gravité, frottements) ; le titre devient l'équation.",
+    transition: ["iris", "L'oiseau traverse l'écran et le cercle s'ouvre à son impact."],
+    sound: "Élastique tendu, impact en bois, gazouillis.", hover: "Survolez : la trajectoire se trace"
+  },
+  {
+    id: "cooking", cat: "unity", tier: "B", name: "UI UX Cooking",
+    concept: "La cuisine low-poly du jeu : murs beige-gris, tables orange, frigo turquoise, chef en toque, une poêle qui flambe.",
+    palette: [["#cdbfae", "Mur"], ["#e0782f", "Table"], ["#4ab8d8", "Frigo"], ["#6c86b3", "Placard"], ["#2b1f18", "Cacao"]],
+    fonts: ["Baloo 2", "Nunito"], fontStyle: ["font-weight:800", ""],
+    signature: "Des ingrédients-stickers à glisser dans un bol (grille d'inventaire) ; la recette se compose, les étapes se cochent.",
+    transition: ["pixels", "Un sticker se décolle par carrés et révèle la page."],
+    sound: "Couteau sur la planche, grésillement de poêle."
+  },
+  {
+    id: "navy", cat: "unity", tier: "A", name: "Navy Bongo",
+    concept: "Le pont d'un voilier pirate vu du gouvernail : mer bleue qui houle, bois orangé, voiles noires, HUD rouge et pièces d'or.",
+    palette: [["#0f4c81", "Mer"], ["#f2b134", "Or"], ["#e0405b", "Barre"], ["#8a4f2b", "Bois"], ["#eaf6ff", "Écume"]],
+    fonts: ["Cinzel", "IM Fell English"], fontStyle: ["font-weight:700;letter-spacing:.08em", "font-style:italic"],
+    signature: "Un navire suit le curseur sur la carte avec son sillage ; la houle du fond monte au défilement ; les tours ennemies sont des croix rouges.",
+    transition: ["flood", "Une vague balaie l'écran de gauche à droite."],
+    sound: "Houle, cloche de bateau, craquements de bois.", hover: "Survolez : le navire vous suit"
+  },
+  {
+    id: "unityrl", cat: "unity", tier: "B", name: "Unity RL",
+    concept: "Le terrain de foot sur un toit, en plein jour : grillage, ciel bleu, écran partagé à deux joueurs, scores cyan et rouge, jauges jaunes.",
+    palette: [["#86b872", "Pelouse"], ["#00f0f0", "Cyan"], ["#ff1744", "Rouge"], ["#7f9cc8", "Ciel"], ["#f6f6f0", "Ligne"]],
+    fonts: ["Barlow Condensed", "Barlow Condensed"], fontStyle: ["font-weight:700", "font-weight:600"],
+    signature: "Un tableau à points lumineux affiche les faits comme des scores ; une balle rebondit ; les projecteurs balaient la page.",
+    transition: ["sweep", "Un projecteur balaie l'écran et dévoile la nouvelle page."],
+    sound: "Foule lointaine, coup de sifflet, klaxon de but."
+  },
+  {
+    id: "funfair", cat: "unreal", tier: "S", name: "Funfair",
+    concept: "La fête foraine du jeu, de nuit : ville en bokeh, titres jaunes en italique épais, guirlandes d'ampoules, stand rouge à table magenta, cadres vert et bleu.",
+    palette: [["#0b0d1c", "Nuit"], ["#f4c430", "Jaune"], ["#c8202a", "Rouge"], ["#2e9b4a", "Vert"], ["#fff3d1", "Ticket"]],
+    fonts: ["Bevan", "Rubik"], fontStyle: ["font-style:italic;text-transform:uppercase", ""],
+    signature: "Les ampoules de la guirlande s'allument près du curseur ; la grande roue tourne au défilement ; le ticket se déchire pour passer au projet suivant.",
+    transition: ["tear", "Déchirure d'un ticket : bord perforé, les deux moitiés s'écartent."],
+    sound: "Orgue de barbarie, ding de stand, rires.", hover: "Survolez : les ampoules s'allument près du curseur"
+  },
+  {
+    id: "spacial", cat: "unreal", tier: "A", name: "Spacial Race",
+    concept: "La course du jeu : route d'asphalte grise sous la neige, lignes jaunes, voiture orange à la flamme, chronomètre blanc minimal. La gravité s'inverse et la page se retourne.",
+    palette: [["#c9ced2", "Brume"], ["#f2b521", "Ligne jaune"], ["#ff7a1a", "Flamme"], ["#6f757b", "Asphalte"], ["#1b1d20", "Pneu"]],
+    fonts: ["Chakra Petch", "Chakra Petch"], fontStyle: ["font-weight:700;text-transform:uppercase", "font-weight:600"],
+    signature: "Un bouton « Inverser la gravité » (ou un clic sur la scène) retourne toute la route à 180° ; le chronomètre défile ; les lignes jaunes filent.",
+    transition: ["sweep", "Retournement : la route pivote à 180° et la nouvelle page apparaît à l'endroit."],
+    sound: "Moteur grave, whoosh d'accélération.", hover: "Cliquez la scène : la gravité s'inverse"
+  },
+  {
+    id: "inventory", cat: "unreal", tier: "B", name: "Inventory",
+    concept: "La démo du jeu : ruines de grès à l'éclairage ambre, table au liseré orange, mannequin en filaire, invite « Press E », boutons gris de remise à zéro et barre d'objets aux cases cyan.",
+    palette: [["#2a1a12", "Grès sombre"], ["#ffb04a", "Ambre"], ["#5fc9d6", "Case cyan"], ["#8c6a4f", "Pierre"], ["#f4e6d2", "Sable"]],
+    fonts: ["Rubik", "Rubik"], fontStyle: ["font-weight:600", ""],
+    signature: "Les sections sont des objets à glisser dans des cases ; le survol ouvre une infobulle ; le total d'or compte.",
+    transition: ["doors", "Ouverture de coffre : deux battants et un éclat de lumière."],
+    sound: "Cliquetis de pièces, déclic de serrure.", hover: "Survolez un objet : infobulle"
+  },
+  {
+    id: "attraction", cat: "jam", tier: "B", name: "Attraction Flow",
+    concept: "Le parc du jeu vu de dessus : herbe menthe, allées beige à barrières, arbres low-poly colorés, manège bleu, portes rose et turquoise, compteur d'argent.",
+    palette: [["#9fe5c4", "Menthe"], ["#f2994a", "Orange"], ["#3c8dde", "Bleu"], ["#d9bd96", "Allée"], ["#1e2a24", "Encre"]],
+    fonts: ["Baloo 2", "Nunito"], fontStyle: ["font-weight:800", ""],
+    signature: "Des visiteurs suivent les allées vers le manège ; l'argent s'incrémente ; le titre se pose comme un panneau de parc.",
+    transition: ["dots", "Les visiteurs convergent vers le clic et révèlent la page."],
+    sound: "Ambiance de parc, tintement de caisse."
+  },
+  {
+    id: "staysoul", cat: "jam", tier: "S", name: "Stay Soul",
+    concept: "Le logo du jeu : fond noir, lettres pixel crème cerclées de prune, petit fantôme blanc. Trame de Bayer lavande, et l'âme suit le curseur.",
+    palette: [["#07050c", "Nuit"], ["#7b69a8", "Lavande"], ["#a99ad6", "Brume"], ["#35264d", "Prune"], ["#f1f0e4", "Crème"]],
+    fonts: ["Press Start 2P", "VT323"], fontStyle: ["", ""],
+    signature: "Le fond est un dégradé tramé (Bayer) ; un petit fantôme, l'âme, suit le curseur en laissant des pixels ; texte en police pixel.",
+    transition: ["pixels", "Dissolution pixel par pixel, dans l'ordre d'une matrice de Bayer."],
+    sound: "Bips 8 bits, accord de chiptune.", hover: "Survolez : l'âme vous suit"
+  },
+  {
+    id: "choco", cat: "jam", tier: "S", name: "Choco Blast",
+    concept: "Le menu du jeu : fond cacao, titre BD blanc à halo jaune, boutons rose bonbon à liseré jaune (Start, Score, Settings, Quit). Du chocolat fondu fusionne et suit le curseur.",
+    palette: [["#2e1403", "Cacao"], ["#f0158f", "Rose bonbon"], ["#f5c400", "Jaune"], ["#5a2a12", "Chocolat"], ["#fff3cf", "Crème"]],
+    fonts: ["Bangers", "Nunito"], fontStyle: ["font-style:italic;letter-spacing:.02em", "font-weight:700"],
+    signature: "Des gouttes de chocolat fusionnent et suivent le curseur ; le titre fond et dégouline ; un clic fait « exploser » en éclats.",
+    transition: ["flood", "Le chocolat inonde l'écran par le haut puis s'écoule."],
+    sound: "Glouglou, croc de morceaux, petite explosion sucrée.", hover: "Survolez : le chocolat vous suit"
+  }
+];
+WORLDS.forEach((w, i) => { w.n = i + 1; });
+
+/* ---------- Utilitaires ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const pad = (n) => String(n).padStart(2, "0");
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const ease = (t) => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+const RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const hexRgb = (h) => { const n = parseInt(h.slice(1), 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; };
+const rgba = (h, a) => { const [r, g, b] = hexRgb(h); return `rgba(${r},${g},${b},${a})`; };
+
+/* ---------- Boucle d'animation commune : seules les scènes visibles tournent ---------- */
+const items = new Set();
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => { e.target._vis = e.isIntersecting; });
+}, { rootMargin: "120px" });
+
+function track(stage) {
+  // Pointeur de la scène (en px) ; sans survol, il flâne tout seul pour que l'effet se voie.
+  // Il alimente --mx / --my, lues par les révélations en CSS (lampe, buée, couleur).
+  stage._p = { x: 0, y: 0, on: false };
+  stage.addEventListener("pointermove", (e) => {
+    const r = stage.getBoundingClientRect();
+    stage._p.x = e.clientX - r.left; stage._p.y = e.clientY - r.top; stage._p.on = true;
+  });
+  stage.addEventListener("pointerleave", () => { stage._p.on = false; });
+  io.observe(stage);
+  items.add({ stage, css: true, fn: () => {} });
+}
+function frame(stage, fn) {
+  const item = { stage, fn };
+  items.add(item);
+  return item;
+}
+function pointer(stage, t) {
+  const r = stage.getBoundingClientRect();
+  const p = stage._p;
+  if (p.on) return { x: p.x, y: p.y, w: r.width, h: r.height, on: true };
+  return { x: r.width * (.5 + .3 * Math.sin(t * .00055)), y: r.height * (.5 + .22 * Math.sin(t * .00083 + 1.3)), w: r.width, h: r.height, on: false };
+}
+function loop(stage, draw) {
+  const canvas = document.createElement("canvas");
+  canvas.className = "cv";
+  stage.appendChild(canvas);
+  const ctx = canvas.getContext("2d");
+  let w = 0, h = 0;
+  const fit = () => {
+    const r = stage.getBoundingClientRect();
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    w = r.width; h = r.height;
+    canvas.width = Math.max(1, Math.round(w * dpr)); canvas.height = Math.max(1, Math.round(h * dpr));
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+  fit();
+  new ResizeObserver(fit).observe(stage);
+  return frame(stage, (t) => draw(ctx, w, h, t, pointer(stage, t)));
+}
+function tick(t) {
+  items.forEach((it) => {
+    if (!it.stage._vis) return;
+    if (it.css) {
+      const p = pointer(it.stage, t);
+      it.stage.style.setProperty("--mx", p.x.toFixed(1) + "px");
+      it.stage.style.setProperty("--my", p.y.toFixed(1) + "px");
+    }
+    it.fn(t);
+  });
+  if (!RM) requestAnimationFrame(tick);
+}
+
+/* Sprite lumineux (pastille radiale) */
+function sprite(hex, size = 48) {
+  const c = document.createElement("canvas");
+  c.width = c.height = size;
+  const g = c.getContext("2d");
+  const gr = g.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+  gr.addColorStop(0, "rgba(255,255,255,1)");
+  gr.addColorStop(.16, rgba(hex, 1));
+  gr.addColorStop(.4, rgba(hex, .45));
+  gr.addColorStop(1, rgba(hex, 0));
+  g.fillStyle = gr; g.fillRect(0, 0, size, size);
+  return c;
+}
+
+/* ---------- Scènes ---------- */
+const SCENES = {};
+const uiRow = (label) => `<div class="ui"><span class="b">Voir le projet →</span><span class="c">${label}</span></div>`;
+
+/* 01 Cerebro : nuage vectoriel, la requête allume ses voisins */
+SCENES.cerebro = (st, w) => {
+  st.innerHTML = `<p class="prompt">&gt; cerebro --rag --stream</p><h3 class="title">CEREBRO</h3><p class="tag">Un chat RAG qui lit vos PDF et répond en temps réel<i class="caret"></i></p>${uiRow("SEC 01 / IA / Cerebro")}`;
+  const mint = w.palette[1][0], lav = w.palette[2][0];
+  const sm = sprite(mint), sl = sprite(lav), sp = sprite("#7c8cff");
+  const N = 190;
+  const pts = Array.from({ length: N }, (_, i) => {
+    const y = 1 - (i / (N - 1)) * 2, r = Math.sqrt(1 - y * y), a = i * 2.399963;
+    return { x: Math.cos(a) * r, y, z: Math.sin(a) * r, c: i % 4 === 0 };
+  });
+  loop(st, (ctx, W, H, t) => {
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalCompositeOperation = "lighter";
+    const cx = W * .73, cy = H * .47, R = Math.min(W, H) * .4, ang = t * .00025, ca = Math.cos(ang), sa = Math.sin(ang);
+    const cyc = RM ? .45 : (t % 4800) / 4800;
+    const qx = cx + R * .3, qy = cy - R * .2, ringR = R * (.08 + .78 * clamp(cyc / .7));
+    pts.forEach((p) => {
+      const x1 = p.x * ca + p.z * sa, z1 = -p.x * sa + p.z * ca, k = 1 / (1.9 - z1 * .55);
+      const sx = cx + x1 * R * k * 1.15, sy = cy + p.y * R * k * 1.15;
+      const lit = cyc < .86 && z1 > -.25 && Math.hypot(sx - qx, sy - qy) < ringR;
+      const s = (lit ? 17 : 8.5) * k * 1.2;
+      ctx.globalAlpha = clamp(.28 + .72 * (z1 * .5 + .5)) * (lit ? 1 : .85);
+      ctx.drawImage(lit ? sl : p.c ? sp : sm, sx - s, sy - s, s * 2, s * 2);
+    });
+    ctx.globalAlpha = 1; ctx.globalCompositeOperation = "source-over";
+    ctx.strokeStyle = rgba(lav, .85 * (1 - cyc * .9)); ctx.lineWidth = 1.4; ctx.beginPath(); ctx.arc(qx, qy, ringR, 0, 7); ctx.stroke();
+    ctx.fillStyle = lav; ctx.beginPath(); ctx.arc(qx, qy, 3.6, 0, 7); ctx.fill();
+  });
+};
+
+/* 02 SEO Autopilot : éditeur de nœuds, impulsion le long des fils */
+SCENES.seo = (st, w) => {
+  const nodes = [
+    { x: 5, y: 29, t: "Cron", c: "#7b8794", a: "chaque nuit", b: "02:00" },
+    { x: 30, y: 19, t: "Lighthouse", c: "#f08a1c", a: "performance", b: "92" },
+    { x: 30, y: 39, t: "WAVE", c: w.palette[2][0], a: "accessibilité", b: "0 erreur" },
+    { x: 55, y: 29, t: "GPT", c: "#1c1c24", a: "reformule", b: "12 cartes" },
+    { x: 79, y: 29, t: "Archive S3", c: w.palette[1][0], a: "rapport.json", b: "ok" }
+  ];
+  const links = [[0, 1], [0, 2], [1, 3], [2, 3], [3, 4]];
+  const NW = 17, NH = 9.4;
+  const wires = links.map(([a, b], i) => {
+    const A = nodes[a], B = nodes[b], x1 = A.x + NW, y1 = A.y + NH / 2, x2 = B.x, y2 = B.y + NH / 2;
+    const d = `M${x1} ${y1} C${x1 + 6} ${y1},${x2 - 6} ${y2},${x2} ${y2}`;
+    const begin = [.5, .5, 2.2, 2.2, 3.9][i];
+    return `<path d="${d}" fill="none" stroke="rgba(28,28,36,.38)" stroke-width=".28"/><circle r=".95" fill="${w.palette[1][0]}" opacity="0"><animateMotion dur="7s" begin="${begin}s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;.18;1" calcMode="linear" path="${d}"/><animate attributeName="opacity" dur="7s" begin="${begin}s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;.02;.17;.2;1"/></circle>`;
+  }).join("");
+  st.innerHTML = `<h3 class="title">SEO Autopilot</h3><p class="file">workflow.json · 5 nœuds</p>
+    <svg class="wires" viewBox="0 0 100 62.5" preserveAspectRatio="none" aria-hidden="true">${wires}</svg>
+    ${nodes.map((n, i) => `<div class="node" style="left:${n.x}cqw;top:${n.y}cqw;--c:${n.c};--d:${[0, 1.7, 1.7, 3.4, 5.1][i]}s"><header><i></i>${n.t}</header><p>${n.a}</p><b>${n.b}</b></div>`).join("")}
+    ${uiRow("SEC 02 / IA / SEO Autopilot")}`;
+};
+
+/* 03 Au fil des images : un fil, des cadres suspendus */
+SCENES.fil = (st, w) => {
+  const [, coral, violet, sun, aub] = w.palette.map((p) => p[0]);
+  const grads = [[violet, coral], [sun, coral], [aub, violet], [coral, sun], [violet, sun]];
+  st.innerHTML = `<svg viewBox="0 0 100 62.5" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>${grads.map((g, i) => `<linearGradient id="fg${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${g[0]}"/><stop offset="1" stop-color="${g[1]}"/></linearGradient>`).join("")}</defs>
+      <path id="fil-path" class="thread" d="M-2 8 C20 24, 38 24, 52 13 S86 2, 102 15" pathLength="220"/>
+      <g id="fil-photos"></g></svg>
+    <p class="sub">Association · danse · bien-être · création</p><h3 class="title">Au fil des images</h3>${uiRow("SEC 03 / Web / Au fil des images")}`;
+  const path = $("#fil-path", st) || st.querySelector(".thread");
+  const len = path.getTotalLength(), g = st.querySelector("#fil-photos");
+  [.12, .3, .49, .67, .85].forEach((k, i) => {
+    const pt = path.getPointAtLength(len * k), tilt = [-3, 2, -1, 3, -2][i];
+    g.insertAdjacentHTML("beforeend", `<g transform="translate(${pt.x.toFixed(2)} ${pt.y.toFixed(2)}) rotate(${tilt})"><g class="ph" style="--i:${i}">
+      <rect x="-.5" y="-1.6" width="1" height="3" rx=".3" fill="${aub}"/>
+      <rect x="-4.4" y="1" width="8.8" height="11.4" rx=".5" fill="#fffaf2" stroke="rgba(43,22,80,.18)" stroke-width=".12"/>
+      <rect x="-3.6" y="1.8" width="7.2" height="7.6" rx=".3" fill="url(#fg${i})"/>
+      <rect x="-3.6" y="10.2" width="4.2" height=".5" rx=".25" fill="${aub}" opacity=".5"/></g></g>`);
+  });
+};
+
+/* 04 Celtic : affiche de club, ballon qui rebondit, tableau d'affichage */
+SCENES.celtic = (st) => {
+  st.innerHTML = `<p class="kick">Saison 2026 · Basket</p><h3 class="title">Celtic</h3><p class="club">La Riche Basket</p>
+    <div class="board"><span><small>DOM</small><em class="sc" style="font-style:normal">48</em></span><span><small>VIS</small>42</span></div>
+    <i class="shadow"></i><i class="ball"></i>${uiRow("SEC 04 / Web / Celtic")}`;
+  const sc = st.querySelector(".sc");
+  let n = 48;
+  if (!RM) setInterval(() => { if (st._vis) sc.textContent = (n = n >= 99 ? 48 : n + 2); }, 1500);
+};
+
+/* 05 Météo : vitre sous la pluie, buée essuyée par le curseur */
+SCENES.meteo = (st, w) => {
+  st.innerHTML = `<p class="temp">18<sup>°</sup></p><p class="city">Tours · averses</p>
+    <div class="hours"><span><b>14h</b> 19°</span><span><b>17h</b> 16°</span><span><b>21h</b> 12°</span></div><i class="fog"></i>${uiRow("SEC 05 / Web / Météo")}`;
+  const drops = Array.from({ length: 34 }, () => ({ x: Math.random(), y: Math.random(), v: .12 + Math.random() * .3, r: .8 + Math.random() * 1.8, run: Math.random() < .35 }));
+  let last = 0;
+  loop(st, (ctx, W, H, t) => {
+    const dt = Math.min(48, t - last) / 1000; last = t;
+    ctx.clearRect(0, 0, W, H);
+    drops.forEach((d) => {
+      d.y += (d.run ? d.v : d.v * .06) * dt;
+      if (d.y > 1.05) { d.y = -.05; d.x = Math.random(); }
+      const x = d.x * W, y = d.y * H;
+      ctx.fillStyle = "rgba(233,242,255,.42)"; ctx.beginPath(); ctx.ellipse(x, y, d.r, d.r * 1.35, 0, 0, 7); ctx.fill();
+      if (d.run) { ctx.strokeStyle = "rgba(233,242,255,.14)"; ctx.lineWidth = d.r * .8; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y - H * .09); ctx.stroke(); }
+      ctx.fillStyle = "rgba(255,255,255,.55)"; ctx.fillRect(x - d.r * .3, y - d.r * .6, d.r * .5, d.r * .5);
+    });
+    if (Math.sin(t * .0007) > .985) { ctx.fillStyle = rgba(w.palette[4][0], .12); ctx.fillRect(0, 0, W, H); }
+  });
+};
+
+/* 06 Articles Manager : la une d'un quotidien */
+SCENES.articles = (st) => {
+  const head = "Les articles s'écrivent seuls".split("").map((c, i) => `<i style="--i:${i}">${c === " " ? "&nbsp;" : c}</i>`).join("");
+  const body = "Rédigez, relisez et publiez depuis une seule interface : brouillons, versions, statuts et calendrier éditorial réunis sous la même une. Chaque article garde son historique et passe en ligne en un clic. ".repeat(3);
+  st.innerHTML = `<div class="mast"><span>Édition n° 23</span><strong>Le Manager</strong><span>Lundi 26 octobre</span></div>
+    <h3 class="head">${head}</h3><p class="cols">${body}</p><i class="photo"></i>
+    <div class="tick"><span>Dernière heure — 12 articles publiés · 3 brouillons à relire · calendrier éditorial à jour · </span></div>${uiRow("SEC 06 / Web / Articles Manager")}`;
+};
+
+/* 07 Payment : ticket de caisse thermique */
+SCENES.payment = (st) => {
+  const rows = [["1× HOODIE", "89,00"], ["2× TEE LOGO", "58,00"], ["1× CAP", "29,00"], ["LIVRAISON", "0,00"]];
+  st.innerHTML = `<h3 class="title">PAY<br>MENT</h3><p class="sub">Paiement · Stripe · 2026</p>
+    <div class="rcpt">${rows.map((r, i) => `<p style="--i:${i}"><span>${r[0]}</span><span>${r[1]}</span></p>`).join("")}<p class="tot" style="--i:4"><span>TOTAL</span><span>176,00 €</span></p><div class="bar"></div></div>${uiRow("SEC 07 / Web / Payment")}`;
+};
+
+/* 08 Eko : forêt en trois plans dans la brume */
+SCENES.eko = (st, w) => {
+  const fir = (x, h, wd, col) => `<path d="M${x} 100 L${x - wd / 2} 100 L${x - wd * .2} ${100 - h * .45} L${x - wd * .38} ${100 - h * .45} L${x} ${100 - h} L${x + wd * .38} ${100 - h * .45} L${x + wd * .2} ${100 - h * .45} L${x + wd / 2} 100Z" fill="${col}"/>`;
+  const layer = (n, count, h, wd, col, seed) => `<svg class="layer l${n}" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">${Array.from({ length: count }, (_, i) => fir(((i + .5) / count) * 100 + Math.sin(i * seed) * 2.2, h + Math.sin(i * seed * 1.7) * h * .3, wd, col)).join("")}</svg>`;
+  st.innerHTML = `<i class="sun"></i>${layer(1, 14, 52, 9, "#1d4a39", 2.3)}<i class="mist m1"></i>${layer(2, 10, 64, 11, w.palette[3][0], 3.1)}<i class="mist m2"></i>${layer(3, 7, 78, 15, "#0a1d15", 4.7)}
+    <h3 class="title">Eko</h3><p class="tag">Des abonnements qui poussent, un petit geste à la fois.</p>
+    ${[24, 38, 50].map((x, i) => `<i class="sprout" style="left:${x}cqw;--d:${i * 1.3}s"></i>`).join("")}${uiRow("SEC 08 / Web / Eko")}`;
+};
+
+/* 09 B.A Immobilier : le site (anthracite, turquoise) + plan filaire qui devient rendu */
+SCENES.immo = (st) => {
+  const rooms = [["Séjour", 4, 4, 32, 22], ["Cuisine", 36, 4, 22, 14], ["Chambre", 36, 18, 22, 22], ["Salle de bain", 4, 26, 16, 14], ["Entrée", 20, 26, 16, 14]];
+  st.innerHTML = `<h3 class="title">Welcome on <b>B.A Immobilier</b></h3><p class="tag">Your needs are our top priority</p><span class="disc">Discover</span>
+    <svg viewBox="0 0 62 44" aria-hidden="true">${rooms.map((r) => `<rect class="room" x="${r[1]}" y="${r[2]}" width="${r[3]}" height="${r[4]}"/><text x="${r[1] + r[3] / 2}" y="${r[2] + r[4] / 2 + 1}">${r[0]}</text>`).join("")}
+      <path class="wall" d="M4 4 H58 V40 H4 Z M36 4 V40 M36 18 H58 M4 26 H36 M20 26 V40" pathLength="140"/>
+      <path class="dim" d="M4 1.6 H58 M4 0.6 V2.6 M58 0.6 V2.6"/><text x="31" y="-.6">12,40 m</text></svg>
+    <span class="conn">CONNECT</span>`;
+  const rs = st.querySelectorAll(".room");
+  let i = 0;
+  if (!RM) setInterval(() => { if (!st._vis) return; rs.forEach((r) => r.classList.remove("on")); rs[i++ % rs.length].classList.add("on"); }, 1800);
+};
+
+/* 10 Portfolio : nuage de points violet + HUD qui se décrit */
+SCENES.portfolio = (st, w) => {
+  st.innerHTML = `<div class="hud"><span>Points <b>65 536</b></span><span>i/s <b id="pf-fps">60</b></span><span>Latence <b>0,4 ms</b></span></div><h3 class="title">ARTHUR<br><span>BRU</span></h3><p class="role">Gameplay programmer · Web · IA</p>${uiRow("SEC 10 / Web / Portfolio")}`;
+  const sv = sprite(w.palette[1][0], 32), sm = sprite(w.palette[2][0], 32);
+  const N = 420;
+  const pts = Array.from({ length: N }, (_, i) => ({ a: Math.random() * 7, b: Math.acos(2 * Math.random() - 1), r: .5 + Math.random() * .5, m: i % 9 === 0 }));
+  const fps = st.querySelector("#pf-fps");
+  let fr = 0, t0 = 0;
+  loop(st, (ctx, W, H, t, p) => {
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalCompositeOperation = "lighter";
+    const cx = W * .72, cy = H * .5, R = Math.min(W, H) * .42, rot = t * .0003;
+    pts.forEach((q) => {
+      const a = q.a + rot, x = Math.sin(q.b) * Math.cos(a), y = Math.cos(q.b), z = Math.sin(q.b) * Math.sin(a);
+      const k = 1 / (1.8 - z * .5);
+      let sx = cx + x * R * q.r * k * 1.2, sy = cy + y * R * q.r * k * 1.2;
+      const dx = sx - p.x, dy = sy - p.y, d = Math.hypot(dx, dy), pull = d < 90 ? (1 - d / 90) * 26 : 0;
+      if (pull) { sx -= dx / d * pull; sy -= dy / d * pull; }
+      const s = (q.m ? 11 : 6) * k;
+      ctx.globalAlpha = clamp(.25 + .75 * (z * .5 + .5));
+      ctx.drawImage(q.m ? sm : sv, sx - s, sy - s, s * 2, s * 2);
+    });
+    ctx.globalAlpha = 1; ctx.globalCompositeOperation = "source-over";
+    fr++; if (t - t0 > 1000) { fps.textContent = Math.min(60, fr); fr = 0; t0 = t; }
+  });
+};
+
+/* 11 Depths Of Hue : coursive de sous-marin, la couleur revient sous le curseur */
+SCENES.depths = (st) => {
+  const hubs = [10, 30, 56, 80].map((x) => `<i class="hub" style="left:${x}cqw"></i>`).join("");
+  const coral = [[8, 1], [26, .7], [52, 1.1], [74, .8], [90, 1]].map((c) => `<i class="coral" style="left:${c[0]}cqw;transform:scale(${c[1]});transform-origin:50% 100%"></i>`).join("");
+  const fish = [[30, 9, 0], [44, 12, 3], [20, 15, 6]].map((f) => `<i class="fish" style="--y:${f[0]}cqw;--t:${f[1]}s;--d:${f[2]}s"></i>`).join("");
+  const bub = Array.from({ length: 12 }, (_, i) => `<i class="bub" style="--x:${6 + i * 8}cqw;--s:${.8 + (i % 4) * .5}cqw;--t:${5 + (i % 5)}s;--d:${-i * .7}s"></i>`).join("");
+  st.innerHTML = `<div class="art">${hubs}${coral}${fish}${bub}</div><i class="grey"></i><h3 class="title">Depths<br>of Hue</h3><p class="tag">Unity · Lead tech · Gaming Campus</p>${uiRow("SEC 11 / Unity / Depths Of Hue")}`;
+};
+
+/* 12 Shadow Scholar : emblème e-sport, lampe torche, lames de store */
+SCENES.shadow = (st, w) => {
+  const streaks = Array.from({ length: 9 }, (_, i) => `<i class="streak" style="right:${14 + (i % 3) * 3}cqw;top:${14 + i * 2.6}cqw;--c:${i % 2 ? w.palette[2][0] : w.palette[1][0]};--r:${-24 + i * 6}deg;--w:${24 + (i % 4) * 7}cqw;--d:${i * .25}s"></i>`).join("");
+  st.innerHTML = `${streaks}<svg class="scholar" viewBox="0 0 60 68" aria-hidden="true"><path d="M30 8 L52 17 L30 23 L8 17 Z" fill="#0b1124" stroke="#4a86d6" stroke-width=".7"/><path d="M12 62 C10 40 16 24 30 22 C44 24 50 40 48 62 Z" fill="#070b1a" stroke="#4a86d6" stroke-width=".7"/><ellipse cx="30" cy="34" rx="10" ry="11" fill="#02030a"/><ellipse cx="25.6" cy="33" rx="2.1" ry="1.1" fill="#fff"/><ellipse cx="34.4" cy="33" rx="2.1" ry="1.1" fill="#fff"/><path d="M52 17 L56 26" stroke="#e5566d" stroke-width="1.2"/></svg>
+    <h3 class="title">Shadow<br>Scholar</h3><p class="sub">La fac ultime</p><i class="dark"></i>${uiRow("SEC 12 / Unity / Shadow Scholar")}`;
+};
+
+/* 13 RATP : affiche du jeu, quai en perspective, tableau à palettes */
+SCENES.ratp = (st) => {
+  const dest = [["Châtelet", "2"], ["Nation", "5"], ["La Défense", "8"]];
+  st.innerHTML = `<h3 class="title">Video game<br>RATP</h3><p class="tag">Unity</p>
+    <div class="quay"><i class="train"></i><i class="pin"></i></div>
+    <div class="board" aria-hidden="true">${dest.map((d, i) => `<p><span class="dst" data-t="${d[0]}">${d[0]}</span><span>${d[1]} min</span></p>`).join("")}</div>${uiRow("SEC 13 / Unity / RATP")}`;
+  const els = st.querySelectorAll(".dst"), G = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let k = 0;
+  if (!RM) setInterval(() => {
+    if (!st._vis) return;
+    const el = els[k++ % els.length], tgt = el.dataset.t; let n = 0;
+    const id = setInterval(() => { el.textContent = tgt.split("").map((c, i) => (i < n || c === " " ? c : G[Math.random() * 26 | 0])).join(""); if (++n > tgt.length) { clearInterval(id); el.textContent = tgt; } }, 60);
+  }, 2200);
+};
+
+/* 14 Angry Birds : le jeu tel quel, tir en parabole sur une tour de bois */
+SCENES.angry = (st, w) => {
+  const clouds = [[8, 6, 14, 5, 0], [42, 12, 18, 6, -14], [70, 5, 12, 4, -28]].map((c) => `<i class="cloud" style="left:${c[0]}cqw;top:${c[1]}cqw;width:${c[2]}cqw;height:${c[3]}cqw;animation-delay:${c[4]}s"></i>`).join("");
+  st.innerHTML = `${clouds}<i class="ground"></i><h3 class="title">Angry<br>Birds</h3><p class="tag">Unity · Physique · Maths</p>
+    <div class="tog"><i>Use Friction</i><i class="g">Enable Unity Gravity</i><i>Show Debug</i></div>${uiRow("SEC 14 / Unity / Angry Birds")}`;
+  const [, red, , , wood] = w.palette.map((p) => p[0]);
+  loop(st, (ctx, W, H, t) => {
+    ctx.clearRect(0, 0, W, H);
+    const T = 4200, k = (t % T) / T, g = H * .83, sx = W * .22, sy = g - H * .23;
+    const tx = W * .8, ty = g - H * .1, hit = k > .62;
+    // lance-pierre
+    ctx.strokeStyle = "#8a5a2b"; ctx.lineWidth = W * .012; ctx.lineCap = "round";
+    ctx.beginPath(); ctx.moveTo(sx, g); ctx.lineTo(sx, sy + H * .06); ctx.moveTo(sx, sy + H * .06); ctx.lineTo(sx - W * .02, sy - H * .02); ctx.moveTo(sx, sy + H * .06); ctx.lineTo(sx + W * .02, sy - H * .02); ctx.stroke();
+    // tour de bois (s'effondre à l'impact)
+    const fall = hit ? clamp((k - .62) / .3) : 0;
+    for (let i = 0; i < 3; i++) {
+      const bx = tx + (i % 2) * W * .004 + fall * W * .05 * (i + 1) * .4, by = g - (i + 1) * H * .075 + fall * H * .075 * i * .8, rot = fall * (i - 1) * .5;
+      ctx.save(); ctx.translate(bx, by); ctx.rotate(rot); ctx.fillStyle = "#b9803f"; ctx.strokeStyle = wood; ctx.lineWidth = 1.5;
+      ctx.fillRect(-W * .028, -H * .036, W * .056, H * .072); ctx.strokeRect(-W * .028, -H * .036, W * .056, H * .072); ctx.restore();
+    }
+    // oiseau : tension, vol, impact
+    let bx, by;
+    if (k < .25) { const p = ease(k / .25); bx = sx - W * .05 * p; by = sy + H * .05 * p; }
+    else if (k < .62) { const p = (k - .25) / .37; const x0 = sx - W * .05, y0 = sy + H * .05; bx = x0 + (tx - W * .03 - x0) * p; by = y0 + (ty - y0) * p - 4 * H * .34 * p * (1 - p); }
+    else { bx = tx - W * .03 - (k - .62) * W * .08; by = ty + clamp((k - .62) * 3) * (g - H * .035 - ty); }
+    if (k < .62) {
+      ctx.fillStyle = "rgba(42,29,18,.5)";
+      const x0 = sx - W * .05, y0 = sy + H * .05;
+      for (let i = 1; i < 14; i++) { const p = i / 14; if (k > .25 && p < (k - .25) / .37) continue; ctx.beginPath(); ctx.arc(x0 + (tx - W * .03 - x0) * p, y0 + (ty - y0) * p - 4 * H * .34 * p * (1 - p), W * .004, 0, 7); ctx.fill(); }
+    }
+    const r = H * .045;
+    ctx.fillStyle = red; ctx.beginPath(); ctx.arc(bx, by, r, 0, 7); ctx.fill();
+    ctx.fillStyle = "#f6d9b0"; ctx.beginPath(); ctx.ellipse(bx + r * .1, by + r * .35, r * .62, r * .5, 0, 0, 7); ctx.fill();
+    ctx.fillStyle = "#f2a31b"; ctx.beginPath(); ctx.moveTo(bx + r * .55, by - r * .05); ctx.lineTo(bx + r * 1.15, by + r * .2); ctx.lineTo(bx + r * .55, by + r * .4); ctx.fill();
+    ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.arc(bx + r * .3, by - r * .25, r * .22, 0, 7); ctx.fill();
+    ctx.fillStyle = "#111"; ctx.beginPath(); ctx.arc(bx + r * .38, by - r * .22, r * .1, 0, 7); ctx.fill();
+    ctx.strokeStyle = "#111"; ctx.lineWidth = r * .16; ctx.beginPath(); ctx.moveTo(bx - r * .05, by - r * .62); ctx.lineTo(bx + r * .6, by - r * .3); ctx.stroke();
+  });
+};
+
+/* 15 UI UX Cooking : la cuisine low-poly du jeu (murs beige-gris, tables orange, frigo turquoise, chef, poêle qui flambe) */
+SCENES.cooking = (st) => {
+  st.innerHTML = `<i class="back"></i><i class="lw"></i><i class="rw"></i><i class="ce"></i><i class="fl"></i><i class="glow"></i>
+    <i class="lamp"></i><i class="fridge"></i><i class="hood"></i><i class="counter"></i><i class="micro"></i><i class="pan"></i><i class="flame"></i>${[0, 1.05, 2.1].map((d) => `<i class="smoke" style="--d:${d}s"></i>`).join("")}<i class="disp"></i>
+    <i class="st"></i><i class="bread"></i>
+    <div class="chef"><i class="tq"></i><i class="hd"></i><i class="mu"></i><i class="bd"></i><i class="bt"></i></div>
+    <i class="t" style="left:16cqw;top:40cqw;width:38cqw;height:12cqw"></i><i class="t" style="left:68cqw;top:34cqw;width:22cqw;height:8cqw"></i>
+    <i class="item" style="left:22cqw;top:42.6cqw;width:2.2cqw;height:3.6cqw;background:#d6362d"></i><i class="item" style="left:34cqw;top:43.4cqw;width:3.4cqw;height:2.6cqw;background:#f3e4c8"></i><i class="item" style="left:43cqw;top:43.6cqw;width:3cqw;height:2.4cqw;border-radius:.3cqw;background:#f6c542"></i>
+    <h3 class="title">UI UX<br>Cooking</h3><p class="tag">Unity · UI/UX · Scriptable Objects</p>${uiRow("SEC 15 / Unity / UI UX Cooking")}`;
+};
+
+/* 16 Navy Bongo : le pont du voilier, la houle, le HUD du jeu */
+SCENES.navy = (st) => {
+  const spokes = Array.from({ length: 8 }, (_, i) => { const a = i * Math.PI / 4, x = 50 + Math.cos(a) * 46, y = 50 + Math.sin(a) * 46; return `<line x1="50" y1="50" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#4a2812" stroke-width="5" stroke-linecap="round"/><circle cx="${(50 + Math.cos(a) * 47).toFixed(1)}" cy="${(50 + Math.sin(a) * 47).toFixed(1)}" r="5.2" fill="#8a4f2b" stroke="#4a2812" stroke-width="2"/>`; }).join("");
+  st.innerHTML = `<i class="sun"></i><i class="isle" style="left:8cqw;width:16cqw"></i><i class="isle" style="left:70cqw;width:22cqw;height:3.4cqw;top:20cqw"></i>
+    <i class="mast"></i><i class="boom"></i><i class="sail" style="left:33.6cqw"></i><i class="sail" style="left:51cqw;top:1.2cqw"></i><i class="flag"></i>
+    <svg class="rig" viewBox="0 0 100 62.5" preserveAspectRatio="none" aria-hidden="true"><line x1="50" y1="1" x2="6" y2="44"/><line x1="50" y1="1" x2="94" y2="44"/><line x1="50" y1="12" x2="14" y2="44"/><line x1="50" y1="12" x2="86" y2="44"/></svg>
+    <i class="deck"></i><i class="post" style="left:6cqw"></i><i class="post" style="left:92.4cqw"></i>
+    <svg class="wheel" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="39" fill="none" stroke="#7a4423" stroke-width="9"/><circle cx="50" cy="50" r="39" fill="none" stroke="#4a2812" stroke-width="1.6"/>${spokes}<circle cx="50" cy="50" r="8" fill="#8a4f2b" stroke="#4a2812" stroke-width="2"/></svg>
+    <div class="hp">NAVY</div><div class="xp">5 % destruction</div><div class="timer">08:12</div><h3 class="title">Navy<br>Bongo</h3><p class="gold"><i></i>15000</p>${uiRow("SEC 16 / Unity / Navy Bongo")}`;
+  loop(st, (ctx, W, H, t) => {
+    ctx.clearRect(0, 0, W, H);
+    const hz = H * .37;
+    for (let l = 0; l < 10; l++) {
+      const y0 = hz + (H - hz) * Math.pow(l / 10, 1.6), amp = 1 + l * .9, f = .006 / (1 + l * .15);
+      ctx.beginPath(); ctx.moveTo(0, H);
+      for (let x = 0; x <= W; x += 6) ctx.lineTo(x, y0 + Math.sin(x * f * 6 + t * .0012 * (1 + l * .15) + l) * amp + Math.sin(x * f * 11 - t * .0008 + l * 2) * amp * .4);
+      ctx.lineTo(W, H); ctx.closePath();
+      ctx.fillStyle = rgba(l % 2 ? "#0f5c9a" : "#0c4f87", .55); ctx.fill();
+      ctx.strokeStyle = rgba("#dff4ff", .32 - l * .025); ctx.lineWidth = 1; ctx.stroke();
+    }
+    ctx.fillStyle = "rgba(255,255,255,.55)";
+    for (let i = 0; i < 12; i++) { const x = ((i * 97 + t * .02 * (1 + i % 3)) % (W + 40)) - 20, y = hz + 6 + ((i * 53) % 100) / 100 * (H - hz) * .7; ctx.fillRect(x, y, 6 + (i % 4) * 3, 1.5); }
+  });
+};
+
+/* 17 Unity RL : foot sur un toit, écran partagé à deux joueurs */
+SCENES.unityrl = (st) => {
+  const half = (c) => `<div class="half ${c}"><i class="pole" style="left:2%"></i><i class="pole" style="right:2%"></i><i class="fence"></i><i class="goal"></i><i class="tgt" style="left:${c === "h1" ? 12 : 18}%"></i><i class="line"></i><i class="circle"></i><i class="shadow"></i><i class="ball"></i><i class="bar"></i></div>`;
+  st.innerHTML = `${half("h1")}${half("h2")}<div class="score"><span class="a">0</span><span class="b">0</span></div><h3 class="title">Unity RL</h3>${uiRow("SEC 17 / Unity / Unity RL")}`;
+  const [a, b] = st.querySelectorAll(".score span");
+  let n = 0;
+  if (!RM) setInterval(() => { if (!st._vis) return; n++; const el = n % 2 ? a : b; el.textContent = (+el.textContent + 1) % 10; }, 2200);
+};
+
+/* 18 Funfair : l'affiche vidéo, guirlande qui s'allume près du curseur */
+SCENES.funfair = (st) => {
+  const spokes = Array.from({ length: 8 }, (_, i) => { const a = i * Math.PI / 4; return `<line x1="50" y1="36" x2="${50 + Math.cos(a) * 22}" y2="${36 + Math.sin(a) * 22}" stroke="#f4c430" stroke-width=".8"/><circle cx="${50 + Math.cos(a) * 22}" cy="${36 + Math.sin(a) * 22}" r="2" fill="#ff5f5f"/>`; }).join("");
+  const bulbs = Array.from({ length: 14 }, (_, i) => `<circle cx="${4 + i * 7.4}" cy="${6 + Math.sin(i / 13 * Math.PI) * 4}" r=".9" fill="#ffd36b"/>`).join("");
+  st.innerHTML = `<h3 class="title">Funfair</h3><p class="sub">with</p><p class="sub2">attractions</p>
+    <div class="fg"><svg viewBox="0 0 100 62" aria-hidden="true">${bulbs}<path d="M30 62 L50 36 L70 62" stroke="#8a8aa8" stroke-width="1.2" fill="none"/><g class="wheel"><circle cx="50" cy="36" r="22" fill="none" stroke="#f4c430" stroke-width=".9"/>${spokes}</g></svg></div>
+    <div class="fb"><i class="cac"></i><i class="tb"></i><i class="bt"></i><i class="ba"></i></div>
+    <div class="ue"><b>U</b><span>UNREAL<br>ENGINE</span></div><p class="eng">Unreal<br>Engine<br>5.4</p>${uiRow("SEC 18 / Unreal / Funfair")}`;
+  const warm = "#ffd36b";
+  loop(st, (ctx, W, H, t, p) => {
+    ctx.clearRect(0, 0, W, H);
+    for (let line = 0; line < 2; line++) {
+      const n = 26;
+      for (let i = 0; i <= n; i++) {
+        const u = i / n, x = u * W, y = H * (.03 + line * .06) + Math.sin(u * Math.PI * 3) * H * .014;
+        const d = Math.hypot(x - p.x, y - p.y), near = clamp(1 - d / (W * .2));
+        const a = clamp(.28 + near * .9 + (Math.sin(t * .004 - i * .6 + line) * .5 + .5) * .3);
+        ctx.fillStyle = rgba(warm, a * .35); ctx.beginPath(); ctx.arc(x, y, W * .011 * (1 + a), 0, 7); ctx.fill();
+        ctx.fillStyle = rgba(a > .6 ? "#fff6d0" : warm, .35 + a * .65); ctx.beginPath(); ctx.arc(x, y, W * .0048, 0, 7); ctx.fill();
+      }
+    }
+  });
+};
+
+/* 19 Spacial Race : route grise sous la neige, la gravité s'inverse (clic ou toutes les 5 s) */
+SCENES.spacial = (st) => {
+  st.innerHTML = `<div class="world"><i class="sky"></i><i class="mtn" style="left:-4cqw"></i><i class="mtn" style="left:58cqw;width:46cqw"></i><div class="car"><i class="fl"></i></div></div>
+    <p class="hud"><small>TEMPS</small><span id="sp-t">02:00.83</span></p><h3 class="title">Spacial<br>Race</h3><p class="tag">Unreal 5.4 · C++ · Chaos</p>
+    <span class="flipb" role="button" tabindex="0">Inverser la gravité</span>${uiRow("SEC 19 / Unreal / Spacial Race")}`;
+  const world = st.querySelector(".world"), timer = st.querySelector("#sp-t");
+  loop(st, (ctx, W, H, t) => {
+    ctx.clearRect(0, 0, W, H);
+    const hz = H * .44, cx = W * .5, spd = (t * .0009) % 1;
+    ctx.fillStyle = "#b8bec3"; ctx.fillRect(0, hz, W, H - hz);
+    ctx.fillStyle = "#f3f6f8"; ctx.beginPath(); ctx.moveTo(0, hz); ctx.lineTo(cx - W * .03, hz); ctx.lineTo(-W * .5, H); ctx.lineTo(0, H); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(W, hz); ctx.lineTo(cx + W * .03, hz); ctx.lineTo(W * 1.5, H); ctx.lineTo(W, H); ctx.fill();
+    ctx.fillStyle = "#6f757b"; ctx.beginPath(); ctx.moveTo(cx - W * .03, hz); ctx.lineTo(cx + W * .03, hz); ctx.lineTo(cx + W * .42, H); ctx.lineTo(cx - W * .42, H); ctx.fill();
+    for (let i = 0; i < 9; i++) {
+      const z0 = ((i + spd) / 9), z1 = ((i + spd + .45) / 9), f = (z) => z * z;
+      const y0 = hz + (H - hz) * f(z0), y1 = hz + (H - hz) * f(z1), w0 = .005 + .02 * f(z0), w1 = .005 + .02 * f(z1);
+      ctx.fillStyle = "#f2b521";
+      for (const o of [-1, 1]) { const g = o * W * .008; ctx.beginPath(); ctx.moveTo(cx + g * f(z0) * 3 - W * w0 * .5, y0); ctx.lineTo(cx + g * f(z0) * 3 + W * w0 * .5, y0); ctx.lineTo(cx + g * f(z1) * 3 + W * w1 * .5, y1); ctx.lineTo(cx + g * f(z1) * 3 - W * w1 * .5, y1); ctx.fill(); }
+    }
+    if (timer) { const s = 120.83 - (t * .001 % 60); timer.textContent = "02:" + (s % 60 < 10 ? "0" : "") + (s % 60).toFixed(2); }
+  });
+  world.prepend(st.querySelector("canvas.cv"));
+  const flip = () => st.classList.toggle("flip");
+  st.addEventListener("click", flip);
+  if (!RM) setInterval(() => { if (st._vis) flip(); }, 5000);
+};
+
+/* 20 Inventory : ruines de grès à l'éclairage ambre, barre d'objets, infobulle */
+SCENES.inventory = (st) => {
+  const slots = Array.from({ length: 5 }, (_, i) => `<i><b style="--i:${i}"></b></i>`).join("");
+  st.innerHTML = `<i class="floor"></i><i class="rug"></i><i class="table"></i>
+    <svg class="man" viewBox="0 0 60 130" fill="none" stroke="#f4e6d2" stroke-width="1" aria-hidden="true"><circle cx="30" cy="12" r="9"/><path d="M12 30 Q30 24 48 30 L52 70 L40 72 L38 128 M12 30 L8 70 L20 72 L22 128 M22 36 L30 52 L38 36 M16 50 L44 50 M14 62 L46 62 M30 24 V72" opacity=".9"/></svg>
+    <p class="press"><kbd>E</kbd><br>Press E</p><span class="rb" style="top:4cqw">Reset la scène</span><span class="rb" style="top:10.5cqw">Reset l'inventaire</span>
+    <div class="tip"><b>Buste de marbre</b>Objet · poids 4</div><div class="slots">${slots}</div>
+    <h3 class="title">Inventory</h3><p class="tag">Unreal 5.4 · C++ · Data Assets</p>${uiRow("SEC 20 / Unreal / Inventory")}`;
+};
+
+/* 21 Attraction Flow : le parc vu de dessus, des visiteurs qui suivent les allées */
+SCENES.attraction = (st, w) => {
+  st.innerHTML = `<p class="m">100 ◈</p><h3 class="title">Attraction<br>Flow</h3><p class="tag">Unity · Mobile · 42 h</p>${uiRow("SEC 21 / Jam / Attraction Flow")}`;
+  const cols = [w.palette[1][0], "#e04a5f", w.palette[2][0], "#f2c14e", "#2f9e6e"];
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const trees = Array.from({ length: 70 }, () => ({ x: rnd(), y: rnd(), c: cols[rnd() * cols.length | 0], r: .008 + rnd() * .01 }));
+  const guests = Array.from({ length: 16 }, (_, i) => ({ u: rnd(), s: .00006 + rnd() * .00006, v: i % 2, c: cols[i % cols.length] }));
+  loop(st, (ctx, W, H, t) => {
+    ctx.clearRect(0, 0, W, H);
+    const px = W * .62, py = H * .66, pw = W * .07;
+    trees.forEach((q) => {
+      const x = q.x * W, y = q.y * H;
+      if (Math.abs(x - px) < pw * 1.5 || Math.abs(y - py) < pw * 1.4 || (x < W * .5 && y < H * .52)) return;
+      ctx.fillStyle = "rgba(0,0,0,.12)"; ctx.beginPath(); ctx.ellipse(x + 3, y + 4, q.r * W, q.r * W * .6, 0, 0, 7); ctx.fill();
+      ctx.fillStyle = q.c; ctx.beginPath(); ctx.moveTo(x, y - q.r * W * 1.4); ctx.lineTo(x + q.r * W, y + q.r * W * .6); ctx.lineTo(x - q.r * W, y + q.r * W * .6); ctx.fill();
+    });
+    ctx.fillStyle = w.palette[3][0]; ctx.fillRect(px - pw / 2, 0, pw, H); ctx.fillRect(0, py - pw / 2, W, pw);
+    ctx.fillStyle = "#6b5236";
+    for (let y = 0; y < H; y += H * .05) { ctx.fillRect(px - pw / 2 - 2, y, 2, H * .03); ctx.fillRect(px + pw / 2, y, 2, H * .03); }
+    for (let x = 0; x < W; x += W * .05) { ctx.fillRect(x, py - pw / 2 - 2, W * .03, 2); ctx.fillRect(x, py + pw / 2, W * .03, 2); }
+    ctx.fillStyle = "#3c8dde"; ctx.beginPath(); ctx.moveTo(px, H * .08); ctx.lineTo(px + W * .09, H * .22); ctx.lineTo(px - W * .09, H * .22); ctx.fill();
+    ctx.fillStyle = "#f2994a"; ctx.fillRect(px - W * .05, H * .22, W * .1, H * .035);
+    ctx.fillStyle = "#e84fa8"; ctx.beginPath(); ctx.arc(W * .96, H * .5, W * .022, 0, 7); ctx.fill();
+    ctx.fillStyle = "#26b8a8"; ctx.beginPath(); ctx.arc(W * .04, py, W * .022, 0, 7); ctx.fill();
+    guests.forEach((g) => {
+      const u = (g.u + t * g.s) % 1;
+      const x = g.v ? (g.u > .5 ? u : 1 - u) * W : px + (g.u > .5 ? -1 : 1) * pw * .18, y = g.v ? py + (g.u > .5 ? -1 : 1) * pw * .18 : (1 - u) * H;
+      ctx.fillStyle = g.c; ctx.beginPath(); ctx.arc(x, y, W * .006, 0, 7); ctx.fill();
+    });
+  });
+};
+
+/* 22 Stay Soul : pixel art, trame de Bayer, l'âme suit le curseur */
+SCENES.staysoul = (st, w) => {
+  st.innerHTML = `<h3 class="logo">STAY<br>SOUL!</h3><p class="hint">Reste en vie</p>${uiRow("SEC 22 / Jam / Stay Soul")}`;
+  const PX = 4, GW = 160, GH = 100;
+  const bg = document.createElement("canvas"); bg.width = GW; bg.height = GH;
+  const g = bg.getContext("2d"), im = g.createImageData(GW, GH), col = [0x7b, 0x69, 0xa8];
+  for (let y = 0; y < GH; y++) for (let x = 0; x < GW; x++) {
+    const d = Math.hypot((x - GW * .5) / GW, (y - GH * .45) / GH), v = clamp(1 - d * 2.4) * .55, th = (BAYER[(y % 4) * 4 + (x % 4)] + .5) / 16;
+    const i = (y * GW + x) * 4, on = v > th;
+    im.data[i] = on ? col[0] : 7; im.data[i + 1] = on ? col[1] : 5; im.data[i + 2] = on ? col[2] : 12; im.data[i + 3] = 255;
+  }
+  g.putImageData(im, 0, 0);
+  const SPR = ["..XXXXX..", ".XXXXXXX.", "XXXXXXXXX", "XX.XXX.XX", "XXXXXXXXX", "XXXXXXXXX", "XXXXXXXXX", "XXXXXXXXX", "XX.XXX.XX", "X..X.X..X"];
+  const trail = [];
+  let gx = 0, gy = 0, init = false;
+  loop(st, (ctx, W, H, t, p) => {
+    ctx.imageSmoothingEnabled = false;
+    ctx.clearRect(0, 0, W, H);
+    ctx.drawImage(bg, 0, 0, W, H);
+    if (!init) { gx = W * .5; gy = H * .72; init = true; }
+    gx += (p.x - gx) * .08; gy += (p.y - gy) * .08;
+    trail.push({ x: gx, y: gy, a: 1 }); if (trail.length > 14) trail.shift();
+    const s = Math.max(2, Math.round(W / 130));
+    trail.forEach((q, i) => { ctx.fillStyle = rgba(w.palette[2][0], i / trail.length * .35); const r = s * 2; ctx.fillRect(Math.round(q.x / s) * s - r / 2 + 2 * s, Math.round(q.y / s) * s + 4 * s, r, r); });
+    const ox = Math.round(gx / s) * s - 4.5 * s, oy = Math.round(gy / s) * s - 5 * s + Math.round(Math.sin(t * .004) * s);
+    SPR.forEach((row, ry) => [...row].forEach((c, rx) => { if (c === "X") { ctx.fillStyle = w.palette[4][0]; ctx.fillRect(ox + rx * s, oy + ry * s, s, s); } }));
+    ctx.fillStyle = w.palette[3][0]; ctx.fillRect(ox + 3 * s, oy + 3 * s, s, 2 * s); ctx.fillRect(ox + 5 * s, oy + 3 * s, s, 2 * s); ctx.fillRect(ox + 4 * s, oy + 6 * s, s, s);
+  });
+};
+
+/* 23 Choco Blast : le menu du jeu, avec du chocolat qui fusionne et suit le curseur */
+SCENES.choco = (st, w) => {
+  st.innerHTML = `<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="goo-choco"><feGaussianBlur in="SourceGraphic" stdDeviation="9" result="b"/><feColorMatrix in="b" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9"/></filter></defs></svg>
+    <div class="goo">${Array.from({ length: 7 }, (_, i) => `<i data-i="${i}"></i>`).join("")}</div>
+    <h3 class="title">CHOCOBLAST</h3><div class="menu"><i class="on">Start</i><i>Score</i><i>Settings</i><i>Quit</i></div><p class="ver">Version 0.0</p>${uiRow("SEC 23 / Jam / Choco Blast")}`;
+  const blobs = [...st.querySelectorAll(".goo i")], items = [...st.querySelectorAll(".menu i")];
+  const pos = blobs.map(() => ({ x: 0, y: 0 }));
+  let last = -1;
+  frame(st, (t) => {
+    const r = st.getBoundingClientRect(), p = pointer(st, t);
+    blobs.forEach((b, i) => {
+      const size = [90, 64, 52, 42, 34, 26, 20][i] * r.width / 640;
+      const tx = i === 0 ? p.x : pos[i - 1].x + Math.sin(t * .002 + i) * size * .9, ty = i === 0 ? p.y : pos[i - 1].y + Math.cos(t * .0017 + i) * size * .9;
+      pos[i].x += (tx - pos[i].x) * (.18 - i * .012); pos[i].y += (ty - pos[i].y) * (.18 - i * .012);
+      b.style.width = b.style.height = size + "px";
+      b.style.transform = `translate(${pos[i].x - size / 2}px, ${pos[i].y - size / 2}px)`;
+    });
+    const idx = Math.floor(t / 1600) % items.length;
+    if (idx !== last) { items.forEach((it, k) => it.classList.toggle("on", k === idx)); last = idx; }
+  });
+};
+
+/* @@SCENES */
+
+/* Scène de repli tant qu'une scène n'est pas dessinée */
+SCENES.fallback = (st, w) => {
+  st.innerHTML = `<h3 style="left:6cqw;top:8cqw;font-size:10cqw;line-height:.9;font-family:var(--wf-display)">${esc(w.name)}</h3>${uiRow("SEC 01 / " + esc(w.name))}`;
+  st.style.background = `radial-gradient(70% 90% at 80% 20%, ${rgba(w.palette[1][0], .35)}, transparent 70%), ${w.palette[0][0]}`;
+};
+
+/* ---------- Glyphes de transition (canvas 112×70) ---------- */
+const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
+function page(ctx, w, h, bg, ink, accent, lines = true) {
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, w, h);
+  if (!lines) return;
+  ctx.fillStyle = ink; ctx.globalAlpha = .85; ctx.fillRect(w * .12, h * .2, w * .42, h * .12);
+  ctx.globalAlpha = .4; ctx.fillRect(w * .12, h * .44, w * .62, h * .06); ctx.fillRect(w * .12, h * .58, w * .5, h * .06);
+  ctx.globalAlpha = 1; ctx.fillStyle = accent; ctx.beginPath(); ctx.arc(w * .82, h * .3, h * .13, 0, 7); ctx.fill();
+}
+const TRANS = {
+  iris(ctx, w, h, p, t, c) {
+    const cx = w * .3, cy = h * .62, R = Math.hypot(w, h) * ease(p);
+    ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.clip(); page(ctx, w, h, c.bg, c.ink, c.accent); ctx.restore();
+    ctx.strokeStyle = c.accent; ctx.lineWidth = 1.5; ctx.globalAlpha = 1 - p * .6; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.stroke(); ctx.globalAlpha = 1;
+  },
+  blinds(ctx, w, h, p, t, c) {
+    const n = 7, bh = h / n;
+    ctx.save(); ctx.beginPath();
+    for (let i = 0; i < n; i++) { const hh = bh * ease(p); ctx.rect(0, i * bh + (bh - hh) / 2, w, hh); }
+    ctx.clip(); page(ctx, w, h, c.bg, c.ink, c.accent); ctx.restore();
+  },
+  pixels(ctx, w, h, p, t, c) {
+    const cols = 16, rows = 10, cw = w / cols, ch = h / rows;
+    ctx.save(); ctx.beginPath();
+    for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) { const th = (BAYER[(x % 4) + (y % 4) * 4] + .5) / 16; if (p * 1.05 > th * .96 + (x + y) / (cols + rows) * .04) ctx.rect(x * cw, y * ch, cw + .4, ch + .4); }
+    ctx.clip(); page(ctx, w, h, c.bg, c.ink, c.accent); ctx.restore();
+  },
+  tear(ctx, w, h, p, t, c) {
+    const q = ease(p), n = 12, off = q * w * 1.4;
+    const edge = (i) => ({ x: (i / n) * h * .6 + off - h * .6 + (i % 2 ? 4 : -4), y: (i / n) * h });
+    ctx.save(); ctx.beginPath(); ctx.moveTo(w * 2, 0); ctx.lineTo(edge(0).x, 0);
+    for (let i = 1; i <= n; i++) { const e = edge(i); ctx.lineTo(e.x, e.y); }
+    ctx.lineTo(w * 2, h); ctx.closePath(); ctx.clip();
+    page(ctx, w, h, c.bg, c.ink, c.accent); ctx.restore();
+    ctx.strokeStyle = c.accent; ctx.setLineDash([2, 3]); ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(edge(0).x, 0);
+    for (let i = 1; i <= n; i++) { const e = edge(i); ctx.lineTo(e.x, e.y); } ctx.stroke(); ctx.setLineDash([]);
+  },
+  flood(ctx, w, h, p, t, c) {
+    const lvl = h * (1 - ease(p)) - 4, amp = 4 + 3 * (1 - p);
+    ctx.save(); ctx.beginPath(); ctx.moveTo(0, h);
+    for (let x = 0; x <= w; x += 4) ctx.lineTo(x, lvl + Math.sin(x * .12 + t * .008) * amp);
+    ctx.lineTo(w, h); ctx.closePath(); ctx.clip(); page(ctx, w, h, c.bg, c.ink, c.accent); ctx.restore();
+  },
+  dots(ctx, w, h, p, t, c) {
+    const cols = 12, rows = 8, cw = w / cols, ch = h / rows, max = Math.hypot(cw, ch) * .72;
+    ctx.save(); ctx.beginPath();
+    for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
+      const d = (x / cols + y / rows) / 2, r = max * clamp((p * 1.5 - d * .5) * 1.4);
+      if (r > .3) { ctx.moveTo(x * cw + cw / 2 + r, y * ch + ch / 2); ctx.arc(x * cw + cw / 2, y * ch + ch / 2, r, 0, 7); }
+    }
+    ctx.clip(); page(ctx, w, h, c.bg, c.ink, c.accent); ctx.restore();
+  },
+  sweep(ctx, w, h, p, t, c) {
+    const x = (w + h * .5) * ease(p) - h * .5, sk = h * .5;
+    ctx.save(); ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(x + sk, 0); ctx.lineTo(x, h); ctx.lineTo(0, h); ctx.closePath(); ctx.clip();
+    page(ctx, w, h, c.bg, c.ink, c.accent); ctx.restore();
+    const g = ctx.createLinearGradient(x - 10, 0, x + sk + 10, 0); g.addColorStop(0, "rgba(255,255,255,0)"); g.addColorStop(.5, c.accent); g.addColorStop(1, "rgba(255,255,255,0)");
+    ctx.globalAlpha = .55 * (1 - p * .5); ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(x + sk - 6, 0); ctx.lineTo(x + sk + 6, 0); ctx.lineTo(x + 6, h); ctx.lineTo(x - 6, h); ctx.fill(); ctx.globalAlpha = 1;
+  },
+  thread(ctx, w, h, p, t, c) {
+    const k1 = clamp(p / .5), k2 = ease(clamp((p - .45) / .55));
+    ctx.save(); ctx.beginPath(); const hh = h * k2; ctx.rect(0, h / 2 - hh / 2, w, hh); ctx.clip(); page(ctx, w, h, c.bg, c.ink, c.accent); ctx.restore();
+    ctx.strokeStyle = c.accent; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(0, h / 2);
+    for (let x = 0; x <= w * k1; x += 3) ctx.lineTo(x, h / 2 + Math.sin(x * .09) * 4 * (1 - k2));
+    ctx.stroke();
+  },
+  ink(ctx, w, h, p, t, c) {
+    const cx = w * .55, cy = h * .5, R = Math.hypot(w, h) * .62 * ease(p);
+    ctx.save(); ctx.beginPath();
+    for (let i = 0; i <= 48; i++) { const a = (i / 48) * 6.283, r = R * (1 + .22 * Math.sin(a * 3 + 1) + .14 * Math.sin(a * 5 + t * .002) + .08 * Math.sin(a * 9)); const x = cx + Math.cos(a) * r, y = cy + Math.sin(a) * r; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+    ctx.closePath(); ctx.clip(); page(ctx, w, h, c.bg, c.ink, c.accent); ctx.restore();
+  },
+  doors(ctx, w, h, p, t, c) {
+    page(ctx, w, h, c.bg, c.ink, c.accent);
+    const o = ease(p) * w / 2;
+    ctx.fillStyle = c.old; ctx.fillRect(0, 0, w / 2 - o, h); ctx.fillRect(w / 2 + o, 0, w / 2 - o, h);
+    ctx.fillStyle = c.accent; ctx.globalAlpha = .6; ctx.fillRect(w / 2 - o - 1.5, 0, 1.5, h); ctx.fillRect(w / 2 + o, 0, 1.5, h); ctx.globalAlpha = 1;
+  }
+};
+function glyph(canvas, kind, w) {
+  const ctx = canvas.getContext("2d");
+  const W = 112, H = 70, dpr = Math.min(2, window.devicePixelRatio || 1);
+  canvas.width = W * dpr; canvas.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const c = { bg: w.palette[0][0], accent: w.palette[1][0], ink: w.palette[4][0], old: "#14141b" };
+  const lum = (hex) => { const [r, g, b] = hexRgb(hex); return .2126 * r + .7152 * g + .0722 * b; };
+  const oldBg = lum(c.bg) > 150 ? "#202028" : "#e9e7e2", oldInk = lum(oldBg) > 150 ? "#33323a" : "#cfcdd6";
+  c.old = oldBg;
+  io.observe(canvas);
+  return frame(canvas, (t) => {
+    const cyc = (t % 3600) / 3600;
+    const p = RM ? .6 : clamp((cyc - .12) / .5);
+    const fade = cyc > .88 ? 1 - (cyc - .88) / .12 : 1;
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalAlpha = fade;
+    page(ctx, W, H, oldBg, oldInk, "#8a8795");
+    if (p > 0) TRANS[kind](ctx, W, H, p, t, c);
+    ctx.globalAlpha = 1;
+  });
+}
+
+/* ---------- Panneaux ---------- */
+const BTN_ICONS = {
+  ok: '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  revise: '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11 2.5l2.5 2.5L5.5 13l-3.2.7.7-3.2L11 2.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>',
+  no: '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>'
+};
+const VLABEL = { ok: "Valider", revise: "À revoir", no: "Écarter" };
+
+function buildPanel(w) {
+  const el = document.createElement("article");
+  el.className = "pw";
+  el.id = "w-" + w.id;
+  el.dataset.cat = w.cat;
+  const fs = (i) => `font-family:'${w.fonts[i]}', ${i ? "system-ui, sans-serif" : "system-ui, sans-serif"};${w.fontStyle[i] || ""}`;
+  el.innerHTML = `
+  <section class="panel" aria-labelledby="t-${w.id}">
+    <div class="left">
+      <div class="stage" role="img" aria-label="Aperçu animé du monde ${esc(w.name)}"></div>
+      <div class="hint"><span>${w.hover ? esc(w.hover) : "Scène animée"}</span><span>16:10</span></div>
+    </div>
+    <div class="right">
+      <div class="meta">
+        <span class="no">${pad(w.n)}</span>
+        <span class="chip">${CATS[w.cat]}</span>
+        <span class="chip tier-${w.tier}" title="${w.tier === "S" ? "Hero sur mesure" : w.tier === "A" ? "Peau, fond et typographie animés" : "Peau et une signature légère"}">Palier ${w.tier}</span>
+        ${w.done ? '<span class="chip done">Déjà construit</span>' : ""}
+      </div>
+      <h2 id="t-${w.id}">${esc(w.name)}</h2>
+      <p class="concept">${esc(w.concept)}</p>
+      <dl class="facts">
+        <div><dt>Palette</dt><dd><ul class="sw">${w.palette.map(([hex, name]) => `<li><i style="background:${hex}"></i><span>${esc(name)}<br>${hex}</span></li>`).join("")}</ul></dd></div>
+        <div><dt>Typographie</dt><dd class="type"><span class="a" style="${fs(0)}">${esc(w.name)}</span><span class="b" style="${fs(1)}">${esc(w.fonts[1])}, texte courant et détails</span><small>${esc(w.fonts[0])} + ${esc(w.fonts[1])}</small></dd></div>
+        <div><dt>Signature</dt><dd>${esc(w.signature)}</dd></div>
+        <div><dt>Transition</dt><dd class="tr"><canvas width="112" height="70" aria-hidden="true"></canvas><span>${esc(w.transition[1])}</span></dd></div>
+        <div><dt>Son</dt><dd>${esc(w.sound)}</dd></div>
+      </dl>
+      <div class="verdict" role="group" aria-label="Avis sur ${esc(w.name)}">
+        ${["ok", "revise", "no"].map((v) => `<button type="button" class="vbtn" data-v="${v}" aria-pressed="false">${BTN_ICONS[v]}${VLABEL[v]}</button>`).join("")}
+      </div>
+      <div class="note">
+        <label class="sr-only" for="note-${w.id}">Remarque sur ${esc(w.name)}</label>
+        <textarea id="note-${w.id}" rows="2" placeholder="Une remarque ? Une couleur, une idée, un projet à échanger… (facultatif)"></textarea>
+        <span class="saved" id="saved-${w.id}" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>`;
+  return el;
+}
+
+/* ---------- Avis : base partagée, repli sur le navigateur ---------- */
+const state = {};
+let db = null;
+const LS = "mondes-verdicts-v1";
+const writing = {};
+function lsRead() { try { return JSON.parse(localStorage.getItem(LS) || "{}"); } catch (e) { return {}; } }
+function lsWrite() { try { localStorage.setItem(LS, JSON.stringify(state)); } catch (e) { /* stockage indisponible */ } }
+
+function applyState(id) {
+  const root = $("#w-" + id); if (!root) return;
+  const s = state[id] || {};
+  $$(".vbtn", root).forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === s.status)));
+  const ta = $("textarea", root);
+  if (document.activeElement !== ta) ta.value = s.note || "";
+  const link = $(`a[href="#w-${id}"] .dot`);
+  if (link) link.className = "dot " + (s.status || "");
+}
+function summary() {
+  const counts = { ok: 0, revise: 0, no: 0 };
+  WORLDS.forEach((w) => { const s = (state[w.id] || {}).status; if (s) counts[s]++; });
+  const done = counts.ok + counts.revise + counts.no, n = WORLDS.length;
+  $("#prog-label").textContent = `${done} / ${n} avec avis`;
+  ["ok", "revise", "no"].forEach((k) => { $("#c-" + k).textContent = counts[k]; $("#t-" + k).style.width = (counts[k] / n * 100) + "%"; });
+  const rest = n - done;
+  $("#foot-text").textContent = done === 0 ? "Aucun avis pour l'instant." : rest === 0 ? "Tous les mondes ont un avis. Dites-moi « go » et je construis les lots." : `${rest} monde${rest > 1 ? "s" : ""} sans avis. Vous pouvez aussi me dire « go » : les mondes sans avis seront construits tels que proposés.`;
+  const lines = WORLDS.filter((w) => state[w.id] && (state[w.id].status || state[w.id].note)).map((w) => {
+    const s = state[w.id]; return `${pad(w.n)} ${w.name} : ${s.status ? VLABEL[s.status] : "—"}${s.note ? " — " + s.note : ""}`;
+  });
+  const pre = $("#recap"); pre.textContent = lines.join("\n"); pre.hidden = lines.length === 0;
+}
+function applyAll() { WORLDS.forEach((w) => applyState(w.id)); summary(); }
+
+function save(id, patch) {
+  const prev = state[id] || {};
+  const next = { ...prev, ...patch, at: Date.now() };
+  if (!next.status) delete next.status;
+  if (!next.note) delete next.note;
+  state[id] = next;
+  applyState(id); summary(); lsWrite();
+  const tag = $("#saved-" + id);
+  if (db) {
+    const doc = db.collection("verdicts").doc(id);
+    const body = { status: next.status || "", note: next.note || "", at: next.at };
+    writing[id] = (writing[id] || Promise.resolve()).then(() => doc.set(body)).then(() => { tag.textContent = "Enregistré"; }).catch(() => { tag.textContent = "Enregistré sur cet appareil seulement"; });
+  } else tag.textContent = "Enregistré sur cet appareil";
+  clearTimeout(tag._t); tag._t = setTimeout(() => { tag.textContent = ""; }, 2400);
+}
+
+/* ---------- Démarrage ---------- */
+function init() {
+  const list = $("#list"), rail = $("#rail"), filters = $("#filters");
+  // filtres
+  const fdef = [["all", "Tous"], ...Object.entries(CATS), ["open", "Sans avis"]];
+  filters.innerHTML = fdef.map(([k, label], i) => `<button type="button" data-f="${k}" aria-pressed="${i === 0}">${label}</button>`).join("");
+  filters.addEventListener("click", (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    $$("button", filters).forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    const f = b.dataset.f;
+    WORLDS.forEach((w) => {
+      const show = f === "all" || (f === "open" ? !(state[w.id] || {}).status : w.cat === f);
+      $("#w-" + w.id).hidden = !show;
+      $(`a[href="#w-${w.id}"]`).parentElement.hidden = !show;
+    });
+  });
+
+  WORLDS.forEach((w) => {
+    const root = buildPanel(w); list.appendChild(root);
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="#w-${w.id}"><span class="n">${pad(w.n)}</span><span>${esc(w.name)}</span><i class="dot"></i></a>`;
+    rail.appendChild(li);
+
+    const stage = $(".stage", root);
+    const [bg, a1, a2, a3, ink] = w.palette.map((p) => p[0]);
+    stage.style.cssText += `--w0:${bg};--w1:${a1};--w2:${a2};--w3:${a3};--w4:${ink};--wf-display:'${w.fonts[0]}',system-ui,sans-serif;--wf-body:'${w.fonts[1]}',system-ui,sans-serif;--wf-mono:'${w.fonts[1]}',ui-monospace,monospace`;
+    stage.classList.add("s-" + w.id);
+    track(stage);
+    // la scène se construit à l'approche de l'écran
+    const once = new IntersectionObserver((es, ob) => {
+      if (!es[0].isIntersecting) return;
+      ob.disconnect();
+      (SCENES[w.id] || SCENES.fallback)(stage, w);
+    }, { rootMargin: "300px" });
+    once.observe(stage);
+    glyph($("canvas", root), w.transition[0], w);
+
+    // avis
+    $$(".vbtn", root).forEach((b) => b.addEventListener("click", () => {
+      const cur = (state[w.id] || {}).status;
+      save(w.id, { status: cur === b.dataset.v ? "" : b.dataset.v });
+    }));
+    const ta = $("textarea", root);
+    let timer = 0;
+    ta.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(() => save(w.id, { note: ta.value.trim() }), 700); });
+    ta.addEventListener("blur", () => { clearTimeout(timer); if ((state[w.id] || {}).note !== ta.value.trim() && (ta.value.trim() || (state[w.id] || {}).note)) save(w.id, { note: ta.value.trim() }); });
+  });
+
+  // les glyphes et scènes CSS tournent dans la même boucle
+  requestAnimationFrame(tick);
+  if (RM) { setTimeout(() => tick(1800), 400); }
+
+  $("#copy").addEventListener("click", async () => {
+    const text = $("#recap").textContent || "Aucun avis.";
+    try { await navigator.clipboard.writeText(text); $("#copy").textContent = "Bilan copié"; }
+    catch (e) { const pre = $("#recap"); pre.hidden = false; const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); $("#copy").textContent = "Texte sélectionné, copiez-le"; }
+    setTimeout(() => { $("#copy").textContent = "Copier le bilan"; }, 2200);
+  });
+
+  Object.assign(state, lsRead());
+  applyAll();
+  connect();
+}
+
+async function connect() {
+  try {
+    const d = window.claude && window.claude.use ? await window.claude.use("db") : null;
+    if (!d) return;
+    db = d;
+    d.collection("verdicts").onSnapshot((snap) => {
+      snap.docs.forEach((doc) => {
+        const v = doc.data() || {};
+        if (document.activeElement && document.activeElement.id === "note-" + doc.id) return;
+        state[doc.id] = { status: v.status || "", note: v.note || "", at: v.at || 0 };
+        if (!state[doc.id].status) delete state[doc.id].status;
+        if (!state[doc.id].note) delete state[doc.id].note;
+      });
+      applyAll(); lsWrite();
+    }, () => { db = null; });
+  } catch (e) { db = null; }
+}
+
+init();
+</script>

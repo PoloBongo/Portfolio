@@ -1,0 +1,454 @@
+/* ---------- Schéma d'architecture RAG (page IA) ----------
+   Le canvas dessine l'espace vectoriel et les particules ; ce fichier habille l'interface HTML posée
+   par-dessus. Tout est placé dans le repère de la disposition (--vw × --vh : 960 × 540 en large,
+   600 × 880 sur mobile) avec --x, --y, --w, --h convertis en pourcentages : les formes suivent la
+   taille du cadre, le texte garde une taille lisible (--rag-fs). */
+
+.rag {
+  --rag-peri: #7c8cff;
+  --rag-fs: 11px;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--rag-fs);
+  line-height: 1;
+}
+
+.rag__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.rag__box {
+  position: absolute;
+  left: calc(var(--x) / var(--vw) * 100%);
+  top: calc(var(--y) / var(--vh) * 100%);
+  width: calc(var(--w) / var(--vw) * 100%);
+  height: calc(var(--h) / var(--vh) * 100%);
+}
+
+.rag__caption {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  color: var(--ink-faint);
+}
+
+/* ---------- Libellés ---------- */
+
+.rag__tag {
+  position: absolute;
+  left: calc(var(--x) / var(--vw) * 100%);
+  top: calc(var(--y) / var(--vh) * 100%);
+  margin: 0;
+  color: var(--ink-dim);
+  font-size: calc(var(--rag-fs) - 0.5px);
+  font-weight: 450;
+  letter-spacing: 0.1em;
+  line-height: 1.25;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.rag__tag small {
+  display: block;
+  margin-top: 0.6em;
+  color: var(--ink-faint);
+  font-size: 0.92em;
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
+
+.rag__tag .rag__sub2 {
+  margin-top: 0.35em;
+}
+
+/* Au-dessus de la liste, le modèle de reranking suit le titre sur la même ligne */
+.rag__tag--rerank small {
+  display: inline;
+  margin: 0 0 0 1.1em;
+}
+
+/* Sous la feuille, la place est comptée : le détail passe à la ligne avant la sphère */
+.rag__tag--ingest small {
+  width: 17ch;
+  white-space: normal;
+  line-height: 1.5;
+}
+
+.rag__tag--center {
+  translate: -50% 0;
+  text-align: center;
+}
+
+.rag__tag--right {
+  translate: -100% 0;
+  text-align: right;
+}
+
+/* ---------- Le PDF ---------- */
+
+.rag__sheet {
+  fill: none;
+  stroke: var(--ink-faint);
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+}
+
+.rag__sheet * {
+  vector-effect: non-scaling-stroke;
+}
+
+.rag__paper {
+  fill: rgba(10, 10, 15, 0.5);
+  stroke: var(--line-strong);
+}
+
+.rag__fold {
+  stroke: var(--line-strong);
+}
+
+/* ---------- Saisie ---------- */
+
+.rag__input {
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+  padding: 0 1.3em;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-color: color-mix(in srgb, var(--mint) calc(var(--flash, 0) * 100%), var(--line-strong));
+  border-radius: 999px;
+  background: rgba(10, 10, 15, 0.55);
+  font-size: calc(var(--rag-fs) + 1px);
+}
+
+.rag__prompt {
+  color: var(--mint);
+}
+
+.rag__typed {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ink);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rag__typed::after {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 1.05em;
+  margin-left: 0.2em;
+  vertical-align: -0.18em;
+  background: var(--mint);
+  animation: rag-blink 1.05s steps(1) infinite;
+}
+
+@keyframes rag-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ---------- Candidats reclassés ---------- */
+
+.rag__list {
+  display: grid;
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+  row-gap: var(--gap);
+}
+
+.rag__slot {
+  position: relative;
+  min-height: 0;
+  border-bottom: 1px dotted rgba(243, 240, 234, 0.12);
+}
+
+.rag__row {
+  display: grid;
+  grid-template-columns: 1.4em 5.2em minmax(0, 1fr) 2.8em;
+  align-items: center;
+  gap: 0.8em;
+  height: 100%;
+  color: var(--ink-dim);
+}
+
+.rag__rank {
+  color: var(--ink-faint);
+}
+
+.rag__id {
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  transition: color 0.4s var(--ease-out);
+}
+
+.rag__row.is-scanned .rag__id {
+  color: var(--ink);
+}
+
+.rag__track {
+  position: relative;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(243, 240, 234, 0.1);
+}
+
+.rag__bar {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--violet-deep), var(--violet));
+  transform-origin: 0 50%;
+  transition: background 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+}
+
+.rag__row.is-img .rag__bar {
+  background: linear-gradient(90deg, #4552c4, var(--rag-peri));
+}
+
+.rag__row.is-pass .rag__bar {
+  background: linear-gradient(90deg, #2fa488, var(--mint));
+  box-shadow: 0 0 12px rgba(99, 230, 190, 0.5);
+}
+
+.rag__score {
+  color: var(--ink);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.5s var(--ease-out);
+}
+
+.rag__row.is-pass .rag__score {
+  color: var(--mint);
+}
+
+/* Seuil de pertinence : un repère sur chaque piste, aligné d'une ligne à l'autre */
+.rag__track::after {
+  content: "";
+  position: absolute;
+  left: 78%;
+  top: -7px;
+  bottom: -7px;
+  width: 1px;
+  background: rgba(243, 240, 234, 0.5);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out);
+}
+
+.rag__list.has-gate .rag__track::after {
+  opacity: 1;
+}
+
+.rag__scan {
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--mint), transparent);
+  box-shadow: 0 0 14px 2px rgba(99, 230, 190, 0.45);
+  pointer-events: none;
+}
+
+/* ---------- Modèle de langage ---------- */
+
+.rag__model {
+  display: flex;
+  align-items: center;
+  gap: 1.1em;
+  padding: 0 1.3em;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(10, 10, 15, 0.55);
+}
+
+.rag__core {
+  position: relative;
+  flex: none;
+  width: 1.6em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0 14%, var(--violet) 36%, rgba(188, 99, 255, 0) 74%);
+}
+
+.rag__core::before {
+  content: "";
+  position: absolute;
+  inset: -0.4em;
+  border: 1px dashed var(--mint);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: rag-spin 6s linear infinite paused;
+}
+
+.rag__model.is-live .rag__core::before {
+  animation-play-state: running;
+}
+
+@keyframes rag-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.rag__model-name {
+  color: var(--ink);
+  font-size: calc(var(--rag-fs) + 1px);
+  letter-spacing: 0.02em;
+}
+
+.rag__model-name small {
+  display: block;
+  margin-top: 0.55em;
+  color: var(--ink-faint);
+  font-size: 0.82em;
+  letter-spacing: 0.03em;
+}
+
+/* ---------- Réponse diffusée ---------- */
+
+.rag__answer {
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: rgba(10, 10, 15, 0.55);
+}
+
+.rag__line {
+  position: absolute;
+  left: 5%;
+  top: var(--ly);
+  width: var(--lw);
+  height: max(2px, 4%);
+  translate: 0 -50%;
+  border-radius: 999px;
+  background: rgba(243, 240, 234, 0.55);
+}
+
+.rag__cursor {
+  position: absolute;
+  width: 2px;
+  height: 16%;
+  translate: 0 -50%;
+  background: var(--mint);
+  box-shadow: 0 0 8px var(--mint);
+}
+
+/* ---------- Rail des étapes ---------- */
+
+.rag__rail {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 15px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rag__step {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 0.8em;
+  padding-bottom: 9px;
+  color: var(--ink-faint);
+  font-size: calc(var(--rag-fs) - 1px);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.5s var(--ease-out);
+}
+
+.rag__step::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.rag__step-bar {
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: var(--violet);
+  box-shadow: 0 0 8px var(--violet);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+
+.rag__step.is-done {
+  color: var(--ink-dim);
+}
+
+.rag__step.is-active {
+  color: var(--ink);
+}
+
+.rag__step.is-active .rag__step-n {
+  color: var(--violet);
+}
+
+/* ---------- Petits écrans : texte réduit, rail resserré ---------- */
+
+@media (max-width: 760px) {
+  .rag {
+    --rag-fs: 9px;
+  }
+
+  .rag__caption,
+  .rag__tag small {
+    display: none;
+  }
+
+  .rag__rail {
+    left: 12px;
+    right: 12px;
+    bottom: 10px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .rag__step {
+    flex: none;
+  }
+
+  .rag__step.is-active {
+    flex: 1 1 auto;
+  }
+
+  .rag__step-name {
+    display: none;
+  }
+
+  .rag__step.is-active .rag__step-name {
+    display: inline;
+  }
+}
+
+/* Disposition haute : le texte tient dans des cadres plus grands, le détail de l'ingestion se réduit au PDF */
+@media (max-width: 560px) {
+  .rag__more {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rag *,
+  .rag *::before,
+  .rag *::after {
+    animation: none !important;
+  }
+}

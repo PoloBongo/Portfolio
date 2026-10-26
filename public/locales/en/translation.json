@@ -75,7 +75,6 @@
     "PaymentPage": "Payment Page"
   },
   "VideoGamesProjects": {
-    "Title": "My video game projects",
     "playVideo": "Start video",
     "stopVideo": "Stop video",
     "learnMore": "Learn More",
@@ -84,15 +83,8 @@
     "playProjects": "Play",
     "stopProjects": "Stop",
     "fullScreenGame": "FullScreen",
-    "helluvaRevenge": "Here is a video game created within 4 weeks; we had to handle all aspects of development and asset creation/research. The game was developed in C++ using the SFML library on a custom engine.<br></br>- Group of 6 students.",
-    "towerDefense": "Here is a Tower Defense game developed in 1 week with the theme of League of Legends.<br>- Group of 5 students.",
     "platformer": "Here is a 2D platformer created in 2 weeks using an engine provided by the instructor.<br>- Group of 4 students.",
-    "bibliotheque": "In this project, we had to create our own libraries. We had 1 week to develop the following libraries: Vector, Container, Collision, and an initial version of GameObject. We also explored unit testing to test our libraries.<br>- Group of 3 students.",
     "textuelGameConsole": "Here is the first project implemented in C++, it's a text-based, turn-based game based on the theme of One Piece. It was a project to transition from C to C++ to solidify the fundamentals; we had 1 week.<br>- Group of 2 students.",
-    "shootEmUp": "Here is the major project completed at the end of the first year within a span of 2 weeks. We collaborated with the Business department, which was responsible for promoting the game, while we focused on its development.<br>- Group of 6 students.",
-    "luaPart1": "Before joining the Gaming Campus, I developed in LUA on the FiveM platform for about 4 years. This experience allowed me to acquire strong knowledge in database management and creation, and I had the opportunity to work on Linux to manage various servers. Over these 4 years, I also created the ",
-    "luaPart2": ", allowing me to share my content with the community. Today, I have stopped the Polo Leaks project as I have explored all the possibilities it offered.",
-    "CSharpConsole": "Game in console, a turn-based game developed in 2 weeks. We had to create an ASCII map and make it attractive. We chose the theme of One Piece, and for the combat system, we had to create 3 types of AI: Easy, Normal, and Hard. We also conducted unit tests.<br></br>- Group of 4 students.",
     "UnityRL": "A game developed in 2 weeks using the Unity game engine with several features such as procedural generation, Animation Curve, Drone AI, Input Management, Coroutines, OpenProBuilder, and other Unity basics.<br></br>- Group of 2 students.",
     "CustomEngine": "During my 2nd year, I had the chance to make a custom engine with Vulkan in C++. I am mainly in charge of the network part, that is to say the TCP and UDP protocols and also the integration of sound via the FMOD library. The project was over 1 month.<br><br>- Group of 8 students.",
     "Langage": "Language:",
@@ -100,16 +92,7 @@
     "Duration": "Duration:",
     "Completion": "Completion:",
     "TeamSize": "Team size:",
-    "Role": "Role:",
-    "Angine": {
-      "Description": "Our 3D engine harnesses the power of Vulkan for optimized, high-performance rendering. We integrated several specialized libraries to improve the development process and provide a robust solution for resource management, physics, audio and networking.",
-      "Langage": "C++",
-      "ToolsUsed": "Graphics API: Vulkan<br>User interfaces: Dear ImGui<br>Physics simulation: Bullet Physics<br>Windowing and input handling: GLFW<br>Audio: FMOD<br>OBJ file loading: tinyObjLoader<br>Graphics math library: GLM",
-      "Duration": "1 month",
-      "Completion": "2024",
-      "TeamSize": "8",
-      "Role": "Audio implementation with FMOD and the whole multithreading part, used to build a TCP and UDP chat"
-    }
+    "Role": "Role:"
   },
   "WebProjects": {
     "Title": "My Web Projects",
@@ -208,7 +191,6 @@
     "CVJV": "Video Games CV"
   },
   "DropdownProjects": {
-    "ProjectVideoGames": "Video Games Projects",
     "ProjectWeb": "Web Projects"
   },
   "DropdownLanguage": {
@@ -365,6 +347,17 @@
   "AIProjects": {
     "Title": "My AI & Automation Projects",
     "InProgress": "In progress",
+    "Diagram": {
+      "Alt": "Animated diagram of Cerebro's RAG pipeline: a PDF is ingested (text, tables, images with OCR) into Qdrant; a question is embedded, its nearest neighbours are retrieved then reranked by a cross-encoder, and Mistral-7B generates the answer streamed over SSE.",
+      "Question": "What was the Q3 margin?",
+      "Step1": "Ingestion",
+      "Step2": "Retrieval",
+      "Step3": "Reranking",
+      "Step4": "Generation",
+      "Step5": "Streaming",
+      "IngestSub": "text · tables · images + OCR",
+      "SpaceSub": "2 collections · multi-tenant"
+    },
     "Cerebro": {
       "Description": "RAG (Retrieval-Augmented Generation) chat web application. Users upload PDF documents, which are ingested through a multimodal pipeline that separates and processes text, tables, and images (EasyOCR), then stores them in a Qdrant vector database across two distinct collections. The chatbot answers questions in real time via SSE streaming, with cross-encoder reranking for images, conversational pre-filtering, and multi-tenant data isolation.",
       "Langage": "PHP / Python",
@@ -404,11 +397,62 @@
     "roleGame": "Game developer",
     "roleWeb": "Web developer",
     "roleAI": "AI engineer",
-    "scroll": "Scroll"
+    "scroll": "Scroll",
+    "tagline": "Web apps, RAG & AI agents",
+    "tag": {
+      "web": "React, Next.js & Vue interfaces, fast and accessible",
+      "ai": "RAG, agents & n8n automations",
+      "game": "Unity, Unreal Engine & gameplay"
+    },
+    "enter": {
+      "web": "See the web projects",
+      "ai": "See the AI projects",
+      "game": "See the games"
+    },
+    "rail": {
+      "web": "Web",
+      "ai": "AI",
+      "game": "Games"
+    },
+    "pause": "Pause the animation",
+    "play": "Resume the animation",
+    "replay": "Replay the animation"
   },
   "Work": {
     "title": "Selected work",
-    "projects": "projects"
+    "projects": "projects",
+    "game": "Also — game dev",
+    "all": "All projects",
+    "next": "Next project",
+    "prev": "Previous project",
+    "view": "View project",
+    "breadcrumb": "Breadcrumb",
+    "featured": "Selection",
+    "Tagline": {
+      "cerebro": "A RAG chat that reads your PDFs (text, tables, images) and answers in real time.",
+      "seo-autopilot": "SEO audits automated with n8n, rewritten by an LLM, with an AI assistant for every issue.",
+      "au-fil-des-images": "Showcase site and online shop for a cultural association in Tours, built as a freelance project.",
+      "celtic-la-riche-basket": "A basketball club's website, built by volunteers in 2 months: Stripe payments, Facebook news.",
+      "meteo-dashboard": "A real-time weather dashboard in Vue 3 with interactive Chart.js graphs.",
+      "articles-manager": "An article CMS built with Next.js 15: secure sign-in, CRUD and an author for every article.",
+      "payment-page": "A checkout page and cart inspired by JD Sport, with Stripe and PayPal.",
+      "eko": "An online shop with subscriptions (Stripe), a four-person school project.",
+      "ba-immobilier": "My very first website: a fictional real-estate agency, built for the Baccalauréat.",
+      "portfolio": "The site you are browsing: React, GSAP and a 65,536-point cloud computed on the GPU.",
+      "depths-of-hue": "A narrative underwater puzzle game for mobile, my end-of-Bachelor project (tech lead).",
+      "shadow-scholar": "A narrative infiltration and investigation game: cutscenes, pathfinding and half of the gameplay.",
+      "ratp": "A game that showcases little-known RATP jobs: crowds, metros and AI in a station.",
+      "angry-birds": "An Angry Birds game whose trajectories are computed by hand (gravity, air friction).",
+      "ui-ux-cooking": "A cooking game to master Unity's UI: grids, dropdowns and Scriptable Objects.",
+      "navy-bongo": "A boat game made in a week and a half: destroy every enemy tower before time runs out.",
+      "unity-rl": "My first Unity game: procedural generation, drone AI and input handling.",
+      "funfair": "An interactive funfair, 100% Blueprint, on Unreal Engine 5.4.",
+      "spacial-race": "A physics-based space race on Unreal 5.4: gravity inversion, Chaos and a customisable ship.",
+      "inventory": "An inventory system written 90% in C++: item drops, item use and a shop.",
+      "attraction-flow": "A hyper-casual mobile game made in 42 hours for a game jam (theme: Attraction).",
+      "stay-soul": "A game made in 42 hours for a game jam (theme: Children's games).",
+      "choco-blast": "My first game jam: 48 hours, theme Dynamic Contrast, art direction Chocolate."
+    }
   },
   "Footer": {
     "title": "Got a project in mind?",
@@ -421,33 +465,37 @@
   "Skills": {
     "game": "Game dev",
     "web": "Web",
-    "tools": "Data & tools"
+    "tools": "Data & tools",
+    "ai": "AI & agents"
   },
   "Hud": {
-    "level": "LVL",
+    "level": "SEC",
     "sound": "Sound",
     "soundOn": "Sound on",
     "soundOff": "Sound off",
-    "lost": "Unknown zone",
-    "hero": "Boot",
+    "lost": "Not found",
+    "hero": "Home",
     "intro": "About",
     "work": "Projects",
-    "skills": "Skills",
-    "certs": "Achievements",
-    "footer": "Continue?"
+    "skills": "Stack",
+    "certs": "Certifications",
+    "footer": "Contact",
+    "progress": "CTX",
+    "vector": "VEC",
+    "latency": "LAT"
   },
   "Stage": {
-    "face": "Gameplay & engines",
     "web": "Web",
     "tools": "Data & tools",
-    "engine": "Engine & network",
     "ai": "AI & agents",
-    "caption": "Exploded view — Player 1"
+    "caption": "Latent space — skills",
+    "game": "Game dev & engines"
   },
   "Card": {
-    "player": "Player 1",
     "alt": "Portrait of Arthur BRU",
     "projects": "Projects",
-    "certs": "Certifications"
+    "certs": "Certifications",
+    "profile": "Profile",
+    "tag": "web · ai"
   }
 }

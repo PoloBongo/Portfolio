@@ -6,19 +6,9 @@ import SplitReveal from "../Effects/SplitReveal";
 import Reveal from "../Effects/Reveal";
 import { gsap, Flip, EASE, prefersReducedMotion } from "../Effects/motion";
 
-// Compétences regroupées par domaine. to : page de projets liée · info : texte déroulant
+// Compétences regroupées par domaine, le web et l'IA d'abord.
+// to : page de projets liée · info : texte déroulant · name : nom propre affiché tel quel (sinon label = clé de traduction)
 const GROUPS = [
-  {
-    id: "game",
-    title: "Skills.game",
-    items: [
-      { id: "Unity", label: "Home.Unity", to: "/Unity" },
-      { id: "Cpp", label: "Home.C++", to: "/ProjectsVideosGames#Cpp" },
-      { id: "CSharp", label: "Home.C#", to: "/ProjectsVideosGames#CSharp" },
-      { id: "C", label: "Home.C" },
-      { id: "LUA", label: "Home.LUA", to: "/ProjectsVideosGames#LUA" },
-    ],
-  },
   {
     id: "web",
     title: "Skills.web",
@@ -37,13 +27,38 @@ const GROUPS = [
     ],
   },
   {
+    id: "ai",
+    title: "Skills.ai",
+    items: [
+      { id: "LLM", name: "LLM", to: "/AI" },
+      { id: "RAG", name: "RAG", to: "/AI" },
+      { id: "MCP", name: "MCP", to: "/AI" },
+      { id: "LangChain", name: "LangChain", to: "/AI" },
+      { id: "n8n", name: "n8n", to: "/AI" },
+      { id: "Qdrant", name: "Qdrant", to: "/AI" },
+      { id: "Ollama", name: "Ollama", to: "/AI" },
+      { id: "Streamlit", name: "Streamlit", to: "/AI" },
+    ],
+  },
+  {
     id: "tools",
     title: "Skills.tools",
     items: [
-      { id: "Python", label: "Home.Python", to: "/ProjectsVideosGames#Python" },
+      { id: "Python", label: "Home.Python", to: "/AI" },
       { id: "MySQL", label: "Home.MySQL", info: "Home.MySQLDescription" },
       { id: "Git", label: "Home.Git", info: "Home.GitDescription" },
       { id: "DevOps", label: "Home.DevOps", info: "Home.DevOpsDescription" },
+    ],
+  },
+  {
+    id: "game",
+    title: "Skills.game",
+    items: [
+      { id: "Unity", label: "Home.Unity", to: "/Unity" },
+      { id: "CSharp", label: "Home.C#", to: "/Unity" },
+      { id: "Cpp", label: "Home.C++", to: "/Unreal" },
+      { id: "C", label: "Home.C" },
+      { id: "LUA", label: "Home.LUA" },
     ],
   },
 ];
@@ -130,16 +145,17 @@ export default function Skills() {
               <Reveal as="ul" className="skills__grid" stagger={0.045} y={28} onPointerMove={onPointerMove}>
                 {group.items.map((skill) => {
                   const open = openId === skill.id;
+                  const name = skill.name || t(skill.label);
                   const body = (
                     <>
-                      <span className="skill__name">{t(skill.label)}</span>
+                      <span className="skill__name">{name}</span>
                       {skill.to ? <Arrow /> : skill.info ? <Plus /> : null}
                     </>
                   );
                   return (
                     <li className={`skill${open ? " is-open" : ""}`} key={skill.id}>
                       {skill.to && (
-                        <TLink className="skill__body" to={`/${lang}${skill.to}`} label={t(skill.label)}>
+                        <TLink className="skill__body" to={`/${lang}${skill.to}`} label={name}>
                           {body}
                         </TLink>
                       )}

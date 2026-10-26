@@ -100,15 +100,15 @@ const ContactMeT = ({ t }) => {
         lang={lang}
         path="/contactMe"
         title={`${t("ContactMe.title")} - Arthur BRU`}
-        description="Contactez Arthur BRU, développeur Web &amp; Jeu Vidéo. Envoyez-moi un message directement via ce formulaire de contact."
+        description="Contactez Arthur BRU, développeur Web &amp; IA. Envoyez-moi un message directement via ce formulaire de contact."
         ogTitle="Contact - Arthur BRU"
-        ogDescription="Contactez Arthur BRU, développeur Web &amp; Jeu Vidéo."
+        ogDescription="Contactez Arthur BRU, développeur Web &amp; IA."
         structuredData={`{
           "@context": "https://schema.org",
           "@type": "WebPage",
           "name": "Contact - Arthur BRU",
           "url": "https://www.arthur-portfolio.dev/contactMe",
-          "description": "Contactez Arthur BRU, développeur Web & Jeu Vidéo.",
+          "description": "Contactez Arthur BRU, développeur Web & IA.",
           "author": { "@type": "Person", "name": "Arthur BRU" }
         }`}
       />

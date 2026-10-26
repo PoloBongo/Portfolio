@@ -1,0 +1,130 @@
+/* ==========================================================================
+   Monde de Depths Of Hue : la coursive d'un sous-marin, hublots vert menthe. Page désaturée,
+   la couleur revient sous le curseur.
+   ========================================================================== */
+
+.w-depths-of-hue {
+  --w-display: "Cormorant", Georgia, "Times New Roman", serif;
+  --w-body: "Jost", "Helvetica Neue", Arial, sans-serif;
+}
+
+.w-depths-of-hue .w-title {
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(3rem, 0.8rem + 10vw, 8rem);
+  font-variation-settings: normal;
+  line-height: 0.95;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+
+.w-depths-of-hue .w-tagline {
+  color: var(--ink-dim);
+  font-family: var(--w-body);
+  font-weight: 300;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.4rem);
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+}
+
+@media (min-width: 760px) {
+  .w-depths-of-hue .w-title {
+    left: 6cqw;
+    top: 5cqw;
+    width: 50cqw;
+    font-size: 9.6cqw;
+  }
+
+  .w-depths-of-hue .w-tagline {
+    left: 6.4cqw;
+    top: 26cqw;
+    width: 40cqw;
+    max-width: none;
+    margin: 0;
+    font-size: 1.9cqw;
+  }
+}
+
+.w-depths-of-hue .w-stage {
+  background: linear-gradient(180deg, #02100f 0%, var(--w0) 55%, #02100f 100%);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.w-dh__art {
+  inset: 0;
+}
+
+.w-dh__art > * {
+  position: absolute;
+}
+
+.w-dh__hub {
+  top: 14cqw;
+  width: 11cqw;
+  height: 18cqw;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 40%, #b8ffe0 0%, var(--w1) 38%, #0a6b55 78%);
+  box-shadow: 0 0 5cqw 1.2cqw rgba(54, 227, 161, 0.55), inset 0 0 0 0.8cqw var(--w3);
+}
+
+.w-dh__coral {
+  bottom: 0;
+  width: 8cqw;
+  height: 15cqw;
+  background: var(--w2);
+  clip-path: polygon(48% 100%, 44% 55%, 20% 18%, 30% 14%, 46% 38%, 50% 0, 60% 0, 58% 40%, 78% 10%, 88% 16%, 62% 58%, 60% 100%);
+}
+
+.w-dh__fish {
+  top: var(--y);
+  left: -10cqw;
+  width: 6cqw;
+  height: 2.6cqw;
+  border-radius: 60% 40% 40% 60%;
+  background: #ffd36b;
+  animation: w-dh-swim var(--t) linear infinite;
+  animation-delay: var(--d);
+}
+
+.w-dh__fish::after {
+  content: "";
+  position: absolute;
+  right: -1.8cqw;
+  top: 0;
+  border: 1.3cqw solid transparent;
+  border-left: 1.9cqw solid #ffd36b;
+  border-right: 0;
+}
+
+@keyframes w-dh-swim {
+  to {
+    transform: translateX(120cqw);
+  }
+}
+
+.w-dh__bub {
+  bottom: -3cqw;
+  left: var(--x);
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  border: 0.2cqw solid rgba(228, 255, 244, 0.6);
+  animation: w-dh-rise var(--t) linear infinite;
+  animation-delay: var(--d);
+}
+
+@keyframes w-dh-rise {
+  to {
+    transform: translateY(-70cqw);
+  }
+}
+
+/* Voile gris sur toute la scène, percé d'un halo qui suit le curseur : la couleur revient dedans */
+.w-dh__grey {
+  inset: 0;
+  z-index: 3;
+  -webkit-backdrop-filter: grayscale(1) brightness(0.8);
+  backdrop-filter: grayscale(1) brightness(0.8);
+  -webkit-mask-image: radial-gradient(circle 14cqw at var(--mx) var(--my), transparent 0 55%, #000 100%);
+  mask-image: radial-gradient(circle 14cqw at var(--mx) var(--my), transparent 0 55%, #000 100%);
+}

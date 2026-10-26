@@ -1,13 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import { useTranslation } from "react-i18next";
 import Parallax from "../Effects/Parallax";
 import { prefersReducedMotion } from "../Effects/motion";
 import { hasClip, clipSrc, clipPoster, canAutoplayClips } from "../Pages/clips";
+import { posterOf, posterHandlers, videoIdOf } from "../Pages/media";
 import Button from "./Button";
 
-const ytThumb = (id) => `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
-const ytThumbFallback = (id) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+// Schémas animés qui tiennent lieu de vignette quand un projet n'a ni image ni vidéo (chargés à la demande)
+const DIAGRAMS = { rag: lazy(() => import("./RagDiagram")) };
 
 const PlayIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -74,12 +75,10 @@ export default function ProjectMedia({ project, title }) {
   const clipRef = useRef(null);
 
   const lang = (i18n.language || "fr").slice(0, 2);
-  const videoId =
-    project.video && typeof project.video === "object"
-      ? project.video[lang] || project.video.en
-      : project.video;
+  const videoId = videoIdOf(project, lang);
   const hasGame = !!project.game;
-  const posterSrc = project.poster || (videoId ? ytThumb(videoId) : null);
+  const posterSrc = posterOf(project, lang);
+  const Diagram = !posterSrc && project.diagram ? DIAGRAMS[project.diagram] : null;
   const g = project.gameLabels || {};
 
   const startGame = () => setMode(project.alertKey ? "confirm" : "game");
@@ -141,27 +140,13 @@ export default function ProjectMedia({ project, title }) {
     }
   }, [mode]);
 
-  const onPosterError = (e) => {
-    const img = e.currentTarget;
-    if (videoId && !img.dataset.fallback) {
-      img.dataset.fallback = "1";
-      img.src = ytThumbFallback(videoId);
-    }
-  };
-  // YouTube renvoie une vignette grise de 120×90 quand la version HD n'existe pas
-  const onPosterLoad = (e) => {
-    const img = e.currentTarget;
-    if (videoId && img.naturalWidth <= 120 && !img.dataset.fallback) {
-      img.dataset.fallback = "1";
-      img.src = ytThumbFallback(videoId);
-    }
-  };
+  const { onError: onPosterError, onLoad: onPosterLoad } = posterHandlers(videoId);
 
   const canPlay = !!videoId || hasGame;
 
   return (
     <div className={`player player--${mode}`} ref={frameRef}>
-      <div className="player__poster">
+      <div className={`player__poster${Diagram ? " player__poster--diagram" : ""}`}>
         {posterSrc ? (
           <Parallax amount={7} className="player__parallax">
             <img
@@ -187,6 +172,12 @@ export default function ProjectMedia({ project, title }) {
               />
             )}
           </Parallax>
+        ) : Diagram ? (
+          <div className="player__placeholder">
+            <Suspense fallback={null}>
+              <Diagram tags={project.tags} />
+            </Suspense>
+          </div>
         ) : (
           <div className="player__placeholder" aria-hidden="true">
             <span className="serif">{title}</span>

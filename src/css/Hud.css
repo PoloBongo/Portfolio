@@ -1,5 +1,5 @@
 /* ==========================================================================
-   HUD « moteur de jeu » : coins de cadre, logo, barre d'état
+   HUD « console » : coins de cadre, logo, barre d'état (section, contexte, vecteur, latence, heure, son)
    z-index : 850 (sous le menu 1000, le rideau 9000 et le préloader 10000)
    ========================================================================== */
 
@@ -85,7 +85,7 @@ html.is-switching .hud__corner--br {
   height: 44px;
   border: 1px solid var(--line-strong);
   border-radius: 12px;
-  background: rgba(10, 10, 15, 0.35);
+  background: rgba(var(--bg-rgb), 0.35);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   color: var(--ink);
@@ -114,7 +114,7 @@ html.is-switching .hud__corner--br {
   justify-content: space-between;
   gap: 20px;
   padding: 44px var(--pad-x) calc(16px + env(safe-area-inset-bottom, 0px));
-  background: linear-gradient(0deg, rgba(10, 10, 15, 0.96) 50%, rgba(10, 10, 15, 0));
+  background: linear-gradient(0deg, rgba(var(--bg-rgb), 0.96) 50%, rgba(var(--bg-rgb), 0));
 }
 
 .hud__item,
@@ -143,7 +143,7 @@ html.is-switching .hud__corner--br {
   color: var(--ink);
 }
 
-/* Barre d'XP segmentée : le masque découpe les cases, clip-path révèle la progression */
+/* Barre de contexte segmentée : le masque découpe les cases, clip-path révèle la progression */
 .hud__xp {
   position: relative;
   width: clamp(90px, 18vw, 240px);
@@ -194,7 +194,7 @@ html.is-switching .hud__corner--br {
   padding: 0 12px 0 10px;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
-  background: rgba(10, 10, 15, 0.5);
+  background: rgba(var(--bg-rgb), 0.5);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   color: var(--ink);

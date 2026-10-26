@@ -6,6 +6,7 @@ export const GAMEJAM_PROJECTS = [
   {
     id: "attraction-flow",
     title: "Attraction Flow",
+    tags: "Unity · Mobile · 42 h",
     video: "-F1GZJYqFyw",
     game: unityBuild("BuildAttractionFlowGameJam"),
     alertKey: "GameJam.AttractionFlow.Alert",
@@ -31,6 +32,7 @@ export const GAMEJAM_PROJECTS = [
   {
     id: "stay-soul",
     title: "Stay Soul",
+    tags: "Unity · Game Jam · 42 h",
     // Trailer différent selon la langue du visiteur
     video: { fr: "zU-sBTZ5yp4", en: "qKD15vTFgAM", es: "qKD15vTFgAM" },
     game: unityBuild("BuildStaySoulGameJam"),
@@ -49,6 +51,7 @@ export const GAMEJAM_PROJECTS = [
   {
     id: "choco-blast",
     title: "Choco Blast",
+    tags: "Unity · Game Jam · 48 h",
     poster: backgroundChocoBlast,
     alt: "Choco Blast Menu Principal",
     game: unityBuild("BuildChocolatoGameJam"),

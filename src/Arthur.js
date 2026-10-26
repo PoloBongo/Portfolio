@@ -20,7 +20,7 @@ import { withTranslation } from "react-i18next";
 // Speed Page
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
-const MARQUEE_ITEMS = ["Unity", "Unreal Engine", "C++", "C#", "React", "Next.js", "Python", "LLM", "RAG"];
+const MARQUEE_ITEMS = ["React", "Next.js", "TypeScript", "Python", "LLM", "RAG", "MCP", "n8n", "Vue.js", "Docker"];
 
 const HomeT = () => {
   const { lang = "fr" } = useParams();
@@ -30,16 +30,16 @@ const HomeT = () => {
       <SpeedInsights />
       <SEO
         lang={lang}
-        title="Portfolio - Arthur BRU | Développeur Web &amp; Jeu Vidéo"
-        description="Portfolio d'Arthur BRU, développeur Web &amp; Jeu Vidéo. Certifié en IA (MCP, LangChain, Streamlit). Compétences en Unity, Unreal Engine, C++, React."
-        ogDescription="Portfolio d'Arthur BRU, développeur Web &amp; Jeu Vidéo. Certifié Educative en IA : MCP Fundamentals, LangChain, Streamlit. Découvrez mes projets Unity, Unreal Engine, Game Jam et web."
+        title="Portfolio - Arthur BRU | Développeur Web &amp; IA"
+        description="Portfolio d'Arthur BRU, développeur Web &amp; IA : applications React / Next.js, pipelines RAG, agents et automatisations n8n. Certifié en IA (MCP, LangChain, Streamlit)."
+        ogDescription="Portfolio d'Arthur BRU, développeur Web &amp; IA. Certifié Educative en IA : MCP Fundamentals, LangChain, Streamlit. Découvrez mes projets web, IA &amp; automatisation, ainsi que mes projets Unity et Unreal Engine."
         structuredData={[
           `{
               "@context": "https://schema.org",
               "@type": "WebPage",
-              "name": "Portfolio - Arthur BRU | Développeur Web & Jeu Vidéo",
+              "name": "Portfolio - Arthur BRU | Développeur Web & IA",
               "url": "https://www.arthur-portfolio.dev/",
-              "description": "Portfolio d'Arthur BRU, développeur Web & Jeu Vidéo. Certifié en IA (MCP, LangChain, Streamlit). Compétences en Unity, Unreal Engine, C++, React.",
+              "description": "Portfolio d'Arthur BRU, développeur Web & IA : applications React / Next.js, pipelines RAG, agents et automatisations n8n. Certifié en IA (MCP, LangChain, Streamlit).",
               "author": { "@type": "Person", "name": "Arthur BRU" }
             }`,
           `{

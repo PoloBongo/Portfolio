@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap, EASE } from "./motion";
-import { introMode, releaseIntro } from "./intro";
+import { announceBuild, introMode, releaseIntro } from "./intro";
 import { whenLoaded } from "./ready";
 import { isSoundOn, play } from "./sound";
 
@@ -18,18 +18,18 @@ const BUILD = (() => {
 const logFor = (mode) => {
   if (mode === "short") {
     return [
-      { text: "boot arthur_engine v5.1", state: "", tone: "dim" },
-      { text: "mount /assets", state: "ok", tone: "ok" },
-      { text: "player 1", state: "ready", tone: "go" },
+      { text: "init latent_space v5.1", state: "", tone: "dim" },
+      { text: "mount /embeddings", state: "ok", tone: "ok" },
+      { text: "ready", state: "online", tone: "go" },
     ];
   }
   return [
-    { text: "boot arthur_engine v5.1", state: "", tone: "dim" },
-    { text: "mount /assets", state: "ok", tone: "ok" },
-    { text: "compile shaders", state: "ok", tone: "ok" },
-    { text: "load controller.mesh", state: "ok", tone: "ok", wait: true },
+    { text: "init latent_space v5.1", state: "", tone: "dim" },
+    { text: "mount /embeddings", state: "ok", tone: "ok" },
+    { text: "embed projects", state: "ok", tone: "ok" },
+    { text: "load field.points", state: "ok", tone: "ok", wait: true },
     { text: "sync audio bus", state: isSoundOn() ? "armed" : "muted", tone: "dim" },
-    { text: "player 1", state: "ready", tone: "go" },
+    { text: "ready", state: "online", tone: "go" },
   ];
 };
 
@@ -46,7 +46,8 @@ export default function Preloader() {
       if (introMode === "none") return undefined;
 
       const q = gsap.utils.selector(rootRef.current);
-      const duration = introMode === "full" ? 2.1 : 1.1;
+      // Un peu plus lent qu'avant : chaque salutation reste lisible (~0,7 s) avant que le nuage n'écrive le nom
+      const duration = introMode === "full" ? 2.8 : 1.1;
       const counter = { value: 0 };
       const countEl = q(".preloader__count span")[0];
       const greetEl = q(".preloader__greet span")[0];
@@ -58,7 +59,7 @@ export default function Preloader() {
         countEl.textContent = String(Math.round(counter.value)).padStart(3, "0");
       };
 
-      // Chargements déclarés par la page (scène 3D) : évalués au dernier moment, plafonnés dans le temps
+      // Chargements déclarés par la page (nuage de points) : évalués au dernier moment, plafonnés dans le temps
       let loaded = null;
       const whenAssetsReady = () => {
         if (!loaded) loaded = Promise.race([whenLoaded(), wait(WAIT_CAP)]);
@@ -116,6 +117,8 @@ export default function Preloader() {
         if (i < GREETINGS.length - 1) {
           tl.to(greetEl, { yPercent: -110, duration: 0.3, ease: "power3.in" }, at + step - 0.3);
         }
+        // Sur l'accueil, le nuage commence à écrire le nom derrière le rideau dès la troisième salutation
+        if (i === 2 && introMode === "full") tl.add(announceBuild, at);
       });
 
       // Pause à 90 % tant que le chargement n'est pas terminé
@@ -129,6 +132,7 @@ export default function Preloader() {
         .to(q(".preloader__rail i"), { scaleX: 1, duration: 0.45, ease: "power2.out" }, "hold+=0.02")
         .addLabel("exit", ">+0.3")
         .add(() => play("boot"), "exit")
+        .add(announceBuild, "exit")
         .to(q(".preloader__corner"), { opacity: 0, duration: 0.4 }, "exit")
         .to(
           q(".preloader__ui > *:not(.preloader__corner)"),
@@ -143,7 +147,16 @@ export default function Preloader() {
         .to(q(".preloader__panel--bottom"), { yPercent: 100, duration: 1.05, ease: EASE.inOut }, "exit+=0.3")
         .add(() => setDone(true));
 
-      return undefined;
+      // Passable : un clic ou une touche accélère la séquence (le chargement réel reste attendu)
+      const root = rootRef.current;
+      const skip = () => tl.timeScale(4);
+      root.addEventListener("pointerdown", skip, { once: true });
+      window.addEventListener("keydown", skip, { once: true });
+
+      return () => {
+        root.removeEventListener("pointerdown", skip);
+        window.removeEventListener("keydown", skip);
+      };
     },
     { scope: rootRef }
   );
@@ -159,7 +172,7 @@ export default function Preloader() {
         <i className="preloader__corner hud__corner hud__corner--tr" />
         <i className="preloader__corner hud__corner hud__corner--bl" />
         <i className="preloader__corner hud__corner hud__corner--br" />
-        <span className="preloader__meta mono">Arthur_Engine v5.1</span>
+        <span className="preloader__meta mono">latent_space v5.1</span>
         <span className="preloader__meta preloader__meta--right mono">Build {BUILD}</span>
         <div className="preloader__greet">
           <span>{GREETINGS[0]}</span>

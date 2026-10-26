@@ -1,0 +1,96 @@
+/* ==========================================================================
+   Monde d'Au fil des images : un fil continu qui relie des cadres photo, comme un linge de photos.
+   Thème clair (crème et aubergine), le corail du fil comme accent.
+   ========================================================================== */
+
+.w-au-fil-des-images {
+  --w-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --w-body: "Figtree", "Helvetica Neue", Arial, sans-serif;
+}
+
+.w-au-fil-des-images .w-title {
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(2.4rem, 0.8rem + 8.6vw, 6.4rem);
+  font-variation-settings: "opsz" 144;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.w-au-fil-des-images .w-tagline {
+  color: var(--violet);
+  font-family: var(--w-body);
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.4rem);
+  line-height: 1.45;
+}
+
+@media (min-width: 760px) {
+  .w-au-fil-des-images .w-title {
+    left: 5.5cqw;
+    top: 35cqw;
+    font-size: 8.4cqw;
+    white-space: nowrap;
+  }
+
+  .w-au-fil-des-images .w-tagline {
+    left: 6cqw;
+    top: 47cqw;
+    width: 58cqw;
+    max-width: none;
+    margin: 0;
+    font-size: 1.9cqw;
+  }
+}
+
+.w-au-fil-des-images .w-stage {
+  background: radial-gradient(60% 80% at 18% 8%, rgba(255, 198, 92, 0.38), transparent 62%),
+    radial-gradient(50% 70% at 92% 90%, rgba(107, 63, 181, 0.16), transparent 70%), var(--w0);
+  box-shadow: 0 0 0 1px var(--line-strong);
+}
+
+.w-fil__svg {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.w-fil__thread {
+  fill: none;
+  stroke: var(--w1);
+  stroke-width: 0.42;
+  stroke-linecap: round;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: w-fil-draw 2.6s 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes w-fil-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.w-fil__ph {
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+  animation: w-fil-sway 4.8s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.9s);
+}
+
+@keyframes w-fil-sway {
+  0%,
+  100% {
+    transform: rotate(-2.4deg);
+  }
+  50% {
+    transform: rotate(2.4deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .w-fil__thread {
+    stroke-dashoffset: 0;
+  }
+}

@@ -21,18 +21,39 @@
 
 /* ---------- Hero ---------- */
 
+/* Trois écrans de haut : la scène (.hero__stage) reste épinglée pendant que le défilement fait avancer les actes
+   (voir Hero.js). Le hero ne crée pas de contexte d'empilement : son dégradé (z -1) passe sous le nuage, la scène
+   (texte, rail) par-dessus. */
 .hero {
+  --act: #d9ff4a;
   position: relative;
-  display: flex;
-  min-height: 100svh;
+  height: calc(100svh * 3);
   overflow: clip;
-  isolation: isolate;
 }
 
-.hero__bg {
+.hero__stage {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  height: 100svh;
+  overflow: clip;
+}
+
+/* Acte Jeu : de fines lignes de balayage sur toute la scène, comme un vieux moniteur */
+.hero__stage::after {
+  content: "";
   position: absolute;
   inset: 0;
-  z-index: -2;
+  z-index: 2;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.24) 0 1px, transparent 1px 3px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.9s var(--ease-out);
+}
+
+.hero[data-act="2"] .hero__stage::after {
+  opacity: 0.55;
 }
 
 .aurora__canvas {
@@ -46,16 +67,20 @@
     radial-gradient(50% 50% at 18% 82%, rgba(40, 52, 190, 0.3), transparent 70%), var(--bg);
 }
 
+/* Dégradé d'un écran de haut, épinglé comme la scène : il assombrit le haut (barre du site) et le bas (rail, HUD)
+   à chaque acte. Frère de la scène et non enfant, pour rester sous le nuage (z -1 dans le contexte racine). */
 .hero__shade {
-  position: absolute;
-  inset: 0;
+  position: sticky;
+  top: 0;
   z-index: -1;
-  background: linear-gradient(180deg, rgba(10, 10, 15, 0.4) 0%, rgba(10, 10, 15, 0) 36%),
-    linear-gradient(0deg, var(--bg) 0%, rgba(10, 10, 15, 0) 28%);
+  height: 100svh;
+  margin-bottom: -100svh;
+  background: linear-gradient(180deg, rgba(10, 10, 15, 0.4) 0, rgba(10, 10, 15, 0) 36%),
+    linear-gradient(0deg, var(--bg) 0, rgba(10, 10, 15, 0) 28%);
   pointer-events: none;
 }
 
-/* La manette 3D (canvas fixe dans le hero) passe derrière le texte du hero et derrière toutes les sections suivantes */
+/* Le nuage de points (canvas fixe dans le hero) passe derrière le texte du hero et derrière toutes les sections suivantes */
 .landing main > :not(.hero),
 .landing .footer {
   position: relative;
@@ -69,7 +94,7 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 100svh;
-  padding-top: clamp(110px, 17vh, 180px);
+  padding-top: clamp(84px, 12vh, 180px);
   /* La barre d'état du HUD occupe le bas de l'écran */
   padding-bottom: calc(clamp(24px, 4vh, 48px) + 46px);
 }
@@ -82,6 +107,8 @@
 .hero__hello {
   margin-bottom: clamp(14px, 2vw, 26px);
   color: var(--ink-dim);
+  /* Halo sombre : le libellé reste lisible quand le nuage passe derrière (mobile) */
+  text-shadow: 0 0 10px var(--bg), 0 0 3px var(--bg);
 }
 
 .hero__name {
@@ -94,8 +121,9 @@
 
 /* Le nom occupe toute la largeur du conteneur, sur une ligne (deux sur mobile) */
 @supports (width: 1cqw) {
+  /* La scène épinglée tient dans l'écran : sur un écran peu haut, la hauteur plafonne le titre */
   .hero__name {
-    font-size: calc(100cqw / 4.5);
+    font-size: min(calc(100cqw / 4.5), 38svh);
   }
 
   @media (max-width: 700px) {
@@ -105,31 +133,162 @@
   }
 }
 
-
 .hero__name .split-char {
   font-variation-settings: "wght" var(--w, 760), "wdth" 86, "opsz" 96;
 }
 
+/* ---------- Actes : un monde par rôle ---------- */
+
 .hero__roles {
-  height: 1.22em;
   margin-top: clamp(20px, 2.6vw, 38px);
-  overflow: hidden;
-  color: var(--violet);
-  font-size: clamp(1.8rem, 1rem + 3.6vw, 4.6rem);
+}
+
+/* Les trois actes occupent la même case : la hauteur est celle du plus grand, rien ne bouge quand on change */
+.hero__acts {
+  display: grid;
+}
+
+.hero__act {
+  grid-area: 1 / 1;
+}
+
+.hero__act--web {
+  --c: #d9ff4a;
+}
+
+.hero__act--ai {
+  --c: #63e6be;
+}
+
+.hero__act--game {
+  --c: #ff5fa8;
+}
+
+.hero__role {
+  display: inline-block;
+  color: var(--c);
+  font-size: min(clamp(1.8rem, 1rem + 3.6vw, 4.6rem), 6.6svh);
   line-height: 1.22;
 }
 
-.hero__roles-list li {
-  height: 1.22em;
-  white-space: nowrap;
+.hero__role-text {
+  position: relative;
+  display: inline-block;
 }
+
+/* Mosaïque de l'acte Jeu : posée par-dessus le texte le temps qu'il se résolve */
+.hero__pixel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* Web : grotesque grasse en capitales, ombre dure, comme une maquette qui se pose */
+.hero__act--web .hero__role {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: min(clamp(1.7rem, 0.9rem + 3.3vw, 4.2rem), 6.2svh);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.hero__act--web .hero__role-text {
+  text-shadow: 0.055em 0.055em 0 var(--c);
+}
+
+/* IA : l'italique serif du site, écrit comme une sortie de modèle (curseur qui clignote) */
+.hero__act--ai .hero__role {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.hero__act--ai .hero__role-text::after {
+  content: "";
+  display: inline-block;
+  width: 0.07em;
+  height: 0.78em;
+  margin-left: 0.14em;
+  background: var(--c);
+  vertical-align: -0.02em;
+  animation: caret 1.05s steps(1) infinite;
+}
+
+/* Jeu : monospace en capitales, couleur d'arcade, légère frange RVB */
+.hero__act--game .hero__role {
+  font-family: var(--font-mono);
+  font-size: min(clamp(1.25rem, 0.75rem + 2.4vw, 3.1rem), 4.6svh);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.hero__act--game .hero__role-text {
+  text-shadow: 0.05em 0 0 rgba(0, 224, 255, 0.5), -0.05em 0 0 rgba(255, 60, 120, 0.4);
+}
+
+/* Accroche écrite « en streaming » : les jetons apparaissent un à un, suivis d'un curseur qui clignote */
+.hero__tagline {
+  margin-top: clamp(16px, 2vw, 28px);
+  color: var(--ink-dim);
+  font-size: clamp(0.72rem, 0.66rem + 0.3vw, 0.9rem);
+  letter-spacing: 0.1em;
+}
+
+.hero__caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 0.25em;
+  background: var(--c);
+  vertical-align: -0.18em;
+  animation: caret 1.05s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__caret,
+  .hero__act--ai .hero__role-text::after {
+    animation: none;
+  }
+}
+
+/* Lien vers le monde : souligné de la couleur de l'acte, la flèche s'éloigne au survol */
+.hero__enter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  margin-top: clamp(14px, 1.8vw, 24px);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line-strong);
+  border-bottom-color: color-mix(in srgb, var(--c) 45%, transparent);
+  color: var(--c);
+  transition: border-color 0.4s var(--ease-out), gap 0.4s var(--ease-out);
+}
+
+.hero__enter:hover,
+.hero__enter:focus-visible {
+  gap: 1.3em;
+  border-bottom-color: var(--c);
+}
+
+/* ---------- Pied du hero : actions, rail des actes, repère de défilement ---------- */
 
 .hero__foot {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 24px;
-  margin-top: clamp(32px, 6vh, 72px);
+  gap: 20px 24px;
+  margin-top: clamp(20px, 4vh, 72px);
 }
 
 .hero__actions {
@@ -164,6 +323,130 @@
 .hero__social:focus-visible {
   border-color: var(--violet);
   background: var(--violet);
+  color: #0a0a0f;
+}
+
+/* Le rail et la pause n'apparaissent qu'avec l'entrée : tant qu'elle joue (data-started), ils sont inertes */
+.hero:not([data-started]) .hero__controls {
+  pointer-events: none;
+}
+
+/* Capsule sombre : le rail reste lisible quand le nuage passe derrière */
+.hero__controls {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.6vw, 22px);
+  padding: 4px 6px 4px clamp(14px, 1.6vw, 22px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(10, 10, 15, 0.62);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.hero__rail {
+  display: flex;
+  gap: clamp(10px, 1.4vw, 20px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Chaque entrée du rail porte la couleur de son monde (barre de progression, numéro actif) */
+.hero__rail li:nth-child(1) {
+  --c: #d9ff4a;
+}
+
+.hero__rail li:nth-child(2) {
+  --c: #63e6be;
+}
+
+.hero__rail li:nth-child(3) {
+  --c: #ff5fa8;
+}
+
+.hero__rail-btn {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 0.8em;
+  min-width: clamp(78px, 8.5vw, 124px);
+  padding: 10px 0 13px;
+  color: var(--ink-faint);
+  letter-spacing: 0.1em;
+  /* Halo sombre : le libellé reste lisible quand le nuage passe derrière */
+  text-shadow: 0 0 10px var(--bg), 0 0 3px var(--bg);
+  transition: color 0.5s var(--ease-out);
+}
+
+.hero__rail-btn::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.hero__rail-bar {
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: var(--c);
+  box-shadow: 0 0 8px var(--c);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+
+.hero__rail-btn:hover,
+.hero__rail-btn:focus-visible,
+.hero__rail-btn.is-active {
+  color: var(--ink);
+}
+
+.hero__rail-btn.is-done {
+  color: var(--ink-dim);
+}
+
+.hero__rail-btn.is-active .hero__rail-n {
+  color: var(--c);
+}
+
+.hero__pause {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--ink);
+  transition: background 0.4s var(--ease-out), color 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+}
+
+.hero__pause svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.hero__pause .i-play,
+.hero__pause .i-replay {
+  display: none;
+}
+
+.hero__pause[data-state="play"] .i-pause,
+.hero__pause[data-state="replay"] .i-pause {
+  display: none;
+}
+
+.hero__pause[data-state="play"] .i-play,
+.hero__pause[data-state="replay"] .i-replay {
+  display: block;
+}
+
+.hero__pause:hover,
+.hero__pause:focus-visible {
+  border-color: var(--act);
+  background: var(--act);
   color: #0a0a0f;
 }
 
@@ -206,6 +489,119 @@
 @media (max-width: 700px) {
   .hero__scroll {
     display: none;
+  }
+
+  /* Rail resserré : seul l'acte en cours garde son nom, il prend la place restante */
+  .hero__controls {
+    order: 3;
+    width: 100%;
+  }
+
+  .hero__rail {
+    flex: 1;
+    gap: 14px;
+  }
+
+  .hero__rail li.is-active {
+    flex: 1;
+  }
+
+  .hero__rail-btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Masqués à l'œil mais pas aux lecteurs d'écran : le nom du bouton reste « 02 IA » */
+  .hero__rail li:not(.is-active) .hero__rail-name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* Mouvement réduit : pas de scène épinglée ni de visite, les trois rôles restent côte à côte */
+.hero--static {
+  height: auto;
+}
+
+.hero--static .hero__stage {
+  position: relative;
+  height: auto;
+  min-height: 100svh;
+}
+
+.hero--static .hero__shade {
+  position: absolute;
+  inset: 0;
+  height: auto;
+  margin: 0;
+}
+
+.hero--static .hero__stage::after,
+.hero--static .hero__controls {
+  display: none;
+}
+
+.hero--static .hero__acts {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px clamp(20px, 3vw, 48px);
+}
+
+.hero--static .hero__act {
+  grid-area: auto;
+}
+
+/* Trois colonnes : les rôles passent en plus petit pour tenir chacun dans la leur */
+.hero--static .hero__act .hero__role {
+  font-size: clamp(1.15rem, 0.7rem + 1.3vw, 1.9rem);
+}
+
+.hero--static .hero__tagline {
+  letter-spacing: 0.06em;
+}
+
+/* Halo sombre : la sphère fixe passe derrière la troisième colonne, le texte reste lisible */
+.hero--static .hero__tagline,
+.hero--static .hero__enter,
+.hero--static .hero__act--ai .hero__role-text {
+  text-shadow: 0 0 12px var(--bg), 0 0 3px var(--bg);
+}
+
+.hero--static .hero__act--game .hero__role-text {
+  text-shadow: 0.05em 0 0 rgba(0, 224, 255, 0.5), -0.05em 0 0 rgba(255, 60, 120, 0.4), 0 0 12px var(--bg),
+    0 0 3px var(--bg);
+}
+
+@media (max-width: 900px) {
+  .hero--static .hero__acts {
+    grid-template-columns: 1fr;
+  }
+
+  .hero--static .hero__act .hero__role {
+    font-size: clamp(1.3rem, 1rem + 2vw, 1.9rem);
+  }
+}
+
+/* Écran trop bas pour épingler une scène de la hauteur de l'écran : un seul écran, les actes avancent seuls */
+@media (max-height: 560px) {
+  .hero {
+    height: auto;
+  }
+
+  .hero__stage {
+    position: relative;
+    height: auto;
+    min-height: 100svh;
+  }
+
+  .hero__shade {
+    position: absolute;
+    inset: 0;
+    height: auto;
+    margin: 0;
   }
 }
 
@@ -288,7 +684,7 @@
   line-height: 1.6;
 }
 
-/* La carte du joueur reste à côté du texte quand l'écran le permet */
+/* La carte de profil reste à côté du texte quand l'écran le permet */
 @media (min-width: 901px) {
   .intro__grid {
     grid-template-columns: minmax(0, 1fr) clamp(300px, 27vw, 400px);
@@ -320,6 +716,21 @@
 
 .work__row {
   border-bottom: 1px solid var(--line);
+}
+
+/* Le jeu vidéo reste accessible mais passe au second plan : intitulé de groupe, lignes plus petites et plus discrètes */
+.work__group {
+  padding-block: clamp(34px, 4.5vw, 64px) 14px;
+  color: var(--ink-faint);
+}
+
+.work__row--sub .work__link {
+  padding-block: clamp(14px, 1.8vw, 24px);
+}
+
+.work__row--sub .work__name {
+  color: var(--ink-dim);
+  font-size: clamp(1.5rem, 0.9rem + 2.4vw, 3.4rem);
 }
 
 .work__link {
@@ -395,6 +806,40 @@
   object-fit: cover;
 }
 
+/* Sélection : six projets en cartes, chacun mène à la page de son monde */
+.work__featured {
+  padding-top: clamp(60px, 8vw, 130px);
+}
+
+.work__featured-head {
+  margin-bottom: clamp(24px, 3.4vw, 48px);
+}
+
+.work .work__cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-bottom: 0;
+}
+
+.work .work__cards .proj__title {
+  font-size: clamp(1.5rem, 1rem + 1.4vw, 2.5rem);
+}
+
+.work .work__cards .proj__body {
+  padding-right: 0;
+}
+
+@media (max-width: 1100px) {
+  .work .work__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .work .work__cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 @media (max-width: 900px) {
   .work__link {
     grid-template-columns: 36px minmax(0, 1fr) 28px;
@@ -422,7 +867,7 @@
   padding-block: clamp(70px, 10vw, 150px) 0;
 }
 
-/* Colonne de gauche : la manette éclatée (le canvas est fixe, la colonne lui donne sa place) ; à droite, les compétences */
+/* Colonne de gauche : la constellation de compétences (le canvas est fixe, la colonne lui donne sa place) ; à droite, les compétences */
 .skills__layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

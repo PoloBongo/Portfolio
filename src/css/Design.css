@@ -6,6 +6,7 @@
   --bg: #0a0a0f;
   --bg-raised: #12121a;
   --bg-sunken: #07070b;
+  --bg-rgb: 10, 10, 15;
   --ink: #f3f0ea;
   --ink-dim: rgba(243, 240, 234, 0.66);
   --ink-faint: rgba(243, 240, 234, 0.5);

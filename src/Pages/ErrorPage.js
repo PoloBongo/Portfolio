@@ -7,7 +7,6 @@ import FocusLoop from "../Component/FocusLoop";
 import Button from "../Component/Button";
 import { Loader } from "../Component/Loader";
 import { gsap, EASE, onReady, prefersReducedMotion, hasFinePointer } from "../Effects/motion";
-import pikachuWait from "../img/pikachuWait.webp";
 import "../css/Pages.css";
 
 const ErrorPageT = ({ t, code = 404 }) => {
@@ -20,22 +19,15 @@ const ErrorPageT = ({ t, code = 404 }) => {
       if (prefersReducedMotion()) return undefined;
       const q = gsap.utils.selector(rootRef);
 
-      // Entrée : chiffres qui montent, texte puis bouton, Pikachu qui se faufile en bas
+      // Entrée : chiffres qui montent, puis texte et bouton (le nuage de points, en bruit, reste derrière)
       const tl = gsap.timeline({ paused: true, defaults: { ease: EASE.out } });
-      tl.fromTo(q(".notfound__digit"), { yPercent: 120 }, { yPercent: 0, duration: 1.4, stagger: 0.1 }, 0)
-        .fromTo(q(".notfound__text > *"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 1, stagger: 0.1 }, 0.5)
-        .fromTo(q(".notfound__pika"), { yPercent: 105 }, { yPercent: 38, duration: 1.4 }, 1.2);
+      tl.fromTo(q(".notfound__digit"), { yPercent: 120 }, { yPercent: 0, duration: 1.4, stagger: 0.1 }, 0).fromTo(
+        q(".notfound__text > *"),
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 1, stagger: 0.1 },
+        0.5
+      );
       const cancelReady = onReady(() => tl.play());
-
-      // Petit mouvement de balancier de Pikachu
-      gsap.to(q(".notfound__pika"), {
-        rotation: 3,
-        transformOrigin: "50% 100%",
-        duration: 2.2,
-        ease: "sine.inOut",
-        yoyo: true,
-        repeat: -1,
-      });
 
       // Les chiffres se déplacent légèrement avec le curseur, à des profondeurs différentes
       let removePointer = () => {};
@@ -68,7 +60,7 @@ const ErrorPageT = ({ t, code = 404 }) => {
   return (
     <div className="page" ref={rootRef}>
       <FocusLoop>
-        <main id="main" className="notfound">
+        <main id="main" className="notfound" data-cursor="query">
           <p className="notfound__code" aria-hidden="true">
             {digits.map((digit, i) => (
               <span className="notfound__digit-wrap" key={i}>
@@ -83,14 +75,6 @@ const ErrorPageT = ({ t, code = 404 }) => {
               {t("ErrorPage.backHome")}
             </Button>
           </div>
-          <img
-            className="notfound__pika"
-            src={pikachuWait}
-            alt=""
-            width="200"
-            height="209"
-            aria-hidden="true"
-          />
         </main>
         <Navbar />
       </FocusLoop>

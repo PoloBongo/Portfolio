@@ -1,0 +1,168 @@
+/* ==========================================================================
+   Monde de Spacial Race : la course du jeu. Route d'asphalte grise sous la neige, lignes jaunes, voiture orange à la
+   flamme, chronomètre blanc minimal (thème clair). La gravité s'inverse et la route se retourne.
+   ========================================================================== */
+
+.w-spacial-race {
+  --w-display: "Chakra Petch", "Arial Narrow", Arial, sans-serif;
+  --w-body: "Chakra Petch", "Arial Narrow", Arial, sans-serif;
+  --w-mono: "Chakra Petch", ui-monospace, Menlo, Consolas, monospace;
+}
+
+.w-spacial-race .w-title {
+  font-weight: 700;
+  font-size: clamp(2.8rem, 0.8rem + 9vw, 7rem);
+  font-variation-settings: normal;
+  line-height: 0.98;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.w-spacial-race .w-tagline {
+  color: var(--ink-dim);
+  font-family: var(--w-body);
+  font-weight: 600;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.4rem);
+  line-height: 1.4;
+}
+
+@media (min-width: 760px) {
+  .w-spacial-race .w-title {
+    left: 5cqw;
+    top: 6cqw;
+    width: 40cqw;
+    font-size: 6.6cqw;
+  }
+
+  .w-spacial-race .w-tagline {
+    left: 5.4cqw;
+    top: 22cqw;
+    width: 34cqw;
+    max-width: none;
+    margin: 0;
+    font-size: 2cqw;
+  }
+}
+
+.w-spacial-race .w-stage {
+  background: #c9ced2;
+  cursor: pointer;
+}
+
+.w-sr__world {
+  inset: 0;
+  transition: transform 1.1s cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+.w-sr--flip .w-sr__world {
+  transform: rotate(180deg);
+}
+
+.w-sr__world > * {
+  position: absolute;
+}
+
+.w-sr__world .w-cv {
+  inset: 0;
+}
+
+.w-sr__sky {
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 44%;
+  background: linear-gradient(180deg, #e9eef2, #cfd6db);
+}
+
+.w-sr__mtn {
+  bottom: 56%;
+  width: 40cqw;
+  height: 14cqw;
+  background: linear-gradient(135deg, #fff, #cbd5dc);
+  clip-path: polygon(0 100%, 30% 12%, 48% 52%, 66% 0, 100% 100%);
+}
+
+.w-sr__car {
+  left: 52cqw;
+  top: 31cqw;
+  width: 12cqw;
+  height: 5.6cqw;
+  z-index: 3;
+  animation: w-sr-car 1.1s ease-in-out infinite;
+}
+
+@keyframes w-sr-car {
+  50% {
+    transform: translateY(-0.5cqw);
+  }
+}
+
+.w-sr__car::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1.6cqw 3cqw 1cqw 1cqw;
+  background: linear-gradient(180deg, #ff9a3c, #d9531a 70%, #7e2a0c);
+  box-shadow: 0 1.2cqw 1.2cqw rgba(0, 0, 0, 0.35);
+}
+
+.w-sr__car::after {
+  content: "";
+  position: absolute;
+  left: 22%;
+  top: -2cqw;
+  width: 48%;
+  height: 2.6cqw;
+  border-radius: 1.4cqw 1.8cqw 0 0;
+  background: linear-gradient(180deg, #3b434c, #232a31);
+}
+
+.w-sr__flame {
+  left: -4cqw;
+  top: 1.3cqw;
+  width: 6cqw;
+  height: 3cqw;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 80% 50%, #fff6b0, #ffa31a 45%, transparent 70%);
+  animation: w-sr-flame 0.12s linear infinite alternate;
+}
+
+@keyframes w-sr-flame {
+  to {
+    transform: scaleX(1.3);
+    opacity: 0.8;
+  }
+}
+
+.w-sr__hud {
+  left: 50%;
+  top: 3cqw;
+  transform: translateX(-50%);
+  font: 700 3cqw var(--w-mono);
+  color: #fff;
+  text-shadow: 0 0.2cqw 0.6cqw rgba(0, 0, 0, 0.6);
+  z-index: 6;
+  letter-spacing: 0.04em;
+}
+
+.w-sr__hud small {
+  display: block;
+  text-align: center;
+  font-size: 1.3cqw;
+  font-weight: 400;
+}
+
+.w-sr__flip {
+  right: 4.4cqw;
+  bottom: 4.4cqw;
+  padding: 0.6em 1.2em;
+  border-radius: 99px;
+  border: 0.2cqw solid var(--w4);
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--w4);
+  font: 600 1.6cqw var(--w-body);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  z-index: 6;
+}

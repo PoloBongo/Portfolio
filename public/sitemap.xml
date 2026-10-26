@@ -135,38 +135,6 @@
   <priority>0.8</priority>
 </url>
 
-<!-- ProjectsVideosGames -->
-<url>
-  <loc>https://www.arthur-portfolio.dev/fr/ProjectsVideosGames</loc>
-  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/ProjectsVideosGames"/>
-  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/ProjectsVideosGames"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/ProjectsVideosGames"/>
-  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/ProjectsVideosGames"/>
-  <lastmod>2026-04-16T00:00:00+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://www.arthur-portfolio.dev/en/ProjectsVideosGames</loc>
-  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/ProjectsVideosGames"/>
-  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/ProjectsVideosGames"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/ProjectsVideosGames"/>
-  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/ProjectsVideosGames"/>
-  <lastmod>2026-04-16T00:00:00+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://www.arthur-portfolio.dev/es/ProjectsVideosGames</loc>
-  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/ProjectsVideosGames"/>
-  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/ProjectsVideosGames"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/ProjectsVideosGames"/>
-  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/ProjectsVideosGames"/>
-  <lastmod>2026-04-16T00:00:00+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
 <!-- ProjectsWeb -->
 <url>
   <loc>https://www.arthur-portfolio.dev/fr/ProjectsWeb</loc>
@@ -197,6 +165,730 @@
   <lastmod>2026-04-16T00:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
+</url>
+
+<!-- AI -->
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/AI</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/AI"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/AI"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/AI"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/AI"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/AI</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/AI"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/AI"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/AI"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/AI"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/AI</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/AI"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/AI"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/AI"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/AI"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<!-- Pages projet -->
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/au-fil-des-images</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/au-fil-des-images"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/au-fil-des-images"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/au-fil-des-images"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/au-fil-des-images"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/au-fil-des-images</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/au-fil-des-images"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/au-fil-des-images"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/au-fil-des-images"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/au-fil-des-images"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/au-fil-des-images</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/au-fil-des-images"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/au-fil-des-images"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/au-fil-des-images"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/au-fil-des-images"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/celtic-la-riche-basket</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/celtic-la-riche-basket"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/celtic-la-riche-basket"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/celtic-la-riche-basket"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/celtic-la-riche-basket"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/celtic-la-riche-basket</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/celtic-la-riche-basket"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/celtic-la-riche-basket"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/celtic-la-riche-basket"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/celtic-la-riche-basket"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/celtic-la-riche-basket</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/celtic-la-riche-basket"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/celtic-la-riche-basket"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/celtic-la-riche-basket"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/celtic-la-riche-basket"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/meteo-dashboard</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/meteo-dashboard"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/meteo-dashboard"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/meteo-dashboard"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/meteo-dashboard"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/meteo-dashboard</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/meteo-dashboard"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/meteo-dashboard"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/meteo-dashboard"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/meteo-dashboard"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/meteo-dashboard</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/meteo-dashboard"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/meteo-dashboard"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/meteo-dashboard"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/meteo-dashboard"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/articles-manager</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/articles-manager"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/articles-manager"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/articles-manager"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/articles-manager"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/articles-manager</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/articles-manager"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/articles-manager"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/articles-manager"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/articles-manager"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/articles-manager</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/articles-manager"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/articles-manager"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/articles-manager"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/articles-manager"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/payment-page</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/payment-page"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/payment-page"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/payment-page"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/payment-page"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/payment-page</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/payment-page"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/payment-page"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/payment-page"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/payment-page"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/payment-page</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/payment-page"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/payment-page"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/payment-page"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/payment-page"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/eko</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/eko"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/eko"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/eko"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/eko"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/eko</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/eko"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/eko"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/eko"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/eko"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/eko</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/eko"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/eko"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/eko"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/eko"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/ba-immobilier</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/ba-immobilier"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/ba-immobilier"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/ba-immobilier"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/ba-immobilier"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/ba-immobilier</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/ba-immobilier"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/ba-immobilier"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/ba-immobilier"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/ba-immobilier"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/ba-immobilier</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/ba-immobilier"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/ba-immobilier"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/ba-immobilier"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/ba-immobilier"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/portfolio</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/portfolio"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/portfolio"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/portfolio"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/portfolio"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/portfolio</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/portfolio"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/portfolio"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/portfolio"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/portfolio"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/portfolio</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/portfolio"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/portfolio"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/portfolio"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/portfolio"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/cerebro</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/cerebro"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/cerebro"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/cerebro"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/cerebro"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/cerebro</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/cerebro"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/cerebro"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/cerebro"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/cerebro"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/cerebro</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/cerebro"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/cerebro"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/cerebro"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/cerebro"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/seo-autopilot</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/seo-autopilot"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/seo-autopilot"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/seo-autopilot"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/seo-autopilot"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/seo-autopilot</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/seo-autopilot"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/seo-autopilot"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/seo-autopilot"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/seo-autopilot"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/seo-autopilot</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/seo-autopilot"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/seo-autopilot"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/seo-autopilot"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/seo-autopilot"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/depths-of-hue</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/depths-of-hue"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/depths-of-hue"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/depths-of-hue"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/depths-of-hue"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/depths-of-hue</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/depths-of-hue"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/depths-of-hue"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/depths-of-hue"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/depths-of-hue"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/depths-of-hue</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/depths-of-hue"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/depths-of-hue"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/depths-of-hue"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/depths-of-hue"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/shadow-scholar</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/shadow-scholar"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/shadow-scholar"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/shadow-scholar"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/shadow-scholar"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/shadow-scholar</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/shadow-scholar"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/shadow-scholar"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/shadow-scholar"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/shadow-scholar"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/shadow-scholar</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/shadow-scholar"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/shadow-scholar"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/shadow-scholar"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/shadow-scholar"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/ratp</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/ratp"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/ratp"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/ratp"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/ratp"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/ratp</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/ratp"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/ratp"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/ratp"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/ratp"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/ratp</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/ratp"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/ratp"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/ratp"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/ratp"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/angry-birds</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/angry-birds"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/angry-birds"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/angry-birds"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/angry-birds"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/angry-birds</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/angry-birds"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/angry-birds"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/angry-birds"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/angry-birds"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/angry-birds</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/angry-birds"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/angry-birds"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/angry-birds"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/angry-birds"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/ui-ux-cooking</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/ui-ux-cooking"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/ui-ux-cooking"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/ui-ux-cooking"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/ui-ux-cooking"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/ui-ux-cooking</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/ui-ux-cooking"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/ui-ux-cooking"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/ui-ux-cooking"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/ui-ux-cooking"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/ui-ux-cooking</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/ui-ux-cooking"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/ui-ux-cooking"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/ui-ux-cooking"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/ui-ux-cooking"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/navy-bongo</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/navy-bongo"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/navy-bongo"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/navy-bongo"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/navy-bongo"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/navy-bongo</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/navy-bongo"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/navy-bongo"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/navy-bongo"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/navy-bongo"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/navy-bongo</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/navy-bongo"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/navy-bongo"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/navy-bongo"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/navy-bongo"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/unity-rl</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/unity-rl"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/unity-rl"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/unity-rl"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/unity-rl"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/unity-rl</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/unity-rl"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/unity-rl"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/unity-rl"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/unity-rl"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/unity-rl</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/unity-rl"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/unity-rl"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/unity-rl"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/unity-rl"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/funfair</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/funfair"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/funfair"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/funfair"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/funfair"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/funfair</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/funfair"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/funfair"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/funfair"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/funfair"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/funfair</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/funfair"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/funfair"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/funfair"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/funfair"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/spacial-race</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/spacial-race"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/spacial-race"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/spacial-race"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/spacial-race"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/spacial-race</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/spacial-race"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/spacial-race"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/spacial-race"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/spacial-race"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/spacial-race</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/spacial-race"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/spacial-race"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/spacial-race"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/spacial-race"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/inventory</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/inventory"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/inventory"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/inventory"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/inventory"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/inventory</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/inventory"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/inventory"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/inventory"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/inventory"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/inventory</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/inventory"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/inventory"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/inventory"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/inventory"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/attraction-flow</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/attraction-flow"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/attraction-flow"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/attraction-flow"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/attraction-flow"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/attraction-flow</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/attraction-flow"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/attraction-flow"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/attraction-flow"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/attraction-flow"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/attraction-flow</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/attraction-flow"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/attraction-flow"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/attraction-flow"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/attraction-flow"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/stay-soul</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/stay-soul"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/stay-soul"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/stay-soul"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/stay-soul"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/stay-soul</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/stay-soul"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/stay-soul"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/stay-soul"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/stay-soul"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/stay-soul</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/stay-soul"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/stay-soul"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/stay-soul"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/stay-soul"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/fr/work/choco-blast</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/choco-blast"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/choco-blast"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/choco-blast"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/choco-blast"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/en/work/choco-blast</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/choco-blast"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/choco-blast"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/choco-blast"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/choco-blast"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://www.arthur-portfolio.dev/es/work/choco-blast</loc>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://www.arthur-portfolio.dev/fr/work/choco-blast"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.arthur-portfolio.dev/en/work/choco-blast"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.arthur-portfolio.dev/es/work/choco-blast"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.arthur-portfolio.dev/fr/work/choco-blast"/>
+  <lastmod>2026-10-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
 </url>
 
 <!-- contactMe -->

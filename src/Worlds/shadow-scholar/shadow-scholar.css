@@ -1,0 +1,93 @@
+/* ==========================================================================
+   Monde de Shadow Scholar : l'emblème e-sport du jeu, nuit bleutée, acier et corail, lettres anguleuses.
+   Le curseur est une lampe torche sur un store.
+   ========================================================================== */
+
+.w-shadow-scholar {
+  --w-display: "Anton", Impact, "Arial Narrow", sans-serif;
+  --w-body: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+}
+
+.w-shadow-scholar .w-title {
+  font-weight: 400;
+  font-size: clamp(2.6rem, 0.8rem + 8vw, 6.6rem);
+  font-variation-settings: normal;
+  line-height: 0.94;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  -webkit-text-stroke: 1px var(--w1);
+  paint-order: stroke fill;
+  text-shadow: 0.07em 0.07em 0 rgba(229, 86, 109, 0.8);
+}
+
+.w-shadow-scholar .w-tagline {
+  color: var(--w2);
+  font-family: var(--w-body);
+  font-weight: 600;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 760px) {
+  .w-shadow-scholar .w-title {
+    left: 5.2cqw;
+    top: 6cqw;
+    width: 50cqw;
+    font-size: 6.6cqw;
+  }
+
+  .w-shadow-scholar .w-tagline {
+    left: 5.6cqw;
+    top: 36cqw;
+    width: 44cqw;
+    max-width: none;
+    margin: 0;
+    font-size: 1.8cqw;
+  }
+}
+
+.w-shadow-scholar .w-stage {
+  background: radial-gradient(60% 70% at 70% 55%, #16255a 0%, var(--w0) 70%);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.w-ss__streak {
+  height: 0.55cqw;
+  background: linear-gradient(90deg, transparent, var(--c));
+  transform: rotate(var(--r));
+  transform-origin: 100% 50%;
+  animation: w-ss-streak 2.4s ease-out infinite;
+  animation-delay: var(--d);
+}
+
+@keyframes w-ss-streak {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: var(--w);
+  }
+}
+
+.w-ss__scholar {
+  right: 12cqw;
+  top: 6cqw;
+  width: 30cqw;
+  height: 34cqw;
+}
+
+/* Lames de store ; une ouverture ronde suit le curseur (variables --mx / --my posées par le moteur) */
+.w-ss__dark {
+  inset: 0;
+  z-index: 4;
+  background: repeating-linear-gradient(180deg, rgba(3, 5, 15, 0.8) 0 1.1cqw, rgba(3, 5, 15, 0.6) 1.1cqw 1.5cqw);
+  -webkit-mask-image: radial-gradient(circle 26cqw at var(--mx) var(--my), transparent 0 45%, #000 100%);
+  mask-image: radial-gradient(circle 26cqw at var(--mx) var(--my), transparent 0 45%, #000 100%);
+}

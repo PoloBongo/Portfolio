@@ -13,7 +13,7 @@ export default function useHashScroll() {
     const id = decodeURIComponent(hash.slice(1));
     return onReady(() => {
       const el = document.getElementById(id);
-      // Lenis tient déjà compte du scroll-margin-top de la cible (voir .case)
+      // Lenis tient déjà compte du scroll-margin-top de la cible (voir .proj)
       if (el) scrollTo(el, { duration: 1.8 });
     });
   }, [hash, scrollTo]);

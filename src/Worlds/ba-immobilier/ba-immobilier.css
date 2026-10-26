@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Monde de B.A Immobilier : la DA du vrai site (fond anthracite, titres condensés, accent turquoise, bouton à filet)
+   prolongée par un plan d'architecte filaire. Au survol, la pièce passe en rendu.
+   ========================================================================== */
+
+.w-ba-immobilier {
+  --w-display: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --w-body: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --w-mono: "Share Tech Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+.w-ba-immobilier .w-title {
+  font-weight: 700;
+  font-size: clamp(2.8rem, 0.8rem + 9vw, 7rem);
+  font-variation-settings: normal;
+  line-height: 1;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+
+.w-ba-immobilier .w-tagline {
+  color: var(--ink);
+  font-family: var(--w-body);
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.6rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 760px) {
+  .w-ba-immobilier .w-title {
+    left: 6cqw;
+    top: 13cqw;
+    width: 46cqw;
+    font-size: 8cqw;
+  }
+
+  .w-ba-immobilier .w-tagline {
+    left: 6.2cqw;
+    top: 32cqw;
+    width: 34cqw;
+    max-width: none;
+    margin: 0;
+    font-size: 2.3cqw;
+  }
+}
+
+.w-ba-immobilier .w-stage {
+  background: var(--w0);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.w-ba__welcome {
+  left: 6.2cqw;
+  top: 6.4cqw;
+  font: 700 5cqw var(--w-display);
+  text-transform: uppercase;
+  color: var(--w4);
+  letter-spacing: 0.005em;
+}
+
+.w-ba__disc {
+  left: 6.2cqw;
+  top: 43cqw;
+  padding: 0.7em 1.6em;
+  border: 0.2cqw solid var(--w1);
+  color: var(--w1);
+  font: 400 1.7cqw var(--w-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.w-ba__plan {
+  right: 3cqw;
+  top: 6cqw;
+  width: 46cqw;
+  height: 40cqw;
+  overflow: visible;
+}
+
+.w-ba__wall {
+  fill: none;
+  stroke: var(--w1);
+  stroke-width: 0.5;
+  stroke-linecap: square;
+  stroke-dasharray: 140;
+  stroke-dashoffset: 140;
+  animation: w-ba-plan 6s ease-in-out infinite;
+}
+
+@keyframes w-ba-plan {
+  0% {
+    stroke-dashoffset: 140;
+  }
+  40%,
+  85% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 140;
+  }
+}
+
+.w-ba__room {
+  fill: transparent;
+  transition: fill 0.35s;
+}
+
+.w-ba__room.on {
+  fill: rgba(242, 185, 122, 0.75);
+}
+
+.w-ba__dim {
+  stroke: rgba(232, 232, 230, 0.5);
+  stroke-width: 0.18;
+}
+
+.w-ba__plan text {
+  fill: rgba(232, 232, 230, 0.7);
+  font: 2.4px var(--w-mono);
+  text-anchor: middle;
+}
+
+.w-ba__conn {
+  right: 5cqw;
+  bottom: 4.4cqw;
+  padding: 0.7em 1.4em;
+  border-radius: 0.5cqw;
+  background: #6db3f2;
+  color: #14202b;
+  font: 600 1.7cqw var(--w-body);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .w-ba__wall {
+    stroke-dashoffset: 0;
+  }
+}

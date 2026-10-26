@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Mondes à scène : cadre commun. Chaque monde (Worlds/<id>/<id>.css) règle ses polices, la pose du titre
+   et le décor de sa scène en unités cqw, avec les variables --w0…--w4 de sa palette
+   (fond, accent, second accent, surface, encre).
+   ========================================================================== */
+
+.w-hero {
+  position: relative;
+  padding-top: clamp(120px, 20vh, 210px);
+  padding-bottom: clamp(32px, 5vw, 80px);
+  overflow: clip;
+  isolation: isolate;
+}
+
+/* La largeur suit la hauteur de la fenêtre : titre et scène tiennent dans le premier écran (16:10) */
+.w-wrap {
+  position: relative;
+  container-type: inline-size;
+  width: min(100%, max(560px, calc((100svh - 250px) * 1.6)));
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 4vw, 36px);
+}
+
+/* Cadre de la scène : 16:10, tout en cqw ; les enfants se posent en absolu */
+.w-stage {
+  position: relative;
+  order: 2;
+  aspect-ratio: 16 / 10;
+  container-type: size;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: clamp(12px, 1.6vw, 22px);
+  background: var(--w0);
+  color: var(--w4);
+  font-family: var(--w-body, system-ui, sans-serif);
+  --mx: 50%;
+  --my: 50%;
+}
+
+.w-stage > * {
+  position: absolute;
+  margin: 0;
+}
+
+.w-stage .w-cv {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.w-copy {
+  order: 1;
+}
+
+.w-title {
+  font-family: var(--w-display, inherit);
+}
+
+.w-tagline {
+  max-width: 34ch;
+  margin-top: 14px;
+}
+
+/* Bureau : le texte se pose sur la scène, comme sur le moodboard */
+@media (min-width: 760px) {
+  .w-copy {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .w-copy > * {
+    position: absolute;
+    margin: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .w-stage *,
+  .w-stage *::before,
+  .w-stage *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

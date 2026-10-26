@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Monde de Payment : streetwear et ticket de caisse. Noir, jaune fluo, papier thermique.
+   ========================================================================== */
+
+.w-payment-page {
+  --w-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --w-body: "Courier Prime", "Courier New", monospace;
+  --w-mono: "Courier Prime", "Courier New", monospace;
+}
+
+.w-payment-page .w-title {
+  font-weight: 900;
+  font-size: clamp(3.2rem, 0.8rem + 12vw, 9rem);
+  font-stretch: 75%;
+  font-variation-settings: "wdth" 75;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+
+.w-payment-page .w-tagline {
+  color: var(--ink);
+  font-family: var(--w-body);
+  font-weight: 700;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.4rem);
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+}
+
+@media (min-width: 760px) {
+  .w-payment-page .w-title {
+    left: 4.5cqw;
+    top: 5cqw;
+    width: 56cqw;
+    font-size: 9.4cqw;
+  }
+
+  .w-payment-page .w-tagline {
+    left: 5cqw;
+    top: 37cqw;
+    width: 40cqw;
+    max-width: none;
+    margin: 0;
+    font-size: 1.9cqw;
+  }
+}
+
+.w-payment-page .w-stage {
+  background: repeating-linear-gradient(90deg, rgba(232, 255, 46, 0.06) 0 0.2cqw, transparent 0.2cqw 3cqw), var(--w0);
+}
+
+.w-pm__sub {
+  left: 5cqw;
+  top: 51cqw;
+  font: 700 1.9cqw var(--w-mono);
+  letter-spacing: 0.2em;
+  color: var(--w2);
+  text-transform: uppercase;
+}
+
+.w-pm__rcpt {
+  right: 6cqw;
+  top: -2cqw;
+  width: 29cqw;
+  padding: 5cqw 2cqw 3.6cqw;
+  background: var(--w2);
+  color: #151515;
+  font: 400 1.55cqw/1.65 var(--w-mono);
+  transform: rotate(2.2deg);
+  box-shadow: 0 1.5cqw 3cqw rgba(0, 0, 0, 0.55);
+  clip-path: polygon(0 0, 100% 0, 100% 96%, 95% 100%, 90% 96%, 85% 100%, 80% 96%, 75% 100%, 70% 96%, 65% 100%, 60% 96%, 55% 100%, 50% 96%, 45% 100%, 40% 96%, 35% 100%, 30% 96%, 25% 100%, 20% 96%, 15% 100%, 10% 96%, 5% 100%, 0 96%);
+}
+
+.w-pm__rcpt p {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(0 100% 0 0);
+  animation: w-pm-print 8s steps(14, end) infinite;
+  animation-delay: calc(var(--i) * 0.5s);
+}
+
+.w-pm__rcpt p.tot {
+  margin-top: 0.8cqw;
+  padding-top: 0.8cqw;
+  border-top: 0.2cqw dashed #151515;
+  font-weight: 700;
+  font-size: 1.9cqw;
+}
+
+@keyframes w-pm-print {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  6%,
+  90% {
+    clip-path: inset(0 0 0 0);
+  }
+  96%,
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+.w-pm__bar {
+  margin-top: 1.6cqw;
+  height: 4cqw;
+  background: repeating-linear-gradient(90deg, #151515 0 0.2cqw, transparent 0.2cqw 0.5cqw, #151515 0.5cqw 0.9cqw, transparent 0.9cqw 1.1cqw, #151515 1.1cqw 1.3cqw, transparent 1.3cqw 1.9cqw);
+  position: relative;
+  overflow: hidden;
+}
+
+.w-pm__bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1cqw;
+  background: linear-gradient(90deg, transparent, var(--w1), transparent);
+  animation: w-pm-scan 2s ease-in-out infinite alternate;
+}
+
+@keyframes w-pm-scan {
+  from {
+    left: -1cqw;
+  }
+  to {
+    left: 100%;
+  }
+}

@@ -10,6 +10,7 @@ export const UNITY_PROJECTS = [
   {
     id: "depths-of-hue",
     title: "Depths Of Hue",
+    tags: "Unity · C# · Lead tech",
     i18n: "Unity.DepthsOfHue",
     poster: backgroundDepthsOfHue,
     alt: "Depths Of Hue Game",
@@ -25,6 +26,7 @@ export const UNITY_PROJECTS = [
   {
     id: "shadow-scholar",
     title: "Shadow Scholar : La fac ultime",
+    tags: "Unity · Timeline · NavMesh",
     i18n: "Unity.ShadowScholar",
     video: "IwMvlVfyvs8",
     links: [
@@ -38,6 +40,7 @@ export const UNITY_PROJECTS = [
   {
     id: "ratp",
     titleKey: "Unity.RATP.Title",
+    tags: "Unity · IA · NavMesh",
     i18n: "Unity.RATP",
     poster: backgroundRATP,
     alt: "RATP Game",
@@ -46,6 +49,7 @@ export const UNITY_PROJECTS = [
   {
     id: "angry-birds",
     title: "Angry Birds",
+    tags: "Unity · Physique · Maths",
     i18n: "Unity.AngryBirds",
     poster: backgroundAngryBirds,
     alt: "Angry Birds Game",
@@ -56,6 +60,7 @@ export const UNITY_PROJECTS = [
   {
     id: "ui-ux-cooking",
     title: "UI UX Cooking Project",
+    tags: "Unity · UI/UX · Scriptable Objects",
     i18n: "Unity.UIUXCooking",
     poster: backgroundUIUXCook,
     alt: "UI UX Cooking Game",
@@ -66,6 +71,7 @@ export const UNITY_PROJECTS = [
   {
     id: "navy-bongo",
     title: "Navy Bongo",
+    tags: "Unity · HDRP · Shader Graph",
     i18n: "Unity.NavyBongo",
     video: "YtT03rMnzBg",
     links: [
@@ -76,6 +82,7 @@ export const UNITY_PROJECTS = [
   {
     id: "unity-rl",
     title: "Unity RL",
+    tags: "Unity · C# · ProBuilder",
     i18n: "Unity.UnityRL",
     poster: backgroundUnityRL,
     alt: "Unity RL Game",

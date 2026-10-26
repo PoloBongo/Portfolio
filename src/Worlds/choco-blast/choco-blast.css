@@ -1,0 +1,102 @@
+/* ==========================================================================
+   Monde de Choco Blast : le menu du jeu. Fond cacao, titre de BD blanc au halo jaune, boutons rose bonbon
+   à liseré jaune, chocolat fondu qui suit le curseur.
+   ========================================================================== */
+
+.w-choco-blast {
+  --w-display: "Bangers", Impact, "Arial Narrow", sans-serif;
+  --w-body: "Nunito", "Helvetica Neue", Arial, sans-serif;
+}
+
+.w-choco-blast .w-title {
+  font-weight: 400;
+  padding-right: 0.12em; /* l'inclinaison déborde du masque des lettres */
+  font-size: clamp(3.4rem, 0.8rem + 12vw, 8.6rem);
+  font-variation-settings: normal;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 0.12em rgba(245, 196, 0, 0.75), 0.03em 0.04em 0 var(--w2);
+}
+
+.w-choco-blast .w-tagline {
+  color: var(--w4);
+  font-family: var(--w-body);
+  font-weight: 700;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.4rem);
+  line-height: 1.4;
+}
+
+@media (min-width: 760px) {
+  .w-choco-blast .w-title {
+    left: 50%;
+    top: 3cqw;
+    transform: translateX(-50%) skewX(-8deg);
+    white-space: nowrap;
+    font-size: 11cqw;
+  }
+
+  .w-choco-blast .w-tagline {
+    left: 5cqw;
+    top: 24cqw;
+    width: 28cqw;
+    max-width: none;
+    margin: 0;
+    font-size: 1.9cqw;
+  }
+}
+
+.w-choco-blast .w-stage {
+  background: var(--w0);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.w-cb__goo {
+  inset: 0;
+  z-index: 1;
+  filter: url(#w-cb-goo);
+}
+
+.w-cb__goo i {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--w3);
+}
+
+.w-cb__menu {
+  left: 50%;
+  top: 19cqw;
+  transform: translateX(-50%);
+  display: grid;
+  gap: 1.2cqw;
+  z-index: 3;
+}
+
+.w-cb__menu i {
+  display: block;
+  width: 22cqw;
+  padding: 0.4em 0;
+  text-align: center;
+  font: italic 400 2.5cqw var(--w-display);
+  letter-spacing: 0.1em;
+  color: #fff3cf;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ff4fb0, var(--w1) 55%, #c40e72);
+  border: 0.45cqw solid var(--w2);
+  border-radius: 0.8cqw;
+  box-shadow: 0 0.4cqw 0 rgba(0, 0, 0, 0.35);
+}
+
+.w-cb__menu i.on {
+  outline: 0.45cqw solid var(--w2);
+  outline-offset: 0.5cqw;
+}
+
+.w-cb__ver {
+  right: 3cqw;
+  bottom: 3cqw;
+  font: 400 1.8cqw var(--w-body);
+  color: rgba(255, 255, 255, 0.8);
+  z-index: 3;
+}

@@ -46,7 +46,7 @@
     "Unity": "Unity",
     "ContactMe": "Contáctame",
     "Incoming": "Mi Programa de Cursos 2026-2027",
-    "AI": "AI & Automation",
+    "AI": "IA y Automatización",
     "SitePro": "Mi sitio profesional",
     "Unreal": "Unreal"
   },
@@ -75,7 +75,6 @@
     "PaymentPage": "Página de pago"
   },
   "VideoGamesProjects": {
-    "Title": "Mis proyectos de videojuegos",
     "playVideo": "Iniciar el vídeo",
     "stopVideo": "Detener vídeo",
     "learnMore": "Más información",
@@ -84,15 +83,8 @@
     "playProjects": "Jugar",
     "stopProjects": "Parar",
     "fullScreenGame": "Pantalla completa",
-    "helluvaRevenge": "Aquí tienes un videojuego creado en el espacio de 4 semanas; tuvimos que encargarnos de todos los aspectos del desarrollo y la creación/investigación de activos. El juego se desarrolló en C++ con la biblioteca SFML en un motor personalizado.<br></br>- Grupo de 6 estudiantes.",
-    "towerDefense": "Aquí tienes un juego de Tower Defense desarrollado en 1 semana con el tema de League of Legends.<br>- Grupo de 5 estudiantes.",
     "platformer": "Aquí tienes un platformer 2D creado en 2 semanas utilizando un motor proporcionado por el instructor.<br>- Grupo de 4 estudiantes.",
-    "bibliotheque": "En este proyecto, teníamos que crear nuestras propias bibliotecas. Tuvimos 1 semana para desarrollar las siguientes bibliotecas: Vector, Container, Collision y un comienzo de GameObject. También exploramos pruebas unitarias para evaluar nuestras bibliotecas.<br>- Grupo de 3 estudiantes.",
     "textuelGameConsole": "Aquí está el primer proyecto realizado en C++, es un juego textual por turnos basado en el tema de One Piece. Fue un proyecto para la transición entre C y C++ con el fin de adquirir bien los fundamentos; teníamos 1 semana.<br>- Grupo de 2 estudiantes.",
-    "shootEmUp": "Aquí está el gran proyecto realizado al final del primer año en un lapso de 2 semanas. Colaboramos con la filial de Negocios que se encargaba de promover el juego, mientras nosotros nos ocupábamos de desarrollarlo.<br>- Grupo de 6 estudiantes.",
-    "luaPart1": "Antes de unirme al Gaming Campus, desarrollé en LUA en la plataforma FiveM durante aproximadamente 4 años. Esta experiencia me permitió adquirir sólidos conocimientos en gestión y creación de bases de datos, y tuve la oportunidad de trabajar en Linux para administrar diferentes servidores. A lo largo de estos 4 años, también creé el proyecto",
-    "luaPart2": ", que me permitió compartir mi contenido con mi comunidad. Hoy, he detenido el proyecto Polo Leaks porque he explorado todas las posibilidades que ofrecía.",
-    "CSharpConsole": "Juego en consola, un juego por turnos realizado en 2 semanas. Teníamos que crear un mapa en ASCII y hacerlo atractivo. Elegimos el tema de One Piece y para el sistema de combate, teníamos que crear 3 tipos de IA: Fácil, Normal y Difícil. También realizamos pruebas unitarias.<br></br>- Grupo de 4 estudiantes.",
     "UnityRL": "Un juego desarrollado en 2 semanas utilizando el motor de juego Unity con varias características como generación procedural, Animation Curve, IA de drones, gestión de entradas, Corrutinas, OpenProBuilder y otros fundamentos de Unity.<br></br>- Grupo de 2 estudiantes.",
     "CustomEngine": "Durante mi segundo año, tuve la oportunidad de crear un motor personalizado con Vulkan en C++. Principalmente me ocupé de la parte de la red, es decir de los protocolos TCP y UDP y también de la integración del sonido a través de la biblioteca FMOD. El proyecto tuvo una duración de 1 mes.<br><br>- Grupo de 8 alumnos.",
     "Langage": "Lenguaje:",
@@ -100,16 +92,7 @@
     "Duration": "Duración:",
     "Completion": "Finalización:",
     "TeamSize": "Tamaño del equipo:",
-    "Role": "Rol:",
-    "Angine": {
-      "Description": "Nuestro motor 3D aprovecha la potencia de Vulkan para un renderizado gráfico optimizado y eficiente. Integramos varias bibliotecas especializadas para mejorar el proceso de desarrollo y ofrecer una solución robusta para la gestión de recursos, la física, el audio y la red.",
-      "Langage": "C++",
-      "ToolsUsed": "API gráfica: Vulkan<br>Interfaces de usuario: Dear ImGui<br>Simulación de física: Bullet Physics<br>Creación de ventanas y gestión de entradas: GLFW<br>Gestión de audio: FMOD<br>Carga de archivos obj: tinyObjLoader<br>Biblioteca matemática para gráficos: GLM",
-      "Duration": "1 mes",
-      "Completion": "2024",
-      "TeamSize": "8",
-      "Role": "Implementación del audio con FMOD y de toda la parte de multithreading para crear un chat en TCP y UDP"
-    }
+    "Role": "Rol:"
   },
   "WebProjects": {
     "Title": "Mis Proyectos Web",
@@ -209,7 +192,6 @@
     "CVJV": "CV de Videojuegos"
   },
   "DropdownProjects": {
-    "ProjectVideoGames": "Proyectos de Videojuegos",
     "ProjectWeb": "Proyectos Web"
   },
   "DropdownLanguage": {
@@ -366,6 +348,17 @@
   "AIProjects": {
     "Title": "Mis proyectos de IA & Automatización",
     "InProgress": "En curso",
+    "Diagram": {
+      "Alt": "Esquema animado del pipeline RAG de Cerebro: un PDF se ingiere (texto, tablas, imágenes con OCR) en Qdrant; una pregunta se vectoriza, se recuperan sus vecinos más cercanos, un cross-encoder los reordena y Mistral-7B genera la respuesta emitida por SSE.",
+      "Question": "¿Cuál fue el margen del T3?",
+      "Step1": "Ingesta",
+      "Step2": "Búsqueda",
+      "Step3": "Reranking",
+      "Step4": "Generación",
+      "Step5": "Streaming",
+      "IngestSub": "texto · tablas · imágenes + OCR",
+      "SpaceSub": "2 colecciones · multi-tenant"
+    },
     "Cerebro": {
       "Description": "Aplicación web de chat aumentado por RAG (Retrieval-Augmented Generation). El usuario sube documentos PDF, el sistema los ingesta a través de un pipeline multimodal que separa y procesa texto, tablas e imágenes (OCR EasyOCR), y los almacena en una base vectorial Qdrant en dos colecciones distintas. El chatbot responde preguntas en tiempo real mediante streaming SSE, con reranking cross-encoder para imágenes, filtrado conversacional previo y aislamiento multi-tenant de datos.",
       "Langage": "PHP / Python",
@@ -405,11 +398,62 @@
     "roleGame": "Desarrollador de videojuegos",
     "roleWeb": "Desarrollador web",
     "roleAI": "Ingeniero de IA",
-    "scroll": "Desplazar"
+    "scroll": "Desplazar",
+    "tagline": "Apps web, RAG y agentes de IA",
+    "tag": {
+      "web": "Interfaces React, Next.js y Vue, rápidas y accesibles",
+      "ai": "RAG, agentes y automatizaciones n8n",
+      "game": "Unity, Unreal Engine y gameplay"
+    },
+    "enter": {
+      "web": "Ver los proyectos web",
+      "ai": "Ver los proyectos de IA",
+      "game": "Ver los juegos"
+    },
+    "rail": {
+      "web": "Web",
+      "ai": "IA",
+      "game": "Juegos"
+    },
+    "pause": "Pausar la animación",
+    "play": "Reanudar la animación",
+    "replay": "Repetir la animación"
   },
   "Work": {
     "title": "Proyectos",
-    "projects": "proyectos"
+    "projects": "proyectos",
+    "game": "También — videojuegos",
+    "all": "Todos los proyectos",
+    "next": "Proyecto siguiente",
+    "prev": "Proyecto anterior",
+    "view": "Ver el proyecto",
+    "breadcrumb": "Ruta de navegación",
+    "featured": "Selección",
+    "Tagline": {
+      "cerebro": "Un chat RAG que lee tus PDF (texto, tablas e imágenes) y responde en tiempo real.",
+      "seo-autopilot": "Auditorías SEO automatizadas con n8n, reformuladas por un LLM, con un asistente de IA por cada problema.",
+      "au-fil-des-images": "Sitio escaparate y tienda online de una asociación cultural de Tours, desarrollados como freelance.",
+      "celtic-la-riche-basket": "La web de un club de baloncesto, hecha de forma voluntaria en 2 meses: pagos con Stripe y noticias de Facebook.",
+      "meteo-dashboard": "Un panel meteorológico en tiempo real con Vue 3 y gráficos interactivos de Chart.js.",
+      "articles-manager": "Un CMS de artículos con Next.js 15: autenticación segura, CRUD y un autor por artículo.",
+      "payment-page": "Una página de pago y un carrito inspirados en JD Sport, con Stripe y PayPal.",
+      "eko": "Una tienda online con suscripciones (Stripe), proyecto escolar en equipo de cuatro.",
+      "ba-immobilier": "Mi primera web: una inmobiliaria ficticia, creada para el Bachillerato.",
+      "portfolio": "El sitio que estás recorriendo: React, GSAP y una nube de 65 536 puntos calculada en la GPU.",
+      "depths-of-hue": "Un juego móvil narrativo de puzles submarinos, mi proyecto de fin de Bachelor (lead tech).",
+      "shadow-scholar": "Un juego narrativo de infiltración e investigación: cinemáticas, pathfinding y la mitad del gameplay.",
+      "ratp": "Un juego para dar a conocer los oficios de la RATP: multitudes, metros e IA en una estación.",
+      "angry-birds": "Un Angry Birds con trayectorias calculadas a mano (gravedad, rozamiento del aire).",
+      "ui-ux-cooking": "Un juego de cocina para dominar la UI de Unity: cuadrículas, menús desplegables y Scriptable Objects.",
+      "navy-bongo": "Un juego de barcos hecho en una semana y media: destruir todas las torres enemigas antes de que acabe el tiempo.",
+      "unity-rl": "Mi primer juego en Unity: generación procedural, IA de drones y gestión de entradas.",
+      "funfair": "Una feria interactiva, 100 % Blueprint, en Unreal Engine 5.4.",
+      "spacial-race": "Una carrera espacial basada en la física en Unreal 5.4: inversión de gravedad, Chaos y nave personalizable.",
+      "inventory": "Un sistema de inventario programado en un 90 % en C++: caída de objetos, uso y tienda.",
+      "attraction-flow": "Un juego móvil hyper casual creado en 42 horas para una game jam (tema: Atracción).",
+      "stay-soul": "Un juego creado en 42 horas para una game jam (tema: Juegos de niños).",
+      "choco-blast": "Mi primera game jam: 48 horas, tema Contraste dinámico, dirección artística Chocolate."
+    }
   },
   "Footer": {
     "title": "¿Tienes un proyecto en mente?",
@@ -422,33 +466,37 @@
   "Skills": {
     "game": "Videojuegos",
     "web": "Web",
-    "tools": "Datos y herramientas"
+    "tools": "Datos y herramientas",
+    "ai": "IA y agentes"
   },
   "Hud": {
-    "level": "NIV",
+    "level": "SEC",
     "sound": "Sonido",
     "soundOn": "Sonido activado",
     "soundOff": "Sonido apagado",
-    "lost": "Zona desconocida",
+    "lost": "No encontrado",
     "hero": "Inicio",
     "intro": "Acerca de",
     "work": "Proyectos",
-    "skills": "Habilidades",
-    "certs": "Logros",
-    "footer": "¿Continuar?"
+    "skills": "Stack",
+    "certs": "Certificaciones",
+    "footer": "Contacto",
+    "progress": "CTX",
+    "vector": "VEC",
+    "latency": "LAT"
   },
   "Stage": {
-    "face": "Gameplay y motores",
     "web": "Web",
     "tools": "Datos y herramientas",
-    "engine": "Motor y red",
     "ai": "IA y agentes",
-    "caption": "Vista explosionada — Jugador 1"
+    "caption": "Espacio latente — habilidades",
+    "game": "Videojuegos y motores"
   },
   "Card": {
-    "player": "Jugador 1",
     "alt": "Retrato de Arthur BRU",
     "projects": "Proyectos",
-    "certs": "Certificaciones"
+    "certs": "Certificaciones",
+    "profile": "Perfil",
+    "tag": "web · ia"
   }
 }

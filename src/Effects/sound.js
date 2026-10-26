@@ -5,6 +5,8 @@ const listeners = new Set();
 
 let ctx = null;
 let master = null;
+let analyser = null;
+let levels = null;
 let echo = null;
 let noiseBuffer = null;
 let ambient = null;
@@ -21,6 +23,17 @@ try {
 const notify = () => listeners.forEach((fn) => fn());
 
 export const isSoundOn = () => enabled;
+
+// Niveau sonore courant, de 0 à 1 (graves et médiums), pour animer le nuage de points ; 0 si le son est coupé
+export function getAudioLevel() {
+  if (!enabled || !analyser) return 0;
+  if (!levels) levels = new Uint8Array(analyser.frequencyBinCount);
+  analyser.getByteFrequencyData(levels);
+  let sum = 0;
+  const bins = Math.min(20, levels.length);
+  for (let i = 0; i < bins; i += 1) sum += levels[i];
+  return Math.min(1, (sum / bins / 255) * 3.5);
+}
 
 export function subscribeSound(fn) {
   listeners.add(fn);
@@ -45,6 +58,12 @@ function context() {
   comp.ratio.value = 5;
   master.connect(comp);
   comp.connect(ctx.destination);
+
+  // Branche d'écoute : le niveau sonore anime le nuage de points
+  analyser = ctx.createAnalyser();
+  analyser.fftSize = 128;
+  analyser.smoothingTimeConstant = 0.82;
+  master.connect(analyser);
 
   // Écho léger pour donner de l'air aux notes
   echo = ctx.createDelay(1);
@@ -115,7 +134,7 @@ function sweep({ from = 300, to = 3000, dur = 0.6, gain = 0.05, q = 1.4, delay =
   src.stop(t + dur + 0.05);
 }
 
-// Gamme pentatonique : chaque bouton de la manette joue sa note
+// Gamme pentatonique : chaque clic sur le nuage de points joue une note
 const SCALE = [392, 440, 523.25, 587.33, 659.25, 783.99, 880, 1046.5];
 
 export function playNote(index = 0) {

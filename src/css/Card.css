@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Carte « Joueur 1 » (section À propos) : portrait, identité, chiffres
-   Le canvas .card__mosaic dessine le portrait en gros pixels pendant le scroll ; l'image reste dessous
+   Carte de profil (section À propos) : portrait, identité, chiffres
+   Le canvas .card__mosaic dessine le portrait « bruité » (gros pixels + grain) pendant le scroll ; l'image reste dessous
    (sans JS ou avec mouvement réduit, seule l'image est visible).
    ========================================================================== */
 
@@ -36,13 +36,13 @@
   color: var(--ink);
 }
 
-.card__player {
+.card__title {
   display: inline-flex;
   align-items: center;
   gap: 0.8em;
 }
 
-.card__player::before {
+.card__title::before {
   content: "";
   width: 7px;
   height: 7px;
@@ -51,7 +51,7 @@
   animation: card-blink 1.3s steps(1) infinite;
 }
 
-.card__engine {
+.card__tag {
   color: var(--ink-faint);
 }
 
@@ -228,7 +228,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card__player::before {
+  .card__title::before {
     animation: none;
   }
 }

@@ -1,0 +1,70 @@
+# Arthur BRU — Web & AI developer
+
+> Portfolio of Arthur BRU, web and AI developer: web applications in React, Next.js and Vue.js, RAG pipelines, agents and n8n automations. Certified in AI (MCP, LangChain, Streamlit). Unity and Unreal Engine game projects as a complement. Bachelor's degree in software development (video game option, Quest Education / G.Tech), currently in a Master's programme.
+
+The site is a React single-page application. Every page exists in French, English and Spanish under /fr, /en and /es; French is the default. URLs below are the English ones.
+
+## Main pages
+
+- [Home](https://www.arthur-portfolio.dev/en): profile, selected work, skills and certifications
+- [AI & Automation](https://www.arthur-portfolio.dev/en/AI): AI projects with their architecture, Cerebro (multimodal RAG) and SEO Autopilot (n8n workflow)
+- [Web projects](https://www.arthur-portfolio.dev/en/ProjectsWeb): web applications and professional work
+- [Contact](https://www.arthur-portfolio.dev/en/contactMe): contact form and links
+
+## AI projects
+
+- [Cerebro](https://www.arthur-portfolio.dev/en/work/cerebro): RAG (Retrieval-Augmented Generation) chat web application. PDF documents are ingested through a multimodal pipeline that separates text, tables and images (EasyOCR) and stores them in a Qdrant vector database across two collections. Answers stream in real time over SSE, with cross-encoder reranking for images, conversational pre-filtering and multi-tenant data isolation. Stack: Laravel 12, React 19 (TypeScript), Inertia.js, FastAPI, Qdrant, SentenceTransformer (E5 multilingual), Mistral-7B (OVH AI Endpoints), EasyOCR, cross-encoder mMiniLM, UMAP/PCA, Docker Compose. In progress, private repository.
+- [SEO Autopilot](https://www.arthur-portfolio.dev/en/work/seo-autopilot): SEO audit automation orchestrated by n8n. Workflows run Lighthouse (performance) and WAVE (accessibility) audits under Docker, a GPT model parses and reformulates the results, reports are archived in AWS S3, and a web app offers a contextual AI assistant (Ollama or Mistral-7B) for each identified issue. Repositories: [n8n SEO App](https://github.com/PoloBongo/n8n-seo-app) and [Lighthouse Docker](https://github.com/PoloBongo/n8n-seo-docker).
+
+## Game development
+
+- [Unity projects](https://www.arthur-portfolio.dev/en/Unity)
+- [Unreal Engine projects](https://www.arthur-portfolio.dev/en/Unreal)
+- [Game jams](https://www.arthur-portfolio.dev/en/GameJam)
+
+## Project pages
+
+Every project has its own page, with its description, technical sheet and links.
+
+### Web projects
+
+- [Au fil des images](https://www.arthur-portfolio.dev/en/work/au-fil-des-images): Showcase site and online shop for a cultural association in Tours, built as a freelance project.
+- [Celtic La Riche Basket](https://www.arthur-portfolio.dev/en/work/celtic-la-riche-basket): A basketball club's website, built by volunteers in 2 months: Stripe payments, Facebook news.
+- [Meteo Dashboard](https://www.arthur-portfolio.dev/en/work/meteo-dashboard): A real-time weather dashboard in Vue 3 with interactive Chart.js graphs.
+- [Articles Manager Next Js](https://www.arthur-portfolio.dev/en/work/articles-manager): An article CMS built with Next.js 15: secure sign-in, CRUD and an author for every article.
+- [Payment Process Design](https://www.arthur-portfolio.dev/en/work/payment-page): A checkout page and cart inspired by JD Sport, with Stripe and PayPal.
+- [Eko](https://www.arthur-portfolio.dev/en/work/eko): An online shop with subscriptions (Stripe), a four-person school project.
+- [B.A Immobilier](https://www.arthur-portfolio.dev/en/work/ba-immobilier): My very first website: a fictional real-estate agency, built for the Baccalauréat.
+- [Portfolio](https://www.arthur-portfolio.dev/en/work/portfolio): The site you are browsing: React, GSAP and a 65,536-point cloud computed on the GPU.
+
+### AI projects
+
+- [Cerebro](https://www.arthur-portfolio.dev/en/work/cerebro): A RAG chat that reads your PDFs (text, tables, images) and answers in real time.
+- [SEO Autopilot](https://www.arthur-portfolio.dev/en/work/seo-autopilot): SEO audits automated with n8n, rewritten by an LLM, with an AI assistant for every issue.
+
+### Unity projects
+
+- [Depths Of Hue](https://www.arthur-portfolio.dev/en/work/depths-of-hue): A narrative underwater puzzle game for mobile, my end-of-Bachelor project (tech lead).
+- [Shadow Scholar : La fac ultime](https://www.arthur-portfolio.dev/en/work/shadow-scholar): A narrative infiltration and investigation game: cutscenes, pathfinding and half of the gameplay.
+- [RATP Maintenance Challenge](https://www.arthur-portfolio.dev/en/work/ratp): A game that showcases little-known RATP jobs: crowds, metros and AI in a station.
+- [Angry Birds](https://www.arthur-portfolio.dev/en/work/angry-birds): An Angry Birds game whose trajectories are computed by hand (gravity, air friction).
+- [UI UX Cooking Project](https://www.arthur-portfolio.dev/en/work/ui-ux-cooking): A cooking game to master Unity's UI: grids, dropdowns and Scriptable Objects.
+- [Navy Bongo](https://www.arthur-portfolio.dev/en/work/navy-bongo): A boat game made in a week and a half: destroy every enemy tower before time runs out.
+- [Unity RL](https://www.arthur-portfolio.dev/en/work/unity-rl): My first Unity game: procedural generation, drone AI and input handling.
+
+### Unreal Engine projects
+
+- [Funfair](https://www.arthur-portfolio.dev/en/work/funfair): An interactive funfair, 100% Blueprint, on Unreal Engine 5.4.
+- [Spacial Race](https://www.arthur-portfolio.dev/en/work/spacial-race): A physics-based space race on Unreal 5.4: gravity inversion, Chaos and a customisable ship.
+- [Inventory System](https://www.arthur-portfolio.dev/en/work/inventory): An inventory system written 90% in C++: item drops, item use and a shop.
+
+### Game jams
+
+- [Attraction Flow](https://www.arthur-portfolio.dev/en/work/attraction-flow): A hyper-casual mobile game made in 42 hours for a game jam (theme: Attraction).
+- [Stay Soul](https://www.arthur-portfolio.dev/en/work/stay-soul): A game made in 42 hours for a game jam (theme: Children's games).
+- [Choco Blast](https://www.arthur-portfolio.dev/en/work/choco-blast): My first game jam: 48 hours, theme Dynamic Contrast, art direction Chocolate.
+
+## Elsewhere
+
+- [GitHub](https://github.com/PoloBongo)
+- [LinkedIn](https://www.linkedin.com/in/arthur-bru/)
