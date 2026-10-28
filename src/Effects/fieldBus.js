@@ -1,8 +1,8 @@
-// Pont entre l'interface et le nuage de points. Quatre canaux :
-//  - focus : indice de la ligne de l'index des projets survolée (-1 = aucune) → la grappe s'éclaire
-//  - hero  : forme du hero (sphere | name | browser | network | pad), changée à chaque acte affiché
-//  - warp  : « saut » de navigation, le nuage s'étire le temps d'un changement de page
-//  - tint  : couleur du monde en cours (rgb 0-1 + dose) : le nuage et l'aurore virent vers elle
+// Pont entre l'interface et la scène 3D (stage3d/createScene.js). Quatre canaux :
+//  - focus : indice de la ligne de l'index des projets survolée (-1 = aucune)
+//  - hero  : objet du hero (browser = page web | network = attention | pad = manette ; sphere = aucun), changé à chaque acte
+//  - warp  : « saut » de navigation, le fond accélère et la caméra s'élargit le temps d'un changement de page
+//  - tint  : couleur du monde en cours (rgb 0-1 + dose) : les isolignes, les lumières et l'aurore virent vers elle
 const channels = { focus: new Set(), hero: new Set(), warp: new Set(), tint: new Set() };
 
 export const fieldState = { focus: -1, hero: "sphere", tint: { rgb: [0.62, 0.34, 0.98], mix: 0 } };

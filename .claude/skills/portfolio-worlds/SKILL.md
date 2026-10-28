@@ -14,8 +14,8 @@ Lire d'abord : `MOTION.md` (sections « Pages projet et mondes » et « Hero en 
 4. Facultatif : `FEATURED` dans `src/Component/WorkIndex.js` (sélection de l'accueil), boucle vidéo (`public/clips/<id>.mp4` + `.webp`, `IDS` de `src/Pages/clips.js`).
 
 ## Ajouter un monde sur mesure
-1. `src/Worlds/config.js`, objet `WORLDS` : `accent`, `secondary`, `bg`, `bgRaised`, `bgSunken`, `shape` / `tint` / `mix` du nuage, `cloud` (x, y, size, rot, show, flow, aurora). Sans entrée, le projet prend le monde de sa catégorie.
-2. `src/Worlds/<id>/` : `index.js` qui exporte `Hero`, plus son CSS. Le hero reçoit `{ work, world, title, tagline, crumb, facts, media }`, porte `data-work-top`, anime son entrée dans `useGSAP` avec `onReady(() => tl.play())` (rien en mouvement réduit). Formes du nuage disponibles : `noise`, `sphere`, `lattice`, `work`, `stack`, `browser`, `network`, `at`, `pad`, `name` (nouvelle forme : `src/Effects/stage3d/fieldData.js`).
+1. `src/Worlds/config.js`, objet `WORLDS` : `accent`, `secondary`, `bg`, `bgRaised`, `bgSunken`, `tint` / `mix` (couleur des isolignes du fond et de l'aurore, via `setFieldTint`). Sans entrée, le projet prend le monde de sa catégorie. `shape` et `cloud` sont des restes du nuage de points supprimé le 2026-10-28 : sans effet, ne pas les renseigner.
+2. `src/Worlds/<id>/` : `index.js` qui exporte `Hero`, plus son CSS. Le hero reçoit `{ work, world, title, tagline, crumb, facts, media }`, porte `data-work-top`, anime son entrée dans `useGSAP` avec `onReady(() => tl.play())` (rien en mouvement réduit). Le fond 3D (isolignes + objets du hero) vit dans `src/Effects/stage3d/` (`createScene.js`) : un monde n'a rien à y déclarer, seulement sa teinte.
 3. Une ligne dans `MODULES` de `src/Worlds/index.js` (chunk à la demande, préchargé par `prefetch`).
 4. Vérifier avec la skill `portfolio-qa` (bureau, mobile, mouvement réduit, FR/EN/ES, transition filmée).
 

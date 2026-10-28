@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Fond (aurore) + nuage de points persistant (espace latent) + annotations de la constellation
-   Ordre d'empilement : aurore (-2) < dégradés des pages (-1) < nuage (0) < contenu des pages (1)
+   Fond (aurore) + scène 3D persistante (isolignes, objets du hero) + annotations de la manette
+   Ordre d'empilement : aurore (-2) < dégradés des pages (-1) < scène 3D (0) < contenu des pages (1)
    < annotations et puce « voisin » (2-3) < HUD (850).
-   Le fond et le nuage sont montés une seule fois, au-dessus des routes : ils traversent la navigation.
+   Le fond et la scène sont montés une seule fois, au-dessus des routes : ils traversent la navigation.
    ========================================================================== */
 
 .backdrop {
@@ -45,51 +45,6 @@
 }
 
 /* ---------- Voisin le plus proche du curseur ---------- */
-
-.probe {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 3;
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 7px 12px 7px 10px;
-  border: 1px solid rgba(99, 230, 190, 0.5);
-  border-radius: 999px;
-  background: rgba(10, 10, 15, 0.72);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  color: var(--mint);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.25s var(--ease-out), visibility 0s 0.25s;
-  will-change: transform;
-}
-
-.probe.is-on {
-  opacity: 1;
-  visibility: visible;
-  transition-delay: 0s;
-}
-
-.probe__dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--mint);
-  box-shadow: 0 0 10px var(--mint);
-}
-
-.probe__dist {
-  color: var(--ink-faint);
-  font-variant-numeric: tabular-nums;
-}
-
-.probe__dist::before {
-  content: "d ";
-}
 
 /* ---------- Annotations ---------- */
 

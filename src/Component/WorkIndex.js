@@ -23,7 +23,6 @@ const FEATURED = ["cerebro", "seo-autopilot", "au-fil-des-images", "articles-man
 // Un accès par page de projets : aperçu flottant au survol, nombre de projets lu dans les données des pages.
 // sub : lignes secondaires (jeu vidéo), plus discrètes et regroupées sous un intitulé.
 // clip : la boucle vidéo (public/clips, 1280×720) qui illustre la ligne au survol.
-// L'ordre est celui des grappes du nuage de points (voir stage3d/fieldData.js).
 const SECTIONS = [
   { path: "/ProjectsWeb", label: "DropdownProjects.ProjectWeb", tags: "Next.js · React · Vue", count: WEB_PROJECTS.length, clip: "au-fil-des-images" },
   { path: "/AI", label: "ClassicNavBar.AI", tags: "RAG · n8n · LLM", count: AI_PROJECTS.length, clip: "seo-autopilot" },

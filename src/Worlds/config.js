@@ -1,4 +1,4 @@
-// Un monde = la peau d'une page projet : couleurs de l'interface, forme et teinte du nuage de points,
+// Un monde = la peau d'une page projet : couleurs de l'interface, teinte des isolignes du fond,
 // éventuellement un module sur mesure (voir index.js). La coque (HUD, menu, curseur, grain, courbes d'animation)
 // ne change jamais.
 //
@@ -16,8 +16,8 @@ const CATEGORY_WORLDS = {
 
 // Champs d'un monde :
 //  accent / secondary : couleur principale de l'interface (--violet) et couleur « interrogée » (--mint)
-//  bg / bgRaised / bgSunken : fonds ; tint / mix : couleur du nuage (0-1) et dose ; shape : forme du nuage
-//  cloud : pose du nuage sur la page (x, y, size, rot, show, flow, aurora), valeurs de buildWorkKeys par défaut
+//  bg / bgRaised / bgSunken : fonds ; tint / mix : couleur des isolignes et de l'aurore (0-1) et dose
+//  shape et cloud : hérités du nuage de points, sans effet depuis la scène 3D (2026-10-28) ; ne plus les renseigner
 const WORLDS = {
   // Cerebro : l'espace latent lui-même, nuit profonde, menthe pour la matière et violet pour la requête
   cerebro: {

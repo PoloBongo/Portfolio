@@ -7,7 +7,6 @@ import SplitReveal from "../Effects/SplitReveal";
 import Button from "./Button";
 import Magnetic from "../Effects/Magnetic";
 import { TLink } from "../Effects/PageTransition";
-import { introMode } from "../Effects/intro";
 import { peekLanding } from "../Effects/homeReturn";
 import { useLenis, useScrollTo } from "../Effects/SmoothScroll";
 import { gsap, ScrollTrigger, EASE, onReady, prefersReducedMotion, hasFinePointer } from "../Effects/motion";
@@ -27,7 +26,6 @@ const ACTS = [
 
 const NEUTRAL = [0.62, 0.34, 0.98]; // le violet d'origine du nuage
 const DWELL = 8; // durée d'un acte pendant la visite guidée (s)
-const NAME_HOLD = 1; // le nuage a commencé à écrire le nom derrière le rideau ; délai avant les lettres du titre (s)
 const SCRAMBLE = "01<>/{}#_";
 const PIXEL_BLOCKS = [30, 20, 13, 9, 6, 4, 2.6, 1.6];
 
@@ -102,9 +100,6 @@ export default function Hero() {
       const labels = { pause: t("Hero.pause"), play: t("Hero.play"), replay: t("Hero.replay") };
       const roleOf = (i) => acts[i].querySelector(".hero__role-text");
 
-      // Marqués une fois l'entrée jouée (pas au montage : React monte deux fois en développement). Le nom n'est
-      // écrit par le nuage qu'à l'ouverture du rideau du préloader : sans lui, il n'aurait pas le temps de se former.
-      const nameFirst = !nameFormed && introMode === "full";
       // Position où la page va se poser s'il s'agit d'un retour (voir Effects/homeReturn.js)
       const landing = peekLanding();
       const tour = !toured && (landing === null ? window.scrollY : landing) < 4;
@@ -132,7 +127,7 @@ export default function Hero() {
 
       gsap.set(acts, { autoAlpha: 0 });
       gsap.set(railBars, { scaleX: 0 });
-      setHeroShape(nameFirst ? "name" : ACTS[initialAct].shape);
+      setHeroShape(ACTS[initialAct].shape);
 
       const applyTint = () => {
         const act = ACTS[active >= 0 ? active : initialAct];
@@ -459,7 +454,7 @@ export default function Hero() {
         intro.progress(1, false);
       } else {
         cancelReady = onReady(() => {
-          kick = gsap.delayedCall(nameFirst ? NAME_HOLD : 0, () => intro.play());
+          kick = gsap.delayedCall(0, () => intro.play());
         });
       }
 
