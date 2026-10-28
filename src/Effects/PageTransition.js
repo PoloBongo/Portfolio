@@ -15,8 +15,9 @@ import { play } from "./sound";
 import { triggerWarp } from "./fieldBus";
 import { prefetch } from "./prefetch";
 import { transitionOf } from "../Worlds/transitions";
+import { expectLanding, isHome, landingFor, rememberHome, setLanding } from "./homeReturn";
 
-// Les 16 genres de transition (une dizaine de Ko) ne sont chargés qu'au premier survol d'un lien vers un monde,
+// Les 17 genres de transition (une dizaine de Ko) ne sont chargés qu'au premier survol d'un lien vers un monde,
 // ou au début de la première transition
 const loadGenres = () => import("./worldTransition");
 
@@ -75,6 +76,14 @@ const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const WORLD_ANTICIPATION = 260; // ms
 
 const WORK_PATH = /^\/(?:fr|en|es)\/work\//;
+
+// Pose la page à l'endroit voulu tout de suite (retour à l'accueil : section visée ou position laissée), puis la
+// position attendue par le hero est oubliée
+const jumpTo = (y, scroller) => {
+  window.scrollTo(0, y);
+  if (scroller) scroller.scrollTo(y, { immediate: true, force: true });
+  setLanding(null);
+};
 
 export default function PageTransition({ children }) {
   const navigate = useNavigate();
@@ -177,10 +186,13 @@ export default function PageTransition({ children }) {
       const swapped = new Promise((resolve) => {
         pendingSwap.current = resolve;
       });
+      const target = new URL(to, window.location.origin);
+      setLanding(expectLanding(target));
       go(to);
       window.scrollTo(0, 0);
       if (live.current.lenis) live.current.lenis.scrollTo(0, { immediate: true, force: true });
       await Promise.race([swapped, wait(1500)]);
+      jumpTo(landingFor(target), live.current.lenis);
 
       // Le scroll reprend avant la révélation : redémarrer Lenis plus tard annulerait un défilement
       // vers une ancre lancé par la nouvelle page (useHashScroll)
@@ -214,10 +226,11 @@ export default function PageTransition({ children }) {
       origin,
       unlock,
       swap: () => {
+        const target = new URL(to, window.location.origin);
         html.classList.remove("is-world");
+        setLanding(expectLanding(target));
         flushSync(() => go(to));
-        window.scrollTo(0, 0);
-        if (live.current.lenis) live.current.lenis.scrollTo(0, { immediate: true, force: true });
+        jumpTo(landingFor(target), live.current.lenis);
       },
       onStart: () => {
         play("reveal");
@@ -240,8 +253,10 @@ export default function PageTransition({ children }) {
       }
 
       if (prefersReducedMotion()) {
-        go(to);
-        window.scrollTo(0, 0);
+        if (isHome(here.pathname)) rememberHome(window.scrollY);
+        setLanding(expectLanding(target));
+        flushSync(() => go(to));
+        jumpTo(landingFor(target), live.current.lenis);
         return;
       }
 
@@ -250,6 +265,9 @@ export default function PageTransition({ children }) {
       const world =
         typeof document.startViewTransition === "function" &&
         (WORK_PATH.test(here.pathname) || WORK_PATH.test(target.pathname));
+
+      // On quitte l'accueil : on retient où l'on était pour y revenir (précédent du navigateur)
+      if (isHome(here.pathname)) rememberHome(window.scrollY);
 
       busy.current = true;
       const unlock = lockGate();
@@ -292,8 +310,7 @@ export default function PageTransition({ children }) {
     labelRef.current.textContent = "";
     gsap.set(root, { visibility: "visible", pointerEvents: "all" });
     gsap.set(all, { scaleY: 1, transformOrigin: "50% 0%" });
-    window.scrollTo(0, 0);
-    if (live.current.lenis) live.current.lenis.scrollTo(0, { immediate: true, force: true });
+    jumpTo(landingFor(new URL(window.location.href), { back: true }), live.current.lenis);
 
     reveal(unlock).finally(() => {
       unlock();

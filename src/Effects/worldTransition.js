@@ -997,7 +997,101 @@ function flip(c) {
   };
 }
 
-export const GENRES = { iris, ink, dots, thread, scan, blinds, tear, pixels, flood, doors, fog, rain, draft, projectile, sweep, flip };
+// Memphis (Eko) : des formes plates à ombre dure (disques, triangles, étoiles, croix) jaillissent du clic, recouvrent
+// l'écran sur un aplat pêche ; la page change dessous ; l'aplat s'ouvre en cercle depuis le clic pendant que les formes
+// s'envolent en tournant (les plus proches du clic d'abord)
+function memphis(c) {
+  const [coral, blue, ink, green, plate, gold] = c.colors;
+  const palette = [coral, blue, green, gold, "#ffffff", ink];
+  const SWAP = 0.5;
+  const cols = 9;
+  const rows = Math.max(5, Math.round((cols * c.H) / c.W) + 1);
+  const cell = Math.max(c.W / cols, c.H / rows);
+  const rnd = seeded(31);
+  const shapes = [];
+  for (let j = 0; j < rows; j++) {
+    for (let i = 0; i < cols; i++) {
+      const x = ((i + 0.5 + (rnd() - 0.5) * 0.6) / cols) * c.W;
+      const y = ((j + 0.5 + (rnd() - 0.5) * 0.6) / rows) * c.H;
+      shapes.push({
+        x,
+        y,
+        kind: (i + j * 2) % 4,
+        r: cell * (0.5 + rnd() * 0.32),
+        color: palette[Math.floor(rnd() * palette.length)],
+        rot: rnd() * 6.28,
+        spin: (rnd() - 0.5) * 5,
+        d: Math.hypot(x - c.x, y - c.y) / c.R,
+      });
+    }
+  }
+  const trace = (ctx, kind, r) => {
+    ctx.beginPath();
+    if (kind === 0) {
+      ctx.arc(0, 0, r, 0, 6.2832);
+    } else if (kind === 1) {
+      ctx.moveTo(0, -r);
+      ctx.lineTo(r * 0.92, r * 0.72);
+      ctx.lineTo(-r * 0.92, r * 0.72);
+      ctx.closePath();
+    } else if (kind === 2) {
+      for (let k = 0; k < 16; k++) {
+        const a = (k * 6.2832) / 16 - 1.5708;
+        const rr = k % 2 ? r * 0.52 : r;
+        ctx[k ? "lineTo" : "moveTo"](Math.cos(a) * rr, Math.sin(a) * rr);
+      }
+      ctx.closePath();
+    } else {
+      const w = r * 0.36;
+      ctx.rect(-w, -r, w * 2, r * 2);
+      ctx.rect(-r, -w, r * 2, w * 2);
+    }
+  };
+  const back = (t) => 1 + 2.70158 * Math.pow(t - 1, 3) + 1.70158 * Math.pow(t - 1, 2);
+  return {
+    duration: 1500,
+    unlockAt: 0.55,
+    newAt: (p) => ({ opacity: p < SWAP ? 0 : 1 }),
+    oldAt: (p) => ({ opacity: p < SWAP ? 1 : 0 }),
+    draw(ctx, p) {
+      const closing = p < SWAP;
+      // aplat : un disque qui s'élargit depuis le clic, puis un trou qui s'ouvre au même endroit
+      const open = closing ? ease.expo(p / SWAP) : ease.expo((p - SWAP) / (1 - SWAP));
+      const R = c.R * 1.02;
+      ctx.fillStyle = plate;
+      ctx.beginPath();
+      if (closing) {
+        ctx.arc(c.x, c.y, R * open, 0, 6.2832);
+      } else {
+        ctx.rect(0, 0, c.W, c.H);
+        ctx.arc(c.x, c.y, R * open, 0, 6.2832, true);
+      }
+      ctx.fill("evenodd");
+      shapes.forEach((s) => {
+        // jaillissement (aller) puis envol (retour) selon la distance au clic
+        const a = closing ? back(clamp((p / SWAP - s.d * 0.55) / 0.42)) : 1 - ease.p2(clamp(((p - SWAP) / (1 - SWAP) - s.d * 0.5) / 0.45));
+        if (a <= 0.001) return;
+        const fly = closing ? 0 : 1 - a;
+        ctx.save();
+        ctx.translate(s.x + (s.x - c.x) * fly * 0.35, s.y + (s.y - c.y) * fly * 0.35);
+        ctx.rotate(s.rot + s.spin * (closing ? 1 - a : fly + 1));
+        ctx.scale(a, a);
+        ctx.fillStyle = ink;
+        ctx.save();
+        ctx.translate(s.r * 0.12, s.r * 0.12);
+        trace(ctx, s.kind, s.r);
+        ctx.fill("evenodd");
+        ctx.restore();
+        ctx.fillStyle = s.color;
+        trace(ctx, s.kind, s.r);
+        ctx.fill("evenodd");
+        ctx.restore();
+      });
+    },
+  };
+}
+
+export const GENRES = { iris, ink, dots, thread, scan, blinds, tear, pixels, flood, doors, fog, rain, draft, projectile, sweep, flip, memphis };
 
 /* ---------------------------------------------------------------------------------------------------------------
    Exécution

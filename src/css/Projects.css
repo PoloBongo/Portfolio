@@ -33,9 +33,25 @@
   pointer-events: none;
 }
 
-.page-hero__eyebrow {
+.page-hero__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
   margin-bottom: clamp(18px, 3vw, 36px);
-  color: var(--ink-dim);
+}
+
+.page-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  color: var(--ink);
+}
+
+.page-hero__eyebrow {
+  color: var(--violet);
+  /* Halo sombre : le rang reste lisible quand le nuage passe derrière (comme le fil d'Ariane des pages projet) */
+  text-shadow: 0 0 10px var(--bg), 0 0 3px var(--bg);
 }
 
 .page-hero__title {

@@ -8,6 +8,7 @@ import Button from "./Button";
 import Magnetic from "../Effects/Magnetic";
 import { TLink } from "../Effects/PageTransition";
 import { introMode } from "../Effects/intro";
+import { peekLanding } from "../Effects/homeReturn";
 import { useLenis, useScrollTo } from "../Effects/SmoothScroll";
 import { gsap, ScrollTrigger, EASE, onReady, prefersReducedMotion, hasFinePointer } from "../Effects/motion";
 import { setFieldTint, setHeroShape, triggerWarp } from "../Effects/fieldBus";
@@ -40,7 +41,8 @@ const WEIGHT_NEAR = 300;
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 const words = (text) => text.match(/\S+\s*/g) || [text];
 
-// Une visite guidée et une écriture du nom par chargement de page : revenir sur l'accueil ne les rejoue pas
+// Une visite guidée, une écriture du nom et une entrée du hero par chargement de page : revenir sur l'accueil
+// (précédent du navigateur, lien « Projets ») ne les rejoue pas
 let toured = false;
 let nameFormed = false;
 
@@ -103,12 +105,17 @@ export default function Hero() {
       // Marqués une fois l'entrée jouée (pas au montage : React monte deux fois en développement). Le nom n'est
       // écrit par le nuage qu'à l'ouverture du rideau du préloader : sans lui, il n'aurait pas le temps de se former.
       const nameFirst = !nameFormed && introMode === "full";
-      const tour = !toured && window.scrollY < 4;
+      // Position où la page va se poser s'il s'agit d'un retour (voir Effects/homeReturn.js)
+      const landing = peekLanding();
+      const tour = !toured && (landing === null ? window.scrollY : landing) < 4;
+      // Déjà vu pendant ce chargement : le hero apparaît d'un coup, dans son état final (pas d'écriture des lettres)
+      const skipIntro = toured || nameFormed;
 
       // Retour sur l'accueil à mi-défilement (précédent du navigateur) : on repart de l'acte où se trouve la page
       const last = ACTS.length - 1;
       const pinned = window.matchMedia("(min-height: 561px)").matches;
-      const initialAct = pinned ? clamp(Math.round(window.scrollY / window.innerHeight), 0, last) : 0;
+      const here = landing === null ? window.scrollY : landing;
+      const initialAct = pinned ? clamp(Math.round(here / window.innerHeight), 0, last) : 0;
 
       let active = -1;
       let mode = "manual"; // « auto » tant que la visite guidée tourne
@@ -439,16 +446,22 @@ export default function Hero() {
             toured = true;
             root.dataset.started = "1";
             // On part de l'acte où se trouve la page (défilement restauré, ou saisi pendant l'entrée)
-            goTo(st ? clamp(Math.round(st.progress * last), 0, last) : 0, { force: true });
+            goTo(skipIntro ? initialAct : st ? clamp(Math.round(st.progress * last), 0, last) : 0, { force: true });
             if (tour && window.scrollY < 4) startTour();
             else setPauseState("play");
           }),
           null,
           1.35
         );
-      const cancelReady = onReady(() => {
-        kick = gsap.delayedCall(nameFirst ? NAME_HOLD : 0, () => intro.play());
-      });
+      // Retour sur l'accueil : l'entrée est jouée d'un trait (les rappels aussi), sans attendre la porte
+      let cancelReady = () => {};
+      if (skipIntro) {
+        intro.progress(1, false);
+      } else {
+        cancelReady = onReady(() => {
+          kick = gsap.delayedCall(nameFirst ? NAME_HOLD : 0, () => intro.play());
+        });
+      }
 
       // Au scroll, le contenu s'efface en glissant légèrement vers le haut (une fois la scène épinglée libérée)
       gsap.to(q(".hero__content"), {

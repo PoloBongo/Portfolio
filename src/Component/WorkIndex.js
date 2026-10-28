@@ -8,9 +8,7 @@ import Reveal from "../Effects/Reveal";
 import { gsap, ScrollTrigger, EASE, hasFinePointer } from "../Effects/motion";
 import { setFieldFocus } from "../Effects/fieldBus";
 
-import imgUnity from "../img/backgroundDepthsOfHue.webp";
-import imgGameJam from "../img/backgroundChocoBlast.webp";
-import imgWeb from "../img/backgroundReactPortfolio.webp";
+import { clipPoster, clipSrc, canAutoplayClips } from "../Pages/clips";
 import { UNITY_PROJECTS } from "../Pages/Unity/projects";
 import { UNREAL_PROJECTS } from "../Pages/Unreal/projects";
 import { GAMEJAM_PROJECTS } from "../Pages/GameJam/projects";
@@ -19,20 +17,19 @@ import { AI_PROJECTS } from "../Pages/AI/projects";
 import { getWork } from "../Pages/work";
 import ProjectCard from "./ProjectCard";
 
-const yt = (id) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
-
 // Sélection affichée sous l'index : web et IA d'abord, deux jeux ensuite. Chaque carte mène à la page du projet.
 const FEATURED = ["cerebro", "seo-autopilot", "au-fil-des-images", "articles-manager", "depths-of-hue", "funfair"];
 
 // Un accès par page de projets : aperçu flottant au survol, nombre de projets lu dans les données des pages.
 // sub : lignes secondaires (jeu vidéo), plus discrètes et regroupées sous un intitulé.
+// clip : la boucle vidéo (public/clips, 1280×720) qui illustre la ligne au survol.
 // L'ordre est celui des grappes du nuage de points (voir stage3d/fieldData.js).
 const SECTIONS = [
-  { path: "/ProjectsWeb", label: "DropdownProjects.ProjectWeb", tags: "Next.js · React · Vue", count: WEB_PROJECTS.length, img: imgWeb },
-  { path: "/AI", label: "ClassicNavBar.AI", tags: "RAG · n8n · LLM", count: AI_PROJECTS.length, img: yt("7C2_lc6DfLU") },
-  { path: "/Unity", label: "ClassicNavBar.Unity", tags: "C# · WebGL", count: UNITY_PROJECTS.length, img: imgUnity, sub: true },
-  { path: "/Unreal", label: "ClassicNavBar.Unreal", tags: "Blueprint · C++", count: UNREAL_PROJECTS.length, img: yt("suI8_LCzjSI"), sub: true },
-  { path: "/GameJam", label: "ClassicNavBar.GameJam", tags: "48h · Unity", count: GAMEJAM_PROJECTS.length, img: imgGameJam, sub: true },
+  { path: "/ProjectsWeb", label: "DropdownProjects.ProjectWeb", tags: "Next.js · React · Vue", count: WEB_PROJECTS.length, clip: "au-fil-des-images" },
+  { path: "/AI", label: "ClassicNavBar.AI", tags: "RAG · n8n · LLM", count: AI_PROJECTS.length, clip: "seo-autopilot" },
+  { path: "/Unity", label: "ClassicNavBar.Unity", tags: "C# · WebGL", count: UNITY_PROJECTS.length, clip: "depths-of-hue", sub: true },
+  { path: "/Unreal", label: "ClassicNavBar.Unreal", tags: "Blueprint · C++", count: UNREAL_PROJECTS.length, clip: "funfair", sub: true },
+  { path: "/GameJam", label: "ClassicNavBar.GameJam", tags: "48h · Unity", count: GAMEJAM_PROJECTS.length, clip: "attraction-flow", sub: true },
 ];
 const FIRST_SUB = SECTIONS.findIndex((section) => section.sub);
 
@@ -71,6 +68,8 @@ export default function WorkIndex() {
       const root = rootRef.current;
       const preview = previewRef.current;
       const images = preview.querySelectorAll(".work__preview-img");
+      const videos = Array.from(images).map((layer) => layer.querySelector("video"));
+      const canPlay = canAutoplayClips();
 
       // Les aperçus ne sont chargés que lorsque la section approche de l'écran
       gsap.set(preview, { xPercent: -50, yPercent: -50, scale: 0.7, opacity: 0, display: "none" });
@@ -92,7 +91,21 @@ export default function WorkIndex() {
         lastX = e.clientX;
       };
 
+      // La boucle vidéo ne se charge qu'à la première intention (survol), une seule joue à la fois
+      const play = (index) => {
+        videos.forEach((video, i) => {
+          if (!video) return;
+          if (i !== index) {
+            video.pause();
+            return;
+          }
+          if (!video.src) video.src = clipSrc(SECTIONS[i].clip);
+          video.play().catch(() => {});
+        });
+      };
+
       const show = (index) => {
+        if (canPlay) play(index);
         images.forEach((img, i) => {
           gsap.to(img, {
             clipPath: i === index ? "inset(0% 0% 0% 0%)" : "inset(0% 0% 100% 0%)",
@@ -105,6 +118,7 @@ export default function WorkIndex() {
       };
       const hide = () => {
         gsap.to(preview, { scale: 0.7, opacity: 0, duration: 0.5, ease: EASE.out, overwrite: "auto" });
+        gsap.delayedCall(0.5, () => videos.forEach((video) => video && video.pause()));
       };
 
       const rows = Array.from(root.querySelectorAll(".work__link"));
@@ -177,8 +191,11 @@ export default function WorkIndex() {
       </div>
 
       <div className="work__preview" ref={previewRef} aria-hidden="true">
-        {SECTIONS.map(({ path, img }) => (
-          <img className="work__preview-img" key={path} src={img} alt="" loading="lazy" />
+        {SECTIONS.map(({ path, clip }) => (
+          <div className="work__preview-img" key={path}>
+            <img src={clipPoster(clip)} alt="" loading="lazy" decoding="async" />
+            <video muted loop playsInline preload="none" tabIndex={-1} />
+          </div>
         ))}
       </div>
     </section>

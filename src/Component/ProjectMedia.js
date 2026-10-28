@@ -77,7 +77,9 @@ export default function ProjectMedia({ project, title }) {
   const lang = (i18n.language || "fr").slice(0, 2);
   const videoId = videoIdOf(project, lang);
   const hasGame = !!project.game;
-  const posterSrc = posterOf(project, lang);
+  const clip = hasClip(project.id);
+  // Avec une boucle, son affiche locale (HD) sert de vignette : pas de requête YouTube, pas de repli flou
+  const posterSrc = clip ? clipPoster(project.id) : posterOf(project, lang);
   const Diagram = !posterSrc && project.diagram ? DIAGRAMS[project.diagram] : null;
   const g = project.gameLabels || {};
 
@@ -86,7 +88,6 @@ export default function ProjectMedia({ project, title }) {
   const back = () => setMode("poster");
 
   // Extrait vidéo muet en boucle : chargé à l'approche de l'écran, lu seulement quand il est visible
-  const clip = hasClip(project.id);
   useEffect(() => {
     const video = clipRef.current;
     if (!clip || mode !== "poster" || !video || prefersReducedMotion() || !canAutoplayClips()) return undefined;

@@ -1,5 +1,5 @@
 // Extraits vidéo muets de 8 s (public/clips) : un par projet, nommé comme l'id du projet.
-// Boucles 960×540 sans fond de navigateur ni éditeur, avec un fondu fin → début pour boucler sans à-coup.
+// Boucles 1280×720 sans fond de navigateur ni éditeur, avec un fondu fin → début pour boucler sans à-coup.
 const BASE = `${process.env.PUBLIC_URL || ""}/clips`;
 
 const IDS = new Set([

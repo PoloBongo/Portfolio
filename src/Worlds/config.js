@@ -141,16 +141,17 @@ const WORLDS = {
     tint: [0.78, 0.2, 0.12],
     cloud: { show: 0.08, aurora: 0 },
   },
-  // eko : une forêt dans la brume, plans en parallaxe
+  // eko : la marketplace en Memphis, pêche et corail, formes plates (thème clair)
   eko: {
-    accent: "#7fb08a",
-    secondary: "#f2c36b",
-    bg: "#0f2a20",
-    bgRaised: "#14362a",
-    bgSunken: "#0a1d16",
+    accent: "#c93b28",
+    secondary: "#2f6fd6",
+    ink: "#1b1b1f",
+    bg: "#fff0cf",
+    bgRaised: "#fff7e3",
+    bgSunken: "#ffe6b0",
     shape: "network",
-    tint: [0.5, 0.69, 0.54],
-    cloud: { show: 0.45, aurora: 0.4 },
+    tint: [0.93, 0.31, 0.23],
+    cloud: { show: 0.06, aurora: 0 },
   },
   // ba-immobilier : anthracite et turquoise, plan d'architecte filaire
   "ba-immobilier": {
@@ -291,7 +292,7 @@ export const PALETTES = {
   "celtic-la-riche-basket": ["#0e6b47", "#ff7a1a", "#07281c", "#101010", "#f4efe2"],
   "meteo-dashboard": ["#274b73", "#ffc857", "#0f1d2e", "#cfe0ee", "#e9f2ff"],
   "articles-manager": ["#ece5d6", "#c8321e", "#a69e8a", "#3a362c", "#141414"],
-  eko: ["#0f2a20", "#7fb08a", "#f2c36b", "#25503b", "#d9e6d3"],
+  eko: ["#ffb391", "#ec4e3a", "#3369d0", "#3b3b40", "#1b1b1f"],
   "ba-immobilier": ["#232527", "#1fb8c4", "#f2b97a", "#303337", "#e8e8e6"],
   ratp: ["#0a1018", "#12d8dc", "#1d6fc4", "#49b8a5", "#f4fbfb"],
   "angry-birds": ["#a9bfd0", "#e0242e", "#3fbf4d", "#a9774b", "#2a1d12"],
@@ -320,7 +321,7 @@ export const FONTS = {
   "celtic-la-riche-basket": "https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;600;700&display=swap",
   "meteo-dashboard": "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400;600&display=swap",
   "articles-manager": "https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap",
-  eko: "https://fonts.googleapis.com/css2?family=Young+Serif&family=Albert+Sans:wght@400;600&display=swap",
+  eko: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap",
   "ba-immobilier": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Share+Tech+Mono&display=swap",
   ratp: "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Overpass+Mono:wght@400;700&display=swap",
   "angry-birds": "https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;800&family=Patrick+Hand&display=swap",

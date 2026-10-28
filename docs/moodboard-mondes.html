@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Courier+Prime:wght@400;700&family=Young+Serif&family=Albert+Sans:wght@400;600&family=Share+Tech+Mono&family=Cormorant:ital,wght@0,300..600;1,300..600&family=Jost:wght@300;400;500&family=Bodoni+Moda:opsz,wght@6..96,400..800&family=Special+Elite&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700;900&family=Overpass+Mono:wght@400;700&family=Baloo+2:wght@500;800&family=Patrick+Hand&family=Caveat:wght@500;700&family=Nunito:wght@400;700;900&family=Cinzel:wght@500;700&family=IM+Fell+English:ital@0;1&family=Doto:wght@400;900&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Rubik:wght@400;600&family=Michroma&family=Chakra+Petch:wght@400;600&family=Pirata+One&family=Alegreya+Sans:wght@400;700&family=Familjen+Grotesk:wght@400;600&family=Sometype+Mono:wght@400;600&family=Press+Start+2P&family=VT323&family=Chewy&display=swap">
 <style>
 /* Planche de revue : un rail d'index, un panneau par monde (scène vivante, palette, typographie, signature,
@@ -384,20 +384,35 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .s-payment .bar::after { content: ""; position: absolute; top: 0; bottom: 0; width: 1cqw; background: linear-gradient(90deg, transparent, var(--w1), transparent); animation: scan 2s ease-in-out infinite alternate; }
 @keyframes scan { from { left: -1cqw; } to { left: 100%; } }
 
-/* ---- Eko ---- */
-.s-eko { background: linear-gradient(180deg, #1d4a39 0%, var(--w0) 80%); }
-.s-eko .sun { left: 62cqw; top: 6cqw; width: 11cqw; height: 11cqw; border-radius: 50%; background: radial-gradient(circle, #ffe2a0, var(--w2) 55%, transparent 72%); box-shadow: 0 0 9cqw 4cqw rgba(242, 195, 107, .35); }
-.s-eko .layer { inset: 0 -4cqw; width: calc(100% + 8cqw); height: 100%; transition: transform .25s ease-out; }
-.s-eko .l1 { transform: translateX(calc((var(--mx) - 50cqw) * -.012)); }
-.s-eko .l2 { transform: translateX(calc((var(--mx) - 50cqw) * -.03)); }
-.s-eko .l3 { transform: translateX(calc((var(--mx) - 50cqw) * -.06)); }
-.s-eko .mist { left: -30cqw; right: -30cqw; height: 18cqw; background: radial-gradient(50% 50% at 50% 50%, rgba(217, 230, 211, .35), transparent 70%); filter: blur(1cqw); animation: drift 16s ease-in-out infinite alternate; }
-.s-eko .m1 { bottom: 16cqw; } .s-eko .m2 { bottom: 4cqw; animation-duration: 22s; animation-direction: alternate-reverse; opacity: .8; }
-@keyframes drift { to { transform: translateX(22cqw); } }
-.s-eko .title { left: 6cqw; top: 6cqw; font: 400 11cqw/.95 var(--wf-display); color: var(--w4); }
-.s-eko .tag { left: 6.4cqw; top: 22cqw; width: 34cqw; font: 400 2cqw/1.45 var(--wf-body); color: var(--w4); opacity: .85; }
-.s-eko .sprout { bottom: 2cqw; width: 2.2cqw; height: 3.6cqw; border-radius: 50% 50% 0 0; background: var(--w1); transform-origin: 50% 100%; animation: grow 5s ease-out infinite; animation-delay: var(--d); z-index: 4; }
-@keyframes grow { 0% { transform: scaleY(0); } 30%, 85% { transform: scaleY(1); } 100% { transform: scaleY(0); } }
+/* ---- Eko (DA du vrai site : Memphis, pêche-rose, formes plates à ombre dure) ---- */
+.s-eko { background: radial-gradient(52% 80% at 90% 4%, rgba(255, 246, 214, .8), transparent 64%), linear-gradient(135deg, #ff8fa8 0%, var(--w0) 52%, #ffe0a0 100%); }
+.s-eko .sh { transform: translate(calc((var(--mx) - 50cqw) * var(--k)), calc((var(--my) - 31cqw) * var(--k))); transition: transform .35s cubic-bezier(.2, .8, .2, 1); }
+.s-eko .sh svg { display: block; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(.45cqw .45cqw 0 rgba(27, 27, 31, .92)); animation: ekobob 6s ease-in-out infinite; animation-delay: var(--d); }
+.s-eko .sh.flat svg { filter: none; }
+@keyframes ekobob { 50% { transform: translateY(-.9cqw) scale(1.04); } }
+.s-eko .title { left: 5cqw; top: 4.2cqw; font: 800 17cqw/.9 var(--wf-display); letter-spacing: -.04em; color: var(--w4); }
+.s-eko .title span { text-shadow: .06em .06em 0 var(--w1); }
+.s-eko .tag { left: 5.4cqw; top: 24.4cqw; width: 33cqw; font: 600 1.75cqw/1.5 var(--wf-body); color: var(--w4); }
+.s-eko .str { inset: 0; width: 100%; height: 100%; }
+.s-eko .plan { width: 12.4cqw; height: 18.5cqw; transform-origin: 50% 0; animation: ekoswing 4.6s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -1.3s); z-index: 3; }
+.s-eko .plan:hover { animation-duration: 1.4s; }
+@keyframes ekoswing { from { transform: rotate(-4.2deg); } to { transform: rotate(4.2deg); } }
+.s-eko .peg { position: absolute; left: 50%; top: -1.1cqw; width: 1.5cqw; height: 3.1cqw; margin-left: -.75cqw; border-radius: .3cqw; background: linear-gradient(90deg, #e9ad52, #d18a2c); box-shadow: .2cqw .2cqw 0 rgba(27, 27, 31, .85); z-index: 2; }
+.s-eko .card { position: absolute; inset: 0; display: flex; flex-direction: column; gap: .7cqw; padding: 2.8cqw 1.3cqw 1.2cqw; border-radius: .9cqw; background: var(--c); color: var(--w4); box-shadow: .5cqw .5cqw 0 var(--w4); transition: transform .35s cubic-bezier(.2, .9, .25, 1.3); }
+.s-eko .plan:hover .card { transform: translateY(-1cqw) scale(1.07); }
+.s-eko .card b { font: 800 1.55cqw var(--wf-display); letter-spacing: -.01em; }
+.s-eko .card .pr { font: 800 2.7cqw/1 var(--wf-display); letter-spacing: -.03em; }
+.s-eko .card .pr small { font: 600 .8cqw var(--wf-body); letter-spacing: 0; }
+.s-eko .card i { display: block; height: .55cqw; border-radius: 99px; background: rgba(27, 27, 31, .22); }
+.s-eko .card i.s { width: 62%; }
+.s-eko .card u { margin-top: auto; padding: .7cqw 0; border-radius: 99px; background: var(--w2); color: #fff; text-align: center; text-decoration: none; font: 700 1cqw var(--wf-body); }
+.s-eko .win { left: 5cqw; top: 38.5cqw; width: 31cqw; height: 18.5cqw; display: flex; flex-direction: column; gap: 1cqw; padding: 1.5cqw 2cqw; border-radius: 1.1cqw; background: var(--w3); color: #fff; box-shadow: .6cqw .6cqw 0 var(--w4); z-index: 4; }
+.s-eko .win .dots { display: flex; gap: .5cqw; }
+.s-eko .win .dots i { width: .8cqw; height: .8cqw; border-radius: 50%; background: #8a8a92; }
+.s-eko .win .dots i:first-child { background: var(--w1); } .s-eko .win .dots i:nth-child(2) { background: var(--w2); }
+.s-eko .win strong { align-self: flex-start; padding-bottom: .5cqw; border-bottom: .3cqw solid #f2c36b; font: 700 1.5cqw var(--wf-display); letter-spacing: .06em; }
+.s-eko .win .fd { display: block; height: .28cqw; border-radius: 99px; background: rgba(255, 255, 255, .28); } .s-eko .win .fd.s { width: 55%; }
+.s-eko .win u { align-self: flex-end; margin-top: auto; padding: .7cqw 1.6cqw; border-radius: .5cqw; background: var(--w2); color: #fff; text-decoration: none; font: 700 1cqw var(--wf-body); letter-spacing: .05em; }
 
 /* ---- B.A Immobilier (DA du site : anthracite + turquoise) ---- */
 .s-immo { background: var(--w0); }
@@ -778,12 +793,12 @@ const WORLDS = [
   },
   {
     id: "eko", cat: "web", tier: "A", name: "Eko",
-    concept: "Une forêt dans la brume : strates de sapins, lumière filtrée.",
-    palette: [["#0f2a20", "Nuit forêt"], ["#7fb08a", "Mousse"], ["#f2c36b", "Soleil"], ["#25503b", "Sapin"], ["#d9e6d3", "Brume"]],
-    fonts: ["Young Serif", "Albert Sans"], fontStyle: ["", ""],
-    signature: "Trois plans de forêt en parallaxe au curseur, une brume qui dérive ; les abonnements poussent comme des pousses.",
-    transition: ["ink", "La brume avale l'ancienne page puis se lève."],
-    sound: "Oiseaux lointains, vent dans les feuilles.", hover: "Survolez : les plans bougent en parallaxe"
+    concept: "La DA du vrai site, refaite en vivant : Memphis, dégradé pêche-rose, formes plates à ombre dure, fenêtre sombre « Vendre sur Eko » et abonnements Bronze, Gold, Diamant.",
+    palette: [["#ffb391", "Pêche"], ["#ec4e3a", "Corail"], ["#3369d0", "Bleu"], ["#3b3b40", "Fenêtre"], ["#1b1b1f", "Encre"]],
+    fonts: ["Poppins", "Poppins"], fontStyle: ["font-weight:800;letter-spacing:-.04em", "font-weight:600"],
+    signature: "Les formes fuient le curseur et reviennent en rebondissant ; les trois abonnements pendent d'un fil et se balancent quand on les frôle ; au clic, un autocollant « POP ! » et des formes qui jaillissent.",
+    transition: ["memphis", "Des formes plates jaillissent du clic, recouvrent l'écran sur un aplat pêche, puis s'envolent."],
+    sound: "Pop de bulle, petit carillon de caisse.", hover: "Survolez : les formes s'écartent, les abonnements se balancent"
   },
   {
     id: "immo", cat: "web", tier: "A", name: "B.A Immobilier",
@@ -1132,13 +1147,28 @@ SCENES.payment = (st) => {
     <div class="rcpt">${rows.map((r, i) => `<p style="--i:${i}"><span>${r[0]}</span><span>${r[1]}</span></p>`).join("")}<p class="tot" style="--i:4"><span>TOTAL</span><span>176,00 €</span></p><div class="bar"></div></div>${uiRow("SEC 07 / Web / Payment")}`;
 };
 
-/* 08 Eko : forêt en trois plans dans la brume */
-SCENES.eko = (st, w) => {
-  const fir = (x, h, wd, col) => `<path d="M${x} 100 L${x - wd / 2} 100 L${x - wd * .2} ${100 - h * .45} L${x - wd * .38} ${100 - h * .45} L${x} ${100 - h} L${x + wd * .38} ${100 - h * .45} L${x + wd * .2} ${100 - h * .45} L${x + wd / 2} 100Z" fill="${col}"/>`;
-  const layer = (n, count, h, wd, col, seed) => `<svg class="layer l${n}" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">${Array.from({ length: count }, (_, i) => fir(((i + .5) / count) * 100 + Math.sin(i * seed) * 2.2, h + Math.sin(i * seed * 1.7) * h * .3, wd, col)).join("")}</svg>`;
-  st.innerHTML = `<i class="sun"></i>${layer(1, 14, 52, 9, "#1d4a39", 2.3)}<i class="mist m1"></i>${layer(2, 10, 64, 11, w.palette[3][0], 3.1)}<i class="mist m2"></i>${layer(3, 7, 78, 15, "#0a1d15", 4.7)}
-    <h3 class="title">Eko</h3><p class="tag">Des abonnements qui poussent, un petit geste à la fois.</p>
-    ${[24, 38, 50].map((x, i) => `<i class="sprout" style="left:${x}cqw;--d:${i * 1.3}s"></i>`).join("")}${uiRow("SEC 08 / Web / Eko")}`;
+/* 08 Eko : la marketplace en Memphis (formes plates qui suivent le curseur, abonnements épinglés sur un fil) */
+SCENES.eko = (st) => {
+  const star = (n, o, i) => Array.from({ length: n * 2 }, (_, k) => { const a = k * Math.PI / n - Math.PI / 2, r = k % 2 ? i : o; return `${(50 + Math.cos(a) * r).toFixed(1)},${(50 + Math.sin(a) * r).toFixed(1)}`; }).join(" ");
+  const INK = "#1b1b1f";
+  const G = {
+    disc: `<circle cx="50" cy="50" r="46" fill="#5cc552"/><circle cx="56" cy="55" r="46" fill="none" stroke="${INK}" stroke-width="3"/>`,
+    dot: `<circle cx="50" cy="50" r="46" fill="${INK}"/>`, sun: `<circle cx="50" cy="50" r="46" fill="#ffd23f"/>`,
+    ring: `<circle cx="50" cy="50" r="40" fill="none" stroke="#ec4e3a" stroke-width="12"/>`,
+    burst: `<polygon points="${star(8, 48, 24)}" fill="#ec4e3a"/>`,
+    flower: `<polygon points="${star(12, 48, 30)}" fill="#fff" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>`,
+    tri: `<polygon points="50,6 96,92 4,92" fill="${INK}"/>`,
+    plus: `<path d="M38 4h24v34h34v24H62v34H38V62H4V38h34z" fill="#3369d0"/>`,
+    zig: `<polyline points="2,70 18,30 34,70 50,30 66,70 82,30 98,70" fill="none" stroke="${INK}" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>`,
+    grid: Array.from({ length: 12 }, (_, i) => `<circle cx="${18 + (i % 4) * 21}" cy="${24 + Math.floor(i / 4) * 26}" r="5.5" fill="${INK}"/>`).join("")
+  };
+  const shapes = [["disc", 41, 40, 13, -.02], ["dot", 38, 55, 4.4, -.05, 1], ["burst", 88, 39, 11, .03], ["flower", 60, 41, 15, -.03], ["tri", 78, 49, 8, .04], ["plus", 92, 2.5, 5.6, .06], ["zig", 42, .6, 8, -.04, 1], ["grid", 93, 51, 6, .02, 1], ["ring", 2.5, 56, 6.4, -.05, 1], ["sun", 50, 55.5, 4.8, .05]];
+  const plans = [["Bronze", "4,99", "#ffd9bf", 55], ["Gold", "9,99", "#ffe7a3", 70], ["Diamant", "19,99", "#cfe3ff", 85]];
+  st.innerHTML = `${shapes.map(([k, x, y, s, d, flat], i) => `<i class="sh${flat ? " flat" : ""}" style="left:${x}cqw;top:${y}cqw;width:${s}cqw;height:${k === "zig" ? s / 2 : s}cqw;--k:${d};--d:${(i * .7).toFixed(1)}s"><svg viewBox="0 0 100 100" preserveAspectRatio="none" overflow="visible">${G[k]}</svg></i>`).join("")}
+    <svg class="str" viewBox="0 0 100 62.5" preserveAspectRatio="none" aria-hidden="true"><path d="M46 7.8 Q70 11.4 96 7.8" fill="none" stroke="${INK}" stroke-width=".35" stroke-linecap="round"/></svg>
+    ${plans.map(([t, p, c, x], i) => `<div class="plan" style="left:${x - 6.2}cqw;top:8.8cqw;--c:${c};--i:${i}"><i class="peg"></i><div class="card"><b>${t}</b><span class="pr">${p}<small> €/mois</small></span><i></i><i class="s"></i><i></i><u>S'abonner</u></div></div>`).join("")}
+    <div class="win"><span class="dots"><i></i><i></i><i></i></span><strong>VENDRE SUR EKO</strong><i class="fd"></i><i class="fd s"></i><i class="fd"></i><u>SE CONNECTER</u></div>
+    <h3 class="title"><span>Eko</span></h3><p class="tag">Une boutique en ligne avec abonnements, dans l'univers pop et coloré du site.</p>${uiRow("SEC 08 / Web / Eko")}`;
 };
 
 /* 09 B.A Immobilier : le site (anthracite, turquoise) + plan filaire qui devient rendu */
@@ -1515,6 +1545,18 @@ const TRANS = {
     ctx.strokeStyle = c.accent; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(0, h / 2);
     for (let x = 0; x <= w * k1; x += 3) ctx.lineTo(x, h / 2 + Math.sin(x * .09) * 4 * (1 - k2));
     ctx.stroke();
+  },
+  memphis(ctx, w, h, p, t, c) {
+    const cols = 6, rows = 4, cw = w / cols, ch = h / rows, cx = w * .3, cy = h * .62, R = Math.hypot(w, h);
+    ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, R * ease(p), 0, 7); ctx.clip(); page(ctx, w, h, c.bg, c.ink, c.accent); ctx.restore();
+    const palette = ["#ec4e3a", "#3369d0", "#5cc552", "#ffd23f"];
+    for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+      const x = (i + .5) * cw, y = (j + .5) * ch, d = Math.hypot(x - cx, y - cy) / R, k = clamp((p * 1.6 - d * .8) * 1.5) * (1 - clamp((p - .55) * 2.2 - d * .6));
+      if (k <= .01) continue;
+      ctx.save(); ctx.translate(x, y); ctx.rotate(i + j + p * 3); ctx.scale(k, k); ctx.fillStyle = palette[(i + j) % 4];
+      ctx.beginPath(); if ((i + j) % 3 === 0) ctx.arc(0, 0, ch * .42, 0, 7); else { ctx.moveTo(0, -ch * .45); ctx.lineTo(ch * .4, ch * .32); ctx.lineTo(-ch * .4, ch * .32); ctx.closePath(); }
+      ctx.fill(); ctx.restore();
+    }
   },
   ink(ctx, w, h, p, t, c) {
     const cx = w * .55, cy = h * .5, R = Math.hypot(w, h) * .62 * ease(p);

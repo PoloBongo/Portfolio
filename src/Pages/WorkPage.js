@@ -38,14 +38,22 @@ const pad = (n) => String(n).padStart(2, "0");
 // Les textes utilisent parfois *mot* pour l'italique
 const emphasis = (html) => html.replace(/\*([^*\n]+)\*/g, "<em>$1</em>");
 
-// Fil d'Ariane : retour à la catégorie, rang du projet dans elle
+// Fil d'Ariane : retour à la section Projets de l'accueil, puis à la catégorie ; rang du projet dans elle
 function Crumb({ work, lang }) {
   const { t } = useTranslation();
   return (
     <nav className="work-crumb mono" aria-label={t("Work.breadcrumb")}>
-      <TLink className="work-crumb__back link-line" to={`/${lang}${work.category.path}`} label={t(work.category.labelKey)}>
-        <span aria-hidden="true">←</span> {t(work.category.labelKey)}
-      </TLink>
+      <span className="work-crumb__trail">
+        <TLink className="work-crumb__back link-line" to={`/${lang}#work`} label={t("Hud.work")}>
+          <span aria-hidden="true">←</span> {t("Hud.work")}
+        </TLink>
+        <span className="work-crumb__sep" aria-hidden="true">
+          /
+        </span>
+        <TLink className="work-crumb__back link-line" to={`/${lang}${work.category.path}`} label={t(work.category.labelKey)}>
+          {t(work.category.labelKey)}
+        </TLink>
+      </span>
       <span className="work-crumb__count">
         {pad(work.index + 1)} / {pad(work.count)}
       </span>

@@ -27,6 +27,7 @@ export default function ProjectsPage({ seo, titleKey, subtitleKey, projects }) {
             eyebrow={`${String(projects.length).padStart(2, "0")} ${t("Work.projects")}`}
             title={t(titleKey)}
             subtitle={subtitleKey ? t(subtitleKey) : undefined}
+            back={{ to: `/${lang}#work`, label: t("Hud.work") }}
           />
           <section className={`cases container${projects.length >= 3 ? " cases--lead" : ""}`}>
             {projects.map((project, i) => (

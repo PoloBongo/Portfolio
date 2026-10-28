@@ -14,6 +14,17 @@
   color: var(--ink-dim);
 }
 
+.work-crumb__trail {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5em 0.9em;
+}
+
+.work-crumb__sep {
+  color: var(--ink-dim);
+}
+
 .work-crumb__back {
   display: inline-flex;
   align-items: center;

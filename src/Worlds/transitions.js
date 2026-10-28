@@ -4,7 +4,8 @@
 //   scan    : balayage de décodage, ligne néon qui descend (Cerebro)
 //   dots    : trame de points qui grossissent et se rejoignent (SEO Autopilot, Attraction Flow)
 //   thread  : un fil tendu descend, des cadres photo suspendus (Au fil des images)
-//   ink     : goutte d'encre organique, bulles en option (Depths Of Hue, Météo, Eko)
+//   ink     : goutte d'encre organique, bulles en option (Depths Of Hue, Météo)
+//   memphis : formes plates qui jaillissent du clic, couvrent l'écran puis s'envolent (Eko)
 //   blinds  : store vénitien qui se ferme puis s'ouvre (Shadow Scholar)
 //   tear    : ticket déchiré, bord perforé (Funfair, Payment)
 //   pixels  : mosaïque dissoute dans l'ordre d'une matrice de Bayer (Stay Soul, UI UX Cooking)
@@ -21,7 +22,7 @@ export const TRANSITIONS = {
   "celtic-la-riche-basket": { genre: "projectile", sprite: "ball", colors: ["#ff7a1a", "#f4efe2", "#101010"] },
   "meteo-dashboard": { genre: "rain", colors: ["#9ec9f0"] },
   "articles-manager": { genre: "doors", skin: "news", colors: ["#c8321e"] },
-  eko: { genre: "fog", direction: "side", fogColor: "#d9e6d3", colors: ["#7fb08a"] },
+  eko: { genre: "memphis", colors: ["#ec4e3a", "#3369d0", "#1b1b1f", "#5cc552", "#ffb391", "#ffd23f"] },
   "ba-immobilier": { genre: "draft", colors: ["#1fb8c4", "#f2b97a", "#232527"] },
   ratp: { genre: "doors", skin: "metro", colors: ["#12d8dc"] },
   "angry-birds": { genre: "projectile", sprite: "bird", colors: ["#e0242e", "#ffd23f", "#2a1d12"] },
