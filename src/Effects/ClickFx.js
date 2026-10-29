@@ -57,23 +57,14 @@ export function mountClickFx(spawn) {
     fire(e.clientX, e.clientY);
   };
 
-  // On peut marteler la page : le double et le triple clic ne doivent pas sélectionner un mot ou une ligne
-  // (le glisser, lui, sélectionne toujours, et les champs de saisie gardent leur comportement)
-  const onMouseDown = (e) => {
-    if (e.detail > 1 && !(e.target.closest && e.target.closest("input, textarea, select, [contenteditable]"))) {
-      e.preventDefault();
-    }
-  };
-
+  // (le double et le triple clic ne sélectionnent rien nulle part sur le site : voir CopyText.js)
   window.addEventListener("pointerdown", onDown);
-  window.addEventListener("mousedown", onMouseDown);
   window.addEventListener("resize", fit);
   // Debug (dev) : window.__clickFx(x, y) lance l'effet du monde à cet endroit
   if (process.env.NODE_ENV === "development") window.__clickFx = fire;
 
   return () => {
     window.removeEventListener("pointerdown", onDown);
-    window.removeEventListener("mousedown", onMouseDown);
     window.removeEventListener("resize", fit);
     cancelAnimationFrame(raf);
     canvas.remove();

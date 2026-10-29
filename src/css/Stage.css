@@ -38,6 +38,13 @@
   display: none;
 }
 
+/* Pendant qu'on fait tourner un objet de la scène : pas de sélection de texte */
+html.is-grabbing,
+html.is-grabbing * {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+}
+
 .stage__canvas {
   display: block;
   width: 100%;

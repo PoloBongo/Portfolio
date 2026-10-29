@@ -36,6 +36,8 @@ const sceneFor = (pathname) => (pathname.split("/").filter(Boolean).length <= 1 
 // Les annotations de la manette vivent dans un calque au-dessus de la page.
 function StageInner() {
   const { t } = useTranslation();
+  const tRef = useRef(t);
+  tRef.current = t;
   const { pathname } = useLocation();
   const scene = sceneFor(pathname);
   const sceneRef = useRef(scene);
@@ -158,6 +160,7 @@ function StageInner() {
         stage = instance;
         instanceRef.current = instance;
         if (process.env.NODE_ENV === "development") window.__field = instance;
+        instance.setGrabLabel(tRef.current("Stage.grab"));
 
         // Le rôle affiché choisit l'objet du hero ; la navigation déclenche un « saut »
         instance.setHeroShape(fieldState.hero);
@@ -198,6 +201,11 @@ function StageInner() {
       if (stage) stage.dispose();
     };
   }, []);
+
+  // Le libellé du curseur au-dessus d'un objet qu'on peut tourner suit la langue
+  useEffect(() => {
+    if (instanceRef.current) instanceRef.current.setGrabLabel(t("Stage.grab"));
+  }, [t]);
 
   // Nouvelle page : la scène relit les éléments à suivre (le DOM de la page est déjà monté)
   useEffect(() => {

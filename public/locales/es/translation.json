@@ -490,7 +490,8 @@
     "tools": "Datos y herramientas",
     "ai": "IA y agentes",
     "caption": "Espacio latente — habilidades",
-    "game": "Videojuegos y motores"
+    "game": "Videojuegos y motores",
+    "grab": "Girar"
   },
   "Card": {
     "alt": "Retrato de Arthur BRU",
@@ -498,5 +499,9 @@
     "certs": "Certificaciones",
     "profile": "Perfil",
     "tag": "web · ia"
+  },
+  "Copy": {
+    "done": "Copiado",
+    "announce": "Texto copiado al portapapeles"
   }
 }

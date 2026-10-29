@@ -4,12 +4,14 @@ import { subscribePerf } from "../perf";
 import { buildController } from "./controller";
 import { assemble, buildAttention, buildWebPage } from "./objects";
 import { createIsolines } from "./isolines";
+import { setCursorHint } from "../cursorBus";
 
 // Scène 3D persistante du site (un seul canvas, jamais recréé pendant la navigation), derrière le contenu :
 //  - un fond de courbes de niveau (isolignes) teinté par l'acte ou le monde, sur toutes les pages ;
 //  - dans le hero, un objet 3D par acte : page web éclatée (Web), attention (IA), manette (Jeu). Le passage d'un acte
 //    à l'autre est un « désassemblage » : l'objet qui part se défait pièce par pièce, le suivant se recompose ;
 //  - dans la section compétences, la manette en vue éclatée, avec ses annotations (onProject).
+//  - ces objets se font tourner à la souris (glisser) et reviennent à leur place par un ressort amorti.
 // L'interface reprend celle de l'ancien nuage de points (Stage.js n'a pas changé de contrat).
 
 const FOV = 30;
@@ -20,10 +22,18 @@ const TRANSITION = 1.9; // durée du désassemblage (s)
 const NEUTRAL = [0.62, 0.34, 0.98];
 const PAD_HERO_ROT = [-0.34, -0.5, 0.1];
 const PAD_SKILLS_ROT = [-0.8, 0.24, 0.02];
+// Rotation à la main : ce qui a son propre geste ne lance jamais une rotation ; ressort de rappel (amortissement ≈ 0,5)
+const GRAB_IGNORED = 'a[href], button, input, textarea, select, summary, label, [role="button"], [data-no-grab]';
+const SPRING_K = 55;
+const SPRING_C = 7.5;
+const AXIS_X = new THREE.Vector3(1, 0, 0);
+const AXIS_Y = new THREE.Vector3(0, 1, 0);
 
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 const smooth = (t) => t * t * (3 - 2 * t);
 const find = (selector) => document.querySelector(selector);
+// Réciproque du plafond doux (tanh) : angle brut qui donne l'angle courant
+const unclamp = (a, max) => max * Math.atanh(Math.max(-0.98, Math.min(0.98, a / max)));
 
 export async function createScene({ host, onProject, onFrame, reduced = false, getScene = () => "home" }) {
   // Les textures peintes en canvas (écran de la manette, couches de la page) utilisent les polices du site
@@ -175,11 +185,135 @@ export async function createScene({ host, onProject, onFrame, reduced = false, g
   };
 
   // ---------- Pointeur ----------
+  const pointerState = { x: -1, y: -1, ui: false, inside: false };
   const onMove = (event) => {
     pointer.tx = (event.clientX / window.innerWidth) * 2 - 1;
     pointer.ty = (event.clientY / window.innerHeight) * 2 - 1;
+    pointerState.x = event.clientX;
+    pointerState.y = event.clientY;
+    pointerState.inside = event.pointerType !== "touch";
+    pointerState.ui = event.target instanceof Element && !!event.target.closest(GRAB_IGNORED);
   };
-  if (!reduced) window.addEventListener("pointermove", onMove, { passive: true });
+  const onLeave = () => {
+    pointerState.inside = false;
+  };
+  if (!reduced) {
+    window.addEventListener("pointermove", onMove, { passive: true });
+    document.documentElement.addEventListener("mouseleave", onLeave);
+  }
+
+  // ---------- Rotation à la main, avec retour au centre ----------
+  // Un ressort amorti par objet (hero, compétences) : pendant le glisser l'angle suit la main à travers un
+  // plafond doux (tanh : on peut tourner franchement mais l'objet résiste), au lâcher il repart vers 0 avec l'élan du
+  // geste et un léger dépassement. La rotation est faite autour des axes de l'écran, par-dessus la pose de l'objet.
+  const makeSpring = (maxYaw, maxPitch) => ({ maxYaw, maxPitch, rawYaw: 0, rawPitch: 0, yaw: 0, pitch: 0, vYaw: 0, vPitch: 0, held: false });
+  const springs = { hero: makeSpring(1.25, 0.75), skills: makeSpring(0.9, 0.5) };
+  // Zones écran où le glisser prend l'objet (en pixels de la fenêtre), mises à jour par la boucle d'image
+  const makeZone = () => ({ on: false, cx: 0, cy: 0, rx: 1, ry: 1 });
+  const zones = { hero: makeZone(), skills: makeZone() };
+  const zoneKeys = ["hero", "skills"];
+  let grab = null;
+  let grabAmount = 0;
+  let grabLabel = "";
+  let lastHint;
+
+  const insideZone = (z, x, y) => {
+    const dx = (x - z.cx) / z.rx;
+    const dy = (y - z.cy) / z.ry;
+    return dx * dx + dy * dy <= 1;
+  };
+  const zoneAt = (x, y) => zoneKeys.find((key) => zones[key].on && insideZone(zones[key], x, y));
+
+  const stepSpring = (s, dt) => {
+    if (s.held) {
+      const k = 1 - Math.exp(-dt * 28);
+      const ny = s.yaw + (s.maxYaw * Math.tanh(s.rawYaw / s.maxYaw) - s.yaw) * k;
+      const np = s.pitch + (s.maxPitch * Math.tanh(s.rawPitch / s.maxPitch) - s.pitch) * k;
+      if (dt > 0) {
+        s.vYaw += ((ny - s.yaw) / dt - s.vYaw) * 0.35;
+        s.vPitch += ((np - s.pitch) / dt - s.vPitch) * 0.35;
+      }
+      s.yaw = ny;
+      s.pitch = np;
+      return;
+    }
+    const steps = Math.max(1, Math.ceil(dt / 0.008));
+    const h = dt / steps;
+    for (let i = 0; i < steps; i += 1) {
+      s.vYaw += (-SPRING_K * s.yaw - SPRING_C * s.vYaw) * h;
+      s.vPitch += (-SPRING_K * s.pitch - SPRING_C * s.vPitch) * h;
+      s.yaw += s.vYaw * h;
+      s.pitch += s.vPitch * h;
+    }
+    if (Math.abs(s.yaw) + Math.abs(s.pitch) + Math.abs(s.vYaw) + Math.abs(s.vPitch) < 0.0008) {
+      s.yaw = 0;
+      s.pitch = 0;
+      s.vYaw = 0;
+      s.vPitch = 0;
+    }
+  };
+
+  const qYaw = new THREE.Quaternion();
+  const qPitch = new THREE.Quaternion();
+  // Pose de l'objet puis rotation de l'utilisateur (axes de l'écran) : à appeler une fois la pose posée
+  const applySpring = (holder, s, extraYaw = 0) => {
+    qYaw.setFromAxisAngle(AXIS_Y, s.yaw + extraYaw);
+    qPitch.setFromAxisAngle(AXIS_X, s.pitch);
+    holder.quaternion.premultiply(qYaw).premultiply(qPitch);
+  };
+
+  const onGrabDown = (event) => {
+    // Au doigt rien ne tourne : les objets sont derrière le texte et le défilement prime
+    if (reduced || event.pointerType === "touch" || event.button !== 0 || !event.isPrimary || grab) return;
+    if (event.target instanceof Element && event.target.closest(GRAB_IGNORED)) return;
+    const key = zoneAt(event.clientX, event.clientY);
+    if (!key) return;
+    grab = { key, id: event.pointerId, x0: event.clientX, y0: event.clientY, x: event.clientX, y: event.clientY, moved: false };
+  };
+  const onGrabMove = (event) => {
+    if (!grab || event.pointerId !== grab.id) return;
+    const s = springs[grab.key];
+    if (!grab.moved) {
+      // Sous 5 px c'est encore un clic ; sur tactile un geste vertical devient un défilement (pointercancel)
+      if (Math.hypot(event.clientX - grab.x0, event.clientY - grab.y0) < 5) return;
+      grab.moved = true;
+      s.held = true;
+      s.rawYaw = unclamp(s.yaw, s.maxYaw);
+      s.rawPitch = unclamp(s.pitch, s.maxPitch);
+      document.documentElement.classList.add("is-grabbing");
+    }
+    s.rawYaw += (event.clientX - grab.x) * 0.0075;
+    s.rawPitch += (event.clientY - grab.y) * 0.0062;
+    grab.x = event.clientX;
+    grab.y = event.clientY;
+    const selection = window.getSelection && window.getSelection();
+    if (selection && !selection.isCollapsed) selection.removeAllRanges();
+  };
+  const endGrab = () => {
+    if (!grab) return;
+    const done = grab;
+    grab = null;
+    document.documentElement.classList.remove("is-grabbing");
+    if (!done.moved) return;
+    const s = springs[done.key];
+    s.held = false;
+    s.vYaw = clamp(s.vYaw, -9, 9);
+    s.vPitch = clamp(s.vPitch, -9, 9);
+    // Le clic qui suit un glisser n'en est pas un (lien, copie d'un texte…)
+    const swallow = (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+    };
+    window.addEventListener("click", swallow, { capture: true, once: true });
+    setTimeout(() => window.removeEventListener("click", swallow, true), 80);
+  };
+  if (!reduced) {
+    window.addEventListener("pointerdown", onGrabDown, { passive: true });
+    window.addEventListener("pointermove", onGrabMove, { passive: true });
+    window.addEventListener("pointerup", endGrab);
+    window.addEventListener("pointercancel", endGrab);
+    window.addEventListener("blur", endGrab);
+  }
 
   // ---------- Placement : position écran normalisée → plan z = 0, taille = fraction de la largeur de l'écran ----------
   const halfFov = Math.tan(THREE.MathUtils.degToRad(FOV / 2));
@@ -242,6 +376,13 @@ export async function createScene({ host, onProject, onFrame, reduced = false, g
     pointer.x += (pointer.tx - pointer.x) * (reduced ? 0 : 1 - Math.exp(-dt * 4));
     pointer.y += (pointer.ty - pointer.y) * (reduced ? 0 : 1 - Math.exp(-dt * 4));
     pulseTime.value = time;
+    if (!reduced) {
+      zoneKeys.forEach((key) => {
+        stepSpring(springs[key], dt);
+        zones[key].on = false;
+      });
+      grabAmount += ((grab && grab.moved ? 1 : 0) - grabAmount) * (1 - Math.exp(-dt * 8));
+    }
 
     // ----- Où est-on ? -----
     const onHome = getScene() === "home";
@@ -267,8 +408,10 @@ export async function createScene({ host, onProject, onFrame, reduced = false, g
     });
     explodeState.explode = 0;
 
-    const tiltX = pointer.y * 0.12 + Math.sin(time * 0.31) * 0.04;
-    const tiltY = pointer.x * 0.35 + Math.sin(time * 0.42) * 0.14;
+    // L'inclinaison au curseur s'efface pendant qu'on tient l'objet : la main commande
+    const calm = 1 - 0.9 * grabAmount;
+    const tiltX = (pointer.y * 0.12 + Math.sin(time * 0.31) * 0.04) * calm;
+    const tiltY = (pointer.x * 0.35 + Math.sin(time * 0.42) * 0.14) * calm;
 
     if (skillsPresence > 0.01 && skillsRect) {
       // compétences : la manette en vue éclatée, ses annotations suivent ses pièces
@@ -277,6 +420,13 @@ export async function createScene({ host, onProject, onFrame, reduced = false, g
       holder.visible = true;
       holder.rotation.set(PAD_SKILLS_ROT[0] + tiltX * 0.5, PAD_SKILLS_ROT[1] + tiltY * 0.5, PAD_SKILLS_ROT[2]);
       explodeState.explode = smooth(clamp((skillsPresence - 0.2) / 0.8));
+      applySpring(holder, springs.skills);
+      const zs = zones.skills;
+      zs.on = skillsPresence > 0.5 && explodeState.explode > 0.4;
+      zs.cx = skillsRect.left + skillsRect.width / 2;
+      zs.cy = skillsRect.top + skillsRect.height / 2;
+      zs.rx = skillsRect.width * (small ? 0.4 : 0.33);
+      zs.ry = Math.min(zs.rx * 0.9, skillsRect.height * 0.46);
     } else if (heroPresence) {
       // hero : l'objet de l'acte, ou deux objets pendant le désassemblage
       const nx = small ? 0.5 : 0.7;
@@ -294,10 +444,27 @@ export async function createScene({ host, onProject, onFrame, reduced = false, g
         else holder.rotation.set(tiltX, tiltY, 0);
         const u = p >= 1 ? 1 : index === to && index !== from ? inU : outU;
         applyU(index, u, true);
+        applySpring(holder, springs.hero);
       });
+      const zh = zones.hero;
+      zh.on = state.p >= 0.85 && introValue > 0.9 && to >= 0;
+      zh.cx = nx * W;
+      zh.cy = ny * H;
+      zh.rx = size * W * 0.52;
+      zh.ry = Math.min(size * W * 0.42, H * 0.45);
       camera.position.z = DIST - 1.4 * Math.sin(Math.PI * state.p) * (p < 1 ? 1 : 0);
     }
     if (!(heroPresence && state.p < 1)) camera.position.z = DIST;
+
+    // Curseur : « tourner » au-dessus d'un objet qu'on peut prendre (pas par-dessus un lien ou un bouton)
+    if (!reduced) {
+      const over = !grab && !pointerState.ui && pointerState.inside && !!zoneAt(pointerState.x, pointerState.y);
+      const want = over || (grab && grab.moved) ? "drag" : null;
+      if (want !== lastHint) {
+        lastHint = want;
+        setCursorHint(want, grabLabel);
+      }
+    }
 
     // La manette garde ses propres animations (écran, éclat) : on lui donne son éclatement du moment
     pad.update(dt, time, { explode: explodeState.explode });
@@ -343,15 +510,27 @@ export async function createScene({ host, onProject, onFrame, reduced = false, g
       dirty = true;
     },
     measure,
+    setGrabLabel(text) {
+      grabLabel = text;
+      lastHint = undefined;
+    },
     intro: begin,
     debug() {
-      return { act: state.to, from: state.from, p: state.p, intro: introValue, tint: [...tint.now], explode: explodeState.explode };
+      return { act: state.to, from: state.from, p: state.p, intro: introValue, tint: [...tint.now], explode: explodeState.explode, springs, zones, grabbing: !!grab };
     },
     dispose() {
       cancelAnimationFrame(raf);
       clearTimeout(introFallback);
       document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("pointermove", onMove);
+      document.documentElement.removeEventListener("mouseleave", onLeave);
+      window.removeEventListener("pointerdown", onGrabDown);
+      window.removeEventListener("pointermove", onGrabMove);
+      window.removeEventListener("pointerup", endGrab);
+      window.removeEventListener("pointercancel", endGrab);
+      window.removeEventListener("blur", endGrab);
+      document.documentElement.classList.remove("is-grabbing");
+      setCursorHint(null);
       resizeObserver.disconnect();
       offPerf();
       web.dispose();

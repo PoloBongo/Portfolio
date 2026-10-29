@@ -485,7 +485,8 @@
     "tools": "Données & outils",
     "ai": "IA & agents",
     "caption": "Espace latent — compétences",
-    "game": "Jeu vidéo & moteurs"
+    "game": "Jeu vidéo & moteurs",
+    "grab": "Tourner"
   },
   "Card": {
     "alt": "Portrait d’Arthur BRU",
@@ -493,5 +494,9 @@
     "certs": "Certifications",
     "profile": "Profil",
     "tag": "web · ia"
+  },
+  "Copy": {
+    "done": "Copié",
+    "announce": "Texte copié dans le presse-papiers"
   }
 }

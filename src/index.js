@@ -28,6 +28,7 @@ import Cursor from "./Effects/Cursor";
 import Hud from "./Component/Hud";
 import Stage from "./Component/Stage";
 import { initSound, initUiSounds } from "./Effects/sound";
+import { initCopyText } from "./Effects/CopyText";
 import i18n from "./i18n";
 
 import "./i18n";
@@ -35,6 +36,9 @@ import "./i18n";
 // Sons d'interface (désactivés par défaut) : l'AudioContext n'est créé qu'au premier geste
 initSound();
 initUiSounds();
+
+// Pas de surlignage au double clic ; un clic sur un texte le copie (avec un effet)
+initCopyText();
 
 let keyboardNavActive = false;
 document.addEventListener("keydown", (e) => {

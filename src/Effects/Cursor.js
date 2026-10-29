@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap, hasFinePointer } from "./motion";
+import { subscribeCursorHint } from "./cursorBus";
 
 const INTERACTIVE = 'a, button, [role="button"], label[for], summary, [data-cursor]';
 const TEXTUAL = 'input, textarea, select, [contenteditable="true"]';
@@ -34,6 +35,19 @@ export default function Cursor() {
       label.textContent = text;
     };
 
+    // L'état venu du DOM (survol) est retenu ; un indice de la scène 3D (objet qu'on peut tourner) passe devant
+    let base = { state: "idle", text: "" };
+    let hint = null;
+    const apply = () => (hint ? setState(hint.state, hint.text) : setState(base.state, base.text));
+    const setBase = (state, text = "") => {
+      base = { state, text };
+      apply();
+    };
+    const offHint = subscribeCursorHint((next) => {
+      hint = next;
+      apply();
+    });
+
     const onMove = (e) => {
       if (!shown) {
         shown = true;
@@ -52,19 +66,19 @@ export default function Cursor() {
       const target = e.target;
       if (!(target instanceof Element)) return;
       if (target.closest("iframe")) {
-        setState("hide");
+        setBase("hide");
         return;
       }
       if (target.closest(TEXTUAL)) {
-        setState("text");
+        setBase("text");
         return;
       }
       const el = target.closest(INTERACTIVE);
       if (!el) {
-        setState("idle");
+        setBase("idle");
         return;
       }
-      setState(el.dataset.cursor || "link", el.dataset.cursorText || "");
+      setBase(el.dataset.cursor || "link", el.dataset.cursorText || "");
     };
 
     const onDown = () => ring.classList.add("is-down");
@@ -93,6 +107,7 @@ export default function Cursor() {
       window.removeEventListener("pointerup", onUp);
       root.removeEventListener("mouseleave", onLeave);
       root.removeEventListener("mouseenter", onEnter);
+      offHint();
       root.classList.remove("has-cursor");
     };
   }, []);

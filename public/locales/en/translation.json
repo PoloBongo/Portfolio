@@ -489,7 +489,8 @@
     "tools": "Data & tools",
     "ai": "AI & agents",
     "caption": "Latent space — skills",
-    "game": "Game dev & engines"
+    "game": "Game dev & engines",
+    "grab": "Rotate"
   },
   "Card": {
     "alt": "Portrait of Arthur BRU",
@@ -497,5 +498,9 @@
     "certs": "Certifications",
     "profile": "Profile",
     "tag": "web · ai"
+  },
+  "Copy": {
+    "done": "Copied",
+    "announce": "Text copied to the clipboard"
   }
 }
