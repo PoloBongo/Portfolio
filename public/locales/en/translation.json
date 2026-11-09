@@ -457,6 +457,9 @@
       "choco-blast": "My first game jam: 48 hours, theme Dynamic Contrast, art direction Chocolate."
     }
   },
+  "Worlds": {
+    "lampHint": "Sweep the light: the title only reads when you aim at it"
+  },
   "Footer": {
     "grab": "Grab",
     "title": "Got a project in mind?",

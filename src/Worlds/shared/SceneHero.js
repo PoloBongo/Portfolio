@@ -7,7 +7,7 @@ import "./shared.css";
 
 // Charge une fois les polices Google du monde (le chunk du monde ne les embarque pas)
 const loaded = new Set();
-function useWorldFonts(href) {
+export function useWorldFonts(href) {
   useEffect(() => {
     if (!href || loaded.has(href)) return;
     loaded.add(href);

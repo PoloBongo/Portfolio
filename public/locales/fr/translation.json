@@ -453,6 +453,9 @@
       "choco-blast": "Ma première Game Jam : 48 h, thème « Contraste dynamique », direction artistique « Chocolat »."
     }
   },
+  "Worlds": {
+    "lampHint": "Promenez la lampe : le titre ne se lit qu'en le visant"
+  },
   "Footer": {
     "grab": "Attraper",
     "title": "Un projet en tête ?",
