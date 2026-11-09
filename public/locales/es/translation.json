@@ -459,6 +459,15 @@
     }
   },
   "Worlds": {
+    "mt": {
+      "hint": "Limpia el vaho con el cursor · el desplazamiento regula la lluvia · tiempo real en Tours",
+      "rain": "Chubascos",
+      "storm": "Tormenta",
+      "drizzle": "Llovizna",
+      "cloud": "Nublado",
+      "snow": "Nieve",
+      "clear": "Despejado"
+    },
     "nb": {
       "weather": "Tiempo",
       "calm": "Mar en calma",

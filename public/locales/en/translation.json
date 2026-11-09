@@ -458,6 +458,15 @@
     }
   },
   "Worlds": {
+    "mt": {
+      "hint": "Wipe the fog with the cursor · scrolling sets the rain · live weather in Tours",
+      "rain": "Showers",
+      "storm": "Thunderstorm",
+      "drizzle": "Drizzle",
+      "cloud": "Cloudy",
+      "snow": "Snow",
+      "clear": "Clear"
+    },
     "nb": {
       "weather": "Weather",
       "calm": "Calm sea",

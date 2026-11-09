@@ -454,6 +454,15 @@
     }
   },
   "Worlds": {
+    "mt": {
+      "hint": "Essuyez la buée avec le curseur · le défilement règle la pluie · temps réel de Tours",
+      "rain": "Averses",
+      "storm": "Orage",
+      "drizzle": "Bruine",
+      "cloud": "Nuageux",
+      "snow": "Neige",
+      "clear": "Dégagé"
+    },
     "nb": {
       "weather": "Météo",
       "calm": "Mer calme",
