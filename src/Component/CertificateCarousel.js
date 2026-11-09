@@ -6,65 +6,162 @@ import Button from "./Button";
 import Reveal from "../Effects/Reveal";
 import SplitReveal from "../Effects/SplitReveal";
 import { gsap, EASE, hasFinePointer, prefersReducedMotion } from "../Effects/motion";
+import "../css/Passport.css";
 
+// « Passeport de tampons » : une page de passeport où chaque certificat est un tampon qui s'imprime au défilement.
+// (Le fichier garde son nom d'origine : Skills.js importe CERTIFICATES d'ici.)
 export const CERTIFICATES = [
   {
     title: "MCP Fundamentals for Building AI Agents",
+    short: "MCP Fundamentals",
+    abbr: "MCP",
+    tone: "#bc63ff",
     date: "2026-01",
     url: "https://www.educative.io/verify-certificate/JZmo10C1MggP22nLGcyGPOGO9Y1yC3",
   },
   {
     title: "Mastering MCP: Building Advanced Agentic Applications",
+    short: "Mastering MCP",
+    abbr: "MCP+",
+    tone: "#63e6be",
     date: "2026-02",
     url: "https://www.educative.io/verify-certificate/KOnpGJIZ6KMQpp4L3cnvYGvG8XxncB",
   },
   {
     title: "Build AI Chatbots with Open-Source LLMs, LangChain, and Streamlit",
+    short: "LangChain & Streamlit",
+    abbr: "LLM",
+    tone: "#d9ff4a",
     date: "2026-02",
     url: "https://www.educative.io/verify-certificate/EKMzZJK04L2fgP1vB8nQ47uxwAQwQ2JMxTG",
   },
   {
     title: "Claude Code: Workflows and Tools",
+    short: "Claude Code",
+    abbr: "CC",
+    tone: "#ff5fa8",
     date: "2026-10",
     url: "https://www.educative.io/verify-certificate/X5CJGPVXL6",
   },
   {
     title: "Master Claude Certified Architect – Professional Exam (CCAR-P)",
+    short: "Claude Architect",
+    abbr: "CCAR-P",
+    tone: "#bc63ff",
     date: "2026-10",
     url: "https://www.educative.io/verify-certificate/3AKX8ESTA3",
   },
 ];
 
 const LANG_LOCALE = { fr: "fr-FR", en: "en-US", es: "es-ES" };
+// Inclinaison de chaque tampon : posés à la main, jamais bien droits
+const TILT = [-7, 5, -3, 8, -5];
 
 const pad = (n) => String(n).padStart(2, "0");
+
+// Le tampon : deux anneaux, le nom courbé en haut, la date en bas, le sigle au centre
+function Stamp({ cert, index }) {
+  const date = new Date(cert.date + "-01");
+  const month = date.toLocaleDateString("en-US", { month: "short" }).toUpperCase();
+  const label = `${month} ${date.getFullYear()} · EDUCATIVE`;
+  const id = `stamp-${index}`;
+  return (
+    <svg className="stamp__svg" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+      <defs>
+        <path id={`${id}-top`} d="M 32,100 A 68,68 0 0 1 168,100" />
+        <path id={`${id}-bot`} d="M 18,100 A 82,82 0 0 0 182,100" />
+      </defs>
+      <g filter="url(#stamp-rough)" fill="none" stroke="currentColor">
+        <circle cx="100" cy="100" r="95" strokeWidth="3.5" />
+        <circle cx="100" cy="100" r="88" strokeWidth="1.2" />
+        <circle cx="100" cy="100" r="60" strokeWidth="2.2" />
+        <text className="stamp__arc" fill="currentColor" stroke="none" textAnchor="middle">
+          <textPath href={`#${id}-top`} startOffset="50%">
+            {cert.short.toUpperCase()}
+          </textPath>
+        </text>
+        <text className="stamp__arc stamp__arc--small" fill="currentColor" stroke="none" textAnchor="middle">
+          <textPath href={`#${id}-bot`} startOffset="50%">
+            {label}
+          </textPath>
+        </text>
+        <text className="stamp__no" x="100" y="78" fill="currentColor" stroke="none" textAnchor="middle">
+          N°{pad(index + 1)}
+        </text>
+        <text
+          className="stamp__abbr"
+          x="100"
+          y="118"
+          fill="currentColor"
+          stroke="none"
+          textAnchor="middle"
+          fontSize={cert.abbr.length > 3 ? 31 : 42}
+        >
+          {cert.abbr}
+        </text>
+        <path d="M 62,134 H 138" strokeWidth="1.4" />
+      </g>
+    </svg>
+  );
+}
 
 const CertificateCarouselT = ({ t }) => {
   const { lang = "fr" } = useParams();
   const [current, setCurrent] = useState(0);
   const rootRef = useRef(null);
-  const cardRef = useRef(null);
-  const direction = useRef(1);
+  const sheetRef = useRef(null);
+  const detailRef = useRef(null);
+  const stamped = useRef(false);
   const shown = useRef(0);
   const cert = CERTIFICATES[current];
 
-  const formattedDate = new Date(cert.date + "-01").toLocaleDateString(
-    LANG_LOCALE[lang] || "fr-FR",
-    { month: "long", year: "numeric" }
-  );
+  const formattedDate = new Date(cert.date + "-01").toLocaleDateString(LANG_LOCALE[lang] || "fr-FR", {
+    month: "long",
+    year: "numeric",
+  });
 
-  const goTo = (next) => {
-    if (next < 0 || next >= CERTIFICATES.length || next === current) return;
-    direction.current = next > current ? 1 : -1;
-    setCurrent(next);
-    // Le focus reste sur le lien du certificat, comme avant
-    setTimeout(() => {
-      const link = cardRef.current && cardRef.current.querySelector("a");
-      if (link) link.focus({ preventScroll: true });
-    }, 0);
+  const choose = (i) => {
+    if (i === current) return;
+    setCurrent(i);
   };
 
-  // Changement de certificat : le contenu glisse dans le sens de la navigation
+  // Les tampons s'impriment un à un quand la page du passeport arrive : ils tombent de haut, rebondissent, une éclaboussure
+  // d'encre part du bord, la page encaisse le coup.
+  useGSAP(
+    () => {
+      const stamps = gsap.utils.toArray(".stamp", rootRef.current);
+      if (prefersReducedMotion()) return undefined;
+      gsap.set(stamps, { opacity: 0, scale: 1.9, rotation: (i) => TILT[i] + 18 });
+      const tl = gsap.timeline({
+        paused: true,
+        onComplete: () => {
+          stamped.current = true;
+        },
+      });
+      stamps.forEach((el, i) => {
+        const at = i * 0.42;
+        tl.to(el, { opacity: 1, duration: 0.12 }, at)
+          .to(el, { scale: 1, rotation: TILT[i], duration: 0.42, ease: "back.out(2.6)" }, at)
+          .fromTo(
+            el.querySelector(".stamp__ink"),
+            { scale: 0.7, opacity: 0.55 },
+            { scale: 1.55, opacity: 0, duration: 0.7, ease: "power2.out" },
+            at + 0.28
+          )
+          .fromTo(sheetRef.current, { y: 0 }, { y: 4, duration: 0.06, yoyo: true, repeat: 1, ease: "power1.inOut" }, at + 0.3);
+      });
+      const trigger = gsap.timeline({
+        scrollTrigger: { trigger: sheetRef.current, start: "top 72%", once: true, onEnter: () => tl.play() },
+      });
+      return () => {
+        trigger.kill();
+        tl.kill();
+      };
+    },
+    { scope: rootRef }
+  );
+
+  // Le contenu du détail glisse quand on change de tampon, et le tampon choisi est « re-pressé »
   useGSAP(
     () => {
       if (shown.current === current || prefersReducedMotion()) {
@@ -73,120 +170,86 @@ const CertificateCarouselT = ({ t }) => {
       }
       shown.current = current;
       gsap.fromTo(
-        cardRef.current.querySelectorAll("[data-swap]"),
-        { x: 80 * direction.current, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.95, ease: EASE.out, stagger: 0.06 }
+        detailRef.current.querySelectorAll("[data-swap]"),
+        { y: 18, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, ease: EASE.out, stagger: 0.06 }
       );
+      if (stamped.current) {
+        const el = rootRef.current.querySelectorAll(".stamp")[current];
+        gsap.fromTo(el, { scale: 1.16 }, { scale: 1, duration: 0.5, ease: "back.out(2.6)" });
+      }
     },
     { scope: rootRef, dependencies: [current] }
   );
 
-  // Inclinaison 3D de la carte + reflet qui suit le curseur
-  useGSAP(
-    () => {
-      if (!hasFinePointer() || prefersReducedMotion()) return undefined;
-      const card = cardRef.current;
-      const rotX = gsap.quickTo(card, "rotationX", { duration: 0.7, ease: "power3" });
-      const rotY = gsap.quickTo(card, "rotationY", { duration: 0.7, ease: "power3" });
-      gsap.set(card, { transformPerspective: 1000 });
-
-      const onMove = (e) => {
-        const rect = card.getBoundingClientRect();
-        const px = (e.clientX - rect.left) / rect.width - 0.5;
-        const py = (e.clientY - rect.top) / rect.height - 0.5;
-        rotY(px * 9);
-        rotX(-py * 9);
-        card.style.setProperty("--gx", `${(px + 0.5) * 100}%`);
-        card.style.setProperty("--gy", `${(py + 0.5) * 100}%`);
-      };
-      const onLeave = () => {
-        rotX(0);
-        rotY(0);
-      };
-      card.addEventListener("pointermove", onMove);
-      card.addEventListener("pointerleave", onLeave);
-      return () => {
-        card.removeEventListener("pointermove", onMove);
-        card.removeEventListener("pointerleave", onLeave);
-      };
-    },
-    { scope: rootRef }
-  );
+  const fine = typeof window !== "undefined" && hasFinePointer();
 
   return (
-    <section
-      className="certs container"
-      ref={rootRef}
-      aria-label={t("Certificates.title")}
-      data-hud={t("Hud.certs")}
-    >
+    <section className="certs container" ref={rootRef} aria-label={t("Certificates.title")} data-hud={t("Hud.certs")}>
       <header className="section-head">
         <Reveal className="mono eyebrow">(03)</Reveal>
         <SplitReveal text={t("Certificates.title")} as="h2" scroll className="section-head__title" />
       </header>
 
-      <Reveal className="certs__stage" y={50}>
-        <div className="certs__card-wrap">
-          <div className="certs__counter mono" aria-hidden="true">
-            <span>{pad(current + 1)}</span> / {pad(CERTIFICATES.length)}
+      {/* Filtre d'encre usée, partagé par les tampons : bord rongé et petits manques */}
+      <svg className="passport__defs" width="0" height="0" aria-hidden="true" focusable="false">
+        <filter id="stamp-rough" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="4" result="warp" />
+          <feDisplacementMap in="SourceGraphic" in2="warp" scale="3" result="shape" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="9" result="grain" />
+          <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 2.1" result="holes" />
+          <feComposite in="shape" in2="holes" operator="in" />
+        </filter>
+      </svg>
+
+      <Reveal className="passport" y={50}>
+        <div className="passport__sheet" ref={sheetRef}>
+          <div className="passport__top mono" aria-hidden="true">
+            <span>{t("Certificates.passport")}</span>
+            <span>
+              {pad(current + 1)} / {pad(CERTIFICATES.length)}
+            </span>
           </div>
 
-          <article className="cert-card" ref={cardRef} aria-live="polite">
-            <span className="cert-card__glare" aria-hidden="true" />
-            <span className="cert-card__badge mono" data-swap>
-              Educative
-            </span>
-            <h3 className="cert-card__title" data-swap>
-              {cert.title}
-            </h3>
-            <p className="cert-card__date mono" data-swap>
-              {t("Certificates.issuedOn")} {formattedDate}
-            </p>
-            <div className="cert-card__action" data-swap>
-              <Button href={cert.url} size="small">
-                {t("Certificates.viewCertificate")}
-              </Button>
-            </div>
-          </article>
-        </div>
-
-        <div className="certs__nav">
-          <button
-            type="button"
-            className="certs__arrow"
-            onClick={() => goTo(current - 1)}
-            disabled={current === 0}
-            aria-label={t("Certificates.prev")}
-          >
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-          <div className="certs__dots">
+          <div className="passport__stamps" role="group" aria-label={t("Certificates.hint")}>
             {CERTIFICATES.map((item, i) => (
               <button
                 type="button"
                 key={item.url}
-                className={`certs__dot${i === current ? " is-active" : ""}`}
-                onClick={() => goTo(i)}
-                aria-label={`${t("Certificates.cert")} ${i + 1}`}
-                aria-current={i === current ? "true" : "false"}
-                tabIndex={-1}
-              />
+                className={`stamp${i === current ? " is-active" : ""}`}
+                style={{ "--tone": item.tone, "--tilt": `${TILT[i]}deg` }}
+                onClick={() => choose(i)}
+                onFocus={() => choose(i)}
+                onPointerEnter={fine ? () => choose(i) : undefined}
+                aria-pressed={i === current}
+                aria-label={`${item.title}, ${t("Certificates.issuedOn")} ${new Date(item.date + "-01").toLocaleDateString(
+                  LANG_LOCALE[lang] || "fr-FR",
+                  { month: "long", year: "numeric" }
+                )}`}
+              >
+                <span className="stamp__ink" aria-hidden="true" />
+                <Stamp cert={item} index={i} />
+              </button>
             ))}
           </div>
-          <button
-            type="button"
-            className="certs__arrow"
-            onClick={() => goTo(current + 1)}
-            disabled={current === CERTIFICATES.length - 1}
-            aria-label={t("Certificates.next")}
-          >
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
         </div>
+
+        <article className="passport__detail" ref={detailRef} aria-live="polite">
+          <span className="passport__badge mono" data-swap>
+            Educative · N°{pad(current + 1)}
+          </span>
+          <h3 className="passport__title" data-swap>
+            {cert.title}
+          </h3>
+          <p className="passport__date mono" data-swap>
+            {t("Certificates.issuedOn")} {formattedDate}
+          </p>
+          <div className="passport__action" data-swap>
+            <Button href={cert.url} size="small">
+              {t("Certificates.viewCertificate")}
+            </Button>
+          </div>
+        </article>
       </Reveal>
     </section>
   );

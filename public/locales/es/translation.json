@@ -379,6 +379,8 @@
     }
   },
   "Certificates": {
+    "passport": "Pasaporte · certificaciones",
+    "hint": "Elige un sello",
     "title": "Certificaciones",
     "issuedOn": "Emitido",
     "viewCertificate": "Ver certificado",

@@ -374,6 +374,8 @@
     }
   },
   "Certificates": {
+    "passport": "Passeport · certifications",
+    "hint": "Choisis un tampon",
     "title": "Certifications",
     "issuedOn": "Émis le",
     "viewCertificate": "Voir le certificat",

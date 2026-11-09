@@ -378,6 +378,8 @@
     }
   },
   "Certificates": {
+    "passport": "Passport · certifications",
+    "hint": "Pick a stamp",
     "title": "Certifications",
     "issuedOn": "Issued",
     "viewCertificate": "View certificate",
