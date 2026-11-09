@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Funfair : la cover est la grande roue (Worlds/funfair/FerrisWheel.js), modèle 3D tiré du jeu, qui tourne au défilement.
+   La structure (titre, fil d'Ariane) réutilise celle des mondes sur clip (.vh, videoHero.css).
+   ========================================================================== */
+
+.fw__gl {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.fw.is-live .fw__gl {
+  opacity: 1;
+}
+
+.fw__gl canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.w-funfair-video .vh__title {
+  color: #f4c430;
+  font-family: "Bevan", Georgia, serif;
+  font-style: italic;
+  text-transform: none;
+  text-shadow: 0.05em 0.05em 0 rgba(11, 13, 28, 0.75);
+}
