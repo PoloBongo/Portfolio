@@ -456,6 +456,7 @@
     }
   },
   "Footer": {
+    "grab": "Agarrar",
     "title": "¿Tienes un proyecto en mente?",
     "titleAccent": "Hablemos.",
     "copy": "Copiar correo",

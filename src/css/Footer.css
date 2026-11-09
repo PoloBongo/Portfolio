@@ -159,3 +159,16 @@
     width: 100%;
   }
 }
+
+/* P1 : canvas des lettres qui tombent (voir Effects/footerDrop.js). Il couvre le pied de page sans capter le pointeur :
+   les liens restent cliquables, la prise des lettres passe par les événements du pied de page. */
+.footer__drop {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.footer--drop .footer__giant {
+  opacity: 0;
+}

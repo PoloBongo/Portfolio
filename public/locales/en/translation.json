@@ -455,6 +455,7 @@
     }
   },
   "Footer": {
+    "grab": "Grab",
     "title": "Got a project in mind?",
     "titleAccent": "Let's talk.",
     "copy": "Copy email",

@@ -8,6 +8,7 @@ import Magnetic from "../Effects/Magnetic";
 import { useScrollTo } from "../Effects/SmoothScroll";
 import { TLink } from "../Effects/PageTransition";
 import { gsap, prefersReducedMotion } from "../Effects/motion";
+import { useFooterDrop } from "../Effects/footerDrop";
 import "../css/Footer.css";
 
 const EMAIL = "arthur.plfm@gmail.com";
@@ -57,6 +58,9 @@ export default function Footer({ compact = false }) {
     },
     { scope: rootRef }
   );
+
+  // P1 : les lettres du grand nom tombent (physique) quand le pied de page entre à l'écran
+  useFooterDrop(rootRef, giantRef, t("Footer.grab"));
 
   return (
     <footer className={`footer${compact ? " footer--compact" : ""}`} ref={rootRef} data-hud={t("Hud.footer")}>
@@ -147,7 +151,7 @@ export default function Footer({ compact = false }) {
         </div>
       </div>
 
-      <div className="footer__giant" ref={giantRef} aria-hidden="true">
+      <div className="footer__giant" ref={giantRef} aria-hidden="true" data-no-copy>
         ARTHUR BRU
       </div>
     </footer>

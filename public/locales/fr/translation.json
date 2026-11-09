@@ -451,6 +451,7 @@
     }
   },
   "Footer": {
+    "grab": "Attraper",
     "title": "Un projet en tête ?",
     "titleAccent": "Parlons-en.",
     "copy": "Copier l'e-mail",
