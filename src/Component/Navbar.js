@@ -35,6 +35,9 @@ const NavbarT = ({ t, i18n }) => {
   const toggleRef = useRef(null);
   const tlRef = useRef(null);
   const wasOpen = useRef(open);
+  const listRef = useRef(null);
+  // Le fil du menu : un repère glisse le long du fil jusqu'à la page survolée (ou à la page actuelle au repos)
+  const thread = useRef({ y: 0, shown: false, hover: null, openedAt: 0 });
 
   useEffect(() => subscribeSound(() => setSoundOn(isSoundOn())), []);
 
@@ -46,6 +49,9 @@ const NavbarT = ({ t, i18n }) => {
   }, [open]);
 
   const pagePath = "/" + (location.pathname.split("/").slice(2).join("/") || "");
+  const currentIndex = ITEMS.findIndex(({ path }) =>
+    path === "" ? pagePath === "/" : pagePath.toLowerCase() === path.toLowerCase()
+  );
   const onIncoming = pagePath.toLowerCase() === "/incoming";
   const cv = i18n.language.startsWith("fr") ? CVArthurCPP : CVArthurCPPEN;
 
@@ -91,6 +97,91 @@ const NavbarT = ({ t, i18n }) => {
       tl.timeScale(1.5).reverse();
     }
   }, [open]);
+
+  // Fil du menu : position du repère (centre de la ligne visée) et remplissage du fil jusqu'à lui
+  const itemCenter = (i) => {
+    const li = listRef.current && listRef.current.querySelectorAll(".menu__item")[i];
+    return li ? li.offsetTop + li.offsetHeight / 2 : null;
+  };
+  const paint = () => {
+    const root = listRef.current;
+    if (!root) return;
+    const st = thread.current;
+    const pin = root.querySelector(".menu__pin");
+    const fill = root.querySelector(".menu__thread-fill");
+    if (pin) pin.style.transform = `translateY(${st.y - 9}px)`;
+    if (fill) fill.style.transform = `scaleY(${Math.max(0, st.y) / Math.max(1, root.offsetHeight)})`;
+  };
+  const moveThread = (index, { drop = false } = {}) => {
+    const root = listRef.current;
+    if (!root) return;
+    const st = thread.current;
+    const pin = root.querySelector(".menu__pin");
+    const target = index == null ? currentIndex : index;
+    const to = target >= 0 ? itemCenter(target) : null;
+    if (to == null) {
+      st.shown = false;
+      gsap.to(pin, { opacity: 0, duration: 0.25, overwrite: "auto" });
+      return;
+    }
+    const still = prefersReducedMotion();
+    if (!st.shown || drop) {
+      // première apparition : le repère tombe du haut du fil et rebondit
+      st.shown = true;
+      st.y = drop && !still ? -30 : to;
+      paint();
+      gsap.fromTo(pin, { opacity: 0 }, { opacity: 1, duration: 0.2, overwrite: "auto" });
+      if (drop && !still) {
+        gsap.to(st, { y: to, duration: 1.1, ease: "bounce.out", onUpdate: paint, overwrite: true });
+      } else {
+        paint();
+      }
+      return;
+    }
+    gsap.to(pin, { opacity: 1, duration: 0.2, overwrite: "auto" });
+    if (still) {
+      st.y = to;
+      paint();
+    } else {
+      gsap.to(st, { y: to, duration: 0.6, ease: "back.out(1.5)", onUpdate: paint, overwrite: true });
+    }
+  };
+
+  useEffect(() => {
+    if (!open) {
+      thread.current.shown = false;
+      return undefined;
+    }
+    // Après l'ouverture du cercle, le repère tombe sur la page actuelle (le focus automatique sur le premier lien
+    // pendant l'ouverture ne compte pas comme un survol)
+    thread.current.openedAt = performance.now();
+    thread.current.hover = null;
+    const id = setTimeout(() => moveThread(null, { drop: true }), prefersReducedMotion() ? 0 : 750);
+    const onResize = () => {
+      thread.current.hover = null;
+      moveThread(null);
+    };
+    window.addEventListener("resize", onResize);
+    return () => {
+      clearTimeout(id);
+      window.removeEventListener("resize", onResize);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open]);
+
+  const hoverItem = (e) => {
+    if (performance.now() - thread.current.openedAt < 900) return;
+    const li = e.target.closest && e.target.closest(".menu__item");
+    if (!li) return;
+    const idx = [...li.parentNode.children].indexOf(li);
+    if (thread.current.hover === idx) return;
+    thread.current.hover = idx;
+    moveThread(idx);
+  };
+  const leaveList = () => {
+    thread.current.hover = null;
+    moveThread(null);
+  };
 
   // Page figée derrière le menu
   useEffect(() => {
@@ -170,8 +261,26 @@ const NavbarT = ({ t, i18n }) => {
         </span>
       </button>
 
-      <nav id="site-menu" ref={panelRef} className="menu__panel" aria-label={t("Menu.nav")}>
-        <ul className="menu__list">
+      <nav id="site-menu" ref={panelRef} className="menu__panel" aria-label={t("Menu.nav")} data-lenis-prevent>
+        <div className="menu__listwrap" ref={listRef}>
+          <span className="menu__thread" aria-hidden="true">
+            <i className="menu__thread-fill" />
+          </span>
+          <span className="menu__pin" aria-hidden="true">
+            <svg viewBox="0 0 100 140" focusable="false">
+              <path d="M50 0C22 0 0 22 0 50c0 38 50 90 50 90s50-52 50-90C100 22 78 0 50 0z" fill="currentColor" />
+              <circle cx="50" cy="50" r="18" fill="var(--bg)" />
+            </svg>
+          </span>
+        <ul
+          className="menu__list"
+          onPointerOver={hoverItem}
+          onPointerLeave={leaveList}
+          onFocus={hoverItem}
+          onBlur={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget)) leaveList();
+          }}
+        >
           {ITEMS.map(({ path, label }, i) => {
             const active =
               path === ""
@@ -190,12 +299,14 @@ const NavbarT = ({ t, i18n }) => {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="menu__text">{t(label)}</span>
+                    {active && <span className="menu__here mono">{t("Carte.here")}</span>}
                   </span>
                 </TLink>
               </li>
             );
           })}
         </ul>
+        </div>
 
         <div className="menu__aside">
           <div className="menu__group menu__reveal">
