@@ -1,6 +1,6 @@
 # Arthur BRU — Web & AI developer
 
-> Portfolio of Arthur BRU, web and AI developer: web applications in React, Next.js and Vue.js, RAG pipelines, agents and n8n automations. Certified in AI (MCP, LangChain, Streamlit). Unity and Unreal Engine game projects as a complement. Bachelor's degree in software development (video game option, Quest Education / G.Tech), currently in a Master's programme.
+> Portfolio of Arthur BRU, web and AI developer: web applications in React, Next.js and Vue.js, RAG pipelines, agents and n8n automations. Certified in AI (MCP, LangChain, Streamlit). Unity and Unreal Engine game projects as a complement. Bachelor's degree in software development (video game option, Quest Education / G.Tech), in the final Master's year, with three Bac+5 qualifications to come: RNCP Level 7 in Intelligent Applications and Big Data, European Master's in IT Project Management, MSc in Video Game Development and Real-Time 3D Rendering.
 
 The site is a React single-page application. Every page exists in French, English and Spanish under /fr, /en and /es; French is the default. URLs below are the English ones.
 
@@ -13,7 +13,7 @@ The site is a React single-page application. Every page exists in French, Englis
 
 ## AI projects
 
-- [Cerebro](https://www.arthur-portfolio.dev/en/work/cerebro): RAG (Retrieval-Augmented Generation) chat web application. PDF documents are ingested through a multimodal pipeline that separates text, tables and images (EasyOCR) and stores them in a Qdrant vector database across two collections. Answers stream in real time over SSE, with cross-encoder reranking for images, conversational pre-filtering and multi-tenant data isolation. Stack: Laravel 12, React 19 (TypeScript), Inertia.js, FastAPI, Qdrant, SentenceTransformer (E5 multilingual), Mistral-7B (OVH AI Endpoints), EasyOCR, cross-encoder mMiniLM, UMAP/PCA, Docker Compose. In progress, private repository.
+- [Cerebro](https://www.arthur-portfolio.dev/en/work/cerebro): RAG (Retrieval-Augmented Generation) chat web application. PDF documents are ingested through a multimodal pipeline that separates text, tables and images (EasyOCR) and stores them in a Qdrant vector database across two collections. Answers stream in real time over SSE, with cross-encoder reranking for images, conversational pre-filtering and multi-tenant data isolation. Stack: Laravel 12, React 19 (TypeScript), Inertia.js, FastAPI, Qdrant, SentenceTransformer (E5 multilingual), Mistral-7B (OVH AI Endpoints), EasyOCR, cross-encoder mMiniLM, UMAP/PCA, Docker Compose. Completed in 2026, private repository.
 - [SEO Autopilot](https://www.arthur-portfolio.dev/en/work/seo-autopilot): SEO audit automation orchestrated by n8n. Workflows run Lighthouse (performance) and WAVE (accessibility) audits under Docker, a GPT model parses and reformulates the results, reports are archived in AWS S3, and a web app offers a contextual AI assistant (Ollama or Mistral-7B) for each identified issue. Repositories: [n8n SEO App](https://github.com/PoloBongo/n8n-seo-app) and [Lighthouse Docker](https://github.com/PoloBongo/n8n-seo-docker).
 
 ## Game development

@@ -23,6 +23,16 @@ export const CERTIFICATES = [
     date: "2026-02",
     url: "https://www.educative.io/verify-certificate/EKMzZJK04L2fgP1vB8nQ47uxwAQwQ2JMxTG",
   },
+  {
+    title: "Claude Code: Workflows and Tools",
+    date: "2026-10",
+    url: "https://www.educative.io/verify-certificate/X5CJGPVXL6",
+  },
+  {
+    title: "Master Claude Certified Architect – Professional Exam (CCAR-P)",
+    date: "2026-10",
+    url: "https://www.educative.io/verify-certificate/3AKX8ESTA3",
+  },
 ];
 
 const LANG_LOCALE = { fr: "fr-FR", en: "en-US", es: "es-ES" };

@@ -1,4 +1,4 @@
-// Projets IA & automatisation. Cerebro n'a pas encore de vidéo : son cadre affiche le schéma animé de son
+// Projets IA & automatisation. Cerebro n'a pas encore de vidéo publiée : son cadre affiche le schéma animé de son
 // pipeline RAG (diagram: "rag"). Renseigner video quand la démo sera publiée.
 export const AI_PROJECTS = [
   {
@@ -7,7 +7,6 @@ export const AI_PROJECTS = [
     i18n: "AIProjects.Cerebro",
     video: null,
     diagram: "rag",
-    inProgress: true,
     tags: "RAG · FastAPI · Qdrant",
     links: [],
   },
