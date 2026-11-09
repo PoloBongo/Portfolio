@@ -459,6 +459,13 @@
     }
   },
   "Worlds": {
+    "nb": {
+      "weather": "Tiempo",
+      "calm": "Mar en calma",
+      "swell": "Oleaje",
+      "storm": "Tormenta",
+      "hint": "Desplázate: del sol a la tormenta · haz clic: el cañón dispara"
+    },
     "seo": {
       "file": "workflow.json · 6 nodos · se ejecuta cada noche a las 02:00",
       "hint": "Mueve los nodos · lanza la ejecución",

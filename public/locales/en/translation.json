@@ -458,6 +458,13 @@
     }
   },
   "Worlds": {
+    "nb": {
+      "weather": "Weather",
+      "calm": "Calm sea",
+      "swell": "Swell",
+      "storm": "Storm",
+      "hint": "Scroll: from sunshine to storm · click: fire the cannon"
+    },
     "seo": {
       "file": "workflow.json · 6 nodes · runs every night at 02:00",
       "hint": "Move the nodes · run the workflow",

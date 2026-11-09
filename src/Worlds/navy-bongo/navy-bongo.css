@@ -243,3 +243,68 @@
   background: radial-gradient(circle at 35% 30%, #fff1a8, var(--w1) 60%, #b97c0e);
   box-shadow: inset 0 0 0 0.3cqw #b97c0e;
 }
+
+/* Monde sur vrai clip (du soleil à la tempête) : Cinzel en capitales blanches, légende en IM Fell italique */
+.w-navy-bongo-video {
+  --w-display: "Cinzel", Georgia, "Times New Roman", serif;
+  --w-body: "IM Fell English", Georgia, "Times New Roman", serif;
+}
+
+.w-navy-bongo-video .vh__title {
+  max-width: 8ch;
+  color: #fff;
+  font-family: var(--w-display);
+  font-weight: 700;
+  font-size: clamp(2.8rem, 0.8rem + 8.4vw, 8rem);
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-shadow: 0 0.07em 0.3em rgba(0, 20, 50, 0.9);
+}
+
+.w-navy-bongo-video .vh__tagline {
+  color: var(--w4);
+  font-family: var(--w-body);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 0.95rem + 0.6vw, 1.6rem);
+  text-shadow: 0 0.1em 0.4em rgba(0, 20, 50, 0.95);
+}
+
+.w-navy-bongo-video .vh__hint {
+  color: var(--w1);
+  text-shadow: 0 1px 12px rgba(0, 20, 50, 0.95);
+}
+
+.w-navy-bongo-video .vh__pin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(0deg, rgba(4, 22, 44, 0.6), rgba(4, 22, 44, 0) 45%),
+    linear-gradient(90deg, rgba(4, 22, 44, 0.45), rgba(4, 22, 44, 0) 50%);
+  pointer-events: none;
+}
+
+/* La météo, façon HUD du jeu (en rouge) */
+.vh__weather {
+  position: absolute;
+  right: var(--pad-x);
+  bottom: clamp(90px, 22vh, 240px);
+  margin: 0;
+  padding: 8px 14px;
+  border: 1px solid rgba(234, 246, 255, 0.4);
+  border-radius: 999px;
+  background: rgba(4, 22, 44, 0.4);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--w4);
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.vh__weather b {
+  color: var(--w1);
+  font-weight: 700;
+}

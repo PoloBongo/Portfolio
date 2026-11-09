@@ -454,6 +454,13 @@
     }
   },
   "Worlds": {
+    "nb": {
+      "weather": "Météo",
+      "calm": "Mer calme",
+      "swell": "Houle",
+      "storm": "Tempête",
+      "hint": "Défilez : du soleil à la tempête · cliquez : le canon tire"
+    },
     "seo": {
       "file": "workflow.json · 6 nœuds · exécution chaque nuit à 02:00",
       "hint": "Déplacez les nœuds · lancez l'exécution",
