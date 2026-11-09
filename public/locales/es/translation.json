@@ -459,6 +459,9 @@
     }
   },
   "Worlds": {
+    "fil": {
+      "hint": "Agarra el hilo, tira, suelta · desplázate rápido para sacudirlo"
+    },
     "ba": {
       "hint": "Desplázate: el plano se convierte en maqueta"
     },

@@ -458,6 +458,9 @@
     }
   },
   "Worlds": {
+    "fil": {
+      "hint": "Grab the thread, pull, let go · scroll fast to shake it"
+    },
     "ba": {
       "hint": "Scroll: the floor plan becomes a model"
     },

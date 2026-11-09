@@ -94,3 +94,69 @@
     stroke-dashoffset: 0;
   }
 }
+
+/* Monde du fil physique : le dégradé violet → corail du vrai site, Fraunces en italique, Figtree */
+.w-au-fil-des-images-video {
+  --w-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --w-body: "Figtree", "Helvetica Neue", Arial, sans-serif;
+}
+
+.w-au-fil-des-images-video .vh {
+  background: linear-gradient(115deg, #4a1f8f 0%, #6b3fb5 38%, #c2506b 74%, #ff7a59 100%);
+}
+
+/* Le texte en bas du cadre : le fil et ses cadres occupent le haut */
+.w-au-fil-des-images-video .vh__pin {
+  padding-bottom: clamp(48px, 9vh, 100px);
+}
+
+.w-au-fil-des-images-video .vh__title {
+  max-width: 12ch;
+  color: #fff;
+  font-family: var(--w-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(2.6rem, 0.6rem + 6vw, 6.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 24px rgba(43, 22, 80, 0.45);
+}
+
+.w-au-fil-des-images-video .vh__tagline {
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--w-body);
+  font-weight: 500;
+  text-shadow: 0 1px 14px rgba(43, 22, 80, 0.6);
+}
+
+.w-au-fil-des-images-video .vh__hint {
+  color: #ffe9c4;
+}
+
+.w-au-fil-des-images-video .vh__crumb,
+.w-au-fil-des-images-video .vh__crumb a,
+.w-au-fil-des-images-video .vh__crumb span {
+  color: #fff;
+  text-shadow: 0 1px 12px rgba(43, 22, 80, 0.6);
+}
+
+/* Le canvas du fil est visible dès le premier rendu (pas de clip à attendre) */
+.w-au-fil-des-images-video .vh__canvas {
+  opacity: 1;
+}
+
+/* Zone de prise du fil : la moitié haute du cadre, là où il pend */
+.vh__ropezone {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 52%;
+  z-index: 2;
+  touch-action: none;
+  cursor: grab;
+}
+
+.vh__ropezone:active {
+  cursor: grabbing;
+}

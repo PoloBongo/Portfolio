@@ -454,6 +454,9 @@
     }
   },
   "Worlds": {
+    "fil": {
+      "hint": "Attrapez le fil, tirez, lâchez · défilez vite pour le secouer"
+    },
     "ba": {
       "hint": "Défilez : le plan devient une maquette"
     },
