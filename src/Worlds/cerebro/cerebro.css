@@ -242,8 +242,13 @@
     width: min(100% - 2 * var(--pad-x), (100svh - 330px) * 600 / 880);
   }
 
+  /* le nom de l'étape reste dans le nom accessible du bouton, seulement caché à l'œil */
   .w-cerebro__steps button b {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
   }
 
   .w-cerebro__steps button {

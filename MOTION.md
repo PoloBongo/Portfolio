@@ -102,6 +102,29 @@ Validés le 2026-11-09. **T2 en pré-geste** : un clic sur une carte de projet (
 
 **Fil de la région** : `RegionThread` rend une bande `position: sticky; top: 0` entre le logo et le menu (marges 86–150 px à gauche, 150–300 px à droite, plus larges en dessous de 900 px), un nœud cliquable par projet aux couleurs de la région (Web lime, IA menthe, jeu rose), le fil qui se remplit jusqu'au projet affiché, le repère de la carte qui glisse avec un rebond et une pastille « NN · titre » (survol d'un nœud = titre visé). Le projet affiché vient de `HubShowcase` (`onActive`, `controlRef.goTo`) ou, en grille, de la carte au centre de l'écran (IntersectionObserver). Mouvement réduit : aucune animation.
 
+## Mondes sur vrai clip (`Worlds/shared/VideoHero.js`, `videoHero.glsl.js`, `videoHero.css`)
+
+Lot 5, 2026-11-09. Tout l'écran est le vrai clip du projet (`public/clips/<id>.mp4`), un fragment shader traduit la mécanique du jeu. `VideoHero` fait le travail commun : canvas Three.js à part par hero, `ClipTexture` (sortie de `showcaseGL.js` dans `Effects/stage3d/clipTexture.js`), pointeur lissé qui flâne seul après 2,5 s sans mouvement (tactile, clavier), défilement épinglé (`scroll` = nombre d'écrans), pause hors écran, affiche du clip tant que la vidéo charge. Uniforms communs : `uTex`, `uVid`, `uAsp`, `uT`, `uP` (défilement épinglé, ou sortie du cadre sans épinglage), `uVel` (vitesse de défilement), `uM` (pointeur), `uRes`. Un monde fournit son `main()` (`*.glsl.js`), éventuellement `uniforms` et `setup({ root, uniforms }) → { frame, click, dispose }`. Chaque monde garde sa scène décorative d'origine en repli (pas de WebGL 2, mouvement réduit, économie de données). Le titre reste du vrai texte HTML. Les clips ont de fines bandes sombres : rognées dans le shader (`CROP`).
+
+| Monde | Idée | Fichiers |
+|---|---|---|
+| Shadow Scholar (M1) | la lampe torche : le clip n'existe que dans le faisceau, le titre aussi | `shadow-scholar/lamp.glsl.js` |
+| Depths Of Hue (M2) | le défilement est la profondeur (absorption), couleur sous le curseur, onde au clic | `depths-of-hue/dive.glsl.js` |
+| Spacial Race (M4) | traits de vitesse (`uVel`), clic ou bouton = retournement en perspective | `spacial-race/gravity.glsl.js` |
+| Stay Soul (M3) | trame de Bayer 8×8 lavande, cellule fine, fenêtre sur l'image réelle | `stay-soul/dither.glsl.js` |
+| Funfair (M5 refait) | maquette tilt-shift : bande nette au curseur, bokeh de fête, flash au clic | `funfair/tiltshift.glsl.js` |
+| Navy Bongo | du soleil à la tempête au défilement (ciel, mer, pluie, éclairs, tangage), canon au clic | `navy-bongo/sea.glsl.js` |
+| Météo Dashboard (M6) | vitre embuée essuyée au curseur ; temps réel de Tours (Open-Meteo, sans clé) = pluie, neige ou dégagé | `meteo-dashboard/rain.glsl.js` |
+
+## Mondes sur mesure (lots 6 et 8)
+
+- **Cerebro** (`Worlds/cerebro/CerebroChapters.js`) : le schéma RAG plein écran épinglé sur 6 écrans, cinq chapitres. `RagDiagram` a un mode `scrub` (`{ current }` reçoit `{ seek(p) }`) : le schéma n'est plus une boucle, le défilement le fait avancer ; en reculant il est rejoué depuis le début (déterministe). Mouvement réduit : l'ancien cadre en boucle. Pas encore fait : le choix de trois questions.
+- **SEO Autopilot** (`seo-autopilot/SeoEditor.js`) : éditeur de workflow vivant (six nœuds HTML déplaçables à la souris, au doigt, aux flèches ; fils SVG recalculés ; paquets qui circulent ; « Exécuter » joue Cron → Lighthouse + WAVE → GPT → Sheets → S3 puis un rapport). Le rapport montre de vraies mesures du portfolio (LCP mobile, bonnes pratiques, accessibilité/SEO), datées. Couleurs des nœuds assombries pour le contraste.
+- **B.A Immobilier** (`ba-immobilier/PlanHero.js`) : W1, plan d'architecte turquoise qui devient une maquette 3D au défilement épinglé (murs qui montent, mobilier, caméra qui bascule).
+- **Au fil des images** (`au-fil-des-images/RopeHero.js`) : W2, corde Verlet (46 points, 8 itérations) où pendent les vraies photos de la boutique de l'association (`public/aufil/*.webp`, recadrées depuis le clip du vrai site), que l'on tire et relâche ; le défilement rapide la secoue. Sur le dégradé violet → corail du site.
+- **RATP** (`ratp/FlapBoard.js`) : W3, en complément de la scène : tableau à palettes en 3D CSS (annonces qui alternent, clic = suivante) et ligne de métro qui se dessine au défilement.
+- Le thème des mondes met `--ink-faint` à 0,8 (contraste du pied de page).
+
 ## Schéma RAG de Cerebro (`Component/RagDiagram.js`, `css/Diagram.css`)
 
 Cerebro n'a pas encore de vidéo : son cadre média (`diagram: "rag"` dans `src/Pages/AI/projects.js`) affiche à la place un **schéma animé de son pipeline**, chargé à la demande (`lazy` dans `ProjectMedia.js`, chunk à part ≈ 8 Ko gzip). Il reprend le langage du nuage : un espace vectoriel (Qdrant) qui se balance, une requête en anneau menthe qui y entre et allume ses voisins.

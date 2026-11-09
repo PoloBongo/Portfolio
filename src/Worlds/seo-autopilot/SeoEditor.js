@@ -6,12 +6,12 @@ import { gsap, prefersReducedMotion } from "../../Effects/motion";
 // suivent, des paquets y circulent, et « Exécuter » joue le pipeline étape par étape (Cron → Lighthouse + WAVE → GPT →
 // Google Sheets → AWS S3) jusqu'à un rapport. Les nœuds sont du HTML (lisible, focalisable), les fils du SVG.
 const NODES = [
-  { id: "cron", title: "Cron", color: "#7b8794" },
-  { id: "lh", title: "Lighthouse", color: "#f08a1c" },
+  { id: "cron", title: "Cron", color: "#5b6672" },
+  { id: "lh", title: "Lighthouse", color: "#b45309" },
   { id: "wave", title: "WAVE", color: "#4b5bd7" },
   { id: "gpt", title: "GPT", color: "#1c1c24" },
-  { id: "sheets", title: "Google Sheets", color: "#1e8e3e" },
-  { id: "s3", title: "AWS S3", color: "#ff5a47" },
+  { id: "sheets", title: "Google Sheets", color: "#187a34" },
+  { id: "s3", title: "AWS S3", color: "#d33a25" },
 ];
 const LINKS = [
   [0, 1],

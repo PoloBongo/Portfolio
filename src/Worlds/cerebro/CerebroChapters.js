@@ -71,10 +71,8 @@ export default function CerebroChapters({ tags }) {
                   className={`mono${i === chapter ? " is-cur" : ""}${i < chapter ? " is-done" : ""}`}
                   aria-current={i === chapter ? "step" : undefined}
                   onClick={() => go(i)}
-                  aria-label={`${pad(i + 1)} ${t(`Worlds.cerebro.c${i + 1}.title`)}`}
                 >
-                  <span>{pad(i + 1)}</span>
-                  <b>{t(`Worlds.cerebro.c${i + 1}.title`)}</b>
+                  <span>{pad(i + 1)}</span> <b>{t(`Worlds.cerebro.c${i + 1}.title`)}</b>
                 </button>
               </li>
             ))}

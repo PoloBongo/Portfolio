@@ -28,7 +28,7 @@ export function applyWorld(world) {
     vars["--ink"] = world.ink;
     // Assez opaques pour tenir le contraste AA du petit texte (faits, rang) sur les fonds clairs
     vars["--ink-dim"] = withAlpha(world.ink, 0.78);
-    vars["--ink-faint"] = withAlpha(world.ink, 0.7);
+    vars["--ink-faint"] = withAlpha(world.ink, 0.8);
     vars["--line"] = withAlpha(world.ink, 0.14);
     vars["--line-strong"] = withAlpha(world.ink, 0.3);
   }
