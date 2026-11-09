@@ -96,6 +96,12 @@ Validé le 2026-11-09. Une page de passeport (papier sombre, guillochis, bord en
 
 Le « 0 » du milieu est le repère de la carte (lime, trou sombre) : il tombe, rebondit (`bounce.out`), oscille doucement ; bulle « Arthur est perdu » (`ErrorPage.lost`) et ombre au sol.
 
+## Hubs : pré-geste et fil de la région (`Effects/lift.js`, `Component/RegionThread.js`)
+
+Validés le 2026-11-09. **T2 en pré-geste** : un clic sur une carte de projet (grille `ProjectCard`, panneau de la Sélection `Featured`, scène du showcase) appelle `liftCard` avant la transition signature du monde : la carte (`data-lift`) grossit de 4,5 % avec un anneau de sa couleur, les autres `data-lift` et les `data-lift-dim` (rail et texte du showcase) reculent à 94 % et 10 % d'opacité ; `data-lift-scope` fait qu'un lien du showcase soulève sa scène. Durée 0,52 s (`LIFT_MS`, remplace l'anticipation de 260 ms), nettoyée par `clearLift` en fin de navigation ; les blocs encore invisibles ne sont pas touchés.
+
+**Fil de la région** : `RegionThread` rend une bande `position: sticky; top: 0` entre le logo et le menu (marges 86–150 px à gauche, 150–300 px à droite, plus larges en dessous de 900 px), un nœud cliquable par projet aux couleurs de la région (Web lime, IA menthe, jeu rose), le fil qui se remplit jusqu'au projet affiché, le repère de la carte qui glisse avec un rebond et une pastille « NN · titre » (survol d'un nœud = titre visé). Le projet affiché vient de `HubShowcase` (`onActive`, `controlRef.goTo`) ou, en grille, de la carte au centre de l'écran (IntersectionObserver). Mouvement réduit : aucune animation.
+
 ## Schéma RAG de Cerebro (`Component/RagDiagram.js`, `css/Diagram.css`)
 
 Cerebro n'a pas encore de vidéo : son cadre média (`diagram: "rag"` dans `src/Pages/AI/projects.js`) affiche à la place un **schéma animé de son pipeline**, chargé à la demande (`lazy` dans `ProjectMedia.js`, chunk à part ≈ 8 Ko gzip). Il reprend le langage du nuage : un espace vectoriel (Qdrant) qui se balance, une requête en anneau menthe qui y entre et allume ses voisins.
