@@ -547,6 +547,7 @@
       }
     },
     "fairHint": "The cursor sets the focus · scroll: the blur deepens · click: a flash",
+    "slotsHint": "Hover the slots: the one you aim at lights up · scroll to tidy the bag · click to pick up",
     "ditherHint": "Scroll: the dither gets finer · the cursor opens a window on the real image",
     "gravity": "Gravity",
     "gravityNormal": "Normal",

@@ -548,6 +548,7 @@
       }
     },
     "fairHint": "El cursor ajusta el enfoque · desplázate: el desenfoque se acentúa · haz clic: un flash",
+    "slotsHint": "Pasa por las casillas: la que apuntas se ilumina · desplázate para ordenar la mochila · haz clic para recoger",
     "ditherHint": "Desplázate: la trama se afina · el cursor abre una ventana a la imagen real",
     "gravity": "Gravedad",
     "gravityNormal": "Normal",
