@@ -166,3 +166,76 @@
   text-transform: uppercase;
   z-index: 6;
 }
+
+/* Monde sur vrai clip (la gravité) : Chakra Petch, texte clair sur le bas sombre de la route */
+.w-spacial-race-video .vh__title {
+  max-width: 9ch;
+  color: #f4f6f8;
+  font-family: "Chakra Petch", var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  text-shadow: 0 2px 28px rgba(20, 22, 26, 0.55);
+}
+
+.w-spacial-race-video .vh__tagline {
+  color: rgba(244, 246, 248, 0.9);
+  font-family: "Chakra Petch", var(--font-display);
+  font-weight: 400;
+  text-shadow: 0 1px 16px rgba(20, 22, 26, 0.7);
+}
+
+.w-spacial-race-video .vh__hint {
+  color: var(--w1);
+  text-shadow: 0 1px 12px rgba(20, 22, 26, 0.8);
+}
+
+.w-spacial-race-video .vh__pin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(0deg, rgba(20, 22, 26, 0.62), rgba(20, 22, 26, 0) 55%),
+    linear-gradient(90deg, rgba(20, 22, 26, 0.4), rgba(20, 22, 26, 0) 50%);
+  pointer-events: none;
+}
+
+/* Le bouton de la gravité : un geste au clavier et une lecture claire de l'état, à droite du cadre */
+.vh__gravity {
+  position: absolute;
+  right: var(--pad-x);
+  bottom: clamp(90px, 22vh, 240px);
+  z-index: 3;
+  display: inline-flex;
+  gap: 0.6em;
+  align-items: baseline;
+  padding: 10px 16px;
+  border: 1px solid rgba(244, 246, 248, 0.45);
+  border-radius: 999px;
+  background: rgba(20, 22, 26, 0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #f4f6f8;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.vh__gravity b {
+  color: var(--w2);
+  font-weight: 700;
+}
+
+.vh__gravity:hover,
+.vh__gravity:focus-visible {
+  border-color: var(--w2);
+}
+
+/* Fil d'ariane et compteur du cadre en clair : ils se lisent sur le clip, pas sur la page claire */
+.w-spacial-race-video .vh__crumb,
+.w-spacial-race-video .vh__crumb a,
+.w-spacial-race-video .vh__crumb span {
+  color: #f4f6f8;
+  text-shadow: 0 1px 12px rgba(20, 22, 26, 0.7);
+}

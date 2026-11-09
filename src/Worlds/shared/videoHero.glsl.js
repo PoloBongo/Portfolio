@@ -1,6 +1,6 @@
 // Prélude commun des mondes sur vrai clip : le clip est la matière du monde, un fragment shader (propre à chaque monde)
 // traduit la mécanique du jeu. Uniforms communs : uTex (le clip), uVid (son rapport largeur / hauteur), uAsp (celui du
-// cadre), uT (secondes), uP (défilement épinglé, 0 → 1), uM (pointeur lissé, 0 → 1, v vers le haut), uRes (pixels). Le shader du monde définit main().
+// cadre), uT (secondes), uP (défilement épinglé, ou sortie du cadre, 0 → 1), uVel (vitesse de défilement lissée, ± ~2), uM (pointeur lissé, 0 → 1, v vers le haut), uRes (pixels). Le shader du monde définit main().
 export const VERT = /* glsl */ `
 varying vec2 vUv;
 void main() { vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }
@@ -10,7 +10,7 @@ void main() { vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }
 export const PRELUDE = /* glsl */ `
 varying vec2 vUv;
 uniform sampler2D uTex;
-uniform float uVid, uAsp, uT, uP;
+uniform float uVid, uAsp, uT, uP, uVel;
 uniform vec2 uM, uRes;
 float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
 float noise(vec2 p) {

@@ -67,6 +67,7 @@ export default function VideoHero({
       uAsp: { value: 1.7 },
       uT: { value: 0 },
       uP: { value: 0 },
+      uVel: { value: 0 },
       uM: { value: new THREE.Vector2(0.5, 0.5) },
       uRes: { value: new THREE.Vector2(1, 1) },
       ...(makeUniforms ? makeUniforms(THREE) : {}),
@@ -138,6 +139,7 @@ export default function VideoHero({
     let visible = true;
     let t0 = 0;
     let prev = 0;
+    let lastY = window.scrollY;
     const frame = (now) => {
       raf = 0;
       if (!visible || document.hidden) return;
@@ -153,11 +155,16 @@ export default function VideoHero({
       uniforms.uM.value.x += (target.u - uniforms.uM.value.x) * k;
       uniforms.uM.value.y += (target.v - uniforms.uM.value.y) * k;
       uniforms.uT.value = t;
-      if (scroll) {
-        // le défilement épinglé du monde (de 0 en haut à 1 quand le cadre se détache)
+      {
+        // uP : le défilement épinglé du monde (0 en haut, 1 quand le cadre se détache) ; sans épinglage, la sortie du cadre
         const r = root.getBoundingClientRect();
-        const range = Math.max(1, r.height - H);
+        const range = Math.max(1, scroll ? r.height - H : H);
         uniforms.uP.value = Math.min(1, Math.max(0, -r.top / range));
+        // uVel : vitesse de défilement lissée (la molette donne de la vitesse)
+        const y = window.scrollY;
+        const vel = Math.max(-2, Math.min(2, ((y - lastY) / Math.max(1, dt * 1000)) * 0.3));
+        lastY = y;
+        uniforms.uVel.value += (vel - uniforms.uVel.value) * (1 - Math.exp(-dt * 6));
       }
       if (extra.frame) extra.frame({ t, p: uniforms.uP.value, dt }, uniforms);
       setClipNow(now);

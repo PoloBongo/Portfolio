@@ -454,6 +454,10 @@
     }
   },
   "Worlds": {
+    "gravity": "Gravité",
+    "gravityNormal": "Normale",
+    "gravityFlipped": "Inversée",
+    "gravityHint": "Cliquez pour inverser la gravité · la molette donne de la vitesse",
     "diveHint": "Défilez pour descendre · cliquez : une onde rend la couleur",
     "lampHint": "Promenez la lampe : le titre ne se lit qu'en le visant"
   },

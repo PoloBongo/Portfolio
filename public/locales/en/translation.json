@@ -458,6 +458,10 @@
     }
   },
   "Worlds": {
+    "gravity": "Gravity",
+    "gravityNormal": "Normal",
+    "gravityFlipped": "Inverted",
+    "gravityHint": "Click to invert gravity · the wheel adds speed",
     "diveHint": "Scroll to dive · click: a wave brings the colour back",
     "lampHint": "Sweep the light: the title only reads when you aim at it"
   },
