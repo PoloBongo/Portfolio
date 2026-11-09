@@ -196,7 +196,7 @@ export default function Featured() {
               const year = work.i18n && i18n.exists(`${work.i18n}.Completion`) ? t(`${work.i18n}.Completion`) : null;
               const region = REGIONS[REGION_OF[work.category.id] || "web"];
               return (
-                <article className="fil__panel" key={work.slug} style={{ "--card": world.accent, "--c": region.color }}>
+                <article className="fil__panel" key={work.slug} style={{ "--card": world.accent, "--c": region.color }} data-lift>
                   <div className="fil__media" aria-hidden="true">
                     {poster ? (
                       <img src={poster} alt="" loading="lazy" decoding="async" />

@@ -191,7 +191,7 @@ export default function HubShowcase({ works }) {
 
   return (
     <section
-      className="showcase"
+      className="showcase" data-lift-scope
       ref={rootRef}
       style={{ "--n": n, "--p": 0 }}
       aria-label={t("Work.projects")}
@@ -205,7 +205,7 @@ export default function HubShowcase({ works }) {
         </div>
 
         <div className="container showcase__grid">
-          <nav className="sc-rail mono" aria-label={t("Work.projects")}>
+          <nav className="sc-rail mono" data-lift-dim aria-label={t("Work.projects")}>
             <p className="sc-count">
               {pad(active + 1)} / {pad(n)}
             </p>
@@ -229,7 +229,7 @@ export default function HubShowcase({ works }) {
             </ol>
           </nav>
 
-          <div className="sc-stage" style={{ "--card": worldOf(works[active]).accent }}>
+          <div className="sc-stage" style={{ "--card": worldOf(works[active]).accent }} data-lift>
             <canvas className="sc-gl" ref={canvasRef} aria-hidden="true" />
             <TLink
               className="sc-media__link"
@@ -241,7 +241,7 @@ export default function HubShowcase({ works }) {
             />
           </div>
 
-          <div className="sc-info">
+          <div className="sc-info" data-lift-dim>
             {works.map((work, i) => {
               const title = titleOf(work, t);
               const year = work.i18n && i18n.exists(`${work.i18n}.Completion`) ? t(`${work.i18n}.Completion`) : null;

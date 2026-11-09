@@ -16,6 +16,7 @@ import { triggerWarp } from "./fieldBus";
 import { prefetch } from "./prefetch";
 import { transitionOf } from "../Worlds/transitions";
 import { expectLanding, isHome, landingFor, rememberHome, setLanding } from "./homeReturn";
+import { LIFT_MS, clearLift, findLift, liftCard } from "./lift";
 
 // Les 17 genres de transition (une dizaine de Ko) ne sont chargés qu'au premier survol d'un lien vers un monde,
 // ou au début de la première transition
@@ -46,7 +47,7 @@ export function TLink({ to, label, onClick, onPointerEnter, onFocus, onTouchStar
     if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     if (rest.target === "_blank") return;
     e.preventDefault();
-    navigateTo(to, { label, origin: originOf(e) });
+    navigateTo(to, { label, origin: originOf(e), lift: findLift(e.currentTarget) });
   };
 
   const preload = (handler) => (e) => {
@@ -211,7 +212,7 @@ export default function PageTransition({ children }) {
 
   // Transition « monde » : cercle qui s'ouvre depuis le clic. Pas de requestAnimationFrame dans le callback de
   // la View Transition (le rendu y est suspendu : il ne se déclencherait qu'après le délai de 4 s du navigateur).
-  const playWorld = useCallback(async (to, origin, unlock) => {
+  const playWorld = useCallback(async (to, origin, unlock, lift) => {
     const { navigate: go, location: here } = live.current;
     const html = document.documentElement;
     // Le monde visé donne le genre de la transition ; en sortant d'un monde vers une page ordinaire, c'est le sien
@@ -222,7 +223,13 @@ export default function PageTransition({ children }) {
     html.classList.add("is-world");
     play("whoosh");
     triggerWarp(1);
-    const [{ playGenre }] = await Promise.all([loadGenres(), Promise.race([prefetch(to), wait(1800)]), wait(WORLD_ANTICIPATION)]);
+    // T2 : la carte cliquée se soulève, les autres reculent (Effects/lift.js), puis la signature du monde joue
+    if (lift) liftCard(lift);
+    const [{ playGenre }] = await Promise.all([
+      loadGenres(),
+      Promise.race([prefetch(to), wait(1800)]),
+      wait(lift ? LIFT_MS : WORLD_ANTICIPATION),
+    ]);
 
     await playGenre({
       genre: signature ? signature.genre : "iris",
@@ -245,7 +252,7 @@ export default function PageTransition({ children }) {
   }, []);
 
   const navigateTo = useCallback(
-    async (to, { label = "", origin } = {}) => {
+    async (to, { label = "", origin, lift } = {}) => {
       if (busy.current) return;
       const { navigate: go, location: here, lenis: scroller } = live.current;
       const target = new URL(to, window.location.origin);
@@ -279,11 +286,12 @@ export default function PageTransition({ children }) {
       document.documentElement.classList.add("is-switching");
       try {
         if (scroller) scroller.stop();
-        if (world) await playWorld(to, origin, unlock);
+        if (world) await playWorld(to, origin, unlock, lift);
         else await playCurtain(to, label, unlock);
       } finally {
         triggerWarp(0);
         unlock();
+        clearLift();
         document.documentElement.classList.remove("is-switching", "is-world");
         if (live.current.lenis) live.current.lenis.start();
         busy.current = false;

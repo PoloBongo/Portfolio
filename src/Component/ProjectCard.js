@@ -86,7 +86,7 @@ export default function ProjectCard({ work, index = 0, rank, lead = false }) {
   const handlers = posterHandlers(videoId);
 
   return (
-    <Reveal as="article" id={work.anchor} className={`proj${lead ? " proj--lead" : ""}`} delay={(index % 2) * 0.08} y={46}>
+    <Reveal as="article" id={work.anchor} className={`proj${lead ? " proj--lead" : ""}`} delay={(index % 2) * 0.08} y={46} data-lift>
       <div
         className="proj__inner"
         ref={cardRef}
