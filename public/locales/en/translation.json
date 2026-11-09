@@ -458,6 +458,11 @@
     }
   },
   "Worlds": {
+    "rt": {
+      "label": "Next departures board",
+      "top": "Next departures · line 1",
+      "hint": "Click the board for the next announcement · example"
+    },
     "fil": {
       "hint": "Grab the thread, pull, let go · scroll fast to shake it"
     },

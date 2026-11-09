@@ -459,6 +459,11 @@
     }
   },
   "Worlds": {
+    "rt": {
+      "label": "Tablero de próximos pasos",
+      "top": "Próximos pasos · línea 1",
+      "hint": "Haz clic en el tablero para el siguiente anuncio · ejemplo"
+    },
     "fil": {
       "hint": "Agarra el hilo, tira, suelta · desplázate rápido para sacudirlo"
     },

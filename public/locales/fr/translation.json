@@ -454,6 +454,11 @@
     }
   },
   "Worlds": {
+    "rt": {
+      "label": "Tableau des prochains passages",
+      "top": "Prochains passages · ligne 1",
+      "hint": "Cliquez le tableau pour la prochaine annonce · exemple"
+    },
     "fil": {
       "hint": "Attrapez le fil, tirez, lâchez · défilez vite pour le secouer"
     },
