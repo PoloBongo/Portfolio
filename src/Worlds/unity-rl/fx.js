@@ -1,4 +1,5 @@
 import { TAU, clamp, lerp, rnd, pick, outCubic, outBack, rgba } from "../shared/fxkit";
+import { drawBall } from "./ball";
 
 const CYAN = "#00f0f0";
 const RED = "#ff1744";
@@ -28,20 +29,7 @@ export default function spawn(x, y, { add, W }) {
       ctx.translate(bx, by);
       ctx.rotate(t * 16);
       ctx.globalAlpha = 1 - clamp((t - 0.72) / 0.28);
-      const g = ctx.createRadialGradient(-r * 0.3, -r * 0.3, 2, 0, 0, r);
-      g.addColorStop(0, "#fff");
-      g.addColorStop(0.7, "#bdbdb8");
-      g.addColorStop(1, "#8e8e88");
-      ctx.fillStyle = g;
-      ctx.beginPath();
-      ctx.arc(0, 0, r, 0, TAU);
-      ctx.fill();
-      ctx.fillStyle = "#151515";
-      [[-0.4, -0.3], [0.45, -0.35], [0.1, 0.5]].forEach(([dx, dy]) => {
-        ctx.beginPath();
-        ctx.arc(dx * r, dy * r, r * 0.26, 0, TAU);
-        ctx.fill();
-      });
+      drawBall(ctx, r);
       ctx.restore();
     },
   });
