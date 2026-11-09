@@ -459,6 +459,7 @@
     }
   },
   "Worlds": {
+    "ditherHint": "Desplázate: la trama se afina · el cursor abre una ventana a la imagen real",
     "gravity": "Gravedad",
     "gravityNormal": "Normal",
     "gravityFlipped": "Invertida",

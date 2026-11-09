@@ -72,3 +72,41 @@
     opacity: 0;
   }
 }
+
+/* Monde sur vrai clip (la trame) : le titre est le logo en pixels, la phrase d'invite en VT323 */
+.w-stay-soul-video .vh__title {
+  max-width: 6ch;
+  color: var(--w4);
+  font-family: "Press Start 2P", var(--font-display);
+  font-size: clamp(2rem, 0.6rem + 6.2vw, 6.2rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-shadow: 4px 4px 0 var(--w3);
+}
+
+.w-stay-soul-video .vh__tagline {
+  color: var(--w4);
+  font-family: "VT323", var(--font-display);
+  font-size: clamp(1.3rem, 1rem + 1vw, 2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  text-shadow: 2px 2px 0 var(--w0);
+}
+
+.w-stay-soul-video .vh__hint {
+  color: var(--w4);
+  font-family: "VT323", var(--font-mono);
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  text-shadow: 2px 2px 0 var(--w0);
+}
+
+.w-stay-soul-video .vh__pin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(0deg, rgba(7, 5, 12, 0.6), rgba(7, 5, 12, 0) 45%);
+  pointer-events: none;
+}

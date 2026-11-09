@@ -458,6 +458,7 @@
     }
   },
   "Worlds": {
+    "ditherHint": "Scroll: the dither gets finer · the cursor opens a window on the real image",
     "gravity": "Gravity",
     "gravityNormal": "Normal",
     "gravityFlipped": "Inverted",
