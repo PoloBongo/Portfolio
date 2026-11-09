@@ -544,6 +544,7 @@
     },
     "fairHint": "Le curseur règle la mise au point · défilez : le flou se creuse · cliquez : un flash",
     "slotsHint": "Survolez les cases : celle que vous visez s'allume · défilez pour ranger le sac · cliquez pour ramasser",
+    "bubbleHint": "Le curseur pousse une bulle-loupe · défilez : l'image ondule comme un manège · cliquez : la bulle éclate",
     "ditherHint": "Défilez : la trame s'affine · le curseur ouvre une fenêtre sur l'image réelle",
     "gravity": "Gravité",
     "gravityNormal": "Normale",

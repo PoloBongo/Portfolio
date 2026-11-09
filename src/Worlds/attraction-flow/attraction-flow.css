@@ -55,3 +55,34 @@
   color: var(--w4);
   z-index: 3;
 }
+
+/* Cover sur vrai clip (thème clair) : l'affiche garde sa clarté pendant le chargement, le texte reste lisible sur la menthe */
+.w-attraction-flow-video .vh__poster {
+  filter: none;
+}
+
+.w-attraction-flow-video .vh__title {
+  text-shadow: 0 0 28px rgba(159, 229, 196, 0.85);
+}
+
+.w-attraction-flow-video .vh__tagline {
+  text-shadow: 0 0 18px rgba(159, 229, 196, 0.9);
+}
+
+/* voile menthe sous le titre : le texte sombre reste lisible sur le jeu */
+.w-attraction-flow-video .vh__pin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(159, 229, 196, 0.94) 0%, rgba(159, 229, 196, 0.8) 28%, rgba(159, 229, 196, 0) 58%);
+  pointer-events: none;
+}
+
+.w-attraction-flow-video .vh__hint {
+  color: #8a3f00;
+}
+
+.w-attraction-flow-video .work-crumb__count {
+  color: #8a3f00;
+}
