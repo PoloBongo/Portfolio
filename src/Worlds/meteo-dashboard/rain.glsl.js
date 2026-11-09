@@ -26,12 +26,35 @@ vec3 layer(vec2 uv, float t, float cols) {
   float tr = smoothstep(0.05, 0.01, abs(f.x - x)) * smoothstep(y + 0.06, 0.5, f.y) * step(y, f.y);
   return vec3(-n * dome * drop * 0.05, max(drop, tr * 0.22));
 }
+// Le clip (le tableau de bord lui-même) se pose en entier : à droite sur grand écran, sous le titre en portrait. La vitre,
+// la buée et la pluie couvrent tout le cadre ; autour de l'écran, un fond de nuit bleue.
+vec2 clipUV(vec2 uv) {
+  bool wide = uAsp > 1.2;
+  float w = wide ? 0.6 : 0.94;
+  float h = w * uAsp / uVid;
+  if (h > 0.78) {
+    h = 0.78;
+    w = h * uVid / uAsp;
+  }
+  vec2 c = wide ? vec2(0.67, 0.5) : vec2(0.5, 0.66);
+  return (uv - c) / vec2(w, h) + 0.5;
+}
+vec3 scr(vec2 uv) {
+  vec2 q = clipUV(uv);
+  float m = step(0.0, q.x) * step(q.x, 1.0) * step(0.0, q.y) * step(q.y, 1.0);
+  vec3 bg = mix(vec3(0.05, 0.08, 0.13), vec3(0.13, 0.22, 0.34), smoothstep(0.0, 1.0, uv.y));
+  vec3 tex = texture2D(uTex, clamp(q, 0.0, 1.0)).rgb;
+  // liseré lumineux au bord de l'écran
+  vec2 e = min(q, 1.0 - q);
+  float rim = smoothstep(0.012, 0.0, min(e.x, e.y)) * m;
+  return mix(bg, tex, m) + vec3(0.35, 0.5, 0.7) * rim * 0.35;
+}
 vec3 blur(vec2 uv) {
   vec3 c = vec3(0.0);
   for (int i = 0; i < 12; i++) {
     float a = float(i) * 2.399;
     vec2 o = vec2(cos(a), sin(a)) * sqrt(float(i) + 0.5) * 0.0105;
-    c += texture2D(uTex, cover(uv + o, uAsp, uVid)).rgb;
+    c += scr(uv + o);
   }
   return c / 12.0;
 }
@@ -53,7 +76,7 @@ void main() {
   float clear = texture2D(uFog, vUv).r;
   // ciel dégagé : la vitre est presque propre ; neige : buée froide
   clear = max(clear, uMode > 1.5 ? 0.6 : 0.0);
-  vec3 sharp = texture2D(uTex, cover(vUv + refr * 2.2, uAsp, uVid)).rgb;
+  vec3 sharp = scr(vUv + refr * 2.2);
   vec3 soft = blur(vUv) * 0.8 + (uMode > 0.5 && uMode < 1.5 ? vec3(0.16, 0.2, 0.26) : vec3(0.1, 0.13, 0.17));
   vec3 col = mix(soft, sharp * 1.08, clamp(clear + wet, 0.0, 1.0));
   col += vec3(0.85, 0.92, 1.0) * wet * clamp(dot(refr * 40.0, vec2(-0.5, 0.8)), 0.0, 1.0) * 0.5;

@@ -111,7 +111,7 @@
   color: var(--w4);
   font-family: var(--w-display);
   font-weight: 200;
-  font-size: clamp(3rem, 0.8rem + 9.4vw, 8.4rem);
+  font-size: clamp(2.6rem, 0.6rem + 5.2vw, 6rem);
   line-height: 0.96;
   letter-spacing: -0.03em;
   text-shadow: 0 2px 30px rgba(15, 29, 46, 0.6);
@@ -137,4 +137,11 @@
   background: linear-gradient(0deg, rgba(15, 29, 46, 0.6), rgba(15, 29, 46, 0) 45%),
     linear-gradient(90deg, rgba(15, 29, 46, 0.4), rgba(15, 29, 46, 0) 50%);
   pointer-events: none;
+}
+
+/* Grand écran : le texte reste dans la colonne de gauche, le tableau de bord (le clip) occupe la droite */
+@media (min-width: 900px) {
+  .w-meteo-dashboard-video .vh__copy > * {
+    max-width: min(34vw, 32rem);
+  }
 }
