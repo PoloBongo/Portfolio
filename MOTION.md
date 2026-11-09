@@ -76,6 +76,26 @@ Rendue dans `Arthur.js` après `WorkIndex` (qui garde l'index des 5 catégories)
 28 compétences filtrables ; chacune est rattachée à ses preuves : le champ `tags` des projets et les certificats Educative. Plus de manette ni de scène 3D dans la section (1 550 px de haut au lieu de 36 000).
 
 
+## Pied de page : le nom tombe (`Effects/footerDrop.js`, `Component/Footer.js`, `css/Footer.css`)
+
+P1, validé le 2026-11-09. À l'entrée du pied de page (aussi la version `compact` de la page Contact), les 9 lettres d'ARTHUR BRU sont des corps rigides **Matter.js** : elles tombent, rebondissent (`restitution` 0,32) et s'empilent sur un sol relevé de 90 px (au-dessus de la barre du HUD). Un canvas couvre le pied de page (`.footer__drop`, `pointer-events: none`), le grand nom HTML (`.footer__giant`, `aria-hidden`, `data-no-copy`) est la version fixe et s'efface (`footer--drop`) quand la chute démarre.
+
+- **Chargement** : `import("matter-js")` à 800 px du pied de page (chunk à part, le JS principal reste sous 200 Ko), chute au seuil de 25 % de visibilité.
+- **Souris** (pointeur fin seulement) : `MouseConstraint` attache la souris au pied de page (les liens restent cliquables) ; `mousedown` sur une lettre évite la sélection de texte ; le curseur du site passe en « Attraper » (`setCursorHint`, clé `Footer.grab`) et une souris rapide pousse la lettre sans clic. Tactile : les lettres tombent, rien ne s'attrape (le défilement prime).
+- **Replis** : mouvement réduit, JS absent ou sans IntersectionObserver = le grand nom gris reste posé. Pièges : le canvas se mesure sur le pied de page, un resize reconstruit les lettres ; la police est lue sur `.footer__giant` et attendue (`document.fonts.load`).
+
+## Certifications : le passeport de tampons (`Component/CertificateCarousel.js`, `css/Passport.css`)
+
+Validé le 2026-11-09. Une page de passeport (papier sombre, guillochis, bord en pointillé) où chaque certificat est un tampon SVG rond (anneaux, nom courbé en haut, date en bas, sigle au centre, filtre `feTurbulence` d'encre usée `#stamp-rough`), incliné à la main (`TILT`). Au défilement (`ScrollTrigger` à 72 %, une fois), les tampons s'impriment un à un : chute, rebond (`back.out`), anneau d'encre, la page encaisse (4 px). Survol, focus ou clic = le détail à droite (titre, date, lien de vérification Educative) change ; le tampon choisi se « re-presse ». Mouvement réduit : tampons posés. `CERTIFICATES` (avec `short`, `abbr`, `tone`) est toujours exporté, `Skills.js` l'importe.
+
+## Menu : le fil (`Component/Navbar.js`, `css/Navbar.css`)
+
+2026-11-09. À gauche de la liste, un fil vertical avec un nœud par page ; un repère lime tombe (bounce) sur la page actuelle une fois le cercle ouvert, avec la pastille « Arthur est ici » (`Carte.here`), et glisse vers la ligne survolée ou focalisée, le fil se remplissant jusqu'à lui ; au repos il revient. Sans page correspondante, il n'apparaît qu'au survol. Le focus automatique du premier lien ne compte pas comme un survol (900 ms). **Pièges** : le panneau porte `data-lenis-prevent` (Lenis arrêté interceptait quand même la molette) ; le dégradé est le `background` du panneau (un pseudo-élément absolu défilait avec le contenu) ; les `li` masquent par `clip-path` et non `overflow: hidden` pour que les nœuds dépassent à gauche.
+
+## 404 (`Pages/ErrorPage.js`, `css/Pages.css`)
+
+Le « 0 » du milieu est le repère de la carte (lime, trou sombre) : il tombe, rebondit (`bounce.out`), oscille doucement ; bulle « Arthur est perdu » (`ErrorPage.lost`) et ombre au sol.
+
 ## Schéma RAG de Cerebro (`Component/RagDiagram.js`, `css/Diagram.css`)
 
 Cerebro n'a pas encore de vidéo : son cadre média (`diagram: "rag"` dans `src/Pages/AI/projects.js`) affiche à la place un **schéma animé de son pipeline**, chargé à la demande (`lazy` dans `ProjectMedia.js`, chunk à part ≈ 8 Ko gzip). Il reprend le langage du nuage : un espace vectoriel (Qdrant) qui se balance, une requête en anneau menthe qui y entre et allume ses voisins.
