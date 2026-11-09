@@ -459,6 +459,9 @@
     }
   },
   "Worlds": {
+    "ba": {
+      "hint": "Desplázate: el plano se convierte en maqueta"
+    },
     "mt": {
       "hint": "Limpia el vaho con el cursor · el desplazamiento regula la lluvia · tiempo real en Tours",
       "rain": "Chubascos",

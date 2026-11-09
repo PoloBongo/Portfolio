@@ -454,6 +454,9 @@
     }
   },
   "Worlds": {
+    "ba": {
+      "hint": "Défilez : le plan devient une maquette"
+    },
     "mt": {
       "hint": "Essuyez la buée avec le curseur · le défilement règle la pluie · temps réel de Tours",
       "rain": "Averses",

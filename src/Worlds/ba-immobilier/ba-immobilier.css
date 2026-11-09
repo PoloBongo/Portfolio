@@ -136,3 +136,62 @@
     stroke-dashoffset: 0;
   }
 }
+
+/* Monde 3D (du plan à la maquette) : Barlow Condensed en capitales, Share Tech Mono pour les cotes et les pièces */
+.w-ba-immobilier-video {
+  --w-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --w-mono: "Share Tech Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+.w-ba-immobilier-video .vh__title {
+  max-width: 7ch;
+  color: var(--w4);
+  font-family: var(--w-display);
+  font-weight: 700;
+  font-size: clamp(3.4rem, 0.8rem + 10vw, 9.4rem);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.w-ba-immobilier-video .vh__tagline {
+  color: color-mix(in srgb, var(--w4) 75%, transparent);
+  font-family: var(--w-display);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 0.95rem + 0.8vw, 1.7rem);
+}
+
+.w-ba-immobilier-video .vh__hint {
+  color: var(--w1);
+  font-family: var(--w-mono);
+}
+
+/* Noms des pièces, projetés sur la maquette */
+.vh__room {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  margin: -0.7em 0 0 -3em;
+  width: 6em;
+  color: var(--w1);
+  font-family: var(--w-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(35, 37, 39, 0.95);
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Voile anthracite à gauche : le titre et la phrase restent lisibles même quand un mur de la maquette passe dessous */
+.w-ba-immobilier-video .vh__pin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(35, 37, 39, 0.92), rgba(35, 37, 39, 0.6) 34%, rgba(35, 37, 39, 0) 62%),
+    linear-gradient(0deg, rgba(35, 37, 39, 0.7), rgba(35, 37, 39, 0) 38%);
+  pointer-events: none;
+}
