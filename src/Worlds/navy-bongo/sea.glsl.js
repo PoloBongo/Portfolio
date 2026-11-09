@@ -30,12 +30,20 @@ void main() {
   vec3 col = base;
 
   // ciel : remplace le noir du clip au-dessus de l'horizon
-  float skyMask = (1.0 - smoothstep(0.035, 0.11, lum)) * smoothstep(0.56, 0.7, uv.y);
+  // masque du ciel : luminance lissée (4 échantillons voisins, sinon le bruit de compression déchiquette les bords des
+  // voiles et de la bôme), seulement le noir franc, et au-dessus de l'horizon
+  float lumBlur = 0.0;
+  for (int i = 0; i < 4; i++) {
+    vec2 o = vec2(i < 2 ? (i == 0 ? 0.004 : -0.004) : 0.0, i >= 2 ? (i == 2 ? 0.006 : -0.006) : 0.0);
+    lumBlur += dot(samp(uv + o), vec3(0.3, 0.59, 0.11));
+  }
+  lumBlur = (lumBlur + lum) / 5.0;
+  float skyMask = (1.0 - smoothstep(0.022, 0.06, lumBlur)) * smoothstep(0.6, 0.72, uv.y);
   vec3 top = mix(vec3(0.16, 0.42, 0.86), vec3(0.05, 0.06, 0.09), storm);
   vec3 hor = mix(vec3(0.78, 0.9, 0.98), vec3(0.2, 0.23, 0.28), storm);
   vec3 sky = mix(hor, top, smoothstep(0.55, 1.0, uv.y));
   float cl = fbm(p * vec2(1.4, 3.2) + vec2(uT * 0.02 * (1.0 + storm * 4.0), 0.0));
-  sky = mix(sky, mix(vec3(1.0), vec3(0.3, 0.32, 0.36), storm), smoothstep(0.42, 0.78, cl) * mix(0.75, 1.0, storm));
+  sky = mix(sky, mix(vec3(1.0), vec3(0.3, 0.32, 0.36), storm), smoothstep(0.5, 0.85, cl) * mix(0.6, 1.0, storm));
   vec2 sunp = vec2(0.42, 0.34);
   sky += vec3(1.0, 0.9, 0.62) * (exp(-length(p - sunp) * 7.0) * 0.9 + smoothstep(0.06, 0.04, length(p - sunp))) * (1.0 - storm);
   float bolt = pow(max(0.0, sin(uT * 7.0)), 10.0) * step(0.86, noise(vec2(floor(uT * 0.9), 3.0))) * storm;
@@ -43,7 +51,7 @@ void main() {
   col = mix(col, sky, skyMask);
 
   // mer du clip (les pixels bleus sous l'horizon) : reflets des vagues, écume en tempête
-  float seaMask = smoothstep(0.015, 0.09, base.b - base.r * 0.9) * smoothstep(0.66, 0.4, uv.y);
+  float seaMask = smoothstep(0.04, 0.12, base.b - base.r * 1.1) * smoothstep(0.66, 0.4, uv.y);
   vec2 q = p * vec2(3.0, 6.5);
   float e = 0.03;
   float h = waves(q, uT);
