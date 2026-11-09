@@ -177,7 +177,7 @@ export default function Featured() {
               key={work.slug}
               className={`fil__knot${i <= index ? " is-done" : ""}${i === index ? " is-cur" : ""}`}
               style={{ left: `${(n > 1 ? (i / (n - 1)) * 100 : 0).toFixed(2)}%`, "--c": REGIONS[REGION_OF[work.category.id] || "web"].color }}
-              aria-label={titleOf(work, t)}
+              aria-label={`${pad(i + 1)} ${titleOf(work, t)}`}
               aria-current={i === index ? "true" : undefined}
               onClick={() => go(i)}
             >

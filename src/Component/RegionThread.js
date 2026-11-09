@@ -32,7 +32,7 @@ export default function RegionThread({ works, active, onSelect }) {
               <button
                 type="button"
                 className={`rthread__knot${i <= active ? " is-done" : ""}${i === active ? " is-cur" : ""}`}
-                aria-label={titleOf(work, t)}
+                aria-label={`${pad(i + 1)} ${titleOf(work, t)}`}
                 aria-current={i === active ? "true" : undefined}
                 onClick={() => onSelect(i)}
                 onPointerEnter={() => setHover(i)}
