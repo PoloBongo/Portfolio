@@ -351,6 +351,8 @@
     "Diagram": {
       "Alt": "Animated diagram of Cerebro's RAG pipeline: a PDF is ingested (text, tables, images with OCR) into Qdrant; a question is embedded, its nearest neighbours are retrieved then reranked by a cross-encoder, and Mistral-7B generates the answer streamed over SSE.",
       "Question": "What was the Q3 margin?",
+      "Question2": "What does the sales-by-region chart show?",
+      "Question3": "What are the termination terms?",
       "Step1": "Ingestion",
       "Step2": "Retrieval",
       "Step3": "Reranking",
@@ -521,6 +523,7 @@
       }
     },
     "cerebro": {
+      "pick": "Ask a question",
       "label": "Cerebro's RAG pipeline, step by step",
       "c1": {
         "title": "Ingestion",

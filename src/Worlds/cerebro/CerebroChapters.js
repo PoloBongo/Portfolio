@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useGSAP } from "@gsap/react";
-import RagDiagram, { RAG_STEPS } from "../../Component/RagDiagram";
+import RagDiagram, { RAG_STEPS, RAG_QUESTIONS } from "../../Component/RagDiagram";
 import { ScrollTrigger } from "../../Effects/motion";
 import { useScrollTo } from "../../Effects/SmoothScroll";
 
@@ -25,7 +25,17 @@ export default function CerebroChapters({ tags }) {
   const rootRef = useRef(null);
   const scrub = useRef(null);
   const [chapter, setChapter] = useState(0);
+  const [question, setQuestion] = useState(0);
+  const progress = useRef(0);
   const scrollTo = useScrollTo();
+
+  // Changer de question reconstruit le schéma : on le replace tout de suite à l'étape où l'on est dans le défilement
+  useEffect(() => {
+    const id = setTimeout(() => {
+      if (scrub.current) scrub.current.seek(Math.min(1, progress.current / HOLD));
+    }, 60);
+    return () => clearTimeout(id);
+  }, [question]);
 
   useGSAP(
     () => {
@@ -34,6 +44,7 @@ export default function CerebroChapters({ tags }) {
         start: "top top",
         end: "bottom bottom",
         onUpdate: (self) => {
+          progress.current = self.progress;
           if (scrub.current) scrub.current.seek(Math.min(1, self.progress / HOLD));
           setChapter(chapterAt(self.progress));
         },
@@ -78,8 +89,16 @@ export default function CerebroChapters({ tags }) {
             ))}
           </ol>
         </div>
+        <div className="w-cerebro__questions container" role="group" aria-label={t("Worlds.cerebro.pick")}>
+          <span className="mono">{t("Worlds.cerebro.pick")}</span>
+          {RAG_QUESTIONS.map((key, i) => (
+            <button type="button" key={key} className={i === question ? "is-cur" : ""} aria-pressed={i === question} onClick={() => setQuestion(i)}>
+              {t(key)}
+            </button>
+          ))}
+        </div>
         <div className="w-cerebro__stage">
-          <RagDiagram tags={tags} scrub={scrub} />
+          <RagDiagram tags={tags} scrub={scrub} scenario={question} />
         </div>
       </div>
     </section>

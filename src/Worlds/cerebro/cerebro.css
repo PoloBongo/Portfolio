@@ -129,8 +129,8 @@
   position: sticky;
   top: 0;
   display: grid;
-  grid-template-rows: auto 1fr;
-  gap: clamp(10px, 2vh, 22px);
+  grid-template-rows: auto auto 1fr;
+  gap: clamp(8px, 1.6vh, 18px);
   height: 100svh;
   padding-top: clamp(88px, 12vh, 120px);
   padding-bottom: clamp(70px, 10vh, 96px);
@@ -224,7 +224,7 @@
   justify-self: center;
   align-self: center;
   aspect-ratio: 16 / 9;
-  width: min(100% - 2 * var(--pad-x), (100svh - 300px) * 16 / 9);
+  width: min(100% - 2 * var(--pad-x), (100svh - 350px) * 16 / 9);
   max-height: 100%;
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -239,7 +239,7 @@
 
   .w-cerebro__stage {
     aspect-ratio: 600 / 880;
-    width: min(100% - 2 * var(--pad-x), (100svh - 330px) * 600 / 880);
+    width: min(100% - 2 * var(--pad-x), (100svh - 400px) * 600 / 880);
   }
 
   /* le nom de l'étape reste dans le nom accessible du bouton, seulement caché à l'œil */
@@ -254,4 +254,43 @@
   .w-cerebro__steps button {
     min-width: 0;
   }
+}
+
+/* Le choix de la question : trois pastilles, la question posée est celle que le schéma traite */
+.w-cerebro__questions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.w-cerebro__questions > span {
+  margin-right: 6px;
+  color: var(--ink-faint);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.w-cerebro__questions button {
+  padding: 7px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: none;
+  color: var(--ink-dim);
+  font: 500 0.82rem var(--font-display);
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+}
+
+.w-cerebro__questions button.is-cur {
+  border-color: var(--mint);
+  background: rgba(99, 230, 190, 0.12);
+  color: var(--ink);
+}
+
+.w-cerebro__questions button:hover,
+.w-cerebro__questions button:focus-visible {
+  border-color: var(--mint);
+  color: var(--ink);
 }

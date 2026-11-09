@@ -57,19 +57,66 @@ const sheetZones = (L) => ({
   image: [L.sheet.x + 32, L.sheet.y + 78],
 });
 
-// Candidats remontés par la recherche (dans l'ordre de similarité) : score avant et après le cross-encoder.
-// Seules les images sont reclassées, texte et tableaux gardent leur score de recherche.
+// Trois questions possibles (le visiteur choisit, monde de Cerebro) : chacune remonte d'autres passages, avec d'autres scores
+// avant et après le cross-encoder, une requête ailleurs dans l'espace et une réponse de longueur différente. Seules les images
+// sont reclassées, texte et tableaux gardent leur score de recherche ; sous le seuil GATE, un passage est écarté. Les pages et
+// les scores sont des exemples écrits pour illustrer le pipeline (le projet ne publie pas de document de démonstration).
 const GATE = 0.78;
-const CANDIDATES = [
-  { kind: "IMG", page: 3, from: 0.84, to: 0.94 },
-  { kind: "TXT", page: 12, from: 0.81, to: 0.81 },
-  { kind: "IMG", page: 8, from: 0.77, to: 0.38 },
-  { kind: "TBL", page: 7, from: 0.72, to: 0.72 },
-  { kind: "IMG", page: 5, from: 0.69, to: 0.89 },
+const SCENARIOS = [
+  {
+    // un tableau : « marge du T3 », trois images (graphiques) remontent aussi, l'une est écartée
+    qKey: "AIProjects.Diagram.Question",
+    query: [0.45, 0.22, 0.52],
+    lines: [92, 84, 52],
+    candidates: [
+      { kind: "IMG", page: 3, from: 0.84, to: 0.94 },
+      { kind: "TXT", page: 12, from: 0.81, to: 0.81 },
+      { kind: "IMG", page: 8, from: 0.77, to: 0.38 },
+      { kind: "TBL", page: 7, from: 0.72, to: 0.72 },
+      { kind: "IMG", page: 5, from: 0.69, to: 0.89 },
+    ],
+  },
+  {
+    // un graphique : surtout des images, le cross-encoder en écarte deux
+    qKey: "AIProjects.Diagram.Question2",
+    query: [0.35, 0.5, 0.5],
+    lines: [88, 70, 40],
+    candidates: [
+      { kind: "IMG", page: 4, from: 0.86, to: 0.95 },
+      { kind: "IMG", page: 9, from: 0.83, to: 0.91 },
+      { kind: "IMG", page: 6, from: 0.79, to: 0.42 },
+      { kind: "TXT", page: 5, from: 0.74, to: 0.74 },
+      { kind: "IMG", page: 11, from: 0.7, to: 0.35 },
+    ],
+  },
+  {
+    // du texte pur : aucune image retenue, le logo de la page 1 est écarté
+    qKey: "AIProjects.Diagram.Question3",
+    query: [0.62, 0.1, 0.45],
+    lines: [92, 92, 76],
+    candidates: [
+      { kind: "TXT", page: 14, from: 0.88, to: 0.88 },
+      { kind: "TXT", page: 15, from: 0.84, to: 0.84 },
+      { kind: "TXT", page: 2, from: 0.79, to: 0.79 },
+      { kind: "TBL", page: 16, from: 0.74, to: 0.74 },
+      { kind: "IMG", page: 1, from: 0.66, to: 0.31 },
+    ],
+  },
 ];
-const ORDER = CANDIDATES.map((_, i) => i).sort((a, b) => CANDIDATES[b].to - CANDIDATES[a].to);
-const ROWS = CANDIDATES.map((c, i) => ({ ...c, slot: ORDER.indexOf(i), pass: c.to >= GATE }));
-const PASSING = ROWS.filter((r) => r.pass).sort((a, b) => a.slot - b.slot);
+export const RAG_QUESTIONS = SCENARIOS.map((sc) => sc.qKey);
+function scenarioData(index) {
+  const sc = SCENARIOS[index] || SCENARIOS[0];
+  const order = sc.candidates.map((_, k) => k).sort((a, b) => sc.candidates[b].to - sc.candidates[a].to);
+  const rows = sc.candidates.map((cd, k) => ({ ...cd, slot: order.indexOf(k), pass: cd.to >= GATE }));
+  return {
+    qKey: sc.qKey,
+    query: sc.query,
+    lines: sc.lines,
+    kinds: sc.candidates.map((cd) => cd.kind),
+    ROWS: rows,
+    PASSING: rows.filter((r) => r.pass).sort((a, b) => a.slot - b.slot),
+  };
+}
 
 // Fragments du PDF : zone d'origine sur la feuille, grappe visée dans l'espace, instant de départ
 const INGEST = [
@@ -90,7 +137,6 @@ const CLUSTERS = [
   { c: [0.3, 0.5, 0.55], n: 28, col: 1 }, // 5 voisins « image » de la requête
   { c: [-0.45, -0.4, 0.45], n: 20, col: 1 }, // 6 reçoit les images ingérées
 ];
-const QUERY = [0.45, 0.22, 0.52];
 
 // Déroulé (secondes) : une boucle complète, chaque étape allume un repère du rail
 const T = { retrieve: 3.6, rerank: 7.9, generate: 10.3, stream: 12.0, reset: 15.4, end: 16.4 };
@@ -140,7 +186,7 @@ function bezier(a, c, b, t, out) {
 }
 
 // Points de l'espace (coordonnées dans la sphère unité), voisins de la requête, fragments ingérés
-function buildCloud() {
+function buildCloud(query, kinds) {
   const rnd = mulberry32(11);
   const pts = [];
   const add = (c, sigma, col, cluster, ing = -1) => {
@@ -167,16 +213,18 @@ function buildCloud() {
   // Les voisins de la requête : les plus proches dans chaque collection (hors vecteurs ingérés)
   const nearest = (cluster, count) =>
     pts
-      .map((p, i) => ({ i, p, d: Math.hypot(p.x - QUERY[0], p.y - QUERY[1], p.z - QUERY[2]) }))
+      .map((p, i) => ({ i, p, d: Math.hypot(p.x - query[0], p.y - query[1], p.z - query[2]) }))
       .filter((o) => o.p.cluster === cluster)
       .sort((a, b) => a.d - b.d)
       .slice(0, count)
       .map((o) => o.i);
-  const txt = nearest(4, 2);
-  const img = nearest(5, 3);
+  const txt = nearest(4, kinds.filter((k) => k !== "IMG").length);
+  const img = nearest(5, kinds.filter((k) => k === "IMG").length);
 
-  // Même ordre que les lignes de la liste : IMG, TXT, IMG, TBL, IMG
-  return { pts, ingest, neighbors: [img[0], txt[0], img[1], txt[1], img[2]] };
+  // Même ordre que les lignes de la liste : un voisin « image » pour chaque IMG, « texte » pour chaque TXT ou TBL
+  let ti = 0;
+  let ii = 0;
+  return { pts, ingest, neighbors: kinds.map((k) => (k === "IMG" ? img[ii++] : txt[ti++])) };
 }
 
 // Position et taille des éléments HTML, en unités du repère de la disposition
@@ -197,14 +245,16 @@ function useNarrow() {
 
 // scrub : { current } reçoit { seek(p) } (p de 0 à 1) ; le schéma n'est alors plus une boucle, c'est le défilement qui
 // le fait avancer (et reculer : on rejoue depuis le début, le schéma est déterministe)
-export default function RagDiagram({ tags, scrub }) {
+export default function RagDiagram({ tags, scrub, scenario = 0 }) {
   const { t } = useTranslation();
   const narrow = useNarrow();
   const L = LAYOUTS[narrow ? "tall" : "wide"];
   const rootRef = useRef(null);
   const canvasRef = useRef(null);
 
-  const question = t("AIProjects.Diagram.Question");
+  const SC = scenarioData(scenario);
+  const { ROWS, PASSING, query: QUERY } = SC;
+  const question = t(SC.qKey);
   const questionRef = useRef(question);
   questionRef.current = question;
 
@@ -230,7 +280,7 @@ export default function RagDiagram({ tags, scrub }) {
       const peri = color("--rag-peri", "#7c8cff");
       const sprite = { violet: makeSprite(violet), peri: makeSprite(peri), mint: makeSprite(mint) };
 
-      const { pts, ingest, neighbors } = buildCloud();
+      const { pts, ingest, neighbors } = buildCloud(SC.query, SC.kinds);
       const rnd = mulberry32(5);
       const zones = sheetZones(L);
       const fragments = INGEST.map((f) => ({
@@ -726,9 +776,9 @@ export default function RagDiagram({ tags, scrub }) {
         tl.set(tk, { a: 0 }, go + 0.5);
       });
       [
-        [0, 92, 1.0],
-        [1, 84, 1.0],
-        [2, 52, 0.7],
+        [0, SC.lines[0], 1.0],
+        [1, SC.lines[1], 1.0],
+        [2, SC.lines[2], 0.7],
       ].forEach(([i, width, dur], n) => {
         const go = T.stream + 0.4 + n * 1.05;
         tl.to(lines[i], { clipPath: "inset(0 0% 0 0)", duration: dur, ease: "steps(9)" }, go);
@@ -822,7 +872,7 @@ export default function RagDiagram({ tags, scrub }) {
         gsap.ticker.remove(tick);
       };
     },
-    { scope: rootRef, dependencies: [L], revertOnUpdate: true }
+    { scope: rootRef, dependencies: [L, scenario], revertOnUpdate: true }
   );
 
   return (
@@ -928,9 +978,9 @@ export default function RagDiagram({ tags, scrub }) {
         SSE · streaming
       </p>
       <div className="rag__box rag__answer" style={box(L.col.x, L.answer.y, L.col.w, L.answer.h)}>
-        <i className="rag__line" style={{ "--ly": "24%", "--lw": "92%" }} />
-        <i className="rag__line" style={{ "--ly": "48%", "--lw": "84%" }} />
-        <i className="rag__line" style={{ "--ly": "72%", "--lw": "52%" }} />
+        <i className="rag__line" style={{ "--ly": "24%", "--lw": `${SC.lines[0]}%` }} />
+        <i className="rag__line" style={{ "--ly": "48%", "--lw": `${SC.lines[1]}%` }} />
+        <i className="rag__line" style={{ "--ly": "72%", "--lw": `${SC.lines[2]}%` }} />
         <i className="rag__cursor" />
       </div>
 

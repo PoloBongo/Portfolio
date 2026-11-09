@@ -352,6 +352,8 @@
     "Diagram": {
       "Alt": "Esquema animado del pipeline RAG de Cerebro: un PDF se ingiere (texto, tablas, imágenes con OCR) en Qdrant; una pregunta se vectoriza, se recuperan sus vecinos más cercanos, un cross-encoder los reordena y Mistral-7B genera la respuesta emitida por SSE.",
       "Question": "¿Cuál fue el margen del T3?",
+      "Question2": "¿Qué muestra el gráfico de ventas por región?",
+      "Question3": "¿Cuáles son las condiciones de rescisión?",
       "Step1": "Ingesta",
       "Step2": "Búsqueda",
       "Step3": "Reranking",
@@ -522,6 +524,7 @@
       }
     },
     "cerebro": {
+      "pick": "Haz una pregunta",
       "label": "El pipeline RAG de Cerebro, paso a paso",
       "c1": {
         "title": "Ingestión",
