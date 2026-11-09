@@ -1,8 +1,8 @@
-// Navy Bongo · du soleil à la tempête. Le vrai clip du jeu (le pont d'un voilier pirate) devient la matière : le défilement
-// épinglé fait passer le temps du beau temps à la tempête (uP). Le ciel noir du clip est remplacé par un ciel qui change
-// (dégradé, nuages en fbm, soleil, éclairs) ; la mer du clip reçoit des reflets de vagues (somme de sinus à crêtes
-// aiguës, normales par différences finies) et de l'écume en tempête ; le bateau tangue de plus en plus, la pluie s'abat.
-// Un clic tire le canon : flash, onde de choc, fumée et secousse. Le clip a de fines bandes sombres en haut et en bas (CROP).
+// Navy Bongo · beau temps sur le vrai clip du jeu (le pont d'un voilier pirate). Le ciel noir du clip est remplacé par un
+// ciel de plein jour (dégradé, nuages en fbm, soleil) ; la mer du clip reçoit des reflets de vagues (somme de sinus à crêtes
+// aiguës, normales par différences finies) ; le bateau tangue doucement. Un clic tire le canon : flash, onde de choc,
+// fumée et secousse. Le passage du soleil à la tempête a été retiré (la différence ne se voyait pas). Le clip a de fines
+// bandes sombres en haut et en bas (CROP).
 const sea = /* glsl */ `
 uniform vec3 uShot;
 const float CROP = 0.055;
@@ -16,7 +16,7 @@ vec3 samp(vec2 uv) {
   return texture2D(uTex, c).rgb;
 }
 void main() {
-  float storm = smoothstep(0.3, 1.0, uP);
+  float storm = 0.0; // beau temps fixe
   vec2 p0 = (vUv - 0.5) * vec2(uAsp, 1.0);
   float age = max(0.0, uT - uShot.z);
   // le bateau tangue (roulis, tangage) et la secousse du canon
@@ -66,7 +66,7 @@ void main() {
   col = mix(col, vec3(gray), storm * 0.4);
   col *= mix(1.0, 0.62, storm);
   float rain = smoothstep(0.93, 1.0, noise(vec2(vUv.x * uAsp * 140.0 + vUv.y * 26.0, vUv.y * 5.0 + uT * 6.0)));
-  col += vec3(0.65, 0.75, 0.9) * rain * smoothstep(0.35, 0.9, uP) * 0.3;
+  col += vec3(0.65, 0.75, 0.9) * rain * storm * 0.3; // pas de pluie par beau temps
   col += vec3(0.7, 0.78, 1.0) * bolt * 0.35;
 
   // le canon : flash, onde de choc, fumée

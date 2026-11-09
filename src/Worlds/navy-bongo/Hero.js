@@ -21,8 +21,8 @@ const hasWebGL = () => {
   return webgl;
 };
 
-// Hero de Navy Bongo (du soleil à la tempête) : tout l'écran est le vrai clip du jeu, le pont du voilier. Le défilement
-// épinglé fait passer le temps du beau temps à la tempête (ciel, mer, pluie, éclairs, tangage) et un clic tire le canon.
+// Hero de Navy Bongo : tout l'écran est le vrai clip du jeu, le pont du voilier, sous un ciel de plein jour et une mer qui
+// brille ; un clic tire le canon.
 // Sans WebGL 2, en mouvement réduit ou avec économie de données : le pont d'origine, mer qui houle (scène décorative).
 export default function NavyBongoHero(props) {
   const { t } = useTranslation();
@@ -33,33 +33,17 @@ export default function NavyBongoHero(props) {
         id="navy-bongo"
         clip="navy-bongo"
         frag={sea}
-        scroll={1.8}
         palette={PALETTES["navy-bongo"]}
         fonts={FONTS["navy-bongo"]}
         hint={t("Worlds.nb.hint")}
         uniforms={(THREE) => ({ uShot: { value: new THREE.Vector3(0, 0, -10) } })}
-        setup={({ root, uniforms }) => {
-          const label = root.querySelector(".vh__weather b");
-          let last = -1;
-          return {
-            frame({ p }) {
-              const k = p < 0.3 ? 0 : p < 0.65 ? 1 : 2;
-              if (label && k !== last) {
-                last = k;
-                label.textContent = t(["Worlds.nb.calm", "Worlds.nb.swell", "Worlds.nb.storm"][k]);
-              }
-            },
-            click(u, v) {
-              uniforms.uShot.value.set((u - 0.5) * uniforms.uAsp.value, v - 0.5, uniforms.uT.value);
-            },
-          };
-        }}
+        setup={({ uniforms }) => ({
+          click(u, v) {
+            uniforms.uShot.value.set((u - 0.5) * uniforms.uAsp.value, v - 0.5, uniforms.uT.value);
+          },
+        })}
         {...props}
-      >
-        <p className="vh__weather mono" aria-hidden="true">
-          <span>{t("Worlds.nb.weather")}</span> <b>{t("Worlds.nb.calm")}</b>
-        </p>
-      </VideoHero>
+      />
     );
   }
   return <SceneHero id="navy-bongo" build={build} palette={PALETTES["navy-bongo"]} fonts={FONTS["navy-bongo"]} {...props} />;
