@@ -334,6 +334,55 @@
   color: var(--violet);
 }
 
+/* Le repère de la carte à la place du « 0 » : la hauteur d'un chiffre, posé sur son ombre */
+.notfound__digit-wrap--pin {
+  position: relative;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 0.62em;
+  color: #d9ff4a;
+}
+
+.notfound__pin {
+  display: block;
+  height: 0.68em;
+  width: auto;
+}
+
+.notfound__shadow {
+  position: absolute;
+  bottom: 0.02em;
+  left: 50%;
+  width: 0.34em;
+  height: 0.05em;
+  margin-left: -0.17em;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  filter: blur(6px);
+  z-index: -1;
+}
+
+.notfound__label {
+  position: absolute;
+  top: -0.16em;
+  z-index: 2;
+  left: 50%;
+  translate: -50% 0;
+  padding: 0.12em 0.5em;
+  border-radius: 999px;
+  background: #d9ff4a;
+  color: #0a0a0f;
+  font-family: var(--font-display);
+  font-size: clamp(0.8rem, 0.4rem + 1.1vw, 1.35rem);
+  font-variation-settings: "wght" 700, "wdth" 100;
+  letter-spacing: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
 .notfound__text {
   display: flex;
   flex-direction: column;

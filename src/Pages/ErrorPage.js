@@ -27,6 +27,18 @@ const ErrorPageT = ({ t, code = 404 }) => {
         { opacity: 1, y: 0, duration: 1, stagger: 0.1 },
         0.5
       );
+      // Le repère (le « 0 ») tombe de haut, rebondit sur la carte, puis oscille doucement, perdu
+      const pin = q(".notfound__pin")[0];
+      let sway;
+      if (pin) {
+        gsap.set(pin, { y: -window.innerHeight, opacity: 0, transformOrigin: "50% 100%" });
+        tl.to(pin, { opacity: 1, duration: 0.1 }, 0.5)
+          .to(pin, { y: 0, duration: 1.5, ease: "bounce.out" }, 0.5)
+          .fromTo(q(".notfound__shadow"), { scaleX: 0.2, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 1.5, ease: "bounce.out" }, 0.5)
+          .fromTo(q(".notfound__label"), { opacity: 0, y: 10, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "back.out(2)" }, 1.7);
+        sway = gsap.to(pin, { rotation: 5, duration: 1.8, ease: "sine.inOut", yoyo: true, repeat: -1, paused: true });
+        tl.add(() => sway.play(), 2.2);
+      }
       const cancelReady = onReady(() => tl.play());
 
       // Les chiffres se déplacent légèrement avec le curseur, à des profondeurs différentes
@@ -52,6 +64,7 @@ const ErrorPageT = ({ t, code = 404 }) => {
       return () => {
         cancelReady();
         removePointer();
+        if (sway) sway.kill();
       };
     },
     { scope: rootRef }
@@ -62,11 +75,26 @@ const ErrorPageT = ({ t, code = 404 }) => {
       <FocusLoop>
         <main id="main" className="notfound" data-cursor="query">
           <p className="notfound__code" aria-hidden="true">
-            {digits.map((digit, i) => (
-              <span className="notfound__digit-wrap" key={i}>
-                <span className="notfound__digit">{digit}</span>
-              </span>
-            ))}
+            {digits.map((digit, i) =>
+              // Le « 0 » du milieu est le repère de la carte : Arthur est perdu, hors carte
+              digit === "0" && i === 1 ? (
+                <span className="notfound__digit-wrap notfound__digit-wrap--pin" key={i}>
+                  <span className="notfound__label">{t("ErrorPage.lost")}</span>
+                  <svg className="notfound__pin" viewBox="0 0 100 140" focusable="false">
+                    <path
+                      d="M50 0C22 0 0 22 0 50c0 38 50 90 50 90s50-52 50-90C100 22 78 0 50 0z"
+                      fill="currentColor"
+                    />
+                    <circle cx="50" cy="50" r="18" fill="var(--bg)" />
+                  </svg>
+                  <span className="notfound__shadow" />
+                </span>
+              ) : (
+                <span className="notfound__digit-wrap" key={i}>
+                  <span className="notfound__digit">{digit}</span>
+                </span>
+              )
+            )}
           </p>
           <div className="notfound__text">
             <h1 className="notfound__title">{t("ErrorPage.title")}</h1>

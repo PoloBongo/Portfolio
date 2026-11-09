@@ -329,6 +329,7 @@
     }
   },
   "ErrorPage": {
+    "lost": "Arthur est perdu",
     "title": "Page introuvable",
     "message": "Cette page n'existe pas ou a été déplacée.",
     "backHome": "Retour à l'accueil"

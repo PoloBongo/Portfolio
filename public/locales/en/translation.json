@@ -333,6 +333,7 @@
     }
   },
   "ErrorPage": {
+    "lost": "Arthur is lost",
     "title": "Page not found",
     "message": "This page doesn't exist or has been moved.",
     "backHome": "Back to home"
