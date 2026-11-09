@@ -25,17 +25,44 @@ export default function CerebroChapters({ tags }) {
   const rootRef = useRef(null);
   const scrub = useRef(null);
   const [chapter, setChapter] = useState(0);
-  const [question, setQuestion] = useState(0);
+  // asked : la question posée et le nombre de clics (cliquer la même question la rejoue)
+  const [asked, setAsked] = useState({ i: 0, n: 0 });
+  const question = asked.i;
   const progress = useRef(0);
   const scrollTo = useScrollTo();
 
-  // Changer de question reconstruit le schéma : on le replace tout de suite à l'étape où l'on est dans le défilement
+  // Poser une question lance l'animation : le schéma est reconstruit, replacé au début de la recherche (la question se tape),
+  // puis le défilement avance seul à la vitesse de l'animation jusqu'à la réponse. Un coup de molette reprend la main.
+  // Au premier rendu (n = 0) on ne fait rien ; en mouvement réduit on se contente de replacer le schéma.
   useEffect(() => {
-    const id = setTimeout(() => {
+    const root = rootRef.current;
+    if (!root) return undefined;
+    const sync = () => {
       if (scrub.current) scrub.current.seek(Math.min(1, progress.current / HOLD));
-    }, 60);
+    };
+    if (asked.n === 0) {
+      const id = setTimeout(sync, 60);
+      return () => clearTimeout(id);
+    }
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const top = root.getBoundingClientRect().top + window.scrollY;
+    const range = root.offsetHeight - window.innerHeight;
+    const frac = (time) => (time / RAG_STEPS.end) * HOLD;
+    const from = RAG_STEPS.starts[1];
+    const id = setTimeout(() => {
+      if (reduced) {
+        sync();
+        return;
+      }
+      scrollTo(Math.round(top + frac(from) * range), { immediate: true, force: true });
+      setTimeout(
+        () => scrollTo(Math.round(top + HOLD * range), { duration: RAG_STEPS.end - from, easing: (u) => u, force: true }),
+        120
+      );
+    }, 80);
     return () => clearTimeout(id);
-  }, [question]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [asked.n]);
 
   useGSAP(
     () => {
@@ -92,7 +119,7 @@ export default function CerebroChapters({ tags }) {
         <div className="w-cerebro__questions container" role="group" aria-label={t("Worlds.cerebro.pick")}>
           <span className="mono">{t("Worlds.cerebro.pick")}</span>
           {RAG_QUESTIONS.map((key, i) => (
-            <button type="button" key={key} className={i === question ? "is-cur" : ""} aria-pressed={i === question} onClick={() => setQuestion(i)}>
+            <button type="button" key={key} className={i === question ? "is-cur" : ""} aria-pressed={i === question} onClick={() => setAsked((a) => ({ i, n: a.n + 1 }))}>
               {t(key)}
             </button>
           ))}
