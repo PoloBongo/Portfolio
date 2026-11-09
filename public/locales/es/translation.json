@@ -459,6 +459,45 @@
     }
   },
   "Worlds": {
+    "seo": {
+      "file": "workflow.json · 6 nodos · se ejecuta cada noche a las 02:00",
+      "hint": "Mueve los nodos · lanza la ejecución",
+      "run": "Ejecutar",
+      "running": "Ejecutando…",
+      "replay": "Repetir",
+      "sub": {
+        "cron": "cada noche",
+        "lh": "auditoría de rendimiento (Docker)",
+        "wave": "auditoría de accesibilidad (Docker)",
+        "gpt": "analiza y reformula",
+        "sheets": "guarda los informes",
+        "s3": "archiva el informe"
+      },
+      "v": {
+        "lh": "puntuaciones ✓",
+        "wave": "control ✓",
+        "gpt": "3 tarjetas ✓",
+        "sheets": "+3 filas ✓"
+      },
+      "report": {
+        "head": "Informe · arthur-portfolio.dev · medido el 9 de noviembre de 2026",
+        "c1": {
+          "cat": "Rendimiento · móvil",
+          "title": "LCP 3,3 s",
+          "text": "El precargador de la primera visita y el arranque de la aplicación retrasan el primer renderizado. Prioridad media."
+        },
+        "c2": {
+          "cat": "Buenas prácticas · 96",
+          "title": "Un error de consola",
+          "text": "Una petición de terceros (analytics) responde 400 en local. Sin gravedad."
+        },
+        "c3": {
+          "cat": "Accesibilidad · SEO",
+          "title": "100 y 100",
+          "text": "Nada que corregir."
+        }
+      }
+    },
     "cerebro": {
       "label": "El pipeline RAG de Cerebro, paso a paso",
       "c1": {
