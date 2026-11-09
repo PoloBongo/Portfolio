@@ -454,6 +454,7 @@
     }
   },
   "Worlds": {
+    "fairHint": "Le curseur règle la mise au point · défilez : le flou se creuse · cliquez : un flash",
     "ditherHint": "Défilez : la trame s'affine · le curseur ouvre une fenêtre sur l'image réelle",
     "gravity": "Gravité",
     "gravityNormal": "Normale",

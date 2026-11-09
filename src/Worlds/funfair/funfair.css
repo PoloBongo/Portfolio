@@ -162,3 +162,78 @@
   color: #fff;
   text-shadow: 0.3cqw 0.3cqw 0 rgba(0, 0, 0, 0.6);
 }
+
+/* Monde sur vrai clip (la maquette de fête foraine) : enseigne en Bevan italique, guirlande d'ampoules qui chenille */
+.w-funfair-video {
+  --w-display: "Bevan", Georgia, "Times New Roman", serif;
+  --w-body: "Rubik", "Helvetica Neue", Arial, sans-serif;
+}
+
+.w-funfair-video .vh__title {
+  max-width: 9ch;
+  color: var(--w1);
+  font-family: var(--w-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(3.2rem, 0.8rem + 10.5vw, 9.5rem);
+  line-height: 0.92;
+  letter-spacing: 0;
+  text-shadow: 0.05em 0.05em 0 rgba(11, 13, 28, 0.75), 0 0 36px rgba(244, 196, 48, 0.35);
+}
+
+.w-funfair-video .vh__tagline {
+  color: var(--w4);
+  font-family: var(--w-body);
+  font-weight: 500;
+  text-shadow: 0 1px 18px rgba(11, 13, 28, 0.85);
+}
+
+.w-funfair-video .vh__hint {
+  color: var(--w1);
+  text-shadow: 0 1px 12px rgba(11, 13, 28, 0.9);
+}
+
+.w-funfair-video .vh__pin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(11, 13, 28, 0.55), rgba(11, 13, 28, 0) 55%),
+    linear-gradient(0deg, rgba(11, 13, 28, 0.55), rgba(11, 13, 28, 0) 40%);
+  pointer-events: none;
+}
+
+/* Guirlande : une rangée d'ampoules en haut du cadre, un chenillard à trois phases */
+.w-funfair-video .vh__pin::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  height: 14px;
+  background: radial-gradient(circle at 50% 50%, #ffe9a8 0 2.4px, rgba(244, 196, 48, 0.55) 3.4px, rgba(244, 196, 48, 0) 7px) 0 0 / 34px 14px repeat-x;
+  filter: drop-shadow(0 0 5px rgba(244, 196, 48, 0.8));
+  animation: funfair-chase 1.2s steps(3, jump-none) infinite;
+  pointer-events: none;
+}
+
+@keyframes funfair-chase {
+  0% {
+    background-position: 0 0;
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+  100% {
+    background-position: 34px 0;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .w-funfair-video .vh__pin::before {
+    animation: none;
+  }
+}

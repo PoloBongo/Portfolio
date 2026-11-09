@@ -459,6 +459,7 @@
     }
   },
   "Worlds": {
+    "fairHint": "El cursor ajusta el enfoque · desplázate: el desenfoque se acentúa · haz clic: un flash",
     "ditherHint": "Desplázate: la trama se afina · el cursor abre una ventana a la imagen real",
     "gravity": "Gravedad",
     "gravityNormal": "Normal",
