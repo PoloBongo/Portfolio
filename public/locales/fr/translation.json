@@ -454,6 +454,7 @@
     }
   },
   "Worlds": {
+    "diveHint": "Défilez pour descendre · cliquez : une onde rend la couleur",
     "lampHint": "Promenez la lampe : le titre ne se lit qu'en le visant"
   },
   "Footer": {

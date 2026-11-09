@@ -128,3 +128,53 @@
   -webkit-mask-image: radial-gradient(circle 14cqw at var(--mx) var(--my), transparent 0 55%, #000 100%);
   mask-image: radial-gradient(circle 14cqw at var(--mx) var(--my), transparent 0 55%, #000 100%);
 }
+
+/* Monde sur vrai clip (la plongée) : le défilement est la profondeur */
+.w-depths-of-hue-video {
+  --w-display: "Cormorant", Georgia, "Times New Roman", serif;
+  --w-body: "Jost", "Helvetica Neue", Arial, sans-serif;
+}
+
+.w-depths-of-hue-video .vh__title {
+  max-width: 9ch;
+  font-family: var(--w-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(3.4rem, 0.8rem + 11vw, 10rem);
+  line-height: 0.92;
+  letter-spacing: 0;
+  text-transform: none;
+  text-shadow: 0 2px 30px rgba(3, 26, 28, 0.55);
+}
+
+.w-depths-of-hue-video .vh__tagline {
+  color: var(--w4);
+  font-family: var(--w-body);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  text-shadow: 0 1px 18px rgba(3, 26, 28, 0.7);
+}
+
+/* Compteur de profondeur, en bas à droite du cadre */
+.vh__depth {
+  position: absolute;
+  right: var(--pad-x);
+  bottom: clamp(90px, 22vh, 240px);
+  margin: 0;
+  color: var(--w1);
+  font-size: clamp(0.8rem, 0.7rem + 0.4vw, 1.1rem);
+  letter-spacing: 0.14em;
+  text-shadow: 0 1px 14px rgba(3, 26, 28, 0.8);
+}
+
+/* Voile sombre à gauche et en bas : le texte reste lisible sur le clip, très lumineux près de la surface */
+.w-depths-of-hue-video .vh__pin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(3, 26, 28, 0.62), rgba(3, 26, 28, 0) 62%),
+    linear-gradient(0deg, rgba(3, 26, 28, 0.5), rgba(3, 26, 28, 0) 38%);
+  pointer-events: none;
+}

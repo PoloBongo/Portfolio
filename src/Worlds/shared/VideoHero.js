@@ -8,20 +8,44 @@ import { useWorldFonts } from "./SceneHero";
 import "./videoHero.css";
 
 // Hero d'un monde sur vrai clip : tout l'écran est le clip du projet, un fragment shader (frag) traduit la mécanique du
-// jeu. Le titre reste du vrai texte HTML par-dessus (masqué par le faisceau pour la lampe). Sans WebGL, en mouvement
-// réduit ou avec économie de données, le monde garde sa scène décorative (voir Hero.js de chaque monde).
-//  clip : id du clip (public/clips/<id>.mp4) · frag : main() du shader (voir videoHero.glsl.js) · palette : [fond,
-//  accent, second, surface, encre] · hint : phrase d'invite · lit : le titre n'est visible que dans le faisceau
-export default function VideoHero({ id, clip, frag, palette, fonts, title, tagline, crumb, facts, media, hint, lit = false }) {
+// jeu. Le titre reste du vrai texte HTML par-dessus. Sans WebGL, en mouvement réduit ou avec économie de données, le
+// monde garde sa scène décorative (voir Hero.js de chaque monde).
+//  clip    : id du clip (public/clips/<id>.mp4)
+//  frag    : main() du shader (prélude et uniforms communs : videoHero.glsl.js)
+//  palette : [fond, accent, second, surface, encre]
+//  hint    : phrase d'invite · lit : le titre n'est visible que dans le faisceau de la lampe
+//  scroll  : nombre d'écrans de défilement épinglés ; le défilement devient uP (0 → 1), ex. la profondeur
+//  uniforms: () => uniforms supplémentaires du shader
+//  setup   : ({ root, uniforms }) => { frame({ t, p, dt }, uniforms), click(u, v, uniforms), dispose() }
+export default function VideoHero({
+  id,
+  clip,
+  frag,
+  palette,
+  fonts,
+  title,
+  tagline,
+  crumb,
+  facts,
+  media,
+  hint,
+  lit = false,
+  scroll = 0,
+  uniforms: makeUniforms,
+  setup,
+  children,
+}) {
   const rootRef = useRef(null);
+  const pinRef = useRef(null);
   const canvasRef = useRef(null);
   const titleRef = useRef(null);
   useWorldFonts(fonts);
 
   useEffect(() => {
     const root = rootRef.current;
+    const pin = pinRef.current;
     const canvas = canvasRef.current;
-    if (!root || !canvas) return undefined;
+    if (!root || !pin || !canvas) return undefined;
 
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: "high-performance" });
     renderer.setClearColor(0x03050f, 1);
@@ -42,8 +66,10 @@ export default function VideoHero({ id, clip, frag, palette, fonts, title, tagli
       uVid: { value: 16 / 9 },
       uAsp: { value: 1.7 },
       uT: { value: 0 },
+      uP: { value: 0 },
       uM: { value: new THREE.Vector2(0.5, 0.5) },
       uRes: { value: new THREE.Vector2(1, 1) },
+      ...(makeUniforms ? makeUniforms(THREE) : {}),
     };
     const material = new THREE.ShaderMaterial({
       uniforms,
@@ -57,6 +83,7 @@ export default function VideoHero({ id, clip, frag, palette, fonts, title, tagli
     const scene = new THREE.Scene();
     scene.add(mesh);
     const camera = new THREE.Camera();
+    const extra = setup ? setup({ root: pin, uniforms }) || {} : {};
 
     // Pointeur : la lampe suit le curseur ou le doigt ; sans pointeur depuis 2,5 s, elle flâne seule (tactile, clavier,
     // visiteur immobile) et finit par passer sur le titre
@@ -67,7 +94,7 @@ export default function VideoHero({ id, clip, frag, palette, fonts, title, tagli
     let titleX = 0;
     let titleY = 0;
     const measure = () => {
-      const r = root.getBoundingClientRect();
+      const r = pin.getBoundingClientRect();
       W = Math.max(1, Math.round(r.width));
       H = Math.max(1, Math.round(r.height));
       renderer.setSize(W, H, false);
@@ -82,16 +109,24 @@ export default function VideoHero({ id, clip, frag, palette, fonts, title, tagli
     };
     measure();
     const ro = new ResizeObserver(measure);
-    ro.observe(root);
+    ro.observe(pin);
 
+    const toUV = (e) => {
+      const r = pin.getBoundingClientRect();
+      return [Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)), Math.min(1, Math.max(0, 1 - (e.clientY - r.top) / r.height))];
+    };
     const onMove = (e) => {
-      const r = root.getBoundingClientRect();
-      target.u = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
-      target.v = Math.min(1, Math.max(0, 1 - (e.clientY - r.top) / r.height));
+      [target.u, target.v] = toUV(e);
       lastMove = performance.now();
+    };
+    const onClick = (e) => {
+      if (!extra.click || (e.target.closest && e.target.closest("a, button"))) return;
+      const [u, v] = toUV(e);
+      extra.click(u, v, uniforms);
     };
     root.addEventListener("pointermove", onMove, { passive: true });
     root.addEventListener("pointerdown", onMove, { passive: true });
+    root.addEventListener("click", onClick);
 
     video.addEventListener("loadedmetadata", () => {
       if (video.videoHeight) uniforms.uVid.value = video.videoWidth / video.videoHeight;
@@ -118,6 +153,13 @@ export default function VideoHero({ id, clip, frag, palette, fonts, title, tagli
       uniforms.uM.value.x += (target.u - uniforms.uM.value.x) * k;
       uniforms.uM.value.y += (target.v - uniforms.uM.value.y) * k;
       uniforms.uT.value = t;
+      if (scroll) {
+        // le défilement épinglé du monde (de 0 en haut à 1 quand le cadre se détache)
+        const r = root.getBoundingClientRect();
+        const range = Math.max(1, r.height - H);
+        uniforms.uP.value = Math.min(1, Math.max(0, -r.top / range));
+      }
+      if (extra.frame) extra.frame({ t, p: uniforms.uP.value, dt }, uniforms);
       setClipNow(now);
       renderer.render(scene, camera);
       if (!live && video.readyState >= 2) {
@@ -168,6 +210,8 @@ export default function VideoHero({ id, clip, frag, palette, fonts, title, tagli
       document.removeEventListener("visibilitychange", onVis);
       root.removeEventListener("pointermove", onMove);
       root.removeEventListener("pointerdown", onMove);
+      root.removeEventListener("click", onClick);
+      if (extra.dispose) extra.dispose();
       video.pause();
       video.removeAttribute("src");
       video.load();
@@ -176,9 +220,10 @@ export default function VideoHero({ id, clip, frag, palette, fonts, title, tagli
       material.dispose();
       renderer.dispose();
     };
-  }, [clip, frag, lit]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [clip, frag, lit, scroll]);
 
-  const vars = {};
+  const vars = { "--len": scroll ? 1 + scroll : 1 };
   palette.forEach((color, i) => {
     vars[`--w${i}`] = color;
   });
@@ -186,15 +231,18 @@ export default function VideoHero({ id, clip, frag, palette, fonts, title, tagli
   return (
     <header className={`vh-root w-${id}-video`} data-work-top style={vars}>
       <div className={`vh${lit ? " vh--lit" : ""}`} ref={rootRef} style={{ "--poster": `url(${clipPoster(clip)})` }}>
-        <div className="vh__poster" aria-hidden="true" />
-        <canvas className="vh__canvas" ref={canvasRef} aria-hidden="true" />
-        <div className="vh__crumb container">{crumb}</div>
-        <div className="vh__copy container">
-          <h1 className="vh__title" ref={titleRef}>
-            {title}
-          </h1>
-          <p className="vh__tagline">{tagline}</p>
-          {hint && <p className="vh__hint mono">{hint}</p>}
+        <div className="vh__pin" ref={pinRef}>
+          <div className="vh__poster" aria-hidden="true" />
+          <canvas className="vh__canvas" ref={canvasRef} aria-hidden="true" />
+          <div className="vh__crumb container">{crumb}</div>
+          <div className="vh__copy container">
+            <h1 className="vh__title" ref={titleRef}>
+              {title}
+            </h1>
+            <p className="vh__tagline">{tagline}</p>
+            {hint && <p className="vh__hint mono">{hint}</p>}
+            {children}
+          </div>
         </div>
       </div>
       <div className="container">{facts}</div>

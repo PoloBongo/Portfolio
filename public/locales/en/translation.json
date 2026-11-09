@@ -458,6 +458,7 @@
     }
   },
   "Worlds": {
+    "diveHint": "Scroll to dive · click: a wave brings the colour back",
     "lampHint": "Sweep the light: the title only reads when you aim at it"
   },
   "Footer": {

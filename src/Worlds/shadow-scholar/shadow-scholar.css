@@ -91,3 +91,14 @@
   -webkit-mask-image: radial-gradient(circle 26cqw at var(--mx) var(--my), transparent 0 45%, #000 100%);
   mask-image: radial-gradient(circle 26cqw at var(--mx) var(--my), transparent 0 45%, #000 100%);
 }
+
+/* Monde sur vrai clip (la lampe) : mêmes polices que la scène */
+.w-shadow-scholar-video .vh__title {
+  font-family: "Anton", var(--font-display);
+  font-weight: 400;
+}
+
+.w-shadow-scholar-video .vh__tagline {
+  font-family: "Barlow Condensed", var(--font-display);
+  font-weight: 600;
+}
