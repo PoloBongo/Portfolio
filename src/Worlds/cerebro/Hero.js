@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import SplitReveal from "../../Effects/SplitReveal";
 import { gsap, EASE, onReady, prefersReducedMotion } from "../../Effects/motion";
+import CerebroChapters from "./CerebroChapters";
 import "./cerebro.css";
 
 const PROMPT = "> cerebro --rag --stream";
@@ -36,8 +37,10 @@ export default function CerebroHero({ title, tagline, crumb, facts, media }) {
         tl.fromTo(token, { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.95 + TOKEN_AT[k % TOKEN_AT.length]);
       });
       tl.fromTo(q(".w-cerebro__caret"), { visibility: "hidden" }, { visibility: "visible", duration: 0.01 }, 0.9)
-        .fromTo(q(".work-facts > *"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.06 }, 1.2)
-        .fromTo(
+        .fromTo(q(".work-facts > *"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.06 }, 1.2);
+      // Le cadre du schéma n'existe plus quand le schéma est en chapitres au défilement (CerebroChapters)
+      if (frame) {
+        tl.fromTo(
           frame,
           { clipPath: "inset(100% 0% 0% 0% round 22px)" },
           {
@@ -48,6 +51,7 @@ export default function CerebroHero({ title, tagline, crumb, facts, media }) {
           },
           0.55
         );
+      }
 
       return onReady(() => tl.play());
     },
@@ -77,9 +81,13 @@ export default function CerebroHero({ title, tagline, crumb, facts, media }) {
         </p>
         {facts}
       </div>
-      <div className="container w-cerebro__scene">
-        <div className="case__media case__media--diagram w-cerebro__frame">{media}</div>
-      </div>
+      {prefersReducedMotion() ? (
+        <div className="container w-cerebro__scene">
+          <div className="case__media case__media--diagram w-cerebro__frame">{media}</div>
+        </div>
+      ) : (
+        <CerebroChapters />
+      )}
     </header>
   );
 }

@@ -96,6 +96,9 @@ const QUERY = [0.45, 0.22, 0.52];
 const T = { retrieve: 3.6, rerank: 7.9, generate: 10.3, stream: 12.0, reset: 15.4, end: 16.4 };
 const T_STATIC = 15.3; // image fixe en mouvement réduit : la réponse est écrite
 
+// Étapes pour le mode piloté par le défilement (monde de Cerebro) : début de chacune (secondes) et fin du parcours
+export const RAG_STEPS = { starts: [0, T.retrieve, T.rerank, T.generate, T.stream], end: T_STATIC };
+
 const mulberry32 = (seed) => () => {
   seed = (seed + 0x6d2b79f5) | 0;
   let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
@@ -192,7 +195,9 @@ function useNarrow() {
   return narrow;
 }
 
-export default function RagDiagram({ tags }) {
+// scrub : { current } reçoit { seek(p) } (p de 0 à 1) ; le schéma n'est alors plus une boucle, c'est le défilement qui
+// le fait avancer (et reculer : on rejoue depuis le début, le schéma est déterministe)
+export default function RagDiagram({ tags, scrub }) {
   const { t } = useTranslation();
   const narrow = useNarrow();
   const L = LAYOUTS[narrow ? "tall" : "wide"];
@@ -588,7 +593,7 @@ export default function RagDiagram({ tags }) {
       };
 
       // --- Timeline ----------------------------------------------------------------------------
-      const tl = gsap.timeline({ paused: true, repeat: reduced ? 0 : -1, defaults: { ease: EASE.soft } });
+      const tl = gsap.timeline({ paused: true, repeat: reduced || scrub ? 0 : -1, defaults: { ease: EASE.soft } });
       const GHOST = 0.32; // opacité des stations avant leur étape
 
       resetDom();
@@ -784,6 +789,22 @@ export default function RagDiagram({ tags }) {
         root.classList.add("is-static");
         tl.seek(T_STATIC, false);
         draw();
+      } else if (scrub) {
+        let last = 0;
+        scrub.current = {
+          seek(p) {
+            const time = clamp(p, 0, 1) * T_STATIC;
+            if (time < last - 0.0005) {
+              resetDom();
+              tl.seek(0, true);
+            }
+            tl.seek(time, false);
+            last = time;
+          },
+        };
+        gsap.ticker.add(tick);
+        root.addEventListener("pointermove", onMove);
+        root.addEventListener("pointerleave", onLeave);
       } else {
         io = new IntersectionObserver(([entry]) => run(entry.isIntersecting), { threshold: 0.25 });
         stopReady = onReady(() => io.observe(root));
@@ -792,6 +813,7 @@ export default function RagDiagram({ tags }) {
       }
 
       return () => {
+        if (scrub) scrub.current = null;
         stopReady();
         if (io) io.disconnect();
         resizer.disconnect();

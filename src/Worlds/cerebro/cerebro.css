@@ -118,3 +118,135 @@
     animation: none;
   }
 }
+
+/* Chapitres au défilement : le schéma plein écran, épinglé sur 6 écrans */
+.w-cerebro__chapters {
+  position: relative;
+  height: 620svh;
+}
+
+.w-cerebro__pin {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: clamp(10px, 2vh, 22px);
+  height: 100svh;
+  padding-top: clamp(88px, 12vh, 120px);
+  padding-bottom: clamp(70px, 10vh, 96px);
+  overflow: clip;
+}
+
+.w-cerebro__caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px 40px;
+}
+
+.w-cerebro__chapter {
+  max-width: 60ch;
+  min-height: 7.5em;
+}
+
+.w-cerebro__chapter h2 {
+  margin: 4px 0 6px;
+  font-size: clamp(1.6rem, 1rem + 2vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.w-cerebro__chapter p:not(.w-cerebro__kick) {
+  margin: 0;
+  color: var(--ink-dim);
+  font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1.05rem);
+  line-height: 1.5;
+}
+
+.w-cerebro__kick {
+  margin: 0;
+  color: var(--mint);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+}
+
+.w-cerebro__steps {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.w-cerebro__steps button {
+  display: grid;
+  gap: 3px;
+  min-width: 78px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: none;
+  color: var(--ink-faint);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-align: left;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+}
+
+.w-cerebro__steps b {
+  font-weight: 500;
+}
+
+.w-cerebro__steps button.is-done {
+  color: var(--ink-dim);
+  border-color: var(--line-strong);
+}
+
+.w-cerebro__steps button.is-cur {
+  border-color: var(--mint);
+  background: rgba(99, 230, 190, 0.1);
+  color: var(--ink);
+}
+
+.w-cerebro__steps button:hover,
+.w-cerebro__steps button:focus-visible {
+  border-color: var(--mint);
+  color: var(--ink);
+}
+
+/* Le cadre du schéma : 16:9 (600 × 880 sur téléphone), le plus grand possible dans l'écran épinglé */
+.w-cerebro__stage {
+  position: relative;
+  justify-self: center;
+  align-self: center;
+  aspect-ratio: 16 / 9;
+  width: min(100% - 2 * var(--pad-x), (100svh - 300px) * 16 / 9);
+  max-height: 100%;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--bg-sunken);
+  overflow: hidden;
+}
+
+@media (max-width: 560px) {
+  .w-cerebro__chapters {
+    height: 560svh;
+  }
+
+  .w-cerebro__stage {
+    aspect-ratio: 600 / 880;
+    width: min(100% - 2 * var(--pad-x), (100svh - 330px) * 600 / 880);
+  }
+
+  .w-cerebro__steps button b {
+    display: none;
+  }
+
+  .w-cerebro__steps button {
+    min-width: 0;
+  }
+}

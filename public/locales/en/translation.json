@@ -458,6 +458,29 @@
     }
   },
   "Worlds": {
+    "cerebro": {
+      "label": "Cerebro's RAG pipeline, step by step",
+      "c1": {
+        "title": "Ingestion",
+        "text": "A PDF is split into text, tables and images (EasyOCR). Each fragment becomes a vector, stored in one of two Qdrant collections."
+      },
+      "c2": {
+        "title": "Retrieval",
+        "text": "The question is embedded (multilingual E5). Its ring enters the space and lights up its nearest neighbours, text and images."
+      },
+      "c3": {
+        "title": "Reranking",
+        "text": "A cross-encoder (mMiniLM) rescores the candidate images and a relevance threshold drops the weakest. Text and tables keep their retrieval score."
+      },
+      "c4": {
+        "title": "Generation",
+        "text": "The retained context goes to Mistral-7B (OVH AI Endpoints), which writes the answer."
+      },
+      "c5": {
+        "title": "Streaming",
+        "text": "The answer arrives as an SSE stream, token by token, and is written live in the chat."
+      }
+    },
     "fairHint": "The cursor sets the focus · scroll: the blur deepens · click: a flash",
     "ditherHint": "Scroll: the dither gets finer · the cursor opens a window on the real image",
     "gravity": "Gravity",

@@ -459,6 +459,29 @@
     }
   },
   "Worlds": {
+    "cerebro": {
+      "label": "El pipeline RAG de Cerebro, paso a paso",
+      "c1": {
+        "title": "Ingestión",
+        "text": "Un PDF se divide en texto, tablas e imágenes (OCR EasyOCR). Cada fragmento se convierte en un vector, guardado en una de las dos colecciones de Qdrant."
+      },
+      "c2": {
+        "title": "Búsqueda",
+        "text": "La pregunta se vectoriza (E5 multilingüe). Su anillo entra en el espacio e ilumina a sus vecinos más cercanos, texto e imágenes."
+      },
+      "c3": {
+        "title": "Reranking",
+        "text": "Un cross-encoder (mMiniLM) reevalúa las imágenes candidatas y un umbral de relevancia descarta las peores. Texto y tablas conservan su puntuación de búsqueda."
+      },
+      "c4": {
+        "title": "Generación",
+        "text": "El contexto retenido va a Mistral-7B (OVH AI Endpoints), que redacta la respuesta."
+      },
+      "c5": {
+        "title": "Streaming",
+        "text": "La respuesta llega en flujo SSE, token a token, y se escribe en directo en el chat."
+      }
+    },
     "fairHint": "El cursor ajusta el enfoque · desplázate: el desenfoque se acentúa · haz clic: un flash",
     "ditherHint": "Desplázate: la trama se afina · el cursor abre una ventana a la imagen real",
     "gravity": "Gravedad",
