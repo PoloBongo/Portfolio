@@ -91,7 +91,7 @@ function placeholderCanvas(title, tags, accent) {
 // Un projet est « avant » (déjà passé), « active » ou « after » (à venir) par rapport au projet affiché
 const stateOf = (i, active) => (i === active ? "active" : i < active ? "before" : "after");
 
-export default function HubShowcase({ works }) {
+export default function HubShowcase({ works, onActive, controlRef }) {
   const { t, i18n } = useTranslation();
   const { lang = "fr" } = useParams();
   const { hash } = useLocation();
@@ -114,6 +114,12 @@ export default function HubShowcase({ works }) {
     if (lenis) lenis.scrollTo(y, { duration });
     else window.scrollTo({ top: y, behavior: "smooth" });
   };
+
+  // Le fil de la région (RegionThread) pilote le showcase et suit le projet affiché
+  if (controlRef) controlRef.current = { goTo };
+  useEffect(() => {
+    if (onActive) onActive(active);
+  }, [active, onActive]);
 
   useGSAP(
     () => {
