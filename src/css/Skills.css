@@ -1,0 +1,249 @@
+/* ---------- Compétences par la preuve : filtres, pastilles, panneau « utilisée dans » ---------- */
+.skills {
+  padding-block: clamp(70px, 10vw, 150px) 0;
+}
+
+.skills__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: clamp(24px, 3vw, 44px);
+}
+
+.skills__filter {
+  --c: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-dim);
+  font: 600 13px/1 var(--font-display);
+  cursor: pointer;
+  transition: color 0.25s, border-color 0.25s, background 0.25s;
+}
+
+.skills__filter i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c);
+}
+
+.skills__filter:hover {
+  color: var(--ink);
+  border-color: var(--c);
+}
+
+.skills__filter.is-on {
+  color: var(--bg);
+  background: var(--c);
+  border-color: var(--c);
+}
+
+.skills__filter.is-on i {
+  background: var(--bg);
+}
+
+.skills__board {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 72px);
+  align-items: start;
+  margin-top: clamp(24px, 3vw, 44px);
+}
+
+.skills__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 12px; /* l'écart vertical laisse la place à la dérive */
+  /* La zone qui fige la dérive des pastilles déborde de 16 px autour d'elles : on s'arrête avant d'être dessus */
+  margin: -16px;
+  padding: 16px;
+  list-style: none;
+}
+
+.skills__chips li {
+  will-change: translate, rotate, scale;
+}
+
+/* (l'opacité de l'entrée au défilement est posée en ligne sur les <li> : le filtre atténue donc le bouton lui-même) */
+.skills__chips li.is-dim .skills__chip {
+  opacity: 0.22;
+}
+
+.skills__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg-raised);
+  color: var(--ink);
+  font: 600 clamp(14px, 1.2vw, 17px)/1 var(--font-display);
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s var(--ease-out), opacity 0.3s;
+}
+
+.skills__chip i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c);
+  flex: none;
+}
+
+.skills__chip b {
+  min-width: 20px;
+  padding: 3px 6px;
+  border-radius: 999px;
+  background: var(--violet-soft);
+  color: var(--ink);
+  font: 600 11px/1 var(--font-mono);
+  text-align: center;
+}
+
+.skills__chip.is-bare {
+  color: var(--ink-dim);
+}
+
+.skills__chip:hover {
+  border-color: var(--c);
+  transform: translateY(-2px);
+}
+
+.skills__chip.is-on {
+  border-color: var(--c);
+  background: color-mix(in srgb, var(--c) 16%, var(--bg-raised));
+}
+
+.skills__proof {
+  position: sticky;
+  top: 96px;
+  min-height: 280px;
+  padding: clamp(20px, 2.4vw, 32px);
+  border: 1px solid var(--line-strong);
+  border-radius: 18px;
+  background: var(--bg-raised);
+  box-shadow: inset 0 3px 0 var(--c);
+}
+
+.skills__proof-inner {
+  display: grid;
+  gap: 12px;
+  animation: skills-in 0.45s var(--ease-out);
+}
+
+@keyframes skills-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.skills__proof-kick {
+  color: var(--c);
+}
+
+.skills__proof h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.2vw, 46px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.skills__proof-label {
+  margin: 8px 0 0;
+  color: var(--ink-faint);
+}
+
+.skills__projects {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0 4px 0 0;
+  list-style: none;
+  /* Une compétence très présente (Unity) ne doit pas dépasser l'écran : la liste défile dans le panneau */
+  max-height: max(220px, calc(100svh - 330px));
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.skills__projects a {
+  display: grid;
+  gap: 3px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.skills__projects a:hover {
+  border-color: var(--c);
+  background: color-mix(in srgb, var(--c) 8%, transparent);
+}
+
+.skills__projects b {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.skills__projects .mono {
+  color: var(--c);
+}
+
+.skills__projects em {
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink-dim);
+}
+
+.skills__info,
+.skills__none {
+  margin: 0;
+  color: var(--ink-dim);
+  line-height: 1.55;
+}
+
+.skills__more {
+  color: var(--c);
+  text-decoration: none;
+}
+
+.skills__more:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .skills__chips {
+    gap: 10px;
+  }
+
+  .skills__board {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .skills__proof {
+    position: static;
+    min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills__proof-inner {
+    animation: none;
+  }
+
+  .skills__chip {
+    transition: none;
+  }
+}

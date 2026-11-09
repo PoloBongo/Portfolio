@@ -14,11 +14,6 @@ import { UNREAL_PROJECTS } from "../Pages/Unreal/projects";
 import { GAMEJAM_PROJECTS } from "../Pages/GameJam/projects";
 import { WEB_PROJECTS } from "../Pages/Projects/projects";
 import { AI_PROJECTS } from "../Pages/AI/projects";
-import { getWork } from "../Pages/work";
-import ProjectCard from "./ProjectCard";
-
-// Sélection affichée sous l'index : web et IA d'abord, deux jeux ensuite. Chaque carte mène à la page du projet.
-const FEATURED = ["cerebro", "seo-autopilot", "au-fil-des-images", "articles-manager", "depths-of-hue", "funfair"];
 
 // Un accès par page de projets : aperçu flottant au survol, nombre de projets lu dans les données des pages.
 // sub : lignes secondaires (jeu vidéo), plus discrètes et regroupées sous un intitulé.
@@ -179,15 +174,6 @@ export default function WorkIndex() {
           </React.Fragment>
         ))}
       </ul>
-
-      <div className="work__featured">
-        <Reveal className="work__featured-head mono eyebrow">{t("Work.featured")}</Reveal>
-        <div className="cases work__cards">
-          {FEATURED.map((slug, i) => (
-            <ProjectCard key={slug} work={getWork(slug)} index={i} rank={i + 1} />
-          ))}
-        </div>
-      </div>
 
       <div className="work__preview" ref={previewRef} aria-hidden="true">
         {SECTIONS.map(({ path, clip }) => (

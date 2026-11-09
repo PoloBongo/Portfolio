@@ -6,7 +6,7 @@
     "developerJV": "Hello, I'm Arthur, passionate about programming.",
     "developerWeb": "Hello, I'm Arthur, passionate about programming.",
     "role": "C++ Developer",
-    "info": "Holder of a Bachelor's degree in Computer Development with a specialization in Video Games, obtained from Quest Education (G.Tech), I am currently pursuing a Master's degree in video game development and a European Master's degree in IT expertise.",
+    "info": "Holder of a Bachelor's degree in Computer Development with a specialization in Video Games, obtained from Quest Education (G.Tech), I am now in my final Master's year and will hold three Bac+5 qualifications: an RNCP Level 7 title in Intelligent Applications and Big Data, a European Master's in IT Project Management and an MSc in Video Game Development and Real-Time 3D Rendering.",
     "proRedirect": "Looking for a freelance web & AI developer? My pro site",
     "proRedirectClose": "Hide this message",
     "discover": "My skills",
@@ -268,7 +268,7 @@
     "RATP": {
       "Title": "RATP Maintenance Challenge",
       "InProgress": "Project in progress",
-      "Description": "A professional project in collaboration with RATP and my school. I was selected to work on this initiative to promote lesser-known RATP professions through video games. We're creating a dynamic, realistic station scene where players must repair faulty systems through gameplay.",
+      "Description": "A professional project in collaboration with RATP and my school. I was selected to work on this initiative to promote lesser-known RATP professions through video games. We created a dynamic, realistic station scene where players repair faulty systems through gameplay. The project was completed in summer 2025.",
       "LearnMore": "Learn more",
       "Langage": "C#",
       "ToolsUsed": "In progress",
@@ -363,7 +363,7 @@
       "Langage": "PHP / Python",
       "ToolsUsed": "Laravel 12, React 19 (TypeScript), Inertia.js, FastAPI, Qdrant, SentenceTransformer (E5 multilingual), Mistral-7B (OVH AI Endpoints), EasyOCR, cross-encoder mMiniLM, UMAP/PCA, Docker Compose, shadcn/ui",
       "Duration": "3 months",
-      "Completion": "In progress",
+      "Completion": "2026",
       "TeamSize": "1",
       "Role": "Full-stack architecture, multimodal ingestion pipeline (PDF → text/tables/images + OCR), RAG pipeline with cross-encoder reranking and relevance gates, SSE streaming, multi-tenancy, UMAP/PCA embedding visualization"
     },
@@ -466,7 +466,29 @@
     "game": "Game dev",
     "web": "Web",
     "tools": "Data & tools",
-    "ai": "AI & agents"
+    "ai": "AI & agents",
+    "all": "All",
+    "filterLabel": "Filter by field",
+    "usedIn": "Used in",
+    "certifiedBy": "Certified by",
+    "noProject": "No public project linked to this skill yet.",
+    "seePage": "See the page",
+    "proofCount_one": "{{count}} proof",
+    "proofCount_other": "{{count}} proofs",
+    "onGithub": "On my GitHub",
+    "note": {
+      "C": "Practised on small personal programs: tic-tac-toe and the Game of Life in C, and the base of several C/C++ games (text game, platformer, tower defense).",
+      "LUA": "Job scripts for a FiveM (ESX) server, in Lua.",
+      "TypeScript": "Used on Articles Manager (Next.js 15) and on the interface of my SEO application connected to n8n.",
+      "Bootstrap": "Used on a React app that searches movies through an API.",
+      "RAG": "A full pipeline in a Streamlit chatbot: document loading, question rewriting, embedding search, answer generation.",
+      "LLM": "Calls to a language model (through Groq) in a Streamlit chatbot built with LangChain.",
+      "LangChain": "RAG chatbot with LangChain: document loading, query rewriting, search (HuggingFace embeddings) and generation (Groq).",
+      "Streamlit": "Multi-page Streamlit chatbot, with its LangChain RAG pipeline.",
+      "Python": "A Streamlit chatbot with LangChain, and small games: tic-tac-toe and a shoot'em up.",
+      "DevOps": "Docker and docker-compose for my n8n and SEO applications, GitHub Actions workflows (lint and tests).",
+      "Ollama": "Used in my SEO application (n8n) to run the model locally, before moving to OVHcloud."
+    }
   },
   "Hud": {
     "level": "SEC",
@@ -502,5 +524,59 @@
   "Copy": {
     "done": "Copied",
     "announce": "Text copied to the clipboard"
+  },
+  "Carte": {
+    "scroll": "Scroll: the map rises",
+    "here": "Arthur is here",
+    "helloTitle": "Hi, I'm Arthur.",
+    "helloText": "I build websites, AI and games. Follow the thread: it tells my story, then leads to my projects.",
+    "photoAlt": "Portrait of Arthur BRU",
+    "navLabel": "The path of my journey",
+    "navHello": "Hello",
+    "step": {
+      "lycee": {
+        "tag": "High school",
+        "kick": "Step 1 · the start",
+        "title": "Lycée Paul-Louis Courier",
+        "text": "Where it all begins."
+      },
+      "bachelor": {
+        "tag": "Bachelor",
+        "kick": "Step 2 · graduated",
+        "title": "Bachelor",
+        "text": "Computer development, video game option, at Quest Education (G.Tech)."
+      },
+      "equipe": {
+        "tag": "Teamwork",
+        "kick": "Step 3 · in a team",
+        "title": "With the other fields",
+        "text": "Projects led with the artistic and marketing tracks: that is where I learned to work with others."
+      },
+      "master": {
+        "tag": "Master's",
+        "kick": "Step 4 · final year in progress",
+        "title": "Master's",
+        "text": "Three Bac+5 qualifications to come:",
+        "list": [
+          "RNCP Level 7 title · Intelligent Applications and Big Data",
+          "European Master's · IT Project Management",
+          "MSc · Video Game Development and Real-Time 3D Rendering"
+        ]
+      },
+      "basket": {
+        "tag": "Basketball",
+        "kick": "Outside class",
+        "title": "Basketball",
+        "text": "My passion outside of my studies."
+      }
+    },
+    "headKick": "The path splits",
+    "headTitle": "My projects",
+    "navProjects": "Projects",
+    "region": {
+      "web": "Web",
+      "ai": "AI",
+      "game": "Video games"
+    }
   }
 }

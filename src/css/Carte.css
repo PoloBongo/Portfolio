@@ -1,0 +1,507 @@
+/* Refonte « La carte » · l'arrivée. La scène reste épinglée (sticky) pendant que le défilement la fait avancer. */
+.carte {
+  --lime: #d9ff4a;
+  position: relative;
+  z-index: 1;
+  height: 800svh;
+  background: var(--bg);
+}
+
+.carte__stick {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: clip;
+}
+
+.carte__gl {
+  position: absolute;
+  inset: 0;
+}
+
+.carte__gl canvas {
+  display: block;
+}
+
+.carte__text {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.carte__name {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  text-align: center;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.carte__name .mono {
+  color: var(--lime);
+}
+
+.carte__name h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(44px, 9vw, 128px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.carte__roles {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(14px, 1.5vw, 20px);
+}
+
+.carte__name em {
+  margin-top: 8px;
+  font-style: normal;
+  color: var(--ink-faint);
+}
+
+.carte__here {
+  position: absolute;
+  left: 0;
+  top: 0;
+  translate: -50% -100%;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--bg);
+  font: 700 13px/1 var(--font-display);
+  white-space: nowrap;
+  opacity: 0;
+}
+
+.carte__hello {
+  position: absolute;
+  left: var(--pad-x);
+  top: 50%;
+  margin-top: -90px;
+  display: grid;
+  gap: 10px;
+  max-width: min(78%, 440px);
+  opacity: 0;
+}
+
+.carte__hello strong {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 54px);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.carte__hello span {
+  font-size: clamp(16px, 1.5vw, 20px);
+  color: var(--ink);
+}
+
+.carte__face {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--lime);
+}
+
+@media (max-aspect-ratio: 9/10) {
+  .carte__hello {
+    top: auto;
+    margin-top: 0;
+    bottom: 70px;
+  }
+}
+
+/* ---------- Le fil du parcours : cartes d'étapes, étiquettes, trait de liaison, navigation ---------- */
+.carte__card {
+  position: absolute;
+  right: clamp(16px, 4vw, 56px);
+  top: 16%;
+  width: min(380px, 40%);
+  display: grid;
+  gap: 8px;
+  padding: 18px 20px 20px;
+  border-radius: 14px;
+  background: rgba(10, 10, 15, 0.84);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.35s, transform 0.5s var(--ease-out);
+}
+
+.carte__card.big {
+  opacity: 1;
+  transform: none;
+}
+
+.carte__card .mono {
+  color: var(--lime);
+}
+
+.carte__card b {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.carte__card-text {
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.carte__card ul {
+  display: grid;
+  gap: 7px;
+  margin: 2px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carte__card li {
+  font-size: 14px;
+  line-height: 1.35;
+  padding-left: 11px;
+  border-left: 2px solid var(--lime);
+  color: var(--ink);
+}
+
+.carte__lead {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.carte__lead.on {
+  opacity: 1;
+}
+
+.carte__lead line {
+  stroke: var(--lime);
+  stroke-width: 1.2;
+  stroke-dasharray: 3 4;
+}
+
+.carte__lead circle {
+  fill: none;
+  stroke: var(--lime);
+  stroke-width: 1.5;
+}
+
+.carte__tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  translate: -50% -100%;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(10, 10, 15, 0.8);
+  color: var(--ink);
+  font: 700 13px/1.2 var(--font-display);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.carte__tag.on {
+  opacity: 0.85;
+  pointer-events: auto;
+}
+
+.carte__tag.done::before {
+  content: "✓ ";
+  color: var(--lime);
+}
+
+.carte__thread {
+  position: absolute;
+  left: 50%;
+  bottom: 44px;
+  translate: -50% 0;
+  width: min(640px, 86%);
+  height: 40px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: auto;
+}
+
+.carte__rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 9px;
+  height: 2px;
+  background: var(--line);
+}
+
+.carte__rail i {
+  position: absolute;
+  inset: 0;
+  background: var(--lime);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+.carte__knot {
+  position: absolute;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  translate: -50% 0;
+  border-radius: 50%;
+  border: 2px solid #6b6880;
+  background: var(--bg);
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s, scale 0.25s;
+}
+
+.carte__knot.done {
+  border-color: var(--lime);
+  background: var(--lime);
+}
+
+.carte__knot.cur {
+  scale: 1.3;
+}
+
+.carte__knot span {
+  position: absolute;
+  top: 19px;
+  left: 50%;
+  translate: -50% 0;
+  white-space: nowrap;
+  font: 500 10px/1 var(--font-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.carte__knot.cur span {
+  color: var(--ink);
+}
+
+/* La fin du fil : trois régions, un titre, un nœud tricolore au bout de la navigation */
+.carte__region {
+  position: absolute;
+  left: 0;
+  top: 0;
+  translate: -50% -100%;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  width: 220px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: auto;
+}
+
+.carte__region b {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--c);
+}
+
+.carte__region span {
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--ink);
+  text-shadow: 0 1px 8px var(--bg);
+}
+
+.carte__region a {
+  color: var(--c);
+  font-size: 11px;
+  text-decoration: none;
+  padding: 4px 8px;
+}
+
+.carte__region a:hover {
+  text-decoration: underline;
+}
+
+/* Le lien couvre tout le bloc de la région : cible confortable au doigt */
+.carte__region a::after {
+  content: "";
+  position: absolute;
+  inset: -6px -10px;
+}
+
+.carte__head {
+  position: absolute;
+  left: 50%;
+  top: 6%;
+  translate: -50% 0;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  opacity: 0;
+}
+
+.carte__head strong {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.carte__head .mono {
+  color: var(--ink-faint);
+}
+
+.carte__knot--end {
+  border-color: transparent;
+  background: conic-gradient(#d9ff4a 0 33%, #63e6be 0 66%, #ff5fa8 0);
+}
+
+.is-portrait .carte__region {
+  width: 150px;
+}
+
+.is-portrait .carte__region span {
+  display: none;
+}
+
+.carte__static {
+  display: none;
+}
+
+/* Écran haut : la carte d'étape passe en haut (le repère est au milieu, le fil de navigation en bas) */
+.is-portrait .carte__card {
+  left: 14px;
+  right: 14px;
+  width: auto;
+  top: 72px;
+}
+
+.is-portrait .carte__knot:not(.cur) span {
+  display: none;
+}
+
+/* Fenêtre étroite : les régions se réduisent à leur nom et leur lien */
+@media (max-width: 900px) {
+  .carte__region {
+    width: 150px;
+  }
+
+  .carte__region span {
+    display: none;
+  }
+}
+
+/* Fenêtre très basse : la bienvenue se réduit à son titre, pour ne pas sortir de l'écran */
+@media (max-height: 480px) {
+  .carte__hello {
+    top: 40%;
+    margin-top: 0;
+  }
+
+  .carte__hello span,
+  .carte__face {
+    display: none;
+  }
+}
+
+/* Mouvement réduit : une page fixe, le nom en haut et la bienvenue visibles */
+@media (prefers-reduced-motion: reduce) {
+  .carte {
+    height: auto;
+  }
+
+  .carte__stick {
+    height: 100svh;
+    position: relative;
+  }
+
+  .carte__card,
+  .carte__tag,
+  .carte__lead,
+  .carte__region,
+  .carte__head,
+  .carte__thread {
+    display: none;
+  }
+
+  .carte__static {
+    display: grid;
+    gap: 22px;
+    margin: 0;
+    padding: 40px var(--pad-x) 80px;
+    list-style: none;
+  }
+
+  .carte__static > li {
+    display: grid;
+    gap: 6px;
+    max-width: 640px;
+  }
+
+  .carte__static .mono {
+    color: var(--lime);
+  }
+
+  .carte__static b {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 800;
+  }
+
+  .carte__static ul {
+    display: grid;
+    gap: 6px;
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .carte__static ul li {
+    padding-left: 11px;
+    border-left: 2px solid var(--lime);
+  }
+
+  /* Page fixe : le nom en haut à gauche (le repère est à droite), la bienvenue en bas à gauche, pas d'invitation à défiler */
+  .carte__name {
+    left: var(--pad-x);
+    top: clamp(90px, 14%, 150px);
+    justify-items: start;
+    text-align: left;
+    opacity: 1;
+    transform: none;
+  }
+
+  .carte__name em {
+    display: none;
+  }
+
+  .carte__hello {
+    top: auto;
+    bottom: clamp(60px, 11%, 110px);
+    margin-top: 0;
+    opacity: 1;
+  }
+
+  .carte__here {
+    opacity: 1;
+  }
+}

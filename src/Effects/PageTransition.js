@@ -81,7 +81,12 @@ const WORK_PATH = /^\/(?:fr|en|es)\/work\//;
 // position attendue par le hero est oubliée
 const jumpTo = (y, scroller) => {
   window.scrollTo(0, y);
-  if (scroller) scroller.scrollTo(y, { immediate: true, force: true });
+  if (scroller) {
+    // Lenis connaît encore la hauteur de la page quittée : sans ce recalcul, il plafonne la position (l'accueil est bien
+    // plus haut qu'une page de projet) et le retour ne retombe pas où l'on était
+    if (scroller.resize) scroller.resize();
+    scroller.scrollTo(y, { immediate: true, force: true });
+  }
   setLanding(null);
 };
 

@@ -6,7 +6,7 @@
     "developerJV": "Hola, soy Arthur, apasionado por la programación.",
     "developerWeb": "Hola, soy Arthur, apasionado por la programación.",
     "role": "Desarrollador de C++",
-    "info": "Titulado en Desarrollo Informático con especialización en Videojuegos por Quest Education (G.Tech), actualmente estoy cursando un máster en desarrollo de videojuegos y un máster europeo en informática.",
+    "info": "Titulado en Desarrollo Informático con especialización en Videojuegos por Quest Education (G.Tech), estoy en el último año de máster y obtendré tres títulos Bac+5: título RNCP nivel 7 en Aplicaciones Inteligentes y Big Data, Máster europeo en Gestión de Proyectos Informáticos y MSc en Desarrollo de Videojuegos y Renderizado 3D en Tiempo Real.",
     "proRedirect": "¿Buscas un desarrollador web e IA freelance? Mi sitio profesional",
     "proRedirectClose": "Ocultar este mensaje",
     "discover": "Mis habilidades",
@@ -269,7 +269,7 @@
     "RATP": {
       "Title": "RATP Maintenance Challenge",
       "InProgress": "Proyecto en curso",
-      "Description": "Proyecto profesional en colaboración con la RATP y mi escuela. Fui seleccionado para participar en esta iniciativa, cuyo objetivo es promover, a través del videojuego, las profesiones menos conocidas de la RATP. Estamos creando una escena de estación dinámica y realista en la que el jugador debe reparar sistemas defectuosos.",
+      "Description": "Proyecto profesional en colaboración con la RATP y mi escuela. Fui seleccionado para participar en esta iniciativa, cuyo objetivo es promover, a través del videojuego, las profesiones menos conocidas de la RATP. Creamos una escena de estación dinámica y realista en la que el jugador repara sistemas defectuosos. Proyecto terminado en verano de 2025.",
       "LearnMore": "Más información",
       "Langage": "C#",
       "ToolsUsed": "Proyecto en curso",
@@ -364,7 +364,7 @@
       "Langage": "PHP / Python",
       "ToolsUsed": "Laravel 12, React 19 (TypeScript), Inertia.js, FastAPI, Qdrant, SentenceTransformer (E5 multilingual), Mistral-7B (OVH AI Endpoints), EasyOCR, cross-encoder mMiniLM, UMAP/PCA, Docker Compose, shadcn/ui",
       "Duration": "3 meses",
-      "Completion": "En curso",
+      "Completion": "2026",
       "TeamSize": "1",
       "Role": "Arquitectura full-stack completa, pipeline de ingestión multimodal (PDF → texto/tablas/imágenes + OCR), pipeline RAG con reranking cross-encoder y gates de relevancia, streaming SSE, multi-tenancy, visualización UMAP/PCA de embeddings"
     },
@@ -467,7 +467,29 @@
     "game": "Videojuegos",
     "web": "Web",
     "tools": "Datos y herramientas",
-    "ai": "IA y agentes"
+    "ai": "IA y agentes",
+    "all": "Todo",
+    "filterLabel": "Filtrar por ámbito",
+    "usedIn": "Usada en",
+    "certifiedBy": "Avalada por",
+    "noProject": "Todavía no hay un proyecto público vinculado a esta competencia.",
+    "seePage": "Ver la página",
+    "proofCount_one": "{{count}} prueba",
+    "proofCount_other": "{{count}} pruebas",
+    "onGithub": "En mi GitHub",
+    "note": {
+      "C": "Practicado en pequeños programas personales: tres en raya y el juego de la vida en C, y la base de varios juegos en C/C++ (juego de texto, plataformas, tower defense).",
+      "LUA": "Scripts de trabajos para un servidor FiveM (ESX), en Lua.",
+      "TypeScript": "Usado en Articles Manager (Next.js 15) y en la interfaz de mi aplicación SEO conectada a n8n.",
+      "Bootstrap": "Usado en una aplicación React que busca películas mediante una API.",
+      "RAG": "Una cadena completa en un chatbot de Streamlit: carga de documentos, reformulación de la pregunta, búsqueda por embeddings, generación de la respuesta.",
+      "LLM": "Llamadas a un modelo de lenguaje (con Groq) en un chatbot de Streamlit creado con LangChain.",
+      "LangChain": "Chatbot RAG con LangChain: carga de documentos, reformulación de la consulta, búsqueda (embeddings de HuggingFace) y generación (Groq).",
+      "Streamlit": "Chatbot de Streamlit de varias páginas, con su cadena RAG en LangChain.",
+      "Python": "Un chatbot de Streamlit con LangChain y pequeños juegos: tres en raya y un shoot'em up.",
+      "DevOps": "Docker y docker-compose para mis aplicaciones n8n y SEO, workflows de GitHub Actions (lint y tests).",
+      "Ollama": "Usado en mi aplicación SEO (n8n) para ejecutar el modelo en local, antes de pasar a OVHcloud."
+    }
   },
   "Hud": {
     "level": "SEC",
@@ -503,5 +525,59 @@
   "Copy": {
     "done": "Copiado",
     "announce": "Texto copiado al portapapeles"
+  },
+  "Carte": {
+    "scroll": "Desplázate: el mapa se eleva",
+    "here": "Arthur está aquí",
+    "helloTitle": "Hola, soy Arthur.",
+    "helloText": "Construyo sitios web, IA y juegos. Sigue el hilo: cuenta mi trayectoria y luego lleva a mis proyectos.",
+    "photoAlt": "Retrato de Arthur BRU",
+    "navLabel": "El hilo de mi trayectoria",
+    "navHello": "Hola",
+    "step": {
+      "lycee": {
+        "tag": "Instituto",
+        "kick": "Etapa 1 · el inicio",
+        "title": "Lycée Paul-Louis Courier",
+        "text": "Donde todo empieza."
+      },
+      "bachelor": {
+        "tag": "Bachelor",
+        "kick": "Etapa 2 · titulado",
+        "title": "Bachelor",
+        "text": "Desarrollo informático, especialización en videojuegos, en Quest Education (G.Tech)."
+      },
+      "equipe": {
+        "tag": "Equipo",
+        "kick": "Etapa 3 · en equipo",
+        "title": "Con las otras ramas",
+        "text": "Proyectos realizados con las ramas artística y de marketing: ahí aprendí a trabajar con otras personas."
+      },
+      "master": {
+        "tag": "Máster",
+        "kick": "Etapa 4 · último año en curso",
+        "title": "Máster",
+        "text": "Tres títulos Bac+5 por venir:",
+        "list": [
+          "Título RNCP nivel 7 · Aplicaciones Inteligentes y Big Data",
+          "Máster europeo · Gestión de Proyectos Informáticos",
+          "MSc · Desarrollo de Videojuegos y Renderizado 3D en Tiempo Real"
+        ]
+      },
+      "basket": {
+        "tag": "Baloncesto",
+        "kick": "Fuera de clase",
+        "title": "El baloncesto",
+        "text": "Mi pasión fuera de los estudios."
+      }
+    },
+    "headKick": "El hilo se divide",
+    "headTitle": "Mis proyectos",
+    "navProjects": "Proyectos",
+    "region": {
+      "web": "Web",
+      "ai": "IA",
+      "game": "Videojuegos"
+    }
   }
 }

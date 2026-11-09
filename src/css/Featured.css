@@ -1,0 +1,312 @@
+/* « Le fil des lieux » : sélection de projets en défilement épinglé horizontal (pile verticale sur petit écran). */
+.fil {
+  position: relative;
+  /* un écran pour entrer + 70 svh de défilement par projet à franchir */
+  height: calc(100svh + 70svh * (var(--n) - 1));
+  margin-top: clamp(40px, 6vw, 90px);
+}
+
+.fil__stick {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: clamp(14px, 2.4vh, 28px);
+  padding: clamp(84px, 12vh, 120px) var(--pad-x) clamp(64px, 9vh, 84px);
+  overflow: clip;
+}
+
+.fil__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.fil__count {
+  color: var(--ink-faint);
+  font-size: 0.8rem;
+}
+
+.fil__count b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Le fil de navigation : un nœud par projet, de la couleur de sa région */
+.fil__thread {
+  position: relative;
+  height: 28px;
+  margin-inline: 8px;
+}
+
+.fil__rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 8px;
+  height: 2px;
+  background: var(--line);
+}
+
+.fil__rail i {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  transform-origin: 0 50%;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.fil__knot {
+  position: absolute;
+  top: 1px;
+  width: 16px;
+  height: 16px;
+  translate: -50% 0;
+  padding: 0;
+  border: 2px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--bg);
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s, scale 0.3s;
+}
+
+.fil__knot span {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  translate: -50% 0;
+  color: var(--ink-faint);
+  font-size: 0.65rem;
+}
+
+.fil__knot.is-done {
+  border-color: var(--c);
+  background: var(--c);
+}
+
+.fil__knot.is-cur {
+  scale: 1.35;
+}
+
+.fil__knot.is-cur span {
+  color: var(--ink);
+}
+
+/* La piste : un panneau par projet, côte à côte */
+.fil__viewport {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.fil__track {
+  display: flex;
+  width: calc(var(--n) * 100%);
+  height: 100%;
+  will-change: transform;
+}
+
+.fil__panel {
+  flex: 0 0 calc(100% / var(--n));
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 72px);
+  align-items: center;
+  min-height: 0;
+}
+
+.fil__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+  border-radius: 20px;
+  background: var(--bg-raised);
+  box-shadow: 0 30px 80px -30px color-mix(in srgb, var(--c) 40%, transparent);
+}
+
+.fil__media img,
+.fil__media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fil__media video {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.fil__media video.is-ready {
+  opacity: 1;
+}
+
+.fil__placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 8px;
+  text-align: center;
+  background: radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--c) 30%, var(--bg-raised)), var(--bg-raised) 70%);
+}
+
+.fil__placeholder .serif {
+  font-size: clamp(32px, 5vw, 72px);
+}
+
+.fil__placeholder .mono {
+  color: var(--ink-dim);
+}
+
+.fil__info {
+  display: grid;
+  gap: 14px;
+}
+
+.fil__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 0;
+  color: var(--ink-faint);
+}
+
+.fil__num {
+  color: var(--c);
+}
+
+.fil__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4.2vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+}
+
+.fil__title a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* Le titre est le lien, étendu à toute la zone d'information */
+.fil__title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.fil__info {
+  position: relative;
+}
+
+.fil__tagline {
+  margin: 0;
+  max-width: 44ch;
+  color: var(--ink-dim);
+  line-height: 1.5;
+}
+
+.fil__cta {
+  color: var(--c);
+  text-decoration: none;
+}
+
+.fil__panel:hover .fil__cta {
+  text-decoration: underline;
+}
+
+.fil__foot {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.fil__plan {
+  width: 110px;
+  height: auto;
+}
+
+.fil__plan-wave {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: fil-wave 1.8s ease-out infinite;
+}
+
+@keyframes fil-wave {
+  from {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* Petit écran et mouvement réduit : pas d'épinglage, une pile verticale */
+@media (max-width: 900px), (max-height: 560px), (prefers-reduced-motion: reduce) {
+  .fil {
+    height: auto;
+  }
+
+  .fil__stick {
+    position: static;
+    height: auto;
+    display: block;
+    padding-block: 0;
+    overflow: visible;
+  }
+
+  .fil__top {
+    margin-bottom: 24px;
+  }
+
+  .fil__thread,
+  .fil__foot {
+    display: none;
+  }
+
+  .fil__viewport {
+    overflow: visible;
+  }
+
+  .fil__track {
+    display: grid;
+    gap: 56px;
+    width: auto;
+    height: auto;
+    transform: none !important;
+  }
+
+  .fil__panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Jamais plus haut que la fenêtre : la vignette garde son format 16/9 */
+  .fil__media {
+    width: min(100%, calc(80svh * 16 / 9));
+  }
+}
+
+/* Large mais très bas : image et texte côte à côte (une image seule remplirait plus que l'écran) */
+@media (min-width: 901px) and (max-height: 560px) {
+  .fil__panel {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fil__plan-wave {
+    animation: none;
+  }
+}
