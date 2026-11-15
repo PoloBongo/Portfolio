@@ -214,7 +214,8 @@ export function createCover(root, { host, poke, buddy, t }) {
 
   // Bras détendus au repos : l'animation de repos les laissait raides, doigts tendus. Coude un peu fléchi, mains le long
   // des cuisses (paumes vers elles), doigts repliés (réglé sur le banc d'essai). Le côté droit est en miroir.
-  const DETENTE = { avantBras: [0.18, 0.15, 0.35], bras: [0.04, 0, -0.1], main: [0, 0, 0.12], doigts: 0.4 };
+  // (coude moins fléchi et bras un peu écartés : avec plus, les mains rentraient sous le bas du pull et dans les manches)
+  const DETENTE = { avantBras: [0.1, 0.15, 0.12], bras: [0.03, 0, -0.16], main: [0, 0, 0.08], doigts: 0.4 };
   function brasDetendus(poids) {
     if (poids <= 0.001) return;
     for (const [cote, s] of [["left", 1], ["right", -1]]) {
@@ -333,8 +334,9 @@ export function createCover(root, { host, poke, buddy, t }) {
     exp.setValue("aa", bouche);
 
     // Le corps penche avec la vitesse du défilement, comme pris dans un coup de vent
-    ajouter("spine", -vent * 0.5, 0, 0);
-    ajouter("chest", -vent * 0.35, 0, 0);
+    // (pas pendant le plan serré sur les yeux : la caméra est à 66 cm, la moindre inclinaison sortait les yeux de la bande)
+    ajouter("spine", -vent * 0.5 * (1 - yeux), 0, 0);
+    ajouter("chest", -vent * 0.35 * (1 - yeux), 0, 0);
     // La tête suit la souris, sauf en course et pendant le plan sur les yeux
     const suivi = (1 - course * 0.8) * (1 - yeux);
     qB.setFromEuler(eu.set(-sourisDouce.y * 0.2 * suivi, -sourisDouce.x * 0.45 * suivi, 0, "YXZ"));
