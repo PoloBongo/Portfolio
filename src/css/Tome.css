@@ -524,3 +524,24 @@ html .work-body .case__spec dd {
 html .certs {
   overflow-x: clip;
 }
+
+/* Pied de page : une place est réservée sous le contenu pour les lettres qui tombent (sinon elles se posaient sur
+   l'adresse et les liens). Toujours présente : ajoutée au début de la chute, elle arrivait après la mesure de la zone
+   et faisait sauter la page */
+html .footer__giant {
+  padding-bottom: clamp(160px, 16vw, 250px);
+}
+
+/* Petits téléphones : les titres de section et les noms de catégories se règlent sur la largeur de l'écran
+   (« CERTIFICATIONS », « AUTOMATISATION » : 14 lettres de Dela Gothic) */
+@media (max-width: 400px) {
+  html.mg-home .section-head .section-head__title,
+  html .section-head .section-head__title {
+    font-size: min(calc(var(--fs-h2) * 0.72), calc((100vw - 48px) / 14.5));
+  }
+
+  html .work__name,
+  html .work__row--sub .work__name {
+    font-size: min(1.2rem, calc((100vw - 136px) / 13.6));
+  }
+}

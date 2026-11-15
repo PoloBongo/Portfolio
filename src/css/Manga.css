@@ -1604,3 +1604,69 @@ html.mg-home .footer__title {
     top: 12%;
   }
 }
+
+/* ---------------------------------------------------------------- téléphone à l'horizontale (écran large et bas)
+   La 3D garde le cadrage paysage (avatar à droite, voir cover.js) : la couverture reprend la mise en page de bureau, en
+   plus petit (sinon le titre géant de la mise en page portrait passait derrière l'avatar). */
+@media (max-width: 899px) and (min-aspect-ratio: 21/20) and (max-height: 540px) {
+  .manga {
+    --mg-x: 72%;
+  }
+
+  .mg-block {
+    top: 9%;
+    width: min(42vh, 30vw);
+    height: 82%;
+    margin-left: calc(min(42vh, 30vw) / -2);
+  }
+
+  .mg-title {
+    top: 50%;
+    margin-top: -0.9em;
+    font-size: min(10vw, 18svh);
+  }
+
+  .mg-title span + span {
+    color: var(--mg-red);
+  }
+
+  .mg-head {
+    top: 62px;
+  }
+
+  .mg-roles {
+    left: clamp(18px, 4vw, 40px);
+    bottom: 15%;
+    justify-content: flex-start;
+    width: auto;
+    max-width: 50%;
+    transform: none;
+  }
+
+  .mg-roles span {
+    font-size: 0.66rem;
+  }
+
+  .mg-kana {
+    top: 12%;
+    bottom: auto;
+    font-size: 1.1rem;
+  }
+
+  .mg-bubble--hi {
+    left: calc(var(--mg-x) + 12vh);
+    top: 14%;
+  }
+
+  .mg-bubble--talk {
+    left: 4vw;
+    top: 20%;
+    width: min(34ch, 44vw);
+  }
+
+  .mg-scroll {
+    left: 4vw;
+    bottom: 7%;
+    transform: none;
+  }
+}

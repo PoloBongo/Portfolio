@@ -60,7 +60,8 @@ export function useFooterDrop(rootRef, giantRef, label = "") {
       Composite.add(engine.world, walls);
       ctx.font = `800 100px ${fontFamily}`;
       const total = [...NAME].reduce((sum, ch) => sum + ctx.measureText(ch).width, 0) || 680;
-      const size = Math.min((W * 0.82 * 100) / total, 340);
+      // (plafonnées : sur un écran très large, elles devenaient énormes et couvraient le contenu)
+      const size = Math.min((W * 0.82 * 100) / total, 200);
       ctx.font = `800 ${size}px ${fontFamily}`;
       try {
         ctx.fontStretch = "semi-condensed";
