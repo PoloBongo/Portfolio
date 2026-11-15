@@ -46,6 +46,15 @@ export default function Manga() {
   tRef.current = t;
 
   useEffect(() => {
+    // L'avatar et ses animations se téléchargent tout de suite, en parallèle du module de la couverture (sinon en série)
+    if (!prefersReducedMotion() && !document.querySelector("link[data-avatar]")) {
+      ["arthur.vrm", "repos.json", "course.json", "marche.json"].forEach((f) => {
+        const l = document.createElement("link");
+        Object.assign(l, { rel: "preload", as: "fetch", href: `${process.env.PUBLIC_URL || ""}/avatar/${f}`, crossOrigin: "anonymous" });
+        l.dataset.avatar = "";
+        document.head.appendChild(l);
+      });
+    }
     const root = rootRef.current;
     const cover = coverRef.current;
     const host = hostRef.current;
