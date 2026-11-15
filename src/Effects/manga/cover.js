@@ -146,6 +146,9 @@ export function createCover(root, { host, poke, buddy, t }) {
   let balleVue = false;
   const derniereBalle = new THREE.Vector3();
   const vTete = new THREE.Vector3();
+  const vTeteC = new THREE.Vector3();
+  const teteC = { x: window.innerWidth * 0.72, y: window.innerHeight * 0.3 }; // tête de l'avatar sur la couverture
+  const boiteC = { left: 0, top: 0, width: window.innerWidth, height: window.innerHeight }; // le canvas (plein écran)
   const boiteB = { r: null, t: -1e9 }; // boîte du compagnon, mesurée au plus deux fois par seconde
   let tirLance = false;
   let tirCible = null;
@@ -339,7 +342,9 @@ export function createCover(root, { host, poke, buddy, t }) {
     ajouter("chest", -vent * 0.35 * (1 - yeux), 0, 0);
     // La tête suit la souris, sauf en course et pendant le plan sur les yeux
     const suivi = (1 - course * 0.8) * (1 - yeux);
-    qB.setFromEuler(eu.set(-sourisDouce.y * 0.2 * suivi, -sourisDouce.x * 0.45 * suivi, 0, "YXZ"));
+    // (le modèle VRM 0.x est retourné de 180° au chargement : une rotation positive tourne la tête vers la droite de
+    // l'écran et la lève ; les signes étaient inversés, il regardait à l'opposé de la souris)
+    qB.setFromEuler(eu.set(sourisDouce.y * 0.2 * suivi, sourisDouce.x * 0.45 * suivi, 0, "YXZ"));
     os("neck").quaternion.multiply(qA.copy(neutre).slerp(qB, 0.45));
     os("head").quaternion.multiply(qA.copy(neutre).slerp(qB, 0.55));
   }
@@ -482,6 +487,14 @@ export function createCover(root, { host, poke, buddy, t }) {
     plierSelonMain();
     if (tBalle >= 0) placerBalle(dt);
     renderer.render(scene, cam);
+    // Où est sa tête à l'écran : la souris est repérée par rapport à elle (pas au centre de l'écran, il est à droite)
+    const tete = os("head");
+    if (tete) {
+      tete.getWorldPosition(vTeteC).project(cam);
+      const r = boiteC;
+      teteC.x = r.left + ((vTeteC.x + 1) / 2) * r.width;
+      teteC.y = r.top + ((1 - vTeteC.y) / 2) * r.height;
+    }
   }
 
   // --- la page qu'il tourne ---------------------------------------------------------------------------------
@@ -1166,7 +1179,11 @@ export function createCover(root, { host, poke, buddy, t }) {
   const surSouris = (e) => {
     pointeur.x = e.clientX;
     pointeur.y = e.clientY;
-    if (!compagnon.actif) souris.set((e.clientX / window.innerWidth) * 2 - 1, -((e.clientY / window.innerHeight) * 2 - 1));
+    if (!compagnon.actif)
+      souris.set(
+        THREE.MathUtils.clamp((e.clientX - teteC.x) / (window.innerWidth * 0.5), -1, 1),
+        THREE.MathUtils.clamp((teteC.y - e.clientY) / (window.innerHeight * 0.5), -1, 1)
+      );
     if (Math.abs(e.clientX - dernierPoint.x) + Math.abs(e.clientY - dernierPoint.y) > 12) {
       dernierPoint = { x: e.clientX, y: e.clientY };
       geste();
@@ -1301,6 +1318,9 @@ export function createCover(root, { host, poke, buddy, t }) {
     resize(w, h) {
       largeur = w;
       hauteur = h;
+      // le canvas de la couverture occupe la fenêtre (section collante) : sa boîte, pour repérer la tête à l'écran
+      const b = host.getBoundingClientRect();
+      Object.assign(boiteC, { left: b.left, top: Math.max(0, b.top), width: b.width, height: b.height });
       if (compagnon.actif) return; // le canvas est dans le coin : la taille de la couverture attendra le retour
       renderer.setSize(w, h, false);
       cam.aspect = w / h;
