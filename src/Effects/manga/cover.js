@@ -28,8 +28,11 @@ const P = {
   saisie: [0.72, 0.77], // il se retourne et soulève le coin de la page jusqu'à sa main
   page: [0.77, 0.985], // il marche vers la gauche en tirant la page, qui se tourne
 };
-const ATTENTE_BALLE = 4500; // sans geste, en haut de page, avant qu'il sorte le ballon
-const ATTENTE_TOC = 9000; // sans geste du visiteur, en haut de page, avant qu'il vienne frapper à l'écran
+// En haut de page, sans geste du visiteur, il ne reste pas planté : ballon sur le doigt, « toc toc » à l'écran, ballon…
+const ATTENTE_BALLE = 1600; // avant qu'il sorte le ballon
+const ATTENTE_TOC = 6400; // avant qu'il vienne frapper à l'écran (juste après le premier ballon)
+const REPRISE_APRES_TOC = 1400; // le ballon revient peu après un « toc toc »
+const REPRISE_BALLE = 2600; // après les deux « toc toc », le ballon revient en boucle
 const DOIGTS = ["Index", "Middle", "Ring", "Little"].flatMap((d) => ["Proximal", "Intermediate", "Distal"].map((s) => `right${d}${s}`));
 
 // Les animations sont cuites par os humanoïde (voir avatar-arthur-manga/labo/bake.html) : on les rattache ici au modèle.
@@ -209,6 +212,24 @@ export function createCover(root, { host, poke, buddy, t }) {
     if (b) b.quaternion.multiply(qA.setFromEuler(eu.set(x, y, z, "YXZ")));
   };
 
+  // Bras détendus au repos : l'animation de repos les laissait raides, doigts tendus. Coude un peu fléchi, mains le long
+  // des cuisses (paumes vers elles), doigts repliés (réglé sur le banc d'essai). Le côté droit est en miroir.
+  const DETENTE = { avantBras: [0.18, 0.15, 0.35], bras: [0.04, 0, -0.1], main: [0, 0, 0.12], doigts: 0.4 };
+  function brasDetendus(poids) {
+    if (poids <= 0.001) return;
+    for (const [cote, s] of [["left", 1], ["right", -1]]) {
+      const [ax, ay, az] = DETENTE.avantBras;
+      const [bx, by, bz] = DETENTE.bras;
+      const [mx, my, mz] = DETENTE.main;
+      ajouter(`${cote}LowerArm`, ax * poids, s * ay * poids, s * az * poids);
+      ajouter(`${cote}UpperArm`, bx * poids, s * by * poids, s * bz * poids);
+      ajouter(`${cote}Hand`, mx * poids, s * my * poids, s * mz * poids);
+      ["Index", "Middle", "Ring", "Little"].forEach((d) =>
+        ["Proximal", "Intermediate", "Distal"].forEach((seg) => ajouter(`${cote}${d}${seg}`, 0, 0, s * DETENTE.doigts * (seg === "Proximal" ? 0.6 : 1) * poids))
+      );
+    }
+  }
+
   const bulle = (nom, duree) => {
     const el = dire(nom);
     gsap.killTweensOf(el);
@@ -300,7 +321,9 @@ export function createCover(root, { host, poke, buddy, t }) {
       bouche = Math.max(bouche, sourire > 0.1 ? 0.14 + 0.14 * Math.sin(tToc * 14) : 0);
       if (tToc > 3.8) {
         tToc = -1;
-        dernierGeste = performance.now() + 9000; // le second « toc toc » attend plus longtemps
+        // le ballon revient peu après ; le « toc toc » suivant attendra la fin de ce ballon
+        balleFaite = false;
+        dernierGeste = performance.now() - ATTENTE_BALLE + REPRISE_APRES_TOC;
       }
     }
     if (tDanse >= 0) sourire = Math.max(sourire, 0.5);
@@ -448,6 +471,7 @@ export function createCover(root, { host, poke, buddy, t }) {
       r.q.copy(r.os.quaternion);
       if (r.p) r.p.copy(r.os.position);
     });
+    brasDetendus((1 - course) * (1 - marche) * (1 - danse));
     gestes(dt, course, yeux);
     if (tBalle >= 0) poseBalle(dt);
     if (saisie > 0.001) tenirLaPage(saisie);
@@ -616,6 +640,11 @@ export function createCover(root, { host, poke, buddy, t }) {
     const exp = vrm.expressionManager;
     exp.setValue("relaxed", Math.max(exp.getValue("relaxed") || 0, poids * 0.45));
     if (t > 4.2) {
+      // Après les deux « toc toc », le ballon revient en boucle (il ne reste jamais longtemps sans rien faire)
+      if (nbToc >= 2) {
+        balleFaite = false;
+        dernierGeste = performance.now() - ATTENTE_BALLE + REPRISE_BALLE;
+      }
       tBalle = -1;
       balle.groupe.visible = false;
     }
@@ -828,6 +857,10 @@ export function createCover(root, { host, poke, buddy, t }) {
     ombre.visible = true;
     pivot.position.set(0, 0, 0);
     pivot.scale.set(1, 1, 1);
+    // Le ballon du compagnon ne reste pas en l'air sur la couverture (il flottait à la hanche, figé)
+    balle.groupe.visible = false;
+    balle.groupe.scale.setScalar(1);
+    balle.groupe.rotation.set(0, 0, 0);
     gsap.killTweensOf(forme);
     gsap.set(buddy, { clearProps: "transform" });
   }
@@ -925,6 +958,7 @@ export function createCover(root, { host, poke, buddy, t }) {
       rs.joint.settings.gravityDir.set(0, -1, -vent * 3).normalize();
       rs.joint.settings.gravityPower = rs.poids + Math.abs(vent) * 1.4;
     });
+    brasDetendus(1 - danse);
     gestes(dt, 0, 0);
 
     // Le basket : il dribble quand on ne fait rien, garde le ballon contre la hanche quand on défile, le passe dans
