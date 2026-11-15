@@ -5,8 +5,8 @@ import "../css/Copy.css";
 
 // Double clic : plus de mot ni de ligne surlignés, nulle part sur le site (le glisser sélectionne toujours).
 // Clic simple sur un texte qui n'est pas un bouton : le bloc de texte touché (titre, paragraphe, élément de liste…)
-// est copié dans le presse-papiers, avec un effet : ses lignes sont balayées par un surligneur, un anneau part du
-// pointeur et une pastille « Copié » monte.
+// est copié dans le presse-papiers, avec un effet au style du tome : ses lignes passent à la trame rouge, des lignes de
+// concentration partent du pointeur et une case « コピー / Copié » est tamponnée.
 
 // Tout ce qui a son propre geste, ou n'est pas du texte à lire
 const SKIP =
@@ -192,40 +192,49 @@ export function initCopyText() {
       if (reduced) {
         tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.15 }, 0).to(el, { opacity: 0, duration: 0.4 }, 1.1);
       } else {
-        tl.fromTo(el, { scaleX: 0, opacity: 1 }, { scaleX: 1, duration: 0.42, ease: "expo.out" }, i * 0.05)
+        tl.fromTo(el, { scaleX: 0, opacity: 1 }, { scaleX: 1, duration: 0.32, ease: "power3.out" }, i * 0.06)
           .to(el, { opacity: 0, duration: 0.5, ease: "power2.in" }, 0.62 + i * 0.05);
       }
     });
 
-    // Anneau qui part du pointeur
+    // Lignes de concentration qui partent du pointeur (petite image d'impact)
     if (!reduced) {
-      const ring = document.createElement("i");
-      ring.className = "copyfx__ring";
-      ring.style.cssText = `left:${x}px;top:${y}px`;
-      layer.appendChild(ring);
-      nodes.push(ring);
-      tl.fromTo(ring, { scale: 0.2, opacity: 0.9 }, { scale: 1, opacity: 0, duration: 0.7, ease: "expo.out" }, 0);
+      const burst = document.createElement("i");
+      burst.className = "copyfx__burst";
+      burst.style.cssText = `left:${x}px;top:${y}px`;
+      layer.appendChild(burst);
+      nodes.push(burst);
+      tl.fromTo(burst, { scale: 0.35, rotate: -8, opacity: 1 }, { scale: 1.15, rotate: 0, opacity: 0, duration: 0.55, ease: "expo.out" }, 0);
     }
 
-    // Pastille « Copié », gardée dans l'écran
+    // Case « コピー / Copié » tamponnée au-dessus du pointeur, gardée dans l'écran (la queue de bulle vise le pointeur)
     const chip = document.createElement("span");
     chip.className = "copyfx__chip";
-    chip.innerHTML =
-      '<svg viewBox="0 0 16 16" width="12" height="12" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    const kana = document.createElement("span");
+    kana.className = "copyfx__kana";
+    kana.textContent = "コピー";
     const label = document.createElement("span");
     label.textContent = i18n.t("Copy.done");
-    chip.appendChild(label);
+    chip.append(kana, label);
     layer.appendChild(chip);
     nodes.push(chip);
     const w = chip.offsetWidth;
-    const left = Math.min(window.innerWidth - w - 10, Math.max(10, x - w / 2));
-    const top = Math.max(10, y - 46);
-    chip.style.cssText = `left:${left}px;top:${top}px`;
+    const h = chip.offsetHeight;
+    const left = Math.min(window.innerWidth - w - 14, Math.max(10, x - w / 2));
+    const top = Math.max(10, y - h - 26);
+    const tail = Math.min(w - 12, Math.max(12, x - left));
+    chip.style.cssText = `left:${left}px;top:${top}px;--tail:${tail}px`;
     if (reduced) {
       tl.fromTo(chip, { opacity: 0 }, { opacity: 1, duration: 0.15 }, 0).to(chip, { opacity: 0, duration: 0.3 }, 1.3);
     } else {
-      tl.fromTo(chip, { y: 10, opacity: 0, scale: 0.8 }, { y: 0, opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2.4)" }, 0.04)
-        .to(chip, { y: -14, opacity: 0, duration: 0.45, ease: "power2.in" }, 1.15);
+      tl.fromTo(
+        chip,
+        { scale: 1.9, rotate: -14, opacity: 0 },
+        { scale: 1, rotate: -4, opacity: 1, duration: 0.42, ease: "back.out(2.2)" },
+        0.03
+      )
+        .to(chip, { x: 3, duration: 0.04, yoyo: true, repeat: 3, ease: "none" }, 0.36)
+        .to(chip, { y: -12, rotate: -7, opacity: 0, duration: 0.38, ease: "power2.in" }, 1.2);
     }
 
     live.textContent = "";

@@ -545,3 +545,13 @@ html .footer__giant {
     font-size: min(1.2rem, calc((100vw - 136px) / 13.6));
   }
 }
+
+/* Zone de requête du curseur (nuage de points) : plus de menthe, l'encre rouge du tome */
+html .cursor__ring[data-state="query"] {
+  border: 2px dashed rgba(255, 59, 31, 0.75);
+  background: rgba(255, 59, 31, 0.06);
+}
+
+html .cursor__dot[data-state="query"] {
+  background: var(--violet);
+}
