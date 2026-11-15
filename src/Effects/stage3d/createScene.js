@@ -72,6 +72,14 @@ export async function createScene({ host, onFrame, reduced = false }) {
   // Vitesse de défilement lissée (traits de vitesse) et impact (lignes de concentration, Effects/anime/impact.js)
   let vel = 0;
   let impact = 0;
+  const html = document.documentElement; // mg-couvre : l'accueil manga (opaque) cache le fond
+  // Défilement lu à l'évènement (mise en page propre), pas dans l'image d'animation (lecture qui forçait la mise en page)
+  let dernierY = window.scrollY;
+  const surDefile = () => {
+    dernierY = window.scrollY;
+  };
+  window.addEventListener("scroll", surDefile, { passive: true });
+  let saute = false;
   const focus = { x: 0, y: 0 };
   const onImpact = (event) => {
     const d = (event && event.detail) || {};
@@ -123,13 +131,20 @@ export async function createScene({ host, onFrame, reduced = false }) {
     last = now;
     time += dt;
 
-    const scrollY = window.scrollY;
+    const scrollY = dernierY;
     const moving = Math.abs(introTarget - introValue) > 0.002 || Math.abs(warpTarget - warpValue) > 0.002 || scrollY !== lastScroll;
     const pxs = lastScroll < 0 || dt === 0 ? 0 : Math.abs(scrollY - lastScroll) / dt;
     lastScroll = scrollY;
     vel += (clamp((pxs - 600) / 2600) - vel) * (1 - Math.exp(-dt * (pxs > 600 ? 10 : 3)));
     impact *= Math.exp(-dt * 3.2);
     if (reduced && !dirty && !moving) return;
+    // Économies : sous les pages papier opaques de l'accueil (couverture, chapitres), rien n'est visible ; au calme
+    // (ni défilement, ni impact, ni transition, ni changement de teinte), une image sur deux suffit
+    // (classe posée par Effects/manga/paper.js à partir de positions en cache : aucune mesure de mise en page ici)
+    if (html.classList.contains("mg-couvre")) return;
+    const calme = !moving && vel < 0.01 && impact < 0.01 && Math.abs(tint.mixTo - tint.mix) < 0.005;
+    saute = calme && !saute;
+    if (saute) return;
     dirty = false;
 
     introValue += (introTarget - introValue) * (reduced ? 1 : 1 - Math.exp(-dt * 2.4));
@@ -175,6 +190,7 @@ export async function createScene({ host, onFrame, reduced = false }) {
       document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("anime:impact", onImpact);
+      window.removeEventListener("scroll", surDefile);
       resizeObserver.disconnect();
       offPerf();
       iso.dispose();

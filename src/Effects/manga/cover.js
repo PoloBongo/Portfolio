@@ -79,7 +79,7 @@ export function createCover(root, { host, poke, buddy, t }) {
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
   const tactile = window.matchMedia("(pointer: coarse)").matches;
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, tactile ? 1.5 : 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, tactile ? 1.5 : 1.75));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   host.appendChild(renderer.domElement);
 
@@ -132,11 +132,18 @@ export function createCover(root, { host, poke, buddy, t }) {
   let basket = null; // dribble, ballon tenu, tir (Effects/manga/basket.js)
   let dernierDefile = 0; // dernier défilement de la page (le compagnon dribble quand on ne fait rien)
   let yDefile = window.scrollY;
+  let yFenetre = window.scrollY; // lu à l'évènement « scroll » (mise en page propre), pas dans l'image d'animation
+  const surDefileB = () => {
+    yFenetre = window.scrollY;
+  };
+  window.addEventListener("scroll", surDefileB, { passive: true });
+  fin.push(() => window.removeEventListener("scroll", surDefileB));
   let vitesseDefile = 0;
   let apparition = 1; // le ballon réapparaît d'un coup (après un tir)
   let balleVue = false;
   const derniereBalle = new THREE.Vector3();
   const vTete = new THREE.Vector3();
+  const boiteB = { r: null, t: -1e9 }; // boîte du compagnon, mesurée au plus deux fois par seconde
   let tirLance = false;
   let tirCible = null;
   let tJoie = -1;
@@ -735,6 +742,8 @@ export function createCover(root, { host, poke, buddy, t }) {
     compagnon.gauche = gauche;
     buddy.classList.toggle("mg-buddy--left", gauche);
     const r1 = hoteB.getBoundingClientRect();
+    boiteB.r = r1;
+    boiteB.t = performance.now();
     eclipse(de, { x: ancre(r1), y: r1.top + r1.height * 0.7 });
   }
 
@@ -857,7 +866,11 @@ export function createCover(root, { host, poke, buddy, t }) {
       }
     }
 
-    const r = hoteB.getBoundingClientRect();
+    if (buddy.style.transform || maintenant - boiteB.t > 500) {
+      boiteB.r = hoteB.getBoundingClientRect();
+      boiteB.t = maintenant;
+    }
+    const r = boiteB.r;
     const y = compagnon.base + compagnon.entree;
     const g = compagnon.gauche ? -1 : 1; // à gauche, tout est en miroir : il se tourne et pointe de l'autre bras
     // Sa tête à l'écran (projection de l'os : il est cadré en pied, la bulle et le doigt partent de là)
@@ -902,7 +915,7 @@ export function createCover(root, { host, poke, buddy, t }) {
       if (t.p) t.p.copy(t.os.position);
     });
     // Le défilement : pas de saut vertical ; il penche juste un peu, comme dans un coup de vent (capuche, cordons)
-    const ySc = window.scrollY;
+    const ySc = yFenetre;
     const v = (ySc - yDefile) / Math.max(dt, 0.001);
     yDefile = ySc;
     if (Math.abs(v) > 30) dernierDefile = maintenant;

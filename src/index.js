@@ -9,15 +9,8 @@ import React, { Suspense, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes, useNavigate, useParams } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import ProjectsWeb from "./Pages/Projects/ProjectsWeb";
-import ContactMe from "./Pages/Projects/ContactMe";
-import GameJam from "./Pages/GameJam/GameJam";
-import UnityPage from "./Pages/Unity/Unity";
-import UnrealPage from "./Pages/Unreal/Unreal";
-import IncomingPage from "./Pages/Incoming/Incoming";
-import AIPage from "./Pages/AI/AIPage";
 import ErrorPage from "./Pages/ErrorPage";
-import { WorkPage } from "./Pages/lazyPages";
+import { WorkPage, ProjectsWeb, ContactMe, GameJam, UnityPage, UnrealPage, IncomingPage, AIPage } from "./Pages/lazyPages";
 import { Loader } from "./Component/Loader";
 import Arthur from "./Arthur";
 import reportWebVitals from "./reportWebVitals";
@@ -72,6 +65,9 @@ function WorkRedirect() {
   return <LangRedirect page={`work/${slug}`} />;
 }
 
+// Page chargée à part : écran de chargement le temps du premier téléchargement (les transitions l'attendent)
+const Page = ({ children }) => <Suspense fallback={<Loader />}>{children}</Suspense>;
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -97,13 +93,13 @@ root.render(
               {/* Routes avec préfixe langue */}
               <Route path="/:lang" element={<LanguageWrapper />}>
                 <Route index element={<Arthur />} />
-                <Route path="GameJam" element={<GameJam />} />
-                <Route path="Unity" element={<UnityPage />} />
-                <Route path="Unreal" element={<UnrealPage />} />
-                <Route path="Incoming" element={<IncomingPage />} />
-                <Route path="ProjectsWeb" element={<ProjectsWeb />} />
-                <Route path="contactMe" element={<ContactMe />} />
-                <Route path="AI" element={<AIPage />} />
+                <Route path="GameJam" element={<Page><GameJam /></Page>} />
+                <Route path="Unity" element={<Page><UnityPage /></Page>} />
+                <Route path="Unreal" element={<Page><UnrealPage /></Page>} />
+                <Route path="Incoming" element={<Page><IncomingPage /></Page>} />
+                <Route path="ProjectsWeb" element={<Page><ProjectsWeb /></Page>} />
+                <Route path="contactMe" element={<Page><ContactMe /></Page>} />
+                <Route path="AI" element={<Page><AIPage /></Page>} />
                 <Route
                   path="work/:slug"
                   element={

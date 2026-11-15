@@ -27,7 +27,7 @@ export function creerEmblemes(liste) {
   } catch (e) {
     return () => {};
   }
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   const canvas = renderer.domElement;
   canvas.className = "ax-emblemes";

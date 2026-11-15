@@ -97,9 +97,11 @@ function HudInner() {
       let frame = 0;
       let x = 0;
       let y = 0;
+      let texte = "";
       const write = () => {
         frame = 0;
-        posEl.textContent = `${signed((x / window.innerWidth) * 2 - 1)} ${signed(1 - (y / window.innerHeight) * 2)}`;
+        const t = `${signed((x / window.innerWidth) * 2 - 1)} ${signed(1 - (y / window.innerHeight) * 2)}`;
+        if (t !== texte) posEl.textContent = texte = t;
       };
       const onMove = (e) => {
         x = e.clientX;
@@ -126,20 +128,31 @@ function HudInner() {
     const xpEl = root.querySelector(".hud__xp");
     const xpNum = root.querySelector("[data-xp]");
 
+    // Défilement et hauteur lus à l'évènement (mise en page propre) ; on n'écrit que ce qui change (chaque écriture
+    // de texte salit la mise en page et crée une mutation du DOM)
     let raf = 0;
+    let sy = 0;
+    let max = 0;
+    let xp = "";
+    let num = "";
     const read = () => {
       raf = 0;
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-      xpEl.style.setProperty("--xp", p.toFixed(4));
-      xpNum.textContent = pad(Math.round(p * 100), 3);
+      const p = max > 0 ? Math.min(1, Math.max(0, sy / max)) : 0;
+      const nextXp = p.toFixed(3);
+      if (nextXp !== xp) xpEl.style.setProperty("--xp", (xp = nextXp));
+      const nextNum = pad(Math.round(p * 100), 3);
+      if (nextNum !== num) xpNum.textContent = num = nextNum;
     };
-    const onScroll = () => {
+    const onScroll = (e) => {
+      sy = window.scrollY;
+      if (!e || e.type === "resize") max = document.documentElement.scrollHeight - window.innerHeight;
       if (!raf) raf = requestAnimationFrame(read);
     };
+    const roPage = new ResizeObserver(() => onScroll());
+    roPage.observe(document.body);
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
-    read();
+    onScroll();
 
     let observer = null;
     let items = [];
@@ -174,6 +187,7 @@ function HudInner() {
     sync();
 
     return () => {
+      roPage.disconnect();
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       cancelAnimationFrame(raf);

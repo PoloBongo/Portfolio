@@ -115,13 +115,19 @@ export function startAnime() {
   };
   scan();
   // Les pages changent sans rechargement : on surveille les nouveaux titres
+  // Regroupé (au plus toutes les 0,4 s) et sourd au HUD et au curseur, qui changent de texte en continu
   let pending = 0;
-  const mo = new MutationObserver(() => {
-    if (!pending)
-      pending = requestAnimationFrame(() => {
+  const mo = new MutationObserver((mutations) => {
+    if (pending) return;
+    const utile = mutations.some((m) => {
+      const el = m.target.nodeType === 1 ? m.target : m.target.parentElement;
+      return !el || !el.closest(".hud, .cursor, .preloader");
+    });
+    if (utile)
+      pending = window.setTimeout(() => {
         pending = 0;
         scan();
-      });
+      }, 400);
   });
   mo.observe(document.getElementById("root") || document.body, { childList: true, subtree: true });
 

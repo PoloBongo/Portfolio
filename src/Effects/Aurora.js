@@ -183,9 +183,13 @@ export default function Aurora({ className = "" }) {
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     };
 
+    // Un dégradé lent : une image sur deux suffit ; rien sous les pages papier opaques de l'accueil
+    let impaire = false;
     const loop = (now) => {
-      draw(now);
       raf = requestAnimationFrame(loop);
+      impaire = !impaire;
+      if (impaire || document.documentElement.classList.contains("mg-couvre")) return;
+      draw(now);
     };
 
     const play = () => {

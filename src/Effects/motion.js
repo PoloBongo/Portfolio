@@ -1,9 +1,9 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Flip } from "gsap/Flip";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
-gsap.registerPlugin(ScrollTrigger, Flip, ScrambleTextPlugin);
+// (Flip n'est plus utilisé : retiré du bundle principal)
+gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
 
 // Courbes communes : toutes les animations du site passent par ces valeurs
 export const EASE = {
@@ -64,4 +64,4 @@ if (process.env.NODE_ENV === "development") {
   window.gsap = gsap;
 }
 
-export { gsap, ScrollTrigger, Flip };
+export { gsap, ScrollTrigger };

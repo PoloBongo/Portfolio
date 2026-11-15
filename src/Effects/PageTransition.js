@@ -196,11 +196,13 @@ export default function PageTransition({ children }) {
       play("whoosh");
       triggerWarp(1);
       await cover();
+      const target = new URL(to, window.location.origin);
+      // La page visée est chargée (souvent déjà au survol) avant de changer de route : jamais d'écran de chargement
+      await Promise.race([prefetch(target.pathname), wait(1500)]);
 
       const swapped = new Promise((resolve) => {
         pendingSwap.current = resolve;
       });
-      const target = new URL(to, window.location.origin);
       setLanding(expectLanding(target));
       go(to);
       window.scrollTo(0, 0);

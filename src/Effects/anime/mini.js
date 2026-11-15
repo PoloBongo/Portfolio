@@ -69,26 +69,40 @@ function monter() {
   el.addEventListener("pointerdown", sauter);
 
   let raf = 0;
+  // Positions des sections dans la page, mesurées une fois puis à chaque changement de taille
+  let zones = null;
+  const mesurer = () => {
+    const sy = window.scrollY;
+    zones = ZONES.map(([nom, sel, pose]) => {
+      const z = document.querySelector(sel);
+      if (!z) return null;
+      const r = z.getBoundingClientRect();
+      return [nom, r.top + sy, r.bottom + sy, pose];
+    }).filter(Boolean);
+  };
+  const ro = new ResizeObserver(() => {
+    zones = null;
+  });
+  ro.observe(document.body);
+  let sy = window.scrollY; // lu à l'évènement « scroll » (mise en page propre)
   const verifier = () => {
     raf = 0;
-    const y = window.innerHeight * 0.55;
-    const trouvee = ZONES.find(([, sel]) => {
-      const z = document.querySelector(sel);
-      if (!z) return false;
-      const r = z.getBoundingClientRect();
-      return r.top <= y && r.bottom > y;
-    });
+    if (!zones) mesurer();
+    const y = sy + window.innerHeight * 0.55;
+    const trouvee = zones.find(([, a, b]) => a <= y && b > y);
     const nom = trouvee ? trouvee[0] : "";
-    if (nom && nom !== zone) montrer(nom, trouvee[2]);
+    if (nom && nom !== zone) montrer(nom, trouvee[3]);
     zone = nom;
   };
   const surDefile = () => {
+    sy = window.scrollY;
     if (!raf) raf = requestAnimationFrame(verifier);
   };
   window.addEventListener("scroll", surDefile, { passive: true });
 
   return () => {
     window.removeEventListener("scroll", surDefile);
+    ro.disconnect();
     if (raf) cancelAnimationFrame(raf);
     gsap.killTweensOf([el, img, tip]);
     if (sortie) sortie.kill();
