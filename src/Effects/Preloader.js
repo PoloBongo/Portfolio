@@ -18,18 +18,18 @@ const BUILD = (() => {
 const logFor = (mode) => {
   if (mode === "short") {
     return [
-      { text: "init latent_space v5.1", state: "", tone: "dim" },
-      { text: "mount /embeddings", state: "ok", tone: "ok" },
-      { text: "ready", state: "online", tone: "go" },
+      { text: "init tome_2026", state: "", tone: "dim" },
+      { text: "ink /planches", state: "ok", tone: "ok" },
+      { text: "ready", state: "go!", tone: "go" },
     ];
   }
   return [
-    { text: "init latent_space v5.1", state: "", tone: "dim" },
-    { text: "mount /embeddings", state: "ok", tone: "ok" },
-    { text: "embed projects", state: "ok", tone: "ok" },
-    { text: "load field.points", state: "ok", tone: "ok", wait: true },
-    { text: "sync audio bus", state: isSoundOn() ? "armed" : "muted", tone: "dim" },
-    { text: "ready", state: "online", tone: "go" },
+    { text: "init tome_2026", state: "", tone: "dim" },
+    { text: "ink /planches", state: "ok", tone: "ok" },
+    { text: "apply screentones", state: "ok", tone: "ok" },
+    { text: "load ink.field", state: "ok", tone: "ok", wait: true },
+    { text: "sync sfx", state: isSoundOn() ? "armed" : "muted", tone: "dim" },
+    { text: "ready", state: "go!", tone: "go" },
   ];
 };
 
@@ -47,7 +47,7 @@ export default function Preloader() {
 
       const q = gsap.utils.selector(rootRef.current);
       // Un peu plus lent qu'avant : chaque salutation reste lisible (~0,7 s) avant que le nuage n'écrive le nom
-      const duration = introMode === "full" ? 2.8 : 1.1;
+      const duration = introMode === "full" ? 1.8 : 1.1; // première visite : environ 2 s avant que la page s'ouvre
       const counter = { value: 0 };
       const countEl = q(".preloader__count span")[0];
       const greetEl = q(".preloader__greet span")[0];
@@ -143,8 +143,8 @@ export default function Preloader() {
           releaseIntro();
           document.documentElement.classList.remove("is-intro");
         }, "exit+=0.35")
-        .to(q(".preloader__panel--top"), { yPercent: -100, duration: 1.05, ease: EASE.inOut }, "exit+=0.3")
-        .to(q(".preloader__panel--bottom"), { yPercent: 100, duration: 1.05, ease: EASE.inOut }, "exit+=0.3")
+        .to(q(".preloader__panel--top"), { yPercent: -100, duration: 0.85, ease: EASE.inOut }, "exit+=0.25")
+        .to(q(".preloader__panel--bottom"), { yPercent: 100, duration: 0.85, ease: EASE.inOut }, "exit+=0.25")
         .add(() => setDone(true));
 
       // Passable : un clic ou une touche accélère la séquence (le chargement réel reste attendu)
@@ -172,7 +172,7 @@ export default function Preloader() {
         <i className="preloader__corner hud__corner hud__corner--tr" />
         <i className="preloader__corner hud__corner hud__corner--bl" />
         <i className="preloader__corner hud__corner hud__corner--br" />
-        <span className="preloader__meta mono">latent_space v5.1</span>
+        <span className="preloader__meta mono">Portfolio · Tome 2026</span>
         <span className="preloader__meta preloader__meta--right mono">Build {BUILD}</span>
         <div className="preloader__greet">
           <span>{GREETINGS[0]}</span>

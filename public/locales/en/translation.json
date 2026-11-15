@@ -629,6 +629,50 @@
     "done": "Copied",
     "announce": "Text copied to the clipboard"
   },
+  "Manga": {
+    "volume": "Volume 2026",
+    "genre": "Web · AI · Games",
+    "scroll": "Scroll: the story begins",
+    "hi": "Hi!",
+    "sfx": "Bam!",
+    "talk": "I build websites, AI and games. Turn the page: I'll tell you where I come from, then take you to my projects.",
+    "poke": "Make Arthur wave",
+    "go": "Let's go!",
+    "knock": "Knock",
+    "idle": "Hey! Shall we scroll?",
+    "hey": "Hey, easy!",
+    "hide": "Hide the guide",
+    "stamp": "Stamp!",
+    "tip": {
+      "c1": "My path, panel by panel.",
+      "c2": "Pick a door!",
+      "work": "Hover a category: I'll point it out.",
+      "fil": "My picks. Keep scrolling!",
+      "skills": "Click a skill: it leads to projects.",
+      "certs": "Five stamps, all verifiable.",
+      "footer": "Got a project in mind? Write to me!"
+    },
+    "hiTime": {
+      "night": "Still up?",
+      "morning": "Good morning!",
+      "noon": "Lunch break?",
+      "evening": "Good evening!"
+    },
+    "shoot": "Take a shot",
+    "swish": "Swish!",
+    "kobe": "Kobe!",
+    "posterAlt": "Arthur BRU drawn as a manga character: black hoodie, grey trousers",
+    "c1": {
+      "kick": "Chapter 1",
+      "title": "Origins",
+      "text": "From high school to a master's degree: five panels to say where I come from."
+    },
+    "c2": {
+      "kick": "Chapter 2",
+      "title": "Three worlds",
+      "text": "Web, AI, games: pick a door, the projects are behind it."
+    }
+  },
   "Carte": {
     "scroll": "Scroll: the map rises",
     "here": "Arthur is here",

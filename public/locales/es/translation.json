@@ -630,6 +630,50 @@
     "done": "Copiado",
     "announce": "Texto copiado al portapapeles"
   },
+  "Manga": {
+    "volume": "Tomo 2026",
+    "genre": "Web · IA · Videojuegos",
+    "scroll": "Desplázate: empieza la historia",
+    "hi": "¡Hola!",
+    "sfx": "¡Bam!",
+    "talk": "Construyo sitios web, IA y juegos. Pasa la página: te cuento de dónde vengo y luego te llevo a ver mis proyectos.",
+    "poke": "Hacer que Arthur salude",
+    "go": "¡Vamos!",
+    "knock": "Toc",
+    "idle": "¡Eh! ¿Bajamos?",
+    "hey": "¡Eh, tranquilo!",
+    "hide": "Ocultar el guía",
+    "stamp": "¡Clac!",
+    "tip": {
+      "c1": "Mi recorrido, viñeta a viñeta.",
+      "c2": "¡Elige una puerta!",
+      "work": "Pasa por una categoría: te la señalo.",
+      "fil": "Mi selección. ¡Sigue bajando!",
+      "skills": "Haz clic en una habilidad: lleva a proyectos.",
+      "certs": "Cinco sellos, todos verificables.",
+      "footer": "¿Tienes un proyecto? ¡Escríbeme!"
+    },
+    "hiTime": {
+      "night": "¿Aún despierto?",
+      "morning": "¡Buenos días!",
+      "noon": "¡Buen provecho!",
+      "evening": "¡Buenas noches!"
+    },
+    "shoot": "Lanza a canasta",
+    "swish": "¡Swish!",
+    "kobe": "¡Kobe!",
+    "posterAlt": "Arthur BRU dibujado como personaje de manga: sudadera negra con capucha, pantalón gris",
+    "c1": {
+      "kick": "Capítulo 1",
+      "title": "Los orígenes",
+      "text": "Del instituto al máster: cinco viñetas para contar de dónde vengo."
+    },
+    "c2": {
+      "kick": "Capítulo 2",
+      "title": "Tres mundos",
+      "text": "Web, IA, videojuegos: elige una puerta, los proyectos están detrás."
+    }
+  },
   "Carte": {
     "scroll": "Desplázate: el mapa se eleva",
     "here": "Arthur está aquí",

@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { subscribePerf } from "../perf";
-import { createIsolines } from "./isolines";
+import { createInkfield } from "./inkfield";
 
 // Scène 3D persistante du site (un seul canvas, jamais recréé pendant la navigation), derrière le contenu :
 // un fond de courbes de niveau (isolignes) teinté par la page ou le monde, sur toutes les pages. Les objets 3D de
@@ -9,7 +9,7 @@ import { createIsolines } from "./isolines";
 
 const FOV = 30;
 const DIST = 18;
-const NEUTRAL = [0.62, 0.34, 0.98];
+const NEUTRAL = [1, 0.23, 0.12]; // le rouge du tome
 
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 
@@ -32,7 +32,7 @@ export async function createScene({ host, onFrame, reduced = false }) {
   const camera = new THREE.PerspectiveCamera(FOV, 1, 0.1, 100);
   camera.position.set(0, 0, DIST);
 
-  const iso = createIsolines();
+  const iso = createInkfield();
   scene.add(iso.mesh);
 
   // ---------- Dimensions ----------
@@ -47,6 +47,7 @@ export async function createScene({ host, onFrame, reduced = false }) {
     camera.aspect = W / H;
     camera.updateProjectionMatrix();
     iso.uniforms.uRes.value.set(W * dpr, H * dpr);
+    iso.uniforms.uDpr.value = dpr;
   };
   applySize();
   const resizeObserver = new ResizeObserver(applySize);
@@ -68,6 +69,20 @@ export async function createScene({ host, onFrame, reduced = false }) {
   let introTarget = reduced ? 1 : 0;
   let dirty = true;
   let lastScroll = -1;
+  // Vitesse de défilement lissée (traits de vitesse) et impact (lignes de concentration, Effects/anime/impact.js)
+  let vel = 0;
+  let impact = 0;
+  const focus = { x: 0, y: 0 };
+  const onImpact = (event) => {
+    const d = (event && event.detail) || {};
+    const W = window.innerWidth;
+    const H = window.innerHeight;
+    focus.x = ((d.x == null ? W / 2 : d.x) - W / 2) / H;
+    focus.y = (H / 2 - (d.y == null ? H / 2 : d.y)) / H;
+    impact = d.strength == null ? 1 : d.strength;
+    dirty = true;
+  };
+  if (!reduced) window.addEventListener("anime:impact", onImpact);
 
   const begin = () => {
     introTarget = 1;
@@ -110,7 +125,10 @@ export async function createScene({ host, onFrame, reduced = false }) {
 
     const scrollY = window.scrollY;
     const moving = Math.abs(introTarget - introValue) > 0.002 || Math.abs(warpTarget - warpValue) > 0.002 || scrollY !== lastScroll;
+    const pxs = lastScroll < 0 || dt === 0 ? 0 : Math.abs(scrollY - lastScroll) / dt;
     lastScroll = scrollY;
+    vel += (clamp((pxs - 600) / 2600) - vel) * (1 - Math.exp(-dt * (pxs > 600 ? 10 : 3)));
+    impact *= Math.exp(-dt * 3.2);
     if (reduced && !dirty && !moving) return;
     dirty = false;
 
@@ -128,8 +146,10 @@ export async function createScene({ host, onFrame, reduced = false }) {
     iso.uniforms.uTime.value = time;
     iso.uniforms.uPointer.value.set(pointer.x, pointer.y);
     iso.uniforms.uScroll.value = scrollY;
-    iso.uniforms.uOpacity.value = 0.55 * introValue;
-    iso.uniforms.uSpeed.value = 1 + warpValue * 3;
+    iso.uniforms.uOpacity.value = introValue;
+    iso.uniforms.uVel.value = Math.max(vel, warpValue * 0.8);
+    iso.uniforms.uImpact.value = Math.max(impact, warpValue * 0.6);
+    iso.uniforms.uFocus.value.set(focus.x, focus.y);
     camera.fov = FOV + warpValue * 9;
     camera.updateProjectionMatrix();
 
@@ -154,6 +174,7 @@ export async function createScene({ host, onFrame, reduced = false }) {
       clearTimeout(introFallback);
       document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("anime:impact", onImpact);
       resizeObserver.disconnect();
       offPerf();
       iso.dispose();

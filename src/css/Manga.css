@@ -1,0 +1,1606 @@
+/* Refonte « manga » : la couverture (avatar 3D), le chapitre 1 (parcours en cases), le chapitre 2 (les mondes),
+   puis la trame qui mène aux pages noires. Papier, encre et une seule couleur d'accompagnement. */
+.manga {
+  --mg-paper: #f2eee3;
+  --mg-white: #fbf9f3;
+  --mg-ink: #101014;
+  --mg-red: #ff3b1f;
+  --mg-title: "Dela Gothic One", "Bricolage Grotesque Variable", "Arial Black", sans-serif;
+  --mg-x: 72%; /* axe de l'avatar sur un écran large */
+  position: relative;
+  z-index: 1;
+  background: var(--mg-paper);
+  color: var(--mg-ink);
+}
+
+/* ---------------------------------------------------------------- couverture */
+.mg-cover {
+  height: 380svh;
+}
+
+.mg-cover__stick {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: clip;
+  background: var(--bg);
+}
+
+/* Le cadre de la case : l'avatar passe par-dessus quand il entre et quand il sort */
+.mg-sheet::after {
+  content: "";
+  position: absolute;
+  inset: clamp(8px, 1.4vw, 22px);
+  z-index: 3;
+  border: 3px solid var(--mg-ink);
+  pointer-events: none;
+}
+
+.mg-tone {
+  position: absolute;
+  inset: -4%;
+  background-image: radial-gradient(circle, var(--mg-ink) 30%, transparent 33%);
+  background-size: 10px 10px;
+  opacity: 0.5;
+  -webkit-mask-image: radial-gradient(ellipse 60% 68% at var(--mg-x) 46%, transparent 40%, #000 100%);
+  mask-image: radial-gradient(ellipse 60% 68% at var(--mg-x) 46%, transparent 40%, #000 100%);
+}
+
+.mg-block {
+  position: absolute;
+  left: var(--mg-x);
+  top: 9%;
+  z-index: 1;
+  width: min(42vh, 30vw);
+  height: 82%;
+  margin-left: calc(min(42vh, 30vw) / -2);
+  border: 3px solid var(--mg-ink);
+  background: var(--mg-red);
+  transform: skewX(-9deg);
+}
+
+.mg-speed {
+  position: absolute;
+  inset: -40%;
+  z-index: 1;
+  opacity: 0;
+  background: repeating-conic-gradient(
+    from 0deg at var(--mg-x) 50%,
+    transparent 0deg 3.2deg,
+    var(--mg-ink) 3.2deg 3.9deg,
+    transparent 3.9deg 7deg,
+    var(--mg-ink) 7deg 7.3deg
+  );
+  -webkit-mask-image: radial-gradient(circle at var(--mg-x) 50%, transparent 18%, #000 52%);
+  mask-image: radial-gradient(circle at var(--mg-x) 50%, transparent 18%, #000 52%);
+  animation: mg-vibre 0.12s steps(2) infinite;
+  pointer-events: none;
+}
+
+@keyframes mg-vibre {
+  50% {
+    transform: rotate(1.4deg) scale(1.02);
+  }
+}
+
+.mg-kana {
+  position: absolute;
+  right: clamp(22px, 3.2vw, 60px);
+  top: 14%;
+  z-index: 2;
+  font: 900 clamp(1.5rem, 3vw, 3.2rem) / 1 "Dela Gothic One", "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Meiryo", sans-serif;
+  letter-spacing: 0.14em;
+  writing-mode: vertical-rl;
+  user-select: none;
+}
+
+.mg-head {
+  position: absolute;
+  left: clamp(26px, 4.4vw, 84px);
+  top: clamp(84px, 13svh, 132px);
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mg-head span {
+  padding: 5px 10px;
+  border: 2px solid var(--mg-ink);
+  background: var(--mg-paper);
+}
+
+.mg-head span:first-child {
+  background: var(--mg-ink);
+  color: var(--mg-paper);
+}
+
+.mg-title {
+  position: absolute;
+  left: clamp(22px, 4vw, 78px);
+  top: 50%;
+  z-index: 2;
+  margin-top: -0.9em;
+  font-family: var(--mg-title);
+  font-size: clamp(4.4rem, 11.8vw, 13.6rem);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  transform-origin: 0 50%;
+  will-change: transform, opacity;
+}
+
+.mg-title span {
+  display: block;
+}
+
+.mg-title span + span {
+  color: var(--mg-red);
+  -webkit-text-stroke: 0.035em var(--mg-ink);
+  paint-order: stroke fill;
+}
+
+.mg-roles {
+  position: absolute;
+  left: clamp(26px, 4.4vw, 84px);
+  bottom: clamp(128px, 20svh, 200px);
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 46%;
+  font-size: clamp(0.8rem, 0.7rem + 0.4vw, 1.05rem);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.mg-roles span {
+  padding: 6px 12px;
+  background: var(--mg-ink);
+  color: var(--mg-paper);
+  transform: skewX(-9deg);
+}
+
+.mg-gl {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.mg-gl canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* L'affiche fixe : mouvement réduit, ou pas de WebGL */
+.mg-poster {
+  position: absolute;
+  left: var(--mg-x);
+  bottom: 4%;
+  z-index: 4;
+  width: auto;
+  height: 88%;
+  max-width: none;
+  transform: translateX(-50%);
+  /* En attendant le modèle 3D (3 Mo) : sa silhouette en ombre, à sa place */
+  filter: brightness(0);
+  opacity: 0.13;
+  transition: opacity 0.45s var(--ease-out);
+}
+
+.manga.is-live .mg-poster {
+  opacity: 0;
+}
+
+.manga.is-still .mg-poster {
+  filter: none;
+  opacity: 1;
+}
+
+.manga.is-still .mg-gl,
+.manga.is-still .mg-poke {
+  display: none;
+}
+
+.mg-sfx {
+  position: absolute;
+  left: calc(var(--mg-x) - 46vh);
+  bottom: 12%;
+  z-index: 5;
+  visibility: hidden;
+  font-family: var(--mg-title);
+  font-size: clamp(3rem, 8.5vw, 9rem);
+  line-height: 1;
+  color: var(--mg-red);
+  -webkit-text-stroke: 0.04em var(--mg-ink);
+  paint-order: stroke fill;
+  text-transform: uppercase;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.mg-bubble {
+  position: absolute;
+  z-index: 6;
+  border: 3px solid var(--mg-ink);
+  background: #fff;
+  box-shadow: 6px 6px 0 var(--mg-ink);
+}
+
+.mg-bubble--hi {
+  left: calc(var(--mg-x) + 13vh);
+  top: 15%;
+  padding: 14px 24px;
+  border-radius: 48% 52% 50% 50% / 60% 58% 42% 40%;
+  font-family: var(--mg-title);
+  font-size: clamp(1.3rem, 4.2vh, 2.6rem);
+  line-height: 1;
+  white-space: nowrap;
+  transform: scale(0);
+  transform-origin: 0 100%;
+}
+
+/* La bulle d'accueil change selon l'heure : elle passe à la ligne plutôt que de sortir de l'écran */
+.mg-bubble--hi[data-say="hi"] {
+  width: max-content;
+  max-width: min(9em, calc(100vw - var(--mg-x) - 13vh - 36px));
+  white-space: normal;
+  text-align: center;
+}
+
+.mg-bubble--hi::after,
+.mg-bubble--talk::after {
+  content: "";
+  position: absolute;
+  border: 12px solid transparent;
+  border-top-color: var(--mg-ink);
+  border-left-color: var(--mg-ink);
+}
+
+.mg-bubble--hi::after {
+  left: 14px;
+  bottom: -23px;
+  transform: skewX(18deg);
+}
+
+.mg-bubble--talk {
+  left: clamp(26px, 6vw, 120px);
+  top: 26%;
+  display: grid;
+  gap: 8px;
+  width: min(34ch, 38vw);
+  padding: 22px 26px;
+  border-radius: 26px;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.3rem);
+  line-height: 1.4;
+  visibility: hidden;
+  transform-origin: 100% 50%;
+}
+
+.mg-bubble--talk strong {
+  font-family: var(--mg-title);
+  font-size: 1.25em;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.mg-bubble--talk::after {
+  right: -23px;
+  top: 38%;
+  border-color: transparent;
+  border-top-color: var(--mg-ink);
+  border-left-color: var(--mg-ink);
+}
+
+.mg-poke {
+  position: absolute;
+  left: var(--mg-x);
+  top: 10%;
+  z-index: 7;
+  width: 30vh;
+  height: 82%;
+  margin-left: -15vh;
+  cursor: pointer;
+}
+
+.mg-poke:focus-visible {
+  outline: 3px solid var(--mg-red);
+  outline-offset: -6px;
+}
+
+.mg-scroll {
+  position: absolute;
+  left: clamp(26px, 4.4vw, 84px);
+  bottom: clamp(88px, 14svh, 132px);
+  z-index: 3;
+  font-size: 0.78rem;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* La feuille et son revers : à la fin de la couverture, Arthur soulève le coin et tourne la page ; derrière, la nuit
+   du chapitre 1. Les découpes (clip-path) sont calculées à chaque image par Effects/manga/cover.js. */
+.mg-sheet {
+  position: absolute;
+  inset: 0;
+  background: var(--mg-paper);
+}
+
+.mg-flap {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  visibility: hidden;
+  filter: drop-shadow(-10px 6px 12px rgba(0, 0, 0, 0.38));
+  pointer-events: none;
+}
+
+.mg-flap i {
+  position: absolute;
+  inset: 0;
+  background: #e6e0d2;
+}
+
+/* Affiche fixe : une seule page, la bulle à sa place */
+.manga.is-still .mg-cover {
+  height: auto;
+}
+
+.manga.is-still .mg-cover__stick {
+  position: relative;
+}
+
+.manga.is-still .mg-bubble--talk {
+  top: auto;
+  bottom: 19%;
+  visibility: visible;
+}
+
+.manga.is-still .mg-title {
+  top: 38%;
+}
+
+.manga.is-still .mg-roles {
+  bottom: 8%;
+}
+
+.manga.is-still .mg-scroll,
+.manga.is-still .mg-flap {
+  display: none;
+}
+
+/* ---------------------------------------------------------------- chapitres */
+.mg-chap__head {
+  display: grid;
+  gap: 18px;
+  padding: clamp(90px, 18svh, 190px) var(--pad-x) clamp(60px, 10svh, 110px);
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.mg-chap__head .mono {
+  color: var(--mg-red);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.mg-chap__head h2 {
+  font-family: var(--mg-title);
+  font-size: clamp(2.6rem, 9.6vw, 10rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.mg-chap__head p {
+  max-width: 48ch;
+  color: var(--ink-dim);
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.3rem);
+}
+
+.mg-chap--worlds .mg-chap__head {
+  background: none;
+  color: var(--mg-ink);
+}
+
+.mg-chap--worlds .mg-chap__head p {
+  color: rgba(16, 16, 20, 0.76);
+}
+
+.mg-page {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(14px, 1.8vw, 28px);
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(40px, 8svh, 100px) var(--pad-x) clamp(60px, 12svh, 140px);
+}
+
+.mg-case {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  grid-column: span 12;
+  padding: clamp(22px, 2.6vw, 44px);
+  border: 3px solid var(--mg-ink);
+  background: var(--mg-white);
+  box-shadow: 8px 8px 0 var(--mg-ink);
+}
+
+.mg-case .mono {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mg-case h3 {
+  max-width: 16ch;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.mg-case p {
+  max-width: 52ch;
+}
+
+.mg-case ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mg-case ul li {
+  padding: 4px 10px;
+  border: 2px solid currentColor;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.mg-case__n {
+  position: absolute;
+  right: 0.08em;
+  top: -0.04em;
+  font-family: var(--mg-title);
+  font-size: clamp(6rem, 13vw, 13rem);
+  line-height: 1;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+/* L'avatar dans la case : il dépasse du cadre par le haut, comme un personnage qui sort de la page */
+.mg-case--fig {
+  padding-right: clamp(150px, 30%, 280px);
+}
+
+.mg-case__fig {
+  position: absolute;
+  right: clamp(6px, 3%, 36px);
+  bottom: 0;
+  z-index: 2;
+  width: auto;
+  height: 126%;
+  max-width: none;
+  filter: drop-shadow(5px 4px 0 var(--mg-ink));
+  pointer-events: none;
+}
+
+.mg-case:nth-child(4) .mg-case__fig {
+  filter: drop-shadow(5px 4px 0 var(--mg-paper));
+}
+
+.mg-case--fig .mg-case__n {
+  right: auto;
+  left: 42%;
+}
+
+/* Trame dans un coin de case */
+.mg-case::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 46%;
+  height: 46%;
+  background-image: radial-gradient(circle, currentColor 28%, transparent 31%);
+  background-size: 8px 8px;
+  opacity: 0.22;
+  -webkit-mask-image: linear-gradient(to top left, #000, transparent 60%);
+  mask-image: linear-gradient(to top left, #000, transparent 60%);
+  pointer-events: none;
+}
+
+.mg-case:nth-child(2) {
+  background: var(--mg-ink);
+  color: var(--mg-paper);
+}
+
+.mg-case:nth-child(4) {
+  background: var(--mg-red);
+}
+
+@media (min-width: 900px) {
+  .mg-case:nth-child(1) {
+    grid-column: span 7;
+  }
+
+  .mg-case {
+    min-height: clamp(210px, 30svh, 330px);
+  }
+
+  .mg-case:nth-child(2) {
+    grid-column: span 5;
+  }
+
+  .mg-case:nth-child(3) {
+    grid-column: span 4;
+  }
+
+  .mg-case:nth-child(4) {
+    grid-column: span 8;
+  }
+}
+
+.mg-worlds {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(10px, 1.4vw, 22px);
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 calc(var(--pad-x) + 2vw) clamp(60px, 12svh, 140px);
+}
+
+.mg-world a {
+  position: relative;
+  display: grid;
+  align-content: end;
+  gap: 12px;
+  min-height: clamp(320px, 62svh, 640px);
+  padding: clamp(20px, 2.4vw, 40px);
+  border: 3px solid var(--mg-ink);
+  background-color: var(--mg-white);
+  background-image: radial-gradient(circle, var(--c) 34%, transparent 37%);
+  background-size: 12px 12px;
+  box-shadow: 8px 8px 0 var(--mg-ink);
+  transform: skewX(-5deg);
+  transition: transform 0.35s var(--ease-out), background-color 0.25s, box-shadow 0.35s var(--ease-out);
+}
+
+.mg-world a > * {
+  transform: skewX(5deg);
+}
+
+.mg-world b {
+  font-family: var(--mg-title);
+  font-size: clamp(1.8rem, 4.2vw, 4.4rem);
+  font-weight: 400;
+  line-height: 0.95;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.mg-world span {
+  max-width: 24ch;
+  padding: 8px 10px;
+  background: var(--mg-white);
+  font-weight: 600;
+}
+
+.mg-world em {
+  justify-self: start;
+  padding: 8px 12px;
+  background: var(--mg-ink);
+  color: var(--mg-paper);
+  font-size: 0.8rem;
+  font-style: normal;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mg-world a:hover,
+.mg-world a:focus-visible {
+  background-color: var(--c);
+  box-shadow: 14px 14px 0 var(--mg-ink);
+  transform: skewX(-5deg) translate(-4px, -6px);
+}
+
+.mg-world a:focus-visible {
+  outline: 3px solid var(--mg-red);
+  outline-offset: 4px;
+}
+
+/* Les portes : chaque carte pivote sur sa charnière gauche (vraie perspective) ; derrière, l'embrasure sombre
+   éclairée de la couleur du monde. Survol : la porte s'entrouvre ; clic : elle s'ouvre en grand (Effects/anime). */
+.mg-world {
+  position: relative;
+  perspective: 1500px;
+  perspective-origin: 0% 50%;
+}
+
+.mg-world::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--mg-ink);
+  background:
+    radial-gradient(ellipse 70% 60% at 22% 55%, var(--c) 0%, color-mix(in srgb, var(--c) 35%, #101014) 38%, #101014 78%);
+  transform: skewX(-5deg);
+}
+
+.mg-world a {
+  transform-origin: 0% 50%;
+  transition: transform 0.6s cubic-bezier(0.2, 1.4, 0.4, 1), background-color 0.25s, box-shadow 0.35s var(--ease-out);
+}
+
+.mg-world a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(16, 16, 20, 0) 30%, rgba(16, 16, 20, 0.38));
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.mg-world a:hover,
+.mg-world a:focus-visible {
+  transform: rotateY(-26deg) skewX(-5deg);
+  box-shadow: 14px 14px 0 var(--mg-ink);
+}
+
+.mg-world a:hover::after,
+.mg-world a:focus-visible::after,
+.mg-world.is-open a::after {
+  opacity: 1;
+}
+
+.mg-world.is-open a {
+  transform: rotateY(-104deg) skewX(-5deg);
+  transition: transform 0.55s cubic-bezier(0.5, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mg-world a,
+  .mg-world a:hover,
+  .mg-world a:focus-visible,
+  .mg-world.is-open a {
+    transform: skewX(-5deg);
+    transition: background-color 0.25s;
+  }
+}
+
+/* La trame grossit jusqu'au noir : on passe aux pages noires (projets, compétences) */
+.mg-flood {
+  display: grid;
+  background: var(--mg-paper);
+}
+
+.mg-flood i {
+  display: block;
+  height: 16px;
+  background-image: radial-gradient(circle at 8px 8px, var(--bg) calc(1.5px + var(--k) * 0.95px), transparent calc(2.2px + var(--k) * 0.95px));
+  background-size: 16px 16px;
+}
+
+.mg-flood i:nth-child(even) {
+  background-position: 8px 0;
+}
+
+.mg-flood i:last-child {
+  height: 40px;
+  background: var(--bg);
+}
+
+/* ---------------------------------------------------------------- écrans étroits */
+@media (max-width: 899px), (max-aspect-ratio: 21/20) {
+  .manga {
+    --mg-x: 50%;
+  }
+
+  .mg-block {
+    width: 62vw;
+    margin-left: -31vw;
+    top: 22%;
+    height: 70%;
+  }
+
+  .mg-title {
+    top: clamp(118px, 17svh, 170px);
+    margin-top: 0;
+    font-size: clamp(3.2rem, 15.6vw, 8rem);
+  }
+
+  /* Sur le bloc rouge, « Bru » passe en papier pour rester lisible */
+  .mg-title span + span {
+    color: var(--mg-paper);
+  }
+
+  .mg-head {
+    top: clamp(74px, 10svh, 100px);
+  }
+
+  .mg-head span:last-child {
+    display: none;
+  }
+
+  .mg-roles {
+    left: 50%;
+    bottom: clamp(56px, 9svh, 90px);
+    justify-content: center;
+    width: calc(100% - 44px);
+    max-width: none;
+    transform: translateX(-50%);
+  }
+
+  .mg-roles span {
+    font-size: 0.72rem;
+  }
+
+  .mg-kana {
+    top: auto;
+    bottom: 20%;
+    font-size: 1.4rem;
+  }
+
+  .mg-bubble--hi {
+    left: 58%;
+    top: 31%;
+    padding: 9px 15px;
+    font-size: 1.15rem;
+    box-shadow: 4px 4px 0 var(--mg-ink);
+  }
+
+  .mg-bubble--talk {
+    left: 5%;
+    top: 11%;
+    width: 90%;
+    padding: 14px 16px;
+    font-size: 0.98rem;
+  }
+
+  .mg-bubble--talk::after {
+    right: auto;
+    left: 46%;
+    top: auto;
+    bottom: -23px;
+    transform: skewX(18deg);
+  }
+
+  .mg-sfx {
+    left: 6%;
+    bottom: 33%;
+  }
+
+  .mg-scroll {
+    left: 50%;
+    bottom: 22px;
+    width: max-content;
+    transform: translateX(-50%);
+  }
+
+  .mg-poke {
+    width: 60vw;
+    margin-left: -30vw;
+    top: 30%;
+    height: 60%;
+  }
+
+  .mg-case--fig {
+    padding-right: 36%;
+  }
+
+  .mg-case__fig {
+    right: 2%;
+    height: 108%;
+  }
+
+  .mg-worlds {
+    grid-template-columns: 1fr;
+    padding-inline: calc(var(--pad-x) + 10px);
+  }
+
+  .mg-world a {
+    min-height: 240px;
+  }
+
+  .manga.is-still .mg-poster {
+    height: 62%;
+    bottom: 14%;
+  }
+
+  .manga.is-still .mg-bubble--talk {
+    bottom: 16%;
+    top: auto;
+  }
+
+  .manga.is-still .mg-title {
+    top: clamp(118px, 17svh, 170px);
+  }
+
+  .manga.is-still .mg-roles {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mg-speed {
+    animation: none;
+  }
+}
+
+/* Cases à personnage : le texte garde sa place (le salut est large, la course couvre la liste sur téléphone) */
+@media (min-width: 900px) {
+  /* La case du salut s'élargit (5 colonnes au lieu de 4), celle du master se resserre */
+  .mg-case.mg-case--fig:nth-child(3) {
+    grid-column: span 5;
+    padding-right: 46%;
+  }
+
+  .mg-case.mg-case--fig:nth-child(4) {
+    grid-column: span 7;
+  }
+
+  .mg-case--fig:nth-child(3) .mg-case__fig {
+    right: 0;
+    height: min(100%, 420px);
+  }
+
+  .mg-case--fig:nth-child(3) h3 {
+    font-size: clamp(1.4rem, 0.9rem + 1.5vw, 2.3rem);
+  }
+}
+
+@media (max-width: 899px), (max-aspect-ratio: 21/20) {
+  .mg-case--fig:nth-child(3) {
+    padding-right: 40%;
+  }
+
+  .mg-case--fig:nth-child(3) .mg-case__fig {
+    right: 0;
+    height: min(82%, 250px);
+  }
+
+  .mg-case--fig:nth-child(4) {
+    padding-right: clamp(22px, 2.6vw, 44px);
+  }
+
+  .mg-case--fig:nth-child(4) .mg-case__fig {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------- interface fixe au-dessus du papier
+   Le logo, le menu, le bandeau et la barre du bas sont dessinés pour un fond sombre : sur le papier, ils prennent
+   l'encre noire et le rouge de la couverture (classes posées sur <html> par Effects/manga/paper.js). */
+html.mg-top-paper .hud__logo,
+html.mg-top-paper .hud__corner--tl,
+html.mg-top-paper .hud__corner--tr,
+html.mg-top-paper .menu__toggle,
+html.mg-bottom-paper .hud__bar,
+html.mg-bottom-paper .hud__corner--bl,
+html.mg-bottom-paper .hud__corner--br {
+  --bg-rgb: 242, 238, 227;
+  --ink: #101014;
+  --ink-dim: rgba(16, 16, 20, 0.82);
+  --ink-faint: rgba(16, 16, 20, 0.7);
+  --line: rgba(16, 16, 20, 0.28);
+  --line-strong: #101014;
+  --violet: #ff3b1f;
+  --violet-soft: rgba(255, 59, 31, 0.18);
+}
+
+html.mg-top-paper .hud__logo,
+html.mg-top-paper .menu__toggle {
+  border-width: 2px;
+  background: rgba(242, 238, 227, 0.92);
+}
+
+html.mg-top-paper .pro-banner {
+  border: 2px solid #101014;
+  background: rgba(251, 249, 243, 0.94);
+  color: #101014;
+}
+
+html.mg-top-paper .pro-banner__link,
+html.mg-top-paper .pro-banner__close {
+  color: #101014;
+}
+
+/* ---------------------------------------------------------------- les pages noires de l'accueil
+   Projets, sélection, compétences, certificats et pied de page gardent leur mise en page ; ils prennent le rouge
+   de la couverture à la place du violet et la police de titre du tome. */
+html.mg-home {
+  --violet: #ff3b1f;
+  --violet-deep: #c8290f;
+  --violet-soft: rgba(255, 59, 31, 0.16);
+  scrollbar-color: rgba(255, 59, 31, 0.6) var(--bg);
+}
+
+html.mg-home .section-head__title,
+html.mg-home .footer__title {
+  font-family: "Dela Gothic One", "Bricolage Grotesque Variable", "Arial Black", sans-serif;
+  font-size: calc(var(--fs-h2) * 0.72);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------- réactions de l'avatar
+   Plan serré sur les yeux (bandes noires + fond qui file), « toc toc » à l'écran, bulles de réaction. */
+.mg-cover {
+  height: 460svh;
+}
+
+.mg-focus {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  visibility: hidden;
+  background-color: var(--mg-paper);
+  /* Des traits horizontaux sur les côtés, le papier nu au centre, derrière les yeux */
+  background-image: linear-gradient(90deg, transparent 0%, var(--mg-paper) 32%, var(--mg-paper) 68%, transparent 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 9px,
+      var(--mg-ink) 9px 10px,
+      transparent 10px 26px,
+      var(--mg-ink) 26px 28px,
+      transparent 28px 41px
+    );
+  pointer-events: none;
+}
+
+.mg-bars {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.mg-bars i {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 31%;
+  background: var(--bg);
+  transform: scaleY(0);
+}
+
+.mg-bars i:nth-child(1) {
+  top: 0;
+  transform-origin: 50% 0;
+}
+
+.mg-bars i:nth-child(2) {
+  bottom: 0;
+  transform-origin: 50% 100%;
+}
+
+.mg-bars b {
+  position: absolute;
+  left: 50%;
+  bottom: 9%;
+  visibility: hidden;
+  margin-left: -4.2em;
+  font-family: var(--mg-title);
+  font-size: clamp(2.2rem, 7.4vw, 7.6rem);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--mg-red);
+  -webkit-text-stroke: 0.035em var(--mg-paper);
+  paint-order: stroke fill;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mg-knock {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  pointer-events: none;
+}
+
+.mg-knock span {
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  visibility: hidden;
+  font-family: var(--mg-title);
+  font-size: clamp(2.6rem, 8vw, 8rem);
+  line-height: 1;
+  color: var(--mg-paper);
+  -webkit-text-stroke: 0.05em var(--mg-ink);
+  paint-order: stroke fill;
+  text-transform: uppercase;
+}
+
+.mg-knock span + span {
+  left: 40%;
+  top: 46%;
+  color: var(--mg-red);
+}
+
+/* L'onde du coup sur la vitre */
+.mg-knock i {
+  position: absolute;
+  left: calc(var(--mg-x) - 9vh);
+  top: 42%;
+  width: 30vh;
+  height: 30vh;
+  margin: -15vh 0 0 -15vh;
+  border: 5px solid var(--mg-ink);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.mg-bubble--idle {
+  left: calc(var(--mg-x) - 60vh);
+  top: 20%;
+  transform-origin: 100% 100%;
+}
+
+.mg-bubble--idle::after {
+  left: auto;
+  right: 14px;
+  transform: skewX(-18deg) scaleX(-1);
+}
+
+.manga.is-still .mg-bars,
+.manga.is-still .mg-knock,
+.manga.is-still .mg-focus {
+  display: none;
+}
+
+/* ---------------------------------------------------------------- le compagnon
+   Après la couverture, l'avatar s'installe dans le coin en bas à droite, au-dessus de la barre du bas. Le cadre est
+   large pour laisser la place au bras qui pointe, mais il ne prend aucun clic : seuls ses deux boutons répondent. */
+.mg-buddy {
+  --mg-paper: #f2eee3;
+  --mg-ink: #101014;
+  --mg-red: #ff3b1f;
+  position: fixed;
+  right: clamp(6px, 1.2vw, 20px);
+  bottom: 52px;
+  z-index: 800;
+  width: min(34vw, 400px);
+  height: min(46vh, 360px);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.mg-buddy.is-on {
+  visibility: visible;
+}
+
+.mg-buddy__gl {
+  position: absolute;
+  inset: 0;
+}
+
+.mg-buddy__gl canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* Un liseré clair autour de lui, comme un autocollant : il se détache aussi sur les pages noires */
+  filter: drop-shadow(0 0 1px var(--mg-paper)) drop-shadow(0 0 1px var(--mg-paper));
+}
+
+.mg-buddy__tip {
+  position: absolute;
+  right: 37%;
+  bottom: var(--tete, 50%);
+  max-width: 15em;
+  margin: 0;
+  padding: 10px 14px;
+  border: 3px solid var(--mg-ink);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 5px 5px 0 var(--mg-ink);
+  color: var(--mg-ink);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.25;
+  visibility: hidden;
+  transform: scale(0);
+  transform-origin: 100% 100%;
+}
+
+.mg-buddy__tip::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  bottom: 12px;
+  border: 10px solid transparent;
+  border-top-color: var(--mg-ink);
+  border-left-color: var(--mg-ink);
+}
+
+.mg-buddy__tip span {
+  display: none;
+}
+
+.mg-buddy__tip span.is-on {
+  display: inline;
+}
+
+.mg-buddy__sfx {
+  position: absolute;
+  right: 34%;
+  top: 44%;
+  visibility: hidden;
+  font-family: "Dela Gothic One", "Arial Black", sans-serif;
+  font-size: clamp(1.8rem, 3.4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--mg-red);
+  -webkit-text-stroke: 0.05em var(--mg-paper);
+  paint-order: stroke fill;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mg-buddy__poke {
+  position: absolute;
+  right: 9%;
+  bottom: 0;
+  width: 26%;
+  height: 46%;
+  cursor: pointer;
+}
+
+.mg-buddy.is-on .mg-buddy__poke,
+.mg-buddy.is-on .mg-buddy__close {
+  pointer-events: auto;
+}
+
+.mg-buddy__poke:focus-visible,
+.mg-buddy__close:focus-visible {
+  outline: 3px solid var(--mg-red);
+  outline-offset: 2px;
+}
+
+.mg-buddy__close {
+  position: absolute;
+  right: 0;
+  bottom: 4%;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--mg-ink);
+  border-radius: 50%;
+  background: var(--mg-paper);
+  color: var(--mg-ink);
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.mg-buddy__close:hover,
+.mg-buddy__close:focus-visible {
+  opacity: 1;
+}
+
+/* Le compagnon à gauche (sections dont le contenu important est à droite) : tout est en miroir */
+.mg-buddy--left {
+  right: auto;
+  left: clamp(6px, 1.2vw, 20px);
+}
+
+.mg-buddy--left .mg-buddy__tip {
+  right: auto;
+  left: 37%;
+  transform-origin: 0% 100%;
+}
+
+.mg-buddy--left .mg-buddy__tip::after {
+  right: auto;
+  left: -20px;
+  transform: scaleX(-1);
+}
+
+.mg-buddy--left .mg-buddy__sfx {
+  right: auto;
+  left: 34%;
+}
+
+.mg-buddy--left .mg-buddy__poke {
+  right: auto;
+  left: 9%;
+}
+
+.mg-buddy--left .mg-buddy__close {
+  right: auto;
+  left: 0;
+}
+
+/* L'incision : traits de vitesse, anneaux de poussière et éclair, par-dessus toute la page.
+   Le mode « différence » rend les traits noirs sur le papier et clairs sur les pages noires. */
+.mg-slash {
+  position: fixed;
+  inset: 0;
+  z-index: 820;
+  overflow: hidden;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+.mg-slash i {
+  position: absolute;
+  transform-origin: 0% 50%;
+}
+
+.mg-slash s {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transform: scaleX(0);
+}
+
+.mg-slash b {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  margin: -45px 0 0 -45px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+}
+
+/* L'éclair : une lame effilée aux deux bouts (et non une bande rectangulaire), deux images seulement */
+.mg-slash em {
+  position: absolute;
+  height: 44px;
+  margin-top: -22px;
+  background: #fff;
+  clip-path: polygon(0 50%, 12% 18%, 100% 46%, 100% 54%, 12% 82%);
+  opacity: 0;
+}
+
+/* Sur une autre page que l'accueil : il passe en coup de vent (une image, pas le modèle 3D) après un plongeon */
+.mg-visite {
+  position: fixed;
+  right: clamp(10px, 3vw, 48px);
+  bottom: 56px;
+  z-index: 800;
+  width: clamp(120px, 12vw, 190px);
+  pointer-events: none;
+}
+
+.mg-visite img {
+  display: block;
+  width: 100%;
+  height: auto;
+  visibility: hidden;
+  transform-origin: 50% 100%;
+  filter: drop-shadow(0 0 1px #f2eee3) drop-shadow(0 0 1px #f2eee3);
+}
+
+/* Petits écrans et écrans tactiles : pas de compagnon (il couvrirait le contenu, et rien ne s'y survole) */
+@media (max-width: 899px), (pointer: coarse) {
+  .mg-buddy {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------- l'arrivée dessinée
+   La couverture se fabrique comme une planche : crayonné sur la grille bleue (pendant le chargement), encrage au
+   « Bam ! », trames, puis couleur. Classes posées sur .manga par Effects/manga/cover.js. */
+.mg-sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image: linear-gradient(rgba(94, 160, 214, 0.32) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 160, 214, 0.32) 1px, transparent 1px),
+    linear-gradient(rgba(94, 160, 214, 0.55) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 160, 214, 0.55) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px, 120px 120px, 120px 120px;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out);
+  pointer-events: none;
+}
+
+.mg-tone,
+.mg-block,
+.mg-title span,
+.mg-roles span,
+.mg-head span,
+.mg-gl canvas,
+.mg-poster {
+  transition: opacity 0.45s var(--ease-out), background-color 0.45s var(--ease-out), color 0.45s var(--ease-out),
+    filter 0.45s var(--ease-out), border-color 0.45s var(--ease-out);
+}
+
+/* 1. Crayonné : traits gris et tremblants, grille de construction, rien n'est encore rempli */
+.manga.mg-crayon .mg-sheet::before {
+  opacity: 1;
+}
+
+.manga.mg-crayon .mg-tone,
+.manga.mg-encre .mg-tone {
+  opacity: 0;
+}
+
+.manga.mg-crayon .mg-block {
+  border: 2px dashed rgba(16, 16, 20, 0.45);
+  background-color: transparent;
+}
+
+.manga.mg-crayon .mg-title span,
+.manga.mg-crayon .mg-title span + span {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(16, 16, 20, 0.5);
+}
+
+.manga.mg-crayon .mg-roles span,
+.manga.mg-crayon .mg-head span {
+  border-color: rgba(16, 16, 20, 0.4);
+  background-color: transparent;
+  color: rgba(16, 16, 20, 0.55);
+}
+
+.manga.mg-crayon .mg-gl canvas {
+  filter: grayscale(1) brightness(1.7) contrast(1.35);
+  opacity: 0.8;
+  animation: mg-trait 0.16s steps(2) infinite;
+}
+
+/* Pendant le chargement du modèle, sa silhouette devient une esquisse au crayon */
+.manga.mg-crayon .mg-poster {
+  filter: grayscale(1) brightness(1.75) contrast(1.5);
+  opacity: 0.55;
+  animation: mg-trait 0.16s steps(2) infinite;
+}
+
+@keyframes mg-trait {
+  50% {
+    transform: translate(-50%, 0) translate(0.6px, -0.6px);
+  }
+}
+
+/* Le canvas n'est pas centré par translate : son tremblement à lui */
+.manga.mg-crayon .mg-gl canvas {
+  animation-name: mg-trait-gl;
+}
+
+@keyframes mg-trait-gl {
+  50% {
+    transform: translate(0.6px, -0.6px);
+  }
+}
+
+/* 2. Encrage : noir et blanc francs, le bloc est cerné mais vide */
+.manga.mg-encre .mg-block,
+.manga.mg-trame .mg-block {
+  background-color: transparent;
+}
+
+.manga.mg-encre .mg-title span + span {
+  color: var(--mg-paper);
+}
+
+.manga.mg-encre .mg-gl canvas {
+  filter: grayscale(1) contrast(3.2) brightness(1.15);
+}
+
+/* 3. Trames : les points se posent, le bloc se remplit de trame, l'avatar est en gris */
+.manga.mg-trame .mg-block {
+  background-image: radial-gradient(circle, var(--mg-ink) 32%, transparent 35%);
+  background-size: 7px 7px;
+}
+
+.manga.mg-trame .mg-title span + span {
+  color: #8d8d92;
+}
+
+.manga.mg-trame .mg-gl canvas {
+  filter: grayscale(1) contrast(1.5);
+}
+
+/* ---------------------------------------------------------------- le ballon et le panier
+   La case « Le basket » porte un panier dessiné ; le bouton fait tirer le compagnon (ou lance le ballon depuis le coin
+   de l'écran sur téléphone). Le ballon en vol est un élément HTML au-dessus de toute la page. */
+.mg-case--hoop {
+  padding-right: clamp(190px, 26%, 300px);
+  min-height: clamp(250px, 32svh, 340px);
+}
+
+.mg-hoop {
+  position: absolute;
+  right: clamp(18px, 5%, 64px);
+  top: 50%;
+  width: 150px;
+  height: 200px;
+  margin-top: -100px;
+  pointer-events: none;
+}
+
+.mg-hoop__board {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 100px;
+  border: 3px solid var(--mg-ink);
+  background: #fff;
+  box-shadow: 5px 5px 0 var(--mg-ink);
+}
+
+.mg-hoop__board::after {
+  content: "";
+  position: absolute;
+  left: 46px;
+  bottom: 12px;
+  width: 52px;
+  height: 36px;
+  border: 3px solid var(--mg-red);
+}
+
+.mg-hoop__rim {
+  position: absolute;
+  z-index: 2;
+  left: 28px;
+  top: 96px;
+  width: 94px;
+  height: 16px;
+  border: 4px solid var(--mg-red);
+  border-radius: 50%;
+  box-shadow: 0 2px 0 var(--mg-ink);
+}
+
+.mg-hoop__net {
+  position: absolute;
+  z-index: 1;
+  left: 34px;
+  top: 104px;
+  width: 82px;
+  height: 72px;
+  background: repeating-linear-gradient(62deg, var(--mg-ink) 0 2px, transparent 2px 13px),
+    repeating-linear-gradient(-62deg, var(--mg-ink) 0 2px, transparent 2px 13px);
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+  transform-origin: 50% 0;
+  opacity: 0.85;
+}
+
+.mg-hoop__sfx {
+  position: absolute;
+  left: -40px;
+  top: 150px;
+  visibility: hidden;
+  font-family: var(--mg-title);
+  font-size: clamp(1.6rem, 2.6vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--mg-red);
+  -webkit-text-stroke: 0.05em var(--mg-ink);
+  paint-order: stroke fill;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mg-shoot {
+  justify-self: start;
+  margin-top: 6px;
+  padding: 10px 14px;
+  border: 2px solid var(--mg-ink);
+  background: var(--mg-ink);
+  color: var(--mg-paper);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 var(--mg-red);
+  transition: transform 0.15s var(--ease-out), box-shadow 0.15s var(--ease-out);
+}
+
+.mg-shoot:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--mg-red);
+}
+
+.mg-shoot:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--mg-red);
+}
+
+.mg-shoot:focus-visible {
+  outline: 3px solid var(--mg-red);
+  outline-offset: 3px;
+}
+
+/* Sans animation (mouvement réduit), pas de tir : le panier reste un dessin */
+.manga.is-still .mg-shoot {
+  display: none;
+}
+
+.mg-ball {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 830;
+  width: 46px;
+  height: 46px;
+  margin: -23px 0 0 -23px;
+  border: 3px solid #101014;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #ffb27a 0 10%, #e3702b 46%, #b54b16 100%);
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Les coutures du ballon */
+.mg-ball::before,
+.mg-ball::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+}
+
+.mg-ball::before {
+  border-left: 2.5px solid #1b1311;
+  border-right: 2.5px solid #1b1311;
+  transform: scaleX(0.45);
+}
+
+.mg-ball::after {
+  top: 50%;
+  bottom: auto;
+  height: 0;
+  border-top: 2.5px solid #1b1311;
+  border-radius: 0;
+}
+
+@media (max-width: 899px), (max-aspect-ratio: 21/20) {
+  .mg-case--hoop {
+    padding-right: clamp(22px, 2.6vw, 44px);
+    padding-bottom: 230px;
+  }
+
+  .mg-hoop {
+    top: auto;
+    bottom: 18px;
+    margin-top: 0;
+    transform: scale(0.85);
+    transform-origin: 100% 100%;
+  }
+}
+
+@media (max-width: 899px), (max-aspect-ratio: 21/20) {
+  .mg-bars b {
+    bottom: 12%;
+  }
+
+  .mg-knock span {
+    left: 8%;
+    top: 62%;
+  }
+
+  .mg-knock span + span {
+    left: 40%;
+    top: 70%;
+  }
+
+  .mg-knock i {
+    left: 50%;
+    top: 46%;
+  }
+
+  .mg-bubble--idle {
+    left: 6%;
+    top: 12%;
+  }
+}

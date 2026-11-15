@@ -32,7 +32,7 @@ export default function Cursor() {
     const setState = (state, text = "") => {
       ring.dataset.state = state;
       dot.dataset.state = state;
-      label.textContent = text;
+      label.textContent = text || (state === "play" ? "▶" : state === "view" || state === "open" ? "↗" : "");
     };
 
     // L'état venu du DOM (survol) est retenu ; un indice de la scène 3D (objet qu'on peut tourner) passe devant

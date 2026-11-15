@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "./Component/Navbar.js";
 import FocusLoop from "./Component/FocusLoop.js";
 import CertificateCarousel from "./Component/CertificateCarousel";
-import Carte from "./Component/Carte";
+import Manga from "./Component/Manga";
 import { useScrollTo } from "./Effects/SmoothScroll";
 import { onReady } from "./Effects/motion";
 // Styles de l'accueil : projets, certificats, bandeau « site pro » (ils étaient importés par l'ancien hero)
@@ -22,6 +22,11 @@ import { withTranslation } from "react-i18next";
 
 // Speed Page
 import { SpeedInsights } from "@vercel/speed-insights/react";
+
+// Branche « refonte-manga » : l'accueil s'ouvre sur la couverture manga. L'ancienne arrivée (« La carte ») reste
+// consultable avec ?carte pour comparer ; elle est chargée à part.
+const Carte = React.lazy(() => import("./Component/Carte"));
+const showCarte = () => typeof window !== "undefined" && new URLSearchParams(window.location.search).has("carte");
 
 // Une seule arrivée sur l'accueil par chargement de page est concernée par l'ancre de l'URL
 let hashHandled = false;
@@ -131,8 +136,14 @@ const HomeT = () => {
       <FocusLoop>
         <ProBanner />
         <main id="main">
-          {/* « La carte » : l'arrivée, le fil du parcours (l'ancienne section « À propos ») et les trois régions */}
-          <Carte />
+          {/* La couverture manga (avatar 3D), le parcours en cases et les trois mondes ; ?carte montre l'ancienne arrivée */}
+          {showCarte() ? (
+            <Suspense fallback={null}>
+              <Carte />
+            </Suspense>
+          ) : (
+            <Manga />
+          )}
           <WorkIndex />
           <Featured />
           <Skills />

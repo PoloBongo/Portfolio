@@ -17,6 +17,15 @@ import "../css/Projects.css";
 // Squelette commun des pages de catégorie (Unity / Unreal / Game Jam / Web / IA) : la liste de leurs projets,
 // chacun menant à sa page (/work/:slug). Showcase épinglé sur grand écran, grille de cartes sinon (mobile,
 // mouvement réduit).
+// Le nom de chaque catégorie en katakana, imprimé à la verticale dans l'en-tête (refonte manga)
+const KANA = {
+  "DropdownProjects.ProjectWeb": "ウェブ",
+  "ClassicNavBar.AI": "エーアイ",
+  "ClassicNavBar.Unity": "ゲーム",
+  "ClassicNavBar.Unreal": "アンリアル",
+  "ClassicNavBar.GameJam": "ゲームジャム",
+};
+
 export default function ProjectsPage({ seo, titleKey, subtitleKey, projects }) {
   const { lang = "fr" } = useParams();
   const { t } = useTranslation();
@@ -59,6 +68,7 @@ export default function ProjectsPage({ seo, titleKey, subtitleKey, projects }) {
           <PageHero
             eyebrow={`${String(projects.length).padStart(2, "0")} ${t("Work.projects")}`}
             title={t(titleKey)}
+            kana={KANA[titleKey]}
             subtitle={subtitleKey ? t(subtitleKey) : undefined}
             back={{ to: `/${lang}#work`, label: t("Hud.work") }}
           />

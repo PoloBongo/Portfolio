@@ -6,8 +6,9 @@ import { gsap, EASE, onReady, prefersReducedMotion } from "../Effects/motion";
 
 // En-tête commun aux pages de projets : grand titre qui monte lettre par lettre, trait qui se dessine.
 // `back` ({ to, label }) ajoute un lien de retour au-dessus du titre.
-export default function PageHero({ eyebrow, title, subtitle, back }) {
+export default function PageHero({ eyebrow, title, subtitle, back, kana }) {
   const rootRef = useRef(null);
+  const longest = Math.max(...title.split(/\s+/).map((word) => word.length));
 
   useGSAP(
     () => {
@@ -30,6 +31,11 @@ export default function PageHero({ eyebrow, title, subtitle, back }) {
 
   return (
     <header className="page-hero" ref={rootRef}>
+      {kana && (
+        <p className="page-hero__kana" aria-hidden="true">
+          {kana}
+        </p>
+      )}
       <div className="container">
         <div className="page-hero__top">
           {back && (
@@ -39,7 +45,7 @@ export default function PageHero({ eyebrow, title, subtitle, back }) {
           )}
           <p className="page-hero__eyebrow mono eyebrow">{eyebrow}</p>
         </div>
-        <h1 className="page-hero__title">
+        <h1 className="page-hero__title" style={{ "--longest": longest }}>
           <SplitReveal text={title} by="chars" />
         </h1>
         {subtitle && <p className="page-hero__sub serif">{subtitle}</p>}

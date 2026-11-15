@@ -58,7 +58,9 @@ export function useFooterDrop(rootRef, giantRef, label = "") {
         Bodies.rectangle(W + t / 2, H / 2, t, H * 6, { isStatic: true }),
       ];
       Composite.add(engine.world, walls);
-      const size = Math.min(W / 6.8, 340);
+      ctx.font = `800 100px ${fontFamily}`;
+      const total = [...NAME].reduce((sum, ch) => sum + ctx.measureText(ch).width, 0) || 680;
+      const size = Math.min((W * 0.82 * 100) / total, 340);
       ctx.font = `800 ${size}px ${fontFamily}`;
       try {
         ctx.fontStretch = "semi-condensed";

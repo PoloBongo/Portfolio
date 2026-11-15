@@ -136,8 +136,8 @@ export default function PageTransition({ children }) {
           )
           .fromTo(
             dark,
-            { scaleY: 0 },
-            { scaleY: 1, duration: 0.65, ease: EASE.inOut, stagger: { each: 0.05, from: "center" } },
+            { scaleY: 1, rotationY: -100, transformOrigin: "0% 50%" },
+            { rotationY: 0, duration: 0.7, ease: EASE.inOut, stagger: { each: 0.06, from: "center" } },
             0.1
           )
           .fromTo(
@@ -145,6 +145,13 @@ export default function PageTransition({ children }) {
             { yPercent: 115 },
             { yPercent: 0, duration: 0.55, ease: EASE.out },
             0.42
+          )
+          // La carte d'interlude (refonte manga) est tamponnée au milieu du rideau
+          .fromTo(
+            labelRef.current.parentNode,
+            { scale: 0.2, rotate: -14, opacity: 0 },
+            { scale: 1, rotate: -3, opacity: 1, duration: 0.5, ease: "back.out(2)" },
+            0.36
           );
       }),
     []
@@ -162,10 +169,11 @@ export default function PageTransition({ children }) {
             },
           })
           .to(labelRef.current, { yPercent: -115, duration: 0.4, ease: EASE.inOut })
+          .to(labelRef.current.parentNode, { scale: 0.8, opacity: 0, duration: 0.32, ease: EASE.inOut }, 0.12)
           .set(all, { transformOrigin: "50% 0%" }, 0.22)
           .to(
             dark,
-            { scaleY: 0, duration: 0.7, ease: EASE.inOut, stagger: { each: 0.05, from: "edges" } },
+            { rotationY: 100, transformOrigin: "100% 50%", duration: 0.7, ease: EASE.inOut, stagger: { each: 0.06, from: "edges" } },
             0.22
           )
           .to(
@@ -322,7 +330,7 @@ export default function PageTransition({ children }) {
     const { root, all } = layers();
     labelRef.current.textContent = "";
     gsap.set(root, { visibility: "visible", pointerEvents: "all" });
-    gsap.set(all, { scaleY: 1, transformOrigin: "50% 0%" });
+    gsap.set(all, { scaleY: 1, rotationY: 0, transformOrigin: "50% 0%" });
     jumpTo(landingFor(new URL(window.location.href), { back: true }), live.current.lenis);
 
     reveal(unlock).finally(() => {

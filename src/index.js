@@ -4,6 +4,7 @@ import "@fontsource/instrument-serif/400.css";
 import "@fontsource/instrument-serif/400-italic.css";
 import "./css/Design.css";
 import "./css/Shell.css";
+import "./css/Tome.css";
 import React, { Suspense, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes, useNavigate, useParams } from "react-router-dom";
@@ -129,3 +130,10 @@ root.render(
 );
 
 reportWebVitals();
+
+// Refonte manga : effets « anime » (images d'impact, onomatopées, coups de titre), chargés à part, après le rendu
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const startAnime = () => import("./Effects/anime").then(({ startAnime: start }) => start());
+  if ("requestIdleCallback" in window) window.requestIdleCallback(startAnime, { timeout: 2500 });
+  else setTimeout(startAnime, 1200);
+}
